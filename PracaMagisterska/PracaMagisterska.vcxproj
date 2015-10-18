@@ -119,13 +119,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="definitions.h" />
-    <ClInclude Include="IPolynomial.h" />
     <ClInclude Include="Polynomial.h" />
     <ClInclude Include="PolynomialMap.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Polynomial.cpp" />
     <ClCompile Include="PolynomialMap.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

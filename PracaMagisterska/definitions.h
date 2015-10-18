@@ -3,10 +3,6 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <exception>
 
 using namespace std;
-
-struct StructPolynomial
-{
-	map<int, int> a;
-};
