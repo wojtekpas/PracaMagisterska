@@ -18,9 +18,6 @@
     <ClInclude Include="definitions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Polynomial.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="PolynomialMap.h">
       <Filter>Header Files</Filter>
     </ClInclude>

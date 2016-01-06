@@ -119,7 +119,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="definitions.h" />
-    <ClInclude Include="Polynomial.h" />
     <ClInclude Include="PolynomialMap.h" />
   </ItemGroup>
   <ItemGroup>

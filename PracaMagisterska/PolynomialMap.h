@@ -1,30 +1,30 @@
 #pragma once
-#include "Polynomial.h"
+#include "definitions.h"
 
-class PolynomialMap :
-	public Polynomial
+class PolynomialMap
 {
 public:
 	map<int, int>a;
 
 	PolynomialMap(int count);
 
-	int Size() override;
-	int ValueForPower(int power) override;
-	virtual pair<int, int> Add(int power, int value) override;
-	virtual pair<int, int> Sub(int power, int value) override;
+	int Size() const;
+	int Value(int power);
+	bool ValueEquals(int power, PolynomialMap p2);
+	void SetValue(int power, int value);
+	void Add(int power, int value);
+	void Sub(int power, int value);
 
-	PolynomialMap* operator=(PolynomialMap* p2);
-	bool operator==(Polynomial* p2) override;
-	bool operator!=(Polynomial* p2) override;
-	PolynomialMap* operator + (PolynomialMap* p2);
-	PolynomialMap* operator - (PolynomialMap* p2);
-	PolynomialMap* operator * (PolynomialMap* p2);
-	PolynomialMap* operator / (PolynomialMap* p2);
-	PolynomialMap* operator += (PolynomialMap* p2);
-	PolynomialMap* operator -= (PolynomialMap* p2);
-	PolynomialMap* operator *= (PolynomialMap* p2);
-	PolynomialMap* operator /= (PolynomialMap* p2);
-	void Print(string name) override;
+	bool operator==(PolynomialMap p2);
+	bool operator!=(PolynomialMap p2);
+	PolynomialMap operator + (PolynomialMap p2) const;
+	PolynomialMap operator - (PolynomialMap p2) const;
+	PolynomialMap operator * (PolynomialMap p2);
+	PolynomialMap operator / (PolynomialMap p2);
+	PolynomialMap operator += (PolynomialMap p2) const;
+	PolynomialMap operator -= (PolynomialMap p2) const;
+	PolynomialMap operator *= (PolynomialMap p2);
+	PolynomialMap operator /= (PolynomialMap p2);
+	void Print(string name) const;
 };
 
