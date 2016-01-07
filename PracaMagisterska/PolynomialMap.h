@@ -30,4 +30,3 @@ public:
 	PolynomialMap operator /= (PolynomialMap p2);
 	void Print(string name) const;
 };
-

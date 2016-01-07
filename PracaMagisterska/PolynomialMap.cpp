@@ -1,6 +1,5 @@
 #pragma once
 #include "PolynomialMap.h"
-#include <locale>
 
 PolynomialMap::PolynomialMap(int count = 0)
 {
