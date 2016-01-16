@@ -5,6 +5,7 @@ class Parser
 {
 public:
 	string const stringEmpty = "";
+	string const operators = "+-*/^()";
 	string s;
 
 	explicit Parser(string s);
@@ -17,5 +18,14 @@ public:
 	vector<string> SeparateElementsSum(string s);
 	vector<string> SeperateElementsMul(string s);
 	pair<string, string> SeperatePowerAndExp(string s);
+	int FindClosingBracket(string s) const;
+	PolynomialMap ConvertToPolynomialMap(string s);
+	bool IsLegalValue(char c);
+	bool IsOperator(char c);
+	bool IsLegalOpeningOperator(char c);
+	bool IsDigit(char c);
+	bool IsSymbol(char c);
+	bool IsWhitespace(char c);
+	string UniformInputString(string s);
 };
 

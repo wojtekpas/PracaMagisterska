@@ -1,14 +1,17 @@
 #pragma once
 #include "definitions.h"
-#include <map>
 
 class PolynomialMap
 {
 public:
 	std::map<int, int>m;
 
-	explicit PolynomialMap(int count);
+	explicit PolynomialMap();
+	explicit PolynomialMap(int value);
 
+	void Set(string s);
+	void Clear();
+	bool IsZero() const;
 	int Size() const;
 	int Value(int power);
 	bool ValueEquals(int power, PolynomialMap p2);
@@ -24,9 +27,11 @@ public:
 	PolynomialMap operator - (PolynomialMap p2) const;
 	PolynomialMap operator * (PolynomialMap p2) const;
 	PolynomialMap operator / (PolynomialMap p2);
+	PolynomialMap operator ^ (int power);
 	PolynomialMap operator += (PolynomialMap p2);
 	PolynomialMap operator -= (PolynomialMap p2);
 	PolynomialMap operator *= (PolynomialMap p2);
 	PolynomialMap operator /= (PolynomialMap p2);
+	PolynomialMap operator ^= (int power);
 	void Print(string name) const;
 };

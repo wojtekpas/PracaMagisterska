@@ -23,25 +23,11 @@ int main(int argc, char* argv[])
 
 	string operators = "+-*/()";
 
-	Parser p1("12+21+23*5+32");
-	Parser p2("11");
-	Parser p3("");
-	Parser p4("22*33");
-	Parser p5("(15");
-	Parser p6("35/55");
-	Parser p7("10*10+10");
-	Parser p8("30*(10+10)");
-	Parser p9("(4)");
+	Parser p1("a5+2"); //12+21+23*5+32
 
-	p1.Split(p1.s, operators);
-	p1.Split(p2.s, operators);
-	p1.Split(p3.s, operators);
-	p1.Split(p4.s, operators);
-	p1.Split(p5.s, operators);
-	p1.Split(p6.s, operators);
-	p1.Split(p7.s, operators);
-	p1.Split(p8.s, operators);
-	p1.Split(p9.s, operators);
+	PolynomialMap map = p1.ConvertToPolynomialMap(p1.s);
+
+	map.Print("map");
 
 	int tmp;
 	cin >> tmp;
