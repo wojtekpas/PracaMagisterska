@@ -1,29 +1,20 @@
 #pragma once
 #include "CharsConstants.h"
 #include "PolynomialMap.h"
+#include "StringManager.h"
 
 class Parser
 {
 public:
-	string const stringEmpty = "";
-	string const operators = "+-*/^()";
 	string s;
 
 	explicit Parser(string s);
 
-	int FindFirst(string s, char c);
-	int FindLast(string s, char c);
-	string Substr(string s, int firstInclusive, int lastExclusive);
-	vector<string> Split(string s, string operators);
-	string BracketsContent(string s);
+	string ParenthesisContent(string s);
 	vector<string> SeparateElementsSum(string s);
 	vector<string> SeperateElementsMul(string s);
 	pair<string, string> SeperatePowerAndExp(string s);
-	int FindClosingBracket(string s);
 	PolynomialMap ConvertToPolynomialMap(string s);
-	bool IsOperator(char c);
-	bool IsLegalValue(char c);
-	bool IsLegalOpeningOperator(char c);
 	string UniformInputString(string s);
 };
 
@@ -33,61 +24,15 @@ inline Parser::Parser(string s)
 	this->s = s;
 }
 
-inline int Parser::FindFirst(string s, char c)
+inline string Parser::ParenthesisContent(string s)
 {
-	return s.find_first_of(c);
-}
-
-inline int Parser::FindLast(string s, char c)
-{
-	return s.find_last_of(c);
-}
-
-inline string Parser::Substr(string s, int first, int last)
-{
-	return s.substr(first, last - first + 1);
-}
-
-inline vector<string> Parser::Split(string s, string operators)
-{
-	vector<string> v;
-
-	if (s == stringEmpty)
-		return v;
-
-	string element = "";
-	int first = 0;
-
-	for (int i = 0; i < s.length(); i++)
-	{
-		if (FindFirst(operators, s[i]) >= 0)
-		{
-			v.push_back(Substr(s, first, i - 1));
-			first = i + 1;
-		}
-	}
-
-	v.push_back(Substr(s, first, s.length() - 1));
-
-	for (int i = 0; i < v.size(); i++)
-	{
-		cout << v[i] << ",";
-	}
-
-	cout << endl;
-
-	return v;
-}
-
-inline string Parser::BracketsContent(string s)
-{
-	int posOpen = FindFirst(s, '(');
-	int posClose = FindLast(s, ')');
+	int posOpen = StringManager::FindFirst(s, CharsConstants::OpeningParenthesis);
+	int posClose = StringManager::FindFirst(s, CharsConstants::ClosingParenthesis);
 
 	if (posOpen < 0 || posClose - posOpen <= 0)
-		return stringEmpty;
+		return StringManager::EmptyString();
 
-	return "'" + Substr(s, posOpen + 1, posClose - 1) + "'";
+	return StringManager::Substr(s, posOpen + 1, posClose - 1);
 }
 
 inline vector<string> Parser::SeparateElementsSum(string s)
@@ -107,33 +52,6 @@ inline pair<string, string> Parser::SeperatePowerAndExp(string s)
 	return pair<string, string>("1", "2");
 }
 
-inline int Parser::FindClosingBracket(string s)
-{
-	int count = 0;
-
-	assert(s.length() != 0);
-
-	assert(s[0] == '(');
-
-	for (int i = 0; i < s.length(); i++)
-	{
-		if (s[i] == '(')
-			count++;
-		else if (s[i] == ')')
-		{
-			count--;
-			if (count == 0)
-			{
-				return i;
-			}
-		}
-	}
-
-	assert(false);
-	cout << "ok";
-	return -1;
-}
-
 inline PolynomialMap Parser::ConvertToPolynomialMap(string inputS)
 {
 	string s = UniformInputString(inputS);
@@ -145,22 +63,22 @@ inline PolynomialMap Parser::ConvertToPolynomialMap(string inputS)
 	bool mulOp = true;
 	bool skip = false;
 
-	string element = "";
+	string element = StringManager::EmptyString();
 	int first = 0;
 
 	for (int i = 0; i < s.length(); i++)
 	{
-		if (FindFirst(operators, s[i]) >= 0)
+		if (CharsConstants::IsOperator(s[i]))
 		{
 			if (skip == false)
-				curElement.Set(Substr(s, first, i - 1));
+				curElement.Set(StringManager::Substr(s, first, i - 1));
 			else
 				skip = false;
 
 			first = i + 1;
 			switch (s[i])
 			{
-			case '+':
+			case CharsConstants::Plus:
 			{
 				if (mulElement.IsZero() == false)
 				{
@@ -175,7 +93,7 @@ inline PolynomialMap Parser::ConvertToPolynomialMap(string inputS)
 				sumOp = true;
 				break;
 			}
-			case '-':
+			case CharsConstants::Minus:
 			{
 				if (mulElement.IsZero() == false)
 				{
@@ -190,7 +108,7 @@ inline PolynomialMap Parser::ConvertToPolynomialMap(string inputS)
 				sumOp = false;
 				break;
 			}
-			case '*':
+			case CharsConstants::Mul:
 			{
 				if (mulElement.IsZero())
 					mulElement.Add(0, 1);
@@ -203,7 +121,7 @@ inline PolynomialMap Parser::ConvertToPolynomialMap(string inputS)
 				mulOp = true;
 				break;
 			}
-			case '/':
+			case CharsConstants::Div:
 			{
 				if (mulElement.IsZero())
 					mulElement.Add(0, 1);
@@ -216,15 +134,15 @@ inline PolynomialMap Parser::ConvertToPolynomialMap(string inputS)
 				mulOp = false;
 				break;
 			}
-			case '^':
+			case CharsConstants::Exp:
 			{
 				i++;
-				assert(s[i] >= '0' && s[i] <= '9');
+				assert(CharsConstants::IsDigit(s[i]));
 
-				int power = s[i] - '0';
+				int power = CharsConstants::CharToInt(s[i]);
 				i++;
 
-				while (i < s.length() && s[i] >= '0' && s[i] <= '9')
+				while (i < s.length() && CharsConstants::IsDigit(s[i]))
 				{
 					power *= 10;
 					power = power + s[i] - '0';
@@ -236,10 +154,10 @@ inline PolynomialMap Parser::ConvertToPolynomialMap(string inputS)
 				skip = true;
 				break;
 			}
-			case '(':
+			case CharsConstants::OpeningParenthesis:
 			{
-				int closingBracket = FindClosingBracket(Substr(s, i, s.length() - 1));
-				curElement = ConvertToPolynomialMap(Substr(s, i, closingBracket));
+				int closingParenthesis = StringManager::FindClosingParenthesis(StringManager::Substr(s, i, s.length() - 1));
+				curElement = ConvertToPolynomialMap(StringManager::Substr(s, i, closingParenthesis));
 				break;
 			}
 			default:
@@ -251,7 +169,7 @@ inline PolynomialMap Parser::ConvertToPolynomialMap(string inputS)
 		}
 	}
 	if (skip == false)
-		curElement.Set(Substr(s, first, s.length()));
+		curElement.Set(StringManager::Substr(s, first, s.length()));
 
 	if (mulElement.IsZero() == false)
 	{
@@ -267,34 +185,18 @@ inline PolynomialMap Parser::ConvertToPolynomialMap(string inputS)
 	return sumElement;
 }
 
-inline bool Parser::IsOperator(char c)
-{
-	return FindFirst(operators, c) >= 0;
-}
-
-inline bool Parser::IsLegalValue(char c)
-{
-	return IsOperator(c) || CharsConstants::IsDigit(c) || CharsConstants::IsLetter(c);
-}
-
-inline bool Parser::IsLegalOpeningOperator(char c)
-{
-	if (c == '+' || c == '-' || c == '(')
-		return true;
-
-	return false;
-}
-
 inline string Parser::UniformInputString(string s)
 {
-	string result = "";
-	int countBrackets = 0;
+	string result = StringManager::EmptyString();
+	int countParenthesis = 0;
 
 	assert(s.length());
 
-	assert(IsLegalValue(s[0]) && (IsOperator(s[0]) == false || IsLegalOpeningOperator(s[0])));
+	assert(CharsConstants::IsLegalValue(s[0]) && 
+		(CharsConstants::IsOperator(s[0]) == false
+			|| CharsConstants::IsLegalOpeningOperator(s[0])));
 
-	if (s[0] != '+')
+	if (CharsConstants::IsPlus == false)
 		result += s[0];
 
 	for (int i = 1; i < s.length(); i++)
@@ -302,27 +204,27 @@ inline string Parser::UniformInputString(string s)
 		if (CharsConstants::IsWhitespace(s[i]) == false)
 		{
 
-			assert(IsLegalValue(s[i]));
+			assert(CharsConstants::IsLegalValue(s[i]));
 
 			if (CharsConstants::IsDigit(s[i]))
 			{
 				if (CharsConstants::IsLetter(s[i - 1]))
-					result += '^';
+					result += CharsConstants::Exp;
 			}
 			else if (CharsConstants::IsLetter(s[i]))
 			{
 				if (CharsConstants::IsDigit(s[i - 1]))
-					result += '*';
+					result += CharsConstants::Mul;
 			}
 
 			if (CharsConstants::IsLetter(s[i]))
-				result += 'a';
+				result += CharsConstants::Letter;
 			else
 				result += s[i];
 		}
 	}
 
-	assert(countBrackets == 0);
+	assert(countParenthesis == 0);
 
 	cout << result << endl;
 

@@ -193,6 +193,7 @@
     <ClInclude Include="definitions.h" />
     <ClInclude Include="Parser.h" />
     <ClInclude Include="PolynomialMap.h" />
+    <ClInclude Include="StringManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
