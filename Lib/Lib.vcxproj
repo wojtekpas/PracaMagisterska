@@ -189,6 +189,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CharsConstants.h" />
     <ClInclude Include="definitions.h" />
     <ClInclude Include="Parser.h" />
     <ClInclude Include="PolynomialMap.h" />

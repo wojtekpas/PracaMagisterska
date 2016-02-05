@@ -1,4 +1,5 @@
 #pragma once
+#include "CharsConstants.h"
 #include "PolynomialMap.h"
 
 class Parser
@@ -10,22 +11,19 @@ public:
 
 	explicit Parser(string s);
 
-	int FindFirst(string s, char c) const;
-	int FindLast(string s, char c) const;
-	string Substr(string s, int firstInclusive, int lastExclusive) const;
-	vector<string> Split(string s, string operators) const;
-	string BracketsContent(string s) const;
+	int FindFirst(string s, char c);
+	int FindLast(string s, char c);
+	string Substr(string s, int firstInclusive, int lastExclusive);
+	vector<string> Split(string s, string operators);
+	string BracketsContent(string s);
 	vector<string> SeparateElementsSum(string s);
 	vector<string> SeperateElementsMul(string s);
 	pair<string, string> SeperatePowerAndExp(string s);
-	int FindClosingBracket(string s) const;
+	int FindClosingBracket(string s);
 	PolynomialMap ConvertToPolynomialMap(string s);
-	bool IsLegalValue(char c);
 	bool IsOperator(char c);
+	bool IsLegalValue(char c);
 	bool IsLegalOpeningOperator(char c);
-	bool IsDigit(char c);
-	bool IsSymbol(char c) const;
-	bool IsWhitespace(char c) const;
 	string UniformInputString(string s);
 };
 
@@ -35,22 +33,22 @@ inline Parser::Parser(string s)
 	this->s = s;
 }
 
-inline int Parser::FindFirst(string s, char c) const
+inline int Parser::FindFirst(string s, char c)
 {
 	return s.find_first_of(c);
 }
 
-inline int Parser::FindLast(string s, char c) const
+inline int Parser::FindLast(string s, char c)
 {
 	return s.find_last_of(c);
 }
 
-string Parser::Substr(string s, int first, int last) const
+inline string Parser::Substr(string s, int first, int last)
 {
 	return s.substr(first, last - first + 1);
 }
 
-vector<string> Parser::Split(string s, string operators) const
+inline vector<string> Parser::Split(string s, string operators)
 {
 	vector<string> v;
 
@@ -81,7 +79,7 @@ vector<string> Parser::Split(string s, string operators) const
 	return v;
 }
 
-string Parser::BracketsContent(string s) const
+inline string Parser::BracketsContent(string s)
 {
 	int posOpen = FindFirst(s, '(');
 	int posClose = FindLast(s, ')');
@@ -92,24 +90,24 @@ string Parser::BracketsContent(string s) const
 	return "'" + Substr(s, posOpen + 1, posClose - 1) + "'";
 }
 
-vector<string> Parser::SeparateElementsSum(string s)
+inline vector<string> Parser::SeparateElementsSum(string s)
 {
 	vector<string>v;
 	return v;
 }
 
-vector<string> Parser::SeperateElementsMul(string s)
+inline vector<string> Parser::SeperateElementsMul(string s)
 {
 	vector<string>v;
 	return v;
 }
 
-pair<string, string> Parser::SeperatePowerAndExp(string s)
+inline pair<string, string> Parser::SeperatePowerAndExp(string s)
 {
 	return pair<string, string>("1", "2");
 }
 
-int Parser::FindClosingBracket(string s) const
+inline int Parser::FindClosingBracket(string s)
 {
 	int count = 0;
 
@@ -136,7 +134,7 @@ int Parser::FindClosingBracket(string s) const
 	return -1;
 }
 
-PolynomialMap Parser::ConvertToPolynomialMap(string inputS)
+inline PolynomialMap Parser::ConvertToPolynomialMap(string inputS)
 {
 	string s = UniformInputString(inputS);
 	PolynomialMap sumElement;
@@ -269,37 +267,22 @@ PolynomialMap Parser::ConvertToPolynomialMap(string inputS)
 	return sumElement;
 }
 
-bool Parser::IsLegalValue(char c)
-{
-	return IsOperator(c) || IsDigit(c) || IsSymbol(c);
-}
-
-bool Parser::IsOperator(char c)
+inline bool Parser::IsOperator(char c)
 {
 	return FindFirst(operators, c) >= 0;
 }
 
-bool Parser::IsLegalOpeningOperator(char c)
+inline bool Parser::IsLegalValue(char c)
+{
+	return IsOperator(c) || CharsConstants::IsDigit(c) || CharsConstants::IsLetter(c);
+}
+
+inline bool Parser::IsLegalOpeningOperator(char c)
 {
 	if (c == '+' || c == '-' || c == '(')
 		return true;
 
 	return false;
-}
-
-bool Parser::IsDigit(char c)
-{
-	return (c >= '0' && c <= '9');
-}
-
-inline bool Parser::IsSymbol(char c) const
-{
-	return (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z');
-}
-
-bool Parser::IsWhitespace(char c) const
-{
-	return (c == ' ' || c == '\n' || c == '\t');
 }
 
 inline string Parser::UniformInputString(string s)
@@ -316,23 +299,23 @@ inline string Parser::UniformInputString(string s)
 
 	for (int i = 1; i < s.length(); i++)
 	{
-		if (IsWhitespace(s[i]) == false)
+		if (CharsConstants::IsWhitespace(s[i]) == false)
 		{
 
 			assert(IsLegalValue(s[i]));
 
-			if (IsDigit(s[i]))
+			if (CharsConstants::IsDigit(s[i]))
 			{
-				if (IsSymbol(s[i - 1]))
+				if (CharsConstants::IsLetter(s[i - 1]))
 					result += '^';
 			}
-			else if (IsSymbol(s[i]))
+			else if (CharsConstants::IsLetter(s[i]))
 			{
-				if (IsDigit(s[i - 1]))
+				if (CharsConstants::IsDigit(s[i - 1]))
 					result += '*';
 			}
 
-			if (IsSymbol(s[i]))
+			if (CharsConstants::IsLetter(s[i]))
 				result += 'a';
 			else
 				result += s[i];

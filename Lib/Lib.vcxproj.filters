@@ -4,5 +4,6 @@
     <ClInclude Include="definitions.h" />
     <ClInclude Include="Parser.h" />
     <ClInclude Include="PolynomialMap.h" />
+    <ClInclude Include="CharsConstants.h" />
   </ItemGroup>
 </Project>
