@@ -10,7 +10,6 @@ public:
 
 	explicit Parser(string s);
 
-	string ParenthesisContent(string s);
 	vector<string> SeparateElementsSum(string s);
 	vector<string> SeperateElementsMul(string s);
 	pair<string, string> SeperatePowerAndExp(string s);
@@ -22,17 +21,6 @@ public:
 inline Parser::Parser(string s)
 {
 	this->s = s;
-}
-
-inline string Parser::ParenthesisContent(string s)
-{
-	int posOpen = StringManager::FindFirst(s, CharsConstants::OpeningParenthesis);
-	int posClose = StringManager::FindFirst(s, CharsConstants::ClosingParenthesis);
-
-	if (posOpen < 0 || posClose - posOpen <= 0)
-		return StringManager::EmptyString();
-
-	return StringManager::Substr(s, posOpen + 1, posClose - 1);
 }
 
 inline vector<string> Parser::SeparateElementsSum(string s)
@@ -218,7 +206,7 @@ inline string Parser::UniformInputString(string s)
 			}
 
 			if (CharsConstants::IsLetter(s[i]))
-				result += CharsConstants::Letter;
+				result += CharsConstants::Var;
 			else
 				result += s[i];
 		}

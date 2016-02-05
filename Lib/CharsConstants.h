@@ -1,5 +1,4 @@
 #pragma once
-#include "definitions.h"
 
 class CharsConstants
 {
@@ -21,7 +20,7 @@ public:
 	static const char Exp = '^';
 	static const char OpeningParenthesis = '(';
 	static const char ClosingParenthesis = ')';
-	static const char Letter = 'a';
+	static const char Var = 'a';
 
 	static int CharToInt(char c);
 	static bool IsDigit(char c);
@@ -36,6 +35,7 @@ public:
 	static bool IsExp(char c);
 	static bool IsOpeningParenthesis(char c);
 	static bool IsClosingParenthesis(char c);
+	static bool IsVar(char c);
 	static bool IsOperator(char c);
 	static bool IsLegalValue(char c);
 	static bool IsLegalOpeningOperator(char c);
@@ -105,6 +105,11 @@ inline bool CharsConstants::IsOpeningParenthesis(char c)
 inline bool CharsConstants::IsClosingParenthesis(char c)
 {
 	return c == ClosingParenthesis;
+}
+
+inline bool CharsConstants::IsVar(char c)
+{
+	return c == Var;
 }
 
 inline bool CharsConstants::IsOperator(char c)

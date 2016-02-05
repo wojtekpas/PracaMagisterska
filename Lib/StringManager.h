@@ -1,5 +1,6 @@
 #pragma once
 #include "definitions.h"
+#include "CharsConstants.h"
 
 class StringManager
 {
@@ -11,6 +12,7 @@ public:
 	static string Substr(string s, int first, int last);
 	static vector<string> Split(string s, string operators);
 	static int FindClosingParenthesis(string s);
+	string ParenthesisContent(string s);
 };
 
 inline string StringManager::EmptyString()
@@ -20,7 +22,7 @@ inline string StringManager::EmptyString()
 
 inline bool StringManager::IsEmptyString(string s)
 {
-	return s.empty();
+	return s.length() == 0;
 }
 
 inline int StringManager::FindFirst(string s, char c)
@@ -75,7 +77,7 @@ inline int StringManager::FindClosingParenthesis(string s)
 
 	assert(s.length() != 0);
 
-	assert(s[0] == CharsConstants::OpeningParenthesis);
+	assert(CharsConstants::IsOpeningParenthesis(s[0]));
 
 	for (int i = 0; i < s.length(); i++)
 	{
@@ -94,4 +96,15 @@ inline int StringManager::FindClosingParenthesis(string s)
 	assert(false);
 	cout << "ok";
 	return -1;
+}
+
+inline string StringManager::ParenthesisContent(string s)
+{
+	int posOpen = FindFirst(s, CharsConstants::OpeningParenthesis);
+	int posClose = FindFirst(s, CharsConstants::ClosingParenthesis);
+
+	if (posOpen < 0 || posClose - posOpen <= 0)
+		return EmptyString();
+
+	return Substr(s, posOpen + 1, posClose - 1);
 }

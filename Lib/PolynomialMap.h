@@ -1,5 +1,7 @@
 #pragma once
 #include "definitions.h"
+#include "StringManager.h"
+#include "CharsConstants.h"
 
 class PolynomialMap
 {
@@ -11,8 +13,8 @@ public:
 
 	void Set(string s);
 	void Clear();
-	bool IsZero() const;
-	int Size() const;
+	bool IsZero();
+	int Size();
 	int Value(int power);
 	bool ValueEquals(int power, PolynomialMap p2);
 	void SetValue(int power, int value);
@@ -23,9 +25,9 @@ public:
 	bool operator==(PolynomialMap p2);
 	bool operator!=(PolynomialMap p2);
 	PolynomialMap operator = (PolynomialMap p2);
-	PolynomialMap operator + (PolynomialMap p2) const;
-	PolynomialMap operator - (PolynomialMap p2) const;
-	PolynomialMap operator * (PolynomialMap p2) const;
+	PolynomialMap operator + (PolynomialMap p2);
+	PolynomialMap operator - (PolynomialMap p2);
+	PolynomialMap operator * (PolynomialMap p2);
 	PolynomialMap operator / (PolynomialMap p2);
 	PolynomialMap operator ^ (int power);
 	PolynomialMap operator += (PolynomialMap p2);
@@ -33,28 +35,28 @@ public:
 	PolynomialMap operator *= (PolynomialMap p2);
 	PolynomialMap operator /= (PolynomialMap p2);
 	PolynomialMap operator ^= (int power);
-	void Print(string name) const;
+	void Print(string name);
 };
 
 
-PolynomialMap::PolynomialMap()
+inline PolynomialMap::PolynomialMap()
 {
 }
 
-PolynomialMap::PolynomialMap(int value)
+inline PolynomialMap::PolynomialMap(int value)
 {
 	if (value != 0)
 		m.insert(pair<int, int>(0, value));
 }
 
-void PolynomialMap::Set(string s)
+inline void PolynomialMap::Set(string s)
 {
 	Clear();
 
-	if (s.length() == 0)
+	if (StringManager::IsEmptyString(s))
 		assert("empty string");
 
-	if (s[0] == 'a')
+	if (CharsConstants::IsVar(s[0]))
 	{
 		if (s.length() > 1)
 			assert("ambigous variable");
@@ -65,45 +67,45 @@ void PolynomialMap::Set(string s)
 		}
 	}
 
-	int value = s[0] - '0';
+	int value = CharsConstants::CharToInt(s[0]);
 
 	for (int i = 1; i < s.length(); i++)
 	{
 		value *= 10;
-		value = value + s[i] - '0';
+		value = value + CharsConstants::CharToInt(s[0]);
 	}
 
 	m.insert(pair<int, int>(0, value));
 }
 
-void PolynomialMap::Clear()
+inline void PolynomialMap::Clear()
 {
 	m.clear();
 }
 
-bool PolynomialMap::IsZero() const
+inline bool PolynomialMap::IsZero()
 {
 	return Size() == 0;
 }
 
-int PolynomialMap::Size() const
+inline int PolynomialMap::Size()
 {
 	return m.size();
 }
 
-int PolynomialMap::Value(int power)
+inline int PolynomialMap::Value(int power)
 {
 	if (m.count(power))
 		return m.at(power);
 	return 0;
 }
 
-bool PolynomialMap::ValueEquals(int power, PolynomialMap p2)
+inline bool PolynomialMap::ValueEquals(int power, PolynomialMap p2)
 {
 	return Value(power) == p2.Value(power);
 }
 
-void PolynomialMap::SetValue(int power, int value)
+inline void PolynomialMap::SetValue(int power, int value)
 {
 	if (value == 0)
 	{
@@ -118,22 +120,22 @@ void PolynomialMap::SetValue(int power, int value)
 		m.insert(pair<int, int>(power, value));
 }
 
-void PolynomialMap::Add(int power, int value)
+inline void PolynomialMap::Add(int power, int value)
 {
 	SetValue(power, Value(power) + value);
 }
 
-void PolynomialMap::Sub(int power, int value)
+inline void PolynomialMap::Sub(int power, int value)
 {
 	return Add(power, -value);
 }
 
-void PolynomialMap::Mul(int power1, int value1, int power2, int value2)
+inline void PolynomialMap::Mul(int power1, int value1, int power2, int value2)
 {
 	Add(power1 + power2, value1 * value2);
 }
 
-bool PolynomialMap::operator == (PolynomialMap p2)
+inline bool PolynomialMap::operator == (PolynomialMap p2)
 {
 	for (auto pair1 : m)
 	{
@@ -150,18 +152,18 @@ bool PolynomialMap::operator == (PolynomialMap p2)
 	return true;
 }
 
-bool PolynomialMap::operator != (PolynomialMap p2)
+inline bool PolynomialMap::operator != (PolynomialMap p2)
 {
 	return !(*this == p2);
 }
 
-PolynomialMap PolynomialMap::operator = (PolynomialMap p2)
+inline PolynomialMap PolynomialMap::operator = (PolynomialMap p2)
 {
 	m = p2.m;
 	return *this;
 }
 
-PolynomialMap PolynomialMap::operator + (PolynomialMap p2) const
+inline PolynomialMap PolynomialMap::operator + (PolynomialMap p2)
 {
 	PolynomialMap result;
 
@@ -175,7 +177,7 @@ PolynomialMap PolynomialMap::operator + (PolynomialMap p2) const
 	return result;
 }
 
-PolynomialMap PolynomialMap::operator - (PolynomialMap p2) const
+inline PolynomialMap PolynomialMap::operator - (PolynomialMap p2)
 {
 	PolynomialMap result;
 
@@ -189,7 +191,7 @@ PolynomialMap PolynomialMap::operator - (PolynomialMap p2) const
 	return result;
 }
 
-PolynomialMap PolynomialMap::operator * (PolynomialMap p2) const
+inline PolynomialMap PolynomialMap::operator * (PolynomialMap p2)
 {
 	PolynomialMap result;
 
@@ -204,12 +206,12 @@ PolynomialMap PolynomialMap::operator * (PolynomialMap p2) const
 	return result;
 }
 
-PolynomialMap PolynomialMap::operator / (PolynomialMap p2)
+inline PolynomialMap PolynomialMap::operator / (PolynomialMap p2)
 {
 	return *this;
 }
 
-PolynomialMap PolynomialMap::operator ^ (int power)
+inline PolynomialMap PolynomialMap::operator ^ (int power)
 {
 	PolynomialMap result;
 
@@ -229,40 +231,39 @@ PolynomialMap PolynomialMap::operator ^ (int power)
 	return result;
 }
 
-PolynomialMap PolynomialMap::operator += (PolynomialMap p2)
+inline PolynomialMap PolynomialMap::operator += (PolynomialMap p2)
 {
 	*this = *this + p2;
 	return *this;
 }
 
-PolynomialMap PolynomialMap::operator -= (PolynomialMap p2)
+inline PolynomialMap PolynomialMap::operator -= (PolynomialMap p2)
 {
 	*this = *this - p2;
 	return *this;
 }
 
-PolynomialMap PolynomialMap::operator *= (PolynomialMap p2)
+inline PolynomialMap PolynomialMap::operator *= (PolynomialMap p2)
 {
 	*this = *this * p2;
 	return *this;
 }
 
-PolynomialMap PolynomialMap::operator /= (PolynomialMap p2)
+inline PolynomialMap PolynomialMap::operator /= (PolynomialMap p2)
 {
 	*this = *this / p2;
 	return *this;
 }
 
-PolynomialMap PolynomialMap::operator^=(int power)
+inline PolynomialMap PolynomialMap::operator^=(int power)
 {
 	*this = *this ^ power;
 	return *this;
 }
 
-void PolynomialMap::Print(string name) const
+inline void PolynomialMap::Print(string name)
 {
 	printf("\t%s:\n", name.c_str());
-
 
 	if (IsZero())
 	{
