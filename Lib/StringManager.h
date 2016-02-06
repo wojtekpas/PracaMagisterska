@@ -7,6 +7,9 @@ class StringManager
 public:
 	static string EmptyString();
 	static bool IsEmptyString(string s);
+	static char ReturnLastChar(string s);
+	static char LastCharIsADigit(string s);
+	static char LastCharIsALetter(string s);
 	static int FindFirst(string s, char c);
 	static int FindLast(string s, char c);
 	static string Substr(string s, int first, int last);
@@ -23,6 +26,24 @@ inline string StringManager::EmptyString()
 inline bool StringManager::IsEmptyString(string s)
 {
 	return s.length() == 0;
+}
+
+inline char StringManager::ReturnLastChar(string s)
+{
+	if (IsEmptyString(s))
+		return -1;
+
+	return s[s.length() - 1];
+}
+
+inline char StringManager::LastCharIsADigit(string s)
+{
+	return CharsConstants::IsDigit(ReturnLastChar(s));
+}
+
+inline char StringManager::LastCharIsALetter(string s)
+{
+	return CharsConstants::IsLetter(ReturnLastChar(s));
 }
 
 inline int StringManager::FindFirst(string s, char c)
@@ -73,11 +94,14 @@ inline vector<string> StringManager::Split(string s, string operators)
 
 inline int StringManager::FindClosingParenthesis(string s)
 {
+	const int errCode = -1;
 	int count = 0;
 
-	assert(s.length() != 0);
+	if (s.length() == 0)
+		return errCode;
 
-	assert(CharsConstants::IsOpeningParenthesis(s[0]));
+	if (CharsConstants::IsOpeningParenthesis(s[0]) == false)
+		return errCode;
 
 	for (int i = 0; i < s.length(); i++)
 	{
@@ -93,9 +117,8 @@ inline int StringManager::FindClosingParenthesis(string s)
 		}
 	}
 
-	assert(false);
 	cout << "ok";
-	return -1;
+	return errCode;
 }
 
 inline string StringManager::ParenthesisContent(string s)

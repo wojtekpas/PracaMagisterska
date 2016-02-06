@@ -8,6 +8,7 @@ class Parser
 public:
 	string s;
 
+	explicit Parser();
 	explicit Parser(string s);
 
 	vector<string> SeparateElementsSum(string s);
@@ -17,6 +18,10 @@ public:
 	string UniformInputString(string s);
 };
 
+inline Parser::Parser()
+{
+	s = StringManager::EmptyString();
+}
 
 inline Parser::Parser(string s)
 {
@@ -42,7 +47,13 @@ inline pair<string, string> Parser::SeperatePowerAndExp(string s)
 
 inline PolynomialMap Parser::ConvertToPolynomialMap(string inputS)
 {
+	const PolynomialMap EmptyPolynomialMap;
+
 	string s = UniformInputString(inputS);
+
+	if (StringManager::IsEmptyString(s))
+		EmptyPolynomialMap;
+
 	PolynomialMap sumElement;
 	PolynomialMap mulElement;
 	PolynomialMap curElement;
@@ -125,7 +136,8 @@ inline PolynomialMap Parser::ConvertToPolynomialMap(string inputS)
 			case CharsConstants::Exp:
 			{
 				i++;
-				assert(CharsConstants::IsDigit(s[i]));
+				if (CharsConstants::IsDigit(s[i]) == false)
+					return EmptyPolynomialMap;
 
 				int power = CharsConstants::CharToInt(s[i]);
 				i++;
@@ -150,8 +162,7 @@ inline PolynomialMap Parser::ConvertToPolynomialMap(string inputS)
 			}
 			default:
 			{
-				assert(false);
-				break;
+				return EmptyPolynomialMap;
 			}
 			}
 		}
@@ -178,41 +189,45 @@ inline string Parser::UniformInputString(string s)
 	string result = StringManager::EmptyString();
 	int countParenthesis = 0;
 
-	assert(s.length());
+	if (s.length() == 0)
+		return StringManager::EmptyString();
 
-	assert(CharsConstants::IsLegalValue(s[0]) && 
-		(CharsConstants::IsOperator(s[0]) == false
-			|| CharsConstants::IsLegalOpeningOperator(s[0])));
+	if (CharsConstants::IsLegalValue(s[0]) == false)
+		return StringManager::EmptyString();
 
-	if (CharsConstants::IsPlus == false)
-		result += s[0];
+	if (CharsConstants::IsOperator(s[0])
+		&& CharsConstants::IsLegalOpeningOperator(s[0]) == false)
+		return StringManager::EmptyString();
 
-	for (int i = 1; i < s.length(); i++)
+	for (int i = 0; i < s.length(); i++)
 	{
 		if (CharsConstants::IsWhitespace(s[i]) == false)
 		{
-
-			assert(CharsConstants::IsLegalValue(s[i]));
+			if (CharsConstants::IsLegalValue(s[i]) == false)
+				return StringManager::EmptyString();
 
 			if (CharsConstants::IsDigit(s[i]))
 			{
-				if (CharsConstants::IsLetter(s[i - 1]))
+				if (StringManager::LastCharIsALetter(result))
 					result += CharsConstants::Exp;
+				result += s[i];
 			}
 			else if (CharsConstants::IsLetter(s[i]))
 			{
-				if (CharsConstants::IsDigit(s[i - 1]))
-					result += CharsConstants::Mul;
+				if (StringManager::LastCharIsADigit(result))
+					result += CharsConstants::Mul + CharsConstants::Var;
+				else if (StringManager::LastCharIsALetter(result) == false)
+					result += CharsConstants::Var;
+				else
+					return StringManager::EmptyString();
 			}
-
-			if (CharsConstants::IsLetter(s[i]))
-				result += CharsConstants::Var;
 			else
 				result += s[i];
 		}
 	}
 
-	assert(countParenthesis == 0);
+	if (countParenthesis != 0)
+		return StringManager::EmptyString();
 
 	cout << result << endl;
 

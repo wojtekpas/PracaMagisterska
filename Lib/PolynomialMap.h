@@ -11,7 +11,7 @@ public:
 	explicit PolynomialMap();
 	explicit PolynomialMap(int value);
 
-	void Set(string s);
+	bool Set(string s);
 	void Clear();
 	bool IsZero();
 	int Size();
@@ -49,21 +49,21 @@ inline PolynomialMap::PolynomialMap(int value)
 		m.insert(pair<int, int>(0, value));
 }
 
-inline void PolynomialMap::Set(string s)
+inline bool PolynomialMap::Set(string s)
 {
 	Clear();
 
 	if (StringManager::IsEmptyString(s))
-		assert("empty string");
+		return false;
 
 	if (CharsConstants::IsVar(s[0]))
 	{
 		if (s.length() > 1)
-			assert("ambigous variable");
+			return false;
 		else
 		{
 			m.insert(pair<int, int>(1, 1));
-			return;
+			return true;
 		}
 	}
 
@@ -76,6 +76,7 @@ inline void PolynomialMap::Set(string s)
 	}
 
 	m.insert(pair<int, int>(0, value));
+	return true;
 }
 
 inline void PolynomialMap::Clear()
