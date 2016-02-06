@@ -125,5 +125,5 @@ inline bool CharsConstants::IsLegalOpeningOperator(char c)
 
 inline bool CharsConstants::IsLegalValue(char c)
 {
-	return IsOperator(c) || IsDigit(c) || IsLetter(c);
+	return IsOperator(c) || IsDigit(c) || IsLetter(c) || IsWhitespace(c);
 }

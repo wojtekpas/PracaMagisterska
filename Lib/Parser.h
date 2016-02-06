@@ -208,6 +208,10 @@ inline string Parser::UniformInputString(string s)
 
 			if (CharsConstants::IsDigit(s[i]))
 			{
+				if (StringManager::LastCharIsADigit(result)
+					&& CharsConstants::IsWhitespace(s[i - 1]))
+					return StringManager::EmptyString();
+
 				if (StringManager::LastCharIsALetter(result))
 					result += CharsConstants::Exp;
 				result += s[i];
@@ -215,7 +219,10 @@ inline string Parser::UniformInputString(string s)
 			else if (CharsConstants::IsLetter(s[i]))
 			{
 				if (StringManager::LastCharIsADigit(result))
-					result += CharsConstants::Mul + CharsConstants::Var;
+				{
+					result += CharsConstants::Mul;
+					result += CharsConstants::Var;
+				}
 				else if (StringManager::LastCharIsALetter(result) == false)
 					result += CharsConstants::Var;
 				else

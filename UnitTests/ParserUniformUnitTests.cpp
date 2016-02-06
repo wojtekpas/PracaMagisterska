@@ -11,75 +11,92 @@ namespace UnitTests
 	TEST_CLASS(ParserUniformUnitTests)
 	{
 		Parser parser;
-		const string SingleIllegalChar = "%";
-		const string ThreeIllegalChars = "!@#";
-		const string SinglePositiveDigit = "1";
-		const string PositiveNumber = "12345";
-		const string SingleNegativeDigit = "-1";
-		const string NegativeNumber = "-12345";
-		const string SingleVar = string(1,CharsConstants::Var);
-		const string TwoVarsInARow = string(2, CharsConstants::Var);
-	public:	
+	public:
+		void Verify(string input, string expected)
+		{
+			string result = parser.UniformInputString(input);
+
+			Assert::AreEqual(expected, result);
+		}
+
 		TEST_METHOD(ParserUniform_EmptyString_ShouldReturn_EmptyString)
 		{
-			string result = parser.UniformInputString(StringManager::EmptyString());
-
-			Assert::AreEqual(StringManager::EmptyString(), result);
+			Verify(StringManager::EmptyString(), StringManager::EmptyString());
 		}
 
 		TEST_METHOD(ParserUniform_SingleIllegalChar_ShouldReturn_EmptyString)
 		{
-			string result = parser.UniformInputString(SingleIllegalChar);
-
-			Assert::AreEqual(StringManager::EmptyString(), result);
+			Verify("!", StringManager::EmptyString());
 		}
 
 		TEST_METHOD(ParserUniform_ThreeIllegalChars_ShouldReturn_EmptyString)
 		{
-			string result = parser.UniformInputString(ThreeIllegalChars);
-
-			Assert::AreEqual(StringManager::EmptyString(), result);
+			Verify("!@#", StringManager::EmptyString());
 		}
 
 		TEST_METHOD(ParserUniform_SinglePositiveDigit_ShouldReturn_SinglePositiveDigit)
 		{
-			string result = parser.UniformInputString(SinglePositiveDigit);
-
-			Assert::AreEqual(SinglePositiveDigit, result);
+			Verify("1", "1");
 		}
 
 		TEST_METHOD(ParserUniform_PositiveNumber_ShouldReturn_PositiveNumber)
 		{
-			string result = parser.UniformInputString(PositiveNumber);
-
-			Assert::AreEqual(PositiveNumber, result);
+			Verify("123", "123");;
 		}
 
 		TEST_METHOD(ParserUniform_SingleNegativeDigit_ShouldReturn_SingleNegativeDigit)
 		{
-			string result = parser.UniformInputString(SingleNegativeDigit);
-
-			Assert::AreEqual(SingleNegativeDigit, result);
+			Verify("-1", "-1");
 		}
 
 		TEST_METHOD(ParserUniform_NegativeNumber_ShouldReturn_NegativeNumber)
 		{
-			string result = parser.UniformInputString(NegativeNumber);
-
-			Assert::AreEqual(NegativeNumber, result);
+			Verify("-123", "-123");
 		}
 
 		TEST_METHOD(ParserUniform_SingleVar_ShouldReturn_SingleVar)
 		{
-			string result = parser.UniformInputString(SingleVar);
-
-			Assert::AreEqual(SingleVar, result);
+			Verify("a", "a");
 		}
 
 		TEST_METHOD(ParserUniform_TwoVarsInARow_ShouldReturn_EmptyString)
 		{
-			string result = parser.UniformInputString(TwoVarsInARow);
-			
+			Verify("aa", StringManager::EmptyString());
+		}
+
+		TEST_METHOD(ParserUniform_NumberStartsFromBlankSpace_ShouldReturn_ValueWithoutWhitespaces)
+		{
+			const string input = " 1234";
+			const string expected = input.substr(1);
+
+			string result = parser.UniformInputString(input);
+
+			Assert::AreEqual(expected, result);
+		}
+
+		TEST_METHOD(a1)
+		{
+			const string input = "100*a";
+			const string expected = "100*a";
+			string result = parser.UniformInputString(input);
+
+			Assert::AreEqual(expected, result);
+		}
+
+		TEST_METHOD(a2)
+		{
+			const string input = "100a";
+			const string expected = "100*a";
+			string result = parser.UniformInputString(input);
+
+			Assert::AreEqual(expected, result);
+		}
+
+		TEST_METHOD(a3)
+		{
+			const string input = "10 0 a";
+			string result = parser.UniformInputString(input);
+
 			Assert::AreEqual(StringManager::EmptyString(), result);
 		}
 	};
