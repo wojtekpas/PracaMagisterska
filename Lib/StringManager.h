@@ -8,14 +8,15 @@ public:
 	static string EmptyString();
 	static bool IsEmptyString(string s);
 	static char ReturnLastChar(string s);
-	static char LastCharIsADigit(string s);
-	static char LastCharIsALetter(string s);
+	static bool LastCharIsADigit(string s);
+	static bool LastCharIsALetter(string s);
+	static bool LastCharIsADigitOrALetter(string s);
 	static int FindFirst(string s, char c);
 	static int FindLast(string s, char c);
 	static string Substr(string s, int first, int last);
 	static vector<string> Split(string s, string operators);
 	static int FindClosingParenthesis(string s);
-	string ParenthesisContent(string s);
+	static string ParenthesisContent(string s);
 };
 
 inline string StringManager::EmptyString()
@@ -36,14 +37,19 @@ inline char StringManager::ReturnLastChar(string s)
 	return s[s.length() - 1];
 }
 
-inline char StringManager::LastCharIsADigit(string s)
+inline bool StringManager::LastCharIsADigit(string s)
 {
 	return CharsConstants::IsDigit(ReturnLastChar(s));
 }
 
-inline char StringManager::LastCharIsALetter(string s)
+inline bool StringManager::LastCharIsALetter(string s)
 {
 	return CharsConstants::IsLetter(ReturnLastChar(s));
+}
+
+inline bool StringManager::LastCharIsADigitOrALetter(string s)
+{
+	return LastCharIsADigit(s) || LastCharIsALetter(s);
 }
 
 inline int StringManager::FindFirst(string s, char c)

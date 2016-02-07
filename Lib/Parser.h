@@ -208,11 +208,8 @@ inline string Parser::UniformInputString(string s)
 
 			if (CharsConstants::IsDigit(s[i]))
 			{
-				if (StringManager::LastCharIsADigit(result)
-					&& CharsConstants::IsWhitespace(s[i - 1]))
-					return StringManager::EmptyString();
-
-				if (StringManager::LastCharIsALetter(result))
+				if (StringManager::LastCharIsALetter(result)
+					|| CharsConstants::IsClosingParenthesis(StringManager::ReturnLastChar(result)))
 					result += CharsConstants::Exp;
 				result += s[i];
 			}
@@ -227,6 +224,13 @@ inline string Parser::UniformInputString(string s)
 					result += CharsConstants::Var;
 				else
 					return StringManager::EmptyString();
+			}
+			else if(CharsConstants::IsOpeningParenthesis(s[i]))
+			{
+				if (StringManager::LastCharIsADigitOrALetter(result)
+					|| CharsConstants::IsClosingParenthesis(StringManager::ReturnLastChar(result)))
+					result += CharsConstants::Mul;
+				result += s[i];
 			}
 			else
 				result += s[i];
