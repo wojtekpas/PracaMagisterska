@@ -69,62 +69,62 @@ namespace UnitTests
 			Verify(" 1234", "1234");
 		}
 
-		TEST_METHOD(a01)
+		TEST_METHOD(ParserUniform_ExpressionContainingMulOp_ShouldReturn_ExpressionWithoutChange)
 		{
 			Verify("100*a", "100*a");
 		}
 
-		TEST_METHOD(a02)
+		TEST_METHOD(ParserUniform_ExpressionNotContainingMulOp_ShouldReturn_ExpressionWithAddedMulOp)
 		{
 			Verify("100a", "100*a");
 		}
 
-		TEST_METHOD(a03)
+		TEST_METHOD(ParserUniform_NegativeExpressionNotContainingMulOp_ShouldReturn_ExpressionWithAddedMulOp)
 		{
 			Verify("-50a", "-50*a");
 		}
 
-		TEST_METHOD(a04)
+		TEST_METHOD(ParserUniform_ExpressionContainingExpOp_ShouldReturn_ExpressionWithoutChange)
 		{
 			Verify("a^2", "a^2");
 		}
 
-		TEST_METHOD(a05)
+		TEST_METHOD(ParserUniform_ExpressionNotContainingExpOp_ShouldReturn_ExpressionWithAddedExpOp)
 		{
 			Verify("a3", "a^3");
 		}
 
-		TEST_METHOD(a06)
+		TEST_METHOD(ParserUniform_NegativeExpressionContainingMulOpAndExpOp_ShouldReturn_ExpressionWithoutChange)
 		{
 			Verify("-5*a3", "-5*a^3");
 		}
 
-		TEST_METHOD(a07)
+		TEST_METHOD(ParserUniform_ExpressionContainingMulOpFollowedByExpressionNotContainingMulOp_ShouldReturn_ExpressionWithoutAddedExpOp)
 		{
 			Verify("a3*3", "a^3*3");
 		}
 
-		TEST_METHOD(a08)
+		TEST_METHOD(ParserUniform_ExpressionNotContainingMulOpAndExpOp_ShouldReturn_ExpressionWithAddedMulOpAndExpOp)
 		{
 			Verify("4a3", "4*a^3");
 		}
 
-		TEST_METHOD(a09)
+		TEST_METHOD(ParserUniform_ExpressionNotContainingMulOpAndExpOpWithWhitespace_ShouldReturn_ExpressionWithAddedMulOpAndExpOp)
 		{
 			Verify("10 a2", "10*a^2");
 		}
 
-		TEST_METHOD(a10)
+		TEST_METHOD(ParserUniform_ExpressionNotContainingMulOpPrecedingParenthesis_ShouldReturn_ExpressionWithAddedMulOp)
 		{
 			Verify("2(4a+2)", "2*(4*a+2)");
 		}
 
-		TEST_METHOD(a11)
+		TEST_METHOD(ParserUniform_ExpressionContainingTwoParenthesisNotSeperatedByMulOp_ShouldReturn_ExpressionWithAddedMulOp)
 		{
 			Verify("(3a+1)(2a+1)", "(3*a+1)*(2*a+1)");
 		}
 
-		TEST_METHOD(a12)
+		TEST_METHOD(ParserUniform_ExpressionNotContainingExpOpFollowedByParenthesis_ShouldReturn_ExpressionWithAddedExpOp)
 		{
 			Verify("(3*a)2", "(3*a)^2");
 		}
