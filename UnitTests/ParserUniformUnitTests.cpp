@@ -128,5 +128,10 @@ namespace UnitTests
 		{
 			Verify("(3*a)2", "(3*a)^2");
 		}
+
+		TEST_METHOD(ParserUniform_ExpressionContainingSubOpImmediatelyFollowedByMulOp_ShouldReturn_EmptyString)
+		{
+			Verify("3*-2");
+		}
 	};
 }

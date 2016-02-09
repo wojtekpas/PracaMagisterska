@@ -11,6 +11,7 @@ public:
 	static bool LastCharIsADigit(string s);
 	static bool LastCharIsALetter(string s);
 	static bool LastCharIsADigitOrALetter(string s);
+	static bool LastCharIsAdigitOrALetterOrAClosingParenthesis(string s);
 	static int FindFirst(string s, char c);
 	static int FindLast(string s, char c);
 	static string Substr(string s, int first, int last);
@@ -50,6 +51,11 @@ inline bool StringManager::LastCharIsALetter(string s)
 inline bool StringManager::LastCharIsADigitOrALetter(string s)
 {
 	return LastCharIsADigit(s) || LastCharIsALetter(s);
+}
+
+inline bool StringManager::LastCharIsAdigitOrALetterOrAClosingParenthesis(string s)
+{
+	return LastCharIsADigitOrALetter(s) || CharsConstants::IsClosingParenthesis(ReturnLastChar(s));
 }
 
 inline int StringManager::FindFirst(string s, char c)

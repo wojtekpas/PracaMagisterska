@@ -232,6 +232,21 @@ inline string Parser::UniformInputString(string s)
 					result += CharsConstants::Mul;
 				result += s[i];
 			}
+			else if (CharsConstants::IsMinus(s[i]))
+			{
+				if (StringManager::IsEmptyString(result)
+					|| StringManager::LastCharIsAdigitOrALetterOrAClosingParenthesis(result))
+					result += s[i];	
+				else
+					return StringManager::EmptyString();
+			}
+			else if (CharsConstants::IsOperator(s[i]))
+			{
+				if (StringManager::LastCharIsAdigitOrALetterOrAClosingParenthesis(result))
+					result += s[i];
+				else
+					return StringManager::EmptyString();
+			}
 			else
 				result += s[i];
 		}
