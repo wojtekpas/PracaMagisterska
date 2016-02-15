@@ -26,7 +26,7 @@ namespace UnitTests
 		{
 			PolynomialMap result = parser.ConvertToPolynomialMap(input);
 
-			Assert::AreEqual(expectedOutput, result);
+			Assert::IsTrue(expectedOutput == result);
 		}
 
 		void VerifyForAFirstPower(string input, int expectedValueForAFirstPower)
