@@ -256,7 +256,7 @@ inline PolynomialMap PolynomialMap::operator /= (PolynomialMap p2)
 	return *this;
 }
 
-inline PolynomialMap PolynomialMap::operator^=(int power)
+inline PolynomialMap PolynomialMap::operator ^= (int power)
 {
 	*this = *this ^ power;
 	return *this;
