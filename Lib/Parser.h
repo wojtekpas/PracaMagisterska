@@ -11,9 +11,6 @@ public:
 	explicit Parser();
 	explicit Parser(string s);
 
-	vector<string> SeparateElementsSum(string s);
-	vector<string> SeperateElementsMul(string s);
-	pair<string, string> SeperatePowerAndExp(string s);
 	PolynomialMap ConvertToPolynomialMap(string s);
 	string UniformInputString(string s);
 };
@@ -26,23 +23,6 @@ inline Parser::Parser()
 inline Parser::Parser(string s)
 {
 	this->s = s;
-}
-
-inline vector<string> Parser::SeparateElementsSum(string s)
-{
-	vector<string>v;
-	return v;
-}
-
-inline vector<string> Parser::SeperateElementsMul(string s)
-{
-	vector<string>v;
-	return v;
-}
-
-inline pair<string, string> Parser::SeperatePowerAndExp(string s)
-{
-	return pair<string, string>("1", "2");
 }
 
 inline PolynomialMap Parser::ConvertToPolynomialMap(string inputS)
@@ -75,9 +55,8 @@ inline PolynomialMap Parser::ConvertToPolynomialMap(string inputS)
 				skip = false;
 
 			first = i + 1;
-			switch (s[i])
-			{
-			case CharsConstants::Plus:
+			
+			if(CharsConstants::IsPlus(s[i]))
 			{
 				if (mulElement.IsZero() == false)
 				{
@@ -90,9 +69,8 @@ inline PolynomialMap Parser::ConvertToPolynomialMap(string inputS)
 				else
 					sumElement -= curElement;
 				sumOp = true;
-				break;
 			}
-			case CharsConstants::Minus:
+			else if(CharsConstants::IsMinus(s[i]))
 			{
 				if (mulElement.IsZero() == false)
 				{
@@ -105,9 +83,8 @@ inline PolynomialMap Parser::ConvertToPolynomialMap(string inputS)
 				else
 					sumElement -= curElement;
 				sumOp = false;
-				break;
 			}
-			case CharsConstants::Mul:
+			else if(CharsConstants::IsMul(s[i]))
 			{
 				if (mulElement.IsZero())
 					mulElement.Add(0, 1);
@@ -118,9 +95,8 @@ inline PolynomialMap Parser::ConvertToPolynomialMap(string inputS)
 					mulElement /= curElement;
 
 				mulOp = true;
-				break;
 			}
-			case CharsConstants::Div:
+			else if(CharsConstants::IsDiv(s[i]))
 			{
 				if (mulElement.IsZero())
 					mulElement.Add(0, 1);
@@ -131,9 +107,8 @@ inline PolynomialMap Parser::ConvertToPolynomialMap(string inputS)
 					mulElement /= curElement;
 
 				mulOp = false;
-				break;
 			}
-			case CharsConstants::Exp:
+			else if(CharsConstants::IsExp(s[i]))
 			{
 				i++;
 				if (CharsConstants::IsDigit(s[i]) == false)
@@ -145,28 +120,27 @@ inline PolynomialMap Parser::ConvertToPolynomialMap(string inputS)
 				while (i < s.length() && CharsConstants::IsDigit(s[i]))
 				{
 					power *= 10;
-					power = power + s[i] - '0';
+					power += CharsConstants::CharToInt(s[i]);
 					i++;
 				}
 
 				i--;
 				curElement ^= power;
 				skip = true;
-				break;
 			}
-			case CharsConstants::OpeningParenthesis:
+			else if(CharsConstants::IsOpeningParenthesis(s[i]))
 			{
 				int closingParenthesis = StringManager::FindClosingParenthesis(StringManager::Substr(s, i, s.length() - 1));
-				curElement = ConvertToPolynomialMap(StringManager::Substr(s, i, closingParenthesis));
-				break;
+				curElement = ConvertToPolynomialMap(StringManager::Substr(s, i + 1, closingParenthesis - 1));
+				i = closingParenthesis + 1;
 			}
-			default:
+			else
 			{
 				return EmptyPolynomialMap;
 			}
-			}
 		}
 	}
+
 	if (skip == false)
 		curElement.Set(StringManager::Substr(s, first, s.length()));
 

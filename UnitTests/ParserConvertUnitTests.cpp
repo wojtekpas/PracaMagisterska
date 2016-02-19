@@ -47,7 +47,7 @@ namespace UnitTests
 		{
 			result.Clear();
 		}
-
+/*
 		TEST_METHOD(ParserUniform_EmptyString_ShouldReturn_EmptyPolynomialMap)
 		{
 			Verify(StringManager::EmptyString());
@@ -132,23 +132,26 @@ namespace UnitTests
 		{
 			Verify("10 a2", 10, 2);
 		}
-/*
-		TEST_METHOD(ParserUniform_ExpressionNotContainingMulOpPrecedingParenthesis_ShouldReturn_ExpressionWithAddedMulOp)
-		{
-		}
-
-		TEST_METHOD(ParserUniform_ExpressionContainingTwoParenthesisNotSeperatedByMulOp_ShouldReturn_ExpressionWithAddedMulOp)
-		{
-		}
+		*/
+//		TEST_METHOD(ParserUniform_ExpressionNotContainingMulOpPrecedingParenthesis_ShouldReturn_ExpressionWithAddedMulOp)
+//		{
+//			//Verify("2(4a+2)", "2*(4*a+2)");
+//		}
+//
+//		TEST_METHOD(ParserUniform_ExpressionContainingTwoParenthesisNotSeperatedByMulOp_ShouldReturn_ExpressionWithAddedMulOp)
+//		{
+//			//Verify("(3a+1)(2a+1)", "(3*a+1)*(2*a+1)");
+//		}
 
 		TEST_METHOD(ParserUniform_ExpressionNotContainingExpOpFollowedByParenthesis_ShouldReturn_ExpressionWithAddedExpOp)
 		{
+			Verify("(3*a)2", 9, 2);
 		}
-*/
-		TEST_METHOD(ParserUniform_ExpressionContainingSubOpImmediatelyFollowedByMulOp_ShouldReturn_EmptyString)
-		{
-			Verify("3*-2");
-		}
+
+//		TEST_METHOD(ParserUniform_ExpressionContainingSubOpImmediatelyFollowedByMulOp_ShouldReturn_EmptyString)
+//		{
+//			Verify("3*-2");
+//		}
 
 	};
 }
