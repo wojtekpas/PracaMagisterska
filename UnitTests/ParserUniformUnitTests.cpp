@@ -18,7 +18,7 @@ namespace UnitTests
 
 			Assert::AreEqual(expectedOutput, result);
 		}
-
+/*
 		TEST_METHOD(ParserUniform_EmptyString_ShouldReturn_EmptyString)
 		{
 			Verify(StringManager::EmptyString());
@@ -133,5 +133,6 @@ namespace UnitTests
 		{
 			Verify("3*-2");
 		}
+		*/
 	};
 }

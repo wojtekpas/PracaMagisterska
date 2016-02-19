@@ -6,7 +6,7 @@
 class PolynomialMap
 {
 public:
-	std::map<int, int>m;
+	map<int, int>m;
 
 	explicit PolynomialMap();
 	explicit PolynomialMap(int value);
@@ -35,9 +35,9 @@ public:
 	PolynomialMap operator *= (PolynomialMap p2);
 	PolynomialMap operator /= (PolynomialMap p2);
 	PolynomialMap operator ^= (int power);
+	string ToString();
 	void Print(string name);
 };
-
 
 inline PolynomialMap::PolynomialMap()
 {
@@ -60,11 +60,9 @@ inline bool PolynomialMap::Set(string s)
 	{
 		if (s.length() > 1)
 			return false;
-		else
-		{
-			m.insert(pair<int, int>(1, 1));
-			return true;
-		}
+			
+		m.insert(pair<int, int>(1, 1));
+		return true;
 	}
 
 	int value = CharsConstants::CharToInt(s[0]);
@@ -72,7 +70,7 @@ inline bool PolynomialMap::Set(string s)
 	for (int i = 1; i < s.length(); i++)
 	{
 		value *= 10;
-		value = value + CharsConstants::CharToInt(s[0]);
+		value = value + CharsConstants::CharToInt(s[i]);
 	}
 
 	m.insert(pair<int, int>(0, value));
@@ -260,6 +258,23 @@ inline PolynomialMap PolynomialMap::operator ^= (int power)
 {
 	*this = *this ^ power;
 	return *this;
+}
+
+inline string PolynomialMap::ToString()
+{
+	if (IsZero())
+	{
+		return("Is Zero\n");
+	}
+
+	string result = StringManager::EmptyString();
+	for (auto pair1 : m)
+	{
+		result = result + to_string(pair1.first) + ':' 
+			+ to_string(pair1.second) + ',';
+	}
+
+	return result;
 }
 
 inline void PolynomialMap::Print(string name)

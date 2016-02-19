@@ -26,7 +26,7 @@ namespace UnitTests
 		{
 			PolynomialMap result = parser.ConvertToPolynomialMap(input);
 
-			Assert::IsTrue(expectedOutput == result);
+			Assert::AreEqual(expectedOutput.ToString(), result.ToString());
 		}
 
 		void VerifyForAFirstPower(string input, int expectedValueForAFirstPower)
@@ -132,7 +132,7 @@ namespace UnitTests
 		{
 			Verify("10 a2", 10, 2);
 		}
-
+/*
 		TEST_METHOD(ParserUniform_ExpressionNotContainingMulOpPrecedingParenthesis_ShouldReturn_ExpressionWithAddedMulOp)
 		{
 		}
@@ -144,7 +144,7 @@ namespace UnitTests
 		TEST_METHOD(ParserUniform_ExpressionNotContainingExpOpFollowedByParenthesis_ShouldReturn_ExpressionWithAddedExpOp)
 		{
 		}
-
+*/
 		TEST_METHOD(ParserUniform_ExpressionContainingSubOpImmediatelyFollowedByMulOp_ShouldReturn_EmptyString)
 		{
 			Verify("3*-2");
