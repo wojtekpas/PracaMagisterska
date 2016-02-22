@@ -86,7 +86,7 @@ inline PolynomialMap Parser::ConvertToPolynomialMap(string inputS)
 			}
 			else if(CharsConstants::IsMul(s[i]))
 			{
-				if (mulElement.IsZero())
+				if (mulElement.IsNew())
 					mulElement.Add(0, 1);
 
 				if (mulOp)
@@ -131,8 +131,9 @@ inline PolynomialMap Parser::ConvertToPolynomialMap(string inputS)
 			else if(CharsConstants::IsOpeningParenthesis(s[i]))
 			{
 				int closingParenthesis = StringManager::FindClosingParenthesis(StringManager::Substr(s, i, s.length() - 1));
-				curElement = ConvertToPolynomialMap(StringManager::Substr(s, i + 1, closingParenthesis - 1));
-				i = closingParenthesis + 1;
+				curElement = ConvertToPolynomialMap(StringManager::Substr(s, i + 1, i + closingParenthesis - 1));
+				i += closingParenthesis;
+				skip = true;
 			}
 			else
 			{
@@ -144,7 +145,7 @@ inline PolynomialMap Parser::ConvertToPolynomialMap(string inputS)
 	if (skip == false)
 		curElement.Set(StringManager::Substr(s, first, s.length()));
 
-	if (mulElement.IsZero() == false)
+	if (mulElement.IsNew() == false)
 	{
 		curElement *= mulElement;
 		mulElement.Clear();
@@ -209,14 +210,14 @@ inline string Parser::UniformInputString(string s)
 			else if (CharsConstants::IsMinus(s[i]))
 			{
 				if (StringManager::IsEmptyString(result)
-					|| StringManager::LastCharIsAdigitOrALetterOrAClosingParenthesis(result))
+					|| StringManager::LastCharIsAdigitOrALetterOrAParenthesis(result))
 					result += s[i];	
 				else
 					return StringManager::EmptyString();
 			}
 			else if (CharsConstants::IsOperator(s[i]))
 			{
-				if (StringManager::LastCharIsAdigitOrALetterOrAClosingParenthesis(result))
+				if (StringManager::LastCharIsAdigitOrALetterOrAParenthesis(result))
 					result += s[i];
 				else
 					return StringManager::EmptyString();

@@ -13,6 +13,7 @@ public:
 
 	bool Set(string s);
 	void Clear();
+	bool IsNew();
 	bool IsZero();
 	int Size();
 	int Value(int power);
@@ -37,6 +38,9 @@ public:
 	PolynomialMap operator ^= (int power);
 	string ToString();
 	void Print(string name);
+
+protected:
+	bool isNew = true;
 };
 
 inline PolynomialMap::PolynomialMap()
@@ -45,6 +49,7 @@ inline PolynomialMap::PolynomialMap()
 
 inline PolynomialMap::PolynomialMap(int value)
 {
+	isNew = false;
 	if (value != 0)
 		m.insert(pair<int, int>(0, value));
 }
@@ -61,7 +66,7 @@ inline bool PolynomialMap::Set(string s)
 		if (s.length() > 1)
 			return false;
 			
-		m.insert(pair<int, int>(1, 1));
+		SetValue(1, 1);
 		return true;
 	}
 
@@ -73,13 +78,20 @@ inline bool PolynomialMap::Set(string s)
 		value = value + CharsConstants::CharToInt(s[i]);
 	}
 
-	m.insert(pair<int, int>(0, value));
+	if(value)
+		SetValue(0, value);
 	return true;
 }
 
 inline void PolynomialMap::Clear()
 {
 	m.clear();
+	isNew = true;
+}
+
+inline bool PolynomialMap::IsNew()
+{
+	return isNew;
 }
 
 inline bool PolynomialMap::IsZero()
@@ -106,6 +118,7 @@ inline bool PolynomialMap::ValueEquals(int power, PolynomialMap p2)
 
 inline void PolynomialMap::SetValue(int power, int value)
 {
+	isNew = false;
 	if (value == 0)
 	{
 		if (m.count(power))
@@ -193,6 +206,9 @@ inline PolynomialMap PolynomialMap::operator - (PolynomialMap p2)
 inline PolynomialMap PolynomialMap::operator * (PolynomialMap p2)
 {
 	PolynomialMap result;
+
+	if (p2.IsZero())
+		return result;
 
 	for (auto pair1 : m)
 	{

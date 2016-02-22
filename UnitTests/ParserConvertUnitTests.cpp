@@ -47,111 +47,239 @@ namespace UnitTests
 		{
 			result.Clear();
 		}
-/*
-		TEST_METHOD(ParserUniform_EmptyString_ShouldReturn_EmptyPolynomialMap)
+		
+		TEST_METHOD(ParserConvert01)
 		{
 			Verify(StringManager::EmptyString());
 		}
 
-		TEST_METHOD(ParserUniform_SinglePositiveDigit_ShouldReturn_SinglePositiveDigit)
+		TEST_METHOD(ParserConvert02)
 		{
 			Verify("1", 1);
 		}
 
-		TEST_METHOD(ParserUniform_PositiveNumber_ShouldReturn_PositiveNumber)
+		TEST_METHOD(ParserConvert03)
 		{
 			Verify("123", 123);
 		}
 
-		TEST_METHOD(ParserUniform_SingleNegativeDigit_ShouldReturn_SingleNegativeDigit)
+		TEST_METHOD(ParserConvert04)
 		{
 			Verify("-1", -1);
 		}
 
-		TEST_METHOD(ParserUniform_NegativeNumber_ShouldReturn_NegativeNumber)
+		TEST_METHOD(ParserConvert05)
 		{
 			Verify("-123", -123);
 		}
 
-		TEST_METHOD(ParserUniform_SingleVar_ShouldReturn_SingleVar)
+		TEST_METHOD(ParserConvert06)
 		{
 			VerifyForAFirstPower("a", 1);
 		}
 
-		TEST_METHOD(ParserUniform_TwoVarsInARow_ShouldReturn_EmptyString)
+		TEST_METHOD(ParserConvert07)
 		{
 			Verify("aa");
 		}
 
-		TEST_METHOD(ParserUniform_NumberStartsFromBlankSpace_ShouldReturn_ValueWithoutWhitespaces)
+		TEST_METHOD(ParserConvert08)
 		{
 			Verify(" 1234", 1234);
 		}
 
-		TEST_METHOD(ParserUniform_ExpressionContainingMulOp_ShouldReturn_ExpressionWithoutChange)
+		TEST_METHOD(ParserConvert09)
 		{
 			VerifyForAFirstPower("100*a", 100);
 		}
 
-		TEST_METHOD(ParserUniform_ExpressionNotContainingMulOp_ShouldReturn_ExpressionWithAddedMulOp)
+		TEST_METHOD(ParserConvert10)
 		{
 			VerifyForAFirstPower("100a", 100);
 		}
 
-		TEST_METHOD(ParserUniform_NegativeExpressionNotContainingMulOp_ShouldReturn_ExpressionWithAddedMulOp)
+		TEST_METHOD(ParserConvert11)
 		{
 			VerifyForAFirstPower("-50a", -50);
 		}
 
-		TEST_METHOD(ParserUniform_ExpressionContainingExpOp_ShouldReturn_ExpressionWithoutChange)
+		TEST_METHOD(ParserConvert12)
 		{
 			Verify("a^2", 1, 2);
 		}
 
-		TEST_METHOD(ParserUniform_ExpressionNotContainingExpOp_ShouldReturn_ExpressionWithAddedExpOp)
+		TEST_METHOD(ParserConvert13)
 		{
 			Verify("a3", 1, 3);
 		}
 
-		TEST_METHOD(ParserUniform_NegativeExpressionContainingMulOpAndExpOp_ShouldReturn_ExpressionWithoutChange)
+		TEST_METHOD(ParserConvert14)
 		{
 			Verify("-5*a3", -5, 3);
 		}
 
-		TEST_METHOD(ParserUniform_ExpressionContainingMulOpFollowedByExpressionNotContainingMulOp_ShouldReturn_ExpressionWithoutAddedExpOp)
+		TEST_METHOD(ParserConvert15)
 		{
 			Verify("a3*3", 3, 3);
 		}
 
-		TEST_METHOD(ParserUniform_ExpressionNotContainingMulOpAndExpOp_ShouldReturn_ExpressionWithAddedMulOpAndExpOp)
+		TEST_METHOD(ParserConvert16)
 		{
 			Verify("4a3", 4, 3);
 		}
 
-		TEST_METHOD(ParserUniform_ExpressionNotContainingMulOpAndExpOpWithWhitespace_ShouldReturn_ExpressionWithAddedMulOpAndExpOp)
+		TEST_METHOD(ParserConvert17)
 		{
 			Verify("10 a2", 10, 2);
 		}
-		*/
-//		TEST_METHOD(ParserUniform_ExpressionNotContainingMulOpPrecedingParenthesis_ShouldReturn_ExpressionWithAddedMulOp)
-//		{
-//			//Verify("2(4a+2)", "2*(4*a+2)");
-//		}
-//
-//		TEST_METHOD(ParserUniform_ExpressionContainingTwoParenthesisNotSeperatedByMulOp_ShouldReturn_ExpressionWithAddedMulOp)
-//		{
-//			//Verify("(3a+1)(2a+1)", "(3*a+1)*(2*a+1)");
-//		}
 
-		TEST_METHOD(ParserUniform_ExpressionNotContainingExpOpFollowedByParenthesis_ShouldReturn_ExpressionWithAddedExpOp)
+		TEST_METHOD(ParserConvert18)
 		{
-			Verify("(3*a)2", 9, 2);
+			result.SetValue(1, 4);
+			result.SetValue(0, 2);
+
+			Verify("4*a+2", result);
 		}
 
-//		TEST_METHOD(ParserUniform_ExpressionContainingSubOpImmediatelyFollowedByMulOp_ShouldReturn_EmptyString)
-//		{
-//			Verify("3*-2");
-//		}
+		TEST_METHOD(ParserConvert19)
+		{
+			VerifyForAFirstPower("2(4a-0)", 8);
+		}
+		
+		TEST_METHOD(ParserConvert20)
+		{
+			result.SetValue(1, 8);
+			result.SetValue(0, 4);
+
+			Verify("2(4a+2)", result);
+		}
+
+		TEST_METHOD(ParserConvert21)
+		{
+			Verify("(3*a)^2", 9, 2);
+		}
+
+		TEST_METHOD(ParserConvert22)
+		{
+			Verify("3*-2");
+		}
+
+		TEST_METHOD(ParserConvert23)
+		{
+			Verify("(3*a)0", 0);
+		}
+
+		TEST_METHOD(ParserConvert24)
+		{
+			Verify("(1)2", 1);
+		}
+
+		TEST_METHOD(ParserConvert25)
+		{
+			Verify("(-1)2", 1);
+		}
+
+		TEST_METHOD(ParserConvert26)
+		{
+			Verify("(-2)10", 1024);
+		}
+
+		TEST_METHOD(ParserConvert27)
+		{
+			result.SetValue(123, 1);
+
+			Verify("a^123", result);
+		}
+
+		TEST_METHOD(ParserConvert28)
+		{
+			result.SetValue(2, 2);
+
+			Verify("a*2a", result);
+		}
+
+		TEST_METHOD(ParserConvert29)
+		{
+			result.SetValue(2, 3);
+			result.SetValue(1, 2);
+			result.SetValue(0, 2);
+
+			Verify("3a2+2a+2", result);
+		}
+
+		TEST_METHOD(ParserConvert30)
+		{
+			result.SetValue(2, 1);
+			result.SetValue(0, -1);
+
+			Verify("(a+1)(a-1)", result);
+		}
+
+		TEST_METHOD(ParserConvert31)
+		{
+			result.SetValue(2, -2);
+			result.SetValue(0, 2);
+
+			Verify("-2(a+1)(a-1)", result);
+		}
+
+		TEST_METHOD(ParserConvert32)
+		{
+			result.SetValue(2, 1);
+			result.SetValue(1, 2);
+			result.SetValue(0, 1);
+
+			Verify("(a+1)(a+1)", result);
+		}
+
+		TEST_METHOD(ParserConvert33)
+		{
+			result.SetValue(3, 1);
+			result.SetValue(2, -3);
+			result.SetValue(1, 3);
+			result.SetValue(0, -1);
+
+			Verify("(a-1)^3", result);
+		}
+
+		TEST_METHOD(ParserConvert34)
+		{
+			result.SetValue(3, 1);
+			result.SetValue(2, 6);
+
+			Verify("a3+2a2+4a2", result);
+		}
+
+		TEST_METHOD(ParserConvert35)
+		{
+			Verify("0*2a");
+		}
+
+		TEST_METHOD(ParserConvert36)
+		{
+			Verify("0*(a3-1)");
+		}
+
+		TEST_METHOD(ParserConvert37)
+		{
+			Verify("(a3-1)*0");
+		}
+
+		TEST_METHOD(ParserConvert38)
+		{
+			result.SetValue(3, 1);;
+			result.SetValue(1, 3);
+			result.SetValue(0, -1);
+
+			Verify("(a-1)^3+4a2-a2+0*(a3-1)", result);
+		}
+
+		//		TEST_METHOD(ParserUniform_ExpressionContainingTwoParenthesisNotSeperatedByMulOp_ShouldReturn_ExpressionWithAddedMulOp)
+		//		{
+		//			//Verify("(3a+1)(2a+1)", "(3*a+1)*(2*a+1)");
+		//		}
+
+
 
 	};
 }
