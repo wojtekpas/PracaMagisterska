@@ -166,7 +166,7 @@ namespace UnitTests
 
 		TEST_METHOD(ParserConvert23)
 		{
-			Verify("(3*a)0", 0);
+			Verify("(3*a)0", 1);
 		}
 
 		TEST_METHOD(ParserConvert24)
@@ -274,11 +274,43 @@ namespace UnitTests
 			Verify("(a-1)^3+4a2-a2+0*(a3-1)", result);
 		}
 
-		//		TEST_METHOD(ParserUniform_ExpressionContainingTwoParenthesisNotSeperatedByMulOp_ShouldReturn_ExpressionWithAddedMulOp)
-		//		{
-		//			//Verify("(3a+1)(2a+1)", "(3*a+1)*(2*a+1)");
-		//		}
+		TEST_METHOD(ParserConvert39)
+		{
+			result.SetValue(2, 6);;
+			result.SetValue(1, 5);
+			result.SetValue(0, 1);
+			Verify("(3a+1)(2a+1)", result);
+		}
 
+		TEST_METHOD(ParserConvert40)
+		{
+			Verify("-2a3*0+11", 11);
+		}
+
+		TEST_METHOD(ParserConvert41)
+		{
+			Verify("2^3^2", 64);
+		}
+
+		TEST_METHOD(ParserConvert42)
+		{
+			Verify("5^0", 1);
+		}
+
+		TEST_METHOD(ParserConvert43)
+		{
+			Verify("-(2a5)^0", -1);
+		}
+
+		TEST_METHOD(ParserConvert44)
+		{
+			Verify("(2a-3a+a)^1", 0);
+		}
+
+		TEST_METHOD(ParserConvert45)
+		{
+			Verify("-(2a-3a+a)^0", 0);
+		}
 
 
 	};

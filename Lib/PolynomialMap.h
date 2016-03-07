@@ -232,7 +232,10 @@ inline PolynomialMap PolynomialMap::operator ^ (int power)
 
 	if (power == 0)
 	{
-		result.Clear();
+		if (IsZero())
+			return result;
+
+		result.SetValue(0, 1);
 		return result;
 	}
 
