@@ -11,8 +11,9 @@ private:
 	bool isNegative = false;
 	int Equal(Number number1, Number number2);
 	Number AddTwoPositives(Number number1, Number number2);
-	Number AddGreaterPositiveAndNegative(Number number1, Number number2);
+	Number AddAbsolutelyGreaterPositiveAndNegative(Number number1, Number number2);
 public:
+	bool IsPositive();
 	bool IsNegative();
 	int NumberOfTheHighestBit(int position = 0);
 	int Size();
@@ -96,7 +97,7 @@ inline Number Number::AddTwoPositives(Number number1, Number number2)
 	return result;
 }
 
-inline Number Number::AddGreaterPositiveAndNegative(Number number1, Number number2)
+inline Number Number::AddAbsolutelyGreaterPositiveAndNegative(Number number1, Number number2)
 {
 	int size1 = number1.Size();
 	int size2 = number2.Size();
@@ -138,6 +139,11 @@ inline Number Number::AddGreaterPositiveAndNegative(Number number1, Number numbe
 			number1.vectorValues.pop_back();
 	}
 	return result;
+}
+
+inline bool Number::IsPositive()
+{
+	return !isNegative;
 }
 
 inline bool Number::IsNegative()
@@ -212,18 +218,45 @@ inline Number Number::operator=(Number number)
 
 inline Number Number::operator+(Number number)
 {
-	int size1 = Size();
-	int size2 = number.Size();
+	Number number1 = *this;
+	Number number2 = number;
+	Number absNumber1 = *this;
+	Number absNumber2 = number;
+	absNumber1.isNegative = false;
+	absNumber2.isNegative = false;
+	bool isGreater = absNumber1 > absNumber2;
 
-	for (int i = 0; i < min(size1, size2); i++)
+	if (number1.IsPositive() && number2.IsPositive())
+		return AddTwoPositives(number1, number2);
+	if (number1.IsNegative() && number2.IsNegative())
 	{
-		if (vectorValues[i] != number.vectorValues[i])
-			return *this;
+		Number result = AddTwoPositives(number1, number2);
+		result.isNegative = true;
+		return result;
 	}
+	if (number1.IsPositive())
+	{
+		if (isGreater)
+		{
+			return AddAbsolutelyGreaterPositiveAndNegative(number1, number2);
+		}
+		Number result = AddAbsolutelyGreaterPositiveAndNegative(number2, number1);
+		result.isNegative = true;
+		return result;
+	}
+	if (isGreater)
+	{
+		Number result = AddAbsolutelyGreaterPositiveAndNegative(number1, number2);
+		result.isNegative = true;
+		return result;
+	}
+	return AddAbsolutelyGreaterPositiveAndNegative(number2, number1);
 }
 
 inline Number Number::operator-(Number number)
 {
+	number.isNegative = !number.IsNegative();
+	return *this + number;
 }
 
 inline Number Number::operator*(Number number)
