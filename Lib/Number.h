@@ -13,6 +13,7 @@ private:
 	Number AddTwoPositives(Number number1, Number number2);
 	Number AddAbsolutelyGreaterPositiveAndNegative(Number number1, Number number2);
 public:
+	Number(int value = 0, bool isNegative = false);
 	bool IsPositive();
 	bool IsNegative();
 	int NumberOfTheHighestBit(int position = 0);
@@ -141,6 +142,13 @@ inline Number Number::AddAbsolutelyGreaterPositiveAndNegative(Number number1, Nu
 	return result;
 }
 
+inline Number::Number(int value = 0, bool isNegative = false)
+{
+	vectorValues.push_back(abs(value));
+	if (value < 0 || isNegative)
+		this->isNegative = true;
+}
+
 inline bool Number::IsPositive()
 {
 	return !isNegative;
@@ -261,6 +269,31 @@ inline Number Number::operator-(Number number)
 
 inline Number Number::operator*(Number number)
 {
+	Number result;
+	Number number1;
+	Number number2;
+
+	for (int i = 0; i <= number1.Size(); i++)
+	{
+		for (int j = 0; j <= number2.Size(); j++)
+		{
+			if (i + j >= result.Size())
+				result.vectorValues.push_back(0);
+			uint64_t value1 = number.vectorValues[i];
+			uint64_t value2 = number.vectorValues[j];
+			uint64_t tmp = value1 * value2;
+			int value = tmp % MAX_VALUE;
+			int carry = tmp / MAX_VALUE;
+			result.vectorValues[i + j] += value;
+			if (carry)
+			{
+				if (i + j + 1 >= result.Size())
+					result.vectorValues.push_back(0);
+				result.vectorValues[i + j + 1] += carry;
+			}
+		}
+	}
+	return result;
 }
 
 inline Number Number::operator/(Number number)
@@ -270,33 +303,50 @@ inline Number Number::operator/(Number number)
 
 inline Number Number::operator^(int power)
 {
-	Number result;
 	if (power == 0)
 	{
+		Number result(1);
 		return result;
 	}
+	Number result = *this;
+	for (int i = 1; i < power; i++)
+	{
+		result *= *this;
+	}
+	return result;
 }
 
 inline Number Number::operator+=(Number number)
 {
+	*this = *this + number;
+	return *this;
 }
 
 inline Number Number::operator-=(Number number)
 {
+	*this = *this - number;
+	return *this;
 }
 
 inline Number Number::operator*=(Number number)
 {
+	*this = *this * number;
+	return *this;
 }
 
 inline Number Number::operator/=(Number number)
 {
+	*this = *this / number;
+	return *this;
 }
 
 inline Number Number::operator^=(int power)
 {
+	*this = *this ^ power;
+	return *this;
 }
 
 inline string Number::ToString()
 {
+	return "empty";
 }
