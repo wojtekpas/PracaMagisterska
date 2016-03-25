@@ -6,5 +6,6 @@
     <ClInclude Include="PolynomialMap.h" />
     <ClInclude Include="CharsConstants.h" />
     <ClInclude Include="StringManager.h" />
+    <ClInclude Include="Number.h" />
   </ItemGroup>
 </Project>

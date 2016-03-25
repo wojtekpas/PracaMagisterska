@@ -21,7 +21,8 @@ public:
 	void SetValue(int power, int value);
 	void Add(int power, int value);
 	void Sub(int power, int value);
-	void Mul(int power1, int value1, int power2, int value2);
+	static pair<int, int> Mul(int power1, int value1, int power2, int value2);
+	static pair<pair<int, int>, pair<int, int>> Div(int power1, int value1, int power2, int value2);
 
 	bool operator==(PolynomialMap p2);
 	bool operator!=(PolynomialMap p2);
@@ -142,9 +143,19 @@ inline void PolynomialMap::Sub(int power, int value)
 	return Add(power, -value);
 }
 
-inline void PolynomialMap::Mul(int power1, int value1, int power2, int value2)
+inline pair<int, int> PolynomialMap::Mul(int power1, int value1, int power2, int value2)
 {
-	Add(power1 + power2, value1 * value2);
+	return pair<int, int>(power1 + power2, value1 * value2);
+	//Add(power1 + power2, value1 * value2);
+}
+
+inline pair<pair<int, int>, pair<int, int>> PolynomialMap::Div(int power1, int value1, int power2, int value2)
+{
+	pair<int, int> result = pair<int, int>(power1 - power2, value1 / value2);
+	pair<int, int> rest = pair<int, int>(power1, value1 % result.second);
+
+	return pair<pair<int, int>, pair<int, int>>(result, rest);
+	//Add(power1 - power2, value1 / value2);
 }
 
 inline bool PolynomialMap::operator == (PolynomialMap p2)
