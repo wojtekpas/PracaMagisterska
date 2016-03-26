@@ -12,8 +12,10 @@ private:
 	int Equal(Number number1, Number number2);
 	Number AddTwoPositives(Number number1, Number number2);
 	Number AddAbsolutelyGreaterPositiveAndNegative(Number number1, Number number2);
+	Number CutValues(Number number, int lowByte);
+	Number CutBits(Number number, int lowBit);
 public:
-	Number(int value = 0, bool isNegative = false);
+	explicit Number(int value = 0, bool isNegative = false);
 	bool IsPositive();
 	bool IsNegative();
 	int NumberOfTheHighestBit(int position = 0);
@@ -138,6 +140,40 @@ inline Number Number::AddAbsolutelyGreaterPositiveAndNegative(Number number1, Nu
 	{
 		if (number1.vectorValues[i] == 0)
 			number1.vectorValues.pop_back();
+	}
+	return result;
+}
+
+inline Number Number::CutValues(Number number, int lowValue)
+{
+	Number result;
+	for (int i = lowValue; i < number.Size(); i++)
+	{
+		result.vectorValues.push_back(number.vectorValues[i]);
+	}
+	return result;
+}
+
+inline Number Number::CutBits(Number number, int lowBit)
+{
+	Number result;
+	if (lowBit > number.Size())
+		return result;
+
+	int lowByte = lowBit / MAX_VALUE_NUMBER_OF_BITS;
+	int shiftBits = lowBit % MAX_VALUE_NUMBER_OF_BITS;
+	if (shiftBits == 0)
+		return CutValues(number, lowByte);
+
+	int divider = 1 << shiftBits;
+	int carry = number.vectorValues[lowByte] / divider;
+	
+	for (int i = lowByte; i < number.Size(); i++)
+	{
+		int tmp = number.vectorValues[i] % divider;
+		int value = tmp << shiftBits + carry;
+		result.vectorValues.push_back(value);
+		carry = number.vectorValues[i] / divider;
 	}
 	return result;
 }
@@ -293,12 +329,18 @@ inline Number Number::operator*(Number number)
 			}
 		}
 	}
+	result.isNegative = number1.isNegative ^ number2.isNegative;
 	return result;
 }
 
 inline Number Number::operator/(Number number)
 {
-	
+	Number result;
+	Number current;
+
+	int bits = SizeInBits();
+	int bytes = Size();
+
 }
 
 inline Number Number::operator^(int power)
