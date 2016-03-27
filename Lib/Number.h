@@ -9,6 +9,7 @@ class Number
 private:
 	vector<int>vectorValues;
 	bool isNegative = false;
+	int GetBit(Number number, int bitPos);
 	int Equal(Number number1, Number number2);
 	Number AddTwoPositives(Number number1, Number number2);
 	Number AddAbsolutelyGreaterPositiveAndNegative(Number number1, Number number2);
@@ -41,6 +42,19 @@ public:
 	string ToString();
 
 };
+
+inline int Number::GetBit(Number number, int bitPos)
+{
+	if (bitPos > number.SizeInBits())
+		return 0;
+
+	int valuePos = bitPos / MAX_VALUE_NUMBER_OF_BITS;
+	int bitInValue = bitPos % MAX_VALUE_NUMBER_OF_BITS;
+	int tmp = number.vectorValues[valuePos];
+	int mask = 1 << bitInValue;
+
+	return tmp / mask;
+}
 
 inline int Number::Equal(Number number1, Number number2)
 {
@@ -144,31 +158,31 @@ inline Number Number::AddAbsolutelyGreaterPositiveAndNegative(Number number1, Nu
 	return result;
 }
 
-inline Number Number::CutValues(Number number, int lowValue)
+inline Number Number::CutValues(Number number, int lowValuePos)
 {
 	Number result;
-	for (int i = lowValue; i < number.Size(); i++)
+	for (int i = lowValuePos; i < number.Size(); i++)
 	{
 		result.vectorValues.push_back(number.vectorValues[i]);
 	}
 	return result;
 }
 
-inline Number Number::CutBits(Number number, int lowBit)
+inline Number Number::CutBits(Number number, int lowBitPos)
 {
 	Number result;
-	if (lowBit > number.Size())
+	if (lowBitPos > number.Size())
 		return result;
 
-	int lowByte = lowBit / MAX_VALUE_NUMBER_OF_BITS;
-	int shiftBits = lowBit % MAX_VALUE_NUMBER_OF_BITS;
+	int lowValuePos = lowBitPos / MAX_VALUE_NUMBER_OF_BITS;
+	int shiftBits = lowBitPos % MAX_VALUE_NUMBER_OF_BITS;
 	if (shiftBits == 0)
-		return CutValues(number, lowByte);
+		return CutValues(number, lowValuePos);
 
 	int divider = 1 << shiftBits;
-	int carry = number.vectorValues[lowByte] / divider;
+	int carry = number.vectorValues[lowValuePos] / divider;
 	
-	for (int i = lowByte; i < number.Size(); i++)
+	for (int i = lowValuePos; i < number.Size(); i++)
 	{
 		int tmp = number.vectorValues[i] % divider;
 		int value = tmp << shiftBits + carry;
@@ -220,7 +234,7 @@ inline int Number::SizeInBits()
 	if (size == 0)
 		return 0;
 
-	return MAX_VALUE_NUMBER_OF_BITS * (size - 1) + NumberOfTheHighestBit(size - 1);
+	return MAX_VALUE_NUMBER_OF_BITS * (size - 1) + NumberOfTheHighestBit(size - 1) + 1;
 }
 
 inline bool Number::operator==(Number number)
@@ -335,12 +349,31 @@ inline Number Number::operator*(Number number)
 
 inline Number Number::operator/(Number number)
 {
+	Number one(1);
+	Number two(2);
 	Number result;
-	Number current;
 
-	int bits = SizeInBits();
-	int bytes = Size();
+	int bits1 = SizeInBits();
+	int bits2 = number.SizeInBits();
 
+	if (bits1 < bits2)
+		return result;
+
+	int startBit = bits1 - bits2;
+	Number current = CutBits(number, startBit + 1);
+	
+	for (int i = startBit; i >= 0; i--)
+	{
+		current *= two;
+		if (GetBit(*this, startBit))
+			current += one;
+
+		result *= two;
+		if(current > number)
+			result += one;
+	}
+	result.isNegative = isNegative ^ number.isNegative;
+	return result;
 }
 
 inline Number Number::operator^(int power)
