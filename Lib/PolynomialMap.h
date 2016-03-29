@@ -16,6 +16,9 @@ public:
 	bool IsNew();
 	bool IsZero();
 	int Size();
+	int PolynomialDegree();
+	pair<int, int> ValueOfPolynomialDegree();
+	map<int, int> ValuesExceptValueOfPolynomialDegree(int degree);
 	int Value(int power);
 	bool ValueEquals(int power, PolynomialMap p2);
 	void SetValue(int power, int value);
@@ -103,6 +106,41 @@ inline bool PolynomialMap::IsZero()
 inline int PolynomialMap::Size()
 {
 	return m.size();
+}
+
+inline int PolynomialMap::PolynomialDegree()
+{
+	int max = -1;
+
+	for (auto pair1 : m)
+	{
+		if (pair1.first > max)
+			max = pair1.first;
+	}
+	return max;
+}
+
+inline pair<int, int> PolynomialMap::ValueOfPolynomialDegree()
+{
+	int polynomialDegree = PolynomialDegree();
+
+	return pair<int, int>(polynomialDegree, Value(polynomialDegree));
+}
+
+inline map<int, int> PolynomialMap::ValuesExceptValueOfPolynomialDegree(int degree = -1)
+{
+	map <int, int> result;
+	int polynomialDegree = degree;
+
+	if (degree == -1)
+		polynomialDegree = PolynomialDegree();
+
+	for (auto pair1 : m)
+	{
+		if (pair1.first != polynomialDegree)
+			result.insert(pair1);
+	}
+	return result;
 }
 
 inline int PolynomialMap::Value(int power)
@@ -225,7 +263,8 @@ inline PolynomialMap PolynomialMap::operator * (PolynomialMap p2)
 	{
 		for (auto pair2 : p2.m)
 		{
-			result.Mul(pair1.first, pair1.second, pair2.first, pair2.second);
+			auto mulResult = result.Mul(pair1.first, pair1.second, pair2.first, pair2.second);
+			result.Add(mulResult.first, mulResult.second);
 		}
 	}
 
@@ -234,6 +273,40 @@ inline PolynomialMap PolynomialMap::operator * (PolynomialMap p2)
 
 inline PolynomialMap PolynomialMap::operator / (PolynomialMap p2)
 {
+	PolynomialMap result;
+
+	if (IsZero() || p2.IsZero())
+		return result;
+
+	PolynomialMap current = *this;
+	int currentDegree = current.PolynomialDegree();
+	int degree = p2.PolynomialDegree();
+	pair <int, int> pair2 = pair<int, int>(degree, p2.Value(degree));
+	map <int, int> map2 = ValuesExceptValueOfPolynomialDegree(degree);
+
+	while(currentDegree > degree)
+	{
+		pair <int, int> pair1 = pair<int, int>(currentDegree, current.Value(currentDegree));
+		map <int, int> map1 = ValuesExceptValueOfPolynomialDegree(currentDegree);
+		
+		auto divResult = Div(pair1.first, pair1.second, pair2.first, pair2.second).first;
+
+		result.SetValue(divResult.first, divResult.second);
+
+		if (divResult.second != 0)
+		{		
+			current.SetValue(currentDegree, 0);	
+			for (auto p1: map1)
+			{
+				auto mulResult = result.Mul(p1.first, p1.second, pair2.first, pair2.second);
+				current.Sub(mulResult.first, mulResult.second);
+			}
+		}
+
+		current = *this - p2;
+		currentDegree = current.PolynomialDegree();
+	}
+
 	return *this;
 }
 

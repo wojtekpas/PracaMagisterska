@@ -13,6 +13,7 @@ private:
 	int Equal(Number number1, Number number2);
 	Number AddTwoPositives(Number number1, Number number2);
 	Number AddAbsolutelyGreaterPositiveAndNegative(Number number1, Number number2);
+	pair <Number, Number> DivideWithTheRest(Number number1, Number number2);
 	Number CutValues(Number number, int lowByte);
 	Number CutBits(Number number, int lowBit);
 public:
@@ -33,11 +34,13 @@ public:
 	Number operator - (Number number);
 	Number operator * (Number number);
 	Number operator / (Number number);
+	Number operator % (Number number);
 	Number operator ^ (int power);
 	Number operator += (Number number);
 	Number operator -= (Number number);
 	Number operator *= (Number number);
 	Number operator /= (Number number);
+	Number operator %= (Number number);
 	Number operator ^= (int power);
 	string ToString();
 
@@ -156,6 +159,38 @@ inline Number Number::AddAbsolutelyGreaterPositiveAndNegative(Number number1, Nu
 			number1.vectorValues.pop_back();
 	}
 	return result;
+}
+
+inline pair <Number, Number> Number::DivideWithTheRest(Number number1, Number number2)
+{
+	Number one(1);
+	Number two(2);
+	Number result;
+
+	int bits1 = number1.SizeInBits();
+	int bits2 = number2.SizeInBits();
+
+	if (bits1 < bits2)
+		return pair <Number, Number> (result, number1);
+
+	int startBit = bits1 - bits2;
+	Number current = CutBits(number1, startBit + 1);
+
+	for (int i = startBit; i >= 0; i--)
+	{
+		current *= two;
+		if (GetBit(number1, startBit))
+			current += one;
+
+		result *= two;
+		if (current > number2)
+		{
+			current -= number2;
+			result += one;
+		}
+	}
+	result.isNegative = number1.IsNegative() ^ number2.IsNegative();
+	return pair <Number, Number> (result, current);
 }
 
 inline Number Number::CutValues(Number number, int lowValuePos)
@@ -349,31 +384,14 @@ inline Number Number::operator*(Number number)
 
 inline Number Number::operator/(Number number)
 {
-	Number one(1);
-	Number two(2);
-	Number result;
+	pair <Number, Number> result = DivideWithTheRest(*this, number);
+	return result.first;
+}
 
-	int bits1 = SizeInBits();
-	int bits2 = number.SizeInBits();
-
-	if (bits1 < bits2)
-		return result;
-
-	int startBit = bits1 - bits2;
-	Number current = CutBits(number, startBit + 1);
-	
-	for (int i = startBit; i >= 0; i--)
-	{
-		current *= two;
-		if (GetBit(*this, startBit))
-			current += one;
-
-		result *= two;
-		if(current > number)
-			result += one;
-	}
-	result.isNegative = isNegative ^ number.isNegative;
-	return result;
+inline Number Number::operator%(Number number)
+{
+	pair <Number, Number> result = DivideWithTheRest(*this, number);
+	return result.second;
 }
 
 inline Number Number::operator^(int power)
@@ -412,6 +430,12 @@ inline Number Number::operator*=(Number number)
 inline Number Number::operator/=(Number number)
 {
 	*this = *this / number;
+	return *this;
+}
+
+inline Number Number::operator%=(Number number)
+{
+	*this = *this % number;
 	return *this;
 }
 
