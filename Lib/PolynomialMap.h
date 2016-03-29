@@ -27,6 +27,9 @@ public:
 	static pair<int, int> Mul(int power1, int value1, int power2, int value2);
 	static pair<pair<int, int>, pair<int, int>> Div(int power1, int value1, int power2, int value2);
 
+	PolynomialMap Derivative();
+	pair <PolynomialMap, PolynomialMap> DividePolynomials(PolynomialMap p1, PolynomialMap p2);
+
 	bool operator==(PolynomialMap p2);
 	bool operator!=(PolynomialMap p2);
 	PolynomialMap operator = (PolynomialMap p2);
@@ -34,11 +37,13 @@ public:
 	PolynomialMap operator - (PolynomialMap p2);
 	PolynomialMap operator * (PolynomialMap p2);
 	PolynomialMap operator / (PolynomialMap p2);
+	PolynomialMap operator % (PolynomialMap p2);
 	PolynomialMap operator ^ (int power);
 	PolynomialMap operator += (PolynomialMap p2);
 	PolynomialMap operator -= (PolynomialMap p2);
 	PolynomialMap operator *= (PolynomialMap p2);
 	PolynomialMap operator /= (PolynomialMap p2);
+	PolynomialMap operator %= (PolynomialMap p2);
 	PolynomialMap operator ^= (int power);
 	string ToString();
 	void Print(string name);
@@ -196,6 +201,56 @@ inline pair<pair<int, int>, pair<int, int>> PolynomialMap::Div(int power1, int v
 	//Add(power1 - power2, value1 / value2);
 }
 
+inline PolynomialMap PolynomialMap::Derivative()
+{
+	PolynomialMap result;
+
+	for (auto p: m)
+	{
+		if (p.first > 0)
+			result.SetValue(p.first - 1, p.first * p.second);
+	}
+	return result;
+}
+
+inline pair<PolynomialMap, PolynomialMap> PolynomialMap::DividePolynomials(PolynomialMap p1, PolynomialMap p2)
+{
+	PolynomialMap result;
+
+	if (IsZero() || p2.IsZero())
+		return pair<PolynomialMap, PolynomialMap>(result, result);
+
+	PolynomialMap current = p1;
+	int currentDegree = current.PolynomialDegree();
+	int degree = p2.PolynomialDegree();
+	pair <int, int> pair2 = pair<int, int>(degree, p2.Value(degree));
+	map <int, int> map2 = ValuesExceptValueOfPolynomialDegree(degree);
+
+	while (currentDegree > degree)
+	{
+		pair <int, int> pair1 = pair<int, int>(currentDegree, current.Value(currentDegree));
+		map <int, int> map1 = ValuesExceptValueOfPolynomialDegree(currentDegree);
+
+		auto divResult = Div(pair1.first, pair1.second, pair2.first, pair2.second).first;
+
+		result.SetValue(divResult.first, divResult.second);
+
+		if (divResult.second != 0)
+		{
+			current.SetValue(currentDegree, 0);
+			for (auto curPair : map1)
+			{
+				auto mulResult = result.Mul(curPair.first, curPair.second, pair2.first, pair2.second);
+				current.Sub(mulResult.first, mulResult.second);
+			}
+		}
+
+		current = *this - p2;
+		currentDegree = current.PolynomialDegree();
+	}
+	return pair<PolynomialMap, PolynomialMap>(result, current);
+}
+
 inline bool PolynomialMap::operator == (PolynomialMap p2)
 {
 	for (auto pair1 : m)
@@ -273,41 +328,14 @@ inline PolynomialMap PolynomialMap::operator * (PolynomialMap p2)
 
 inline PolynomialMap PolynomialMap::operator / (PolynomialMap p2)
 {
-	PolynomialMap result;
+	pair <PolynomialMap, PolynomialMap> divResult = DividePolynomials(*this, p2);
+	return divResult.first;
+}
 
-	if (IsZero() || p2.IsZero())
-		return result;
-
-	PolynomialMap current = *this;
-	int currentDegree = current.PolynomialDegree();
-	int degree = p2.PolynomialDegree();
-	pair <int, int> pair2 = pair<int, int>(degree, p2.Value(degree));
-	map <int, int> map2 = ValuesExceptValueOfPolynomialDegree(degree);
-
-	while(currentDegree > degree)
-	{
-		pair <int, int> pair1 = pair<int, int>(currentDegree, current.Value(currentDegree));
-		map <int, int> map1 = ValuesExceptValueOfPolynomialDegree(currentDegree);
-		
-		auto divResult = Div(pair1.first, pair1.second, pair2.first, pair2.second).first;
-
-		result.SetValue(divResult.first, divResult.second);
-
-		if (divResult.second != 0)
-		{		
-			current.SetValue(currentDegree, 0);	
-			for (auto p1: map1)
-			{
-				auto mulResult = result.Mul(p1.first, p1.second, pair2.first, pair2.second);
-				current.Sub(mulResult.first, mulResult.second);
-			}
-		}
-
-		current = *this - p2;
-		currentDegree = current.PolynomialDegree();
-	}
-
-	return *this;
+inline PolynomialMap PolynomialMap::operator % (PolynomialMap p2)
+{
+	pair <PolynomialMap, PolynomialMap> divResult = DividePolynomials(*this, p2);
+	return divResult.second;
 }
 
 inline PolynomialMap PolynomialMap::operator ^ (int power)
@@ -354,6 +382,12 @@ inline PolynomialMap PolynomialMap::operator *= (PolynomialMap p2)
 inline PolynomialMap PolynomialMap::operator /= (PolynomialMap p2)
 {
 	*this = *this / p2;
+	return *this;
+}
+
+inline PolynomialMap PolynomialMap::operator %= (PolynomialMap p2)
+{
+	*this = *this % p2;
 	return *this;
 }
 
