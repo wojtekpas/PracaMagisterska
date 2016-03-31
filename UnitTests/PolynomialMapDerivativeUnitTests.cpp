@@ -1,5 +1,6 @@
 #pragma once
 #include "stdafx.h"
+/*
 #include "CppUnitTest.h"
 #include "../Lib/PolynomialMap.h"
 #include "../Lib/Parser.h"
@@ -8,7 +9,7 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace UnitTests
 {
-	TEST_CLASS(ParserConvertUnitTests)
+	TEST_CLASS(PolynomialMapDerivativeTests)
 	{
 		Parser parser;
 		PolynomialMap polynomialMap;
@@ -124,3 +125,4 @@ namespace UnitTests
 
 	};
 }
+*/
