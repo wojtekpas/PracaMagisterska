@@ -28,6 +28,8 @@ public:
 	static pair<pair<int, int>, pair<int, int>> Div(int power1, int value1, int power2, int value2);
 
 	PolynomialMap Derivative();
+	PolynomialMap Nwd(PolynomialMap p2);
+	PolynomialMap PolynomialAfterEliminationOfMultipleRoots();
 	pair <PolynomialMap, PolynomialMap> DividePolynomials(PolynomialMap p1, PolynomialMap p2);
 
 	bool operator==(PolynomialMap p2);
@@ -211,6 +213,19 @@ inline PolynomialMap PolynomialMap::Derivative()
 			result.SetValue(p.first - 1, p.first * p.second);
 	}
 	return result;
+}
+
+inline PolynomialMap PolynomialMap::Nwd(PolynomialMap p2)
+{
+	pair<PolynomialMap, PolynomialMap> divResult = DividePolynomials(*this, p2);
+	return divResult.second;
+}
+
+inline PolynomialMap PolynomialMap::PolynomialAfterEliminationOfMultipleRoots()
+{
+	PolynomialMap nwd = Nwd(Derivative());
+	pair<PolynomialMap, PolynomialMap> divResult = DividePolynomials(*this, nwd);
+	return divResult.first;
 }
 
 inline pair<PolynomialMap, PolynomialMap> PolynomialMap::DividePolynomials(PolynomialMap p1, PolynomialMap p2)
@@ -401,7 +416,7 @@ inline string PolynomialMap::ToString()
 {
 	if (IsZero())
 	{
-		return("Is Zero\n");
+		return("Is Zero");
 	}
 
 	string result = StringManager::EmptyString();
@@ -411,7 +426,7 @@ inline string PolynomialMap::ToString()
 			+ to_string(pair1.second) + ',';
 	}
 
-	return result;
+	return StringManager::Substr(result, 0, result.length() - 2);
 }
 
 inline void PolynomialMap::Print(string name)

@@ -1,5 +1,6 @@
 #pragma once
 #include "stdafx.h"
+/*
 #include "CppUnitTest.h"
 #include "../Lib/PolynomialMap.h"
 #include "../Lib/Parser.h"
@@ -139,4 +140,4 @@ namespace UnitTests
 			Verify("(-1)2", "(-1)^2");
 		}
 	};
-}
+}*/
