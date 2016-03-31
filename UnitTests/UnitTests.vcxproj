@@ -160,6 +160,8 @@
   <ItemGroup>
     <ClCompile Include="ParserConvertUnitTests.cpp" />
     <ClCompile Include="PolynomialMapDerivativeUnitTests.cpp" />
+    <ClCompile Include="PolynomialMapDivOperator.cpp" />
+    <ClCompile Include="PolynomialMapMulOperator.cpp" />
     <ClCompile Include="PolynomialMapSubOperator.cpp" />
     <ClCompile Include="PolynomialMapSumOperator.cpp" />
     <ClCompile Include="stdafx.cpp">

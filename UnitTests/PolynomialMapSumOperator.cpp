@@ -1,5 +1,6 @@
 #pragma once
 #include "stdafx.h"
+/*
 #include "CppUnitTest.h"
 #include "../Lib/PolynomialMap.h"
 #include "../Lib/Parser.h"
@@ -100,3 +101,4 @@ namespace UnitTests
 		}
 	};
 }
+*/

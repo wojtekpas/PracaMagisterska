@@ -25,7 +25,7 @@ public:
 	void Add(int power, int value);
 	void Sub(int power, int value);
 	static pair<int, int> Mul(int power1, int value1, int power2, int value2);
-	static pair<pair<int, int>, pair<int, int>> Div(int power1, int value1, int power2, int value2);
+	static pair<int, int> Div(int power1, int value1, int power2, int value2);
 
 	PolynomialMap Derivative();
 	PolynomialMap Nwd(PolynomialMap p2);
@@ -194,13 +194,11 @@ inline pair<int, int> PolynomialMap::Mul(int power1, int value1, int power2, int
 	//Add(power1 + power2, value1 * value2);
 }
 
-inline pair<pair<int, int>, pair<int, int>> PolynomialMap::Div(int power1, int value1, int power2, int value2)
+inline pair<int, int> PolynomialMap::Div(int power1, int value1, int power2, int value2)
 {
 	pair<int, int> result = pair<int, int>(power1 - power2, value1 / value2);
-	pair<int, int> rest = pair<int, int>(power1, value1 % result.second);
 
-	return pair<pair<int, int>, pair<int, int>>(result, rest);
-	//Add(power1 - power2, value1 / value2);
+	return result;
 }
 
 inline PolynomialMap PolynomialMap::Derivative()
@@ -239,28 +237,30 @@ inline pair<PolynomialMap, PolynomialMap> PolynomialMap::DividePolynomials(Polyn
 	int currentDegree = current.PolynomialDegree();
 	int degree = p2.PolynomialDegree();
 	pair <int, int> pair2 = pair<int, int>(degree, p2.Value(degree));
-	map <int, int> map2 = ValuesExceptValueOfPolynomialDegree(degree);
+	map <int, int> map2 = p2.ValuesExceptValueOfPolynomialDegree(degree);
 
-	while (currentDegree > degree)
+	while (currentDegree >= degree)
 	{
 		pair <int, int> pair1 = pair<int, int>(currentDegree, current.Value(currentDegree));
 		map <int, int> map1 = ValuesExceptValueOfPolynomialDegree(currentDegree);
 
-		auto divResult = Div(pair1.first, pair1.second, pair2.first, pair2.second).first;
+		auto divResult = Div(pair1.first, pair1.second, pair2.first, pair2.second);
 
 		result.SetValue(divResult.first, divResult.second);
 
 		if (divResult.second != 0)
 		{
 			current.SetValue(currentDegree, 0);
-			for (auto curPair : map1)
+			for (auto curPair : map2)
 			{
-				auto mulResult = result.Mul(curPair.first, curPair.second, pair2.first, pair2.second);
+				auto mulResult = Mul(curPair.first, curPair.second, divResult.first, divResult.second);
 				current.Sub(mulResult.first, mulResult.second);
 			}
 		}
-
-		current = *this - p2;
+		else
+		{
+			break;
+		}
 		currentDegree = current.PolynomialDegree();
 	}
 	return pair<PolynomialMap, PolynomialMap>(result, current);
