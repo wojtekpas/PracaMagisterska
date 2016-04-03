@@ -96,5 +96,12 @@ namespace UnitTests
 			result.SetValue(1, 6);
 			Verify("-30a3-15a", "-5a2", result);
 		}
+
+		TEST_METHOD(PolynomialMapDivOperator11)
+		{
+			PolynomialMap answer = parser.ConvertToPolynomialMap("x");
+			Verify("x6-6x4-4x3+9x2+12x+4", "x5-4x3-2x2+3x+2", answer);
+		}
 	};
 }
+

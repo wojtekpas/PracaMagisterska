@@ -161,6 +161,7 @@
     <ClCompile Include="ParserConvertUnitTests.cpp" />
     <ClCompile Include="PolynomialMapDerivativeUnitTests.cpp" />
     <ClCompile Include="PolynomialMapDivOperator.cpp" />
+    <ClCompile Include="PolynomialMapModOperator.cpp" />
     <ClCompile Include="PolynomialMapMulOperator.cpp" />
     <ClCompile Include="PolynomialMapSubOperator.cpp" />
     <ClCompile Include="PolynomialMapSumOperator.cpp" />
