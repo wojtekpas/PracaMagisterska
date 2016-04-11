@@ -7,5 +7,6 @@
     <ClInclude Include="CharsConstants.h" />
     <ClInclude Include="StringManager.h" />
     <ClInclude Include="Number.h" />
+    <ClInclude Include="Fraction.h" />
   </ItemGroup>
 </Project>

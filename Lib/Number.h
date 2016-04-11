@@ -18,11 +18,13 @@ private:
 	Number CutBits(Number number, int lowBit);
 public:
 	explicit Number(int value = 0, bool isNegative = false);
+	void SetSign(bool isNegative = 0);
 	bool IsPositive();
 	bool IsNegative();
 	int NumberOfTheHighestBit(int position = 0);
 	int Size();
 	int SizeInBits();
+	Number NWW(Number number);
 	bool operator == (Number number);
 	bool operator != (Number number);
 	bool operator > (Number number);
@@ -42,6 +44,7 @@ public:
 	Number operator /= (Number number);
 	Number operator %= (Number number);
 	Number operator ^= (int power);
+	Number operator = (int number);
 	string ToString();
 
 };
@@ -61,15 +64,15 @@ inline int Number::GetBit(Number number, int bitPos)
 
 inline int Number::Equal(Number number1, Number number2)
 {
-	if (IsNegative() == false && number2.IsNegative())
+	if (number1.IsNegative() == false && number2.IsNegative())
 		return 1;
 
-	if (IsNegative() && number2.IsNegative() == false)
+	if (number2.IsNegative() && number2.IsNegative() == false)
 		return -1;
 
 	int sign = 1;
 
-	if (IsNegative())
+	if (number1.IsNegative())
 		sign = -1;
 
 	if (SizeInBits() != number2.SizeInBits())
@@ -81,7 +84,7 @@ inline int Number::Equal(Number number1, Number number2)
 
 	for (int i = Size() - 1; i >= 0; i++)
 	{
-		if (vectorValues[i] != number2.vectorValues[i])
+		if (number1.vectorValues[i] != number2.vectorValues[i])
 		{
 			if (vectorValues[i] > number2.vectorValues[i])
 				return sign;
@@ -229,9 +232,19 @@ inline Number Number::CutBits(Number number, int lowBitPos)
 
 inline Number::Number(int value = 0, bool isNegative = false)
 {
-	vectorValues.push_back(abs(value));
-	if (value < 0 || isNegative)
-		this->isNegative = true;
+	int absValue = abs(value);
+	int lowValue = absValue % MAX_VALUE;
+	int highValue = absValue / MAX_VALUE;
+
+	vectorValues.push_back(lowValue);
+	if (highValue)
+		vectorValues.push_back(highValue);
+	this->isNegative = (value < 0) || isNegative;
+}
+
+inline void Number::SetSign(bool isNegative = 0)
+{
+	this->isNegative = isNegative;
 }
 
 inline bool Number::IsPositive()
@@ -270,6 +283,11 @@ inline int Number::SizeInBits()
 		return 0;
 
 	return MAX_VALUE_NUMBER_OF_BITS * (size - 1) + NumberOfTheHighestBit(size - 1) + 1;
+}
+
+inline Number Number::NWW(Number number)
+{
+	return *this * number;
 }
 
 inline bool Number::operator==(Number number)
@@ -442,6 +460,13 @@ inline Number Number::operator%=(Number number)
 inline Number Number::operator^=(int power)
 {
 	*this = *this ^ power;
+	return *this;
+}
+
+inline Number Number::operator=(int value)
+{
+	Number number(value);
+	*this = number;
 	return *this;
 }
 

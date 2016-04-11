@@ -118,7 +118,7 @@ namespace UnitTests
 			Verify("a4-4a3+6a2-7a+3", "(a-1)^2", result);
 		}
 
-		TEST_METHOD(PolynomialMapDivOperator16)
+		TEST_METHOD(PolynomialMapModOperator16)
 		{
 			PolynomialMap answer = parser.ConvertToPolynomialMap("-2(x4+x3-3x2-5x-2)");
 			Verify("x6-6x4-4x3+9x2+12x+4", "x5-4x3-2x2+3x+2", answer);
