@@ -203,7 +203,7 @@ Tu możemy dać podziękowania. Jest to zrealizowane w~postaci zwykłego, nienum
 	\begin{equation}
 		\begin{split}
 			&W(x) = a_0x^n + a_1x^{n-1} + a_2x^{n-2}+ ... + a_{n-1}x + a_n, \\
-			&gdzie\ a_0, a_1, a_2, ..., 1_{n-1}, a_n\in R, n \in N 
+			&gdzie\ a_0, a_1, a_2, ..., a_{n-1}, a_n\in R, n \in N 
 		\end{split}
 	\end{equation}
 \end{definition}
@@ -247,7 +247,7 @@ Na wielomianach, tak jak na liczbach możemy wykonywać podstawowe działania. N
 	$\forall{i\in N}\ a_i = b_i$.
 \end{example}
 
-\subsubsection{Dodawanie wielomianów}
+\subsubsection{Suma wielomianów}
 
 \begin{theorem}
 	Aby dodać dwa wielomiany należy dodać ich wyrazy podobne.
@@ -278,6 +278,30 @@ Na powyższym przykładzie łatwo zaobserwować, że stopień sumy dwóch wielom
 	\end{equation}
 \end{theorem}
 
+\subsubsection{Różnica wielomianów}
+
+\begin{definition}
+	Wielomianem przeciwnym nazywamy wielomian, którego wszystkie współczynniki są przeciwne do danych.
+\end{definition}
+
+\begin{example}
+	Mamy dany wielomian $W_1$.
+	\begin{equation}
+	\begin{split}
+	W_1(x) = a_0x^n + a_1x^{n-1} + ... + a_{n-1}x + a_n,\ gdzie\ a,b\in R, n \in N 
+	\end{split}
+	\end{equation}
+	Zdefiniujmy drugi wielomian: $W_2(x) = -W_1(x)$. Wówczas:
+	\begin{equation}
+	\begin{split}
+	W_1(x) = -a_0x^n + (-a_1)x^{n-1} + ... + (-a_{n-1})x + (-a_n),\ gdzie\ a,b\in R, n \in N 
+	\end{split}
+	\end{equation}
+\end{example}
+
+\begin{theorem}
+	Aby obliczyć różnicę wielomianów $W_1$ i $W_2$, należy dodać ze sobą wielomiany $W_1$ i $-W_2$, czyli wielomian przeciwny do wielomianu $W_2$
+\end{theorem}
 
 
 .\\
