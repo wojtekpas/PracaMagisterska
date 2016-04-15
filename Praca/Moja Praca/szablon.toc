@@ -1,8 +1,11 @@
 \select@language {polish}
 \contentsline {chapter}{\numberline {1}Przegl\IeC {\k a}d literatury}{1}
 \contentsline {section}{\numberline {1.1}Wielomiany}{1}
-\contentsline {subsection}{\numberline {1.1.1}Definicja wielomianu}{1}
-\contentsline {subsection}{\numberline {1.1.2}Twierdzenia i dowody}{2}
+\contentsline {subsection}{\numberline {1.1.1}Definicja}{1}
+\contentsline {subsection}{\numberline {1.1.2}Podstawowe dzia\IeC {\l }ania na wielomianach}{1}
+\contentsline {subsubsection}{Por\IeC {\'o}wnywania wielomian\IeC {\'o}w}{1}
+\contentsline {subsubsection}{Dodawanie wielomian\IeC {\'o}w}{2}
+\contentsline {subsection}{\numberline {1.1.3}Twierdzenia i dowody}{3}
 \contentsline {chapter}{\numberline {2}Wst\IeC {\k e}p}{5}
 \contentsline {section}{\numberline {2.1}Idea dokumentu}{5}
 \contentsline {section}{\numberline {2.2}Strony tytu\IeC {\l }owe}{5}

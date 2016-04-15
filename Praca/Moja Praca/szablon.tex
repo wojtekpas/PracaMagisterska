@@ -193,7 +193,7 @@ Tu możemy dać podziękowania. Jest to zrealizowane w~postaci zwykłego, nienum
 
 \chapter{Przegląd literatury}
 \section{Wielomiany}
-\subsection{Definicja wielomianu}
+\subsection{Definicja}
 
 
 
@@ -224,6 +224,11 @@ Szczególnym przypadkiem wielomianu jest jednomian.
 Można, więc rozumieć wielomian jako skończoną sumę jednomianów.
 Jednomian stopnia zerowego jest stała, pojedyncza liczba rzeczywista, która w szczególności może być zerem.
 
+\subsection{Podstawowe działania na wielomianach}
+
+Na wielomianach, tak jak na liczbach możemy wykonywać podstawowe działania. Należą do nich: porównywanie, dodawanie, odejmowanie, mnożenie, dzielenie, a także obliczanie reszty z dzielenia oraz NWD (największego wspólnego dzielnika). Jako, że wielomian zmiennej x możemy traktować jak funkcję jednej zmiennej, możemy także policzyć z niego pochodne.
+
+\subsubsection{Porównywania wielomianów}
 
 \begin{theorem}
 	Dwa wielomiany uważamy za równe wtedy i tylko wtedy, gdy są tego samego stopnia, a ich kolejne współczynniki są równe.
@@ -232,16 +237,46 @@ Jednomian stopnia zerowego jest stała, pojedyncza liczba rzeczywista, która w 
 \begin{example}
 	Mamy dane wielomian $W_1$ oraz wielomian $W_2$.
 	\begin{equation}
-	\begin{split}
-	&W_1(x) = a_0x^n + a_1x^{n-1} + ... + a_{n-1}x + a_n, \\
-	&W_2(x) = b_0x^n + b_1x^{n-1} + ... + b_{n-1}x + b_n, \\
-	& gdzie\ a,b\in R, n \in N 
-	\end{split}
+		\begin{split}
+			&W_1(x) = a_0x^n + a_1x^{n-1} + ... + a_{n-1}x + a_n, \\
+			&W_2(x) = b_0x^n + b_1x^{n-1} + ... + b_{n-1}x + b_n, \\
+			& gdzie\ a,b\in R, n \in N 
+		\end{split}
 	\end{equation}
 	Wielomiany $W_1$ oraz $W_2 $ są równe wtedy i tylko wtedy gdy
-	$ \forall{i\in N}\ a_i = b_i$.
+	$\forall{i\in N}\ a_i = b_i$.
 \end{example}
 
+\subsubsection{Dodawanie wielomianów}
+
+\begin{theorem}
+	Aby dodać dwa wielomiany należy dodać ich wyrazy podobne.
+\end{theorem}
+\begin{example}
+	Mamy dane wielomian $W_1$ oraz wielomian $W_2$.
+	\begin{equation}
+		\begin{split}
+			&W_1(x) = a_0x^n + a_1x^{n-1} + ... + a_{n-1}x + a_n, \\
+			&W_2(x) = b_0x^n + b_1x^{n-1} + ... + b_{n-1}x + b_n, \\
+			& gdzie\ a,b\in R, n \in N 
+		\end{split}
+	\end{equation}
+	Zdefiniujmy trzeci wielomian: $W_3(x) = W_1(x) + W_2(x)$. Wówczas:
+	\begin{equation}
+		\begin{split}
+			&W_3(x) = (a_0+b_0)x^n + (a_1+b_1)x^{n-1} + ... + (a_{n-1} + b_{n-1})x + a_n + b_n, \\
+			& gdzie\ a,b\in R, n \in N 
+		\end{split}
+	\end{equation}
+\end{example}
+
+Na powyższym przykładzie łatwo zaobserwować, że stopień sumy dwóch wielomianów nie może być większy od większego ze stopni dodawanych wielomianów. W przypadku gdy oba te wielomiany są tego samego stopnia, o przeciwnym współczynniku przy najwyższej potędze, to stopień ten będzie mniejszy.
+
+\begin{theorem}
+	\begin{equation}
+		\deg(W_1 + W_2) \le max(deg(W_1),\ deg (W_2))
+	\end{equation}
+\end{theorem}
 
 
 
