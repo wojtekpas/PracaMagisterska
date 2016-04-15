@@ -2,22 +2,22 @@
 \contentsline {chapter}{\numberline {1}Przegl\IeC {\k a}d literatury}{1}
 \contentsline {section}{\numberline {1.1}Wielomiany}{1}
 \contentsline {subsection}{\numberline {1.1.1}Definicja wielomianu}{1}
-\contentsline {subsection}{\numberline {1.1.2}Twierdzenia i dowody}{1}
-\contentsline {chapter}{\numberline {2}Wst\IeC {\k e}p}{3}
-\contentsline {section}{\numberline {2.1}Idea dokumentu}{3}
-\contentsline {section}{\numberline {2.2}Strony tytu\IeC {\l }owe}{3}
-\contentsline {section}{\numberline {2.3}Poprawno\IeC {\'s}\IeC {\'c} dokumentu}{4}
-\contentsline {section}{\numberline {2.4}Uwagi i poprawki}{4}
-\contentsline {chapter}{\numberline {3}Podstawowe elementy}{5}
-\contentsline {section}{\numberline {3.1}Sekcje dokumentu}{5}
-\contentsline {subsection}{\numberline {3.1.1}Podpodrozdzia\IeC {\l }}{5}
-\contentsline {subsubsection}{Podpodpodrozdzia\IeC {\l }}{5}
-\contentsline {paragraph}{Paragraf}{5}
-\contentsline {section}{\numberline {3.2}Podstawowe elementy typograficzne}{5}
-\contentsline {subsection}{\numberline {3.2.1}Twarda spacja}{5}
-\contentsline {subsection}{\numberline {3.2.2}Formatowanie tekstu}{5}
-\contentsline {section}{\numberline {3.3}Podzia\IeC {\l } linii i paragrafy}{6}
-\contentsline {section}{\numberline {3.4}\IeC {\'S}rodowisko matematyczne}{8}
-\contentsline {subsection}{\numberline {3.4.1}Twierdzenia i dowody}{8}
-\contentsline {section}{\numberline {3.5}Algorytmy}{9}
-\contentsline {section}{\numberline {3.6}Wpisy bibliograficzne}{11}
+\contentsline {subsection}{\numberline {1.1.2}Twierdzenia i dowody}{2}
+\contentsline {chapter}{\numberline {2}Wst\IeC {\k e}p}{5}
+\contentsline {section}{\numberline {2.1}Idea dokumentu}{5}
+\contentsline {section}{\numberline {2.2}Strony tytu\IeC {\l }owe}{5}
+\contentsline {section}{\numberline {2.3}Poprawno\IeC {\'s}\IeC {\'c} dokumentu}{6}
+\contentsline {section}{\numberline {2.4}Uwagi i poprawki}{6}
+\contentsline {chapter}{\numberline {3}Podstawowe elementy}{7}
+\contentsline {section}{\numberline {3.1}Sekcje dokumentu}{7}
+\contentsline {subsection}{\numberline {3.1.1}Podpodrozdzia\IeC {\l }}{7}
+\contentsline {subsubsection}{Podpodpodrozdzia\IeC {\l }}{7}
+\contentsline {paragraph}{Paragraf}{7}
+\contentsline {section}{\numberline {3.2}Podstawowe elementy typograficzne}{7}
+\contentsline {subsection}{\numberline {3.2.1}Twarda spacja}{7}
+\contentsline {subsection}{\numberline {3.2.2}Formatowanie tekstu}{7}
+\contentsline {section}{\numberline {3.3}Podzia\IeC {\l } linii i paragrafy}{8}
+\contentsline {section}{\numberline {3.4}\IeC {\'S}rodowisko matematyczne}{10}
+\contentsline {subsection}{\numberline {3.4.1}Twierdzenia i dowody}{10}
+\contentsline {section}{\numberline {3.5}Algorytmy}{11}
+\contentsline {section}{\numberline {3.6}Wpisy bibliograficzne}{13}

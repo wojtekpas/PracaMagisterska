@@ -69,9 +69,9 @@
   \end{tikzpicture}}
 
 % zmiana nazwy twierdzeń i lematów
-\newtheorem{theorem}{Twierdzenie}[section]
+\newtheorem{theorem}{Twierdzenie}
 \newtheorem{definition}{Definicja}
-\newtheorem{lemma}[theorem]{Lemat}
+\newtheorem{example}{Przykład}
 
 % tworzenie definicji dowodu
 \newenvironment{proof}[1][Dowód]{\begin{trivlist}
@@ -200,30 +200,90 @@ Tu możemy dać podziękowania. Jest to zrealizowane w~postaci zwykłego, nienum
 
 \begin{definition}
 	Wielomianem zmiennej rzeczywistej x nazywamy wyrażenie:
-	
 	\begin{equation}
-	\begin{split}
-	&W(x) = a_0x^m + a_1x^{m-1} a_2x+ ... + a_{m-1}x + a_m, \\
-	&gdzie\ liczby\ a_0, a_1, a_2, ..., 1_{m-1}, a_m\ są liczbami\ rzeczywistymi
-	\end{split}
-	\label{eq:lin:defPolynomialeq}
+		\begin{split}
+			&W(x) = a_0x^n + a_1x^{n-1} + a_2x^{n-2}+ ... + a_{n-1}x + a_n, \\
+			&gdzie\ a_0, a_1, a_2, ..., 1_{n-1}, a_n\in R, n \in N 
+		\end{split}
 	\end{equation}
-	\label{eq:lin:defPolynomial}
 \end{definition}
 
+Liczby $a_0, a_1, a_2, ..., 1_{n-1}, a_n$ nazywamy współczynnikami wielomianu, natomiast n nazywamy stopniem wielomianu.
+	
+Szczególnym przypadkiem wielomianu jest jednomian. 
+
+\begin{definition}
+	Jednomianem zmiennej rzeczywistej x nazywamy wielomian, który posiada co najwyżej jeden wyraz niezerowy i określamy wzorem:
+	\begin{equation}
+		\begin{split}
+			W(x) = ax^n, gdzie\ a\in R, n \in N 
+		\end{split}
+	\end{equation}
+\end{definition}
+
+Można, więc rozumieć wielomian jako skończoną sumę jednomianów.
+Jednomian stopnia zerowego jest stała, pojedyncza liczba rzeczywista, która w szczególności może być zerem.
+
+
+\begin{theorem}
+	Dwa wielomiany uważamy za równe wtedy i tylko wtedy, gdy są tego samego stopnia, a ich kolejne współczynniki są równe.
+\end{theorem}
+
+\begin{example}
+	Mamy dane wielomian $W_1$ oraz wielomian $W_2$.
+	\begin{equation}
+	\begin{split}
+	&W_1(x) = a_0x^n + a_1x^{n-1} + ... + a_{n-1}x + a_n, \\
+	&W_2(x) = b_0x^n + b_1x^{n-1} + ... + b_{n-1}x + b_n, \\
+	& gdzie\ a,b\in R, n \in N 
+	\end{split}
+	\end{equation}
+	Wielomiany $W_1$ oraz $W_2 $ są równe wtedy i tylko wtedy gdy
+	$ \forall{i\in N}\ a_i = b_i$.
+\end{example}
 
 
 
 
-
-
-
+.\\
+.\\
+.\\
+.\\
+.\\
+.\\\\
+.\\\\
+.\\\\
+.\\
+.\\
+.\\
+.\\
+.\\
+.\\\\
+.\\\\
+.\\\\
+.\\
+.\\
+.\\
+.\\
+.\\
+.\\\\
+.\\\\
+.\\\\
 
 
 
 
 
 \subsection{Twierdzenia i dowody}
+
+
+
+
+
+
+
+
+
 
 Linie 75 -- 93 nagłówka dokumentu definiują nowe nazwy sekcji twierdzeń i dowodów, oraz znacznik końca dowodu (taki czarny kwadracik). Dzięki nim można uzyskać ładnie wyglądające twierdzenia jak poniżej (Twierdzenie~\ref{eq:lin:theorem}). Zauważmy, że równanie dowodu nie jest równaniem numerowanym. Wszędzie tam, gdzie nie chcemy by rozdział czy dowolna inna sekcja była numerowana należy w jej nazwie użyć gwiazdki, np. \textbf{$\backslash$begin\{equation*\}}.
 
