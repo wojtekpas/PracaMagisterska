@@ -1,0 +1,69 @@
+% allows useg @ as a @ not as special character
+% required for macro redefinition
+\makeatletter
+
+% parameters definition
+% they cannot conflict with other
+% like bibteh attributes etc.
+\def\promotor#1{\def\@promotor{#1}}
+\def\promotordpt#1{\def\@promotordept{#1}}
+\def\promotoruniv#1{\def\@promotoruniv{#1}}
+\def\miasto#1{\def\@miasto{#1}}
+
+\def\maketitle{
+  %removal of header
+  \thispagestyle{empty}%
+  %changing margins to match department requirements
+%   \changepage{+60pt}{+70pt}{}{-30pt}{}{-30pt}{-12pt}{-18pt}{}
+  \begin{center}
+    \begin{tabular}{@{}lcr@{}}
+      \multirow{4}{*}{\includegraphics[height=1.9cm]{img/logo_pg.png}} &
+      \LARGE{\textbf{POLITECHNIKA GDAŃSKA}} &
+      \multirow{4}{*}{\includegraphics[height=1.9cm]{img/logo_eti.png}}\\
+      & & \\
+      &\LARGE{\textbf{Wydział Elektroniki,}}&\\
+      &\LARGE{\textbf{Telekomunikacji i Informatyki}}&
+    \end{tabular}
+  \end{center}
+  \rule{\linewidth}{0.1mm}
+  \vspace{2.82cm}
+  \begin{center}
+    \huge{\textbf{\@author}}
+  \end{center}
+  \vspace{0.5cm}
+  \begin{center}
+    \Huge{\textbf{\@title}}
+  \end{center}
+  \vspace{0.5cm}
+  \begin{center}
+    \huge{Rozprawa doktorska}
+  \end{center}
+  \vspace{1.41cm}
+% \renewcommand{\arraystretch}{0.85}
+  \begin{tabular}{@{}p{0.46\textwidth}@{}@{}p{0.54\textwidth}@{}}
+\noalign{\smallskip}
+    & \hspace{-20pt}\LARGE{Promotor:}\\
+\noalign{\smallskip}
+\noalign{\smallskip}
+    & \Large{\@promotor}\\
+\noalign{\smallskip}
+\noalign{\smallskip}
+    & \Large{\@promotordept}\\
+\noalign{\smallskip}
+\noalign{\smallskip}
+    & \Large{\@promotoruniv}
+  \end{tabular}
+  \vfill
+  \begin{center}
+    \Large{\@miasto, \@date}
+  \end{center}
+  %
+%   \cleardoublepage
+  % restore page defaults
+%   \changepage{-60pt}{-70pt}{}{+30pt}{}{+30pt}{+12pt}{+18pt}{}
+}
+
+%restore @ sign
+\makeatother
+
+\cleardoublepage
