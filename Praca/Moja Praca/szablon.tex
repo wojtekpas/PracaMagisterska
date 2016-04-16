@@ -374,20 +374,42 @@ Na podstawie powyższego przykładu, możemy zaobserwować, że stopień wielomi
 
 \subsubsection{NWD wielomianów}
 
-\begin{definition}
-	Dany jest wielomian W, określony wzorem $W(x) = a_0x^n + a_1x^{n-1} + ... + a_{n-1}x + a_n$. Pochodną wielomianu W nazywamy wielomian W' i wyrażamy wzorem:
-	\begin{equation}
-	W(x) = na_0x^{n-1} + (n-1)a_1x^{n-2} + ... + 2a_{n-2}x + a_{n-1}
-	\end{equation}
-\end{definition}
+
+
 
 \begin{theorem}
+	Jeżeli wielomian W(x) podzelimy przez dwumian $x - x_0$, to reszta z tego dzielenia jest równa wartości tego wielomianu dla $x = x_0$.
+\end{theorem}
+
+\begin{theorem}[Bezout]
+	Liczba $x_0$ jest pierwiastkiem wielomianu W(x) wtedy i tylko wtedy, gdy wielomian jest podzielny przez dwumian $x - x_0$
+\end{theorem}
+
+\begin{theorem}
+	Liczba $x_0$ jest pierwiastkiem k-krotnym wielomianu W(x) wtedy i tylko wtedy, gdy wielomian jest podzielny przez $(x - x_0)^k$ i nie jest podzielny przez $(x - x_0)^{k+1}$.
+\end{theorem}
+
+\begin{theorem}
+	Każdy wielomian W(x) nie będący wielomianem zerowym jest iloczynem czynników stopnia co najwyżej drugiego
+\end{theorem}
+
+\begin{theorem}
+	Niezerowy wielomian, o współczynnikach rzeczywistych, jest jednoznacznie rozkładalny na czynniki liniowe lub nierozkładalne czynniki kwadratowe, o współczynnikach rzeczywistych.
+\end{theorem}
+
+\begin{theorem}
+	Dany jest wielomian $W(x) = x^n + a_{n-1}x^{n-1} + ... + a_1x + a_0$, o współczynnikach całkowitych. Jeżeli wielomian W posiada pierwiastki całkowite, to są one dzielnikami wyrazu wolnego $a_0$.
+\end{theorem}
+
+\begin{theorem}
+	Dowolny wielomian $W_1(x) = \frac{a_n}{b_n}x^n + \frac{a_{n-1}}{b_{n-1}}x^{n-1} + ... + \frac{a_1}{b_1}x + \frac{a_0}{b_0}$, o współczynnikach wymiernych, można przekształcić w wielomian $W_2(x) = k * W_1(x)$, o współczynnikach całkowitych i tych samych pierwiastkach, co wielomian W. Wówczas:
 	\begin{equation}
-	\begin{split}
-	&deg(W') = deg(W) - 1,\ dla\ deg(W) > 0 \\
-	&W = 0,\ w\ pozostałych\ przypadkach
-	\end{split}
+	k = NWW(b_0, b_1, ..., b_{n-1}, b_n)
 	\end{equation}
+\end{theorem}
+
+\begin{theorem}
+	Jeżeli liczba jest pierwiastkiem k-krotnym wielomianu W, to jest pierwiastkiem (k-1)-krotnym pochodnej tego wielomianu.
 \end{theorem}
 
 .\\

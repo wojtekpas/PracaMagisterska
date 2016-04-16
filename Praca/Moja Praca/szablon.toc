@@ -9,3 +9,4 @@
 \contentsline {subsubsection}{Iloczyn wielomian\IeC {\'o}w}{3}
 \contentsline {subsubsection}{Iloraz wielomian\IeC {\'o}w}{3}
 \contentsline {subsubsection}{Pochodna wielomianu}{3}
+\contentsline {subsubsection}{NWD wielomian\IeC {\'o}w}{4}
