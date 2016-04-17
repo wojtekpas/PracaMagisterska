@@ -80,8 +80,8 @@
 % \item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
 % \newenvironment{example}[1][Przykład]{\begin{trivlist}
 % \item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
-% \newenvironment{remark}[1][Uwaga]{\begin{trivlist}
-% \item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{remark}[1][Wniosek]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
 
 % definicja czarnego prostokąta zwyczajowo dodawanego na koniec dowodu
 \newcommand{\qed}{\nobreak \ifvmode \relax \else
@@ -374,27 +374,40 @@ Na podstawie powyższego przykładu, możemy zaobserwować, że stopień wielomi
 
 \subsubsection{NWD wielomianów}
 
+\begin{theorem}
+	Niezerowy wielomian, o współczynnikach rzeczywistych, jest jednoznacznie rozkładalny na czynniki liniowe lub nierozkładalne czynniki kwadratowe, o współczynnikach rzeczywistych.
+\end{theorem}
 
-
+Oznacza to, że nie da się rozłożyć jednego wielomianu na czynniki, na dwa różne sposoby, tzn. tak, by istniał chociaż jeden czynnik (lub jego proporcjonalny odpowiednik), nie występujący w drugim rozkładzie.
 
 \begin{theorem}
 	Jeżeli wielomian W(x) podzelimy przez dwumian $x - x_0$, to reszta z tego dzielenia jest równa wartości tego wielomianu dla $x = x_0$.
 \end{theorem}
 
+W szczególnym przypadku reszta ta może być równa 0. Oznacza to, że liczba $x_0$ jest pierwiastkiem tego wielomianu.
+
 \begin{theorem}[Bezout]
 	Liczba $x_0$ jest pierwiastkiem wielomianu W(x) wtedy i tylko wtedy, gdy wielomian jest podzielny przez dwumian $x - x_0$
 \end{theorem}
 
+\begin{proof}
+	Jeżeli liczba $x_0$ jest pierwiastkiem wielomianu W, to wielomian ten możemy wyrazić jako iloczyn dwumianu $x - x_0$ oraz pewnego wielomianu Q: $W(x) = (x-x_0) * Q(x)$. Wyznaczając z tego wyrażenia wielomian Q, otrzymujemy $Q(x) = \frac{W(x)}{x-x_0}$. Widzimy zatem, że dzieląc wielomian W(x) przez dwumian $x-x_0$, otrzymujemy bez reszty, wielomian Q(x).
+\end{proof}
+
 \begin{theorem}
 	Liczba $x_0$ jest pierwiastkiem k-krotnym wielomianu W(x) wtedy i tylko wtedy, gdy wielomian jest podzielny przez $(x - x_0)^k$ i nie jest podzielny przez $(x - x_0)^{k+1}$.
 \end{theorem}
+
+\begin{proof}
+	Dowód jest analogiczny, jak dla twierdzenia Bezout. Jedyną różnicą jest to, że wielomian W przedstawiamy jako: $W(x) = (x-x_0)^k * Q(x)$.
+\end{proof}
 
 \begin{theorem}
 	Każdy wielomian W(x) nie będący wielomianem zerowym jest iloczynem czynników stopnia co najwyżej drugiego
 \end{theorem}
 
 \begin{theorem}
-	Niezerowy wielomian, o współczynnikach rzeczywistych, jest jednoznacznie rozkładalny na czynniki liniowe lub nierozkładalne czynniki kwadratowe, o współczynnikach rzeczywistych.
+	Każdy wielomian stopnia nieparzystego, ma przynajmniej jeden pierwiastek rzeczywisty.
 \end{theorem}
 
 \begin{theorem}
@@ -437,7 +450,27 @@ Na podstawie powyższego przykładu, możemy zaobserwować, że stopień wielomi
 	\end{equation}
 \end{example}
 
+
 Jak widać powyższy przykład potwierdza zastosowanie przedstawionego twierdzenia. Widzimy, że krotność wszystkich pierwiastków ulega zmniejszeniu o 1, w kolejnej pochodnej. Dodatkowo możemy zauwazyć, że pochodna może zawierać także pierwiastki, których nie miał dany wielomian.
+
+\subsection{Eliminacja pierwiastków wielokrotnych}
+
+\begin{example}
+	Dany jest wielomian W, określony wzorem: $W(x) = x^6 - 6x^4 - 4x^3 + 9x^2 + 12x + 4$. Dokonajmy eliminacji pierwiastków dla wielomianu W. \\
+	1. Obliczamy pochodną wielomianu.
+	\begin{equation}
+	\begin{split}
+	&W'(x) = 6*x^5 - 4*6x^3 - 3*4x^2 + 2*9x + 12 = \\ 
+	&= 6x^5 - 24x^3 - 12x^2 + 18x + 12 = 6(x^5 - 4x^3 - 2x^2 + 3x + 2) \\
+	\end{split}
+	\end{equation}
+	Obliczmy teraz pierwiastki wielomianu W i jego kolejnych pochodnych.
+	\begin{equation}
+	\begin{split}
+	\end{split}
+	\end{equation}
+\end{example}
+
 
 .\\
 .\\
