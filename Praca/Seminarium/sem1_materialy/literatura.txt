@@ -1,0 +1,25 @@
+A Concrete Introduction to Higher Algebra, Lindsay N. Childs
+Accuracy and Stability of Numerical Algorithms, Nicholas J. Higham
+Algebraiczne metody rozwi¹zywania równania Schrödingera, W. Salejda
+Algorithmic Number Theory, Duncal Buell
+Data Structures Using C++, D. S. Malik
+Gnu MP 6.0 Multiple Precision Arithmetic Library, Torbjorn Granlund
+Metody numeryczne i graficzne cz. 1, Mieczys³aw Warmus, Józef £ukaszewicz
+Metody obliczeniowe i ich komputerowa realizacja, Bogus³aw Bo¿ek
+Numerical Analysis, Richard L. Burden,J. Douglas 
+Numerical Methods for Roots of Polynomials cz. 1, J.M. McNamee
+Numerical Methods, Germund Dahlquist, Ake Björck
+Pierwiastki wielokrotne wielomianu, Maciej Bryñski
+Podstawowe metody numeryczne dla studentów kierunków in¿ynierskich, Adam Marlewski
+Polynomials, E.J. Barbeau
+Relations between polynomial roots, Michael Drmota, Mariusz Ska³ba
+Repozytorium z matematyki dla studentów pierwszego roku, Janina P³askonka, Karol Selwat
+Solving Polynomial Equation Systems I: The Kronecker-Duval Philosophy, Teo Mora
+Structured Matrices and Polynomials: Unified Superfast Algorithms, Victor Pan
+Twierdzenie Sturma, Maciej Bryñski
+Wiadomoœci matematyczne, Tomy 10-11, Polskie Towarzystwo Matematyczne
+Wielomiany, Arkadiusz Mêcel
+Wprowadzenie do metod numerycznych Wyk³ad 2, Romuald Kotowski
+Wstêp do metod numerycznych, J Stoer, R Bulirsch, M Mikulska
+Wyk³ad analizy matematycznej, cz. 1: Funkcje jednej zmiennej, Wojciech Kryszewski
+Zasady algebry wy¿szej, z przypisem Andrzeja Mostowskiego Zarys teorii Galois Wac³aw Sierpiñski, Andrzej Mostowski
