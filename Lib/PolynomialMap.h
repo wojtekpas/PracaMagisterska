@@ -219,12 +219,18 @@ inline PolynomialMap PolynomialMap::Derivative()
 inline PolynomialMap PolynomialMap::Nwd(PolynomialMap p2)
 {
 	pair<PolynomialMap, PolynomialMap> divResult = DividePolynomials(*this, p2);
-	return divResult.first;
+	if (divResult.second.IsZero())
+		return divResult.first;
+	return divResult.second;
 }
 
 inline PolynomialMap PolynomialMap::PolynomialAfterEliminationOfMultipleRoots()
 {
-	PolynomialMap nwd = Nwd(Derivative());
+	PolynomialMap derivative = Derivative();
+	derivative.Normalize();
+	PolynomialMap nwd = Nwd(derivative);
+	PolynomialMap normalizeNwd = nwd;
+	normalizeNwd.Normalize();
 	pair<PolynomialMap, PolynomialMap> divResult = DividePolynomials(*this, nwd);
 	if (divResult.first.IsZero())
 		divResult.first.SetValue(0, 1);
@@ -434,6 +440,7 @@ inline string PolynomialMap::ToString()
 	string result = StringManager::EmptyString();
 	for (auto pair1 : m)
 	{
+		if (abs(pair1.second) > 0.0000001)
 		result = result + to_string(pair1.first) + ':' 
 			+ to_string(pair1.second) + ',';
 	}

@@ -5,7 +5,7 @@
 #include "../Lib/Parser.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
-
+/*
 namespace UnitTests
 {
 	TEST_CLASS(PolynomialMapDivOperatorUnitTests)
@@ -104,4 +104,4 @@ namespace UnitTests
 		}
 	};
 }
-
+*/
