@@ -1,12 +1,12 @@
 #pragma once
 #include "stdafx.h"
-/*
+
 #include "CppUnitTest.h"
 #include "../Lib/PolynomialMap.h"
 #include "../Lib/Parser.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
-
+/*
 namespace UnitTests
 {
 	TEST_CLASS(PolynomialMapDerivativeTests)
@@ -123,6 +123,14 @@ namespace UnitTests
 			Verify("-500a1000", result);
 		}
 
+		TEST_METHOD(PolynomialMapDerivative17)
+		{
+			result.SetValue(100, -101);
+			result.SetValue(16, 34);
+			result.SetValue(3, 4);
+			result.SetValue(0, 1);
+			Verify("-a101+2a17+a4+a", result);
+		}
 	};
 }
 */

@@ -159,6 +159,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ParserConvertUnitTests.cpp" />
+    <ClCompile Include="PolynomialMapNWD.cpp" />
     <ClCompile Include="PolynomialMapDerivativeUnitTests.cpp" />
     <ClCompile Include="PolynomialMapDivOperator.cpp" />
     <ClCompile Include="PolynomialMapModOperator.cpp" />

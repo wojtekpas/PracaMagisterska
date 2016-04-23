@@ -46,5 +46,8 @@
     <ClCompile Include="PolynomialMapModOperator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="PolynomialMapNWD.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
