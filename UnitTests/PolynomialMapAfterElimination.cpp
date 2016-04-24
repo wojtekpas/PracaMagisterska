@@ -74,7 +74,7 @@ namespace UnitTests
 
 		TEST_METHOD(PolynomialMapAfterElimination11)
 		{
-			Verify("a3*(a+5)^10", "a(a+5)");
+			Verify("a3*(a+2)^10", "a(a+2)");
 		}
 
 		TEST_METHOD(PolynomialMapAfterElimination12)

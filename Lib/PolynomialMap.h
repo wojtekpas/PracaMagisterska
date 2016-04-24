@@ -114,7 +114,7 @@ inline bool PolynomialMap::IsZero()
 		return true;
 	for (auto pair1 : m)
 	{
-		if (pair1.second > 0.0000001)
+		if (abs(pair1.second) > 0.0000001)
 			return false;
 	}
 	return true;
