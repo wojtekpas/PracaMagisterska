@@ -29,7 +29,7 @@ namespace UnitTests
 
 		TEST_METHOD(PolynomialMapAfterElimination02)
 		{
-			Verify("2a", "1");
+			Verify("2a", "a");
 		}
 
 		TEST_METHOD(PolynomialMapAfterElimination03)
@@ -39,7 +39,7 @@ namespace UnitTests
 
 		TEST_METHOD(PolynomialMapAfterElimination04)
 		{
-			Verify("-a3", "a2");
+			Verify("-a3", "a");
 		}
 
 		TEST_METHOD(PolynomialMapAfterElimination05)
@@ -54,7 +54,7 @@ namespace UnitTests
 
 		TEST_METHOD(PolynomialMapAfterElimination07)
 		{
-			Verify("(a+3)^4", "(a+3)^3");
+			Verify("(a+3)^4", "(a+3)");
 		}
 
 		TEST_METHOD(PolynomialMapAfterElimination08)

@@ -30,7 +30,7 @@ public:
 	static pair<int, NUMBER> Div(int power1, NUMBER value1, int power2, NUMBER value2);
 
 	PolynomialMap Derivative();
-	PolynomialMap Nwd(PolynomialMap p2);
+	PolynomialMap Nwd(PolynomialMap p1, PolynomialMap p2);
 	PolynomialMap PolynomialAfterEliminationOfMultipleRoots();
 	pair <PolynomialMap, PolynomialMap> DividePolynomials(PolynomialMap p1, PolynomialMap p2);
 	void Normalize();
@@ -110,7 +110,14 @@ inline bool PolynomialMap::IsNew()
 
 inline bool PolynomialMap::IsZero()
 {
-	return Size() == 0;
+	if (Size() == 0)
+		return true;
+	for (auto pair1 : m)
+	{
+		if (pair1.second > 0.0000001)
+			return false;
+	}
+	return true;
 }
 
 inline int PolynomialMap::Size()
@@ -216,19 +223,25 @@ inline PolynomialMap PolynomialMap::Derivative()
 	return result;
 }
 
-inline PolynomialMap PolynomialMap::Nwd(PolynomialMap p2)
+inline PolynomialMap PolynomialMap::Nwd(PolynomialMap p1, PolynomialMap p2)
 {
-	pair<PolynomialMap, PolynomialMap> divResult = DividePolynomials(*this, p2);
+	pair<PolynomialMap, PolynomialMap> divResult = DividePolynomials(p1, p2);
 	if (divResult.second.IsZero())
-		return divResult.first;
-	return divResult.second;
+		return p2;
+	if (divResult.second.PolynomialDegree() == 0)
+	{
+		PolynomialMap one;
+		one.SetValue(0, 1);
+		return one;
+	}
+	return Nwd(p2, divResult.second);
 }
 
 inline PolynomialMap PolynomialMap::PolynomialAfterEliminationOfMultipleRoots()
 {
 	PolynomialMap derivative = Derivative();
 	derivative.Normalize();
-	PolynomialMap nwd = Nwd(derivative);
+	PolynomialMap nwd = Nwd(*this, derivative);
 	PolynomialMap normalizeNwd = nwd;
 	normalizeNwd.Normalize();
 	pair<PolynomialMap, PolynomialMap> divResult = DividePolynomials(*this, nwd);
@@ -241,7 +254,7 @@ inline pair<PolynomialMap, PolynomialMap> PolynomialMap::DividePolynomials(Polyn
 {
 	PolynomialMap result;
 
-	if (IsZero() || p2.IsZero())
+	if (p1.IsZero() || p2.IsZero())
 		return pair<PolynomialMap, PolynomialMap>(result, result);
 
 	PolynomialMap current = p1;
@@ -253,7 +266,7 @@ inline pair<PolynomialMap, PolynomialMap> PolynomialMap::DividePolynomials(Polyn
 	while (currentDegree >= degree)
 	{
 		pair<int, NUMBER> pair1 = pair<int, NUMBER>(currentDegree, current.Value(currentDegree));
-		map<int, NUMBER> map1 = ValuesExceptValueOfPolynomialDegree(currentDegree);
+		map<int, NUMBER> map1 = current.ValuesExceptValueOfPolynomialDegree(currentDegree);
 
 		auto divResult = Div(pair1.first, pair1.second, pair2.first, pair2.second);
 
