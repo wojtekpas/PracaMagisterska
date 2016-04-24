@@ -31,22 +31,25 @@
     <ClCompile Include="PolynomialMapDerivativeUnitTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PolynomialMapSumOperator.cpp">
+    <ClCompile Include="PolynomialMapAfterEliminationUnitTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PolynomialMapSubOperator.cpp">
+    <ClCompile Include="PolynomialMapDivOperatorUnitTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PolynomialMapMulOperator.cpp">
+    <ClCompile Include="PolynomialMapModOperatorUnitTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PolynomialMapDivOperator.cpp">
+    <ClCompile Include="PolynomialMapMulOperatorUnitTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PolynomialMapModOperator.cpp">
+    <ClCompile Include="PolynomialMapSubOperatorUnitTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PolynomialMapAfterElimination.cpp">
+    <ClCompile Include="PolynomialMapSumOperatorUnitTests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PolynomialMapValueUnitTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

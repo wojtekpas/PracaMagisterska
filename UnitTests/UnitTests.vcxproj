@@ -159,13 +159,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ParserConvertUnitTests.cpp" />
-    <ClCompile Include="PolynomialMapAfterElimination.cpp" />
+    <ClCompile Include="PolynomialMapAfterEliminationUnitTests.cpp" />
     <ClCompile Include="PolynomialMapDerivativeUnitTests.cpp" />
-    <ClCompile Include="PolynomialMapDivOperator.cpp" />
-    <ClCompile Include="PolynomialMapModOperator.cpp" />
-    <ClCompile Include="PolynomialMapMulOperator.cpp" />
-    <ClCompile Include="PolynomialMapSubOperator.cpp" />
-    <ClCompile Include="PolynomialMapSumOperator.cpp" />
+    <ClCompile Include="PolynomialMapDivOperatorUnitTests.cpp" />
+    <ClCompile Include="PolynomialMapModOperatorUnitTests.cpp" />
+    <ClCompile Include="PolynomialMapMulOperatorUnitTests.cpp" />
+    <ClCompile Include="PolynomialMapSubOperatorUnitTests.cpp" />
+    <ClCompile Include="PolynomialMapSumOperatorUnitTests.cpp" />
+    <ClCompile Include="PolynomialMapValueUnitTests.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

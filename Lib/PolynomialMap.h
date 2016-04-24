@@ -34,6 +34,8 @@ public:
 	PolynomialMap PolynomialAfterEliminationOfMultipleRoots();
 	pair <PolynomialMap, PolynomialMap> DividePolynomials(PolynomialMap p1, PolynomialMap p2);
 	void Normalize();
+	NUMBER CoefficientValue(pair<int, NUMBER> pair1, NUMBER a);
+	NUMBER PolynomialValue(NUMBER a);
 
 	bool operator==(PolynomialMap p2);
 	bool operator!=(PolynomialMap p2);
@@ -295,6 +297,27 @@ inline void PolynomialMap::Normalize()
 	NUMBER coefficient = ValueOfPolynomialDegree().second;
 	PolynomialMap divider(coefficient);
 	*this /= divider;
+}
+
+inline NUMBER PolynomialMap::CoefficientValue(pair<int, NUMBER> pair1, NUMBER a)
+{
+	NUMBER result = 1;
+	for (int i = 0; i < pair1.first; i++)
+		result *= a;
+
+	return result * pair1.second;
+}
+
+inline NUMBER PolynomialMap::PolynomialValue(NUMBER a)
+{
+	if (IsZero())
+		return 0;
+	NUMBER result = 0;
+	for (auto pair1 : m)
+	{
+		result += CoefficientValue(pair1, a);
+	}
+	return result;
 }
 
 inline bool PolynomialMap::operator == (PolynomialMap p2)
