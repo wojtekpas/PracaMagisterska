@@ -7,6 +7,9 @@
 
 class PolynomialMap
 {
+protected:
+	vector<PolynomialMap> derivatives;
+	vector<PolynomialMap> sturm;
 public:
 	map<int, NUMBER>m;
 
@@ -36,6 +39,9 @@ public:
 	void Normalize();
 	NUMBER CoefficientValue(pair<int, NUMBER> pair1, NUMBER a);
 	NUMBER PolynomialValue(NUMBER a);
+	vector<PolynomialMap> GetDerivatives();
+	vector<PolynomialMap> GetSturm();
+	int NumberOfChangesSign(NUMBER a);
 
 	bool operator==(PolynomialMap p2);
 	bool operator!=(PolynomialMap p2);
@@ -318,6 +324,50 @@ inline NUMBER PolynomialMap::PolynomialValue(NUMBER a)
 		result += CoefficientValue(pair1, a);
 	}
 	return result;
+}
+
+inline vector<PolynomialMap> PolynomialMap::GetDerivatives()
+{
+	if (derivatives.size())
+		return derivatives;
+	PolynomialMap derivative = Derivative();
+	while (derivative.IsZero() == false)
+	{
+		derivatives.push_back(derivative);
+		derivative = derivative.Derivative();
+	}
+	return derivatives;
+}
+
+inline vector<PolynomialMap> PolynomialMap::GetSturm()
+{
+	if (sturm.size())
+		return sturm;
+	sturm.push_back(*this);
+	derivatives = GetDerivatives();
+	for (int i = 0; i < derivatives.size(); i++)
+		sturm.push_back(derivatives[i]);
+	return sturm;
+}
+
+inline int PolynomialMap::NumberOfChangesSign(double a)
+{
+	derivatives = GetDerivatives();
+	int counter = 0;
+	bool lastPositive = false;
+	bool curPositive = false;
+	if (PolynomialValue(a) > 0)
+		lastPositive = true;
+	for (int i = 1; i < derivatives.size(); i++)
+	{
+		curPositive = false;
+		if (derivatives[i].PolynomialValue(a) > 0)
+			curPositive = true;
+		if (lastPositive != curPositive)
+			counter++;
+		lastPositive = curPositive;
+	}
+	return counter;
 }
 
 inline bool PolynomialMap::operator == (PolynomialMap p2)
