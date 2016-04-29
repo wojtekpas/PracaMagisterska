@@ -164,6 +164,7 @@
     <ClCompile Include="PolynomialMapDivOperatorUnitTests.cpp" />
     <ClCompile Include="PolynomialMapModOperatorUnitTests.cpp" />
     <ClCompile Include="PolynomialMapMulOperatorUnitTests.cpp" />
+    <ClCompile Include="PolynomialMapNumberOfRoots.cpp" />
     <ClCompile Include="PolynomialMapSubOperatorUnitTests.cpp" />
     <ClCompile Include="PolynomialMapSumOperatorUnitTests.cpp" />
     <ClCompile Include="PolynomialMapValueUnitTests.cpp" />

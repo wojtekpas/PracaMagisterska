@@ -1,19 +1,22 @@
 #pragma once
 #include "definitions.h"
 
-#define MAX_VALUE DBL_MAX
-#define MAX_NEGATIVE_VALUE -DBL_MAX
+#define MAX_VALUE 1000
+#define MAX_NEGATIVE_VALUE -1000
 
 class Number
 {
 private:
 	double value = 0;
 public:
+	explicit Number();
 	explicit Number(double value);
 	double GetValue();
 	double Abs();
 	void SetMaxNegativeValue();
 	void SetMaxValue();
+	bool IsPlusInfinity();
+	bool IsMinusInfinity();
 	bool IsInfinity();
 
 	bool operator == (Number number);
@@ -52,6 +55,10 @@ public:
 
 };
 
+inline Number::Number()
+{
+}
+
 inline Number::Number(double value)
 {
 	this->value = value;
@@ -77,9 +84,19 @@ inline void Number::SetMaxValue()
 	value = MAX_VALUE;
 }
 
+inline bool Number::IsPlusInfinity()
+{
+	return value == MAX_NEGATIVE_VALUE;
+}
+
+inline bool Number::IsMinusInfinity()
+{
+	return value == MAX_VALUE;
+}
+
 inline bool Number::IsInfinity()
 {
-	return value == MAX_NEGATIVE_VALUE || value == MAX_VALUE;
+	return IsMinusInfinity() || IsPlusInfinity();
 }
 
 inline bool Number::operator==(Number number)

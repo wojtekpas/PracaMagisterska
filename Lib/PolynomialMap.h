@@ -349,6 +349,12 @@ inline vector<PolynomialMap> PolynomialMap::GetDerivatives()
 
 inline int PolynomialMap::NumberOfChangesSign(Number a)
 {
+	pair<int, Number> pair1 = ValueOfPolynomialDegree();
+	if (a.IsPlusInfinity())
+		return 0;
+	if (a.IsMinusInfinity())
+		return pair1.first;
+
 	derivatives = GetDerivatives();
 	int counter = 0;
 	int lastValue = 0;
@@ -411,6 +417,38 @@ inline int PolynomialMap::NumberOfRoots(Number a, Number b)
 
 inline vector<Number> PolynomialMap::FindRoots(Number a, Number b)
 {
+	vector<Number> roots;
+	if (PolynomialValue(a) == 0)
+		roots.push_back(a);
+	if (PolynomialValue(b) == 0)
+		roots.push_back(b);
+
+	if (NumberOfRoots(a, b))
+		return roots;
+	Number c = NextNumberFromRange(a, b);
+	if (PolynomialValue(c) == 0)
+		roots.push_back(c);
+	if(NumberOfRoots(a, c))
+	{
+		vector<Number> rootsInRange = FindRoots(a, c);
+		for (int i = 0; i < rootsInRange.size(); i++)
+		{
+			Number potentialRoot = rootsInRange[i];
+			if (potentialRoot != a && potentialRoot != c)
+				roots.push_back(potentialRoot);
+		}
+	}
+	if(NumberOfRoots(c, b))
+	{
+		vector<Number> rootsInRange = FindRoots(c, b);
+		for (int i = 0; i < rootsInRange.size(); i++)
+		{
+			Number potentialRoot = rootsInRange[i];
+			if (potentialRoot != c && potentialRoot != b)
+				roots.push_back(potentialRoot);
+		}
+	}
+	return roots;
 }
 
 inline bool PolynomialMap::operator == (PolynomialMap p2)

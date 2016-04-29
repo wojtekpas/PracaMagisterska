@@ -17,9 +17,9 @@ namespace UnitTests
 		{
 			PolynomialMap p1 = parser.ConvertToPolynomialMap(input);
 			PolynomialMap p2 = parser.ConvertToPolynomialMap(output);
-			PolynomialMap AfterElimination = p1.PolynomialAfterEliminationOfMultipleRoots();
-			AfterElimination.Normalize();
-			Assert::AreEqual(p2.ToString(), AfterElimination.ToString());
+			PolynomialMap polynomialAfterElimination = p1.PolynomialAfterEliminationOfMultipleRoots();
+			polynomialAfterElimination.Normalize();
+			Assert::AreEqual(p2.ToString(), polynomialAfterElimination.ToString());
 		}
 
 		TEST_METHOD(PolynomialMapAfterElimination01)
