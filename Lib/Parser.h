@@ -87,7 +87,7 @@ inline PolynomialMap Parser::ConvertToPolynomialMap(string inputS)
 			else if(CharsConstants::IsMul(s[i]))
 			{
 				if (mulElement.IsNew())
-					mulElement.Add(0, 1);
+					mulElement.Add(0, Number(1));
 
 				if (mulOp)
 					mulElement *= curElement;
@@ -99,7 +99,7 @@ inline PolynomialMap Parser::ConvertToPolynomialMap(string inputS)
 			else if(CharsConstants::IsDiv(s[i]))
 			{
 				if (mulElement.IsZero())
-					mulElement.Add(0, 1);
+					mulElement.Add(0, Number(1));
 
 				if (mulOp)
 					mulElement *= curElement;

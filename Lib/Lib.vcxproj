@@ -191,7 +191,6 @@
   <ItemGroup>
     <ClInclude Include="CharsConstants.h" />
     <ClInclude Include="definitions.h" />
-    <ClInclude Include="Fraction.h" />
     <ClInclude Include="Number.h" />
     <ClInclude Include="Parser.h" />
     <ClInclude Include="PolynomialMap.h" />
