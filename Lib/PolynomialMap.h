@@ -7,7 +7,6 @@
 class PolynomialMap
 {
 protected:
-	vector<PolynomialMap> derivatives;
 	vector<PolynomialMap> sturm;
 public:
 	map<int, Number>m;
@@ -31,6 +30,7 @@ public:
 	void Sub(int power, Number number);
 	static pair<int, Number> Mul(int power1, Number number1, int power2, Number number2);
 	static pair<int, Number> Div(int power1, Number number1, int power2, Number number2);
+	PolynomialMap NegativePolynomial();
 
 	PolynomialMap Derivative();
 	PolynomialMap Nwd(PolynomialMap p1, PolynomialMap p2);
@@ -39,7 +39,7 @@ public:
 	void Normalize();
 	Number CoefficientValue(pair<int, Number> pair1, Number a);
 	Number PolynomialValue(Number a);
-	vector<PolynomialMap> GetDerivatives();
+	vector<PolynomialMap> GetSturm();
 	int NumberOfChangesSign(Number a);
 	Number NextNumberFromRange(Number a, Number b);
 	int NumberOfRoots(Number a, Number b);
@@ -227,6 +227,16 @@ inline pair<int, Number> PolynomialMap::Div(int power1, Number number1, int powe
 	return result;
 }
 
+inline PolynomialMap PolynomialMap::NegativePolynomial()
+{
+	PolynomialMap result;
+	for(auto p: m)
+	{
+		result.SetValue(p.first, Number(-p.second.GetValue()));
+	}
+	return result;
+}
+
 inline PolynomialMap PolynomialMap::Derivative()
 {
 	PolynomialMap result;
@@ -334,28 +344,33 @@ inline Number PolynomialMap::PolynomialValue(Number a)
 	return result;
 }
 
-inline vector<PolynomialMap> PolynomialMap::GetDerivatives()
+inline vector<PolynomialMap> PolynomialMap::GetSturm()
 {
-	if (derivatives.size())
-		return derivatives;
+	if (sturm.size())
+		return sturm;
+	sturm.push_back(*this);
 	PolynomialMap derivative = Derivative();
-	while (derivative.IsZero() == false)
+	if (derivative.IsZero())
+		return sturm;
+	sturm.push_back(derivative);
+	PolynomialMap w = *this;
+	PolynomialMap q = derivative;
+	PolynomialMap r = w % q;
+
+	while (r.IsZero() == false)
 	{
-		derivatives.push_back(derivative);
-		derivative = derivative.Derivative();
+		r = r.NegativePolynomial();
+		sturm.push_back(r);
+		w = q;
+		q = r;
+		r = w % q;
 	}
-	return derivatives;
+	return sturm;
 }
 
 inline int PolynomialMap::NumberOfChangesSign(Number a)
 {
-	pair<int, Number> pair1 = ValueOfPolynomialDegree();
-	if (a.IsPlusInfinity())
-		return 0;
-	if (a.IsMinusInfinity())
-		return pair1.first;
-
-	derivatives = GetDerivatives();
+	sturm = GetSturm();
 	int counter = 0;
 	int lastValue = 0;
 	int curValue;
@@ -365,9 +380,9 @@ inline int PolynomialMap::NumberOfChangesSign(Number a)
 	else if (number < 0)
 		lastValue = -1;
 
-	for (int i = 1; i < derivatives.size(); i++)
+	for (int i = 1; i < sturm.size(); i++)
 	{
-		number = derivatives[i].PolynomialValue(a);
+		number = sturm[i].PolynomialValue(a);
 		if (number > 0)
 			curValue = 1;
 		else if (number < 0)
@@ -412,7 +427,7 @@ inline Number PolynomialMap::NextNumberFromRange(Number a, Number b)
 
 inline int PolynomialMap::NumberOfRoots(Number a, Number b)
 {
-	return NumberOfChangesSign(b) - NumberOfChangesSign(a);
+	return NumberOfChangesSign(a) - NumberOfChangesSign(b);
 }
 
 inline vector<Number> PolynomialMap::FindRoots(Number a, Number b)
