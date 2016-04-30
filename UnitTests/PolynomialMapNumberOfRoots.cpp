@@ -104,5 +104,44 @@ namespace UnitTests
 		{
 			Verify("(x+1)^4*(x2+x+1)", 1);
 		}
+
+		TEST_METHOD(PolynomialMapNumberOfRoots16)
+		{
+			a = -1;
+			Verify("12a2", 1);
+		}
+
+		TEST_METHOD(PolynomialMapNumberOfRoots17)
+		{
+			b = 4;
+			Verify("(a-1)^2", 1);
+		}
+
+		TEST_METHOD(PolynomialMapNumberOfRoots18)
+		{
+			a = -20;
+			b = 10;
+			Verify("(a+3)^4", 1);
+		}
+
+		TEST_METHOD(PolynomialMapNumberOfRoots19)
+		{
+			a = -1;
+			b = 4;
+			Verify("a3*(a+2)^10", 1);
+		}
+
+		TEST_METHOD(PolynomialMapNumberOfRoots20)
+		{
+			a = 0;
+			b = 1;
+			Verify("(x+1)^4*(x-2)^2", 0);
+		}
+
+		TEST_METHOD(PolynomialMapNumberOfRoots21)
+		{
+			b = 2;
+			Verify("(x-1)^2*(x+1)^2*(x-3)^2", 2);
+		}
 	};
 }

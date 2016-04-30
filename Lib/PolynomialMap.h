@@ -422,6 +422,8 @@ inline Number PolynomialMap::NextNumberFromRange(Number a, Number b)
 			return Number(2);
 		return Number(b * b);
 	}
+	if (a * b < 0)
+		return Number(0);
 	return Number((a + b) / 2);
 }
 
@@ -433,33 +435,54 @@ inline int PolynomialMap::NumberOfRoots(Number a, Number b)
 inline vector<Number> PolynomialMap::FindRoots(Number a, Number b)
 {
 	vector<Number> roots;
-	if (PolynomialValue(a) == 0)
-		roots.push_back(a);
-	if (PolynomialValue(b) == 0)
-		roots.push_back(b);
+	int aIsRoot = 0;
+	int bIsRoot = 0;
+	int cIsRoot = 0;
 
-	if (NumberOfRoots(a, b))
+	if (PolynomialValue(a).IsZero())
+		roots.push_back(a);
+	if (PolynomialValue(b).IsZero())
+	{
+		bIsRoot = 1;
+		roots.push_back(b);
+	}
+	int tmpDebug1 = NumberOfRoots(a, b);
+	if (NumberOfRoots(a, b) == aIsRoot)
 		return roots;
+
 	Number c = NextNumberFromRange(a, b);
-	if (PolynomialValue(c) == 0)
+	Number tmpDebu2 = PolynomialValue(c);
+	int chA = NumberOfChangesSign(a);
+	int chB = NumberOfChangesSign(b);
+	int chC = NumberOfChangesSign(c);
+	int debug3 = NumberOfRoots(a, c);
+	int debug4 = NumberOfRoots(c, b);
+	if (PolynomialValue(c).IsZero())
+	{
+		cIsRoot = 1;
 		roots.push_back(c);
-	if(NumberOfRoots(a, c))
+	}
+	if(NumberOfRoots(a, c) > aIsRoot)
 	{
 		vector<Number> rootsInRange = FindRoots(a, c);
 		for (int i = 0; i < rootsInRange.size(); i++)
 		{
 			Number potentialRoot = rootsInRange[i];
-			if (potentialRoot != a && potentialRoot != c)
+			Number diff1(potentialRoot.GetValue() - a.GetValue());
+			Number diff2(potentialRoot.GetValue() - c.GetValue());
+			if (diff1.IsZero() == false && diff2.IsZero() == false)
 				roots.push_back(potentialRoot);
 		}
 	}
-	if(NumberOfRoots(c, b))
+	if(NumberOfRoots(c, b) > cIsRoot)
 	{
 		vector<Number> rootsInRange = FindRoots(c, b);
 		for (int i = 0; i < rootsInRange.size(); i++)
 		{
 			Number potentialRoot = rootsInRange[i];
-			if (potentialRoot != c && potentialRoot != b)
+			Number diff1(potentialRoot.GetValue() - c.GetValue());
+			Number diff2(potentialRoot.GetValue() - b.GetValue());
+			if (diff1.IsZero() == false && diff2.IsZero() == false)
 				roots.push_back(potentialRoot);
 		}
 	}

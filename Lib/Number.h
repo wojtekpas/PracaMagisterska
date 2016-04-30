@@ -18,6 +18,7 @@ public:
 	bool IsPlusInfinity();
 	bool IsMinusInfinity();
 	bool IsInfinity();
+	bool IsZero();
 
 	bool operator == (Number number);
 	bool operator != (Number number);
@@ -97,6 +98,11 @@ inline bool Number::IsMinusInfinity()
 inline bool Number::IsInfinity()
 {
 	return IsMinusInfinity() || IsPlusInfinity();
+}
+
+inline bool Number::IsZero()
+{
+	return Abs() < 0.0000001;
 }
 
 inline bool Number::operator==(Number number)

@@ -55,5 +55,8 @@
     <ClCompile Include="PolynomialMapNumberOfRoots.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="PolynomialMapRoots.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

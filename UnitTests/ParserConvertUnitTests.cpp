@@ -312,8 +312,6 @@ namespace UnitTests
 		{
 			Verify("-(2a-3a+a)^0", 0);
 		}
-
-
 	};
 }
 */
