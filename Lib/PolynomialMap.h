@@ -15,16 +15,16 @@ public:
 	Number Value(int power) override;
 	void SetValue(int power, Number number) override;
 	map<int, Number> ValuesExceptValueOfPolynomialDegree(int degree) override;
-	pair <PolynomialMap, PolynomialMap> DividePolynomials(PolynomialMap p1, PolynomialMap p2);
+	pair <Polynomial&, Polynomial&> DividePolynomials(Polynomial& p1, Polynomial& p2);
 	string ToString() override;
 
-	bool operator==(PolynomialMap p2);
-	PolynomialMap operator = (PolynomialMap p2);
-	PolynomialMap operator + (PolynomialMap p2);
-	PolynomialMap operator - (PolynomialMap p2);
-	PolynomialMap operator * (PolynomialMap p2);
-	PolynomialMap operator / (PolynomialMap p2);
-	PolynomialMap operator % (PolynomialMap p2);
+	bool operator==(Polynomial& p2);
+	Polynomial& operator = (Polynomial& p2);
+	Polynomial& operator + (Polynomial& p2);
+	Polynomial& operator - (Polynomial& p2);
+	Polynomial& operator * (Polynomial& p2);
+	Polynomial& operator / (Polynomial& p2);
+	Polynomial& operator % (Polynomial& p2);
 };
 
 inline PolynomialMap::PolynomialMap() : Polynomial()
@@ -110,14 +110,14 @@ inline void PolynomialMap::SetValue(int power, Number number)
 		m.insert(pair<int, Number>(power, number));
 }
 
-inline pair<PolynomialMap, PolynomialMap> PolynomialMap::DividePolynomials(PolynomialMap p1, PolynomialMap p2)
+inline pair<Polynomial&, Polynomial&> PolynomialMap::DividePolynomials(Polynomial& p1, Polynomial& p2)
 {
-	PolynomialMap result;
+	Polynomial& result = CreatePolynomial();
 
 	if (p1.IsZero() || p2.IsZero())
-		return pair<PolynomialMap, PolynomialMap>(result, result);
+		return pair<Polynomial&, Polynomial&>(result, result);
 
-	PolynomialMap current = p1;
+	Polynomial& current = p1;
 	int currentDegree = current.PolynomialDegree();
 	int degree = p2.PolynomialDegree();
 	pair<int, Number> pair2 = pair<int, Number>(degree, p2.Value(degree));
@@ -147,7 +147,7 @@ inline pair<PolynomialMap, PolynomialMap> PolynomialMap::DividePolynomials(Polyn
 		}
 		currentDegree = current.PolynomialDegree();
 	}
-	return pair<PolynomialMap, PolynomialMap>(result, current);
+	return pair<Polynomial&, Polynomial&>(result, current);
 }
 
 inline string PolynomialMap::ToString()
@@ -168,7 +168,7 @@ inline string PolynomialMap::ToString()
 	return StringManager::Substr(result, 0, result.length() - 2);
 }
 
-inline bool PolynomialMap::operator == (PolynomialMap p2)
+inline bool PolynomialMap::operator == (Polynomial& p2)
 {
 	for (auto pair1 : m)
 	{
@@ -185,15 +185,15 @@ inline bool PolynomialMap::operator == (PolynomialMap p2)
 	return true;
 }
 
-inline PolynomialMap PolynomialMap::operator = (PolynomialMap p2)
+inline Polynomial& PolynomialMap::operator = (Polynomial& p2)
 {
 	m = p2.m;
 	return *this;
 }
 
-inline PolynomialMap PolynomialMap::operator + (PolynomialMap p2)
+inline Polynomial& PolynomialMap::operator + (Polynomial& p2)
 {
-	PolynomialMap result;
+	Polynomial& result = CreatePolynomial();
 
 	result.m = m;
 
@@ -205,9 +205,9 @@ inline PolynomialMap PolynomialMap::operator + (PolynomialMap p2)
 	return result;
 }
 
-inline PolynomialMap PolynomialMap::operator - (PolynomialMap p2)
+inline Polynomial& PolynomialMap::operator - (Polynomial& p2)
 {
-	PolynomialMap result;
+	Polynomial& result = CreatePolynomial();
 
 	result.m = m;
 
@@ -219,9 +219,9 @@ inline PolynomialMap PolynomialMap::operator - (PolynomialMap p2)
 	return result;
 }
 
-inline PolynomialMap PolynomialMap::operator * (PolynomialMap p2)
+inline Polynomial& PolynomialMap::operator * (Polynomial& p2)
 {
-	PolynomialMap result;
+	Polynomial& result = CreatePolynomial();
 
 	if (p2.IsZero())
 		return result;
@@ -238,13 +238,13 @@ inline PolynomialMap PolynomialMap::operator * (PolynomialMap p2)
 	return result;
 }
 
-inline PolynomialMap PolynomialMap::operator / (PolynomialMap p2)
+inline Polynomial& PolynomialMap::operator / (Polynomial& p2)
 {
 	auto divResult = DividePolynomials(*this, p2);
 	return divResult.first;
 }
 
-inline PolynomialMap PolynomialMap::operator % (PolynomialMap p2)
+inline Polynomial& PolynomialMap::operator % (Polynomial& p2)
 {
 	auto divResult = DividePolynomials(*this, p2);
 	return divResult.second;
