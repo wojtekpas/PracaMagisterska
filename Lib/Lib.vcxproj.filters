@@ -3,9 +3,10 @@
   <ItemGroup>
     <ClInclude Include="definitions.h" />
     <ClInclude Include="Parser.h" />
-    <ClInclude Include="PolynomialMap.h" />
     <ClInclude Include="CharsConstants.h" />
     <ClInclude Include="StringManager.h" />
     <ClInclude Include="Number.h" />
+    <ClInclude Include="Polynomial.h" />
+    <ClInclude Include="PolynomialMap.h" />
   </ItemGroup>
 </Project>

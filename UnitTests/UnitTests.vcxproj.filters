@@ -28,34 +28,34 @@
     <ClCompile Include="ParserConvertUnitTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PolynomialMapDerivativeUnitTests.cpp">
+    <ClCompile Include="PolynomialAfterEliminationUnitTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PolynomialMapAfterEliminationUnitTests.cpp">
+    <ClCompile Include="PolynomialDerivativeUnitTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PolynomialMapDivOperatorUnitTests.cpp">
+    <ClCompile Include="PolynomialDivOperatorUnitTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PolynomialMapModOperatorUnitTests.cpp">
+    <ClCompile Include="PolynomialModOperatorUnitTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PolynomialMapMulOperatorUnitTests.cpp">
+    <ClCompile Include="PolynomialMulOperatorUnitTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PolynomialMapSubOperatorUnitTests.cpp">
+    <ClCompile Include="PolynomialNumberOfRoots.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PolynomialMapSumOperatorUnitTests.cpp">
+    <ClCompile Include="PolynomialRoots.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PolynomialMapValueUnitTests.cpp">
+    <ClCompile Include="PolynomialSubOperatorUnitTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PolynomialMapNumberOfRoots.cpp">
+    <ClCompile Include="PolynomialSumOperatorUnitTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PolynomialMapRoots.cpp">
+    <ClCompile Include="PolynomialValueUnitTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

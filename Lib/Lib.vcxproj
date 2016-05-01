@@ -193,6 +193,7 @@
     <ClInclude Include="definitions.h" />
     <ClInclude Include="Number.h" />
     <ClInclude Include="Parser.h" />
+    <ClInclude Include="Polynomial.h" />
     <ClInclude Include="PolynomialMap.h" />
     <ClInclude Include="StringManager.h" />
   </ItemGroup>

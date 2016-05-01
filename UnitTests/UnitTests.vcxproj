@@ -159,16 +159,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ParserConvertUnitTests.cpp" />
-    <ClCompile Include="PolynomialMapAfterEliminationUnitTests.cpp" />
-    <ClCompile Include="PolynomialMapDerivativeUnitTests.cpp" />
-    <ClCompile Include="PolynomialMapDivOperatorUnitTests.cpp" />
-    <ClCompile Include="PolynomialMapModOperatorUnitTests.cpp" />
-    <ClCompile Include="PolynomialMapMulOperatorUnitTests.cpp" />
-    <ClCompile Include="PolynomialMapNumberOfRoots.cpp" />
-    <ClCompile Include="PolynomialMapRoots.cpp" />
-    <ClCompile Include="PolynomialMapSubOperatorUnitTests.cpp" />
-    <ClCompile Include="PolynomialMapSumOperatorUnitTests.cpp" />
-    <ClCompile Include="PolynomialMapValueUnitTests.cpp" />
+    <ClCompile Include="PolynomialAfterEliminationUnitTests.cpp" />
+    <ClCompile Include="PolynomialDerivativeUnitTests.cpp" />
+    <ClCompile Include="PolynomialDivOperatorUnitTests.cpp" />
+    <ClCompile Include="PolynomialModOperatorUnitTests.cpp" />
+    <ClCompile Include="PolynomialMulOperatorUnitTests.cpp" />
+    <ClCompile Include="PolynomialNumberOfRoots.cpp" />
+    <ClCompile Include="PolynomialRoots.cpp" />
+    <ClCompile Include="PolynomialSubOperatorUnitTests.cpp" />
+    <ClCompile Include="PolynomialSumOperatorUnitTests.cpp" />
+    <ClCompile Include="PolynomialValueUnitTests.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

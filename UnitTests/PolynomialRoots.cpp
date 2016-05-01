@@ -1,14 +1,14 @@
 #pragma once
 #include "stdafx.h"
 #include "CppUnitTest.h"
-#include "../Lib/Polynomial.h"
+#include "../Lib/PolynomialMap.h"
 #include "../Lib/Parser.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace UnitTests
 {
-	TEST_CLASS(PolynomialRootsUnitTests)
+	TEST_CLASS(PolynomialMapRootsUnitTests)
 	{
 		Parser parser;
 		Number a;
@@ -18,8 +18,8 @@ namespace UnitTests
 
 		void Verify(string input)
 		{
-			Polynomial p = parser.ConvertToPolynomial(input);
-			Polynomial polynomialAfterElimination = p.PolynomialAfterEliminationOfMultipleRoots();
+			auto p = parser.ConvertToPolynomial(input);
+			auto polynomialAfterElimination = p.PolynomialAfterEliminationOfMultipleRoots();
 			polynomialAfterElimination.Normalize();
 			vector<Number> roots = polynomialAfterElimination.FindRoots(a, b);
 			vector<double> roots_double;
@@ -41,84 +41,84 @@ namespace UnitTests
 			b.SetMaxValue();
 			polynomialRoots.clear();
 		}
-/*
-		TEST_METHOD(PolynomialRoots01)
+
+		TEST_METHOD(PolynomialMapRoots01)
 		{
 			Verify("20");
 		}
 
-		TEST_METHOD(PolynomialRoots02)
+		TEST_METHOD(PolynomialMapRoots02)
 		{
 			polynomialRoots.push_back(Number(0));
 			Verify("2a");
 		}
 
-		TEST_METHOD(PolynomialRoots03)
+		TEST_METHOD(PolynomialMapRoots03)
 		{
 			polynomialRoots.push_back(Number(0));
 			Verify("a2");
 		}
 
-		TEST_METHOD(PolynomialRoots04)
+		TEST_METHOD(PolynomialMapRoots04)
 		{
 			polynomialRoots.push_back(Number(0));
 			Verify("-a3");
 		}
 
-		TEST_METHOD(PolynomialRoots05)
+		TEST_METHOD(PolynomialMapRoots05)
 		{
 			polynomialRoots.push_back(Number(0));
 			Verify("12a2");
 		}
 
-		TEST_METHOD(PolynomialRoots06)
+		TEST_METHOD(PolynomialMapRoots06)
 		{
 			polynomialRoots.push_back(Number(1));
 			Verify("(a-1)^2");
 		}
 
-		TEST_METHOD(PolynomialRoots07)
+		TEST_METHOD(PolynomialMapRoots07)
 		{
 			polynomialRoots.push_back(Number(-3));
 			Verify("(a+3)^4");
 		}
 
-		TEST_METHOD(PolynomialRoots08)
+		TEST_METHOD(PolynomialMapRoots08)
 		{
 			polynomialRoots.push_back(Number(-2));
 			polynomialRoots.push_back(Number(-1));
 			Verify("(a+1)(a+2)");
 		}
 
-		TEST_METHOD(PolynomialRoots09)
+		TEST_METHOD(PolynomialMapRoots09)
 		{
 			polynomialRoots.push_back(Number(-3));
 			polynomialRoots.push_back(Number(-1));
 			Verify("(a+3)^2*(a+1)");
 		}
 
-		TEST_METHOD(PolynomialRoots10)
+		TEST_METHOD(PolynomialMapRoots10)
 		{
 			polynomialRoots.push_back(Number(-3));
 			polynomialRoots.push_back(Number(-1));
 			Verify("(a+3)^2*(a+1)^3");
 		}
 
-		TEST_METHOD(PolynomialRoots11)
+		TEST_METHOD(PolynomialMapRoots11)
 		{
 			polynomialRoots.push_back(Number(-2));
 			polynomialRoots.push_back(Number(0));
 			Verify("a3*(a+2)^10");
 		}
 
-		TEST_METHOD(PolynomialRoots12)
+		TEST_METHOD(PolynomialMapRoots12)
 		{
 			polynomialRoots.push_back(Number(-1));
 			polynomialRoots.push_back(Number(2));
 			Verify("(x+1)^4*(x-2)^2");
 		}
 
-		TEST_METHOD(PolynomialRoots13)
+		TEST_METHOD(PolynomialMapRoots13)
 		{
 			polynomialRoots.push_back(Number(-1));
 			polynomialRoots.push_back(Number(1));
@@ -126,7 +126,7 @@ namespace UnitTests
 			Verify("(x-1)^2*(x+1)^2*(x-2)^2");
 		}
 
-		TEST_METHOD(PolynomialRoots14)
+		TEST_METHOD(PolynomialMapRoots14)
 		{
 			polynomialRoots.push_back(Number(-1));
 			polynomialRoots.push_back(Number(1));
@@ -134,27 +134,27 @@ namespace UnitTests
 			Verify("(x-1)^2*(x+1)^4*(x-2)^2");
 		}
 
-		TEST_METHOD(PolynomialRoots15)
+		TEST_METHOD(PolynomialMapRoots15)
 		{
 			polynomialRoots.push_back(Number(-1));
 			Verify("(x+1)^4*(x2+x+1)");
 		}
 
-		TEST_METHOD(PolynomialRoots16)
+		TEST_METHOD(PolynomialMapRoots16)
 		{
 			a = -1;
 			polynomialRoots.push_back(Number(0));
 			Verify("12a2");
 		}
 
-		TEST_METHOD(PolynomialRoots17)
+		TEST_METHOD(PolynomialMapRoots17)
 		{
 			b = 4;
 			polynomialRoots.push_back(Number(1));
 			Verify("(a-1)^2");
 		}
 
-		TEST_METHOD(PolynomialRoots18)
+		TEST_METHOD(PolynomialMapRoots18)
 		{
 			a = -20;
 			b = 10;
@@ -162,7 +162,7 @@ namespace UnitTests
 			Verify("(a+3)^4");
 		}
 
-		TEST_METHOD(PolynomialRoots19)
+		TEST_METHOD(PolynomialMapRoots19)
 		{
 			a = -1;
 			b = 4;
@@ -170,28 +170,28 @@ namespace UnitTests
 			Verify("a3*(a+2)^10");
 		}
 
-		TEST_METHOD(PolynomialRoots20)
+		TEST_METHOD(PolynomialMapRoots20)
 		{
 			a = 0;
 			b = 1;
 			Verify("(x+1)^4*(x-2)^2");
 		}
 
-		TEST_METHOD(PolynomialRoots21)
+		TEST_METHOD(PolynomialMapRoots21)
 		{
 			b = 2;
 			polynomialRoots.push_back(Number(-1));
 			polynomialRoots.push_back(Number(1));
 			Verify("(x-1)^2*(x+1)^2*(x-3)^2");
 		}
-*/
-		TEST_METHOD(PolynomialRoots22)
+
+		TEST_METHOD(PolynomialMapRoots22)
 		{
 			a = Number(-1.3);
 			b = Number(2.1);
 			polynomialRoots.push_back(Number(-1.25));
 			polynomialRoots.push_back(Number(1.25));
-			Verify("(4x-5)^35*(4x+5)^34");
+			Verify("(4x-5)^5*(4x+5)^2");
 		}
 	};
 }
