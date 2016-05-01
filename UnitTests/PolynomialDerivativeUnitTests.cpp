@@ -2,30 +2,30 @@
 #include "stdafx.h"
 
 #include "CppUnitTest.h"
-#include "../Lib/PolynomialMap.h"
+#include "../Lib/Polynomial.h"
 #include "../Lib/Parser.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 /*
 namespace UnitTests
 {
-	TEST_CLASS(PolynomialMapDerivativeTests)
+	TEST_CLASS(PolynomialDerivativeTests)
 	{
 		Parser parser;
-		PolynomialMap polynomialMap;
-		PolynomialMap result;
+		Polynomial polynomial;
+		Polynomial result;
 	public:
 
 		void Verify(string input)
 		{
-			PolynomialMap empty;
+			Polynomial empty;
 			Verify(input, empty);
 		}
 
-		void Verify(string input, PolynomialMap expectedOutput)
+		void Verify(string input, Polynomial expectedOutput)
 		{
-			PolynomialMap p = parser.ConvertToPolynomialMap(input);
-			PolynomialMap derivative = p.Derivative();
+			Polynomial p = parser.ConvertToPolynomial(input);
+			Polynomial derivative = p.Derivative();
 
 			Assert::AreEqual(expectedOutput.ToString(), derivative.ToString());
 		}
@@ -35,95 +35,95 @@ namespace UnitTests
 			result.Clear();
 		}
 
-		TEST_METHOD(PolynomialMapDerivative01)
+		TEST_METHOD(PolynomialDerivative01)
 		{
 			Verify("1");
 		}
 
-		TEST_METHOD(PolynomialMapDerivative02)
+		TEST_METHOD(PolynomialDerivative02)
 		{
 			Verify("5");
 		}
 
-		TEST_METHOD(PolynomialMapDerivative03)
+		TEST_METHOD(PolynomialDerivative03)
 		{
 			Verify("10");
 		}
 
-		TEST_METHOD(PolynomialMapDerivative04)
+		TEST_METHOD(PolynomialDerivative04)
 		{
 			Verify("101");
 		}
 
-		TEST_METHOD(PolynomialMapDerivative05)
+		TEST_METHOD(PolynomialDerivative05)
 		{
 			Verify("123456789");
 		}
 
-		TEST_METHOD(PolynomialMapDerivative06)
+		TEST_METHOD(PolynomialDerivative06)
 		{
 			Verify("0");
 		}
 
-		TEST_METHOD(PolynomialMapDerivative07)
+		TEST_METHOD(PolynomialDerivative07)
 		{
 			Verify("-3");
 		}
 
-		TEST_METHOD(PolynomialMapDerivative08)
+		TEST_METHOD(PolynomialDerivative08)
 		{
 			Verify("-101");
 		}
 
-		TEST_METHOD(PolynomialMapDerivative09)
+		TEST_METHOD(PolynomialDerivative09)
 		{
 			result.SetValue(0, 1);
 			Verify("a", result);
 		}
 
-		TEST_METHOD(PolynomialMapDerivative10)
+		TEST_METHOD(PolynomialDerivative10)
 		{
 			result.SetValue(0, 2);
 			Verify("2a", result);
 		}
 
-		TEST_METHOD(PolynomialMapDerivative11)
+		TEST_METHOD(PolynomialDerivative11)
 		{
 			result.SetValue(0, 12);
 			Verify("12a", result);
 		}
 
-		TEST_METHOD(PolynomialMapDerivative12)
+		TEST_METHOD(PolynomialDerivative12)
 		{
 			result.SetValue(0, -500);
 			Verify("-500a", result);
 		}
 
-		TEST_METHOD(PolynomialMapDerivative13)
+		TEST_METHOD(PolynomialDerivative13)
 		{
 			result.SetValue(1, 2);
 			Verify("a2", result);
 		}
 
-		TEST_METHOD(PolynomialMapDerivative14)
+		TEST_METHOD(PolynomialDerivative14)
 		{
 			result.SetValue(2, 21);
 			Verify("7a3", result);
 		}
 
-		TEST_METHOD(PolynomialMapDerivative15)
+		TEST_METHOD(PolynomialDerivative15)
 		{
 			result.SetValue(129, 15600);
 			Verify("120a130", result);
 		}
 
-		TEST_METHOD(PolynomialMapDerivative16)
+		TEST_METHOD(PolynomialDerivative16)
 		{
 			result.SetValue(999, -500000);
 			Verify("-500a1000", result);
 		}
 
-		TEST_METHOD(PolynomialMapDerivative17)
+		TEST_METHOD(PolynomialDerivative17)
 		{
 			result.SetValue(100, -101);
 			result.SetValue(16, 34);

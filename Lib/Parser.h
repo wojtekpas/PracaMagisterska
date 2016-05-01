@@ -1,6 +1,6 @@
 #pragma once
 #include "CharsConstants.h"
-#include "PolynomialMap.h"
+#include "Polynomial.h"
 #include "StringManager.h"
 
 class Parser
@@ -11,7 +11,7 @@ public:
 	explicit Parser();
 	explicit Parser(string s);
 
-	PolynomialMap ConvertToPolynomialMap(string s);
+	Polynomial ConvertToPolynomial(string s);
 	string UniformInputString(string s);
 };
 
@@ -25,18 +25,18 @@ inline Parser::Parser(string s)
 	this->s = s;
 }
 
-inline PolynomialMap Parser::ConvertToPolynomialMap(string inputS)
+inline Polynomial Parser::ConvertToPolynomial(string inputS)
 {
-	const PolynomialMap EmptyPolynomialMap;
+	const Polynomial EmptyPolynomial;
 
 	string s = UniformInputString(inputS);
 
 	if (StringManager::IsEmptyString(s))
-		EmptyPolynomialMap;
+		EmptyPolynomial;
 
-	PolynomialMap sumElement;
-	PolynomialMap mulElement;
-	PolynomialMap curElement;
+	Polynomial sumElement;
+	Polynomial mulElement;
+	Polynomial curElement;
 
 	bool sumOp = true;
 	bool mulOp = true;
@@ -112,7 +112,7 @@ inline PolynomialMap Parser::ConvertToPolynomialMap(string inputS)
 			{
 				i++;
 				if (CharsConstants::IsDigit(s[i]) == false)
-					return EmptyPolynomialMap;
+					return EmptyPolynomial;
 
 				int power = CharsConstants::CharToInt(s[i]);
 				i++;
@@ -131,13 +131,13 @@ inline PolynomialMap Parser::ConvertToPolynomialMap(string inputS)
 			else if(CharsConstants::IsOpeningParenthesis(s[i]))
 			{
 				int closingParenthesis = StringManager::FindClosingParenthesis(StringManager::Substr(s, i, s.length() - 1));
-				curElement = ConvertToPolynomialMap(StringManager::Substr(s, i + 1, i + closingParenthesis - 1));
+				curElement = ConvertToPolynomial(StringManager::Substr(s, i + 1, i + closingParenthesis - 1));
 				i += closingParenthesis;
 				skip = true;
 			}
 			else
 			{
-				return EmptyPolynomialMap;
+				return EmptyPolynomial;
 			}
 		}
 	}

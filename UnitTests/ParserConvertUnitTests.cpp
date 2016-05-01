@@ -2,7 +2,7 @@
 #include "stdafx.h"
 /*
 #include "CppUnitTest.h"
-#include "../Lib/PolynomialMap.h"
+#include "../Lib/Polynomial.h"
 #include "../Lib/Parser.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
@@ -12,20 +12,20 @@ namespace UnitTests
 	TEST_CLASS(ParserConvertUnitTests)
 	{
 		Parser parser;
-		PolynomialMap polynomialMap;
-		PolynomialMap result;
+		Polynomial polynomial;
+		Polynomial result;
 	public:
 
 		void Verify(string input)
 		{
-			PolynomialMap expectedOutput;
+			Polynomial expectedOutput;
 
 			Verify(input, expectedOutput);
 		}
 
-		void Verify(string input, PolynomialMap expectedOutput)
+		void Verify(string input, Polynomial expectedOutput)
 		{
-			PolynomialMap result = parser.ConvertToPolynomialMap(input);
+			Polynomial result = parser.ConvertToPolynomial(input);
 
 			Assert::AreEqual(expectedOutput.ToString(), result.ToString());
 		}
@@ -37,7 +37,7 @@ namespace UnitTests
 
 		void Verify(string input, int expectedValue, int power = 0)
 		{
-			PolynomialMap expectedOutput;
+			Polynomial expectedOutput;
 
 			expectedOutput.SetValue(power, expectedValue);
 

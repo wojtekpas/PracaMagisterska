@@ -4,15 +4,15 @@
 #include "CharsConstants.h"
 #include "Number.h"
 
-class PolynomialMap
+class Polynomial
 {
 protected:
-	vector<PolynomialMap> sturm;
+	vector<Polynomial> sturm;
 public:
 	map<int, Number>m;
 
-	explicit PolynomialMap();
-	explicit PolynomialMap(Number number);
+	explicit Polynomial();
+	explicit Polynomial(Number number);
 
 	bool Set(string s);
 	void Clear();
@@ -23,43 +23,43 @@ public:
 	pair<int, Number> ValueOfPolynomialDegree();
 	map<int, Number> ValuesExceptValueOfPolynomialDegree(int degree);
 	Number Value(int power);
-	bool ValueEquals(int power, PolynomialMap p2);
+	bool ValueEquals(int power, Polynomial p2);
 	void SetValue(int power, Number number);
 	void SetValue(int power, int value);
 	void Add(int power, Number number);
 	void Sub(int power, Number number);
 	static pair<int, Number> Mul(int power1, Number number1, int power2, Number number2);
 	static pair<int, Number> Div(int power1, Number number1, int power2, Number number2);
-	PolynomialMap NegativePolynomial();
+	Polynomial NegativePolynomial();
 
-	PolynomialMap Derivative();
-	PolynomialMap Nwd(PolynomialMap p1, PolynomialMap p2);
-	PolynomialMap PolynomialAfterEliminationOfMultipleRoots();
-	pair <PolynomialMap, PolynomialMap> DividePolynomials(PolynomialMap p1, PolynomialMap p2);
+	Polynomial Derivative();
+	Polynomial Nwd(Polynomial p1, Polynomial p2);
+	Polynomial PolynomialAfterEliminationOfMultipleRoots();
+	pair <Polynomial, Polynomial> DividePolynomials(Polynomial p1, Polynomial p2);
 	void Normalize();
 	Number CoefficientValue(pair<int, Number> pair1, Number a);
 	Number PolynomialValue(Number a);
-	vector<PolynomialMap> GetSturm();
+	vector<Polynomial> GetSturm();
 	int NumberOfChangesSign(Number a);
 	Number NextNumberFromRange(Number a, Number b);
 	int NumberOfRoots(Number a, Number b);
 	vector<Number> FindRoots(Number a, Number b);
 
-	bool operator==(PolynomialMap p2);
-	bool operator!=(PolynomialMap p2);
-	PolynomialMap operator = (PolynomialMap p2);
-	PolynomialMap operator + (PolynomialMap p2);
-	PolynomialMap operator - (PolynomialMap p2);
-	PolynomialMap operator * (PolynomialMap p2);
-	PolynomialMap operator / (PolynomialMap p2);
-	PolynomialMap operator % (PolynomialMap p2);
-	PolynomialMap operator ^ (int power);
-	PolynomialMap operator += (PolynomialMap p2);
-	PolynomialMap operator -= (PolynomialMap p2);
-	PolynomialMap operator *= (PolynomialMap p2);
-	PolynomialMap operator /= (PolynomialMap p2);
-	PolynomialMap operator %= (PolynomialMap p2);
-	PolynomialMap operator ^= (int power);
+	bool operator==(Polynomial p2);
+	bool operator!=(Polynomial p2);
+	Polynomial operator = (Polynomial p2);
+	Polynomial operator + (Polynomial p2);
+	Polynomial operator - (Polynomial p2);
+	Polynomial operator * (Polynomial p2);
+	Polynomial operator / (Polynomial p2);
+	Polynomial operator % (Polynomial p2);
+	Polynomial operator ^ (int power);
+	Polynomial operator += (Polynomial p2);
+	Polynomial operator -= (Polynomial p2);
+	Polynomial operator *= (Polynomial p2);
+	Polynomial operator /= (Polynomial p2);
+	Polynomial operator %= (Polynomial p2);
+	Polynomial operator ^= (int power);
 	string ToString();
 	void Print(string name);
 
@@ -67,18 +67,18 @@ protected:
 	bool isNew = true;
 };
 
-inline PolynomialMap::PolynomialMap()
+inline Polynomial::Polynomial()
 {
 }
 
-inline PolynomialMap::PolynomialMap(Number number)
+inline Polynomial::Polynomial(Number number)
 {
 	isNew = false;
 	if (number != 0)
 		m.insert(pair<int, Number>(0, number));
 }
 
-inline bool PolynomialMap::Set(string s)
+inline bool Polynomial::Set(string s)
 {
 	Clear();
 
@@ -107,18 +107,18 @@ inline bool PolynomialMap::Set(string s)
 	return true;
 }
 
-inline void PolynomialMap::Clear()
+inline void Polynomial::Clear()
 {
 	m.clear();
 	isNew = true;
 }
 
-inline bool PolynomialMap::IsNew()
+inline bool Polynomial::IsNew()
 {
 	return isNew;
 }
 
-inline bool PolynomialMap::IsZero()
+inline bool Polynomial::IsZero()
 {
 	if (Size() == 0)
 		return true;
@@ -130,12 +130,12 @@ inline bool PolynomialMap::IsZero()
 	return true;
 }
 
-inline int PolynomialMap::Size()
+inline int Polynomial::Size()
 {
 	return m.size();
 }
 
-inline int PolynomialMap::PolynomialDegree()
+inline int Polynomial::PolynomialDegree()
 {
 	int max = -1;
 
@@ -147,14 +147,14 @@ inline int PolynomialMap::PolynomialDegree()
 	return max;
 }
 
-inline pair<int, Number> PolynomialMap::ValueOfPolynomialDegree()
+inline pair<int, Number> Polynomial::ValueOfPolynomialDegree()
 {
 	int polynomialDegree = PolynomialDegree();
 
 	return pair<int, Number>(polynomialDegree, Value(polynomialDegree));
 }
 
-inline map<int, Number> PolynomialMap::ValuesExceptValueOfPolynomialDegree(int degree = -1)
+inline map<int, Number> Polynomial::ValuesExceptValueOfPolynomialDegree(int degree = -1)
 {
 	map<int, Number> result;
 	int polynomialDegree = degree;
@@ -170,19 +170,19 @@ inline map<int, Number> PolynomialMap::ValuesExceptValueOfPolynomialDegree(int d
 	return result;
 }
 
-inline Number PolynomialMap::Value(int power)
+inline Number Polynomial::Value(int power)
 {
 	if (m.count(power))
 		return m.at(power);
 	return Number(0);
 }
 
-inline bool PolynomialMap::ValueEquals(int power, PolynomialMap p2)
+inline bool Polynomial::ValueEquals(int power, Polynomial p2)
 {
 	return Value(power) == p2.Value(power);
 }
 
-inline void PolynomialMap::SetValue(int power, Number number)
+inline void Polynomial::SetValue(int power, Number number)
 {
 	isNew = false;
 	if (number == 0)
@@ -198,38 +198,38 @@ inline void PolynomialMap::SetValue(int power, Number number)
 		m.insert(pair<int, Number>(power, number));
 }
 
-inline void PolynomialMap::SetValue(int power, int value)
+inline void Polynomial::SetValue(int power, int value)
 {
 	Number number(value);
 	SetValue(power, number);
 }
 
-inline void PolynomialMap::Add(int power, Number number)
+inline void Polynomial::Add(int power, Number number)
 {
 	SetValue(power, Value(power) + number);
 }
 
-inline void PolynomialMap::Sub(int power, Number number)
+inline void Polynomial::Sub(int power, Number number)
 {
 	return Add(power, Number(-number.GetValue()));
 }
 
-inline pair<int, Number> PolynomialMap::Mul(int power1, Number number1, int power2, Number number2)
+inline pair<int, Number> Polynomial::Mul(int power1, Number number1, int power2, Number number2)
 {
 	return pair<int, Number>(power1 + power2, number1 * number2);
 	//Add(power1 + power2, value1 * value2);
 }
 
-inline pair<int, Number> PolynomialMap::Div(int power1, Number number1, int power2, Number number2)
+inline pair<int, Number> Polynomial::Div(int power1, Number number1, int power2, Number number2)
 {
 	pair<int, Number> result = pair<int, Number>(power1 - power2, number1 / number2);
 
 	return result;
 }
 
-inline PolynomialMap PolynomialMap::NegativePolynomial()
+inline Polynomial Polynomial::NegativePolynomial()
 {
-	PolynomialMap result;
+	Polynomial result;
 	for(auto p: m)
 	{
 		result.SetValue(p.first, Number(-p.second.GetValue()));
@@ -237,9 +237,9 @@ inline PolynomialMap PolynomialMap::NegativePolynomial()
 	return result;
 }
 
-inline PolynomialMap PolynomialMap::Derivative()
+inline Polynomial Polynomial::Derivative()
 {
-	PolynomialMap result;
+	Polynomial result;
 
 	for (auto p: m)
 	{
@@ -249,41 +249,41 @@ inline PolynomialMap PolynomialMap::Derivative()
 	return result;
 }
 
-inline PolynomialMap PolynomialMap::Nwd(PolynomialMap p1, PolynomialMap p2)
+inline Polynomial Polynomial::Nwd(Polynomial p1, Polynomial p2)
 {
-	pair<PolynomialMap, PolynomialMap> divResult = DividePolynomials(p1, p2);
+	pair<Polynomial, Polynomial> divResult = DividePolynomials(p1, p2);
 	if (divResult.second.IsZero())
 		return p2;
 	if (divResult.second.PolynomialDegree() == 0)
 	{
-		PolynomialMap one;
+		Polynomial one;
 		one.SetValue(0, Number(1));
 		return one;
 	}
 	return Nwd(p2, divResult.second);
 }
 
-inline PolynomialMap PolynomialMap::PolynomialAfterEliminationOfMultipleRoots()
+inline Polynomial Polynomial::PolynomialAfterEliminationOfMultipleRoots()
 {
-	PolynomialMap derivative = Derivative();
+	Polynomial derivative = Derivative();
 	derivative.Normalize();
-	PolynomialMap nwd = Nwd(*this, derivative);
-	PolynomialMap normalizeNwd = nwd;
+	Polynomial nwd = Nwd(*this, derivative);
+	Polynomial normalizeNwd = nwd;
 	normalizeNwd.Normalize();
-	pair<PolynomialMap, PolynomialMap> divResult = DividePolynomials(*this, nwd);
+	pair<Polynomial, Polynomial> divResult = DividePolynomials(*this, nwd);
 	if (divResult.first.IsZero())
 		divResult.first.SetValue(0, Number(1));
 	return divResult.first;
 }
 
-inline pair<PolynomialMap, PolynomialMap> PolynomialMap::DividePolynomials(PolynomialMap p1, PolynomialMap p2)
+inline pair<Polynomial, Polynomial> Polynomial::DividePolynomials(Polynomial p1, Polynomial p2)
 {
-	PolynomialMap result;
+	Polynomial result;
 
 	if (p1.IsZero() || p2.IsZero())
-		return pair<PolynomialMap, PolynomialMap>(result, result);
+		return pair<Polynomial, Polynomial>(result, result);
 
-	PolynomialMap current = p1;
+	Polynomial current = p1;
 	int currentDegree = current.PolynomialDegree();
 	int degree = p2.PolynomialDegree();
 	pair<int, Number> pair2 = pair<int, Number>(degree, p2.Value(degree));
@@ -313,17 +313,17 @@ inline pair<PolynomialMap, PolynomialMap> PolynomialMap::DividePolynomials(Polyn
 		}
 		currentDegree = current.PolynomialDegree();
 	}
-	return pair<PolynomialMap, PolynomialMap>(result, current);
+	return pair<Polynomial, Polynomial>(result, current);
 }
 
-inline void PolynomialMap::Normalize()
+inline void Polynomial::Normalize()
 {
 	Number coefficient = ValueOfPolynomialDegree().second;
-	PolynomialMap divider(coefficient);
+	Polynomial divider(coefficient);
 	*this /= divider;
 }
 
-inline Number PolynomialMap::CoefficientValue(pair<int, Number> pair1, Number a)
+inline Number Polynomial::CoefficientValue(pair<int, Number> pair1, Number a)
 {
 	Number result(1);
 	for (int i = 0; i < pair1.first; i++)
@@ -332,7 +332,7 @@ inline Number PolynomialMap::CoefficientValue(pair<int, Number> pair1, Number a)
 	return result * pair1.second;
 }
 
-inline Number PolynomialMap::PolynomialValue(Number a)
+inline Number Polynomial::PolynomialValue(Number a)
 {
 	if (IsZero())
 		return Number(0);
@@ -344,18 +344,18 @@ inline Number PolynomialMap::PolynomialValue(Number a)
 	return result;
 }
 
-inline vector<PolynomialMap> PolynomialMap::GetSturm()
+inline vector<Polynomial> Polynomial::GetSturm()
 {
 	if (sturm.size())
 		return sturm;
 	sturm.push_back(*this);
-	PolynomialMap derivative = Derivative();
+	Polynomial derivative = Derivative();
 	if (derivative.IsZero())
 		return sturm;
 	sturm.push_back(derivative);
-	PolynomialMap w = *this;
-	PolynomialMap q = derivative;
-	PolynomialMap r = w % q;
+	Polynomial w = *this;
+	Polynomial q = derivative;
+	Polynomial r = w % q;
 
 	while (r.IsZero() == false)
 	{
@@ -368,7 +368,7 @@ inline vector<PolynomialMap> PolynomialMap::GetSturm()
 	return sturm;
 }
 
-inline int PolynomialMap::NumberOfChangesSign(Number a)
+inline int Polynomial::NumberOfChangesSign(Number a)
 {
 	sturm = GetSturm();
 	int counter = 0;
@@ -398,7 +398,7 @@ inline int PolynomialMap::NumberOfChangesSign(Number a)
 	return counter;
 }
 
-inline Number PolynomialMap::NextNumberFromRange(Number a, Number b)
+inline Number Polynomial::NextNumberFromRange(Number a, Number b)
 {
 	if (a.IsInfinity() && b.IsInfinity())
 		return Number(0);
@@ -427,12 +427,12 @@ inline Number PolynomialMap::NextNumberFromRange(Number a, Number b)
 	return Number((a + b) / 2);
 }
 
-inline int PolynomialMap::NumberOfRoots(Number a, Number b)
+inline int Polynomial::NumberOfRoots(Number a, Number b)
 {
 	return NumberOfChangesSign(a) - NumberOfChangesSign(b);
 }
 
-inline vector<Number> PolynomialMap::FindRoots(Number a, Number b)
+inline vector<Number> Polynomial::FindRoots(Number a, Number b)
 {
 	vector<Number> roots;
 	int aIsRoot = 0;
@@ -489,7 +489,7 @@ inline vector<Number> PolynomialMap::FindRoots(Number a, Number b)
 	return roots;
 }
 
-inline bool PolynomialMap::operator == (PolynomialMap p2)
+inline bool Polynomial::operator == (Polynomial p2)
 {
 	for (auto pair1 : m)
 	{
@@ -506,20 +506,20 @@ inline bool PolynomialMap::operator == (PolynomialMap p2)
 	return true;
 }
 
-inline bool PolynomialMap::operator != (PolynomialMap p2)
+inline bool Polynomial::operator != (Polynomial p2)
 {
 	return !(*this == p2);
 }
 
-inline PolynomialMap PolynomialMap::operator = (PolynomialMap p2)
+inline Polynomial Polynomial::operator = (Polynomial p2)
 {
 	m = p2.m;
 	return *this;
 }
 
-inline PolynomialMap PolynomialMap::operator + (PolynomialMap p2)
+inline Polynomial Polynomial::operator + (Polynomial p2)
 {
-	PolynomialMap result;
+	Polynomial result;
 
 	result.m = m;
 
@@ -531,9 +531,9 @@ inline PolynomialMap PolynomialMap::operator + (PolynomialMap p2)
 	return result;
 }
 
-inline PolynomialMap PolynomialMap::operator - (PolynomialMap p2)
+inline Polynomial Polynomial::operator - (Polynomial p2)
 {
-	PolynomialMap result;
+	Polynomial result;
 
 	result.m = m;
 
@@ -545,9 +545,9 @@ inline PolynomialMap PolynomialMap::operator - (PolynomialMap p2)
 	return result;
 }
 
-inline PolynomialMap PolynomialMap::operator * (PolynomialMap p2)
+inline Polynomial Polynomial::operator * (Polynomial p2)
 {
-	PolynomialMap result;
+	Polynomial result;
 
 	if (p2.IsZero())
 		return result;
@@ -564,21 +564,21 @@ inline PolynomialMap PolynomialMap::operator * (PolynomialMap p2)
 	return result;
 }
 
-inline PolynomialMap PolynomialMap::operator / (PolynomialMap p2)
+inline Polynomial Polynomial::operator / (Polynomial p2)
 {
-	pair <PolynomialMap, PolynomialMap> divResult = DividePolynomials(*this, p2);
+	pair <Polynomial, Polynomial> divResult = DividePolynomials(*this, p2);
 	return divResult.first;
 }
 
-inline PolynomialMap PolynomialMap::operator % (PolynomialMap p2)
+inline Polynomial Polynomial::operator % (Polynomial p2)
 {
-	pair <PolynomialMap, PolynomialMap> divResult = DividePolynomials(*this, p2);
+	pair <Polynomial, Polynomial> divResult = DividePolynomials(*this, p2);
 	return divResult.second;
 }
 
-inline PolynomialMap PolynomialMap::operator ^ (int power)
+inline Polynomial Polynomial::operator ^ (int power)
 {
-	PolynomialMap result;
+	Polynomial result;
 
 	if (power == 0)
 	{
@@ -599,43 +599,43 @@ inline PolynomialMap PolynomialMap::operator ^ (int power)
 	return result;
 }
 
-inline PolynomialMap PolynomialMap::operator += (PolynomialMap p2)
+inline Polynomial Polynomial::operator += (Polynomial p2)
 {
 	*this = *this + p2;
 	return *this;
 }
 
-inline PolynomialMap PolynomialMap::operator -= (PolynomialMap p2)
+inline Polynomial Polynomial::operator -= (Polynomial p2)
 {
 	*this = *this - p2;
 	return *this;
 }
 
-inline PolynomialMap PolynomialMap::operator *= (PolynomialMap p2)
+inline Polynomial Polynomial::operator *= (Polynomial p2)
 {
 	*this = *this * p2;
 	return *this;
 }
 
-inline PolynomialMap PolynomialMap::operator /= (PolynomialMap p2)
+inline Polynomial Polynomial::operator /= (Polynomial p2)
 {
 	*this = *this / p2;
 	return *this;
 }
 
-inline PolynomialMap PolynomialMap::operator %= (PolynomialMap p2)
+inline Polynomial Polynomial::operator %= (Polynomial p2)
 {
 	*this = *this % p2;
 	return *this;
 }
 
-inline PolynomialMap PolynomialMap::operator ^= (int power)
+inline Polynomial Polynomial::operator ^= (int power)
 {
 	*this = *this ^ power;
 	return *this;
 }
 
-inline string PolynomialMap::ToString()
+inline string Polynomial::ToString()
 {
 	if (IsZero())
 	{
@@ -653,7 +653,7 @@ inline string PolynomialMap::ToString()
 	return StringManager::Substr(result, 0, result.length() - 2);
 }
 
-inline void PolynomialMap::Print(string name)
+inline void Polynomial::Print(string name)
 {
 	printf("\t%s:\n", name.c_str());
 	cout << ToString() << endl;
