@@ -1,10 +1,9 @@
 #pragma once
 #include "stdafx.h"
-
 #include "CppUnitTest.h"
 #include "../Lib/Polynomial.h"
 #include "../Lib/Parser.h"
-
+/*
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace UnitTests
@@ -12,21 +11,22 @@ namespace UnitTests
 	TEST_CLASS(PolynomialSumOperatorUnitTests)
 	{
 		Parser parser;
-		Polynomial polynomial;
-		Polynomial result;
+		Polynomial& polynomial;
+		Polynomial& result;
 	public:
 
 		void Verify(string input_p1, string input_p2)
 		{
-			Polynomial empty;
+			PolynomialMap polynomialMap;
+			Polynomial& empty = polynomialMap.CreatePolynomial();
 			Verify(input_p1, input_p2, empty);
 		}
 
-		void Verify(string input_p1, string input_p2, Polynomial expectedOutput)
+		void Verify(string input_p1, string input_p2, Polynomial& expectedOutput)
 		{
-			Polynomial p1 = parser.ConvertToPolynomial(input_p1);
-			Polynomial p2 = parser.ConvertToPolynomial(input_p2);
-			Polynomial result = p1 + p2;
+			Polynomial& p1 = parser.ConvertToPolynomial(input_p1);
+			Polynomial& p2 = parser.ConvertToPolynomial(input_p2);
+			Polynomial& result = p1 + p2;
 
 			Assert::AreEqual(expectedOutput.ToString(), result.ToString());
 		}
@@ -101,4 +101,4 @@ namespace UnitTests
 		}
 	};
 }
-
+*/

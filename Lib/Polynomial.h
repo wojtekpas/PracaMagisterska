@@ -6,33 +6,46 @@
 
 class Polynomial
 {
+	/*
 public:
 	map<int, Number>m;
 	vector<Polynomial&> sturm;
 	bool isNew = true;
+
 	explicit Polynomial();
 	explicit Polynomial(Number number);
+
 	virtual Polynomial& CreatePolynomial() = 0;
 	virtual Polynomial& CreatePolynomial(Number number) = 0;
+	virtual void Clear() = 0;
+	virtual bool IsZero() = 0;
+	virtual int Size() = 0;
+	virtual int PolynomialDegree() = 0;
+	virtual Number Value(int power) = 0;
+	virtual void SetValue(int power, Number number) = 0;
+	virtual string ToString() = 0;
+
+	virtual bool operator==(Polynomial& p2) = 0;
+	virtual Polynomial& operator = (Polynomial& p2) = 0;
+	virtual Polynomial& operator + (Polynomial& p2) = 0;
+	virtual Polynomial& operator - (Polynomial& p2) = 0;
+	virtual Polynomial& operator * (Polynomial& p2) = 0;
+	virtual Polynomial& operator / (Polynomial& p2) = 0;
+	virtual Polynomial& operator % (Polynomial& p2) = 0;
+	
 	bool Set(string s);
 	bool IsNew();
-	virtual void Clear() {};
-	virtual bool IsZero();
-	virtual int Size() { return 0; }
-	virtual int PolynomialDegree() { return 0; }
 	pair<int, Number> ValueOfPolynomialDegree();
 	virtual map<int, Number> ValuesExceptValueOfPolynomialDegree(int degree) { map<int, Number> empty; return empty; };
 
-	virtual Number Value(int power) { return Number(0); };
 	bool ValueEquals(int power, Polynomial& p2);
-	virtual void SetValue(int power, Number number) {};
 	void SetValue(int power, int value);
-	virtual Polynomial& NegativePolynomial() = 0;
+	Polynomial& NegativePolynomial();
 	void Add(int power, Number number);
 	void Sub(int power, Number number);
 	pair<int, Number> Mul(int power1, Number number1, int power2, Number number2);
 	pair<int, Number> Div(int power1, Number number1, int power2, Number number2);
-	pair<Polynomial&, Polynomial&> DividePolynomials(Polynomial& p1, Polynomial& p2);
+	virtual pair<Polynomial&, Polynomial&> DividePolynomials(Polynomial& p1, Polynomial& p2) = 0;
 	Polynomial& Derivative();
 	Polynomial& Nwd(Polynomial& p1, Polynomial& p2);
 	Polynomial& PolynomialAfterEliminationOfMultipleRoots();
@@ -45,14 +58,8 @@ public:
 	int NumberOfRoots(Number a, Number b);
 	vector<Number> FindRoots(Number a, Number b);
 
-	bool operator==(Polynomial& p2) { return false; };
 	bool operator!=(Polynomial& p2);
-	virtual Polynomial& operator = (Polynomial& p2) = 0;
-	virtual Polynomial& operator + (Polynomial& p2) = 0;
-	virtual Polynomial& operator - (Polynomial& p2) = 0;
-	virtual Polynomial& operator * (Polynomial& p2) = 0;
-	virtual Polynomial& operator / (Polynomial& p2) = 0;
-	virtual Polynomial& operator % (Polynomial& p2) = 0;
+
 	Polynomial& operator ^ (int power);
 	Polynomial& operator += (Polynomial& p2);
 	Polynomial& operator -= (Polynomial& p2);
@@ -60,10 +67,10 @@ public:
 	Polynomial& operator /= (Polynomial& p2);
 	Polynomial& operator %= (Polynomial& p2);
 	Polynomial& operator ^= (int power);
-	virtual string ToString() { return ""; }
 	void Print(string name);
+	*/
 };
-
+/*
 inline Polynomial::Polynomial()
 {
 
@@ -487,4 +494,4 @@ inline void Polynomial::Print(string name)
 	printf("\t%s:\n", name.c_str());
 	cout << ToString() << endl;
 }
-
+*/

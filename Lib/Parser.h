@@ -1,6 +1,7 @@
 #pragma once
 #include "CharsConstants.h"
 #include "Polynomial.h"
+#include "PolynomialMap.h"
 #include "StringManager.h"
 
 class Parser
@@ -11,10 +12,10 @@ public:
 	explicit Parser();
 	explicit Parser(string s);
 
-	Polynomial ConvertToPolynomial(string s);
+	Polynomial& ConvertToPolynomial(string s);
 	string UniformInputString(string s);
 };
-
+/*
 inline Parser::Parser()
 {
 	s = StringManager::EmptyString();
@@ -25,18 +26,19 @@ inline Parser::Parser(string s)
 	this->s = s;
 }
 
-inline Polynomial Parser::ConvertToPolynomial(string inputS)
+inline Polynomial& Parser::ConvertToPolynomial(string inputS)
 {
-	const Polynomial EmptyPolynomial;
+	PolynomialMap polynomialMap;
+	Polynomial& EmptyPolynomial = polynomialMap.CreatePolynomial();
 
 	string s = UniformInputString(inputS);
 
 	if (StringManager::IsEmptyString(s))
 		EmptyPolynomial;
 
-	Polynomial sumElement;
-	Polynomial mulElement;
-	Polynomial curElement;
+	Polynomial& sumElement = polynomialMap.CreatePolynomial();
+	Polynomial& mulElement = polynomialMap.CreatePolynomial();
+	Polynomial& curElement = polynomialMap.CreatePolynomial();
 
 	bool sumOp = true;
 	bool mulOp = true;
@@ -234,3 +236,4 @@ inline string Parser::UniformInputString(string s)
 
 	return result;
 }
+*/

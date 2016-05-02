@@ -3,7 +3,7 @@
 #include "CppUnitTest.h"
 #include "../Lib/Polynomial.h"
 #include "../Lib/Parser.h"
-
+/*
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace UnitTests
@@ -15,7 +15,7 @@ namespace UnitTests
 
 		void Verify(string input, int a, double expectedValue)
 		{
-			Polynomial p1 = parser.ConvertToPolynomial(input);
+			Polynomial& p1 = parser.ConvertToPolynomial(input);
 			Number result = p1.PolynomialValue(Number(a));
 			Assert::AreEqual(expectedValue, result.GetValue());
 		}
@@ -96,4 +96,4 @@ namespace UnitTests
 		}
 	};
 }
-
+*/

@@ -3,30 +3,32 @@
 
 class PolynomialMap: Polynomial
 {
-protected:
-
+	/*
 public:
 	explicit PolynomialMap();
 	explicit PolynomialMap(Number number);
 	int Size() override;
 	void Clear() override;
 	bool IsZero() override;
+	Polynomial& CreatePolynomial() override;
+	Polynomial& CreatePolynomial(Number number) override;
 	int PolynomialDegree() override;
 	Number Value(int power) override;
 	void SetValue(int power, Number number) override;
 	map<int, Number> ValuesExceptValueOfPolynomialDegree(int degree) override;
-	pair <Polynomial&, Polynomial&> DividePolynomials(Polynomial& p1, Polynomial& p2);
+	pair <Polynomial&, Polynomial&> DividePolynomials(Polynomial& p1, Polynomial& p2) override;
 	string ToString() override;
 
-	bool operator==(Polynomial& p2);
-	Polynomial& operator = (Polynomial& p2);
-	Polynomial& operator + (Polynomial& p2);
-	Polynomial& operator - (Polynomial& p2);
-	Polynomial& operator * (Polynomial& p2);
-	Polynomial& operator / (Polynomial& p2);
-	Polynomial& operator % (Polynomial& p2);
+	bool operator==(Polynomial& p2) override;
+	Polynomial& operator = (Polynomial& p2) override;
+	Polynomial& operator + (Polynomial& p2) override;
+	Polynomial& operator - (Polynomial& p2) override;
+	Polynomial& operator * (Polynomial& p2) override;
+	Polynomial& operator / (Polynomial& p2) override;
+	Polynomial& operator % (Polynomial& p2) override;
+	*/
 };
-
+/*
 inline PolynomialMap::PolynomialMap() : Polynomial()
 {
 }
@@ -58,6 +60,18 @@ inline bool PolynomialMap::IsZero()
 			return false;
 	}
 	return true;
+}
+
+inline Polynomial& PolynomialMap::CreatePolynomial()
+{
+	PolynomialMap polynomialMap;
+	return polynomialMap;
+}
+
+inline Polynomial& PolynomialMap::CreatePolynomial(Number number)
+{
+	PolynomialMap polynomialMap;
+	return polynomialMap;
 }
 
 inline int PolynomialMap::PolynomialDegree()
@@ -249,3 +263,4 @@ inline Polynomial& PolynomialMap::operator % (Polynomial& p2)
 	auto divResult = DividePolynomials(*this, p2);
 	return divResult.second;
 }
+*/
