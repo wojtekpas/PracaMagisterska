@@ -2,8 +2,9 @@
 #include "stdafx.h"
 #include "CppUnitTest.h"
 #include "../Lib/PolynomialMap.h"
+#include "../Lib/Polynomial.h"
 #include "../Lib/Parser.h"
-/*
+
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace UnitTests
@@ -18,8 +19,9 @@ namespace UnitTests
 
 		void Verify(string input)
 		{
-			Polynomial& p = parser.ConvertToPolynomial(input);
-			Polynomial& polynomialAfterElimination = p.PolynomialAfterEliminationOfMultipleRoots();
+			PolynomialMap p = parser.ConvertToPolynomial(input);
+			Polynomial& p2 = p.PolynomialAfterEliminationOfMultipleRoots();
+			PolynomialMap polynomialAfterElimination = ConvertFromPolynomialRef(p2);
 			polynomialAfterElimination.Normalize();
 			vector<Number> roots = polynomialAfterElimination.FindRoots(a, b);
 			vector<double> roots_double;
@@ -85,8 +87,8 @@ namespace UnitTests
 
 		TEST_METHOD(PolynomialMapRoots08)
 		{
-			polynomialRoots.push_back(Number(-2));
-			polynomialRoots.push_back(Number(-1));
+			polynomialRoots.push_back(Number(-3));
+			polynomialRoots.push_back(Number(2));
 			Verify("(a+1)(a+2)");
 		}
 
@@ -195,4 +197,3 @@ namespace UnitTests
 		}
 	};
 }
-*/

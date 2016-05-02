@@ -1,10 +1,11 @@
 #pragma once
 #include "Polynomial.h"
 
-class PolynomialMap: Polynomial
-{
-	/*
+class PolynomialMap: public Polynomial
+{	
 public:
+	vector<PolynomialMap> sturm;
+
 	explicit PolynomialMap();
 	explicit PolynomialMap(Number number);
 	int Size() override;
@@ -14,8 +15,9 @@ public:
 	Polynomial& CreatePolynomial(Number number) override;
 	int PolynomialDegree() override;
 	Number Value(int power) override;
-	void SetValue(int power, Number number) override;
+	void SetNumberValue(int power, Number number) override;
 	map<int, Number> ValuesExceptValueOfPolynomialDegree(int degree) override;
+	int NumberOfChangesSign(Number a) override;
 	pair <Polynomial&, Polynomial&> DividePolynomials(Polynomial& p1, Polynomial& p2) override;
 	string ToString() override;
 
@@ -26,9 +28,44 @@ public:
 	Polynomial& operator * (Polynomial& p2) override;
 	Polynomial& operator / (Polynomial& p2) override;
 	Polynomial& operator % (Polynomial& p2) override;
-	*/
+	
+	vector<PolynomialMap> GetSturm();
+	PolynomialMap operator = (PolynomialMap p2);
 };
-/*
+
+inline PolynomialMap ConvertFromPolynomialRef(Polynomial& ref)
+{
+	PolynomialMap p;
+	p.m = ref.m;
+	p.isNew = ref.isNew;
+	return p;
+}
+
+inline Polynomial& CreatePolynomial()
+{
+	PolynomialMap* polynomialMap = new PolynomialMap();
+	return *polynomialMap;
+}
+
+inline Polynomial& CreatePolynomial(Number number)
+{
+	PolynomialMap* polynomialMap = new PolynomialMap(number);
+	return *polynomialMap;
+}
+
+inline Polynomial& PolynomialMap::CreatePolynomial()
+{
+	PolynomialMap* polynomialMap = new PolynomialMap();
+	return *polynomialMap;
+}
+
+inline Polynomial& PolynomialMap::CreatePolynomial(Number number)
+{
+	PolynomialMap* polynomialMap = new PolynomialMap(number);
+	return *polynomialMap;
+}
+
+
 inline PolynomialMap::PolynomialMap() : Polynomial()
 {
 }
@@ -60,18 +97,6 @@ inline bool PolynomialMap::IsZero()
 			return false;
 	}
 	return true;
-}
-
-inline Polynomial& PolynomialMap::CreatePolynomial()
-{
-	PolynomialMap polynomialMap;
-	return polynomialMap;
-}
-
-inline Polynomial& PolynomialMap::CreatePolynomial(Number number)
-{
-	PolynomialMap polynomialMap;
-	return polynomialMap;
 }
 
 inline int PolynomialMap::PolynomialDegree()
@@ -108,7 +133,7 @@ inline Number PolynomialMap::Value(int power)
 	return Number(0);
 }
 
-inline void PolynomialMap::SetValue(int power, Number number)
+inline void PolynomialMap::SetNumberValue(int power, Number number)
 {
 	isNew = false;
 	if (number == 0)
@@ -144,11 +169,11 @@ inline pair<Polynomial&, Polynomial&> PolynomialMap::DividePolynomials(Polynomia
 
 		auto divResult = Div(pair1.first, pair1.second, pair2.first, pair2.second);
 
-		result.SetValue(divResult.first, divResult.second);
+		result.SetNumberValue(divResult.first, divResult.second);
 
 		if (divResult.second != 0)
 		{
-			current.SetValue(currentDegree, Number(0));
+			current.SetNumberValue(currentDegree, Number(0));
 			for (auto curPair : map2)
 			{
 				auto mulResult = Mul(curPair.first, curPair.second, divResult.first, divResult.second);
@@ -263,4 +288,62 @@ inline Polynomial& PolynomialMap::operator % (Polynomial& p2)
 	auto divResult = DividePolynomials(*this, p2);
 	return divResult.second;
 }
-*/
+
+inline PolynomialMap PolynomialMap::operator=(PolynomialMap p2)
+{
+	m = p2.m;
+	return *this;
+}
+
+inline int PolynomialMap::NumberOfChangesSign(Number a)
+{
+	int counter = 0;
+	int lastValue = 0;
+	int curValue;
+	Number number = PolynomialValue(a);
+	if (number > 0)
+		lastValue = 1;
+	else if (number < 0)
+		lastValue = -1;
+
+	for (int i = 1; i < sturm.size(); i++)
+	{
+		number = sturm.at(i).PolynomialValue(a);
+		if (number > 0)
+			curValue = 1;
+		else if (number < 0)
+			curValue = -1;
+		else
+			curValue = 0;
+
+		if (lastValue * curValue < 0)
+			counter++;
+		if (curValue)
+			lastValue = curValue;
+	}
+	return counter;
+}
+
+inline vector<PolynomialMap> PolynomialMap::GetSturm()
+{
+	if (sturm.size())
+		return sturm;
+	sturm.push_back(*this);
+	Polynomial& derivative = Derivative();
+	if (derivative.IsZero())
+		return sturm;
+	sturm.push_back(ConvertFromPolynomialRef(derivative));
+	Polynomial& w = *this;
+	Polynomial& q = derivative;
+	Polynomial& r = w % q;
+
+	while (r.IsZero() == false)
+	{
+		r = r.NegativePolynomial();
+		sturm.push_back(ConvertFromPolynomialRef(r));
+		w = q;
+		q = r;
+		r = w % q;
+	}
+	return sturm;
+}

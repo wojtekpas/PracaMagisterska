@@ -3,12 +3,12 @@
 #include "StringManager.h"
 #include "CharsConstants.h"
 #include "Number.h"
+//#include "PolynomialMap.h"
 
 class Polynomial
 {
 public:
 	map<int, Number>m;
-	vector<Polynomial&> sturm;
 	bool isNew = true;
 
 	explicit Polynomial();
@@ -21,9 +21,10 @@ public:
 	virtual int Size() = 0;
 	virtual int PolynomialDegree() = 0;
 	virtual Number Value(int power) = 0;
-	virtual void SetValue(int power, Number number) = 0;
+	virtual void SetNumberValue(int power, Number number) = 0;
 	virtual string ToString() = 0;
 	virtual map<int, Number> ValuesExceptValueOfPolynomialDegree(int degree) = 0;
+	virtual int NumberOfChangesSign(Number a) = 0;
 
 	virtual bool operator==(Polynomial& p2) = 0;
 	virtual Polynomial& operator = (Polynomial& p2) = 0;
@@ -51,8 +52,6 @@ public:
 	void Normalize();
 	Number CoefficientValue(pair<int, Number> pair1, Number a);
 	Number PolynomialValue(Number a);
-	vector<Polynomial&> GetSturm();
-	int NumberOfChangesSign(Number a);
 	Number NextNumberFromRange(Number a, Number b);
 	int NumberOfRoots(Number a, Number b);
 	vector<Number> FindRoots(Number a, Number b);
@@ -71,7 +70,6 @@ public:
 
 inline Polynomial::Polynomial()
 {
-
 }
 
 inline Polynomial::Polynomial(Number number)
@@ -91,7 +89,7 @@ inline bool Polynomial::Set(string s)
 		if (s.length() > 1)
 			return false;
 			
-		SetValue(1, Number(1));
+		SetNumberValue(1, Number(1));
 		return true;
 	}
 
@@ -104,7 +102,7 @@ inline bool Polynomial::Set(string s)
 	}
 
 	if(number != 0)
-		SetValue(0, number);
+		SetNumberValue(0, number);
 	return true;
 }
 
@@ -127,9 +125,10 @@ inline bool Polynomial::IsZero()
 
 inline pair<int, Number> Polynomial::ValueOfPolynomialDegree()
 {
-	int PolynomialDegree = this->PolynomialDegree();
+	int polynomialDegree = PolynomialDegree();
+	Number value = Value(polynomialDegree);
 
-	return pair<int, Number>(PolynomialDegree, Value(PolynomialDegree));
+	return pair<int, Number>(polynomialDegree, value);
 }
 
 inline bool Polynomial::ValueEquals(int power, Polynomial& p2)
@@ -140,7 +139,7 @@ inline bool Polynomial::ValueEquals(int power, Polynomial& p2)
 inline void Polynomial::SetValue(int power, int value)
 {
 	Number number(value);
-	SetValue(power, number);
+	SetNumberValue(power, number);
 }
 
 inline Polynomial& Polynomial::NegativePolynomial()
@@ -148,14 +147,14 @@ inline Polynomial& Polynomial::NegativePolynomial()
 	Polynomial& result = CreatePolynomial();
 	for(auto p: m)
 	{
-		result.SetValue(p.first, Number(-p.second.GetValue()));
+		result.SetNumberValue(p.first, Number(-p.second.GetValue()));
 	}
 	return result;
 }
 
 inline void Polynomial::Add(int power, Number number)
 {
-	SetValue(power, Value(power) + number);
+	SetNumberValue(power, Value(power) + number);
 }
 
 inline void Polynomial::Sub(int power, Number number)
@@ -193,11 +192,11 @@ inline pair<Polynomial&, Polynomial&> Polynomial::DividePolynomials(Polynomial& 
 
 		auto divResult = Div(pair1.first, pair1.second, pair2.first, pair2.second);
 
-		result.SetValue(divResult.first, divResult.second);
+		result.SetNumberValue(divResult.first, divResult.second);
 
 		if (divResult.second != 0)
 		{
-			current.SetValue(currentDegree, Number(0));
+			current.SetNumberValue(currentDegree, Number(0));
 			for (auto curPair : map2)
 			{
 				auto mulResult = Mul(curPair.first, curPair.second, divResult.first, divResult.second);
@@ -221,7 +220,7 @@ inline Polynomial& Polynomial::Derivative()
 	for (auto p: m)
 	{
 		if (p.first > 0)
-			result.SetValue(p.first - 1, Number(p.first * p.second.GetValue()));
+			result.SetNumberValue(p.first - 1, Number(p.first * p.second.GetValue()));
 	}
 	return result;
 }
@@ -234,7 +233,7 @@ inline Polynomial& Polynomial::Nwd(Polynomial& p1, Polynomial& p2)
 	if (divResult.second.PolynomialDegree() == 0)
 	{
 		Polynomial& one = CreatePolynomial();
-		one.SetValue(0, Number(1));
+		one.SetNumberValue(0, Number(1));
 		return one;
 	}
 	return Nwd(p2, divResult.second);
@@ -249,7 +248,7 @@ inline Polynomial& Polynomial::PolynomialAfterEliminationOfMultipleRoots()
 	normalizeNwd.Normalize();
 	pair<Polynomial&, Polynomial&> divResult = DividePolynomials(*this, nwd);
 	if (divResult.first.IsZero())
-		divResult.first.SetValue(0, Number(1));
+		divResult.first.SetNumberValue(0, Number(1));
 	return divResult.first;
 }
 
@@ -281,58 +280,7 @@ inline Number Polynomial::PolynomialValue(Number a)
 	return result;
 }
 
-inline vector<Polynomial&> Polynomial::GetSturm()
-{
-	if (sturm.size())
-		return sturm;
-	sturm.push_back(*this);
-	Polynomial& derivative = Derivative();
-	if (derivative.IsZero())
-		return sturm;
-	sturm.push_back(derivative);
-	Polynomial& w = *this;
-	Polynomial& q = derivative;
-	Polynomial& r = w % q;
 
-	while (r.IsZero() == false)
-	{
-		r = r.NegativePolynomial();
-		sturm.push_back(r);
-		w = q;
-		q = r;
-		r = w % q;
-	}
-	return sturm;
-}
-
-inline int Polynomial::NumberOfChangesSign(Number a)
-{
-	int counter = 0;
-	int lastValue = 0;
-	int curValue;
-	Number number = PolynomialValue(a);
-	if (number > 0)
-		lastValue = 1;
-	else if (number < 0)
-		lastValue = -1;
-
-	for (int i = 1; i < sturm.size(); i++)
-	{
-		number = sturm.at(i).PolynomialValue(a);
-		if (number > 0)
-			curValue = 1;
-		else if (number < 0)
-			curValue = -1;
-		else
-			curValue = 0;
-
-		if (lastValue * curValue < 0)
-			counter++;
-		if (curValue)
-			lastValue = curValue;
-	}
-	return counter;
-}
 
 inline Number Polynomial::NextNumberFromRange(Number a, Number b)
 {
@@ -437,7 +385,7 @@ inline Polynomial& Polynomial::operator ^ (int power)
 		if (IsZero())
 			return result;
 
-		result.SetValue(0, Number(1));
+		result.SetNumberValue(0, Number(1));
 		return result;
 	}
 

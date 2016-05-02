@@ -1,8 +1,9 @@
 #pragma once
 #include "stdafx.h"
-/*
+
 #include "CppUnitTest.h"
 #include "../Lib/Polynomial.h"
+#include "../Lib/PolynomialMap.h"
 #include "../Lib/Parser.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
@@ -12,20 +13,20 @@ namespace UnitTests
 	TEST_CLASS(ParserConvertUnitTests)
 	{
 		Parser parser;
-		Polynomial polynomial;
-		Polynomial result;
+		PolynomialMap polynomial;
+		PolynomialMap result;
 	public:
 
 		void Verify(string input)
 		{
-			Polynomial expectedOutput;
+			PolynomialMap expectedOutput;
 
 			Verify(input, expectedOutput);
 		}
 
-		void Verify(string input, Polynomial expectedOutput)
+		void Verify(string input, PolynomialMap expectedOutput)
 		{
-			Polynomial result = parser.ConvertToPolynomial(input);
+			PolynomialMap result = parser.ConvertToPolynomial(input);
 
 			Assert::AreEqual(expectedOutput.ToString(), result.ToString());
 		}
@@ -37,10 +38,8 @@ namespace UnitTests
 
 		void Verify(string input, int expectedValue, int power = 0)
 		{
-			Polynomial expectedOutput;
-
+			PolynomialMap expectedOutput;
 			expectedOutput.SetValue(power, expectedValue);
-
 			Verify(input, expectedOutput);
 		}
 
@@ -314,4 +313,3 @@ namespace UnitTests
 		}
 	};
 }
-*/

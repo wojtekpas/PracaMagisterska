@@ -12,10 +12,11 @@ public:
 	explicit Parser();
 	explicit Parser(string s);
 
-	Polynomial& ConvertToPolynomial(string s);
+	PolynomialMap ConvertToPolynomial(string inputS);
+	Polynomial& ConvertToPolynomialRef(string inputS);
 	string UniformInputString(string s);
 };
-/*
+
 inline Parser::Parser()
 {
 	s = StringManager::EmptyString();
@@ -26,19 +27,20 @@ inline Parser::Parser(string s)
 	this->s = s;
 }
 
-inline Polynomial& Parser::ConvertToPolynomial(string inputS)
+inline PolynomialMap Parser::ConvertToPolynomial(string inputS)
 {
 	PolynomialMap polynomialMap;
-	Polynomial& EmptyPolynomial = polynomialMap.CreatePolynomial();
+
+	PolynomialMap emptyPolynomial; // = polynomialMap.CreatePolynomial();
 
 	string s = UniformInputString(inputS);
 
 	if (StringManager::IsEmptyString(s))
-		EmptyPolynomial;
+		emptyPolynomial;
 
-	Polynomial& sumElement = polynomialMap.CreatePolynomial();
-	Polynomial& mulElement = polynomialMap.CreatePolynomial();
-	Polynomial& curElement = polynomialMap.CreatePolynomial();
+	PolynomialMap sumElement;// = polynomialMap.CreatePolynomial();
+	PolynomialMap mulElement;// = polynomialMap.CreatePolynomial();
+	PolynomialMap curElement;// = polynomialMap.CreatePolynomial();
 
 	bool sumOp = true;
 	bool mulOp = true;
@@ -114,7 +116,7 @@ inline Polynomial& Parser::ConvertToPolynomial(string inputS)
 			{
 				i++;
 				if (CharsConstants::IsDigit(s[i]) == false)
-					return EmptyPolynomial;
+					return emptyPolynomial;
 
 				int power = CharsConstants::CharToInt(s[i]);
 				i++;
@@ -139,7 +141,7 @@ inline Polynomial& Parser::ConvertToPolynomial(string inputS)
 			}
 			else
 			{
-				return EmptyPolynomial;
+				return emptyPolynomial;
 			}
 		}
 	}
@@ -159,6 +161,14 @@ inline Polynomial& Parser::ConvertToPolynomial(string inputS)
 		sumElement -= curElement;
 
 	return sumElement;
+}
+
+inline Polynomial& Parser::ConvertToPolynomialRef(string inputS)
+{
+	PolynomialMap p = ConvertToPolynomial(inputS);
+	Polynomial* ref = new PolynomialMap();
+	ref->m = p.m;
+	return *ref;
 }
 
 inline string Parser::UniformInputString(string s)
@@ -236,4 +246,3 @@ inline string Parser::UniformInputString(string s)
 
 	return result;
 }
-*/

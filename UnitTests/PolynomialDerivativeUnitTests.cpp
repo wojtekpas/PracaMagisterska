@@ -1,31 +1,28 @@
 #pragma once
 #include "stdafx.h"
-
 #include "CppUnitTest.h"
-#include "../Lib/Polynomial.h"
 #include "../Lib/Parser.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
-/*
+
 namespace UnitTests
 {
 	TEST_CLASS(PolynomialDerivativeTests)
 	{
 		Parser parser;
-		Polynomial polynomial;
-		Polynomial result;
+		Polynomial& result = CreatePolynomial();
 	public:
 
 		void Verify(string input)
 		{
-			Polynomial empty;
+			Polynomial& empty = CreatePolynomial();
 			Verify(input, empty);
 		}
 
-		void Verify(string input, Polynomial expectedOutput)
+		void Verify(string input, Polynomial& expectedOutput)
 		{
-			Polynomial p = parser.ConvertToPolynomial(input);
-			Polynomial derivative = p.Derivative();
+			Polynomial& p = parser.ConvertToPolynomialRef(input);
+			Polynomial& derivative = p.Derivative();
 
 			Assert::AreEqual(expectedOutput.ToString(), derivative.ToString());
 		}
@@ -133,4 +130,3 @@ namespace UnitTests
 		}
 	};
 }
-*/

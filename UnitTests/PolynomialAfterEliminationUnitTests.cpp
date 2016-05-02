@@ -1,9 +1,8 @@
 #pragma once
 #include "stdafx.h"
 #include "CppUnitTest.h"
-#include "../Lib/Polynomial.h"
 #include "../Lib/Parser.h"
-/*
+
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace UnitTests
@@ -15,9 +14,9 @@ namespace UnitTests
 
 		void Verify(string input, string output)
 		{
-			Polynomial p1 = parser.ConvertToPolynomial(input);
-			Polynomial p2 = parser.ConvertToPolynomial(output);
-			Polynomial polynomialAfterElimination = p1.PolynomialAfterEliminationOfMultipleRoots();
+			Polynomial& p1 = parser.ConvertToPolynomialRef(input);
+			Polynomial& p2 = parser.ConvertToPolynomialRef(output);
+			Polynomial& polynomialAfterElimination = p1.PolynomialAfterEliminationOfMultipleRoots();
 			polynomialAfterElimination.Normalize();
 			Assert::AreEqual(p2.ToString(), polynomialAfterElimination.ToString());
 		}
@@ -98,4 +97,3 @@ namespace UnitTests
 		}
 	};
 }
-*/
