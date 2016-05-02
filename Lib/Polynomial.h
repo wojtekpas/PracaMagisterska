@@ -6,7 +6,6 @@
 
 class Polynomial
 {
-	/*
 public:
 	map<int, Number>m;
 	vector<Polynomial&> sturm;
@@ -24,6 +23,7 @@ public:
 	virtual Number Value(int power) = 0;
 	virtual void SetValue(int power, Number number) = 0;
 	virtual string ToString() = 0;
+	virtual map<int, Number> ValuesExceptValueOfPolynomialDegree(int degree) = 0;
 
 	virtual bool operator==(Polynomial& p2) = 0;
 	virtual Polynomial& operator = (Polynomial& p2) = 0;
@@ -36,7 +36,6 @@ public:
 	bool Set(string s);
 	bool IsNew();
 	pair<int, Number> ValueOfPolynomialDegree();
-	virtual map<int, Number> ValuesExceptValueOfPolynomialDegree(int degree) { map<int, Number> empty; return empty; };
 
 	bool ValueEquals(int power, Polynomial& p2);
 	void SetValue(int power, int value);
@@ -59,7 +58,6 @@ public:
 	vector<Number> FindRoots(Number a, Number b);
 
 	bool operator!=(Polynomial& p2);
-
 	Polynomial& operator ^ (int power);
 	Polynomial& operator += (Polynomial& p2);
 	Polynomial& operator -= (Polynomial& p2);
@@ -68,9 +66,9 @@ public:
 	Polynomial& operator %= (Polynomial& p2);
 	Polynomial& operator ^= (int power);
 	void Print(string name);
-	*/
+
 };
-/*
+
 inline Polynomial::Polynomial()
 {
 
@@ -494,4 +492,4 @@ inline void Polynomial::Print(string name)
 	printf("\t%s:\n", name.c_str());
 	cout << ToString() << endl;
 }
-*/
+
