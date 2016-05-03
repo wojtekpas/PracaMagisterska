@@ -9,7 +9,8 @@ static int globId = 0;
 class Polynomial
 {
 public:
-	map<int, Number>m;
+	//map<int, Number>m;
+	deque<pair<int, Number>>d;
 	bool isNew = true;
 	int id = 0;
 
