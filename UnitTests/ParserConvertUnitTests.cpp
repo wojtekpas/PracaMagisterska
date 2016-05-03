@@ -13,20 +13,19 @@ namespace UnitTests
 	TEST_CLASS(ParserConvertUnitTests)
 	{
 		Parser parser;
-		PolynomialMap polynomial;
-		PolynomialMap result;
+		Polynomial& result = CreatePolynomial();
 	public:
 
 		void Verify(string input)
 		{
-			PolynomialMap expectedOutput;
+			Polynomial& expectedOutput = CreatePolynomial();
 
 			Verify(input, expectedOutput);
 		}
 
-		void Verify(string input, PolynomialMap expectedOutput)
+		void Verify(string input, Polynomial& expectedOutput)
 		{
-			PolynomialMap result = parser.ConvertToPolynomial(input);
+			Polynomial& result = parser.ConvertToPolynomial(input);
 
 			Assert::AreEqual(expectedOutput.ToString(), result.ToString());
 		}

@@ -21,7 +21,7 @@ namespace UnitTests
 
 		void Verify(string input, Polynomial& expectedOutput)
 		{
-			Polynomial& p = parser.ConvertToPolynomialRef(input);
+			Polynomial& p = parser.ConvertToPolynomial(input);
 			Polynomial& derivative = p.Derivative();
 
 			Assert::AreEqual(expectedOutput.ToString(), derivative.ToString());

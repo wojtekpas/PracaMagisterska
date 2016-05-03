@@ -5,11 +5,15 @@
 #include "Number.h"
 //#include "PolynomialMap.h"
 
+static int globId = 0;
+
 class Polynomial
 {
 public:
+
 	map<int, Number>m;
 	bool isNew = true;
+	int id = 0;
 
 	explicit Polynomial();
 	explicit Polynomial(Number number);
@@ -70,11 +74,13 @@ public:
 
 inline Polynomial::Polynomial()
 {
+	id = globId++;
 }
 
 inline Polynomial::Polynomial(Number number)
 {
 	isNew = false;
+	id = globId++;
 }
 
 inline bool Polynomial::Set(string s)
@@ -318,7 +324,9 @@ inline Number Polynomial::NextNumberFromRange(Number a, Number b)
 
 inline int Polynomial::NumberOfRoots(Number a, Number b)
 {
-	return NumberOfChangesSign(a) - NumberOfChangesSign(b);
+	int count1 = NumberOfChangesSign(a);
+	int count2 = NumberOfChangesSign(b);
+	return count1 - count2;
 }
 
 inline vector<Number> Polynomial::FindRoots(Number a, Number b)

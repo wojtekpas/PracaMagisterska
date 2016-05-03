@@ -1,8 +1,6 @@
 #pragma once
 #include "stdafx.h"
 #include "CppUnitTest.h"
-#include "../Lib/PolynomialMap.h"
-#include "../Lib/Polynomial.h"
 #include "../Lib/Parser.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
@@ -19,9 +17,9 @@ namespace UnitTests
 
 		void Verify(string input)
 		{
-			PolynomialMap p = parser.ConvertToPolynomial(input);
+			Polynomial& p = parser.ConvertToPolynomial(input);
 			Polynomial& p2 = p.PolynomialAfterEliminationOfMultipleRoots();
-			PolynomialMap polynomialAfterElimination = ConvertFromPolynomialRef(p2);
+			Polynomial& polynomialAfterElimination = p2;
 			polynomialAfterElimination.Normalize();
 			vector<Number> roots = polynomialAfterElimination.FindRoots(a, b);
 			vector<double> roots_double;

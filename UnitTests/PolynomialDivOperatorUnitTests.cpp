@@ -20,8 +20,8 @@ namespace UnitTests
 
 		void Verify(string input_p1, string input_p2, Polynomial& expectedOutput)
 		{
-			Polynomial& p1 = parser.ConvertToPolynomialRef(input_p1);
-			Polynomial& p2 = parser.ConvertToPolynomialRef(input_p2);
+			Polynomial& p1 = parser.ConvertToPolynomial(input_p1);
+			Polynomial& p2 = parser.ConvertToPolynomial(input_p2);
 			result = p1 / p2;
 
 			Assert::AreEqual(expectedOutput.ToString(), result.ToString());
@@ -96,7 +96,7 @@ namespace UnitTests
 
 		TEST_METHOD(PolynomialDivOperator11)
 		{
-			Polynomial& answer = parser.ConvertToPolynomialRef("x");
+			Polynomial& answer = parser.ConvertToPolynomial("x");
 			Verify("x6-6x4-4x3+9x2+12x+4", "x5-4x3-2x2+3x+2", answer);
 		}
 	};

@@ -29,7 +29,6 @@ public:
 	Polynomial& operator % (Polynomial& p2) override;
 	
 	vector<PolynomialMap> GetSturm();
-	PolynomialMap operator = (PolynomialMap p2);
 };
 
 inline PolynomialMap ConvertFromPolynomialRef(Polynomial& ref)
@@ -185,9 +184,11 @@ inline bool PolynomialMap::operator == (Polynomial& p2)
 
 inline Polynomial& PolynomialMap::operator = (Polynomial& p2)
 {
-	//Polynomial& newPolynomial = CreatePolynomial();
-	//newPolynomial.m = p2.m;
+	Polynomial& newPolynomial = CreatePolynomial();
+	newPolynomial.m = p2.m;
+	newPolynomial.id = p2.id * 10;
 	m = p2.m;
+	id = p2.id * 11;
 	return *this;
 }
 
@@ -250,14 +251,9 @@ inline Polynomial& PolynomialMap::operator % (Polynomial& p2)
 	return divResult.second;
 }
 
-inline PolynomialMap PolynomialMap::operator=(PolynomialMap p2)
-{
-	m = p2.m;
-	return *this;
-}
-
 inline int PolynomialMap::NumberOfChangesSign(Number a)
 {
+	sturm = GetSturm();
 	int counter = 0;
 	int lastValue = 0;
 	int curValue;

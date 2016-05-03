@@ -21,8 +21,8 @@ namespace UnitTests
 
 		void Verify(string input_p1, string input_p2, Polynomial& expectedOutput)
 		{
-			Polynomial& p1 = parser.ConvertToPolynomialRef(input_p1);
-			Polynomial& p2 = parser.ConvertToPolynomialRef(input_p2);
+			Polynomial& p1 = parser.ConvertToPolynomial(input_p1);
+			Polynomial& p2 = parser.ConvertToPolynomial(input_p2);
 			result = p1 + p2;
 
 			Assert::AreEqual(expectedOutput.ToString(), result.ToString());

@@ -12,8 +12,7 @@ public:
 	explicit Parser();
 	explicit Parser(string s);
 
-	PolynomialMap ConvertToPolynomial(string inputS);
-	Polynomial& ConvertToPolynomialRef(string inputS);
+	Polynomial& ConvertToPolynomial(string inputS);
 	string UniformInputString(string s);
 };
 
@@ -27,20 +26,18 @@ inline Parser::Parser(string s)
 	this->s = s;
 }
 
-inline PolynomialMap Parser::ConvertToPolynomial(string inputS)
+inline Polynomial& Parser::ConvertToPolynomial(string inputS)
 {
-	PolynomialMap polynomialMap;
-
-	PolynomialMap emptyPolynomial; // = polynomialMap.CreatePolynomial();
+	Polynomial& emptyPolynomial = CreatePolynomial(); // = polynomialMap.CreatePolynomial();
 
 	string s = UniformInputString(inputS);
 
 	if (StringManager::IsEmptyString(s))
 		emptyPolynomial;
 
-	PolynomialMap sumElement;// = polynomialMap.CreatePolynomial();
-	PolynomialMap mulElement;// = polynomialMap.CreatePolynomial();
-	PolynomialMap curElement;// = polynomialMap.CreatePolynomial();
+	Polynomial& sumElement = CreatePolynomial();// = polynomialMap.CreatePolynomial();
+	Polynomial& mulElement = CreatePolynomial();// = polynomialMap.CreatePolynomial();
+	Polynomial& curElement = CreatePolynomial();// = polynomialMap.CreatePolynomial();
 
 	bool sumOp = true;
 	bool mulOp = true;
@@ -154,7 +151,9 @@ inline PolynomialMap Parser::ConvertToPolynomial(string inputS)
 		curElement *= mulElement;
 		mulElement.Clear();
 	}
-
+	Polynomial& tmpP = CreatePolynomial();
+	tmpP = curElement;
+	tmpP = curElement + sumElement;
 	if (sumOp)
 		sumElement += curElement;
 	else
@@ -163,13 +162,13 @@ inline PolynomialMap Parser::ConvertToPolynomial(string inputS)
 	return sumElement;
 }
 
-inline Polynomial& Parser::ConvertToPolynomialRef(string inputS)
+/*inline Polynomial& Parser::ConvertToPolynomial(string inputS)
 {
 	PolynomialMap p = ConvertToPolynomial(inputS);
 	Polynomial* ref = new PolynomialMap();
 	ref->m = p.m;
 	return *ref;
-}
+}*/
 
 inline string Parser::UniformInputString(string s)
 {

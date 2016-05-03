@@ -21,8 +21,8 @@ namespace UnitTests
 
 		void Verify(string input_p1, string input_p2, Polynomial& expectedOutput)
 		{
-			Polynomial& p1 = parser.ConvertToPolynomialRef(input_p1);
-			Polynomial& p2 = parser.ConvertToPolynomialRef(input_p2);
+			Polynomial& p1 = parser.ConvertToPolynomial(input_p1);
+			Polynomial& p2 = parser.ConvertToPolynomial(input_p2);
 			result = p1 % p2;
 
 			Assert::AreEqual(expectedOutput.ToString(), result.ToString());
@@ -118,7 +118,7 @@ namespace UnitTests
 
 		TEST_METHOD(PolynomialModOperator16)
 		{
-			Polynomial& answer = parser.ConvertToPolynomialRef("-2(x4+x3-3x2-5x-2)");
+			Polynomial& answer = parser.ConvertToPolynomial("-2(x4+x3-3x2-5x-2)");
 			Verify("x6-6x4-4x3+9x2+12x+4", "x5-4x3-2x2+3x+2", answer);
 		}
 
@@ -126,17 +126,17 @@ namespace UnitTests
 		{
 			string input_p1 = "x6-6x4-4x3+9x2+12x+4";
 			string input_derivative = "x5-4x3-2x2+3x+2";
-			Polynomial& p1 = parser.ConvertToPolynomialRef(input_p1);
+			Polynomial& p1 = parser.ConvertToPolynomial(input_p1);
 			Polynomial& derivative = p1.Derivative();
 			derivative.Normalize();
 			Polynomial& nwd = p1.Nwd(p1, derivative);
 			nwd.Normalize();
 			Polynomial& p1AfterEliminationOfMultipleRoots = p1 / nwd;
 			Polynomial& tmp1 = derivative % nwd;
-			Polynomial& answerDerivative = parser.ConvertToPolynomialRef(input_derivative);
-			Polynomial& answerNwd = parser.ConvertToPolynomialRef("x4+x3-3x2-5x-2");
-			Polynomial& answerP1After = parser.ConvertToPolynomialRef("x2-x-2");
-			Polynomial& answerTmp1 = parser.ConvertToPolynomialRef("Is Zero");
+			Polynomial& answerDerivative = parser.ConvertToPolynomial(input_derivative);
+			Polynomial& answerNwd = parser.ConvertToPolynomial("x4+x3-3x2-5x-2");
+			Polynomial& answerP1After = parser.ConvertToPolynomial("x2-x-2");
+			Polynomial& answerTmp1 = parser.ConvertToPolynomial("Is Zero");
 
 			Assert::AreEqual(answerDerivative.ToString(), derivative.ToString());
 			Assert::AreEqual(answerNwd.ToString(), nwd.ToString());
