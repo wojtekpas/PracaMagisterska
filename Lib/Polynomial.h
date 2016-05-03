@@ -3,14 +3,12 @@
 #include "StringManager.h"
 #include "CharsConstants.h"
 #include "Number.h"
-//#include "PolynomialMap.h"
 
 static int globId = 0;
 
 class Polynomial
 {
 public:
-
 	map<int, Number>m;
 	bool isNew = true;
 	int id = 0;
@@ -26,17 +24,18 @@ public:
 	virtual int PolynomialDegree() = 0;
 	virtual Number Value(int power) = 0;
 	virtual void SetNumberValue(int power, Number number) = 0;
-	virtual string ToString() = 0;
 	virtual map<int, Number> ValuesExceptValueOfPolynomialDegree(int degree) = 0;
 	virtual int NumberOfChangesSign(Number a) = 0;
+	virtual Polynomial& NegativePolynomial() = 0;
+	virtual Polynomial& Derivative() = 0;
+	virtual Number PolynomialValue(Number a) = 0;
+	virtual string ToString() = 0;
 
 	virtual bool operator==(Polynomial& p2) = 0;
 	virtual Polynomial& operator = (Polynomial& p2) = 0;
 	virtual Polynomial& operator + (Polynomial& p2) = 0;
 	virtual Polynomial& operator - (Polynomial& p2) = 0;
 	virtual Polynomial& operator * (Polynomial& p2) = 0;
-	virtual Polynomial& operator / (Polynomial& p2) = 0;
-	virtual Polynomial& operator % (Polynomial& p2) = 0;
 	
 	bool Set(string s);
 	bool IsNew();
@@ -44,23 +43,22 @@ public:
 
 	bool ValueEquals(int power, Polynomial& p2);
 	void SetValue(int power, int value);
-	Polynomial& NegativePolynomial();
 	void Add(int power, Number number);
 	void Sub(int power, Number number);
 	pair<int, Number> Mul(int power1, Number number1, int power2, Number number2);
 	pair<int, Number> Div(int power1, Number number1, int power2, Number number2);
 	pair<Polynomial&, Polynomial&> DividePolynomials(Polynomial& p1, Polynomial& p2);
-	Polynomial& Derivative();
 	Polynomial& Nwd(Polynomial& p1, Polynomial& p2);
 	Polynomial& PolynomialAfterEliminationOfMultipleRoots();
 	void Normalize();
 	Number CoefficientValue(pair<int, Number> pair1, Number a);
-	Number PolynomialValue(Number a);
 	Number NextNumberFromRange(Number a, Number b);
 	int NumberOfRoots(Number a, Number b);
 	vector<Number> FindRoots(Number a, Number b);
 
 	bool operator!=(Polynomial& p2);
+	Polynomial& operator / (Polynomial& p2);
+	Polynomial& operator % (Polynomial& p2);
 	Polynomial& operator ^ (int power);
 	Polynomial& operator += (Polynomial& p2);
 	Polynomial& operator -= (Polynomial& p2);
@@ -117,18 +115,6 @@ inline bool Polynomial::IsNew()
 	return isNew;
 }
 
-inline bool Polynomial::IsZero()
-{
-	if (Size() == 0)
-		return true;
-	for (auto pair1 : m)
-	{
-		if (pair1.second.Abs() > 0.0000001)
-			return false;
-	}
-	return true;
-}
-
 inline pair<int, Number> Polynomial::ValueOfPolynomialDegree()
 {
 	int polynomialDegree = PolynomialDegree();
@@ -146,16 +132,6 @@ inline void Polynomial::SetValue(int power, int value)
 {
 	Number number(value);
 	SetNumberValue(power, number);
-}
-
-inline Polynomial& Polynomial::NegativePolynomial()
-{
-	Polynomial& result = CreatePolynomial();
-	for(auto p: m)
-	{
-		result.SetNumberValue(p.first, Number(-p.second.GetValue()));
-	}
-	return result;
 }
 
 inline void Polynomial::Add(int power, Number number)
@@ -187,7 +163,7 @@ inline pair<Polynomial&, Polynomial&> Polynomial::DividePolynomials(Polynomial& 
 		return pair<Polynomial&, Polynomial&>(result, rest);
 
 	Polynomial& current = CreatePolynomial();
-	current.m = p1.m;
+	current = p1;
 	int currentDegree = current.PolynomialDegree();
 	int degree = p2.PolynomialDegree();
 	pair<int, Number> pair2 = pair<int, Number>(degree, p2.Value(degree));
@@ -220,26 +196,13 @@ inline pair<Polynomial&, Polynomial&> Polynomial::DividePolynomials(Polynomial& 
 	return pair<Polynomial&, Polynomial&>(result, current);
 }
 
-
-inline Polynomial& Polynomial::Derivative()
-{
-	Polynomial& result = CreatePolynomial();
-
-	for (auto p: m)
-	{
-		if (p.first > 0)
-			result.SetNumberValue(p.first - 1, Number(p.first * p.second.GetValue()));
-	}
-	return result;
-}
-
 inline Polynomial& Polynomial::Nwd(Polynomial& p1, Polynomial& p2)
 {
 	auto divResult = DividePolynomials(p1, p2);
 	if (divResult.second.IsZero())
 	{
 		Polynomial& result = CreatePolynomial();
-		result.m = p2.m;
+		result = p2;
 		return result;
 	}
 	if (divResult.second.PolynomialDegree() == 0)
@@ -278,20 +241,6 @@ inline Number Polynomial::CoefficientValue(pair<int, Number> pair1, Number a)
 
 	return result * pair1.second;
 }
-
-inline Number Polynomial::PolynomialValue(Number a)
-{
-	if (IsZero())
-		return Number(0);
-	Number result(0);
-	for (auto pair1 : m)
-	{
-		result += CoefficientValue(pair1, a);
-	}
-	return result;
-}
-
-
 
 inline Number Polynomial::NextNumberFromRange(Number a, Number b)
 {
@@ -387,6 +336,18 @@ inline vector<Number> Polynomial::FindRoots(Number a, Number b)
 inline bool Polynomial::operator != (Polynomial& p2)
 {
 	return !(*this == p2);
+}
+
+inline Polynomial& Polynomial::operator / (Polynomial& p2)
+{
+	auto divResult = DividePolynomials(*this, p2);
+	return divResult.first;
+}
+
+inline Polynomial& Polynomial::operator % (Polynomial& p2)
+{
+	auto divResult = DividePolynomials(*this, p2);
+	return divResult.second;
 }
 
 inline Polynomial& Polynomial::operator ^ (int power)

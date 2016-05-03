@@ -8,16 +8,19 @@ public:
 
 	explicit PolynomialMap();
 	explicit PolynomialMap(Number number);
-	int Size() override;
-	void Clear() override;
-	bool IsZero() override;
 	Polynomial& CreatePolynomial() override;
 	Polynomial& CreatePolynomial(Number number) override;
+	void Clear() override;
+	bool IsZero() override;
+	int Size() override;
 	int PolynomialDegree() override;
 	Number Value(int power) override;
 	void SetNumberValue(int power, Number number) override;
 	map<int, Number> ValuesExceptValueOfPolynomialDegree(int degree) override;
 	int NumberOfChangesSign(Number a) override;
+	Polynomial& NegativePolynomial() override;
+	Polynomial& Derivative() override;
+	Number PolynomialValue(Number a) override;
 	string ToString() override;
 
 	bool operator==(Polynomial& p2) override;
@@ -25,8 +28,6 @@ public:
 	Polynomial& operator + (Polynomial& p2) override;
 	Polynomial& operator - (Polynomial& p2) override;
 	Polynomial& operator * (Polynomial& p2) override;
-	Polynomial& operator / (Polynomial& p2) override;
-	Polynomial& operator % (Polynomial& p2) override;
 	
 	vector<PolynomialMap> GetSturm();
 };
@@ -192,38 +193,26 @@ inline Polynomial& PolynomialMap::operator = (Polynomial& p2)
 inline Polynomial& PolynomialMap::operator + (Polynomial& p2)
 {
 	Polynomial& result = CreatePolynomial();
-
 	result.m = m;
-
 	for (auto pair1 : p2.m)
-	{
 		result.Add(pair1.first, pair1.second);
-	}
-
 	return result;
 }
 
 inline Polynomial& PolynomialMap::operator - (Polynomial& p2)
 {
 	Polynomial& result = CreatePolynomial();
-
 	result.m = m;
-
 	for (auto pair1 : p2.m)
-	{
 		result.Sub(pair1.first, pair1.second);
-	}
-
 	return result;
 }
 
 inline Polynomial& PolynomialMap::operator * (Polynomial& p2)
 {
 	Polynomial& result = CreatePolynomial();
-
 	if (p2.IsZero())
 		return result;
-
 	for (auto pair1 : m)
 	{
 		for (auto pair2 : p2.m)
@@ -232,20 +221,7 @@ inline Polynomial& PolynomialMap::operator * (Polynomial& p2)
 			result.Add(mulResult.first, mulResult.second);
 		}
 	}
-
 	return result;
-}
-
-inline Polynomial& PolynomialMap::operator / (Polynomial& p2)
-{
-	auto divResult = DividePolynomials(*this, p2);
-	return divResult.first;
-}
-
-inline Polynomial& PolynomialMap::operator % (Polynomial& p2)
-{
-	auto divResult = DividePolynomials(*this, p2);
-	return divResult.second;
 }
 
 inline int PolynomialMap::NumberOfChangesSign(Number a)
@@ -303,4 +279,38 @@ inline vector<PolynomialMap> PolynomialMap::GetSturm()
 		r = w % q;
 	}
 	return sturm;
+}
+
+inline Polynomial& PolynomialMap::NegativePolynomial()
+{
+	Polynomial& result = CreatePolynomial();
+	for (auto p : m)
+	{
+		result.SetNumberValue(p.first, Number(-p.second.GetValue()));
+	}
+	return result;
+}
+
+inline Polynomial& PolynomialMap::Derivative()
+{
+	Polynomial& result = CreatePolynomial();
+
+	for (auto p : m)
+	{
+		if (p.first > 0)
+			result.SetNumberValue(p.first - 1, Number(p.first * p.second.GetValue()));
+	}
+	return result;
+}
+
+inline Number PolynomialMap::PolynomialValue(Number a)
+{
+	if (IsZero())
+		return Number(0);
+	Number result(0);
+	for (auto pair1 : m)
+	{
+		result += CoefficientValue(pair1, a);
+	}
+	return result;
 }
