@@ -151,9 +151,6 @@ inline Polynomial& Parser::ConvertToPolynomial(string inputS)
 		curElement *= mulElement;
 		mulElement.Clear();
 	}
-	Polynomial& tmpP = CreatePolynomial();
-	tmpP = curElement;
-	tmpP = curElement + sumElement;
 	if (sumOp)
 		sumElement += curElement;
 	else

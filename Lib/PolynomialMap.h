@@ -184,11 +184,8 @@ inline bool PolynomialMap::operator == (Polynomial& p2)
 
 inline Polynomial& PolynomialMap::operator = (Polynomial& p2)
 {
-	Polynomial& newPolynomial = CreatePolynomial();
-	newPolynomial.m = p2.m;
-	newPolynomial.id = p2.id * 10;
 	m = p2.m;
-	id = p2.id * 11;
+	id = p2.id;
 	return *this;
 }
 
@@ -290,9 +287,12 @@ inline vector<PolynomialMap> PolynomialMap::GetSturm()
 	if (derivative.IsZero())
 		return sturm;
 	sturm.push_back(ConvertFromPolynomialRef(derivative));
-	Polynomial& w = *this;
-	Polynomial& q = derivative;
-	Polynomial& r = w % q;
+	Polynomial& w = CreatePolynomial();
+	Polynomial& q = CreatePolynomial();
+	Polynomial& r = CreatePolynomial();
+	w.m = m;
+	q = derivative;
+	r = w % q;
 
 	while (r.IsZero() == false)
 	{

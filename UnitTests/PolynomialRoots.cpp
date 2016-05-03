@@ -85,8 +85,8 @@ namespace UnitTests
 
 		TEST_METHOD(PolynomialMapRoots08)
 		{
-			polynomialRoots.push_back(Number(-3));
-			polynomialRoots.push_back(Number(2));
+			polynomialRoots.push_back(Number(-2));
+			polynomialRoots.push_back(Number(-1));
 			Verify("(a+1)(a+2)");
 		}
 
