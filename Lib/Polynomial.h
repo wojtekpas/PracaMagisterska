@@ -45,7 +45,7 @@ public:
 	void Sub(int power, Number number);
 	pair<int, Number> Mul(int power1, Number number1, int power2, Number number2);
 	pair<int, Number> Div(int power1, Number number1, int power2, Number number2);
-	virtual pair<Polynomial&, Polynomial&> DividePolynomials(Polynomial& p1, Polynomial& p2) = 0;
+	pair<Polynomial&, Polynomial&> DividePolynomials(Polynomial& p1, Polynomial& p2);
 	Polynomial& Derivative();
 	Polynomial& Nwd(Polynomial& p1, Polynomial& p2);
 	Polynomial& PolynomialAfterEliminationOfMultipleRoots();
@@ -175,11 +175,13 @@ inline pair<int, Number> Polynomial::Div(int power1, Number number1, int power2,
 inline pair<Polynomial&, Polynomial&> Polynomial::DividePolynomials(Polynomial& p1, Polynomial& p2)
 {
 	Polynomial& result = CreatePolynomial();
+	Polynomial& rest = CreatePolynomial();
 
 	if (p1.IsZero() || p2.IsZero())
-		return pair<Polynomial&, Polynomial&>(result, result);
+		return pair<Polynomial&, Polynomial&>(result, rest);
 
-	Polynomial& current = p1;
+	Polynomial& current = CreatePolynomial();
+	current.m = p1.m;
 	int currentDegree = current.PolynomialDegree();
 	int degree = p2.PolynomialDegree();
 	pair<int, Number> pair2 = pair<int, Number>(degree, p2.Value(degree));
@@ -229,7 +231,11 @@ inline Polynomial& Polynomial::Nwd(Polynomial& p1, Polynomial& p2)
 {
 	auto divResult = DividePolynomials(p1, p2);
 	if (divResult.second.IsZero())
-		return p2;
+	{
+		Polynomial& result = CreatePolynomial();
+		result.m = p2.m;
+		return result;
+	}
 	if (divResult.second.PolynomialDegree() == 0)
 	{
 		Polynomial& one = CreatePolynomial();
@@ -244,8 +250,7 @@ inline Polynomial& Polynomial::PolynomialAfterEliminationOfMultipleRoots()
 	Polynomial& derivative = Derivative();
 	derivative.Normalize();
 	Polynomial& nwd = Nwd(*this, derivative);
-	Polynomial& normalizeNwd = nwd;
-	normalizeNwd.Normalize();
+	nwd.Normalize();
 	pair<Polynomial&, Polynomial&> divResult = DividePolynomials(*this, nwd);
 	if (divResult.first.IsZero())
 		divResult.first.SetNumberValue(0, Number(1));

@@ -18,7 +18,6 @@ public:
 	void SetNumberValue(int power, Number number) override;
 	map<int, Number> ValuesExceptValueOfPolynomialDegree(int degree) override;
 	int NumberOfChangesSign(Number a) override;
-	pair <Polynomial&, Polynomial&> DividePolynomials(Polynomial& p1, Polynomial& p2) override;
 	string ToString() override;
 
 	bool operator==(Polynomial& p2) override;
@@ -149,46 +148,6 @@ inline void PolynomialMap::SetNumberValue(int power, Number number)
 		m.insert(pair<int, Number>(power, number));
 }
 
-inline pair<Polynomial&, Polynomial&> PolynomialMap::DividePolynomials(Polynomial& p1, Polynomial& p2)
-{
-	Polynomial& result = CreatePolynomial();
-
-	if (p1.IsZero() || p2.IsZero())
-		return pair<Polynomial&, Polynomial&>(result, result);
-
-	Polynomial& current = p1;
-	int currentDegree = current.PolynomialDegree();
-	int degree = p2.PolynomialDegree();
-	pair<int, Number> pair2 = pair<int, Number>(degree, p2.Value(degree));
-	map<int, Number> map2 = p2.ValuesExceptValueOfPolynomialDegree(degree);
-
-	while (currentDegree >= degree)
-	{
-		pair<int, Number> pair1 = pair<int, Number>(currentDegree, current.Value(currentDegree));
-		map<int, Number> map1 = current.ValuesExceptValueOfPolynomialDegree(currentDegree);
-
-		auto divResult = Div(pair1.first, pair1.second, pair2.first, pair2.second);
-
-		result.SetNumberValue(divResult.first, divResult.second);
-
-		if (divResult.second != 0)
-		{
-			current.SetNumberValue(currentDegree, Number(0));
-			for (auto curPair : map2)
-			{
-				auto mulResult = Mul(curPair.first, curPair.second, divResult.first, divResult.second);
-				current.Sub(mulResult.first, mulResult.second);
-			}
-		}
-		else
-		{
-			break;
-		}
-		currentDegree = current.PolynomialDegree();
-	}
-	return pair<Polynomial&, Polynomial&>(result, current);
-}
-
 inline string PolynomialMap::ToString()
 {
 	if (IsZero())
@@ -226,6 +185,8 @@ inline bool PolynomialMap::operator == (Polynomial& p2)
 
 inline Polynomial& PolynomialMap::operator = (Polynomial& p2)
 {
+	//Polynomial& newPolynomial = CreatePolynomial();
+	//newPolynomial.m = p2.m;
 	m = p2.m;
 	return *this;
 }
