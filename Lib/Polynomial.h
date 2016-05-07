@@ -9,10 +9,10 @@ static int globId = 0;
 class Polynomial
 {
 public:
-	map<int, Number>m;
+	//map<int, Number>m;
 	vector<pair<int, Number>>v;
 	bool isNew = true;
-	int id = 0;
+	//int id = 0;
 
 	explicit Polynomial();
 	explicit Polynomial(Number number);
@@ -73,13 +73,13 @@ public:
 
 inline Polynomial::Polynomial()
 {
-	id = globId++;
+	//id = globId++;
 }
 
 inline Polynomial::Polynomial(Number number)
 {
 	isNew = false;
-	id = globId++;
+	//id = globId++;
 }
 
 inline bool Polynomial::Set(string s)

@@ -144,7 +144,7 @@ inline void PolynomialVector::SetNumberValue(int power, Number number)
 		return;
 	}
 	v[power] = pair<int, Number>(power, number);
-	if (power == (Size() - 1) && number.IsZero() == false)
+	if (power == (Size() - 1) && number.IsZero())
 	{
 		v.pop_back();
 		for (int i = power - 1; i >= 0; i--)
@@ -194,7 +194,7 @@ inline bool PolynomialVector::operator == (Polynomial& p2)
 inline Polynomial& PolynomialVector::operator = (Polynomial& p2)
 {
 	v = p2.v;
-	id = p2.id;
+	//id = p2.id;
 	return *this;
 }
 
