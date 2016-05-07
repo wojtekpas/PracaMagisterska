@@ -1,13 +1,13 @@
 #pragma once
 #include "Polynomial.h"
 
-class PolynomialMap: public Polynomial
+class PolynomialVector: public Polynomial
 {	
 public:
-	vector<PolynomialMap> sturm;
+	vector<PolynomialVector> sturm;
 
-	explicit PolynomialMap();
-	explicit PolynomialMap(Number number);
+	explicit PolynomialVector();
+	explicit PolynomialVector(Number number);
 	Polynomial& CreatePolynomial() override;
 	Polynomial& CreatePolynomial(Number number) override;
 	void Clear() override;
@@ -29,68 +29,68 @@ public:
 	Polynomial& operator - (Polynomial& p2) override;
 	Polynomial& operator * (Polynomial& p2) override;
 	
-	vector<PolynomialMap> GetSturm();
+	vector<PolynomialVector> GetSturm();
 };
 
-inline PolynomialMap ConvertFromPolynomialRef(Polynomial& ref)
+inline PolynomialVector ConvertFromPolynomialRef(Polynomial& ref)
 {
-	PolynomialMap p;
-	p.d = ref.d;
+	PolynomialVector p;
+	p.v = ref.v;
 	p.isNew = ref.isNew;
 	return p;
 }
 
 inline Polynomial& CreatePolynomial()
 {
-	PolynomialMap* polynomialMap = new PolynomialMap();
-	return *polynomialMap;
+	PolynomialVector* polynomialVector = new PolynomialVector();
+	return *polynomialVector;
 }
 
 inline Polynomial& CreatePolynomial(Number number)
 {
-	PolynomialMap* polynomialMap = new PolynomialMap(number);
-	return *polynomialMap;
+	PolynomialVector* polynomialVector = new PolynomialVector(number);
+	return *polynomialVector;
 }
 
-inline Polynomial& PolynomialMap::CreatePolynomial()
+inline Polynomial& PolynomialVector::CreatePolynomial()
 {
-	PolynomialMap* polynomialMap = new PolynomialMap();
-	return *polynomialMap;
+	PolynomialVector* polynomialVector = new PolynomialVector();
+	return *polynomialVector;
 }
 
-inline Polynomial& PolynomialMap::CreatePolynomial(Number number)
+inline Polynomial& PolynomialVector::CreatePolynomial(Number number)
 {
-	PolynomialMap* polynomialMap = new PolynomialMap(number);
-	return *polynomialMap;
+	PolynomialVector* polynomialVector = new PolynomialVector(number);
+	return *polynomialVector;
 }
 
 
-inline PolynomialMap::PolynomialMap() : Polynomial()
+inline PolynomialVector::PolynomialVector() : Polynomial()
 {
 }
 
-inline PolynomialMap::PolynomialMap(Number number) : Polynomial(number)
+inline PolynomialVector::PolynomialVector(Number number) : Polynomial(number)
 {
 	if (number != 0)
-		d.push_back(pair<int, Number>(0, number));
+		v.push_back(pair<int, Number>(0, number));
 }
 
-inline int PolynomialMap::Size()
+inline int PolynomialVector::Size()
 {
-	return d.size();
+	return v.size();
 }
 
-inline void PolynomialMap::Clear()
+inline void PolynomialVector::Clear()
 {
-	d.clear();
+	v.clear();
 	isNew = true;
 }
 
-inline bool PolynomialMap::IsZero()
+inline bool PolynomialVector::IsZero()
 {
 	if (Size() == 0)
 		return true;
-	for (auto pair1 : d)
+	for (auto pair1 : v)
 	{
 		if (pair1.second.Abs() > 0.0000001)
 			return false;
@@ -98,18 +98,15 @@ inline bool PolynomialMap::IsZero()
 	return true;
 }
 
-inline int PolynomialMap::PolynomialDegree()
+inline int PolynomialVector::PolynomialDegree()
 {
-	int max = -1;
-
-	for (auto pair1 : d)
-	{
-		if (pair1.first > max)
-			max = pair1.first;
-	}
-	return max;
+	int size = Size();
+	if (size)
+		return size - 1;
+	return 0;
 }
-inline map<int, Number> PolynomialMap::ValuesExceptValueOfPolynomialDegree(int degree = -1)
+
+inline map<int, Number> PolynomialVector::ValuesExceptValueOfPolynomialDegree(int degree = -1)
 {
 	map<int, Number> result;
 	int polynomialDegree = degree;
@@ -117,7 +114,7 @@ inline map<int, Number> PolynomialMap::ValuesExceptValueOfPolynomialDegree(int d
 	if (degree == -1)
 		polynomialDegree = PolynomialDegree();
 
-	for (auto pair1 : d)
+	for (auto pair1 : v)
 	{
 		if (pair1.first != polynomialDegree)
 			result.insert(pair1);
@@ -125,32 +122,49 @@ inline map<int, Number> PolynomialMap::ValuesExceptValueOfPolynomialDegree(int d
 	return result;
 }
 
-inline Number PolynomialMap::Value(int power)
+inline Number PolynomialVector::Value(int power)
 {
-	if (d.at[power])
-		return d.at[power];
-	return Number(0);
+	if (power >= Size())
+		return Number(0);
+	return v[power].second;
 }
 
-inline void PolynomialMap::SetNumberValue(int power, Number number)
+inline void PolynomialVector::SetNumberValue(int power, Number number)
 {
 	isNew = false;
 
-	if (d.at[power])
-		d.at(power) = pair<int, Number>(power, number);
-	else
-		d.push_back(pair<int, Number>(power, number));
-}
-
-inline string PolynomialMap::ToString()
-{
-	if (IsZero())
+	if (power >= Size())
 	{
-		return("Is Zero");
+		if (number.IsZero() == false)
+		{
+			while (power > Size())
+				v.push_back(pair<int, Number>(Size(), Number(0)));
+			v.push_back(pair<int, Number>(power, number));
+		}
+		return;
+	}
+	v[power] = pair<int, Number>(power, number);
+	if (power == (Size() - 1) && number.IsZero() == false)
+	{
+		v.pop_back();
+		for (int i = power - 1; i >= 0; i--)
+		{
+			if (v[i].second.IsZero())
+				v.pop_back();
+			else
+				break;
+		}
 	}
 
+}
+
+inline string PolynomialVector::ToString()
+{
+	if (IsZero())
+		return("Is Zero");
+
 	string result = StringManager::EmptyString();
-	for (auto pair1 : d)
+	for (auto pair1 : v)
 	{
 		if (pair1.second.Abs() > 0.0000001)
 			result = result + to_string(pair1.first) + ':'
@@ -160,15 +174,15 @@ inline string PolynomialMap::ToString()
 	return StringManager::Substr(result, 0, result.length() - 2);
 }
 
-inline bool PolynomialMap::operator == (Polynomial& p2)
+inline bool PolynomialVector::operator == (Polynomial& p2)
 {
-	for (auto pair1 : d)
+	for (auto pair1 : v)
 	{
 		if (ValueEquals(pair1.first, p2) == false)
 			return false;
 	}
 
-	for (auto pair1 : p2.d)
+	for (auto pair1 : p2.v)
 	{
 		if (ValueEquals(pair1.first, p2) == false)
 			return false;
@@ -177,39 +191,39 @@ inline bool PolynomialMap::operator == (Polynomial& p2)
 	return true;
 }
 
-inline Polynomial& PolynomialMap::operator = (Polynomial& p2)
+inline Polynomial& PolynomialVector::operator = (Polynomial& p2)
 {
-	d = p2.d;
+	v = p2.v;
 	id = p2.id;
 	return *this;
 }
 
-inline Polynomial& PolynomialMap::operator + (Polynomial& p2)
+inline Polynomial& PolynomialVector::operator + (Polynomial& p2)
 {
 	Polynomial& result = CreatePolynomial();
-	result.d = d;
-	for (auto pair1 : p2.d)
+	result.v = v;
+	for (auto pair1 : p2.v)
 		result.Add(pair1.first, pair1.second);
 	return result;
 }
 
-inline Polynomial& PolynomialMap::operator - (Polynomial& p2)
+inline Polynomial& PolynomialVector::operator - (Polynomial& p2)
 {
 	Polynomial& result = CreatePolynomial();
-	result.d = d;
-	for (auto pair1 : p2.d)
+	result.v = v;
+	for (auto pair1 : p2.v)
 		result.Sub(pair1.first, pair1.second);
 	return result;
 }
 
-inline Polynomial& PolynomialMap::operator * (Polynomial& p2)
+inline Polynomial& PolynomialVector::operator * (Polynomial& p2)
 {
 	Polynomial& result = CreatePolynomial();
 	if (p2.IsZero())
 		return result;
-	for (auto pair1 : d)
+	for (auto pair1 : v)
 	{
-		for (auto pair2 : p2.d)
+		for (auto pair2 : p2.v)
 		{
 			auto mulResult = result.Mul(pair1.first, pair1.second, pair2.first, pair2.second);
 			result.Add(mulResult.first, mulResult.second);
@@ -218,7 +232,7 @@ inline Polynomial& PolynomialMap::operator * (Polynomial& p2)
 	return result;
 }
 
-inline int PolynomialMap::NumberOfChangesSign(Number a)
+inline int PolynomialVector::NumberOfChangesSign(Number a)
 {
 	sturm = GetSturm();
 	int counter = 0;
@@ -248,7 +262,7 @@ inline int PolynomialMap::NumberOfChangesSign(Number a)
 	return counter;
 }
 
-inline vector<PolynomialMap> PolynomialMap::GetSturm()
+inline vector<PolynomialVector> PolynomialVector::GetSturm()
 {
 	if (sturm.size())
 		return sturm;
@@ -260,7 +274,7 @@ inline vector<PolynomialMap> PolynomialMap::GetSturm()
 	Polynomial& w = CreatePolynomial();
 	Polynomial& q = CreatePolynomial();
 	Polynomial& r = CreatePolynomial();
-	w.d = d;
+	w.v = v;
 	q = derivative;
 	r = w % q;
 
@@ -275,21 +289,21 @@ inline vector<PolynomialMap> PolynomialMap::GetSturm()
 	return sturm;
 }
 
-inline Polynomial& PolynomialMap::NegativePolynomial()
+inline Polynomial& PolynomialVector::NegativePolynomial()
 {
 	Polynomial& result = CreatePolynomial();
-	for (auto p : d)
+	for (auto p : v)
 	{
 		result.SetNumberValue(p.first, Number(-p.second.GetValue()));
 	}
 	return result;
 }
 
-inline Polynomial& PolynomialMap::Derivative()
+inline Polynomial& PolynomialVector::Derivative()
 {
 	Polynomial& result = CreatePolynomial();
 
-	for (auto p : d)
+	for (auto p : v)
 	{
 		if (p.first > 0)
 			result.SetNumberValue(p.first - 1, Number(p.first * p.second.GetValue()));
@@ -297,12 +311,12 @@ inline Polynomial& PolynomialMap::Derivative()
 	return result;
 }
 
-inline Number PolynomialMap::PolynomialValue(Number a)
+inline Number PolynomialVector::PolynomialValue(Number a)
 {
 	if (IsZero())
 		return Number(0);
 	Number result(0);
-	for (auto pair1 : d)
+	for (auto pair1 : v)
 	{
 		result += CoefficientValue(pair1, a);
 	}

@@ -2,7 +2,7 @@
 #include "CharsConstants.h"
 #include "Polynomial.h"
 #include "PolynomialMap.h"
-#include "PolynomialDeque.h"
+#include "PolynomialVector.h"
 #include "StringManager.h"
 
 class Parser

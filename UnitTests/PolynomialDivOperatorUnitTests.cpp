@@ -9,7 +9,7 @@ namespace UnitTests
 	TEST_CLASS(PolynomialDivOperatorUnitTests)
 	{
 		Parser parser;
-		PolynomialMap result;
+		Polynomial& result = CreatePolynomial();
 	public:
 
 		void Verify(string input_p1, string input_p2)

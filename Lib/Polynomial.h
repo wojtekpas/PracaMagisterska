@@ -9,8 +9,8 @@ static int globId = 0;
 class Polynomial
 {
 public:
-	//map<int, Number>m;
-	deque<pair<int, Number>>d;
+	map<int, Number>m;
+	vector<pair<int, Number>>v;
 	bool isNew = true;
 	int id = 0;
 
@@ -177,10 +177,9 @@ inline pair<Polynomial&, Polynomial&> Polynomial::DividePolynomials(Polynomial& 
 
 		auto divResult = Div(pair1.first, pair1.second, pair2.first, pair2.second);
 
-		result.SetNumberValue(divResult.first, divResult.second);
-
 		if (divResult.second != 0)
 		{
+			result.SetNumberValue(divResult.first, divResult.second);
 			current.SetNumberValue(currentDegree, Number(0));
 			for (auto curPair : map2)
 			{

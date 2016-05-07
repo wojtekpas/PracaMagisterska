@@ -2,8 +2,6 @@
 #include "stdafx.h"
 
 #include "CppUnitTest.h"
-#include "../Lib/Polynomial.h"
-#include "../Lib/PolynomialMap.h"
 #include "../Lib/Parser.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
@@ -37,7 +35,7 @@ namespace UnitTests
 
 		void Verify(string input, int expectedValue, int power = 0)
 		{
-			PolynomialMap expectedOutput;
+			Polynomial& expectedOutput = CreatePolynomial();
 			expectedOutput.SetValue(power, expectedValue);
 			Verify(input, expectedOutput);
 		}

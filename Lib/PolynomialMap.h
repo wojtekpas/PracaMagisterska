@@ -151,9 +151,7 @@
 //inline string PolynomialMap::ToString()
 //{
 //	if (IsZero())
-//	{
 //		return("Is Zero");
-//	}
 //
 //	string result = StringManager::EmptyString();
 //	for (auto pair1 : m)

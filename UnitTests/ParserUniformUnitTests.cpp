@@ -2,7 +2,6 @@
 #include "stdafx.h"
 
 #include "CppUnitTest.h"
-#include "../Lib/Polynomial.h"
 #include "../Lib/Parser.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
