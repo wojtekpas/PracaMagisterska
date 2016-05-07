@@ -5,6 +5,21 @@
 #include "PolynomialVector.h"
 #include "StringManager.h"
 
+inline PolynomialMap ConvertToPolynomialFromPolynomialRef(Polynomial& ref)
+{
+	return ConvertToPolynomialMapFromPolynomialRef(ref);
+}
+
+inline Polynomial& CreatePolynomial()
+{
+	return CreatePolynomialMap();
+}
+
+inline Polynomial& CreatePolynomial(Number number)
+{
+	return CreatePolynomialMap(number);
+}
+
 class Parser
 {
 public:

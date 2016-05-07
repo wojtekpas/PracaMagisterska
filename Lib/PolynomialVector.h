@@ -2,7 +2,7 @@
 #include "Polynomial.h"
 
 class PolynomialVector: public Polynomial
-{	
+{
 public:
 	vector<PolynomialVector> sturm;
 
@@ -15,8 +15,8 @@ public:
 	int Size() override;
 	int PolynomialDegree() override;
 	Number Value(int power) override;
+	pair<Polynomial&, Polynomial&> DividePolynomials(Polynomial& p1, Polynomial& p2) override;
 	void SetNumberValue(int power, Number number) override;
-	map<int, Number> ValuesExceptValueOfPolynomialDegree(int degree) override;
 	int NumberOfChangesSign(Number a) override;
 	Polynomial& NegativePolynomial() override;
 	Polynomial& Derivative() override;
@@ -29,10 +29,11 @@ public:
 	Polynomial& operator - (Polynomial& p2) override;
 	Polynomial& operator * (Polynomial& p2) override;
 	
+	VECTOR VectorValuesExceptValueOfPolynomialDegree(int degree) override;
 	vector<PolynomialVector> GetSturm();
 };
 
-inline PolynomialVector ConvertFromPolynomialRef(Polynomial& ref)
+inline PolynomialVector ConvertToPolynomialVectorFromPolynomialRef(Polynomial& ref)
 {
 	PolynomialVector p;
 	p.v = ref.v;
@@ -40,13 +41,13 @@ inline PolynomialVector ConvertFromPolynomialRef(Polynomial& ref)
 	return p;
 }
 
-inline Polynomial& CreatePolynomial()
+inline Polynomial& CreatePolynomialVector()
 {
 	PolynomialVector* polynomialVector = new PolynomialVector();
 	return *polynomialVector;
 }
 
-inline Polynomial& CreatePolynomial(Number number)
+inline Polynomial& CreatePolynomialVector(Number number)
 {
 	PolynomialVector* polynomialVector = new PolynomialVector(number);
 	return *polynomialVector;
@@ -72,7 +73,7 @@ inline PolynomialVector::PolynomialVector() : Polynomial()
 inline PolynomialVector::PolynomialVector(Number number) : Polynomial(number)
 {
 	if (number != 0)
-		v.push_back(pair<int, Number>(0, number));
+		v.push_back(PAIR(0, number));
 }
 
 inline int PolynomialVector::Size()
@@ -106,9 +107,16 @@ inline int PolynomialVector::PolynomialDegree()
 	return 0;
 }
 
-inline map<int, Number> PolynomialVector::ValuesExceptValueOfPolynomialDegree(int degree = -1)
+inline Number PolynomialVector::Value(int power)
 {
-	map<int, Number> result;
+	if (power >= Size())
+		return Number(0);
+	return v[power].second;
+}
+
+inline VECTOR PolynomialVector::VectorValuesExceptValueOfPolynomialDegree(int degree = -1)
+{
+	VECTOR result;
 	int polynomialDegree = degree;
 
 	if (degree == -1)
@@ -117,16 +125,50 @@ inline map<int, Number> PolynomialVector::ValuesExceptValueOfPolynomialDegree(in
 	for (auto pair1 : v)
 	{
 		if (pair1.first != polynomialDegree)
-			result.insert(pair1);
+			result.push_back(pair1);
 	}
 	return result;
 }
 
-inline Number PolynomialVector::Value(int power)
+inline pair<Polynomial&, Polynomial&> PolynomialVector::DividePolynomials(Polynomial& p1, Polynomial& p2)
 {
-	if (power >= Size())
-		return Number(0);
-	return v[power].second;
+	Polynomial& result = CreatePolynomial();
+	Polynomial& rest = CreatePolynomial();
+
+	if (p1.IsZero() || p2.IsZero())
+		return pair<Polynomial&, Polynomial&>(result, rest);
+
+	Polynomial& current = CreatePolynomial();
+	current = p1;
+	int currentDegree = current.PolynomialDegree();
+	int degree = p2.PolynomialDegree();
+	PAIR pair2 = PAIR(degree, p2.Value(degree));
+	VECTOR map2 = p2.VectorValuesExceptValueOfPolynomialDegree(degree);
+
+	while (currentDegree >= degree)
+	{
+		PAIR pair1 = PAIR(currentDegree, current.Value(currentDegree));
+		VECTOR map1 = current.VectorValuesExceptValueOfPolynomialDegree(currentDegree);
+
+		auto divResult = Div(pair1.first, pair1.second, pair2.first, pair2.second);
+
+		if (divResult.second != 0)
+		{
+			result.SetNumberValue(divResult.first, divResult.second);
+			current.SetNumberValue(currentDegree, Number(0));
+			for (auto curPair : map2)
+			{
+				auto mulResult = Mul(curPair.first, curPair.second, divResult.first, divResult.second);
+				current.Sub(mulResult.first, mulResult.second);
+			}
+		}
+		else
+		{
+			break;
+		}
+		currentDegree = current.PolynomialDegree();
+	}
+	return pair<Polynomial&, Polynomial&>(result, current);
 }
 
 inline void PolynomialVector::SetNumberValue(int power, Number number)
@@ -138,12 +180,12 @@ inline void PolynomialVector::SetNumberValue(int power, Number number)
 		if (number.IsZero() == false)
 		{
 			while (power > Size())
-				v.push_back(pair<int, Number>(Size(), Number(0)));
-			v.push_back(pair<int, Number>(power, number));
+				v.push_back(PAIR(Size(), Number(0)));
+			v.push_back(PAIR(power, number));
 		}
 		return;
 	}
-	v[power] = pair<int, Number>(power, number);
+	v[power] = PAIR(power, number);
 	if (power == (Size() - 1) && number.IsZero())
 	{
 		v.pop_back();
@@ -194,7 +236,7 @@ inline bool PolynomialVector::operator == (Polynomial& p2)
 inline Polynomial& PolynomialVector::operator = (Polynomial& p2)
 {
 	v = p2.v;
-	//id = p2.id;
+	m = p2.m;
 	return *this;
 }
 
@@ -270,7 +312,7 @@ inline vector<PolynomialVector> PolynomialVector::GetSturm()
 	Polynomial& derivative = Derivative();
 	if (derivative.IsZero())
 		return sturm;
-	sturm.push_back(ConvertFromPolynomialRef(derivative));
+	sturm.push_back(ConvertToPolynomialVectorFromPolynomialRef(derivative));
 	Polynomial& w = CreatePolynomial();
 	Polynomial& q = CreatePolynomial();
 	Polynomial& r = CreatePolynomial();
@@ -281,7 +323,7 @@ inline vector<PolynomialVector> PolynomialVector::GetSturm()
 	while (r.IsZero() == false)
 	{
 		r = r.NegativePolynomial();
-		sturm.push_back(ConvertFromPolynomialRef(r));
+		sturm.push_back(ConvertToPolynomialVectorFromPolynomialRef(r));
 		w = q;
 		q = r;
 		r = w % q;
