@@ -192,7 +192,7 @@ Szczególnym przypadkiem wielomianu jest jednomian.
 \end{definition}
 
 Można, więc rozumieć wielomian jako skończoną sumę jednomianów.
-Jednomian stopnia zerowego jest stała, pojedyncza liczba rzeczywista, która w szczególności może być zerem.
+Jednomianem stopnia zerowego jest stała, pojedyncza liczba rzeczywista, która w szczególności może być zerem.
 
 \begin{definition}
 	Wielomianem zerowym nazywamy, wielomian wyrażony wzorem:
@@ -207,7 +207,7 @@ W dalszej części, jeżeli nie zaznaczymy inaczej, mówiąc wielomian, będziem
 
 Na wielomianach, tak jak na liczbach możemy wykonywać podstawowe działania. Należą do nich: porównywanie, dodawanie, odejmowanie, mnożenie, dzielenie, a także obliczanie reszty z dzielenia oraz NWD (największego wspólnego dzielnika). Jako, że wielomian zmiennej x możemy traktować jak funkcję jednej zmiennej, możemy także policzyć z niego pochodne.
 
-\subsubsection{Porównywania wielomianów}
+\subsubsection{Porównywanie wielomianów}
 
 \begin{theorem}
 	Dwa wielomiany uważamy za równe wtedy i tylko wtedy, gdy są tego samego stopnia, a ich kolejne współczynniki są równe.
@@ -417,7 +417,7 @@ W szczególnym przypadku reszta ta może być równa 0. Oznacza to, że liczba $
 \begin{theorem}
 	Dowolny wielomian $W_1(x) = \frac{a_n}{b_n}x^n + \frac{a_{n-1}}{b_{n-1}}x^{n-1} + ... + \frac{a_1}{b_1}x + \frac{a_0}{b_0}$, o współczynnikach wymiernych, można przekształcić w wielomian $W_2(x) = k * W_1(x)$, o współczynnikach całkowitych i tych samych pierwiastkach, co wielomian W. Wówczas:
 	\begin{equation}
-	k = NWW(b_0, b_1, ..., b_{n-1}, b_n)
+	k = m * NWW(b_0, b_1, ..., b_{n-1}, b_n),\ gdzie\ m\in Z
 	\end{equation}
 \end{theorem}
 
@@ -450,8 +450,16 @@ W szczególnym przypadku reszta ta może być równa 0. Oznacza to, że liczba $
 	\end{equation}
 \end{example}
 
+Jak widać powyższy przykład potwierdza zastosowanie przedstawionego twierdzenia. Widzimy, że krotność wszystkich pierwiastków ulega zmniejszeniu o 1, w kolejnej pochodnej. Dodatkowo możemy zauwazyć, że pochodna może zawierać także pierwiastki, których nie miał dany wielomian. Ma to miejsce w przypadku, gdy wielomian, posiada przynajmniej dwa różne pierwiastki. Potwierdza to poniższe twierdzenie.
 
-Jak widać powyższy przykład potwierdza zastosowanie przedstawionego twierdzenia. Widzimy, że krotność wszystkich pierwiastków ulega zmniejszeniu o 1, w kolejnej pochodnej. Dodatkowo możemy zauwazyć, że pochodna może zawierać także pierwiastki, których nie miał dany wielomian.
+\begin{theorem}
+	Liczba nowych pierwiastków pochodnej wielomianu W' (takich których nie posiadał wielomian W) jest równa liczbie różnych pierwiastków wielomianu pomniejszonej o jeden.
+\end{theorem}
+
+\begin{proof}
+	Zdefiniujmy wielomian $W(x)=(x-x_1)^{k_1}*(x-x_2)^{k_2}*...*(x-x_{m-1})^{k_{m-1}}*(x-x_m)^{k_m}$. Przyjmijmy, że wielomian W jest stopnia n i posiada m różnych pierwiastków, gdzie $1\le m\le n,\ k_1+k_2+...+k_{m-1}+k_m=n$. Zdefiniujmy wielomian $P(x)=(x-x_1)*(x-x_2)*...*(x-x_{m-1})*(x-x_m)$, w którym każdy z pierwiastków wielomianu W występuję dokładnie jeden raz. Pierwiastków jest m, zatem wielomian P jest stopnia m. Dzieląc wielomian W przez wielomian P, otrzymujemy bez reszty wielomian $Q(x)=(x-x_1)^{k_1-1}*(x-x_2)^{k_2-1}*...*(x-x_{m-1})^{k_{m-1}-1}*(x-x_m)^{k_m-1}$, który posiada każdy z pierwiastków wielomianu W, krotności pomniejszonej o jeden. Skoro krotność każdego z m pierwiastków uległa zmniejszeniu o jeden, to stopień wielomianu Q w stosunku do wielomianu W zmniejszył się o m. Stopień wielomianu Q jest wieć równy n-m.
+	Na mocy twierdzenia wiemy także, że wielomian Q(x) jest podzielny również przez wielomian W', stopnia n-1. Zatem wielomian W' możemy przedstawić jako iloczyn wielomianu Q oraz innego wielomianu: $W'(x)=Q(x)*V(x)$. Wielomian V, zawiera wszystkie pierwiastki W', których nie posiadał wielomian W. Łatwo policzyć, że stopień wielomianu V jest równy: $\deg(V)=deg(W')-deg(Q)=(n-1)-(n-m)=n-1-n+m=m-1$. Jak widać, właśnie udowodniliśmy, że stopień ten jest równy liczbie różnych pierwiastków wielomianu W pomniejszonej o jeden.
+\end{proof}
 
 \subsection{Eliminacja pierwiastków wielokrotnych}
 

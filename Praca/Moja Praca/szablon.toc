@@ -3,7 +3,7 @@
 \contentsline {section}{\numberline {1.1}Wielomiany}{1}
 \contentsline {subsection}{\numberline {1.1.1}Definicja}{1}
 \contentsline {subsection}{\numberline {1.1.2}Podstawowe dzia\IeC {\l }ania na wielomianach}{1}
-\contentsline {subsubsection}{Por\IeC {\'o}wnywania wielomian\IeC {\'o}w}{2}
+\contentsline {subsubsection}{Por\IeC {\'o}wnywanie wielomian\IeC {\'o}w}{2}
 \contentsline {subsubsection}{Suma wielomian\IeC {\'o}w}{2}
 \contentsline {subsubsection}{R\IeC {\'o}\IeC {\.z}nica wielomian\IeC {\'o}w}{2}
 \contentsline {subsubsection}{Iloczyn wielomian\IeC {\'o}w}{3}
