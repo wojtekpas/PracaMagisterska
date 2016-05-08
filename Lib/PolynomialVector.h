@@ -93,7 +93,7 @@ inline bool PolynomialVector::IsZero()
 		return true;
 	for (auto pair1 : v)
 	{
-		if (pair1.second.Abs() > 0.0000001)
+		if (pair1.second.Abs() > SMALL_NUMBER)
 			return false;
 	}
 	return true;
@@ -208,7 +208,7 @@ inline string PolynomialVector::ToString()
 	string result = StringManager::EmptyString();
 	for (auto pair1 : v)
 	{
-		if (pair1.second.Abs() > 0.0000001)
+		if (pair1.second.Abs() > SMALL_NUMBER)
 			result = result + to_string(pair1.first) + ':'
 			+ to_string(pair1.second.GetValue()) + ',';
 	}

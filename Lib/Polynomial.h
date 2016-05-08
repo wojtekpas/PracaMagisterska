@@ -8,8 +8,6 @@
 #define VECTOR vector<PAIR>
 #define MAP map<int,Number>
 
-static int globId = 0;
-
 class Polynomial
 {
 public:
@@ -61,6 +59,8 @@ public:
 	Number NextNumberFromRange(Number a, Number b);
 	int NumberOfRoots(Number a, Number b);
 	vector<Number> FindRoots(Number a, Number b);
+	vector<Number> FindRoots(int a, int b);
+	void PrintRoots(int a, int b);
 
 	bool operator!=(Polynomial& p2);
 	Polynomial& operator / (Polynomial& p2);
@@ -77,13 +77,11 @@ public:
 
 inline Polynomial::Polynomial()
 {
-	//id = globId++;
 }
 
 inline Polynomial::Polynomial(Number number)
 {
 	isNew = false;
-	//id = globId++;
 }
 
 inline bool Polynomial::Set(string s)
@@ -247,12 +245,14 @@ inline vector<Number> Polynomial::FindRoots(Number a, Number b)
 	int aIsRoot = 0;
 	int cIsRoot = 0;
 
+	Number valueA = PolynomialValue(a);
+	Number valueB = PolynomialValue(b);
+	int countRoots = NumberOfRoots(a, b);
+
 	if (PolynomialValue(a).IsZero())
 		roots.push_back(a);
 	if (PolynomialValue(b).IsZero())
-	{
 		roots.push_back(b);
-	}
 	if (NumberOfRoots(a, b) == aIsRoot)
 		return roots;
 
@@ -262,15 +262,23 @@ inline vector<Number> Polynomial::FindRoots(Number a, Number b)
 		cIsRoot = 1;
 		roots.push_back(c);
 	}
+
+	Number interval = b - a;
+	if (interval.IsZero())
+	{
+		roots.push_back(a);
+		return roots;
+	}
+	
+	interval /= 2;
+
 	if(NumberOfRoots(a, c) > aIsRoot)
 	{
 		vector<Number> rootsInRange = FindRoots(a, c);
 		for (int i = 0; i < rootsInRange.size(); i++)
 		{
 			Number potentialRoot = rootsInRange[i];
-			Number diff1(potentialRoot.GetValue() - a.GetValue());
-			Number diff2(potentialRoot.GetValue() - c.GetValue());
-			if (diff1.IsZero() == false && diff2.IsZero() == false)
+			if (potentialRoot.IsInVector(roots) == false)
 				roots.push_back(potentialRoot);
 		}
 	}
@@ -280,13 +288,29 @@ inline vector<Number> Polynomial::FindRoots(Number a, Number b)
 		for (int i = 0; i < rootsInRange.size(); i++)
 		{
 			Number potentialRoot = rootsInRange[i];
-			Number diff1(potentialRoot.GetValue() - c.GetValue());
-			Number diff2(potentialRoot.GetValue() - b.GetValue());
-			if (diff1.IsZero() == false && diff2.IsZero() == false)
+			if (potentialRoot.IsInVector(roots) == false)
 				roots.push_back(potentialRoot);
 		}
 	}
 	return roots;
+}
+
+inline vector<Number> Polynomial::FindRoots(int a, int b)
+{
+	return FindRoots(Number(a), Number(b));
+}
+
+inline void Polynomial::PrintRoots(int a, int b)
+{
+	vector<Number> roots = FindRoots(a, b);
+
+	for (int i = 0; i < roots.size(); i++)
+	{
+		cout << "x" << i << " = ";
+		roots[i].Print();
+	}
+	if (roots.size() == 0)
+		cout << "Brak pierwiastkow rzeczywistych" << endl;
 }
 
 inline bool Polynomial::operator != (Polynomial& p2)

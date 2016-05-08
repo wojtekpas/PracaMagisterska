@@ -254,7 +254,5 @@ inline string Parser::UniformInputString(string s)
 	if (countParenthesis != 0)
 		return StringManager::EmptyString();
 
-	cout << result << endl;
-
 	return result;
 }

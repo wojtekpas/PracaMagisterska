@@ -96,13 +96,6 @@ inline vector<string> StringManager::Split(string s, string operators)
 
 	v.push_back(Substr(s, first, s.length() - 1));
 
-	for (int i = 0; i < v.size(); i++)
-	{
-		cout << v[i] << ",";
-	}
-
-	cout << endl;
-
 	return v;
 }
 
@@ -131,7 +124,6 @@ inline int StringManager::FindClosingParenthesis(string s)
 		}
 	}
 
-	cout << "ok";
 	return errCode;
 }
 

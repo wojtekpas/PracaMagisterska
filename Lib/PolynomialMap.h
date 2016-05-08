@@ -93,7 +93,7 @@ inline bool PolynomialMap::IsZero()
 		return true;
 	for (auto pair1 : m)
 	{
-		if (pair1.second.Abs() > 0.0000001)
+		if (pair1.second.IsZero() == false)
 			return false;
 	}
 	return true;
@@ -157,7 +157,7 @@ inline string PolynomialMap::ToString()
 	string result = StringManager::EmptyString();
 	for (auto pair1 : m)
 	{
-		if (pair1.second.Abs() > 0.0000001)
+		if (pair1.second.IsZero() == false)
 			result = result + to_string(pair1.first) + ':'
 			+ to_string(pair1.second.GetValue()) + ',';
 	}
