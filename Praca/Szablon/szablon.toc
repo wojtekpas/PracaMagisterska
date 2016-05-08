@@ -1,0 +1,28 @@
+\select@language {polish}
+\contentsline {chapter}{\numberline {1}Wst\IeC {\k e}p}{1}
+\contentsline {section}{\numberline {1.1}Idea dokumentu}{1}
+\contentsline {section}{\numberline {1.2}Strony tytu\IeC {\l }owe}{1}
+\contentsline {section}{\numberline {1.3}Poprawno\IeC {\'s}\IeC {\'c} dokumentu}{2}
+\contentsline {section}{\numberline {1.4}Uwagi i poprawki}{2}
+\contentsline {chapter}{\numberline {2}Podstawowe elementy}{3}
+\contentsline {section}{\numberline {2.1}Sekcje dokumentu}{3}
+\contentsline {subsection}{\numberline {2.1.1}Podpodrozdzia\IeC {\l }}{3}
+\contentsline {subsubsection}{Podpodpodrozdzia\IeC {\l }}{3}
+\contentsline {paragraph}{Paragraf}{3}
+\contentsline {section}{\numberline {2.2}Podstawowe elementy typograficzne}{3}
+\contentsline {subsection}{\numberline {2.2.1}Twarda spacja}{3}
+\contentsline {subsection}{\numberline {2.2.2}Formatowanie tekstu}{3}
+\contentsline {section}{\numberline {2.3}Podzia\IeC {\l } linii i paragrafy}{4}
+\contentsline {section}{\numberline {2.4}\IeC {\'S}rodowisko matematyczne}{6}
+\contentsline {subsection}{\numberline {2.4.1}Twierdzenia i dowody}{6}
+\contentsline {chapter}{\numberline {3}Rysunki, tabele i inne konstrukcje}{9}
+\contentsline {section}{\numberline {3.1}Rysunki}{9}
+\contentsline {subsection}{\numberline {3.1.1}Wielostronicowe obrazki}{9}
+\contentsline {subsection}{\numberline {3.1.2}Wymuszanie renderowania obrazk\IeC {\'o}w do pewnego miejsca}{10}
+\contentsline {section}{\numberline {3.2}Listingi}{13}
+\contentsline {section}{\numberline {3.3}Algorytmy}{14}
+\contentsline {section}{\numberline {3.4}Tabele}{15}
+\contentsline {chapter}{\numberline {4}Inne przydatne konstrukcje}{17}
+\contentsline {section}{\numberline {4.1}Symbole otoczone k\IeC {\'o}\IeC {\l }kiem}{17}
+\contentsline {section}{\numberline {4.2}Tymczasowa zmiana rozmiaru strony}{17}
+\contentsline {section}{\numberline {4.3}Wpisy bibliograficzne}{17}
