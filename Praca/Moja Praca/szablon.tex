@@ -464,17 +464,30 @@ Jak widać powyższy przykład potwierdza zastosowanie przedstawionego twierdzen
 \subsection{Eliminacja pierwiastków wielokrotnych}
 
 \begin{example}
-	Dany jest wielomian W, określony wzorem: $W(x) = x^6 - 6x^4 - 4x^3 + 9x^2 + 12x + 4$. Dokonajmy eliminacji pierwiastków dla wielomianu W. \\
+	Dany jest wielomian W, określony wzorem: $W(x)=x^6-6x^4-4x^3+9x^2+12x+4$. Dokonajmy eliminacji pierwiastków wielokrotnych dla wielomianu W. \\
 	1. Obliczamy pochodną wielomianu.
 	\begin{equation}
 	\begin{split}
-	&W'(x) = 6*x^5 - 4*6x^3 - 3*4x^2 + 2*9x + 12 = \\ 
-	&= 6x^5 - 24x^3 - 12x^2 + 18x + 12 = 6(x^5 - 4x^3 - 2x^2 + 3x + 2) \\
+	&W'(x)=6*x^5-4*6x^3-3*4x^2+2*9x+12=\\
+	&=6x^5-24x^3-12x^2+18x+12=6(x^5-4x^3-2x^2+3x+2)\\
 	\end{split}
 	\end{equation}
-	Obliczmy teraz pierwiastki wielomianu W i jego kolejnych pochodnych.
+	Obliczmy teraz resztę z dzielenia wielomianu W przez wielomian W'.
 	\begin{equation}
 	\begin{split}
+	&x\\\hline
+	&x^6-6x^4-4x^3+9x^2+12x+4 : (x^5-4x^3-2x^2+3x+2) \\
+	&-x^6+4x^4+2x^3-3x^2-2x \\\hline
+	&-2x^4-2x^3+6x^2+10x \\
+	\end{split}
+	\end{equation}
+	Kluczowa jest wartość reszty z dzielenia. Gdyby otrzymana reszta z dzielenia była wielomianem zerowym, to pochodna wielomianu było równocześnie NWD(W, W'). W tym przypadku tak jednak nie jest, więc wykonujemy analogiczną operację z tą różnicą, że nową dzielną jest dotychczasowy dzielnik a reszta z wielomianu jest nowym dzielnikiem. Tę operację wykonujemy tak długo, jak otrzymana reszta jest niezerowego stopnia. W przypadku gdy jest ona jednocześnie wielomianem zerowym, to podobnie jak wyżej, aktualny dzielnik, jest naszym NWD(W, W'). W przypadku gdy otrzymana reszta jest niezerowym wielomianem stopnia zerowego, to największym wspólnym dzielnikiem wielomianów jest pewna niezerowa stała.
+	\begin{equation}
+	\begin{split}
+	&x\\\hline
+	&x^6-6x^4-4x^3+9x^2+12x+4 : (x^5-4x^3-2x^2+3x+2) \\
+	&-x^6+4x^4+2x^3-3x^2-2x \\\hline
+	&-2x^4-2x^3+6x^2+10x \\
 	\end{split}
 	\end{equation}
 \end{example}
