@@ -5,19 +5,14 @@
 #include "PolynomialVector.h"
 #include "StringManager.h"
 
-inline PolynomialMap ConvertToPolynomialFromPolynomialRef(Polynomial& ref)
-{
-	return ConvertToPolynomialMapFromPolynomialRef(ref);
-}
-
 inline Polynomial& CreatePolynomial()
 {
-	return CreatePolynomialMap();
+	return CreatePolynomialVector();
 }
 
 inline Polynomial& CreatePolynomial(Number number)
 {
-	return CreatePolynomialMap(number);
+	return CreatePolynomialVector(number);
 }
 
 class Parser
@@ -171,7 +166,7 @@ inline Polynomial& Parser::ConvertToPolynomial(string inputS)
 		sumElement += curElement;
 	else
 		sumElement -= curElement;
-
+	sumElement.inputS = s;
 	return sumElement;
 }
 

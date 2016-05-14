@@ -14,6 +14,7 @@ public:
 	MAP m;
 	VECTOR v;
 	bool isNew = true;
+	string inputS = "";
 
 	explicit Polynomial();
 	explicit Polynomial(Number number);
@@ -58,9 +59,9 @@ public:
 	Number CoefficientValue(PAIR pair1, Number a);
 	Number NextNumberFromRange(Number a, Number b);
 	int NumberOfRoots(Number a, Number b);
+	void AddNextRoot(vector<Number>& roots, Number x);
 	vector<Number> FindRoots(Number a, Number b);
-	vector<Number> FindRoots(int a, int b);
-	void PrintRoots(int a, int b);
+	void PrintRoots(double a, double b);
 
 	bool operator!=(Polynomial& p2);
 	Polynomial& operator / (Polynomial& p2);
@@ -72,7 +73,8 @@ public:
 	Polynomial& operator /= (Polynomial& p2);
 	Polynomial& operator %= (Polynomial& p2);
 	Polynomial& operator ^= (int power);
-	void Print(string name);
+	void Print();
+	void PrintInput();
 };
 
 inline Polynomial::Polynomial()
@@ -239,47 +241,54 @@ inline int Polynomial::NumberOfRoots(Number a, Number b)
 	return count1 - count2;
 }
 
+inline void Polynomial::AddNextRoot(vector<Number>& roots, Number x)
+{
+	if (x.IsInVector(roots) == false)
+		roots.push_back(x);
+}
+
 inline vector<Number> Polynomial::FindRoots(Number a, Number b)
 {
 	vector<Number> roots;
-	int aIsRoot = 0;
 	int cIsRoot = 0;
 
-	Number valueA = PolynomialValue(a);
-	Number valueB = PolynomialValue(b);
-	int countRoots = NumberOfRoots(a, b);
-
 	if (PolynomialValue(a).IsZero())
-		roots.push_back(a);
+	{
+		AddNextRoot(roots, a);
+	}
 	if (PolynomialValue(b).IsZero())
-		roots.push_back(b);
-	if (NumberOfRoots(a, b) == aIsRoot)
+	{
+		AddNextRoot(roots, b);
+	}
+	if (NumberOfRoots(a, b) == 0)
 		return roots;
 
 	Number c = NextNumberFromRange(a, b);
+	int ab = NumberOfRoots(a, b);
+	int ac = NumberOfRoots(a, c);
+	int bc = NumberOfRoots(c, b);
 	if (PolynomialValue(c).IsZero())
 	{
 		cIsRoot = 1;
-		roots.push_back(c);
+		AddNextRoot(roots, c);
 	}
 
 	Number interval = b - a;
 	if (interval.IsZero())
 	{
-		roots.push_back(a);
+		AddNextRoot(roots, a);
 		return roots;
 	}
 	
 	interval /= 2;
 
-	if(NumberOfRoots(a, c) > aIsRoot)
+	if(NumberOfRoots(a, c))
 	{
 		vector<Number> rootsInRange = FindRoots(a, c);
 		for (int i = 0; i < rootsInRange.size(); i++)
 		{
 			Number potentialRoot = rootsInRange[i];
-			if (potentialRoot.IsInVector(roots) == false)
-				roots.push_back(potentialRoot);
+			AddNextRoot(roots, potentialRoot);
 		}
 	}
 	if(NumberOfRoots(c, b) > cIsRoot)
@@ -288,21 +297,28 @@ inline vector<Number> Polynomial::FindRoots(Number a, Number b)
 		for (int i = 0; i < rootsInRange.size(); i++)
 		{
 			Number potentialRoot = rootsInRange[i];
-			if (potentialRoot.IsInVector(roots) == false)
-				roots.push_back(potentialRoot);
+			AddNextRoot(roots, potentialRoot);
 		}
 	}
 	return roots;
 }
 
-inline vector<Number> Polynomial::FindRoots(int a, int b)
+inline void Polynomial::PrintRoots(double a, double b)
 {
-	return FindRoots(Number(a), Number(b));
-}
-
-inline void Polynomial::PrintRoots(int a, int b)
-{
-	vector<Number> roots = FindRoots(a, b);
+	if(a > b)
+	{
+		cout << "Niepoprawny przedzial: <" << a << ", " << b << ">" << endl;
+		return;
+	}
+	if (IsZero())
+	{
+		cout << "Wielomian zerowy - brak pierwiastkow" << endl;
+		return;
+	}
+	cout << "Pierwiastki w przedziale: <" << a << ", " << b << ">" << endl;
+	Number numberA = Number(a);
+	Number numberB = Number(b);
+	vector<Number> roots = FindRoots(numberA, numberB);
 
 	for (int i = 0; i < roots.size(); i++)
 	{
@@ -389,9 +405,12 @@ inline Polynomial& Polynomial::operator ^= (int power)
 	return *this;
 }
 
-inline void Polynomial::Print(string name)
+inline void Polynomial::Print()
 {
-	printf("\t%s:\n", name.c_str());
-	cout << ToString() << endl;
+	cout << "Polynomial: '" << ToString() << "'" << endl;
 }
 
+inline void Polynomial::PrintInput()
+{
+	cout << "Input: '" << inputS << "'" << endl;
+}

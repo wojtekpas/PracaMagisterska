@@ -1,7 +1,9 @@
 #pragma once
 #include "definitions.h"
 
-#define SMALL_NUMBER 0.000001
+#define DEBUG_VALUE 0
+#define DEBUG if (DEBUG_VALUE) 
+#define SMALL_NUMBER 0.00001
 #define MAX_VALUE 1000
 #define MAX_NEGATIVE_VALUE -1000
 
@@ -19,6 +21,7 @@ public:
 	bool IsPlusInfinity();
 	bool IsMinusInfinity();
 	bool IsInfinity();
+	bool IsVerySmallValue();
 	bool IsZero();
 	bool IsInVector(vector<Number> v);
 
@@ -102,6 +105,11 @@ inline bool Number::IsInfinity()
 	return IsMinusInfinity() || IsPlusInfinity();
 }
 
+inline bool Number::IsVerySmallValue()
+{
+	return Abs() / 200 < SMALL_NUMBER;
+}
+
 inline bool Number::IsZero()
 {
 	return Abs() < SMALL_NUMBER;
@@ -112,7 +120,7 @@ inline bool Number::IsInVector(vector<Number> v)
 	for (int i = 0; i < v.size(); i++)
 	{
 		Number interval = v[i] - *this;
-		if (interval.IsZero())
+		if (interval.IsVerySmallValue())
 			return true;
 	}
 	return false;
@@ -319,6 +327,7 @@ inline Number Number::operator/=(int value)
 
 inline string Number::ToString()
 {
+	string s = to_string(value);
 	return to_string(value);
 }
 

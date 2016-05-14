@@ -193,5 +193,13 @@ namespace UnitTests
 			polynomialRoots.push_back(Number(1.25));
 			Verify("(4x-5)^5*(4x+5)^2");
 		}
+
+		TEST_METHOD(PolynomialMapRoots23)
+		{
+			a = Number(-10);
+			b = Number(10);
+			polynomialRoots.push_back(Number(1));
+			Verify("a-1");
+		}
 	};
 }

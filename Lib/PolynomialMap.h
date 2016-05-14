@@ -38,6 +38,7 @@ inline PolynomialMap ConvertToPolynomialMapFromPolynomialRef(Polynomial& ref)
 	PolynomialMap p;
 	p.m = ref.m;
 	p.isNew = ref.isNew;
+	p.inputS = ref.inputS;
 	return p;
 }
 
@@ -93,7 +94,7 @@ inline bool PolynomialMap::IsZero()
 		return true;
 	for (auto pair1 : m)
 	{
-		if (pair1.second.IsZero() == false)
+		if (pair1.second.IsVerySmallValue() == false)
 			return false;
 	}
 	return true;
@@ -155,14 +156,27 @@ inline string PolynomialMap::ToString()
 		return("Is Zero");
 
 	string result = StringManager::EmptyString();
+	string tmp = "";
 	for (auto pair1 : m)
 	{
 		if (pair1.second.IsZero() == false)
-			result = result + to_string(pair1.first) + ':'
-			+ to_string(pair1.second.GetValue()) + ',';
+		{
+			tmp = "";
+			if (pair1.first == 0)
+				tmp = pair1.second.ToString();
+			else
+			{
+				if (pair1.first == 1)
+					tmp = pair1.second.ToString() + "*x";
+				else
+					tmp = pair1.second.ToString() + "*x^" + to_string(pair1.first);
+			}
+			if (tmp[0] != '-' && result != "")
+				tmp = "-" + tmp;
+			result += tmp;
+		}
 	}
-
-	return StringManager::Substr(result, 0, result.length() - 2);
+	return result;
 }
 
 inline bool PolynomialMap::operator == (Polynomial& p2)
@@ -186,6 +200,7 @@ inline Polynomial& PolynomialMap::operator = (Polynomial& p2)
 {
 	m = p2.m;
 	v = p2.v;
+	inputS = p2.inputS;
 	return *this;
 }
 

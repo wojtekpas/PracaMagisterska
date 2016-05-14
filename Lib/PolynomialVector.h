@@ -38,6 +38,7 @@ inline PolynomialVector ConvertToPolynomialVectorFromPolynomialRef(Polynomial& r
 	PolynomialVector p;
 	p.v = ref.v;
 	p.isNew = ref.isNew;
+	p.inputS = ref.inputS;
 	return p;
 }
 
@@ -93,7 +94,7 @@ inline bool PolynomialVector::IsZero()
 		return true;
 	for (auto pair1 : v)
 	{
-		if (pair1.second.Abs() > SMALL_NUMBER)
+		if (pair1.second.IsVerySmallValue() == false)
 			return false;
 	}
 	return true;
@@ -197,7 +198,6 @@ inline void PolynomialVector::SetNumberValue(int power, Number number)
 				break;
 		}
 	}
-
 }
 
 inline string PolynomialVector::ToString()
@@ -206,14 +206,27 @@ inline string PolynomialVector::ToString()
 		return("Is Zero");
 
 	string result = StringManager::EmptyString();
+	string tmp = "";
 	for (auto pair1 : v)
 	{
-		if (pair1.second.Abs() > SMALL_NUMBER)
-			result = result + to_string(pair1.first) + ':'
-			+ to_string(pair1.second.GetValue()) + ',';
+		if (pair1.second.IsZero() == false)
+		{
+			tmp = "";
+			if (pair1.first == 0)
+				tmp = pair1.second.ToString();
+			else
+			{
+				if (pair1.first == 1)
+					tmp = pair1.second.ToString() + "*x";
+				else
+					tmp = pair1.second.ToString()+ "*x^" + to_string(pair1.first);
+			}
+			if (tmp[0] != '-' && result != "")
+				tmp = "+" + tmp;
+			result += tmp;
+		}
 	}
-
-	return StringManager::Substr(result, 0, result.length() - 2);
+	return result;
 }
 
 inline bool PolynomialVector::operator == (Polynomial& p2)
@@ -237,6 +250,7 @@ inline Polynomial& PolynomialVector::operator = (Polynomial& p2)
 {
 	v = p2.v;
 	m = p2.m;
+	inputS = p2.inputS;
 	return *this;
 }
 
@@ -280,7 +294,9 @@ inline int PolynomialVector::NumberOfChangesSign(Number a)
 	int counter = 0;
 	int lastValue = 0;
 	int curValue;
+	DEBUG cout << "For: " << a.ToString() << ":" << endl;
 	Number number = PolynomialValue(a);
+	DEBUG cout << number.ToString() << endl;
 	if (number > 0)
 		lastValue = 1;
 	else if (number < 0)
@@ -289,6 +305,7 @@ inline int PolynomialVector::NumberOfChangesSign(Number a)
 	for (int i = 1; i < sturm.size(); i++)
 	{
 		number = sturm.at(i).PolynomialValue(a);
+		DEBUG cout << number.ToString() << endl;
 		if (number > 0)
 			curValue = 1;
 		else if (number < 0)

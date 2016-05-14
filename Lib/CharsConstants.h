@@ -20,7 +20,7 @@ public:
 	static const char Exp = '^';
 	static const char OpeningParenthesis = '(';
 	static const char ClosingParenthesis = ')';
-	static const char Var = 'a';
+	static const char Var = 'x';
 
 	static int CharToInt(char c);
 	static bool IsDigit(char c);

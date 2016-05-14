@@ -3,11 +3,39 @@
 int main()
 {
 	Parser parser;
-	Polynomial& p = CreatePolynomial();
-	p = parser.ConvertToPolynomial("x13+14x12+8x7-22x3+1");
-	p.PrintRoots(-10, 10);
-	
-	getchar();
-	getchar();
-	return 0;
+	string inputS;
+	string tmp;
+	double a;
+	double b;
+	const int max_retry = 100;
+	int retry;
+	while (true)
+	{
+		retry = 0;
+		a = MAX_NEGATIVE_VALUE;
+		b = MAX_VALUE;
+		cout << "W(x) = " << endl;
+		getline(cin, inputS);
+		while (inputS == "")
+		{
+			getline(cin, inputS);
+			retry++;
+			if (retry == max_retry)
+				return -1;
+		}
+		if (inputS == "quit")
+			return 0;
+		Polynomial& p = CreatePolynomial();
+		p = parser.ConvertToPolynomial(inputS);
+		cout << "a = ";
+		cin >> a;
+		cout << "b = ";
+		cin >> b;
+
+		p.PrintInput();
+		p.Print();
+		p.PrintRoots(a, b);
+		cout << "-----" << endl;
+		inputS = "";
+	}
 }
