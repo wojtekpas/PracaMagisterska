@@ -1,26 +1,3 @@
 
 #ignore thumbnails created by windows
-Thumbs.db
 #Ignore files build by Visual Studio
-*.pdb
-*.user
-*.aps
-*.pch
-*.vspscc
-*_i.c
-*_p.c
-*.ncb
-*.suo
-*.tlb
-*.tlh
-*.bak
-*.cache
-*.ilk
-*.log
-[Bb]in
-*.sbr
-_ReSharper*/
-[Tt]est[Rr]esult*
-*.ipch
-*.opensdf
-*.sdf
