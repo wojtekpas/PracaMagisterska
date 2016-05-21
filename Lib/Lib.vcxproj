@@ -187,8 +187,12 @@
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
       <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
     </Link>
+    <Lib>
+      <AdditionalOptions>mpir.lib %(AdditionalOptions)</AdditionalOptions>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BigNumber.h" />
     <ClInclude Include="CharsConstants.h" />
     <ClInclude Include="definitions.h" />
     <ClInclude Include="Number.h" />

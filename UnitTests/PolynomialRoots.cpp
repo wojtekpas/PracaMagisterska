@@ -22,16 +22,16 @@ namespace UnitTests
 			Polynomial& polynomialAfterElimination = p2;
 			polynomialAfterElimination.Normalize();
 			vector<Number> roots = polynomialAfterElimination.FindRoots(a, b);
-			vector<double> roots_double;
-			for (int i = 0; i < roots.size(); i++)
-				roots_double.push_back(roots[i].GetValue());
-			sort(roots_double.begin(), roots_double.end());
+			//vector<mpq_t> roots_mpq;
+			//for (int i = 0; i < roots.size(); i++)
+				//roots_mpq.push_back(roots[i].value);
+			//sort(roots_mpq.begin(), roots_mpq.end());
 			string expectedRoots = to_string(polynomialRoots.size()) + ": ";
-			string actualRoots = to_string(roots_double.size()) + ": ";
+			string actualRoots = to_string(roots.size()) + ": ";
 			for (int i = 0; i < polynomialRoots.size(); i++)
 				expectedRoots += polynomialRoots[i].ToString() + ", ";
-			for (int i = 0; i < roots_double.size(); i++)
-				actualRoots += to_string(roots_double[i]) + ", ";
+			for (int i = 0; i < roots.size(); i++)
+				actualRoots += roots[i].ToString() + ", ";
 			Assert::AreEqual(expectedRoots, actualRoots);
 		}
 

@@ -146,7 +146,7 @@ inline void Polynomial::Add(int power, Number number)
 
 inline void Polynomial::Sub(int power, Number number)
 {
-	return Add(power, Number(-number.GetValue()));
+	return Add(power, number.Neg());
 }
 
 inline PAIR Polynomial::Mul(int power1, Number number1, int power2, Number number2)
@@ -264,9 +264,6 @@ inline vector<Number> Polynomial::FindRoots(Number a, Number b)
 		return roots;
 
 	Number c = NextNumberFromRange(a, b);
-	int ab = NumberOfRoots(a, b);
-	int ac = NumberOfRoots(a, c);
-	int bc = NumberOfRoots(c, b);
 	if (PolynomialValue(c).IsZero())
 	{
 		cIsRoot = 1;

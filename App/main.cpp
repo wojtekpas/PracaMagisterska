@@ -2,6 +2,7 @@
 
 int main()
 {
+
 	Parser parser;
 	string inputS;
 	string tmp;
@@ -9,6 +10,7 @@ int main()
 	double b;
 	const int max_retry = 100;
 	int retry;
+
 	while (true)
 	{
 		retry = 0;
@@ -25,7 +27,9 @@ int main()
 		}
 		if (inputS == "quit")
 			return 0;
+		
 		Polynomial& p = CreatePolynomial();
+		/*
 		p = parser.ConvertToPolynomial(inputS);
 		cout << "a = ";
 		cin >> a;
@@ -35,7 +39,10 @@ int main()
 		p.PrintInput();
 		p.Print();
 		p.PrintRoots(a, b);
+		*/
+		
 		cout << "-----" << endl;
 		inputS = "";
 	}
+
 }

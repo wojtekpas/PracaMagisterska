@@ -1,16 +1,16 @@
-﻿Build started 2016-05-18 00:02:36.
-     1>Project "C:\Users\Gruby\Documents\Visual Studio 2015\Projects\PracaMagisterska\App\App.vcxproj" on node 2 (Build target(s)).
+﻿Build started 2016-05-21 23:09:36.
+     1>Project "C:\Users\Gruby\Documents\Visual Studio 2015\Projects\PracaMagisterska\App\App.vcxproj" on node 4 (Rebuild target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
          main.cpp
      1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\stringmanager.h(88): warning C4018: '<': signed/unsigned mismatch
      1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\stringmanager.h(113): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\number.h(120): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\number.h(126): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\number.h(142): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
      1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\polynomial.h(107): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\polynomial.h(220): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-     1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\polynomial.h(288): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\polynomial.h(297): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\polynomial.h(323): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\polynomial.h(285): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\polynomial.h(294): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\polynomial.h(320): warning C4018: '<': signed/unsigned mismatch
      1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\polynomialmap.h(253): warning C4018: '<': signed/unsigned mismatch
      1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\polynomialvector.h(305): warning C4018: '<': signed/unsigned mismatch
      1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\parser.h(60): warning C4018: '<': signed/unsigned mismatch
@@ -18,9 +18,16 @@
      1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\parser.h(196): warning C4018: '<': signed/unsigned mismatch
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Gruby\Documents\Visual Studio 2015\Projects\PracaMagisterska\Debug\App.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\Gruby\Documents\Visual Studio 2015\Projects\PracaMagisterska\Debug\App.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Gruby\Documents\Visual Studio 2015\Projects\PracaMagisterska\Debug\App.lib" /MACHINE:X86 Debug\main.obj
-         App.vcxproj -> C:\Users\Gruby\Documents\Visual Studio 2015\Projects\PracaMagisterska\Debug\App.exe
-     1>Done Building Project "C:\Users\Gruby\Documents\Visual Studio 2015\Projects\PracaMagisterska\App\App.vcxproj" (Build target(s)).
+     1>main.obj : error LNK2019: unresolved external symbol ___gmpq_add referenced in function "public: class Number __thiscall Number::operator+(class Number)" (??HNumber@@QAE?AV0@V0@@Z)
+     1>main.obj : error LNK2019: unresolved external symbol ___gmpq_cmp referenced in function "public: bool __thiscall Number::operator==(class Number)" (??8Number@@QAE_NV0@@Z)
+     1>main.obj : error LNK2019: unresolved external symbol ___gmpq_div referenced in function "public: class Number __thiscall Number::operator/(class Number)" (??KNumber@@QAE?AV0@V0@@Z)
+     1>main.obj : error LNK2019: unresolved external symbol ___gmpq_init referenced in function "public: __thiscall Number::Number(double)" (??0Number@@QAE@N@Z)
+     1>main.obj : error LNK2019: unresolved external symbol ___gmpq_mul referenced in function "public: class Number __thiscall Number::operator*(class Number)" (??DNumber@@QAE?AV0@V0@@Z)
+     1>main.obj : error LNK2019: unresolved external symbol ___gmpq_set referenced in function "public: class Number __thiscall Number::operator=(class Number)" (??4Number@@QAE?AV0@V0@@Z)
+     1>main.obj : error LNK2019: unresolved external symbol ___gmpq_set_d referenced in function "public: __thiscall Number::Number(double)" (??0Number@@QAE@N@Z)
+     1>C:\Users\Gruby\Documents\Visual Studio 2015\Projects\PracaMagisterska\Debug\App.exe : fatal error LNK1120: 7 unresolved externals
+     1>Done Building Project "C:\Users\Gruby\Documents\Visual Studio 2015\Projects\PracaMagisterska\App\App.vcxproj" (Rebuild target(s)) -- FAILED.
 
-Build succeeded.
+Build FAILED.
 
-Time Elapsed 00:00:02.86
+Time Elapsed 00:00:01.71

@@ -353,7 +353,7 @@ inline Polynomial& PolynomialVector::NegativePolynomial()
 	Polynomial& result = CreatePolynomial();
 	for (auto p : v)
 	{
-		result.SetNumberValue(p.first, Number(-p.second.GetValue()));
+		result.SetNumberValue(p.first, p.second.Neg());
 	}
 	return result;
 }
@@ -365,7 +365,7 @@ inline Polynomial& PolynomialVector::Derivative()
 	for (auto p : v)
 	{
 		if (p.first > 0)
-			result.SetNumberValue(p.first - 1, Number(p.first * p.second.GetValue()));
+			result.SetNumberValue(p.first - 1, p.second * p.first);
 	}
 	return result;
 }

@@ -300,7 +300,7 @@ inline Polynomial& PolynomialMap::NegativePolynomial()
 	Polynomial& result = CreatePolynomial();
 	for (auto p : m)
 	{
-		result.SetNumberValue(p.first, Number(-p.second.GetValue()));
+		result.SetNumberValue(p.first, p.second.Neg());
 	}
 	return result;
 }
@@ -312,7 +312,7 @@ inline Polynomial& PolynomialMap::Derivative()
 	for (auto p : m)
 	{
 		if (p.first > 0)
-			result.SetNumberValue(p.first - 1, Number(p.first * p.second.GetValue()));
+			result.SetNumberValue(p.first - 1, p.second * p.first);
 	}
 	return result;
 }

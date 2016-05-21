@@ -1,5 +1,6 @@
 #pragma once
 #include "definitions.h"
+#include <mpir.h>
 
 #define DEBUG_VALUE 0
 #define DEBUG if (DEBUG_VALUE) 
@@ -9,13 +10,12 @@
 
 class Number
 {
-private:
-	double value = 0;
 public:
+	mpq_t value;
 	explicit Number();
 	explicit Number(double value);
-	double GetValue();
-	double Abs();
+	Number Neg();
+	Number Abs();
 	void SetMaxNegativeValue();
 	void SetMaxValue();
 	bool IsPlusInfinity();
@@ -25,79 +25,85 @@ public:
 	bool IsZero();
 	bool IsInVector(vector<Number> v);
 
-	bool operator == (Number number);
-	bool operator != (Number number);
-	bool operator > (Number number);
-	bool operator < (Number number);
-	bool operator >= (Number number);
-	bool operator <= (Number number);
-	Number operator = (Number number);
-	Number operator + (Number number);
-	Number operator - (Number number);
-	Number operator * (Number number);
-	Number operator / (Number number);
+	bool operator == (Number bigNumber);
+	bool operator != (Number bigNumber);
+	bool operator > (Number bigNumber);
+	bool operator < (Number bigNumber);
+	bool operator >= (Number bigNumber);
+	bool operator <= (Number bigNumber);
+	Number operator = (Number bigNumber);
+	Number operator + (Number bigNumber);
+	Number operator - (Number bigNumber);
+	Number operator * (Number bigNumber);
+	Number operator / (Number bigNumber);
 	Number operator ^ (int power);
-	Number operator += (Number number);
-	Number operator -= (Number number);
-	Number operator *= (Number number);
-	Number operator /= (Number number);
+	Number operator += (Number bigNumber);
+	Number operator -= (Number bigNumber);
+	Number operator *= (Number bigNumber);
+	Number operator /= (Number bigNumber);
 	Number operator ^= (int power);
-	bool operator == (int value);
-	bool operator != (int value);
-	bool operator > (int value);
-	bool operator < (int value);
-	bool operator >= (int value);
-	bool operator <= (int value);
-	Number operator = (int value);
-	Number operator + (int value);
-	Number operator - (int value);
-	Number operator * (int value);
-	Number operator / (int value);
-	Number operator += (int value);
-	Number operator -= (int value);
-	Number operator *= (int value);
-	Number operator /= (int value);
+	bool operator == (double value);
+	bool operator != (double value);
+	bool operator > (double value);
+	bool operator < (double value);
+	bool operator >= (double value);
+	bool operator <= (double value);
+	Number operator = (double value);
+	Number operator + (double value);
+	Number operator - (double value);
+	Number operator * (double value);
+	Number operator / (double value);
+	Number operator += (double value);
+	Number operator -= (double value);
+	Number operator *= (double value);
+	Number operator /= (double value);
 	string ToString();
 	void Print();
 };
 
 inline Number::Number()
 {
+	mpq_init(value);
 }
 
 inline Number::Number(double value)
 {
-	this->value = value;
+	mpq_init(this->value);
+	mpq_set_d(this->value, value);
 }
 
-inline double Number::GetValue()
+inline Number Number::Neg()
 {
-	return value;
+	Number result;
+	mpq_neg(result.value, value);
+	return result;
 }
 
-inline double Number::Abs()
+inline Number Number::Abs()
 {
-	return abs(value);
+	Number result;
+	mpq_abs(result.value, value);
+	return result;
 }
 
 inline void Number::SetMaxNegativeValue()
 {
-	value = MAX_NEGATIVE_VALUE;
+	*this = MAX_NEGATIVE_VALUE;
 }
 
 inline void Number::SetMaxValue()
 {
-	value = MAX_VALUE;
+	*this = MAX_VALUE;
 }
 
 inline bool Number::IsPlusInfinity()
 {
-	return value == MAX_NEGATIVE_VALUE;
+	return *this >= MAX_VALUE;
 }
 
 inline bool Number::IsMinusInfinity()
 {
-	return value == MAX_VALUE;
+	return *this <= MAX_NEGATIVE_VALUE;
 }
 
 inline bool Number::IsInfinity()
@@ -107,7 +113,7 @@ inline bool Number::IsInfinity()
 
 inline bool Number::IsVerySmallValue()
 {
-	return Abs() / 200 < SMALL_NUMBER;
+	return Abs() < SMALL_NUMBER * 200;
 }
 
 inline bool Number::IsZero()
@@ -126,67 +132,67 @@ inline bool Number::IsInVector(vector<Number> v)
 	return false;
 }
 
-inline bool Number::operator==(Number number)
+inline bool Number::operator==(Number bigNumber)
 {
-	return value == number.GetValue();
+	return mpq_cmp(value, bigNumber.value) == 0;
 }
 
-inline bool Number::operator!=(Number number)
+inline bool Number::operator!=(Number bigNumber)
 {
-	return value != number.GetValue();
+	return mpq_cmp(value, bigNumber.value);
 }
 
-inline bool Number::operator>(Number number)
+inline bool Number::operator>(Number bigNumber)
 {
-	return value > number.GetValue();
+	return mpq_cmp(value, bigNumber.value) > 0;
 }
 
-inline bool Number::operator<(Number number)
+inline bool Number::operator<(Number bigNumber)
 {
-	return value < number.GetValue();
+	return mpq_cmp(value, bigNumber.value) < 0;
 }
 
-inline bool Number::operator>=(Number number)
+inline bool Number::operator>=(Number bigNumber)
 {
-	return value >= number.GetValue();
+	return mpq_cmp(value, bigNumber.value) >= 0;
 }
 
-inline bool Number::operator<=(Number number)
+inline bool Number::operator<=(Number bigNumber)
 {
-	return value <= number.GetValue();
+	return mpq_cmp(value, bigNumber.value) <= 0;
 }
 
-inline Number Number::operator=(Number number)
+inline Number Number::operator=(Number bigNumber)
 {
-	value = number.GetValue();
+	mpq_set(value, bigNumber.value);
 	return *this;
 }
 
-inline Number Number::operator+(Number number)
+inline Number Number::operator+(Number bigNumber)
 {
 	Number result(0);
-	result.value = value + number.GetValue();
+	mpq_add(result.value, value, bigNumber.value);
 	return result;
 }
 
-inline Number Number::operator-(Number number)
+inline Number Number::operator-(Number bigNumber)
 {
 	Number result(0);
-	result.value = value - number.GetValue();
+	mpq_sub(result.value, value, bigNumber.value);
 	return result;
 }
 
-inline Number Number::operator*(Number number)
+inline Number Number::operator*(Number bigNumber)
 {
 	Number result(0);
-	result.value = value * number.GetValue();
+	mpq_mul(result.value, value, bigNumber.value);
 	return result;
 }
 
-inline Number Number::operator/(Number number)
+inline Number Number::operator/(Number bigNumber)
 {
 	Number result(0);
-	result.value = value / number.GetValue();
+	mpq_div(result.value, value, bigNumber.value);
 	return result;
 }
 
@@ -205,27 +211,27 @@ inline Number Number::operator^(int power)
 	return result;
 }
 
-inline Number Number::operator+=(Number number)
+inline Number Number::operator+=(Number bigNumber)
 {
-	*this = *this + number;
+	*this = *this + bigNumber;
 	return *this;
 }
 
-inline Number Number::operator-=(Number number)
+inline Number Number::operator-=(Number bigNumber)
 {
-	*this = *this - number;
+	*this = *this - bigNumber;
 	return *this;
 }
 
-inline Number Number::operator*=(Number number)
+inline Number Number::operator*=(Number bigNumber)
 {
-	*this = *this * number;
+	*this = *this * bigNumber;
 	return *this;
 }
 
-inline Number Number::operator/=(Number number)
+inline Number Number::operator/=(Number bigNumber)
 {
-	*this = *this / number;
+	*this = *this / bigNumber;
 	return *this;
 }
 
@@ -235,91 +241,91 @@ inline Number Number::operator^=(int power)
 	return *this;
 }
 
-inline bool Number::operator==(int value)
+inline bool Number::operator==(double value)
 {
-	Number number(value);
-	return *this == number;
+	Number bigNumber(value);
+	return *this == bigNumber;
 }
 
-inline bool Number::operator!=(int value)
+inline bool Number::operator!=(double value)
 {
-	Number number(value);
-	return *this != number;
+	Number bigNumber(value);
+	return *this != bigNumber;
 }
 
-inline bool Number::operator>(int value)
+inline bool Number::operator>(double value)
 {
-	Number number(value);
-	return *this > number;
+	Number bigNumber(value);
+	return *this > bigNumber;
 }
 
-inline bool Number::operator<(int value)
+inline bool Number::operator<(double value)
 {
-	Number number(value);
-	return *this < number;
+	Number bigNumber(value);
+	return *this < bigNumber;
 }
 
-inline bool Number::operator>=(int value)
+inline bool Number::operator>=(double value)
 {
-	Number number(value);
-	return *this >= number;
+	Number bigNumber(value);
+	return *this >= bigNumber;
 }
 
-inline bool Number::operator<=(int value)
+inline bool Number::operator<=(double value)
 {
-	Number number(value);
-	return *this <= number;
+	Number bigNumber(value);
+	return *this <= bigNumber;
 }
 
-inline Number Number::operator=(int value)
+inline Number Number::operator=(double value)
 {
-	this->value = value;
+	mpq_set_d(this->value, value);
 	return *this;
 }
 
-inline Number Number::operator+(int value)
+inline Number Number::operator+(double value)
 {
-	Number number(value);
-	return *this + number;
+	Number bigNumber(value);
+	return *this + bigNumber;
 }
 
-inline Number Number::operator-(int value)
+inline Number Number::operator-(double value)
 {
-	Number number(value);
-	return *this - number;
+	Number bigNumber(value);
+	return *this - bigNumber;
 }
 
-inline Number Number::operator*(int value)
+inline Number Number::operator*(double value)
 {
-	Number number(value);
-	return *this * number;
+	Number bigNumber(value);
+	return *this * bigNumber;
 }
 
-inline Number Number::operator/(int value)
+inline Number Number::operator/(double value)
 {
-	Number number(value);
-	return *this / number;
+	Number bigNumber(value);
+	return *this / bigNumber;
 }
 
-inline Number Number::operator+=(int value)
+inline Number Number::operator+=(double value)
 {
 	*this = *this + value;
 	return *this;
 }
 
-inline Number Number::operator-=(int value)
+inline Number Number::operator-=(double value)
 {
 	*this = *this - value;
 	return *this;
 }
 
-inline Number Number::operator*=(int value)
+inline Number Number::operator*=(double value)
 {
 	*this = *this * value;
 	return *this;
 }
 
-inline Number Number::operator/=(int value)
+inline Number Number::operator/=(double value)
 {
 	*this = *this / value;
 	return *this;
@@ -327,8 +333,7 @@ inline Number Number::operator/=(int value)
 
 inline string Number::ToString()
 {
-	string s = to_string(value);
-	return to_string(value);
+	return to_string(1);
 }
 
 inline void Number::Print()
