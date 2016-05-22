@@ -4,7 +4,7 @@
 
 #define DEBUG_VALUE 0
 #define DEBUG if (DEBUG_VALUE) 
-#define SMALL_NUMBER 0.00001
+#define SMALL_NUMBER 0.0000001
 #define MAX_VALUE 1000
 #define MAX_NEGATIVE_VALUE -1000
 
@@ -171,7 +171,7 @@ inline Number Number::operator=(Number bigNumber)
 inline Number Number::operator+(Number bigNumber)
 {
 	Number result(0);
-	//mpq_add(result.value, value, bigNumber.value);
+	mpq_add(result.value, value, bigNumber.value);
 	return result;
 }
 
@@ -333,10 +333,16 @@ inline Number Number::operator/=(double value)
 
 inline string Number::ToString()
 {
+	Number result;
+	Number tmp;
+	Number divider(10);
+	string result_S = "";
+	tmp = *this;
+
 	return to_string(1);
 }
 
 inline void Number::Print()
 {
-	//cout << value << endl;
+	gmp_printf("a hex rational: %#20Qx\n", value);
 }

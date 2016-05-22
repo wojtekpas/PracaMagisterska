@@ -20,7 +20,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\mpir_app\mpir.dll">
+    <None Include="mpir.dll">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
