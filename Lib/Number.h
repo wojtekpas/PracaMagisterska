@@ -139,7 +139,7 @@ inline bool Number::operator==(Number bigNumber)
 
 inline bool Number::operator!=(Number bigNumber)
 {
-	return mpq_cmp(value, bigNumber.value);
+	return mpq_cmp(value, bigNumber.value) != 0;
 }
 
 inline bool Number::operator>(Number bigNumber)
@@ -171,7 +171,7 @@ inline Number Number::operator=(Number bigNumber)
 inline Number Number::operator+(Number bigNumber)
 {
 	Number result(0);
-	mpq_add(result.value, value, bigNumber.value);
+	//mpq_add(result.value, value, bigNumber.value);
 	return result;
 }
 
@@ -338,5 +338,5 @@ inline string Number::ToString()
 
 inline void Number::Print()
 {
-	cout << value << endl;
+	//cout << value << endl;
 }

@@ -1,8 +1,10 @@
+#pragma once
 #include "../Lib/Parser.h"
+#include "../Lib/Number.h"	
 
 int main()
 {
-
+	
 	Parser parser;
 	string inputS;
 	string tmp;
@@ -27,9 +29,9 @@ int main()
 		}
 		if (inputS == "quit")
 			return 0;
-		
+
 		Polynomial& p = CreatePolynomial();
-		/*
+		
 		p = parser.ConvertToPolynomial(inputS);
 		cout << "a = ";
 		cin >> a;
@@ -39,10 +41,11 @@ int main()
 		p.PrintInput();
 		p.Print();
 		p.PrintRoots(a, b);
-		*/
 		
+
 		cout << "-----" << endl;
 		inputS = "";
-	}
 
+	}
+	
 }
