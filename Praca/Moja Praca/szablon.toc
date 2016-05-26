@@ -11,3 +11,4 @@
 \contentsline {subsubsection}{Pochodna wielomianu}{4}
 \contentsline {subsubsection}{NWD wielomian\IeC {\'o}w}{4}
 \contentsline {subsection}{\numberline {1.1.3}Eliminacja pierwiastk\IeC {\'o}w wielokrotnych}{6}
+\contentsline {section}{\numberline {1.2}Twierdzenie Sturma}{7}

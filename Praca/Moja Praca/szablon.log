@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  13 MAY 2016 00:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  26 MAY 2016 21:01
 entering extended mode
 **./szablon.tex
 (szablon.tex
@@ -1205,52 +1205,52 @@ LaTeX Warning: Command \' invalid in math mode on input line 449.
 LaTeX Warning: Command \' invalid in math mode on input line 449.
 
 [5] [6]
-Underfull \hbox (badness 10000) in paragraph at lines 497--521
+Underfull \hbox (badness 10000) in paragraph at lines 501--525
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 497--521
+Underfull \hbox (badness 10000) in paragraph at lines 501--525
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 497--521
+Underfull \hbox (badness 10000) in paragraph at lines 501--525
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 497--521
+Underfull \hbox (badness 10000) in paragraph at lines 501--525
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 497--521
+Underfull \hbox (badness 10000) in paragraph at lines 501--525
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 497--521
+Underfull \hbox (badness 10000) in paragraph at lines 501--525
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 497--521
+Underfull \hbox (badness 10000) in paragraph at lines 501--525
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 497--521
+Underfull \hbox (badness 10000) in paragraph at lines 501--525
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 497--521
+Underfull \hbox (badness 10000) in paragraph at lines 501--525
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 497--521
+Underfull \hbox (badness 10000) in paragraph at lines 501--525
 
  []
 
@@ -1269,11 +1269,11 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of TeX's memory you used:
  17015 strings out of 493634
  309871 string characters out of 3141314
- 355480 words of memory out of 3000000
+ 355482 words of memory out of 3000000
  20038 multiletter control sequences out of 15000+200000
  53721 words of font info for 43 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 48i,15n,54p,900b,423s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 48i,15n,54p,900b,440s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Progr
 am Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Program Files (x
 86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program Files (x86)/MiKTeX 2.9/
@@ -1288,7 +1288,7 @@ eX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts
 b><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Progr
 am Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmsy5.pfb><C:/Program Files (x8
 6)/MiKTeX 2.9/fonts/type1/public/lm/lmsy7.pfb>
-Output written on szablon.pdf (13 pages, 239449 bytes).
+Output written on szablon.pdf (13 pages, 239809 bytes).
 PDF statistics:
  107 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

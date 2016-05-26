@@ -14,6 +14,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "App", "App\App.vcxproj", "{
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dll_mpir_nehalem", "..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio 14.0\mpir-2.7.2\build.vc14\dll_mpir_nehalem\dll_mpir_nehalem.vcxproj", "{8C76B718-5988-42DB-8C39-5C4966A00C29}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PerformanceTests", "PerformanceTests\PerformanceTests.vcxproj", "{CADF0943-A588-4C10-B8A6-6B948C58CB93}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ARM = Debug|ARM
@@ -64,6 +66,16 @@ Global
 		{8C76B718-5988-42DB-8C39-5C4966A00C29}.Release|x64.ActiveCfg = Release|x64
 		{8C76B718-5988-42DB-8C39-5C4966A00C29}.Release|x64.Build.0 = Release|x64
 		{8C76B718-5988-42DB-8C39-5C4966A00C29}.Release|x86.ActiveCfg = Release|x64
+		{CADF0943-A588-4C10-B8A6-6B948C58CB93}.Debug|ARM.ActiveCfg = Debug|Win32
+		{CADF0943-A588-4C10-B8A6-6B948C58CB93}.Debug|x64.ActiveCfg = Debug|x64
+		{CADF0943-A588-4C10-B8A6-6B948C58CB93}.Debug|x64.Build.0 = Debug|x64
+		{CADF0943-A588-4C10-B8A6-6B948C58CB93}.Debug|x86.ActiveCfg = Debug|Win32
+		{CADF0943-A588-4C10-B8A6-6B948C58CB93}.Debug|x86.Build.0 = Debug|Win32
+		{CADF0943-A588-4C10-B8A6-6B948C58CB93}.Release|ARM.ActiveCfg = Release|Win32
+		{CADF0943-A588-4C10-B8A6-6B948C58CB93}.Release|x64.ActiveCfg = Release|x64
+		{CADF0943-A588-4C10-B8A6-6B948C58CB93}.Release|x64.Build.0 = Release|x64
+		{CADF0943-A588-4C10-B8A6-6B948C58CB93}.Release|x86.ActiveCfg = Release|Win32
+		{CADF0943-A588-4C10-B8A6-6B948C58CB93}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
