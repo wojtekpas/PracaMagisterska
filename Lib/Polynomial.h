@@ -346,6 +346,7 @@ inline Polynomial& Polynomial::operator % (Polynomial& p2)
 inline Polynomial& Polynomial::operator ^ (int power)
 {
 	Polynomial& result = CreatePolynomial();
+	Polynomial& tmp = CreatePolynomial();
 
 	if (power == 0)
 	{
@@ -357,10 +358,11 @@ inline Polynomial& Polynomial::operator ^ (int power)
 	}
 
 	result = *this;
+	tmp = *this;
 
 	for (int i = 1; i < power; i++)
 	{
-		result *= *this;
+		result *= tmp;
 	}
 
 	return result;

@@ -23,8 +23,9 @@ namespace UnitTests
 		void Verify(string input, Polynomial& expectedOutput)
 		{
 			Polynomial& result = parser.ConvertToPolynomial(input);
+			string s = result.ToString();
 
-			Assert::AreEqual(expectedOutput.ToString(), result.ToString());
+			Assert::AreEqual(expectedOutput.ToString(), s);
 		}
 
 		void VerifyForAFirstPower(string input, int expectedValueForAFirstPower)

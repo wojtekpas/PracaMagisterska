@@ -56,12 +56,12 @@ namespace UnitTests
 
 		TEST_METHOD(ParserUniform08)
 		{
-			Verify("a", "a");
+			Verify("x", "x");
 		}
 
 		TEST_METHOD(ParserUniform09)
 		{
-			Verify("aa");
+			Verify("xx");
 		}
 
 		TEST_METHOD(ParserUniform10)
@@ -71,62 +71,62 @@ namespace UnitTests
 
 		TEST_METHOD(ParserUniform11)
 		{
-			Verify("100*a", "100*a");
+			Verify("100*x", "100*x");
 		}
 
 		TEST_METHOD(ParserUniform12)
 		{
-			Verify("100a", "100*a");
+			Verify("100x", "100*x");
 		}
 
 		TEST_METHOD(ParserUniform13)
 		{
-			Verify("-50a", "-50*a");
+			Verify("-50x", "-50*x");
 		}
 
 		TEST_METHOD(ParserUniform14)
 		{
-			Verify("a^2", "a^2");
+			Verify("x^2", "x^2");
 		}
 
 		TEST_METHOD(ParserUniform15)
 		{
-			Verify("a3", "a^3");
+			Verify("x3", "x^3");
 		}
 
 		TEST_METHOD(ParserUniform16)
 		{
-			Verify("-5*a3", "-5*a^3");
+			Verify("-5*x3", "-5*x^3");
 		}
 
 		TEST_METHOD(ParserUniform17)
 		{
-			Verify("a3*3", "a^3*3");
+			Verify("x3*3", "x^3*3");
 		}
 
 		TEST_METHOD(ParserUniform18)
 		{
-			Verify("4a3", "4*a^3");
+			Verify("4x3", "4*x^3");
 		}
 
 		TEST_METHOD(ParserUniform19)
 		{
-			Verify("10 a2", "10*a^2");
+			Verify("10 x2", "10*x^2");
 		}
 
 		TEST_METHOD(ParserUniform20)
 		{
-			Verify("2(4a+2)", "2*(4*a+2)");
+			Verify("2(4x+2)", "2*(4*x+2)");
 		}
 
 		TEST_METHOD(ParserUniform21)
 		{
-			Verify("(3a+1)(2a+1)", "(3*a+1)*(2*a+1)");
+			Verify("(3x+1)(2x+1)", "(3*x+1)*(2*x+1)");
 		}
 
 		TEST_METHOD(ParserUniform22)
 		{
-			Verify("(3*a)2", "(3*a)^2");
+			Verify("(3*x)2", "(3*x)^2");
 		}
 
 		TEST_METHOD(ParserUniform23)

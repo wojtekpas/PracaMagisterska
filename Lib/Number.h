@@ -16,6 +16,7 @@ public:
 	explicit Number(double value);
 	Number Neg();
 	Number Abs();
+	Number Copy();
 	void SetMaxNegativeValue();
 	void SetMaxValue();
 	bool IsPlusInfinity();
@@ -83,6 +84,13 @@ inline Number Number::Abs()
 {
 	Number result;
 	mpq_abs(result.value, value);
+	return result;
+}
+
+inline Number Number::Copy()
+{
+	Number result;
+	mpq_set(result.value, value);
 	return result;
 }
 
@@ -333,16 +341,15 @@ inline Number Number::operator/=(double value)
 
 inline string Number::ToString()
 {
-	Number result;
-	Number tmp;
-	Number divider(10);
-	string result_S = "";
-	tmp = *this;
+	char* charArray = new char[100];
+	mpq_get_str(charArray, 10, value);
+	string result(charArray);
+	//if (value->_mp_num._mp_d == value->_mp_den._mp_d + 1)
 
-	return to_string(1);
+	return result;
 }
 
 inline void Number::Print()
 {
-	gmp_printf("a hex rational: %#20Qx\n", value);
+	cout << ToString() << endl;
 }

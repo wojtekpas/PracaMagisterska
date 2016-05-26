@@ -249,6 +249,12 @@ inline bool PolynomialVector::operator == (Polynomial& p2)
 inline Polynomial& PolynomialVector::operator = (Polynomial& p2)
 {
 	v = p2.v;
+	v.clear();
+	for (int i = 0; i < p2.v.size(); i++)
+	{
+		Number copy = p2.v[i].second.Copy();
+		SetNumberValue(i, copy);
+	}
 	m = p2.m;
 	inputS = p2.inputS;
 	return *this;
@@ -277,12 +283,12 @@ inline Polynomial& PolynomialVector::operator * (Polynomial& p2)
 	Polynomial& result = CreatePolynomial();
 	if (p2.IsZero())
 		return result;
-	for (auto pair1 : v)
+	for (auto pair1: v)
 	{
-		for (auto pair2 : p2.v)
+		for (auto pair2: p2.v)
 		{
 			auto mulResult = result.Mul(pair1.first, pair1.second, pair2.first, pair2.second);
-			result.Add(mulResult.first, mulResult.second);
+			result.Add(mulResult.first, mulResult.second);;
 		}
 	}
 	return result;
@@ -294,9 +300,7 @@ inline int PolynomialVector::NumberOfChangesSign(Number a)
 	int counter = 0;
 	int lastValue = 0;
 	int curValue;
-	DEBUG cout << "For: " << a.ToString() << ":" << endl;
 	Number number = PolynomialValue(a);
-	DEBUG cout << number.ToString() << endl;
 	if (number > 0)
 		lastValue = 1;
 	else if (number < 0)
@@ -305,7 +309,6 @@ inline int PolynomialVector::NumberOfChangesSign(Number a)
 	for (int i = 1; i < sturm.size(); i++)
 	{
 		number = sturm.at(i).PolynomialValue(a);
-		DEBUG cout << number.ToString() << endl;
 		if (number > 0)
 			curValue = 1;
 		else if (number < 0)
