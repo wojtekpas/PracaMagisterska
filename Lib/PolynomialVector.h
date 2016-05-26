@@ -144,12 +144,12 @@ inline pair<Polynomial&, Polynomial&> PolynomialVector::DividePolynomials(Polyno
 	int currentDegree = current.PolynomialDegree();
 	int degree = p2.PolynomialDegree();
 	PAIR pair2 = PAIR(degree, p2.Value(degree));
-	VECTOR map2 = p2.VectorValuesExceptValueOfPolynomialDegree(degree);
+	VECTOR vector2 = p2.VectorValuesExceptValueOfPolynomialDegree(degree);
 
 	while (currentDegree >= degree)
 	{
 		PAIR pair1 = PAIR(currentDegree, current.Value(currentDegree));
-		VECTOR map1 = current.VectorValuesExceptValueOfPolynomialDegree(currentDegree);
+		VECTOR vector1 = current.VectorValuesExceptValueOfPolynomialDegree(currentDegree);
 
 		auto divResult = Div(pair1.first, pair1.second, pair2.first, pair2.second);
 
@@ -157,7 +157,7 @@ inline pair<Polynomial&, Polynomial&> PolynomialVector::DividePolynomials(Polyno
 		{
 			result.SetNumberValue(divResult.first, divResult.second);
 			current.SetNumberValue(currentDegree, Number(0));
-			for (auto curPair : map2)
+			for (auto curPair : vector2)
 			{
 				auto mulResult = Mul(curPair.first, curPair.second, divResult.first, divResult.second);
 				current.Sub(mulResult.first, mulResult.second);
@@ -169,6 +169,8 @@ inline pair<Polynomial&, Polynomial&> PolynomialVector::DividePolynomials(Polyno
 		}
 		currentDegree = current.PolynomialDegree();
 	}
+	DeletePolynomial(&rest);
+
 	return pair<Polynomial&, Polynomial&>(result, current);
 }
 
@@ -248,6 +250,7 @@ inline bool PolynomialVector::operator == (Polynomial& p2)
 
 inline Polynomial& PolynomialVector::operator = (Polynomial& p2)
 {
+	PrintStats();
 	v = p2.v;
 	v.clear();
 	for (int i = 0; i < p2.v.size(); i++)
@@ -257,15 +260,18 @@ inline Polynomial& PolynomialVector::operator = (Polynomial& p2)
 	}
 	m = p2.m;
 	inputS = p2.inputS;
+	PrintStats();
 	return *this;
 }
 
 inline Polynomial& PolynomialVector::operator + (Polynomial& p2)
 {
 	Polynomial& result = CreatePolynomial();
+	cout << "result = " << &result << endl;
 	result.v = v;
 	for (auto pair1 : p2.v)
 		result.Add(pair1.first, pair1.second);
+	//DeletePolynomial(&result);
 	return result;
 }
 
@@ -275,6 +281,7 @@ inline Polynomial& PolynomialVector::operator - (Polynomial& p2)
 	result.v = v;
 	for (auto pair1 : p2.v)
 		result.Sub(pair1.first, pair1.second);
+	//DeletePolynomial(&result);
 	return result;
 }
 
@@ -291,6 +298,7 @@ inline Polynomial& PolynomialVector::operator * (Polynomial& p2)
 			result.Add(mulResult.first, mulResult.second);;
 		}
 	}
+	//DeletePolynomial(&result);
 	return result;
 }
 
@@ -321,6 +329,7 @@ inline int PolynomialVector::NumberOfChangesSign(Number a)
 		if (curValue)
 			lastValue = curValue;
 	}
+	sturm.clear();
 	return counter;
 }
 
@@ -336,18 +345,25 @@ inline vector<PolynomialVector> PolynomialVector::GetSturm()
 	Polynomial& w = CreatePolynomial();
 	Polynomial& q = CreatePolynomial();
 	Polynomial& r = CreatePolynomial();
+	Polynomial& tmp = CreatePolynomial();
 	w.v = v;
 	q = derivative;
 	r = w % q;
 
 	while (r.IsZero() == false)
 	{
-		r = r.NegativePolynomial();
+		tmp = r;
+		r = tmp.NegativePolynomial();
+		DeletePolynomial(&tmp);
 		sturm.push_back(ConvertToPolynomialVectorFromPolynomialRef(r));
 		w = q;
 		q = r;
 		r = w % q;
 	}
+	DeletePolynomial(&w);
+	DeletePolynomial(&q);
+	DeletePolynomial(&r);
+	DeletePolynomial(&derivative);
 	return sturm;
 }
 

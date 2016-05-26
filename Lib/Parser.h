@@ -166,7 +166,11 @@ inline Polynomial& Parser::ConvertToPolynomial(string inputS)
 		sumElement += curElement;
 	else
 		sumElement -= curElement;
+
 	sumElement.inputS = s;
+	DeletePolynomial(&emptyPolynomial);
+	DeletePolynomial(&curElement);
+	DeletePolynomial(&mulElement);
 	return sumElement;
 }
 

@@ -18,7 +18,8 @@ int main()
 		a = MAX_NEGATIVE_VALUE;
 		b = MAX_VALUE;
 		cout << "W(x) = " << endl;
-		getline(cin, inputS);
+		//getline(cin, inputS);
+		inputS = "x30";
 		while (inputS == "")
 		{
 			getline(cin, inputS);
@@ -28,14 +29,18 @@ int main()
 		}
 		if (inputS == "quit")
 			return 0;
-
 		Polynomial& p = CreatePolynomial();
-
+		PrintStats();
 		p = parser.ConvertToPolynomial(inputS);
+		PrintStats();
+		cout << p.ToString() << endl;
+		cout << "created = " << countPolynomialVectors << ", deleted = " << countPolynomialVectorsDeleted << ", created numbers = " << countNumbers << endl;
 		cout << "a = ";
-		cin >> a;
+		//cin >> a;
 		cout << "b = ";
-		cin >> b;
+		a = -4;
+		b = 4;
+		//cin >> b;
 
 		p.PrintInput();
 		p.Print();
@@ -43,5 +48,8 @@ int main()
 
 		cout << "-----" << endl;
 		inputS = "";
+		cout << "created = " << countPolynomialVectors << ", deleted = " << countPolynomialVectorsDeleted << ", created numbers = " << countNumbers << endl;
+		getchar();
+		getchar();
 	}
 }

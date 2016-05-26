@@ -8,6 +8,9 @@
 #define VECTOR vector<PAIR>
 #define MAP map<int,Number>
 
+static int countPolynomialVectors = 0;
+static int countPolynomialVectorsDeleted = 0;
+
 class Polynomial
 {
 public:
@@ -77,12 +80,29 @@ public:
 	void PrintInput();
 };
 
+inline void PrintStats()
+{
+	//cout << "created = " << countPolynomialVectors << ", deleted = " << countPolynomialVectorsDeleted << ", created numbers = " << countNumbers << endl;
+}
+
+inline void DeletePolynomial(Polynomial* p)
+{
+	countPolynomialVectorsDeleted++;
+	delete p;
+}
+
+inline void DeletePolynomialMap(MAP map1)
+{
+}
+
 inline Polynomial::Polynomial()
 {
+	countPolynomialVectors++;
 }
 
 inline Polynomial::Polynomial(Number number)
 {
+	countPolynomialVectors++;
 	isNew = false;
 }
 
@@ -174,7 +194,10 @@ inline Polynomial& Polynomial::Nwd(Polynomial& p1, Polynomial& p2)
 		one.SetNumberValue(0, Number(1));
 		return one;
 	}
-	return Nwd(p2, divResult.second);
+	Polynomial& nwd = Nwd(p2, divResult.second);
+	DeletePolynomial(&divResult.first);
+	DeletePolynomial(&divResult.second);
+	return nwd;
 }
 
 inline Polynomial& Polynomial::PolynomialAfterEliminationOfMultipleRoots()
@@ -186,6 +209,10 @@ inline Polynomial& Polynomial::PolynomialAfterEliminationOfMultipleRoots()
 	pair<Polynomial&, Polynomial&> divResult = DividePolynomials(*this, nwd);
 	if (divResult.first.IsZero())
 		divResult.first.SetNumberValue(0, Number(1));
+
+	DeletePolynomial(&nwd);
+	DeletePolynomial(&derivative);
+	DeletePolynomial(&divResult.second);
 	return divResult.first;
 }
 
@@ -194,6 +221,7 @@ inline void Polynomial::Normalize()
 	Number coefficient = ValueOfPolynomialDegree().second;
 	Polynomial& divider = CreatePolynomial(coefficient);
 	*this /= divider;
+	DeletePolynomial(&divider);
 }
 
 inline Number Polynomial::CoefficientValue(PAIR pair1, Number a)
@@ -249,6 +277,8 @@ inline void Polynomial::AddNextRoot(vector<Number>& roots, Number x)
 
 inline vector<Number> Polynomial::FindRoots(Number a, Number b)
 {
+	cout << "a = " << a.ToString() << ", b = " << b.ToString() << ", degree: " << PolynomialDegree() << endl;
+	PrintStats();
 	vector<Number> roots;
 	int cIsRoot = 0;
 
@@ -281,6 +311,7 @@ inline vector<Number> Polynomial::FindRoots(Number a, Number b)
 
 	if(NumberOfRoots(a, c))
 	{
+		PrintStats();
 		vector<Number> rootsInRange = FindRoots(a, c);
 		for (int i = 0; i < rootsInRange.size(); i++)
 		{
@@ -290,6 +321,7 @@ inline vector<Number> Polynomial::FindRoots(Number a, Number b)
 	}
 	if(NumberOfRoots(c, b) > cIsRoot)
 	{
+		PrintStats();
 		vector<Number> rootsInRange = FindRoots(c, b);
 		for (int i = 0; i < rootsInRange.size(); i++)
 		{
@@ -365,6 +397,7 @@ inline Polynomial& Polynomial::operator ^ (int power)
 		result *= tmp;
 	}
 
+	DeletePolynomial(&tmp);
 	return result;
 }
 

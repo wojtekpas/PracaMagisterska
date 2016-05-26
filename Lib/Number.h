@@ -2,11 +2,11 @@
 #include "definitions.h"
 #include <mpir.h>
 
-#define DEBUG_VALUE 0
-#define DEBUG if (DEBUG_VALUE) 
 #define SMALL_NUMBER 0.0000001
 #define MAX_VALUE 1000
 #define MAX_NEGATIVE_VALUE -1000
+
+static int countNumbers = 0;
 
 class Number
 {
@@ -64,11 +64,13 @@ public:
 
 inline Number::Number()
 {
+	countNumbers++;
 	mpq_init(value);
 }
 
 inline Number::Number(double value)
 {
+	countNumbers++;
 	mpq_init(this->value);
 	mpq_set_d(this->value, value);
 }
