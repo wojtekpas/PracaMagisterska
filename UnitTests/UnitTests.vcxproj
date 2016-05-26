@@ -182,9 +182,6 @@
       <Project>{8c76b718-5988-42db-8c39-5c4966a00c29}</Project>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="mpir.dll" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
