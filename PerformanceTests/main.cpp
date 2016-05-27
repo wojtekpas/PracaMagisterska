@@ -19,7 +19,7 @@ int main()
 		b = MAX_VALUE;
 		cout << "W(x) = " << endl;
 		//getline(cin, inputS);
-		inputS = "x30";
+		inputS = "x125-1";
 		while (inputS == "")
 		{
 			getline(cin, inputS);

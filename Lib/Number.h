@@ -7,6 +7,8 @@
 #define MAX_NEGATIVE_VALUE -1000
 
 static int countNumbers = 0;
+static int countNumbers2 = 0;
+static int countNumbersDeleted = 0;
 
 class Number
 {
@@ -62,6 +64,12 @@ public:
 	void Print();
 };
 
+inline void DeleteNumber(Number* number)
+{
+	countNumbersDeleted++;
+	mpq_clear(number->value);
+}
+
 inline Number::Number()
 {
 	countNumbers++;
@@ -70,7 +78,7 @@ inline Number::Number()
 
 inline Number::Number(double value)
 {
-	countNumbers++;
+	countNumbers2++;
 	mpq_init(this->value);
 	mpq_set_d(this->value, value);
 }
@@ -355,3 +363,10 @@ inline void Number::Print()
 {
 	cout << ToString() << endl;
 }
+
+static Number zero(0);
+static Number one(1);
+static Number two(2);
+static Number oneNeg(-1);
+static Number twoNeg(-2);
+

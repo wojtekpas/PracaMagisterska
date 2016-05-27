@@ -250,7 +250,6 @@ inline bool PolynomialVector::operator == (Polynomial& p2)
 
 inline Polynomial& PolynomialVector::operator = (Polynomial& p2)
 {
-	PrintStats();
 	v = p2.v;
 	v.clear();
 	for (int i = 0; i < p2.v.size(); i++)
@@ -260,14 +259,13 @@ inline Polynomial& PolynomialVector::operator = (Polynomial& p2)
 	}
 	m = p2.m;
 	inputS = p2.inputS;
-	PrintStats();
 	return *this;
 }
 
 inline Polynomial& PolynomialVector::operator + (Polynomial& p2)
 {
 	Polynomial& result = CreatePolynomial();
-	cout << "result = " << &result << endl;
+	countPlus++;
 	result.v = v;
 	for (auto pair1 : p2.v)
 		result.Add(pair1.first, pair1.second);
@@ -278,6 +276,7 @@ inline Polynomial& PolynomialVector::operator + (Polynomial& p2)
 inline Polynomial& PolynomialVector::operator - (Polynomial& p2)
 {
 	Polynomial& result = CreatePolynomial();
+	countMinus++;
 	result.v = v;
 	for (auto pair1 : p2.v)
 		result.Sub(pair1.first, pair1.second);
@@ -288,6 +287,7 @@ inline Polynomial& PolynomialVector::operator - (Polynomial& p2)
 inline Polynomial& PolynomialVector::operator * (Polynomial& p2)
 {
 	Polynomial& result = CreatePolynomial();
+	countMul++;
 	if (p2.IsZero())
 		return result;
 	for (auto pair1: v)
@@ -354,7 +354,7 @@ inline vector<PolynomialVector> PolynomialVector::GetSturm()
 	{
 		tmp = r;
 		r = tmp.NegativePolynomial();
-		DeletePolynomial(&tmp);
+		//DeletePolynomial(&tmp);
 		sturm.push_back(ConvertToPolynomialVectorFromPolynomialRef(r));
 		w = q;
 		q = r;

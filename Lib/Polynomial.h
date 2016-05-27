@@ -10,6 +10,11 @@
 
 static int countPolynomialVectors = 0;
 static int countPolynomialVectorsDeleted = 0;
+static int countPlus = 0;
+static int countMinus = 0;
+static int countMul = 0;
+static int countDiv = 0;
+static int countMod = 0;
 
 class Polynomial
 {
@@ -82,12 +87,18 @@ public:
 
 inline void PrintStats()
 {
-	//cout << "created = " << countPolynomialVectors << ", deleted = " << countPolynomialVectorsDeleted << ", created numbers = " << countNumbers << endl;
+	cout << "created = " << countPolynomialVectors << ", deleted = " << countPolynomialVectorsDeleted <<
+		", numbers = " << countNumbers << ", numbers2 = " << countNumbers2 << ", deleted numbers = " << countNumbersDeleted << endl;
+	cout << "div: " << countDiv << ", mod: " << countMod<< endl;
 }
 
 inline void DeletePolynomial(Polynomial* p)
 {
 	countPolynomialVectorsDeleted++;
+	for(auto pair1: p->v)
+	{
+		//DeleteNumber(&pair1.second);
+	}
 	delete p;
 }
 
@@ -277,7 +288,7 @@ inline void Polynomial::AddNextRoot(vector<Number>& roots, Number x)
 
 inline vector<Number> Polynomial::FindRoots(Number a, Number b)
 {
-	cout << "a = " << a.ToString() << ", b = " << b.ToString() << ", degree: " << PolynomialDegree() << endl;
+	cout << "a = " << a.ToString() << ", b = " << b.ToString() << endl;
 	PrintStats();
 	vector<Number> roots;
 	int cIsRoot = 0;
@@ -311,7 +322,6 @@ inline vector<Number> Polynomial::FindRoots(Number a, Number b)
 
 	if(NumberOfRoots(a, c))
 	{
-		PrintStats();
 		vector<Number> rootsInRange = FindRoots(a, c);
 		for (int i = 0; i < rootsInRange.size(); i++)
 		{
@@ -321,7 +331,6 @@ inline vector<Number> Polynomial::FindRoots(Number a, Number b)
 	}
 	if(NumberOfRoots(c, b) > cIsRoot)
 	{
-		PrintStats();
 		vector<Number> rootsInRange = FindRoots(c, b);
 		for (int i = 0; i < rootsInRange.size(); i++)
 		{
@@ -365,13 +374,17 @@ inline bool Polynomial::operator != (Polynomial& p2)
 
 inline Polynomial& Polynomial::operator / (Polynomial& p2)
 {
+	countDiv++;
 	auto divResult = DividePolynomials(*this, p2);
+	DeletePolynomial(&divResult.second);
 	return divResult.first;
 }
 
 inline Polynomial& Polynomial::operator % (Polynomial& p2)
 {
+	countMod++;
 	auto divResult = DividePolynomials(*this, p2);
+	DeletePolynomial(&divResult.first);
 	return divResult.second;
 }
 
@@ -403,37 +416,49 @@ inline Polynomial& Polynomial::operator ^ (int power)
 
 inline Polynomial& Polynomial::operator += (Polynomial& p2)
 {
-	*this = *this + p2;
+	Polynomial* result = &(*this + p2);
+	*this = *result;
+	DeletePolynomial(result);
 	return *this;
 }
 
 inline Polynomial& Polynomial::operator -= (Polynomial& p2)
 {
-	*this = *this - p2;
+	Polynomial* result = &(*this - p2);
+	*this = *result;
+	DeletePolynomial(result);
 	return *this;
 }
 
 inline Polynomial& Polynomial::operator *= (Polynomial& p2)
 {
-	*this = *this * p2;
+	Polynomial* result = &(*this * p2);
+	*this = *result;
+	DeletePolynomial(result);
 	return *this;
 }
 
 inline Polynomial& Polynomial::operator /= (Polynomial& p2)
 {
-	*this = *this / p2;
+	Polynomial* result = &(*this / p2);
+	*this = *result;
+	DeletePolynomial(result);
 	return *this;
 }
 
 inline Polynomial& Polynomial::operator %= (Polynomial& p2)
 {
-	*this = *this % p2;
+	Polynomial* result = &(*this % p2);
+	*this = *result;
+	DeletePolynomial(result);
 	return *this;
 }
 
 inline Polynomial& Polynomial::operator ^= (int power)
 {
-	*this = *this ^ power;
+	Polynomial* result = &(*this ^ power);
+	*this = *result;
+	DeletePolynomial(result);
 	return *this;
 }
 
