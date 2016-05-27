@@ -250,7 +250,6 @@ inline bool PolynomialVector::operator == (Polynomial& p2)
 
 inline Polynomial& PolynomialVector::operator = (Polynomial& p2)
 {
-	v = p2.v;
 	v.clear();
 	for (int i = 0; i < p2.v.size(); i++)
 	{
@@ -346,7 +345,7 @@ inline vector<PolynomialVector> PolynomialVector::GetSturm()
 	Polynomial& q = CreatePolynomial();
 	Polynomial& r = CreatePolynomial();
 	Polynomial& tmp = CreatePolynomial();
-	w.v = v;
+	w = *this;
 	q = derivative;
 	r = w % q;
 
@@ -389,14 +388,14 @@ inline Polynomial& PolynomialVector::Derivative()
 	return result;
 }
 
-inline Number PolynomialVector::PolynomialValue(Number a)
+inline Number PolynomialVector::PolynomialValue(Number x)
 {
 	if (IsZero())
 		return Number(0);
 	Number result(0);
 	for (auto pair1 : v)
 	{
-		result += CoefficientValue(pair1, a);
+		result += CoefficientValue(pair1, x);
 	}
 	return result;
 }

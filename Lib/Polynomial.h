@@ -67,7 +67,7 @@ public:
 	Number CoefficientValue(PAIR pair1, Number a);
 	Number NextNumberFromRange(Number a, Number b);
 	int NumberOfRoots(Number a, Number b);
-	void AddNextRoot(vector<Number>& roots, Number x);
+	int AddNextRoot(vector<Number>& roots, Number x);
 	vector<Number> FindRoots(Number a, Number b);
 	void PrintRoots(double a, double b);
 
@@ -87,9 +87,11 @@ public:
 
 inline void PrintStats()
 {
+	/*
 	cout << "created = " << countPolynomialVectors << ", deleted = " << countPolynomialVectorsDeleted <<
 		", numbers = " << countNumbers << ", numbers2 = " << countNumbers2 << ", deleted numbers = " << countNumbersDeleted << endl;
 	cout << "div: " << countDiv << ", mod: " << countMod<< endl;
+	*/
 }
 
 inline void DeletePolynomial(Polynomial* p)
@@ -262,11 +264,11 @@ inline Number Polynomial::NextNumberFromRange(Number a, Number b)
 	{
 		if (a < 0)
 			return Number(0);
-		if (b == 0)
+		if (a == 0)
 			return Number(1);
-		if (b == 1)
+		if (a == 1)
 			return Number(2);
-		return Number(b * b);
+		return Number(a * a.Abs());
 	}
 	if (a * b < 0)
 		return Number(0);
@@ -280,10 +282,15 @@ inline int Polynomial::NumberOfRoots(Number a, Number b)
 	return count1 - count2;
 }
 
-inline void Polynomial::AddNextRoot(vector<Number>& roots, Number x)
+inline int Polynomial::AddNextRoot(vector<Number>& roots, Number x)
 {
+	cout << "next root = " << x.ToString() << endl;
 	if (x.IsInVector(roots) == false)
+	{
 		roots.push_back(x);
+		return 1;
+	}
+	return 0;
 }
 
 inline vector<Number> Polynomial::FindRoots(Number a, Number b)
@@ -292,23 +299,38 @@ inline vector<Number> Polynomial::FindRoots(Number a, Number b)
 	PrintStats();
 	vector<Number> roots;
 	int cIsRoot = 0;
-
-	if (PolynomialValue(a).IsZero())
+	int numberOfRoots = NumberOfRoots(a, b);
+	Number aValue;
+	aValue = PolynomialValue(a);
+	//cout << "aValue = " << aValue.ToString() << endl;
+	if (aValue.IsZero())
 	{
-		AddNextRoot(roots, a);
+		int aIsRoot = AddNextRoot(roots, a);
+		if (aIsRoot == numberOfRoots)
+			return roots;
 	}
-	if (PolynomialValue(b).IsZero())
+	Number bValue;
+	bValue = PolynomialValue(b);
+	//cout << "bValue = " << bValue.ToString() << endl;
+	if (bValue.IsZero())
 	{
-		AddNextRoot(roots, b);
+		int bIsRoot = AddNextRoot(roots, b);
+		if (bIsRoot == numberOfRoots)
+			return roots;
 	}
-	if (NumberOfRoots(a, b) == 0)
+	cout << "liczba pierwiastkow = " << numberOfRoots << endl;
+	if (numberOfRoots == 0)
 		return roots;
 
 	Number c = NextNumberFromRange(a, b);
-	if (PolynomialValue(c).IsZero())
+	Number cValue;
+	cValue = PolynomialValue(c);
+	//cout << "cValue = " << cValue.ToString() << endl;
+	if (cValue.IsZero())
 	{
-		cIsRoot = 1;
-		AddNextRoot(roots, c);
+		cIsRoot = AddNextRoot(roots, c);
+		if (cIsRoot == numberOfRoots)
+			return roots;
 	}
 
 	Number interval = b - a;

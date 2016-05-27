@@ -70,6 +70,24 @@ inline void DeleteNumber(Number* number)
 	mpq_clear(number->value);
 }
 
+inline vector<Number> SortNumbers(vector<Number>v)
+{
+	vector<Number> result = v;
+	for (int i = 0; i < result.size() - 1; i++)
+	{
+		for (int j = i + 1; j < result.size(); j++)
+		{
+			if (result[i] > result[j])
+			{
+				Number copy = result[i].Copy();
+				result[i] = result[j];
+				result[j] = copy;
+			}
+		}
+	}
+	return result;
+}
+
 inline Number::Number()
 {
 	countNumbers++;

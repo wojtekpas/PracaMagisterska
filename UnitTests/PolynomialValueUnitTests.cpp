@@ -12,11 +12,11 @@ namespace UnitTests
 		Parser parser;
 	public:
 
-		void Verify(string input, int a, double expectedValue)
+		void Verify(string input, int a, int expectedValue)
 		{
 			Polynomial& p1 = parser.ConvertToPolynomial(input);
 			Number result = p1.PolynomialValue(Number(a));
-			//TODOAssert::AreEqual(expectedValue, result.GetValue());
+			Assert::AreEqual(Number(expectedValue).ToString(), result.ToString());
 		}
 
 		TEST_METHOD(PolynomialValue01)
