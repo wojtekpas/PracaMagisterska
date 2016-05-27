@@ -130,10 +130,10 @@ namespace UnitTests
 
 		TEST_METHOD(PolynomialRoots14)
 		{
+			polynomialRoots.push_back(Number(-2));
 			polynomialRoots.push_back(Number(-1));
 			polynomialRoots.push_back(Number(1));
-			polynomialRoots.push_back(Number(2));
-			Verify("(x-1)^2*(x+1)^4*(x-2)^2");
+			Verify("(x+1)^2*(x-1)^4*(x+2)^2");
 		}
 
 		TEST_METHOD(PolynomialRoots15)
