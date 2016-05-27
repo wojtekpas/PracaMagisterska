@@ -15,11 +15,9 @@ int main()
 	while (true)
 	{
 		retry = 0;
-		a = MAX_NEGATIVE_VALUE;
-		b = MAX_VALUE;
 		cout << "W(x) = " << endl;
 		//getline(cin, inputS);
-		inputS = "x125-1";
+		inputS = "a2+3a+2";
 		while (inputS == "")
 		{
 			getline(cin, inputS);

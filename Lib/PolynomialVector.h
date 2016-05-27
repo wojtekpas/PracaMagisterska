@@ -329,7 +329,7 @@ inline int PolynomialVector::NumberOfChangesSign(Number a)
 		if (curValue)
 			lastValue = curValue;
 	}
-	sturm.clear();
+	//sturm.clear();
 	return counter;
 }
 

@@ -99,7 +99,7 @@ inline void DeletePolynomial(Polynomial* p)
 	{
 		//DeleteNumber(&pair1.second);
 	}
-	delete p;
+	//delete p;
 }
 
 inline void DeletePolynomialMap(MAP map1)
@@ -376,7 +376,7 @@ inline Polynomial& Polynomial::operator / (Polynomial& p2)
 {
 	countDiv++;
 	auto divResult = DividePolynomials(*this, p2);
-	DeletePolynomial(&divResult.second);
+	//DeletePolynomial(&divResult.second);
 	return divResult.first;
 }
 
@@ -384,7 +384,7 @@ inline Polynomial& Polynomial::operator % (Polynomial& p2)
 {
 	countMod++;
 	auto divResult = DividePolynomials(*this, p2);
-	DeletePolynomial(&divResult.first);
+	//DeletePolynomial(&divResult.first);
 	return divResult.second;
 }
 
@@ -410,7 +410,7 @@ inline Polynomial& Polynomial::operator ^ (int power)
 		result *= tmp;
 	}
 
-	DeletePolynomial(&tmp);
+	//DeletePolynomial(&tmp);
 	return result;
 }
 
@@ -442,7 +442,7 @@ inline Polynomial& Polynomial::operator /= (Polynomial& p2)
 {
 	Polynomial* result = &(*this / p2);
 	*this = *result;
-	DeletePolynomial(result);
+	//DeletePolynomial(result);
 	return *this;
 }
 
@@ -450,7 +450,7 @@ inline Polynomial& Polynomial::operator %= (Polynomial& p2)
 {
 	Polynomial* result = &(*this % p2);
 	*this = *result;
-	DeletePolynomial(result);
+	//DeletePolynomial(result);
 	return *this;
 }
 
@@ -458,7 +458,7 @@ inline Polynomial& Polynomial::operator ^= (int power)
 {
 	Polynomial* result = &(*this ^ power);
 	*this = *result;
-	DeletePolynomial(result);
+	//DeletePolynomial(result);
 	return *this;
 }
 
