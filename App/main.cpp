@@ -6,9 +6,7 @@
 void Verify(string input)
 {
 	vector<Number> polynomialRoots;
-	polynomialRoots.push_back(Number(-1));
 	polynomialRoots.push_back(Number(1));
-	polynomialRoots.push_back(Number(2));
 	Parser parser;
 	Polynomial& p = parser.ConvertToPolynomial(input);
 	p.PrintInput();
@@ -16,7 +14,7 @@ void Verify(string input)
 	Polynomial& p2 = p.PolynomialAfterEliminationOfMultipleRoots();
 	Polynomial& polynomialAfterElimination = p2;
 	polynomialAfterElimination.Normalize();
-	vector<Number> roots = polynomialAfterElimination.FindRoots(Number(-1000), Number(1000));
+	vector<Number> roots = polynomialAfterElimination.FindRoots(Number(-10), Number(10));
 	string expectedRoots = to_string(polynomialRoots.size()) + ": ";
 	string actualRoots = to_string(roots.size()) + ": ";
 	polynomialRoots = SortNumbers(polynomialRoots);
@@ -31,7 +29,7 @@ void Verify(string input)
 
 int main()
 {
-	Verify("(x-1)^2*(x+1)^2*(x-2)^2");
+	Verify("(x-1)");
 	return 0;
 	Parser parser;
 	string inputS;

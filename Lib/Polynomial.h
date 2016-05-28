@@ -286,11 +286,14 @@ inline int Polynomial::NumberOfRoots(Number a, Number b)
 inline int Polynomial::AddNextRoot(Number x)
 {
 	cout << "next root = " << x.ToString() << endl;
-	if (x.IsInVector(roots) == false)
+	int posInVector = x.IsInVector(roots);
+	if (posInVector < 0)
 	{
 		roots.push_back(x);
 		return 1;
 	}
+	if (x > roots[posInVector])
+		roots[posInVector] = x;
 	return 0;
 }
 
@@ -339,7 +342,8 @@ inline vector<Number> Polynomial::FindRoots(Number a, Number b)
 	Number interval = b - a;
 	if (interval.IsZero())
 	{
-		AddNextRoot(a);
+		cout << "interval" << endl;
+		AddNextRoot(b);
 		return roots;
 	}
 	

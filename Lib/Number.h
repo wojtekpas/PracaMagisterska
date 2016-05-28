@@ -2,7 +2,7 @@
 #include "definitions.h"
 #include <mpir.h>
 
-#define SMALL_NUMBER 0.0000001
+#define SMALL_NUMBER 0.000000000001
 #define MAX_VALUE 1000
 #define MAX_NEGATIVE_VALUE -1000
 
@@ -26,7 +26,7 @@ public:
 	bool IsInfinity();
 	bool IsVerySmallValue();
 	bool IsZero();
-	bool IsInVector(vector<Number> v);
+	int IsInVector(vector<Number> v);
 
 	bool operator == (Number bigNumber);
 	bool operator != (Number bigNumber);
@@ -157,15 +157,15 @@ inline bool Number::IsZero()
 	return Abs() < SMALL_NUMBER;
 }
 
-inline bool Number::IsInVector(vector<Number> v)
+inline int Number::IsInVector(vector<Number> v)
 {
 	for (int i = 0; i < v.size(); i++)
 	{
 		Number interval = v[i] - *this;
 		if (interval.IsVerySmallValue())
-			return true;
+			return i;
 	}
-	return false;
+	return -1;
 }
 
 inline bool Number::operator==(Number bigNumber)
