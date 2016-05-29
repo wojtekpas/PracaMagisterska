@@ -494,6 +494,33 @@ Jak widać powyższy przykład potwierdza zastosowanie przedstawionego twierdzen
 
 \section{Twierdzenie Sturma}
 
+\begin{definition}
+	Ciąg Sturma
+\end{definition}
+
+\begin{theorem}
+	Jeżeli wielomian W(x) nie ma pierwiastków wielokrotnych, to liczba pierwiastków rzeczywistych w przedziale $a<x\le y)$, jest równa $Z(a) - Z(b)$.
+\end{theorem}
+
+W ogólności twierdzenie Sturma można zastosować dla przedziału $(-\infty,+\infty)$, dopuszczając w ciągu Sturma wartośći niewłaściwe $+\infty$ oraz $-\infty$. Wówczas $Z(-\infty)$ będzie oznaczać liczbę zmian znaków w ciągu $W(-\infty), W_1(-\infty), W_2(-\infty),..., W_m(-\infty)$, zaś $Z(+\infty)$ liczbę zmian w ciągu $W(+\infty), W_1(+\infty), W_2(+\infty),..., W_m(+\infty)$.
+
+\begin{theorem}
+	Liczba różnych pierwiastków rzeczywistych wielomianu W(x) jest równa $Z(-\infty)-Z(+\infty)$.
+\end{theorem}
+
+Stosując twierdzenie Sturma dla coraz mniejszych przedziałów możliwe jest wyznaczenie pierwiastków wielomianu z dowolną dokładnością. Sposób ten określony jest mianem metody Sturmy.
+Twierdzenie Sturma jest bardzo mocnym środkowiem używanym do znajdowania pierwiastków w określonym przedziale. Może być używana nie tylko dla wielomianów, ale dowolnej różniczkowalnej funkcji ciągłej.
+
+Przeanalizujmy teraz sposób konstruowania ciągu Sturma dla wielomianu W. Pierwszym wyrazem ciagu jest sam wielomian W. Z kolei drugim wyrazem jest pochodna wielomianu W. Kolejne wyrazy ciągu Sturma wyznaczamy obliczając resztę z ilorazu dwóch poprzednich wyrazów. Dzieje się to do uzyskania pierwszej reszty wielomianu, będącą wielomianem stopnia zerowego. Za każdym razem dzieląc wielomian stopnia n, przez wielomian stopnia m, gdzie $m<n$, mamy gwarancję, że wielomian będacy resztą tego ilorazu będzie stopnia mniejszego niż m. Korzystając z tego faktu, wiemy, że liczba wyrazów ciągu Sturma dla wielomianu W jest niewiększa od $\deg(W)+1$.
+
+\begin{definition}
+	Liczbą zmian znaków ciągu Sturma dla wielomianu W(x) w punkcie x, obliczamy zliczając liczbę zmian pomiędzy kolejnymi wyrazami, pomijac te o wartości równej zero w punkcie x.
+\end{definition}
+
+\begin{theorem}
+	Liczba zmian znaków ciągu Sturma dla wielomianu W(x) jest mniejsza od liczby wyrazów tego ciągu i niewiększa od stopnia wielomianu W(x).
+\end{theorem}
+
 
 
 

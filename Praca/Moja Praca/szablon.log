@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  26 MAY 2016 21:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  28 MAY 2016 19:44
 entering extended mode
 **./szablon.tex
 (szablon.tex
@@ -1205,56 +1205,63 @@ LaTeX Warning: Command \' invalid in math mode on input line 449.
 LaTeX Warning: Command \' invalid in math mode on input line 449.
 
 [5] [6]
-Underfull \hbox (badness 10000) in paragraph at lines 501--525
+Overfull \hbox (1.9686pt too wide) in paragraph at lines 508--509
+[]\T1/lmr/m/it/10 Liczba ró»-nych pier-wiast-ków rze-czy-wi-stych wie-lo-mianu 
+W(x) jest równa $\OML/lmm/m/it/10 Z\OT1/lmr/m/n/10 (\OMS/lmsy/m/n/10  1\OT1/lmr
+/m/n/10 ) \OMS/lmsy/m/n/10  $
+ []
+
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 528--552
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 501--525
+Underfull \hbox (badness 10000) in paragraph at lines 528--552
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 501--525
+Underfull \hbox (badness 10000) in paragraph at lines 528--552
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 501--525
+Underfull \hbox (badness 10000) in paragraph at lines 528--552
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 501--525
+Underfull \hbox (badness 10000) in paragraph at lines 528--552
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 501--525
+Underfull \hbox (badness 10000) in paragraph at lines 528--552
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 501--525
+Underfull \hbox (badness 10000) in paragraph at lines 528--552
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 501--525
+Underfull \hbox (badness 10000) in paragraph at lines 528--552
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 501--525
+Underfull \hbox (badness 10000) in paragraph at lines 528--552
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 501--525
+Underfull \hbox (badness 10000) in paragraph at lines 528--552
 
  []
 
-[7] [8] (szablon.bbl
+[8] (szablon.bbl
 
 Package natbib Warning: Empty `thebibliography' environment on input line 3.
 
@@ -1288,7 +1295,7 @@ eX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts
 b><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Progr
 am Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmsy5.pfb><C:/Program Files (x8
 6)/MiKTeX 2.9/fonts/type1/public/lm/lmsy7.pfb>
-Output written on szablon.pdf (13 pages, 239809 bytes).
+Output written on szablon.pdf (13 pages, 242720 bytes).
 PDF statistics:
  107 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
