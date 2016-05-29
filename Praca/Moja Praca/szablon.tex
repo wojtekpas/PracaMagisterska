@@ -502,7 +502,7 @@ Jak widać powyższy przykład potwierdza zastosowanie przedstawionego twierdzen
 	Jeżeli wielomian W(x) nie ma pierwiastków wielokrotnych, to liczba pierwiastków rzeczywistych w przedziale $a<x\le y)$, jest równa $Z(a) - Z(b)$.
 \end{theorem}
 
-W ogólności twierdzenie Sturma można zastosować dla przedziału $(-\infty,+\infty)$, dopuszczając w ciągu Sturma wartośći niewłaściwe $+\infty$ oraz $-\infty$. Wówczas $Z(-\infty)$ będzie oznaczać liczbę zmian znaków w ciągu $W(-\infty), W_1(-\infty), W_2(-\infty),..., W_m(-\infty)$, zaś $Z(+\infty)$ liczbę zmian w ciągu $W(+\infty), W_1(+\infty), W_2(+\infty),..., W_m(+\infty)$.
+W ogólności twierdzenie Sturma można zastosować dla przedziału $(-\infty,+\infty)$, dopuszczając w ciągu Sturma wartości niewłaściwe $+\infty$ oraz $-\infty$. Wówczas $Z(-\infty)$ będzie oznaczać liczbę zmian znaków w ciągu $W(-\infty), W_1(-\infty), W_2(-\infty),..., W_m(-\infty)$, zaś $Z(+\infty)$ liczbę zmian w ciągu $W(+\infty), W_1(+\infty), W_2(+\infty),..., W_m(+\infty)$.
 
 \begin{theorem}
 	Liczba różnych pierwiastków rzeczywistych wielomianu W(x) jest równa $Z(-\infty)-Z(+\infty)$.
@@ -521,7 +521,13 @@ Przeanalizujmy teraz sposób konstruowania ciągu Sturma dla wielomianu W. Pierw
 	Liczba zmian znaków ciągu Sturma dla wielomianu W(x) jest mniejsza od liczby wyrazów tego ciągu i niewiększa od stopnia wielomianu W(x).
 \end{theorem}
 
+Można, więc zauważyć, że warunkiem wystarczającym i jednocześnie koniecznym do tego by wielomian W(x) stopnia n, posiadający wyłącznie pierwiastki jednokrotne, posiadał n pierwiastków rzeczywistych jest to by wartość ciągu Sturma wynosiła n dla $x=-\infty$ oraz 0 dla $x=+\infty$. 
 
+Warto zauwazyć, że dla liczb dostatecznie dużych, co do wartości bezwzględnej, z uwzględnieniem wartości niewłaściwych $+\infty$ oraz $-\infty$ liczba zmian znaków zależy wyłącznie od współczynnika stojącego przy najwyżej potędze wielomianu. Znajduje to potwierdzenie w poniższym twierdzeniu.
+
+\begin{theorem}
+	Dany jest wielomian $W_1(x) = ax^n, a > 0$, stopnia n oraz wielomian $W_2(x) = b_0x^{n-1} + b_1x^{n-2} + b_2x^{n-3} + ... + b_{n-2}x  + b_{n-1},\ gdzie\ b_0 > 0$, stopnia n-1. Wówczas $\lim_{x \to +\infty}\frac{W_1(x)}{W_2(x)} = +\infty$.
+\end{theorem}
 
 
 
