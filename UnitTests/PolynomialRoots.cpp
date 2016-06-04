@@ -14,7 +14,6 @@ namespace UnitTests
 		Number b;
 		vector<Number> polynomialRoots;
 	public:
-
 		void Verify(string input)
 		{
 			Polynomial& p = parser.ConvertToPolynomial(input);
@@ -22,12 +21,11 @@ namespace UnitTests
 			Polynomial& polynomialAfterElimination = p2;
 			polynomialAfterElimination.Normalize();
 			vector<Number> roots = polynomialAfterElimination.FindRoots(a, b);
-			//vector<mpq_t> roots_mpq;
-			//for (int i = 0; i < roots.size(); i++)
-				//roots_mpq.push_back(roots[i].value);
-			//sort(roots_mpq.begin(), roots_mpq.end());
 			polynomialRoots = SortNumbers(polynomialRoots);
 			roots = SortNumbers(roots);
+			if (VectorsAreEqual(polynomialRoots, roots))
+				return;
+
 			string expectedRoots = to_string(polynomialRoots.size()) + ": ";
 			string actualRoots = to_string(roots.size()) + ": ";
 			for (int i = 0; i < polynomialRoots.size(); i++)

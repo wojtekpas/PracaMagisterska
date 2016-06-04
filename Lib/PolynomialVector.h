@@ -294,7 +294,7 @@ inline Polynomial& PolynomialVector::operator * (Polynomial& p2)
 		for (auto pair2: p2.v)
 		{
 			auto mulResult = result.Mul(pair1.first, pair1.second, pair2.first, pair2.second);
-			result.Add(mulResult.first, mulResult.second);;
+			result.Add(mulResult.first, mulResult.second);
 		}
 	}
 	//DeletePolynomial(&result);

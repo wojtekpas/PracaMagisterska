@@ -7,13 +7,13 @@
 
 inline Polynomial& CreatePolynomial()
 {
-	return CreatePolynomialVector();
+	return CreatePolynomialMap();
 }
 
-inline Polynomial& CreatePolynomial(Number number)
-{
-	return CreatePolynomialVector(number);
-}
+//inline Polynomial& CreatePolynomial(Number number)
+//{
+//	return CreatePolynomialMap(number);
+//}
 
 class Parser
 {

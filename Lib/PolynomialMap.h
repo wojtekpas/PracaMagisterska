@@ -198,7 +198,12 @@ inline bool PolynomialMap::operator == (Polynomial& p2)
 
 inline Polynomial& PolynomialMap::operator = (Polynomial& p2)
 {
-	m = p2.m;
+	m.clear();
+	for (auto m: p2.m)
+	{
+		Number copy = m.second.Copy();
+		SetNumberValue(m.first, copy);
+	}
 	v = p2.v;
 	inputS = p2.inputS;
 	return *this;
@@ -280,7 +285,7 @@ inline vector<PolynomialMap> PolynomialMap::GetSturm()
 	Polynomial& w = CreatePolynomial();
 	Polynomial& q = CreatePolynomial();
 	Polynomial& r = CreatePolynomial();
-	w.m = m;
+	w = *this;
 	q = derivative;
 	r = w % q;
 
@@ -317,14 +322,14 @@ inline Polynomial& PolynomialMap::Derivative()
 	return result;
 }
 
-inline Number PolynomialMap::PolynomialValue(Number a)
+inline Number PolynomialMap::PolynomialValue(Number x)
 {
 	if (IsZero())
 		return Number(0);
 	Number result(0);
 	for (auto pair1 : m)
 	{
-		result += CoefficientValue(pair1, a);
+		result += CoefficientValue(pair1, x);
 	}
 	return result;
 }

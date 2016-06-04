@@ -88,6 +88,21 @@ inline vector<Number> SortNumbers(vector<Number>v)
 	return result;
 }
 
+inline int VectorsAreEqual(vector<Number>v1, vector<Number>v2)
+{
+	if (v1.size() != v2.size())
+		return 0;
+
+	for (int i = 0; i < v1.size(); i++)
+	{
+		Number diff;
+		diff = v1[i] - v2[i];
+		if (diff.Abs() > SMALL_NUMBER)
+			return 0;
+	}
+	return 1;
+}
+
 inline Number::Number()
 {
 	countNumbers++;
