@@ -69,10 +69,12 @@ inline Polynomial& PolynomialVector::CreatePolynomial(Number number)
 
 inline PolynomialVector::PolynomialVector() : Polynomial()
 {
+	type = 1;
 }
 
 inline PolynomialVector::PolynomialVector(Number number) : Polynomial(number)
 {
+	type = 1;
 	if (number != 0)
 		v.push_back(PAIR(0, number));
 }
@@ -205,9 +207,9 @@ inline void PolynomialVector::SetNumberValue(int power, Number number)
 inline string PolynomialVector::ToString()
 {
 	if (IsZero())
-		return("Is Zero");
+		return("Type = 1: Is Zero");
 
-	string result = StringManager::EmptyString();
+	string result = "Type = 1: ";
 	string tmp = "";
 	for (auto pair1 : v)
 	{

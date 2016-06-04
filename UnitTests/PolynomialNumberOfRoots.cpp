@@ -16,11 +16,14 @@ namespace UnitTests
 
 		void Verify(string input, int expectedNumberOfRoots)
 		{
-			Polynomial& p = parser.ConvertToPolynomial(input);
-			Polynomial& polynomialAfterElimination = p.PolynomialAfterEliminationOfMultipleRoots();
-			polynomialAfterElimination.Normalize();
-			int numberOfRoots = polynomialAfterElimination.NumberOfRoots(a, b);
-			Assert::AreEqual(expectedNumberOfRoots, numberOfRoots);
+			for (int type = 0; type < NUMBER_OF_TYPES; type++)
+			{
+				Polynomial& p = parser.ConvertToPolynomial(input, type);
+				Polynomial& polynomialAfterElimination = p.PolynomialAfterEliminationOfMultipleRoots();
+				polynomialAfterElimination.Normalize();
+				int numberOfRoots = polynomialAfterElimination.NumberOfRoots(a, b);
+				Assert::AreEqual(expectedNumberOfRoots, numberOfRoots);
+			}
 		}
 
 		TEST_METHOD_INITIALIZE(Init)

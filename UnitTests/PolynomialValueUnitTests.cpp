@@ -14,9 +14,12 @@ namespace UnitTests
 
 		void Verify(string input, int a, int expectedValue)
 		{
-			Polynomial& p1 = parser.ConvertToPolynomial(input);
-			Number result = p1.PolynomialValue(Number(a));
-			Assert::AreEqual(Number(expectedValue).ToString(), result.ToString());
+			for (int type = 0; type < NUMBER_OF_TYPES; type++)
+			{
+				Polynomial& p1 = parser.ConvertToPolynomial(input, type);
+				Number result = p1.PolynomialValue(Number(a));
+				Assert::AreEqual(Number(expectedValue).ToString(), result.ToString());
+			}
 		}
 
 		TEST_METHOD(PolynomialValue01)

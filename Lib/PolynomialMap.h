@@ -153,9 +153,9 @@ inline void PolynomialMap::SetNumberValue(int power, Number number)
 inline string PolynomialMap::ToString()
 {
 	if (IsZero())
-		return("Is Zero");
+		return("Type = 0: Is Zero");
 
-	string result = StringManager::EmptyString();
+	string result = "Type = 0: ";
 	string tmp = "";
 	for (auto pair1 : m)
 	{

@@ -2,35 +2,8 @@
 #include "../Lib/Parser.h"
 #include "../Lib/Number.h"	
 
-
-void Verify(string input)
-{
-	vector<Number> polynomialRoots;
-	polynomialRoots.push_back(Number(1));
-	Parser parser;
-	Polynomial& p = parser.ConvertToPolynomial(input);
-	p.PrintInput();
-	p.Print();
-	Polynomial& p2 = p.PolynomialAfterEliminationOfMultipleRoots();
-	Polynomial& polynomialAfterElimination = p2;
-	polynomialAfterElimination.Normalize();
-	vector<Number> roots = polynomialAfterElimination.FindRoots(Number(-10), Number(10));
-	string expectedRoots = to_string(polynomialRoots.size()) + ": ";
-	string actualRoots = to_string(roots.size()) + ": ";
-	polynomialRoots = SortNumbers(polynomialRoots);
-	roots = SortNumbers(roots);
-	for (int i = 0; i < polynomialRoots.size(); i++)
-		expectedRoots += polynomialRoots[i].ToString() + ", ";
-	for (int i = 0; i < roots.size(); i++)
-		actualRoots += roots[i].ToString() + ", ";
-	cout << "Expected: " << expectedRoots << endl;
-	cout << "Actual : " << actualRoots << endl;
-}
-
 int main()
 {
-	Verify("(x-1)");
-	return 0;
 	Parser parser;
 	string inputS;
 	string tmp;

@@ -5,15 +5,14 @@
 #include "PolynomialVector.h"
 #include "StringManager.h"
 
-inline Polynomial& CreatePolynomial()
+#define NUMBER_OF_TYPES 2
+
+inline Polynomial& CreatePolynomial(int type = 0)
 {
+	if (type)
+		return CreatePolynomialVector();
 	return CreatePolynomialMap();
 }
-
-//inline Polynomial& CreatePolynomial(Number number)
-//{
-//	return CreatePolynomialMap(number);
-//}
 
 class Parser
 {
@@ -23,7 +22,7 @@ public:
 	explicit Parser();
 	explicit Parser(string s);
 
-	Polynomial& ConvertToPolynomial(string inputS);
+	Polynomial& ConvertToPolynomial(string inputS, int type = 0);
 	string UniformInputString(string s);
 };
 
@@ -37,18 +36,18 @@ inline Parser::Parser(string s)
 	this->s = s;
 }
 
-inline Polynomial& Parser::ConvertToPolynomial(string inputS)
+inline Polynomial& Parser::ConvertToPolynomial(string inputS, int type)
 {
-	Polynomial& emptyPolynomial = CreatePolynomial(); // = polynomialMap.CreatePolynomial();
+	Polynomial& emptyPolynomial = CreatePolynomial(type); // = polynomialMap.CreatePolynomial();
 
 	string s = UniformInputString(inputS);
 
 	if (StringManager::IsEmptyString(s))
 		emptyPolynomial;
 
-	Polynomial& sumElement = CreatePolynomial();// = polynomialMap.CreatePolynomial();
-	Polynomial& mulElement = CreatePolynomial();// = polynomialMap.CreatePolynomial();
-	Polynomial& curElement = CreatePolynomial();// = polynomialMap.CreatePolynomial();
+	Polynomial& sumElement = CreatePolynomial(type);// = polynomialMap.CreatePolynomial();
+	Polynomial& mulElement = CreatePolynomial(type);// = polynomialMap.CreatePolynomial();
+	Polynomial& curElement = CreatePolynomial(type);// = polynomialMap.CreatePolynomial();
 
 	bool sumOp = true;
 	bool mulOp = true;
@@ -143,7 +142,7 @@ inline Polynomial& Parser::ConvertToPolynomial(string inputS)
 			else if(CharsConstants::IsOpeningParenthesis(s[i]))
 			{
 				int closingParenthesis = StringManager::FindClosingParenthesis(StringManager::Substr(s, i, s.length() - 1));
-				curElement = ConvertToPolynomial(StringManager::Substr(s, i + 1, i + closingParenthesis - 1));
+				curElement = ConvertToPolynomial(StringManager::Substr(s, i + 1, i + closingParenthesis - 1), type);
 				i += closingParenthesis;
 				skip = true;
 			}
@@ -173,14 +172,6 @@ inline Polynomial& Parser::ConvertToPolynomial(string inputS)
 	DeletePolynomial(&mulElement);
 	return sumElement;
 }
-
-/*inline Polynomial& Parser::ConvertToPolynomial(string inputS)
-{
-	PolynomialMap p = ConvertToPolynomial(inputS);
-	Polynomial* ref = new PolynomialMap();
-	ref->m = p.m;
-	return *ref;
-}*/
 
 inline string Parser::UniformInputString(string s)
 {

@@ -22,6 +22,7 @@ public:
 	MAP m;
 	VECTOR v;
 	bool isNew = true;
+	int type = 0;
 	string inputS = "";
 	vector<Number> roots;
 
@@ -97,16 +98,16 @@ inline void PrintStats()
 
 inline void DeletePolynomial(Polynomial* p)
 {
-	countPolynomialVectorsDeleted++;
-	for(auto pair1: p->v)
-	{
-		//DeleteNumber(&pair1.second);
-	}
+//	countPolynomialVectorsDeleted++;
+//	for(auto pair1: p->v)
+//	{
+//		DeleteNumber(&pair1.second);
+//	}
+//	for (auto pair1 : p->m)
+//	{
+//		DeleteNumber(&pair1.second);
+//	}
 	//delete p;
-}
-
-inline void DeletePolynomialMap(MAP map1)
-{
 }
 
 inline Polynomial::Polynomial()
@@ -285,7 +286,6 @@ inline int Polynomial::NumberOfRoots(Number a, Number b)
 
 inline int Polynomial::AddNextRoot(Number x)
 {
-	cout << "next root = " << x.ToString() << endl;
 	int posInVector = x.IsInVector(roots);
 	if (posInVector < 0)
 	{
@@ -299,11 +299,8 @@ inline int Polynomial::AddNextRoot(Number x)
 
 inline vector<Number> Polynomial::FindRoots(Number a, Number b)
 {
-	cout << "a = " << a.ToString() << ", b = " << b.ToString() << endl;
 	PrintStats();
-	int cIsRoot = 0;
 	int numberOfRoots = NumberOfRoots(a, b);
-	cout << "liczba pierwiastkow = " << numberOfRoots << " w przedziale : <" << a.ToString() << ", " << b.ToString() << ">" << endl;
 	Number aValue;
 	aValue = PolynomialValue(a);
 	//cout << "aValue = " << aValue.ToString() << endl;
@@ -328,13 +325,12 @@ inline vector<Number> Polynomial::FindRoots(Number a, Number b)
 		return roots;
 
 	Number c = NextNumberFromRange(a, b);
-	cout << "c = " << c.ToString() << endl;
 	Number cValue;
 	cValue = PolynomialValue(c);
 	//cout << "cValue = " << cValue.ToString() << endl;
 	if (cValue.IsZero())
 	{
-		cIsRoot = AddNextRoot(c);
+		int cIsRoot = AddNextRoot(c);
 		if (cIsRoot == numberOfRoots)
 			return roots;
 	}
@@ -350,8 +346,7 @@ inline vector<Number> Polynomial::FindRoots(Number a, Number b)
 	interval /= 2;
 
 	int numberOfRootsAC = NumberOfRoots(a, c);
-	cout << "liczba pierwiastkow = " << numberOfRootsAC << " w przedziale : <" << a.ToString() << ", " << c.ToString() << ">" << endl;
-
+	
 	if(numberOfRootsAC)
 	{
 		vector<Number> rootsInRange = FindRoots(a, c);
@@ -362,8 +357,7 @@ inline vector<Number> Polynomial::FindRoots(Number a, Number b)
 		}
 	}
 	int numberOfRootsCB = NumberOfRoots(c, b);
-	cout << "liczba pierwiastkow = " << numberOfRootsCB << " w przedziale : <" << c.ToString() << ", " << b.ToString() << ">" << endl;
-
+	
 	if(numberOfRootsCB)
 	{
 		vector<Number> rootsInRange = FindRoots(c, b);

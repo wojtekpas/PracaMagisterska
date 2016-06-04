@@ -14,11 +14,14 @@ namespace UnitTests
 
 		void Verify(string input, string output)
 		{
-			Polynomial& p1 = parser.ConvertToPolynomial(input);
-			Polynomial& p2 = parser.ConvertToPolynomial(output);
-			Polynomial& polynomialAfterElimination = p1.PolynomialAfterEliminationOfMultipleRoots();
-			polynomialAfterElimination.Normalize();
-			Assert::AreEqual(p2.ToString(), polynomialAfterElimination.ToString());
+			for (int type = 0; type < NUMBER_OF_TYPES; type++)
+			{
+				Polynomial& p1 = parser.ConvertToPolynomial(input, type);
+				Polynomial& p2 = parser.ConvertToPolynomial(output, type);
+				Polynomial& polynomialAfterElimination = p1.PolynomialAfterEliminationOfMultipleRoots();
+				polynomialAfterElimination.Normalize();
+				Assert::AreEqual(p2.ToString(), polynomialAfterElimination.ToString());
+			}
 		}
 
 		TEST_METHOD(PolynomialAfterElimination01)

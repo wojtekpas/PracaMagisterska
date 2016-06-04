@@ -16,23 +16,26 @@ namespace UnitTests
 	public:
 		void Verify(string input)
 		{
-			Polynomial& p = parser.ConvertToPolynomial(input);
-			Polynomial& p2 = p.PolynomialAfterEliminationOfMultipleRoots();
-			Polynomial& polynomialAfterElimination = p2;
-			polynomialAfterElimination.Normalize();
-			vector<Number> roots = polynomialAfterElimination.FindRoots(a, b);
-			polynomialRoots = SortNumbers(polynomialRoots);
-			roots = SortNumbers(roots);
-			if (VectorsAreEqual(polynomialRoots, roots))
-				return;
+			for (int type = 0; type < NUMBER_OF_TYPES; type++)
+			{
+				Polynomial& p = parser.ConvertToPolynomial(input, type);
+				Polynomial& p2 = p.PolynomialAfterEliminationOfMultipleRoots();
+				Polynomial& polynomialAfterElimination = p2;
+				polynomialAfterElimination.Normalize();
+				vector<Number> roots = polynomialAfterElimination.FindRoots(a, b);
+				polynomialRoots = SortNumbers(polynomialRoots);
+				roots = SortNumbers(roots);
+				if (VectorsAreEqual(polynomialRoots, roots))
+					return;
 
-			string expectedRoots = to_string(polynomialRoots.size()) + ": ";
-			string actualRoots = to_string(roots.size()) + ": ";
-			for (int i = 0; i < polynomialRoots.size(); i++)
-				expectedRoots += polynomialRoots[i].ToString() + ", ";
-			for (int i = 0; i < roots.size(); i++)
-				actualRoots += roots[i].ToString() + ", ";
-			Assert::AreEqual(expectedRoots, actualRoots);
+				string expectedRoots = to_string(polynomialRoots.size()) + ": ";
+				string actualRoots = to_string(roots.size()) + ": ";
+				for (int i = 0; i < polynomialRoots.size(); i++)
+					expectedRoots += polynomialRoots[i].ToString() + ", ";
+				for (int i = 0; i < roots.size(); i++)
+					actualRoots += roots[i].ToString() + ", ";
+				Assert::AreEqual(expectedRoots, actualRoots);
+			}
 		}
 
 		TEST_METHOD_INITIALIZE(Init)
