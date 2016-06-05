@@ -90,17 +90,14 @@ public:
 };
 
 inline void PrintStats()
-{
-	
-	cout << "created = " << countPolynomialVectors << ", deleted = " << countPolynomialVectorsDeleted << endl;
-	//	", numbers = " << countNumbers << ", numbers2 = " << countNumbers2 << ", deleted numbers = " << countNumbersDeleted << endl;
-	//cout << "div: " << countDiv << ", mod: " << countMod<< endl;
-	
+{	
+	cout << "created = " << countPolynomialVectors << ", deleted = " << countPolynomialVectorsDeleted << 
+		", numbers = " << countNumbers << ", numbers2 = " << countNumbers2 << ", deleted numbers = " << countNumbersDeleted << endl;	
 }
 
 inline void DeletePolynomial(Polynomial* p)
 {
-	countPolynomialVectorsDeleted++;
+//	countPolynomialVectorsDeleted++;
 //	for(auto pair1: p->v)
 //	{
 //		DeleteNumber(&pair1.second);
@@ -109,7 +106,7 @@ inline void DeletePolynomial(Polynomial* p)
 //	{
 //		DeleteNumber(&pair1.second);
 //	}
-	delete p;
+//	delete p;
 }
 
 inline Polynomial::Polynomial()

@@ -16,6 +16,7 @@ public:
 	mpq_t value;
 	explicit Number();
 	explicit Number(double value);
+	~Number();
 	Number Neg();
 	Number Abs();
 	Number Copy();
@@ -67,7 +68,7 @@ public:
 inline void DeleteNumber(Number* number)
 {
 	countNumbersDeleted++;
-	mpq_clear(number->value);
+	//mpq_clear(number->value);
 }
 
 inline vector<Number> SortNumbers(vector<Number>v)
@@ -114,6 +115,12 @@ inline Number::Number(double value)
 	countNumbers2++;
 	mpq_init(this->value);
 	mpq_set_d(this->value, value);
+}
+
+inline Number::~Number()
+{
+	countNumbersDeleted++;
+	//mpq_clear(value);
 }
 
 inline Number Number::Neg()
@@ -215,6 +222,7 @@ inline bool Number::operator<=(Number bigNumber)
 
 inline Number Number::operator=(Number bigNumber)
 {
+	//mpq_init(value);
 	mpq_set(value, bigNumber.value);
 	return *this;
 }
@@ -387,7 +395,6 @@ inline string Number::ToString()
 	char* charArray = new char[100];
 	mpq_get_str(charArray, 10, value);
 	string result(charArray);
-	//if (value->_mp_num._mp_d == value->_mp_den._mp_d + 1)
 
 	return result;
 }
