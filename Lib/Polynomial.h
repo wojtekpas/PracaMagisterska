@@ -25,6 +25,7 @@ public:
 	int type = 0;
 	string inputS = "";
 	vector<Number> roots;
+	int id = 0;
 
 	explicit Polynomial();
 	explicit Polynomial(Number number);
@@ -43,6 +44,7 @@ public:
 	virtual Polynomial& Derivative() = 0;
 	virtual Number PolynomialValue(Number a) = 0;
 	virtual string ToString() = 0;
+	virtual void CleanBeforeDelete() = 0;
 
 	virtual bool operator==(Polynomial& p2) = 0;
 	virtual Polynomial& operator = (Polynomial& p2) = 0;
@@ -89,16 +91,16 @@ public:
 
 inline void PrintStats()
 {
-	/*
-	cout << "created = " << countPolynomialVectors << ", deleted = " << countPolynomialVectorsDeleted <<
-		", numbers = " << countNumbers << ", numbers2 = " << countNumbers2 << ", deleted numbers = " << countNumbersDeleted << endl;
-	cout << "div: " << countDiv << ", mod: " << countMod<< endl;
-	*/
+	
+	cout << "created = " << countPolynomialVectors << ", deleted = " << countPolynomialVectorsDeleted << endl;
+	//	", numbers = " << countNumbers << ", numbers2 = " << countNumbers2 << ", deleted numbers = " << countNumbersDeleted << endl;
+	//cout << "div: " << countDiv << ", mod: " << countMod<< endl;
+	
 }
 
 inline void DeletePolynomial(Polynomial* p)
 {
-//	countPolynomialVectorsDeleted++;
+	countPolynomialVectorsDeleted++;
 //	for(auto pair1: p->v)
 //	{
 //		DeleteNumber(&pair1.second);
@@ -107,17 +109,15 @@ inline void DeletePolynomial(Polynomial* p)
 //	{
 //		DeleteNumber(&pair1.second);
 //	}
-	//delete p;
+	delete p;
 }
 
 inline Polynomial::Polynomial()
 {
-	countPolynomialVectors++;
 }
 
 inline Polynomial::Polynomial(Number number)
 {
-	countPolynomialVectors++;
 	isNew = false;
 }
 
@@ -236,7 +236,7 @@ inline void Polynomial::Normalize()
 	Number coefficient = ValueOfPolynomialDegree().second;
 	Polynomial& divider = CreatePolynomial(coefficient);
 	*this /= divider;
-	DeletePolynomial(&divider);
+	//DeletePolynomial(&divider);
 }
 
 inline Number Polynomial::CoefficientValue(PAIR pair1, Number a)
@@ -299,7 +299,6 @@ inline int Polynomial::AddNextRoot(Number x)
 
 inline vector<Number> Polynomial::FindRoots(Number a, Number b)
 {
-	PrintStats();
 	int numberOfRoots = NumberOfRoots(a, b);
 	Number aValue;
 	aValue = PolynomialValue(a);
@@ -315,10 +314,9 @@ inline vector<Number> Polynomial::FindRoots(Number a, Number b)
 	//cout << "bValue = " << bValue.ToString() << endl;
 	if (bValue.IsZero())
 	{
-		int bIsRoot = AddNextRoot(b);
+		AddNextRoot(b);
 		if (numberOfRoots == 1)
 			return roots;
-		//if (bIsRoot == numberOfRoots)
 	}
 
 	if (numberOfRoots == 0)
@@ -386,7 +384,6 @@ inline void Polynomial::PrintRoots(double a, double b)
 	Number numberA = Number(a);
 	Number numberB = Number(b);
 	vector<Number> roots = FindRoots(numberA, numberB);
-
 	for (int i = 0; i < roots.size(); i++)
 	{
 		cout << "x" << i << " = ";
@@ -405,7 +402,7 @@ inline Polynomial& Polynomial::operator / (Polynomial& p2)
 {
 	countDiv++;
 	auto divResult = DividePolynomials(*this, p2);
-	//DeletePolynomial(&divResult.second);
+	DeletePolynomial(&divResult.second);
 	return divResult.first;
 }
 
@@ -413,7 +410,7 @@ inline Polynomial& Polynomial::operator % (Polynomial& p2)
 {
 	countMod++;
 	auto divResult = DividePolynomials(*this, p2);
-	//DeletePolynomial(&divResult.first);
+	DeletePolynomial(&divResult.first);
 	return divResult.second;
 }
 
@@ -439,7 +436,7 @@ inline Polynomial& Polynomial::operator ^ (int power)
 		result *= tmp;
 	}
 
-	//DeletePolynomial(&tmp);
+	DeletePolynomial(&tmp);
 	return result;
 }
 
@@ -471,7 +468,7 @@ inline Polynomial& Polynomial::operator /= (Polynomial& p2)
 {
 	Polynomial* result = &(*this / p2);
 	*this = *result;
-	//DeletePolynomial(result);
+	DeletePolynomial(result);
 	return *this;
 }
 
@@ -479,7 +476,7 @@ inline Polynomial& Polynomial::operator %= (Polynomial& p2)
 {
 	Polynomial* result = &(*this % p2);
 	*this = *result;
-	//DeletePolynomial(result);
+	DeletePolynomial(result);
 	return *this;
 }
 
@@ -487,7 +484,7 @@ inline Polynomial& Polynomial::operator ^= (int power)
 {
 	Polynomial* result = &(*this ^ power);
 	*this = *result;
-	//DeletePolynomial(result);
+	DeletePolynomial(result);
 	return *this;
 }
 

@@ -9,7 +9,7 @@
 
 inline Polynomial& CreatePolynomial(int type = 0)
 {
-	if (type)
+	if (type == 0)
 		return CreatePolynomialVector();
 	return CreatePolynomialMap();
 }

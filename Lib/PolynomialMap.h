@@ -2,7 +2,7 @@
 #include "Polynomial.h"
 
 class PolynomialMap: public Polynomial
-{	
+{
 public:
 	vector<PolynomialMap> sturm;
 
@@ -22,6 +22,7 @@ public:
 	Polynomial& Derivative() override;
 	Number PolynomialValue(Number a) override;
 	string ToString() override;
+	void CleanBeforeDelete() override;
 
 	bool operator==(Polynomial& p2) override;
 	Polynomial& operator = (Polynomial& p2) override;
@@ -36,8 +37,11 @@ public:
 inline PolynomialMap ConvertToPolynomialMapFromPolynomialRef(Polynomial& ref)
 {
 	PolynomialMap p;
-	p.m = ref.m;
-	p.isNew = ref.isNew;
+	for (auto m : ref.m)
+	{
+		Number copy = m.second.Copy();
+		p.SetNumberValue(m.first, copy);
+	}
 	p.inputS = ref.inputS;
 	return p;
 }
@@ -45,18 +49,21 @@ inline PolynomialMap ConvertToPolynomialMapFromPolynomialRef(Polynomial& ref)
 inline Polynomial& CreatePolynomialMap()
 {
 	PolynomialMap* polynomialMap = new PolynomialMap();
+	countPolynomialVectors++;
 	return *polynomialMap;
 }
 
 inline Polynomial& CreatePolynomialMap(Number number)
 {
 	PolynomialMap* polynomialMap = new PolynomialMap(number);
+	countPolynomialVectors++;
 	return *polynomialMap;
 }
 
 inline Polynomial& PolynomialMap::CreatePolynomial()
 {
 	PolynomialMap* polynomialMap = new PolynomialMap();
+	countPolynomialVectors++;
 	return *polynomialMap;
 }
 
@@ -179,6 +186,17 @@ inline string PolynomialMap::ToString()
 	return result;
 }
 
+inline void PolynomialMap::CleanBeforeDelete()
+{
+	if (sturm.size() == 0)
+		return;
+	for (int i = 1; i < sturm.size(); i++)
+	{
+		cout << "p = " << &sturm[i] << " this = " << this << endl;
+		//DeletePolynomial(&sturm[i]);
+	}
+}
+
 inline bool PolynomialMap::operator == (Polynomial& p2)
 {
 	for (auto pair1 : m)
@@ -204,7 +222,6 @@ inline Polynomial& PolynomialMap::operator = (Polynomial& p2)
 		Number copy = m.second.Copy();
 		SetNumberValue(m.first, copy);
 	}
-	v = p2.v;
 	inputS = p2.inputS;
 	return *this;
 }
@@ -280,23 +297,35 @@ inline vector<PolynomialMap> PolynomialMap::GetSturm()
 	sturm.push_back(*this);
 	Polynomial& derivative = Derivative();
 	if (derivative.IsZero())
+	{
+		DeletePolynomial(&derivative);
 		return sturm;
+	}
 	sturm.push_back(ConvertToPolynomialMapFromPolynomialRef(derivative));
+	//PrintStats();
 	Polynomial& w = CreatePolynomial();
 	Polynomial& q = CreatePolynomial();
-	Polynomial& r = CreatePolynomial();
 	w = *this;
 	q = derivative;
-	r = w % q;
+	Polynomial& r = w % q;
 
 	while (r.IsZero() == false)
 	{
-		r = r.NegativePolynomial();
+		Polynomial* tmp = &(NegativePolynomial());
+		r = *tmp;
+		DeletePolynomial(tmp);
+		cout << "negative" << endl;
 		sturm.push_back(ConvertToPolynomialMapFromPolynomialRef(r));
 		w = q;
 		q = r;
-		r = w % q;
+		tmp = &(w % q);
+		r = *tmp;
+		DeletePolynomial(tmp);
 	}
+	DeletePolynomial(&w);
+	DeletePolynomial(&q);
+	DeletePolynomial(&r);
+	DeletePolynomial(&derivative);
 	return sturm;
 }
 
@@ -371,5 +400,6 @@ inline pair<Polynomial&, Polynomial&> PolynomialMap::DividePolynomials(Polynomia
 		}
 		currentDegree = current.PolynomialDegree();
 	}
+	DeletePolynomial(&rest);
 	return pair<Polynomial&, Polynomial&>(result, current);
 }

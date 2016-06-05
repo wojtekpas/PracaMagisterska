@@ -22,6 +22,7 @@ public:
 	Polynomial& Derivative() override;
 	Number PolynomialValue(Number a) override;
 	string ToString() override;
+	void CleanBeforeDelete() override;
 
 	bool operator==(Polynomial& p2) override;
 	Polynomial& operator = (Polynomial& p2) override;
@@ -36,8 +37,11 @@ public:
 inline PolynomialVector ConvertToPolynomialVectorFromPolynomialRef(Polynomial& ref)
 {
 	PolynomialVector p;
-	p.v = ref.v;
-	p.isNew = ref.isNew;
+	for (int i = 0; i < ref.v.size(); i++)
+	{
+		Number copy = ref.v[i].second.Copy();
+		p.SetNumberValue(i, copy);
+	}
 	p.inputS = ref.inputS;
 	return p;
 }
@@ -233,6 +237,20 @@ inline string PolynomialVector::ToString()
 	return result;
 }
 
+inline void PolynomialVector::CleanBeforeDelete()
+{
+	if (sturm.size() == 0)
+		return;
+	for (auto p : sturm)
+	{
+		if (p != *this)
+		{
+			cout << "del" << endl;
+			DeletePolynomial(&p);
+		}
+	}
+}
+
 inline bool PolynomialVector::operator == (Polynomial& p2)
 {
 	for (auto pair1 : v)
@@ -258,7 +276,6 @@ inline Polynomial& PolynomialVector::operator = (Polynomial& p2)
 		Number copy = p2.v[i].second.Copy();
 		SetNumberValue(i, copy);
 	}
-	m = p2.m;
 	inputS = p2.inputS;
 	return *this;
 }
@@ -270,7 +287,6 @@ inline Polynomial& PolynomialVector::operator + (Polynomial& p2)
 	result.v = v;
 	for (auto pair1 : p2.v)
 		result.Add(pair1.first, pair1.second);
-	//DeletePolynomial(&result);
 	return result;
 }
 
@@ -281,7 +297,6 @@ inline Polynomial& PolynomialVector::operator - (Polynomial& p2)
 	result.v = v;
 	for (auto pair1 : p2.v)
 		result.Sub(pair1.first, pair1.second);
-	//DeletePolynomial(&result);
 	return result;
 }
 
@@ -299,7 +314,6 @@ inline Polynomial& PolynomialVector::operator * (Polynomial& p2)
 			result.Add(mulResult.first, mulResult.second);
 		}
 	}
-	//DeletePolynomial(&result);
 	return result;
 }
 
@@ -346,20 +360,22 @@ inline vector<PolynomialVector> PolynomialVector::GetSturm()
 	Polynomial& w = CreatePolynomial();
 	Polynomial& q = CreatePolynomial();
 	Polynomial& r = CreatePolynomial();
-	Polynomial& tmp = CreatePolynomial();
 	w = *this;
 	q = derivative;
 	r = w % q;
 
 	while (r.IsZero() == false)
 	{
-		tmp = r;
-		r = tmp.NegativePolynomial();
-		//DeletePolynomial(&tmp);
+		Polynomial* tmp = &(NegativePolynomial());
+		r = *tmp;
+		DeletePolynomial(tmp);
+		cout << "negative" << endl;
 		sturm.push_back(ConvertToPolynomialVectorFromPolynomialRef(r));
 		w = q;
 		q = r;
-		r = w % q;
+		tmp = &(w % q);
+		r = *tmp;
+		DeletePolynomial(tmp);
 	}
 	DeletePolynomial(&w);
 	DeletePolynomial(&q);

@@ -17,7 +17,6 @@ int main()
 		retry = 0;
 		cout << "W(x) = " << endl;
 		getline(cin, inputS);
-		//inputS = "a2+3a+2";
 		while (inputS == "")
 		{
 			getline(cin, inputS);
@@ -27,9 +26,7 @@ int main()
 		}
 		if (inputS == "quit")
 			return 0;
-		Polynomial& p = CreatePolynomial();
-		PrintStats();
-		p = parser.ConvertToPolynomial(inputS);
+		Polynomial& p = parser.ConvertToPolynomial(inputS);
 		PrintStats();
 		cout << p.ToString() << endl;
 		//cout << "created = " << countPolynomialVectors << ", deleted = " << countPolynomialVectorsDeleted << ", created numbers = " << countNumbers << endl;
@@ -43,7 +40,8 @@ int main()
 		p.PrintInput();
 		p.Print();
 		p.PrintRoots(a, b);
-
+		DeletePolynomial(&p);
+		PrintStats();
 		cout << "-----" << endl;
 		inputS = "";
 		//cout << "created = " << countPolynomialVectors << ", deleted = " << countPolynomialVectorsDeleted << ", created numbers = " << countNumbers << endl;
