@@ -8,7 +8,9 @@
 
 static int countNumbers = 0;
 static int countNumbers2 = 0;
+static int countNumbers3 = 0;
 static int countNumbersDeleted = 0;
+static int countNumbersDeleted2 = 0;
 
 class Number
 {
@@ -68,7 +70,7 @@ public:
 inline void DeleteNumber(Number* number)
 {
 	countNumbersDeleted++;
-	//mpq_clear(number->value);
+	mpq_clear(number->value);
 }
 
 inline vector<Number> SortNumbers(vector<Number>v)
@@ -119,8 +121,9 @@ inline Number::Number(double value)
 
 inline Number::~Number()
 {
-	countNumbersDeleted++;
-	//mpq_clear(value);
+	countNumbersDeleted2++;
+	mpq_init(value);
+	mpq_clear(value);
 }
 
 inline Number Number::Neg()
@@ -222,8 +225,9 @@ inline bool Number::operator<=(Number bigNumber)
 
 inline Number Number::operator=(Number bigNumber)
 {
-	//mpq_init(value);
+	mpq_init(value);
 	mpq_set(value, bigNumber.value);
+	countNumbers3++;
 	return *this;
 }
 
@@ -338,7 +342,9 @@ inline bool Number::operator<=(double value)
 
 inline Number Number::operator=(double value)
 {
+	mpq_init(this->value);
 	mpq_set_d(this->value, value);
+	countNumbers3++;
 	return *this;
 }
 
@@ -395,7 +401,58 @@ inline string Number::ToString()
 	char* charArray = new char[100];
 	mpq_get_str(charArray, 10, value);
 	string result(charArray);
+	int isSlash = StringManager::FindFirst(result, CharsConstants::Div);
+	if (isSlash < 0)
+		return result;
 
+	mpz_t counter;
+	mpz_t denominator;
+	mpz_init(counter);
+	mpz_init(denominator);
+	mpq_get_num(counter, value);
+	mpq_get_den(denominator, value);
+	mpz_t precision;
+	mpz_init(precision);
+	int dec_precision = 100000;
+	mpz_set_d(precision, dec_precision);
+	mpz_t res;
+	mpz_t fract;
+	mpz_init(res);
+	mpz_init(fract);
+	mpz_mul(res, counter, precision);
+	mpz_div(res, res, denominator);
+
+	mpz_mod(fract, res, precision);
+	mpz_div(res, res, precision);
+
+	mpz_get_str(charArray, 10, res);
+	result = string(charArray);
+	if (mpz_cmp_d(fract, 0) > 0)
+	{
+		result = result + ".";
+		int tmp = dec_precision;
+		while (tmp > 1)
+		{
+			tmp /= 10;
+			if (mpz_cmp_d(fract, tmp) < 0)
+				result = result + "0";
+		}
+		mpz_get_str(charArray, 10, fract);
+		result = result + string(charArray);
+		while (true)
+		{
+			char lastChar = StringManager::ReturnLastChar(result);
+			if (lastChar != '0')
+				break;
+			result = StringManager::Substr(result, 0, result.size() - 2);
+		}
+	}
+
+	mpz_clear(counter);
+	mpz_clear(denominator);
+	mpz_clear(precision);
+	mpz_clear(res);
+	mpz_clear(fract);
 	return result;
 }
 

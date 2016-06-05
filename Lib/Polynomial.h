@@ -29,6 +29,7 @@ public:
 
 	explicit Polynomial();
 	explicit Polynomial(Number number);
+	~Polynomial();
 
 	virtual Polynomial& CreatePolynomial() = 0;
 	virtual Polynomial& CreatePolynomial(Number number) = 0;
@@ -44,7 +45,8 @@ public:
 	virtual Polynomial& Derivative() = 0;
 	virtual Number PolynomialValue(Number a) = 0;
 	virtual string ToString() = 0;
-	virtual void CleanBeforeDelete() = 0;
+	virtual void SturmClear() = 0;
+	virtual int TheLowestNonZeroValue() = 0;
 
 	virtual bool operator==(Polynomial& p2) = 0;
 	virtual Polynomial& operator = (Polynomial& p2) = 0;
@@ -91,31 +93,39 @@ public:
 
 inline void PrintStats()
 {	
-	cout << "created = " << countPolynomialVectors << ", deleted = " << countPolynomialVectorsDeleted << 
-		", numbers = " << countNumbers << ", numbers2 = " << countNumbers2 << ", deleted numbers = " << countNumbersDeleted << endl;	
+//	cout << "created = " << countPolynomialVectors << ", deleted = " << countPolynomialVectorsDeleted << 
+//		", numbers = " << countNumbers << ", numbers2 = " << countNumbers2 << 
+//		", numbers3 = " << countNumbers3 << 
+//		", deleted = " << countNumbersDeleted << ", deleted2 = " << countNumbersDeleted2 << endl;
 }
 
 inline void DeletePolynomial(Polynomial* p)
 {
-//	countPolynomialVectorsDeleted++;
-//	for(auto pair1: p->v)
-//	{
-//		DeleteNumber(&pair1.second);
-//	}
-//	for (auto pair1 : p->m)
-//	{
-//		DeleteNumber(&pair1.second);
-//	}
-//	delete p;
+	for(auto pair1: p->v)
+	{
+		DeleteNumber(&pair1.second);
+	}
+	for (auto pair1 : p->m)
+	{
+		DeleteNumber(&pair1.second);
+	}
+	delete p;
 }
 
 inline Polynomial::Polynomial()
 {
+	countPolynomialVectors++;
 }
 
 inline Polynomial::Polynomial(Number number)
 {
+	countPolynomialVectors++;
 	isNew = false;
+}
+
+inline Polynomial::~Polynomial()
+{
+	countPolynomialVectorsDeleted++;
 }
 
 inline bool Polynomial::Set(string s)
@@ -278,6 +288,13 @@ inline int Polynomial::NumberOfRoots(Number a, Number b)
 {
 	int count1 = NumberOfChangesSign(a);
 	int count2 = NumberOfChangesSign(b);
+	if (count1 - count2 < 0)
+	{
+//		cout << " count1 = " << count1 << endl;
+//		cout << " count2 = " << count2 << endl;
+//		cout << "dupa" << endl;
+		int count2 = NumberOfChangesSign(b);
+	}
 	return count1 - count2;
 }
 
@@ -289,14 +306,28 @@ inline int Polynomial::AddNextRoot(Number x)
 		roots.push_back(x);
 		return 1;
 	}
-	if (x > roots[posInVector])
-		roots[posInVector] = x;
+//	if (x > roots[posInVector])
+//		roots[posInVector] = x;
 	return 0;
 }
 
 inline vector<Number> Polynomial::FindRoots(Number a, Number b)
 {
+	int theLowest = TheLowestNonZeroValue();
+	if (theLowest > 0)
+	{
+		AddNextRoot(Number(0));
+		Polynomial& tmp = CreatePolynomial();
+		tmp.SetValue(theLowest, 1);
+		*this /= tmp;
+		DeletePolynomial(&tmp);
+		cout << "zeroooooo: " << ToString() << endl;
+		SturmClear();
+	}
 	int numberOfRoots = NumberOfRoots(a, b);
+	if (numberOfRoots)
+		cout << numberOfRoots << " in " << "(" 
+		<< a.ToString() << "," << b.ToString() << ")" << endl;
 	Number aValue;
 	aValue = PolynomialValue(a);
 	//cout << "aValue = " << aValue.ToString() << endl;
@@ -381,6 +412,7 @@ inline void Polynomial::PrintRoots(double a, double b)
 	Number numberA = Number(a);
 	Number numberB = Number(b);
 	vector<Number> roots = FindRoots(numberA, numberB);
+	roots = SortNumbers(roots);
 	for (int i = 0; i < roots.size(); i++)
 	{
 		cout << "x" << i << " = ";

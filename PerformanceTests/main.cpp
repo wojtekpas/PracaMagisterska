@@ -1,49 +1,52 @@
 #pragma once
 #include "../Lib/Parser.h"
-#include "../Lib/Number.h"	
+#include <condition_variable>
+
+Polynomial& CreateTestPolynomial1(int type, int degree, int interval, int value = 1)
+{
+	Polynomial& p = CreatePolynomial(type);
+	p.SetValue(8, 1);
+	p.SetValue(4, -1);
+//	for (int i = degree; i >= 0; i -= interval)
+//		p.SetValue(i, value);
+	return p;
+}
+
+Polynomial& CreateTestPolynomial2(int type, int degree, int interval, int value = 1)
+{
+	Polynomial& p = CreatePolynomial(type);
+	int count = 0;
+	for (int i = degree; i >= 0; i -= interval)
+	{
+		if (count % 2 == 0)
+			p.SetValue(i, value);
+		else
+			p.SetValue(i, -value);
+		count++;
+	}
+	return p;
+}
+
+void MeasureTime(Polynomial& p)
+{
+	p.Print();
+	cout << p.NumberOfRoots(Number(-100), Number(100)) << endl;
+	auto begin = chrono::high_resolution_clock::now();
+	p.PrintRoots(-100, 100);
+	auto end = chrono::high_resolution_clock::now();
+	auto durationInNs = chrono::duration_cast<chrono::nanoseconds>(end - begin).count();
+	std::cout << durationInNs/1000000 << "ms ~" << durationInNs / 1000000000 << "s" << endl;
+}
 
 int main()
 {
 	Parser parser;
 	string inputS;
 	string tmp;
-	double a;
-	double b;
-	const int max_retry = 100;
-	int retry;
 
-	while (true)
-	{
-		retry = 0;
-		cout << "W(x) = " << endl;
-		getline(cin, inputS);
-		while (inputS == "")
-		{
-			getline(cin, inputS);
-			retry++;
-			if (retry == max_retry)
-				return -1;
-		}
-		if (inputS == "quit")
-			return 0;
-		Polynomial& p = parser.ConvertToPolynomial(inputS);
-		PrintStats();
-		cout << p.ToString() << endl;
-		//cout << "created = " << countPolynomialVectors << ", deleted = " << countPolynomialVectorsDeleted << ", created numbers = " << countNumbers << endl;
-		cout << "a = ";
-		//cin >> a;
-		cout << "b = ";
-		a = -4;
-		b = 4;
-		//cin >> b;
+	MeasureTime(CreateTestPolynomial2(0, 101, 13, 1));
 
-		p.PrintInput();
-		p.Print();
-		p.PrintRoots(a, b);
-		DeletePolynomial(&p);
-		PrintStats();
-		cout << "-----" << endl;
-		inputS = "";
-		//cout << "created = " << countPolynomialVectors << ", deleted = " << countPolynomialVectorsDeleted << ", created numbers = " << countNumbers << endl;
-	}
+	getchar();
+	getchar();
+	return 0;
 }

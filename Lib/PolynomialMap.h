@@ -22,7 +22,8 @@ public:
 	Polynomial& Derivative() override;
 	Number PolynomialValue(Number a) override;
 	string ToString() override;
-	void CleanBeforeDelete() override;
+	void SturmClear() override;
+	int TheLowestNonZeroValue() override;
 
 	bool operator==(Polynomial& p2) override;
 	Polynomial& operator = (Polynomial& p2) override;
@@ -49,21 +50,18 @@ inline PolynomialMap ConvertToPolynomialMapFromPolynomialRef(Polynomial& ref)
 inline Polynomial& CreatePolynomialMap()
 {
 	PolynomialMap* polynomialMap = new PolynomialMap();
-	countPolynomialVectors++;
 	return *polynomialMap;
 }
 
 inline Polynomial& CreatePolynomialMap(Number number)
 {
 	PolynomialMap* polynomialMap = new PolynomialMap(number);
-	countPolynomialVectors++;
 	return *polynomialMap;
 }
 
 inline Polynomial& PolynomialMap::CreatePolynomial()
 {
 	PolynomialMap* polynomialMap = new PolynomialMap();
-	countPolynomialVectors++;
 	return *polynomialMap;
 }
 
@@ -160,41 +158,59 @@ inline void PolynomialMap::SetNumberValue(int power, Number number)
 inline string PolynomialMap::ToString()
 {
 	if (IsZero())
-		return("Type = 0: Is Zero");
+		return("Is Zero");
 
-	string result = "Type = 0: ";
+	string result = "";
 	string tmp = "";
 	for (auto pair1 : m)
 	{
 		if (pair1.second.IsZero() == false)
 		{
 			tmp = "";
+			string fir = to_string(pair1.first);
+			string sec = pair1.second.ToString();
 			if (pair1.first == 0)
-				tmp = pair1.second.ToString();
+				tmp = sec;
 			else
 			{
-				if (pair1.first == 1)
-					tmp = pair1.second.ToString() + "*x";
+				if (pair1.second == 1)
+					tmp = "x";
+				else if (pair1.second == -1)
+					tmp = "-x";
 				else
-					tmp = pair1.second.ToString() + "*x^" + to_string(pair1.first);
+					tmp = sec + "x";
+				if (pair1.first != 1)
+				{
+					tmp = tmp + "^" + fir;
+				}
 			}
-			if (tmp[0] != '-' && result != "")
-				tmp = "-" + tmp;
-			result += tmp;
+			if (tmp[0] != '-')
+				tmp = "+" + tmp;
+			result = tmp + result;
 		}
 	}
+	if (result[0] == '+')
+		return StringManager::Substr(result, 1, result.length() - 1);
 	return result;
 }
 
-inline void PolynomialMap::CleanBeforeDelete()
+inline void PolynomialMap::SturmClear()
 {
-	if (sturm.size() == 0)
-		return;
-	for (int i = 1; i < sturm.size(); i++)
+	sturm.clear();
+}
+
+inline int PolynomialMap::TheLowestNonZeroValue()
+{
+	int size = Size();
+	if (size == 0)
+		return -1;
+	int theLowest = INT32_MAX;
+	for (auto p: m)
 	{
-		cout << "p = " << &sturm[i] << " this = " << this << endl;
-		//DeletePolynomial(&sturm[i]);
+		if (p.first < theLowest)
+			theLowest = p.first;
 	}
+	return theLowest;
 }
 
 inline bool PolynomialMap::operator == (Polynomial& p2)
@@ -271,9 +287,14 @@ inline int PolynomialMap::NumberOfChangesSign(Number a)
 		lastValue = 1;
 	else if (number < 0)
 		lastValue = -1;
-
+//	cout << "a = " << a.ToString() << endl;
+//	cout << "size = " << sturm.size() << endl;
+//	cout << "sturm" << 0 << ": ";
+//	sturm.at(0).Print();
 	for (int i = 1; i < sturm.size(); i++)
 	{
+		//cout << "sturm" << i << ": ";
+		//sturm.at(i).Print();
 		number = sturm.at(i).PolynomialValue(a);
 		if (number > 0)
 			curValue = 1;
@@ -302,7 +323,6 @@ inline vector<PolynomialMap> PolynomialMap::GetSturm()
 		return sturm;
 	}
 	sturm.push_back(ConvertToPolynomialMapFromPolynomialRef(derivative));
-	//PrintStats();
 	Polynomial& w = CreatePolynomial();
 	Polynomial& q = CreatePolynomial();
 	w = *this;
@@ -311,10 +331,9 @@ inline vector<PolynomialMap> PolynomialMap::GetSturm()
 
 	while (r.IsZero() == false)
 	{
-		Polynomial* tmp = &(NegativePolynomial());
+		Polynomial* tmp = &(r.NegativePolynomial());
 		r = *tmp;
 		DeletePolynomial(tmp);
-		cout << "negative" << endl;
 		sturm.push_back(ConvertToPolynomialMapFromPolynomialRef(r));
 		w = q;
 		q = r;

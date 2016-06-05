@@ -9,8 +9,8 @@
 
 inline Polynomial& CreatePolynomial(int type = 0)
 {
-	//if (type)
-		//return CreatePolynomialVector();
+	if (type)
+		return CreatePolynomialVector();
 	return CreatePolynomialMap();
 }
 

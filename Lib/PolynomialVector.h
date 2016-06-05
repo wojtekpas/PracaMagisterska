@@ -22,7 +22,8 @@ public:
 	Polynomial& Derivative() override;
 	Number PolynomialValue(Number a) override;
 	string ToString() override;
-	void CleanBeforeDelete() override;
+	void SturmClear() override;
+	int TheLowestNonZeroValue() override;
 
 	bool operator==(Polynomial& p2) override;
 	Polynomial& operator = (Polynomial& p2) override;
@@ -211,33 +212,43 @@ inline void PolynomialVector::SetNumberValue(int power, Number number)
 inline string PolynomialVector::ToString()
 {
 	if (IsZero())
-		return("Type = 1: Is Zero");
+		return("Is Zero");
 
-	string result = "Type = 1: ";
+	string result = "";
 	string tmp = "";
 	for (auto pair1 : v)
 	{
 		if (pair1.second.IsZero() == false)
 		{
 			tmp = "";
+			string fir = to_string(pair1.first);
+			string sec = pair1.second.ToString();
 			if (pair1.first == 0)
-				tmp = pair1.second.ToString();
+				tmp = sec;
 			else
 			{
-				if (pair1.first == 1)
-					tmp = pair1.second.ToString() + "*x";
+				if (pair1.second == 1)
+					tmp = "x";
+				else if (pair1.second == -1)
+					tmp = "-x";
 				else
-					tmp = pair1.second.ToString()+ "*x^" + to_string(pair1.first);
+					tmp = sec + "x";
+				if (pair1.first != 1)
+				{
+					tmp = sec + "x^" + fir;
+				}
 			}
-			if (tmp[0] != '-' && result != "")
+			if (tmp[0] != '-')
 				tmp = "+" + tmp;
-			result += tmp;
+			result = tmp + result;
 		}
 	}
+	if (result[0] == '+')
+		return StringManager::Substr(result, 1, result.length() - 1);
 	return result;
 }
 
-inline void PolynomialVector::CleanBeforeDelete()
+inline void PolynomialVector::SturmClear()
 {
 	if (sturm.size() == 0)
 		return;
@@ -249,6 +260,19 @@ inline void PolynomialVector::CleanBeforeDelete()
 			DeletePolynomial(&p);
 		}
 	}
+}
+
+inline int PolynomialVector::TheLowestNonZeroValue()
+{
+	int size = Size();
+	if (size == 0)
+		return -1;
+	for (int i = 0; i < size; i++)
+	{
+		if (Value(i).IsZero() == false)
+			return i;
+	}
+	return -2;
 }
 
 inline bool PolynomialVector::operator == (Polynomial& p2)
@@ -366,10 +390,9 @@ inline vector<PolynomialVector> PolynomialVector::GetSturm()
 
 	while (r.IsZero() == false)
 	{
-		Polynomial* tmp = &(NegativePolynomial());
+		Polynomial* tmp = &(r.NegativePolynomial());
 		r = *tmp;
 		DeletePolynomial(tmp);
-		cout << "negative" << endl;
 		sturm.push_back(ConvertToPolynomialVectorFromPolynomialRef(r));
 		w = q;
 		q = r;
