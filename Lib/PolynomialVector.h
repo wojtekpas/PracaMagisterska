@@ -235,7 +235,7 @@ inline string PolynomialVector::ToString()
 					tmp = sec + "x";
 				if (pair1.first != 1)
 				{
-					tmp = sec + "x^" + fir;
+					tmp = tmp + "^" + fir;
 				}
 			}
 			if (tmp[0] != '-')
@@ -250,16 +250,7 @@ inline string PolynomialVector::ToString()
 
 inline void PolynomialVector::SturmClear()
 {
-	if (sturm.size() == 0)
-		return;
-	for (auto p : sturm)
-	{
-		if (p != *this)
-		{
-			cout << "del" << endl;
-			DeletePolynomial(&p);
-		}
-	}
+	sturm.clear();
 }
 
 inline int PolynomialVector::TheLowestNonZeroValue()

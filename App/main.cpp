@@ -32,10 +32,10 @@ int main()
 		Polynomial& p = CreatePolynomial();
 		
 		p = parser.ConvertToPolynomial(inputS);
-		cout << "a = ";
-		cin >> a;
-		cout << "b = ";
-		cin >> b;
+//		cout << "a = ";
+//		cin >> a;
+//		cout << "b = ";
+//		cin >> b;
 
 		p.PrintInput();
 		p.Print();

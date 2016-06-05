@@ -1,12 +1,12 @@
-﻿Build started 2016-06-05 21:02:52.
-     1>Project "C:\Users\Gruby\Documents\Visual Studio 2015\Projects\PracaMagisterska\PerformanceTests\PerformanceTests.vcxproj" on node 4 (Build target(s)).
+﻿Build started 2016-06-06 00:20:41.
+     1>Project "C:\Users\Gruby\Documents\Visual Studio 2015\Projects\PracaMagisterska\PerformanceTests\PerformanceTests.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /GL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Release\\" /Fd"x64\Release\vc140.pdb" /Gd /TP /errorReport:prompt main.cpp
          main.cpp
      1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\StringManager.h(65): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
      1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\StringManager.h(70): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
      1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\StringManager.h(97): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-     1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\Number.h(447): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+     1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\Number.h(462): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
      1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\PolynomialMap.h(87): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
      1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\PolynomialMap.h(193): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
      1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\PolynomialVector.h(89): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
@@ -17,11 +17,13 @@
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Gruby\Documents\Visual Studio 2015\Projects\PracaMagisterska\x64\Release\PerformanceTests.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\Gruby\Documents\Visual Studio 2015\Projects\PracaMagisterska\x64\Release\PerformanceTests.pdb" /OPT:REF /OPT:ICF /LTCG:incremental /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Gruby\Documents\Visual Studio 2015\Projects\PracaMagisterska\x64\Release\PerformanceTests.lib" /MACHINE:X64 x64\Release\main.obj
          "C:\Program Files (x86)\Microsoft Visual Studio 14.0\mpir-2.7.2\build.vc14\dll_mpir_nehalem\x64\Release\mpir.lib"
          Generating code
-         All 987 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+         3 of 959 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
+           0 functions were new in current compilation
+           0 functions had inline decision re-evaluated but remain unchanged
          Finished generating code
          PerformanceTests.vcxproj -> C:\Users\Gruby\Documents\Visual Studio 2015\Projects\PracaMagisterska\x64\Release\PerformanceTests.exe
      1>Done Building Project "C:\Users\Gruby\Documents\Visual Studio 2015\Projects\PracaMagisterska\PerformanceTests\PerformanceTests.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:03.31
+Time Elapsed 00:00:01.81

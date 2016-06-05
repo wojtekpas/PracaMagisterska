@@ -1,6 +1,7 @@
 c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\unittests\x64\release\unittests.pch
 c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\unittests\x64\release\vc140.pdb
 c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\unittests\x64\release\stdafx.obj
+c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\unittests\x64\release\parseruniformunittests.obj
 c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\unittests\x64\release\polynomialvalueunittests.obj
 c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\unittests\x64\release\polynomialsumoperatorunittests.obj
 c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\unittests\x64\release\polynomialsuboperatorunittests.obj
@@ -11,7 +12,6 @@ c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\unittests\
 c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\unittests\x64\release\polynomialdivoperatorunittests.obj
 c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\unittests\x64\release\polynomialderivativeunittests.obj
 c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\unittests\x64\release\polynomialaftereliminationunittests.obj
-c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\unittests\x64\release\parseruniformunittests.obj
 c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\unittests\x64\release\parserconvertunittests.obj
 c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\x64\release\unittests.dll
 c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\x64\release\unittests.ipdb
@@ -19,6 +19,7 @@ c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\x64\releas
 c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\x64\release\unittests.pdb
 c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\x64\release\unittests.lib
 c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\x64\release\unittests.exp
+c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\unittests\x64\release\unittests.vcxprojresolveassemblyreference.cache
 c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\unittests\x64\release\unittests.tlog\cl.command.1.tlog
 c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\unittests\x64\release\unittests.tlog\cl.read.1.tlog
 c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\unittests\x64\release\unittests.tlog\cl.write.1.tlog

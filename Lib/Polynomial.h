@@ -93,22 +93,22 @@ public:
 
 inline void PrintStats()
 {	
-//	cout << "created = " << countPolynomialVectors << ", deleted = " << countPolynomialVectorsDeleted << 
-//		", numbers = " << countNumbers << ", numbers2 = " << countNumbers2 << 
-//		", numbers3 = " << countNumbers3 << 
-//		", deleted = " << countNumbersDeleted << ", deleted2 = " << countNumbersDeleted2 << endl;
+	cout << "created = " << countPolynomialVectors << ", deleted = " << countPolynomialVectorsDeleted << 
+		", numbers = " << countNumbers << ", numbers2 = " << countNumbers2 << 
+		", numbers3 = " << countNumbers3 << 
+		", deleted = " << countNumbersDeleted << ", deleted2 = " << countNumbersDeleted2 << endl;
 }
 
 inline void DeletePolynomial(Polynomial* p)
 {
-	for(auto pair1: p->v)
-	{
-		DeleteNumber(&pair1.second);
-	}
-	for (auto pair1 : p->m)
-	{
-		DeleteNumber(&pair1.second);
-	}
+//	for(auto pair1: p->v)
+//	{
+//		DeleteNumber(&pair1.second);
+//	}
+//	for (auto pair1 : p->m)
+//	{
+//		DeleteNumber(&pair1.second);
+//	}
 	delete p;
 }
 
@@ -321,13 +321,12 @@ inline vector<Number> Polynomial::FindRoots(Number a, Number b)
 		tmp.SetValue(theLowest, 1);
 		*this /= tmp;
 		DeletePolynomial(&tmp);
-		cout << "zeroooooo: " << ToString() << endl;
 		SturmClear();
 	}
 	int numberOfRoots = NumberOfRoots(a, b);
-	if (numberOfRoots)
-		cout << numberOfRoots << " in " << "(" 
-		<< a.ToString() << "," << b.ToString() << ")" << endl;
+//	if (numberOfRoots)
+//		cout << numberOfRoots << " in " << "(" 
+//		<< a.ToString() << "," << b.ToString() << ")" << endl;
 	Number aValue;
 	aValue = PolynomialValue(a);
 	//cout << "aValue = " << aValue.ToString() << endl;
@@ -364,7 +363,7 @@ inline vector<Number> Polynomial::FindRoots(Number a, Number b)
 	Number interval = b - a;
 	if (interval.IsZero())
 	{
-		cout << "interval" << endl;
+		//cout << "interval" << endl;
 		AddNextRoot(b);
 		return roots;
 	}

@@ -18,6 +18,7 @@ public:
 	mpq_t value;
 	explicit Number();
 	explicit Number(double value);
+	Number(const Number &bigNumber);
 	~Number();
 	Number Neg();
 	Number Abs();
@@ -119,10 +120,18 @@ inline Number::Number(double value)
 	mpq_set_d(this->value, value);
 }
 
+inline Number::Number(const Number& bigNumber)
+{
+	mpq_init(value);
+	mpq_set(value, bigNumber.value);
+}
+
 inline Number::~Number()
 {
 	countNumbersDeleted2++;
-	mpq_init(value);
+	//mpq_init(value);
+	//cout << value << endl;
+	//cout << "ptr = " << &value << endl;
 	mpq_clear(value);
 }
 
@@ -225,7 +234,6 @@ inline bool Number::operator<=(Number bigNumber)
 
 inline Number Number::operator=(Number bigNumber)
 {
-	mpq_init(value);
 	mpq_set(value, bigNumber.value);
 	countNumbers3++;
 	return *this;
@@ -342,7 +350,6 @@ inline bool Number::operator<=(double value)
 
 inline Number Number::operator=(double value)
 {
-	mpq_init(this->value);
 	mpq_set_d(this->value, value);
 	countNumbers3++;
 	return *this;
@@ -419,14 +426,22 @@ inline string Number::ToString()
 	mpz_t fract;
 	mpz_init(res);
 	mpz_init(fract);
+
 	mpz_mul(res, counter, precision);
 	mpz_div(res, res, denominator);
+
+	result = "";
+	if (mpz_cmp_d(res, 0) < 0)
+	{
+		mpz_mul_si(res, res, -1);
+		result = "-";
+	}
 
 	mpz_mod(fract, res, precision);
 	mpz_div(res, res, precision);
 
 	mpz_get_str(charArray, 10, res);
-	result = string(charArray);
+	result = result + string(charArray);
 	if (mpz_cmp_d(fract, 0) > 0)
 	{
 		result = result + ".";
