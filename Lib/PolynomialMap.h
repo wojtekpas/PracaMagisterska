@@ -162,6 +162,7 @@ inline string PolynomialMap::ToString()
 
 	string result = "";
 	string tmp = "";
+	string tmpResult;
 	for (auto pair1 : m)
 	{
 		if (pair1.second.IsZero() == false)
@@ -184,9 +185,13 @@ inline string PolynomialMap::ToString()
 					tmp = tmp + "^" + fir;
 				}
 			}
+			//cout << tmp << endl;
+			//cout << result << endl;
 			if (tmp[0] != '-')
 				tmp = "+" + tmp;
-			result = tmp + result;
+			
+			tmp += result;
+			result = tmp;
 		}
 	}
 	if (result[0] == '+')
@@ -293,8 +298,8 @@ inline int PolynomialMap::NumberOfChangesSign(Number a)
 //	sturm.at(0).Print();
 	for (int i = 1; i < sturm.size(); i++)
 	{
-		//cout << "sturm" << i << ": ";
-		//sturm.at(i).Print();
+//		cout << "sturm" << i << ": ";
+//		sturm.at(i).Print();
 		number = sturm.at(i).PolynomialValue(a);
 		if (number > 0)
 			curValue = 1;

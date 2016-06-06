@@ -1,5 +1,9 @@
-﻿Build started 2016-06-05 22:06:34.
+﻿Build started 2016-06-06 20:31:02.
+     1>Project "C:\Users\Gruby\Documents\Visual Studio 2015\Projects\PracaMagisterska\Lib\Lib.vcxproj" on node 2 (Build target(s)).
+     1>_GenerateProjectPriFileCore:
+         C:\Program Files (x86)\Windows Kits\10\bin\x64\MakePri.exe New -ProjectRoot "C:\Users\Gruby\Documents\Visual Studio 2015\Projects\PracaMagisterska\Lib\\" -ConfigXml x64\Release\priconfig.xml -OutputFile "C:\Users\Gruby\Documents\Visual Studio 2015\Projects\PracaMagisterska\x64\Release\Lib\Lib1.pri" -IndexName Lib1 -Verbose -Overwrite  
+     1>Done Building Project "C:\Users\Gruby\Documents\Visual Studio 2015\Projects\PracaMagisterska\Lib\Lib.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.03
+Time Elapsed 00:00:00.39

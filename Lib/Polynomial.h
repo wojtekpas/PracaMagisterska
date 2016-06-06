@@ -324,9 +324,10 @@ inline vector<Number> Polynomial::FindRoots(Number a, Number b)
 		SturmClear();
 	}
 	int numberOfRoots = NumberOfRoots(a, b);
-//	if (numberOfRoots)
-//		cout << numberOfRoots << " in " << "(" 
-//		<< a.ToString() << "," << b.ToString() << ")" << endl;
+	//	cout << numberOfRoots << " in " << "("
+	//		<< a.ToString() << "," << b.ToString() << ")" << endl;
+	if (numberOfRoots == 0)
+		return roots;
 	Number aValue;
 	aValue = PolynomialValue(a);
 	//cout << "aValue = " << aValue.ToString() << endl;
