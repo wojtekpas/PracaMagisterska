@@ -2,6 +2,7 @@
 
 \usepackage[pdftex]{graphicx}
 \usepackage{amsmath}
+\DeclareMathOperator{\sign}{sign}
 \usepackage{amssymb}
 \usepackage{textcomp}
 \usepackage[utf8]{inputenc}
@@ -138,7 +139,7 @@
 % rodzaj studiów, tylko dla mgr_titlepage
 \studies{Stacjonarne jednolite studia magisterskie}
 % opis pracy, tylko dla mgr_titlepage
-\descr{Opis pracy (jedno zdanie)}
+\descr{Obliczanie pierwiastków wielomianów i porównanie służących do tego struktur}
 % nr indeksu, tylko dla mgr_titlepage
 \indeks{137361}
 % katedra, tylko dla mgr_titlepage
@@ -161,12 +162,10 @@
 % właściwa część książki, numerowana arabskimi od 1
 \mainmatter
 
+\chapter{Wstęp}
 \chapter{Przegląd literatury}
 \section{Wielomiany}
 \subsection{Definicja}
-
-
-
 
 \begin{definition}
 	Wielomianem zmiennej rzeczywistej x nazywamy wyrażenie:
@@ -209,9 +208,13 @@ Na wielomianach, tak jak na liczbach możemy wykonywać podstawowe działania. N
 
 \subsubsection{Porównywanie wielomianów}
 
+Porównywanie należy do najbardziej elementarnych działań na wielomianach. Wymaga ono zwykłego porównania kolejnych współczynników, a jego długość trwania, zależy od ich liczby. Zapoznajmy się z twierdzeniem dotyczącym operacji porównywania wielomianów.
+
 \begin{theorem}
 	Dwa wielomiany uważamy za równe wtedy i tylko wtedy, gdy są tego samego stopnia, a ich kolejne współczynniki są równe.
 \end{theorem}
+
+Powyższe twierdzenie nie jest złożone, nie mniej w celu pełnego zrozumienia, zilustrujmy je przykładem. 
 
 \begin{example}
 	Mamy dane wielomian $W_1$ oraz wielomian $W_2$.
@@ -225,11 +228,19 @@ Na wielomianach, tak jak na liczbach możemy wykonywać podstawowe działania. N
 	$\forall{i\in N}\ a_i = b_i$.
 \end{example}
 
+Można zauwazyć, potencalny wpływ reprezentacji wielomianu na szybkość operacji porównania. Gdy mamy do czynienia z wielomianem, w którym uwzględniamy każdy współczynnik, także gdy jest on zerowy, złożoność czasowa porównania jest liniowa względem stopnia wielomianu. Natomiast w przypadku, gdy pomijamy wszystkie zerowe współczynniki wielomianu, złożoność również jest liniowa, ale tym razem względem liczby niezerowych współczynników wielomianów. Jak widać, w sytuacji, gdy stopień wielomianu jest znacznie większy od liczby zerowych współczynników, reprezentacja wielomianu ma niebagatelne znaczenie. \newline
+Dodatkowo, podobnie jak w przypadku porównywania liczb i sprawdzania kolejnych bitów, operacja porównania kończy się w momencie stwierdzenie, że porównywane współczynniki są różne lub porównaliśmy ze sobą już wszystkie współczynniki. Wynika z tego, że zakładając stały czas porównywania dwóch liczb, będącymi współczynnikami wielomianów, operacja porównania różnych wielomianów nigdy nie jest dłuższa od stwierdzenia, że porównywane wielomiany są równe.
+
 \subsubsection{Suma wielomianów}
+
+Dodawanie to kolejne elementarne działanie na wielomianach, które nie wymaga wykonywania skomplikowanych obliczeń.
 
 \begin{theorem}
 	Aby dodać dwa wielomiany, należy dodać ich wyrazy podobne.
 \end{theorem}
+
+Podobnie jak w przypadku porównywania czas dodawania wielomianów jest liniony, a ich reprezentacja ma zasadniczy wpływ na liczbę operacji dodawania. Pokażmy zastosowanie powyższego twierdzenia na przykładzie.
+
 \begin{example}
 	Mamy dane wielomian $W_1$ oraz wielomian $W_2$.
 	\begin{equation}
@@ -244,7 +255,7 @@ Na wielomianach, tak jak na liczbach możemy wykonywać podstawowe działania. N
 	\end{equation}
 \end{example}
 
-Na powyższym przykładzie łatwo zaobserwować, że stopień sumy dwóch wielomianów nie może być większy od większego ze stopni dodawanych wielomianów. W przypadku gdy oba te wielomiany są tego samego stopnia, o przeciwnym współczynniku przy najwyższej potędze, to stopień ten będzie mniejszy.
+Na powyższym przykładzie łatwo zaobserwować, że stopień sumy dwóch wielomianów nie może być większy od większego ze stopni dodawanych wielomianów.Znajduje to potwierdzenie w twierdzeniu, dotyczącym stopnia sumy wielomianów.
 
 \begin{theorem}
 	\begin{equation}
@@ -252,11 +263,17 @@ Na powyższym przykładzie łatwo zaobserwować, że stopień sumy dwóch wielom
 	\end{equation}
 \end{theorem}
 
+W przedstawionym twierdzeniu, należy uwagę na operator mniejsze równe. W przypadku gdy oba te wielomiany są tego samego stopnia, o przeciwnym współczynniku przy najwyższej potędze, to stopień ten będzie mniejszy.
+
 \subsubsection{Różnica wielomianów}
+
+Odejmowanie to operacja bliźniacza do dodowania, nie tylko w przypadku liczb, ale także w przypadku wielomianów. By pokazać olbrzymie podobieństwo tych operacji, zacznijmy od zapoznania się z definicją wielomianu przeciwnego.
 
 \begin{definition}
 	Wielomianem przeciwnym nazywamy wielomian, którego wszystkie współczynniki są przeciwne do danych.
 \end{definition}
+
+Spójrzmy na poniższy przykład, pokazujący, że dla każdego wielomianu można bardzo prosto zdefiniować wielomian przeciwny, zmieniając znak wszystkich jego współczynników.
 
 \begin{example}
 	Mamy dany wielomian $W_1$.
@@ -269,9 +286,13 @@ Na powyższym przykładzie łatwo zaobserwować, że stopień sumy dwóch wielom
 	\end{equation}
 \end{example}
 
+Wiemy już, czym jest wielomian przeciwny. Przedstawmy teraz twierdzenie mówiące jak odejmować od siebie wielomiany.
+
 \begin{theorem}
-	Aby obliczyć różnicę wielomianów $W_1$ i $W_2$, należy dodać ze sobą wielomiany $W_1$ i $-W_2$, czyli wielomian przeciwny do wielomianu $W_2$
+	Aby obliczyć różnicę wielomianów $W_1$ i $W_2$, należy dodać ze sobą wielomiany $W_1$ i $-W_2$, czyli wielomian przeciwny do wielomianu $W_2$.
 \end{theorem}
+
+Jak widać, przedstawione twierdzenie potwierdza analogię obliczania róznicy i sumy wielomianów. Spójrzmy na przykład, pokazujący jak obliczać różnicę wielomianów, potrafiając już je do siebie dodawać.
 
 \begin{example}
 	Mamy dane wielomian $W_1$ oraz wielomian $W_2$.
@@ -287,12 +308,12 @@ Na powyższym przykładzie łatwo zaobserwować, że stopień sumy dwóch wielom
 	\end{equation}
 \end{example}
 
-Wielomianem neutralnym ze względu na dodawanie i odejmowanie jest wielomian $W(x)=0$.
+Warto zauważyć, że wielomianem neutralnym ze względu na dodawanie i odejmowanie jest wielomian $W(x)=0$. Oznacza to, że po dodaniu lub odjęciu wielomianu neutralnego, dostaniemy wynik, będący danym wielomianem.
 
 \subsubsection{Iloczyn wielomianów}
 
 \begin{theorem}
-	Aby pomnożyć dwa wielomiany, należy wymnożyć przez siebie wyrazów obu wielomianów, a następnie dodać do siebie wyrazy podobne.
+	Aby pomnożyć dwa wielomiany, należy wymnożyć przez siebie wyrazy obu wielomianów, a następnie dodać do siebie wyrazy podobne.
 \end{theorem}
 
 \begin{example}
@@ -305,7 +326,7 @@ Wielomianem neutralnym ze względu na dodawanie i odejmowanie jest wielomian $W(
 	\end{equation}
 	Zdefiniujmy trzeci wielomian: $W_3(x) = W_1(x) * W_2(x)$. Wówczas:
 	\begin{equation}
-	W_3(x) = (a_0*b_0)x^{n+m} + (a_0b_1+a_1b_0)x^{n+m-1} + ... + (a_{n-1}b_m + a_nb_{m-1})x + a_nb_m
+	W_3(x) = (a_0b_0)x^{n+m} + (a_0b_1+a_1b_0)x^{n+m-1} + ... + (a_{n-1}b_m + a_nb_{m-1})x + a_nb_m
 	\end{equation}
 \end{example}
 
@@ -338,7 +359,7 @@ Na podstawie powyższego przykładu, możemy zaobserwować, że stopień wielomi
 			&P(x) = b_0x^m + b_1x^{m-1} + ... + b_{m-1}x + b_m \\
 		\end{split}
 	\end{equation}
-	Zdefiniujmy wielomian: $Q(x) = W(x) / P(x)$ oraz $Q(x) = W(x)\ mod\ P(x)$. Wówczas:
+	Zdefiniujmy wielomian: $Q(x) = \frac{W(x)}{P(x)}$ oraz $Q(x) = W(x)\ mod\ P(x)$. Wówczas:
 	\begin{equation}
 		\begin{split}
 			&Q(x) = c_0x^{n-m} + c_1x^{n-m-1} + ... + c_{n-m-1}x + c_{n-m} \\
@@ -367,7 +388,7 @@ Na podstawie powyższego przykładu, możemy zaobserwować, że stopień wielomi
 	\begin{equation}
 	\begin{split}
 		&deg(W') = deg(W) - 1,\ dla\ deg(W) > 0 \\
-		&W = 0,\ w\ pozostałych\ przypadkach
+		&W(x) = 0,\ w\ pozostałych\ przypadkach
 	\end{split}
 	\end{equation}
 \end{theorem}
@@ -391,7 +412,9 @@ W szczególnym przypadku reszta ta może być równa 0. Oznacza to, że liczba $
 \end{theorem}
 
 \begin{proof}
-	Jeżeli liczba $x_0$ jest pierwiastkiem wielomianu W, to wielomian ten możemy wyrazić jako iloczyn dwumianu $x - x_0$ oraz pewnego wielomianu Q: $W(x) = (x-x_0) * Q(x)$. Wyznaczając z tego wyrażenia wielomian Q, otrzymujemy $Q(x) = \frac{W(x)}{x-x_0}$. Widzimy zatem, że dzieląc wielomian W(x) przez dwumian $x-x_0$, otrzymujemy bez reszty, wielomian Q(x).
+	Jeżeli liczba $x_0$ jest pierwiastkiem wielomianu W, to wielomian ten możemy wyrazić jako iloczyn dwumianu $x - x_0$ oraz pewnego wielomianu Q:
+	$W(x) = (x-x_0) * Q(x)$.
+	Wyznaczając z tego wyrażenia wielomian Q, otrzymujemy $Q(x) = \frac{W(x)}{x-x_0}$. Widzimy zatem, że dzieląc wielomian W(x) przez dwumian $x-x_0$, otrzymujemy bez reszty, wielomian Q(x).
 \end{proof}
 
 \begin{theorem}
@@ -420,6 +443,8 @@ W szczególnym przypadku reszta ta może być równa 0. Oznacza to, że liczba $
 	k = m * NWW(b_0, b_1, ..., b_{n-1}, b_n),\ gdzie\ m\in Z
 	\end{equation}
 \end{theorem}
+
+\section{Eliminacja pierwiastków wielokrotnych}
 
 \begin{theorem}
 	Jeżeli liczba jest pierwiastkiem k-krotnym wielomianu W, to jest pierwiastkiem (k-1)-krotnym pochodnej tego wielomianu.
@@ -457,15 +482,13 @@ Jak widać powyższy przykład potwierdza zastosowanie przedstawionego twierdzen
 \end{theorem}
 
 \begin{proof}
-	Zdefiniujmy wielomian $W(x)=(x-x_1)^{k_1}*(x-x_2)^{k_2}*...*(x-x_{m-1})^{k_{m-1}}*(x-x_m)^{k_m}$. Przyjmijmy, że wielomian W jest stopnia n i posiada m różnych pierwiastków, gdzie $1\le m\le n,\ k_1+k_2+...+k_{m-1}+k_m=n$. Zdefiniujmy wielomian $P(x)=(x-x_1)*(x-x_2)*...*(x-x_{m-1})*(x-x_m)$, w którym każdy z pierwiastków wielomianu W występuję dokładnie jeden raz. Pierwiastków jest m, zatem wielomian P jest stopnia m. Dzieląc wielomian W przez wielomian P, otrzymujemy bez reszty wielomian $Q(x)=(x-x_1)^{k_1-1}*(x-x_2)^{k_2-1}*...*(x-x_{m-1})^{k_{m-1}-1}*(x-x_m)^{k_m-1}$, który posiada każdy z pierwiastków wielomianu W, krotności pomniejszonej o jeden. Skoro krotność każdego z m pierwiastków uległa zmniejszeniu o jeden, to stopień wielomianu Q w stosunku do wielomianu W zmniejszył się o m. Stopień wielomianu Q jest wieć równy n-m.
+	Zdefiniujmy wielomian: $W(x)=(x-x_1)^{k_1}*(x-x_2)^{k_2}*...*(x-x_{m-1})^{k_{m-1}}*(x-x_m)^{k_m}$. Przyjmijmy, że wielomian W jest stopnia n i posiada m różnych pierwiastków, gdzie $1\le m\le n,\ k_1+k_2+...+k_{m-1}+k_m=n$. Zdefiniujmy wielomian $P(x)=(x-x_1)*(x-x_2)*...*(x-x_{m-1})*(x-x_m)$, w którym każdy z pierwiastków wielomianu W występuję dokładnie jeden raz. Pierwiastków jest m, zatem wielomian P jest stopnia m. Dzieląc wielomian W przez wielomian P, otrzymujemy bez reszty wielomian $Q(x)=(x-x_1)^{k_1-1}*(x-x_2)^{k_2-1}*...*(x-x_{m-1})^{k_{m-1}-1}*(x-x_m)^{k_m-1}$, który posiada każdy z pierwiastków wielomianu W, krotności pomniejszonej o jeden. Skoro krotność każdego z m pierwiastków uległa zmniejszeniu o jeden, to stopień wielomianu Q w stosunku do wielomianu W zmniejszył się o m. Stopień wielomianu Q jest wieć równy n-m.
 	Na mocy twierdzenia wiemy także, że wielomian Q(x) jest podzielny również przez wielomian W', stopnia n-1. Zatem wielomian W' możemy przedstawić jako iloczyn wielomianu Q oraz innego wielomianu: $W'(x)=Q(x)*V(x)$. Wielomian V, zawiera wszystkie pierwiastki W', których nie posiadał wielomian W. Łatwo policzyć, że stopień wielomianu V jest równy: $\deg(V)=deg(W')-deg(Q)=(n-1)-(n-m)=n-1-n+m=m-1$. Jak widać, właśnie udowodniliśmy, że stopień ten jest równy liczbie różnych pierwiastków wielomianu W pomniejszonej o jeden.
 \end{proof}
 
-\subsection{Eliminacja pierwiastków wielokrotnych}
-
 \begin{example}
 	Dany jest wielomian W, określony wzorem: $W(x)=x^6-6x^4-4x^3+9x^2+12x+4$. Dokonajmy eliminacji pierwiastków wielokrotnych dla wielomianu W. \\
-	1. Obliczamy pochodną wielomianu.
+	Obliczamy pochodną wielomianu.
 	\begin{equation}
 	\begin{split}
 	&W'(x)=6*x^5-4*6x^3-3*4x^2+2*9x+12=\\
@@ -508,7 +531,7 @@ W ogólności twierdzenie Sturma można zastosować dla przedziału $(-\infty,+\
 	Liczba różnych pierwiastków rzeczywistych wielomianu W(x) jest równa $Z(-\infty)-Z(+\infty)$.
 \end{theorem}
 
-Stosując twierdzenie Sturma dla coraz mniejszych przedziałów możliwe jest wyznaczenie pierwiastków wielomianu z dowolną dokładnością. Sposób ten określony jest mianem metody Sturmy.
+Stosując twierdzenie Sturma dla coraz mniejszych przedziałów możliwe jest wyznaczenie pierwiastków wielomianu z dowolną dokładnością. Sposób ten określony jest mianem metody Sturma.
 Twierdzenie Sturma jest bardzo mocnym środkowiem używanym do znajdowania pierwiastków w określonym przedziale. Może być używana nie tylko dla wielomianów, ale dowolnej różniczkowalnej funkcji ciągłej.
 
 Przeanalizujmy teraz sposób konstruowania ciągu Sturma dla wielomianu W. Pierwszym wyrazem ciagu jest sam wielomian W. Z kolei drugim wyrazem jest pochodna wielomianu W. Kolejne wyrazy ciągu Sturma wyznaczamy obliczając resztę z ilorazu dwóch poprzednich wyrazów. Dzieje się to do uzyskania pierwszej reszty wielomianu, będącą wielomianem stopnia zerowego. Za każdym razem dzieląc wielomian stopnia n, przez wielomian stopnia m, gdzie $m<n$, mamy gwarancję, że wielomian będacy resztą tego ilorazu będzie stopnia mniejszego niż m. Korzystając z tego faktu, wiemy, że liczba wyrazów ciągu Sturma dla wielomianu W jest niewiększa od $\deg(W)+1$.
@@ -526,11 +549,21 @@ Można, więc zauważyć, że warunkiem wystarczającym i jednocześnie konieczn
 Warto zauwazyć, że dla liczb dostatecznie dużych, co do wartości bezwzględnej, z uwzględnieniem wartości niewłaściwych $+\infty$ oraz $-\infty$ liczba zmian znaków zależy wyłącznie od współczynnika stojącego przy najwyżej potędze wielomianu. Znajduje to potwierdzenie w poniższym twierdzeniu.
 
 \begin{theorem}
-	Dany jest wielomian $W_1(x) = ax^n, a > 0$, stopnia n oraz wielomian $W_2(x) = b_0x^{n-1} + b_1x^{n-2} + b_2x^{n-3} + ... + b_{n-2}x  + b_{n-1},\ gdzie\ b_0 > 0$, stopnia n-1. Wówczas $\lim_{x \to +\infty}\frac{W_1(x)}{W_2(x)} = +\infty$.
+	Jeżeli współczynnik stojący przy najwyższej potędze wielomianu jest większy od 0, to wartość tego wielomianu jest większa od zera w punkcie $x=+\infty$ oraz mniejsza od zera w punkcie $x=-\infty$.
+	Z kolei, gdy współczynnik stojący przy najwyższej potędze wielomianu jest mniejszy od 0, to wartość tego wielomianu jest mniejsza od zera w punkcie $x=+\infty$ oraz większa od zera w punkcie $x=-\infty$.
 \end{theorem}
 
+Na podstawie powyższego twierdzenia można zauważyć, że nie ma potrzeby wyliczania wartości wyrazów ciągu sturma dla wartości niewłaściwych, tzn. $x=-\infty$ oraz $x=+\infty.$ Dzieje się tak dlatego, że wartość wielomianu nie jest ważna, a istotny jest jedynie znak. Fakt ten ma duży wpływ na optymalizacje obliczeń, gdyż dla wielomianów wysokich stopni ograniczamy się jedynie do sprawdzenia znaku przy najwyższej potędze, pomijąc wykonywanie potęgowania, mnożenia i sumowania kolejnych wyrazów wielomianu.
+Jeżeli zależy nam, na obliczeniu wartości wielomianu, dla odpowiednio dużych x, będącego ilorazem dwóch wielomianów, możemy skorzystać z poniższego twierdzenia.
+
+\begin{theorem}
+	Dany jest wielomian $W_1(x) = a_0x^n + a_1x^{n-1} + a_2x^{n-2} + ... + a_{n-1}x  + a_n,\ gdzie \ a_0 \ne 0$, stopnia n oraz wielomian $W_2(x) = b_0x^{n-1} + b_1x^{n-2} + b_2x^{n-3} + ... + b_{n-2}x  + b_{n-1},\ gdzie\ b_0 \ne 0$, stopnia n-1. Wówczas $\lim_{x \to +\infty}\frac{W_1(x)}{W_2(x)} = \frac{a_0}{b_0}$ oraz $\lim_{x \to -\infty}\frac{W_1(x)}{W_2(x)} = -\frac{a_0}{b_0}.$
+\end{theorem}
+
+Jak widać jesteśmy w stanie ustalić znak, a nawet dokładną wartość, największego współczynnika wielomianu, będącego ilorazem dwóch innych wielomianów, wykonując proste dzielenie dwóch liczb, będących odpowiednio najwyższymi współczynnikami wielomianów - dzielnej i dzielnika.
 
 
+
 .\\
 .\\
 .\\
@@ -555,6 +588,20 @@ Warto zauwazyć, że dla liczb dostatecznie dużych, co do wartości bezwzględn
 .\\\\
 .\\\\
 .\\\\
+
+\chapter{Opis Rozwiązania}
+\section{Podział na moduły}
+\section{Główne klasy}
+\section{Główne funkcje}
+\section{Zewnętrze biblioteki}
+\section{Instrukcja programu}
+
+\chapter{Przeprowadzone testy}
+\section{Testy jednostkowe}
+\section{Testy interfejsu użytkownika}
+\section{Testy wydajności czasowej}
+\section{Testy wydajności pamięciowej}
+\chapter{Podsumowanie}
 
 
 \backmatter
@@ -563,6 +610,19 @@ Warto zauwazyć, że dla liczb dostatecznie dużych, co do wartości bezwzględn
 % rodzaj bibliografii
 \bibliographystyle{plain}
 % plik z wpisami bibliograficznymi
+\nocite{barbeau2003polynomials}
+\nocite{buell2004algorithmic}
+\nocite{burden2015numerical}
+\nocite{childs2012concrete}
+\nocite{granlund2015gnu}
+\nocite{kryszewski2014wyklad}
+\nocite{malik2009data}
+\nocite{mcnamee2007numerical}
+\nocite{mora2003solving}
+\nocite{pan2012structured}
+\nocite{polskie1968wiadomosci}
+\nocite{sierpinski1951zasady}
+\nocite{Warmus_Mieczyslaw_(1918-2007)_Metody}
 \bibliography{bibliografia}
 
 

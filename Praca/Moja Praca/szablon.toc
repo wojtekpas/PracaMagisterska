@@ -1,14 +1,27 @@
 \select@language {polish}
-\contentsline {chapter}{\numberline {1}Przegl\IeC {\k a}d literatury}{1}
-\contentsline {section}{\numberline {1.1}Wielomiany}{1}
-\contentsline {subsection}{\numberline {1.1.1}Definicja}{1}
-\contentsline {subsection}{\numberline {1.1.2}Podstawowe dzia\IeC {\l }ania na wielomianach}{1}
-\contentsline {subsubsection}{Por\IeC {\'o}wnywanie wielomian\IeC {\'o}w}{2}
-\contentsline {subsubsection}{Suma wielomian\IeC {\'o}w}{2}
-\contentsline {subsubsection}{R\IeC {\'o}\IeC {\.z}nica wielomian\IeC {\'o}w}{2}
-\contentsline {subsubsection}{Iloczyn wielomian\IeC {\'o}w}{3}
-\contentsline {subsubsection}{Iloraz wielomian\IeC {\'o}w}{3}
-\contentsline {subsubsection}{Pochodna wielomianu}{4}
-\contentsline {subsubsection}{NWD wielomian\IeC {\'o}w}{4}
-\contentsline {subsection}{\numberline {1.1.3}Eliminacja pierwiastk\IeC {\'o}w wielokrotnych}{6}
-\contentsline {section}{\numberline {1.2}Twierdzenie Sturma}{7}
+\contentsline {chapter}{\numberline {1}Wst\IeC {\k e}p}{1}
+\contentsline {chapter}{\numberline {2}Przegl\IeC {\k a}d literatury}{3}
+\contentsline {section}{\numberline {2.1}Wielomiany}{3}
+\contentsline {subsection}{\numberline {2.1.1}Definicja}{3}
+\contentsline {subsection}{\numberline {2.1.2}Podstawowe dzia\IeC {\l }ania na wielomianach}{3}
+\contentsline {subsubsection}{Por\IeC {\'o}wnywanie wielomian\IeC {\'o}w}{4}
+\contentsline {subsubsection}{Suma wielomian\IeC {\'o}w}{4}
+\contentsline {subsubsection}{R\IeC {\'o}\IeC {\.z}nica wielomian\IeC {\'o}w}{5}
+\contentsline {subsubsection}{Iloczyn wielomian\IeC {\'o}w}{6}
+\contentsline {subsubsection}{Iloraz wielomian\IeC {\'o}w}{6}
+\contentsline {subsubsection}{Pochodna wielomianu}{7}
+\contentsline {subsubsection}{NWD wielomian\IeC {\'o}w}{7}
+\contentsline {section}{\numberline {2.2}Eliminacja pierwiastk\IeC {\'o}w wielokrotnych}{8}
+\contentsline {section}{\numberline {2.3}Twierdzenie Sturma}{10}
+\contentsline {chapter}{\numberline {3}Opis Rozwi\IeC {\k a}zania}{13}
+\contentsline {section}{\numberline {3.1}Podzia\IeC {\l } na modu\IeC {\l }y}{13}
+\contentsline {section}{\numberline {3.2}G\IeC {\l }\IeC {\'o}wne klasy}{13}
+\contentsline {section}{\numberline {3.3}G\IeC {\l }\IeC {\'o}wne funkcje}{13}
+\contentsline {section}{\numberline {3.4}Zewn\IeC {\k e}trze biblioteki}{13}
+\contentsline {section}{\numberline {3.5}Instrukcja programu}{13}
+\contentsline {chapter}{\numberline {4}Przeprowadzone testy}{15}
+\contentsline {section}{\numberline {4.1}Testy jednostkowe}{15}
+\contentsline {section}{\numberline {4.2}Testy interfejsu u\IeC {\.z}ytkownika}{15}
+\contentsline {section}{\numberline {4.3}Testy wydajno\IeC {\'s}ci czasowej}{15}
+\contentsline {section}{\numberline {4.4}Testy wydajno\IeC {\'s}ci pami\IeC {\k e}ciowej}{15}
+\contentsline {chapter}{\numberline {5}Podsumowanie}{17}
