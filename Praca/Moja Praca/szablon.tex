@@ -255,7 +255,7 @@ Podobnie jak w przypadku porównywania czas dodawania wielomianów jest liniony,
 	\end{equation}
 \end{example}
 
-Na powyższym przykładzie łatwo zaobserwować, że stopień sumy dwóch wielomianów nie może być większy od większego ze stopni dodawanych wielomianów.Znajduje to potwierdzenie w twierdzeniu, dotyczącym stopnia sumy wielomianów.
+Na powyższym przykładzie łatwo zaobserwować, że stopień sumy dwóch wielomianów nie może być większy od większego ze stopni dodawanych wielomianów. Znajduje to potwierdzenie w twierdzeniu, dotyczącym stopnia sumy wielomianów.
 
 \begin{theorem}
 	\begin{equation}
@@ -312,9 +312,13 @@ Warto zauważyć, że wielomianem neutralnym ze względu na dodawanie i odejmowa
 
 \subsubsection{Iloczyn wielomianów}
 
+Mnożenie to kolejne operacja zaliczająca się do podstawowych działań na wielomianach. Jego zasady przypominają nieco zwykłe mnożenie. Dokonujemy przemnożenia odpowiednich wyrazów, z tą różnicą, że w tym przypadku po prostu dodajemy wartości potęg dla odpowiednich współczynników. Zapoznajmy się z twierdzeniem, mówiącym dokładnie jak należy obliczać iloczyn wielomianów.
+
 \begin{theorem}
 	Aby pomnożyć dwa wielomiany, należy wymnożyć przez siebie wyrazy obu wielomianów, a następnie dodać do siebie wyrazy podobne.
 \end{theorem}
+
+Jak wynika z przedstawionej definicji poza mnożeniem dwóch liczb, mnożenie wielomianów w części polega na redukcji wyrazów podobnych, czyli operacji bazującej na dodawaniu. Spójrzmy na przykład, pokazujący jak definiuje się wielomian, będacy iloczynem dwóch wielomianów.
 
 \begin{example}
 	Mamy dane wielomian $W_1$ oraz wielomian $W_2$.
@@ -326,20 +330,29 @@ Warto zauważyć, że wielomianem neutralnym ze względu na dodawanie i odejmowa
 	\end{equation}
 	Zdefiniujmy trzeci wielomian: $W_3(x) = W_1(x) * W_2(x)$. Wówczas:
 	\begin{equation}
-	W_3(x) = (a_0b_0)x^{n+m} + (a_0b_1+a_1b_0)x^{n+m-1} + ... + (a_{n-1}b_m + a_nb_{m-1})x + a_nb_m
+		\begin{split}
+		W_3(x) = &(a_0b_0)x^{n+m} + (a_0b_1+a_1b_0)x^{n+m-1} + (a_0b_2+a_1b_1+a_2b_0)x^{b+m-1} + ... \\
+		&+ (a_{n-2}b_m+a_{n-1}b_{m-1}+a_nb_m)x^2 + (a_{n-1}b_m + a_nb_{m-1})x + a_nb_m \\
+		\end{split}
 	\end{equation}
 \end{example}
 
-Na podstawie powyższego przykładu, możemy zaobserwować, że stopień wielomianu, będącego iloczynem dwóch wielomianów niezerowych, jest równy sumie stopni tych wielomianów. Jeżeli jeden z czynników jest wielomianem zerowym, to stopień iloczynu jest równy 0.
+Można zauważyć, że po wymnożeniu wszystkich współczynników wielomianu liczba wyrazów iloczynu wynosi $(n+1)(m+1)$. Po dokonaniu redukcji wyrazów podobnych liczba ta ulega zmniejszeniu do wartości $n+m+2$. Oznacza to zmianę liczby wyrazów z wartości kwadratowej, do wartości liniowej względem stopni wielomianów. Liczba wyrazów podobnych, po przemnożeniu dwóch wielomianów jest symetryczna względem wykładników potęg poszczególnych współczynników. Można zauważyć, że skrajne wyrazy posiadają tylko po jednym wyrazie potęgi, a zbliżając się do współczynników o środkowych indeksach, liczba ta wzrasta, aż do wartości równej połowie stopnia otrzymanego wielomianu. \newline
+
+Widzimy, że czas operacji mnożenia wielomianów jest kwadratowy, wzgędem stopni mnożonych przez siebie czynników. Należy zauważyć, że jeżeli użyjemy reprezentacji wielomianu, w których posiadamy informację tylko o jego niezerowych współczynników, to czas operacji mnożenie będzie nadal kwadratowy, jednak względem liczby tych współczynników. Dla wielomianów wysokich stopni, w których zaledwie kilka współczynników jest niezerowych różnica ta może być niegatelna i w skrajnych przypadkach czas operacji może zmniejszyć się z kwadratowego, do czasu stałego.
+
+Na podstawie powyższego przykładu, możemy także zaobserwować, że stopień wielomianu, będącego iloczynem dwóch wielomianów niezerowych, jest standardowo równy sumie stopni tych wielomianów. Wyjątkiem jest sytuacja gdy jeden z czynników jest wielomianem zerowym. Wówczas wynik takiej operacji również będzie wielomianem zerowym. Fakt ten znajduje potwierdzenie w poniższym twierdzeniu.
 
 \begin{theorem}
 	\begin{equation}
 	\begin{split}
-	&deg(W_1 * W_2) = deg(W_1) + deg(W_2),\ dla\ W_1 != 0, W_2 != 0 \\
-	&deg(W_1 * W_2) = 0,\ w \ pozostałych\ przypadkach
+	&deg(W_1 * W_2) = deg(W_1) + deg(W_2),\ dla\ W_1(x) != 0, W_2(x) != 0 \\
+	&W_3(x) = W_1(x) * W_2(x) = 0,\ w \ pozostałych\ przypadkach
 	\end{split}
 	\end{equation}
 \end{theorem}
+
+Z powyższego twierdzenia można zauważyć, że stopień otrzymanego wielomianu nigdy nie będzie wyższy od dwukrotności większego ze stopni mnożonych wielomianów.
 
 \subsubsection{Iloraz wielomianów}
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  14 JUN 2016 01:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  15 JUN 2016 00:14
 entering extended mode
 **./szablon.tex
 (szablon.tex
@@ -1188,39 +1188,40 @@ Rozdzia\l  1.
 ]
 Rozdzia\l  2.
 [3] [4] [5]
+Underfull \hbox (badness 10000) in paragraph at lines 340--341
 
-LaTeX Warning: Command \l invalid in math mode on input line 340.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 340.
+ []
 
 [6]
 
-LaTeX Warning: Command \l invalid in math mode on input line 392.
+LaTeX Warning: Command \l invalid in math mode on input line 351.
 
 
-LaTeX Warning: Command \l invalid in math mode on input line 392.
+LaTeX Warning: Command \l invalid in math mode on input line 351.
 
 [7]
 
-LaTeX Warning: Command \' invalid in math mode on input line 474.
+LaTeX Warning: Command \l invalid in math mode on input line 405.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 474.
+LaTeX Warning: Command \l invalid in math mode on input line 405.
+
+[8]
+
+LaTeX Warning: Command \' invalid in math mode on input line 487.
 
 
-Underfull \vbox (badness 1502) has occurred while \output is active []
+LaTeX Warning: Command \' invalid in math mode on input line 487.
 
- [8]
-[9]
-Overfull \hbox (1.9686pt too wide) in paragraph at lines 531--532
+[9] [10]
+Overfull \hbox (1.9686pt too wide) in paragraph at lines 544--545
 []\T1/lmr/m/it/10 Liczba ró»-nych pier-wiast-ków rze-czy-wi-stych wie-lo-mianu 
 W(x) jest równa $\OML/lmm/m/it/10 Z\OT1/lmr/m/n/10 (\OMS/lmsy/m/n/10  1\OT1/lmr
 /m/n/10 ) \OMS/lmsy/m/n/10  $
  []
 
-[10]
-Overfull \hbox (5.6166pt too wide) in paragraph at lines 560--561
+[11]
+Overfull \hbox (5.6166pt too wide) in paragraph at lines 573--574
 []\T1/lmr/m/it/10 Dany jest wie-lo-mian $\OML/lmm/m/it/10 W[]\OT1/lmr/m/n/10 (\
 OML/lmm/m/it/10 x\OT1/lmr/m/n/10 ) = \OML/lmm/m/it/10 a[]x[] \OT1/lmr/m/n/10 + 
 \OML/lmm/m/it/10 a[]x[] \OT1/lmr/m/n/10 + \OML/lmm/m/it/10 a[]x[] \OT1/lmr/m/n/
@@ -1228,71 +1229,71 @@ OML/lmm/m/it/10 x\OT1/lmr/m/n/10 ) = \OML/lmm/m/it/10 a[]x[] \OT1/lmr/m/n/10 +
 10 + \OML/lmm/m/it/10 a[];  gdzie a[] \OMS/lmsy/m/n/10 6\OT1/lmr/m/n/10 =$
  []
 
-[11]
-Underfull \hbox (badness 10000) in paragraph at lines 567--591
+
+Underfull \hbox (badness 10000) in paragraph at lines 580--604
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 567--591
+Underfull \hbox (badness 10000) in paragraph at lines 580--604
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 567--591
+Underfull \hbox (badness 10000) in paragraph at lines 580--604
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 567--591
+Underfull \hbox (badness 10000) in paragraph at lines 580--604
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 567--591
+Underfull \hbox (badness 10000) in paragraph at lines 580--604
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 567--591
+Underfull \hbox (badness 10000) in paragraph at lines 580--604
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 567--591
+Underfull \hbox (badness 10000) in paragraph at lines 580--604
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 567--591
+Underfull \hbox (badness 10000) in paragraph at lines 580--604
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 567--591
+Underfull \hbox (badness 10000) in paragraph at lines 580--604
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 567--591
+Underfull \hbox (badness 10000) in paragraph at lines 580--604
 
  []
 
-[12]
-Rozdzia\l  3.
-[13
-
-] [14
+[12] [13] [14
 
 ]
-Rozdzia\l  4.
+Rozdzia\l  3.
 [15] [16
 
 ]
-Rozdzia\l  5.
+Rozdzia\l  4.
 [17] [18
 
-] (szablon.bbl) [19
+]
+Rozdzia\l  5.
+[19] [20
+
+] (szablon.bbl) [21
 
 ] (szablon.aux)
 
@@ -1302,11 +1303,11 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of TeX's memory you used:
  17060 strings out of 493634
  311010 string characters out of 3141314
- 355751 words of memory out of 3000000
+ 354750 words of memory out of 3000000
  20083 multiletter control sequences out of 15000+200000
  53721 words of font info for 43 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 48i,15n,54p,901b,423s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 48i,15n,54p,901b,425s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Progr
 am Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Program Files (x
 86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program Files (x86)/MiKTeX 2.9/
@@ -1321,9 +1322,9 @@ eX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts
 b><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Progr
 am Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmsy5.pfb><C:/Program Files (x8
 6)/MiKTeX 2.9/fonts/type1/public/lm/lmsy7.pfb>
-Output written on szablon.pdf (23 pages, 264194 bytes).
+Output written on szablon.pdf (25 pages, 267881 bytes).
 PDF statistics:
- 138 PDF objects out of 1000 (max. 8388607)
+ 145 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  23 words of extra memory for PDF output out of 10000 (max. 10000000)
 
