@@ -400,12 +400,16 @@ Jak widać, twierdzenie potwierdza nasze obserwacje i wnioski dotyczące stopni 
 
 \subsubsection{Pochodna wielomianu}
 
+Wielomiany jako przykład funkcji ciągłej, pozwalają na obliczanie pochodnych. By przekonać się, że jest to przykład jednej z prostszych operacji na wielomianach, zapoznajmy się z definicją.
+
 \begin{definition}
 	Dany jest wielomian W, określony wzorem $W(x) = a_0x^n + a_1x^{n-1} + ... + a_{n-1}x + a_n$. Pochodną wielomianu W nazywamy wielomian W' i wyrażamy wzorem:
 	\begin{equation}
 	W(x) = na_0x^{n-1} + (n-1)a_1x^{n-2} + ... + 2a_{n-2}x + a_{n-1}
 	\end{equation}
 \end{definition}
+
+Widzimy, że powstały wielomian powstał poprzez pomnożenie wartości każdego z współczynników przez stojącą przy danym wyrazie potęgę, a następnie obniżenie jej wartości o jeden. W ten sposób potęgi wszystkich wyrazów wielomianu obniżają się. Wyjątkiem jest tutaj potęga o wartości zero, czyli stała. Pochodna z funkcji stałej jest zawsze równa zero, dlatego została pominięta w powyższym wzorze. O stopniu pochodnej wielomianu mówi poniższe twierdzenie.
 
 \begin{theorem}
 	\begin{equation}
@@ -416,41 +420,63 @@ Jak widać, twierdzenie potwierdza nasze obserwacje i wnioski dotyczące stopni 
 	\end{equation}
 \end{theorem}
 
+Jak widać dla wszystkich wielomianów, nie będących stałą liczbową, stopień ich pochodnej ulega zmniejszeniu o jeden. Czas operacji obliczania pochodnej wielomianu jest porównywalny, z obliczaniem sumy wielomianów, gdyż wystarczy, że dokonamy jednokrotnego obliczania każdego z współczynników.
+
 \subsubsection{NWD wielomianów}
 
-\begin{theorem}
-	Niezerowy wielomian, o współczynnikach rzeczywistych, jest jednoznacznie rozkładalny na czynniki liniowe lub nierozkładalne czynniki kwadratowe, o współczynnikach rzeczywistych.
-\end{theorem}
+\subsection{Dodatkowe twierdzenia dotyczące wielomianów}
 
-Oznacza to, że nie da się rozłożyć jednego wielomianu na czynniki, na dwa różne sposoby, tzn. tak, by istniał chociaż jeden czynnik (lub jego proporcjonalny odpowiednik), nie występujący w drugim rozkładzie.
+Istnieje mnóstwo twierdzień dotyczących wielomianów. Zapoznajmy się z tymi, które ułatwią nam znajdowanie pierwiastków wielomianów.
 
 \begin{theorem}
 	Jeżeli wielomian W(x) podzelimy przez dwumian $x - x_0$, to reszta z tego dzielenia jest równa wartości tego wielomianu dla $x = x_0$.
 \end{theorem}
 
-W szczególnym przypadku reszta ta może być równa 0. Oznacza to, że liczba $x_0$ jest pierwiastkiem tego wielomianu.
+W szczególnym przypadku reszta ta może być równa 0. Oznacza to, że liczba $x_0$ jest pierwiastkiem tego wielomianu. Wynika z tego bezpośrednio kolejne twierdzenie, znane jako twierdzenie Bezout.
 
 \begin{theorem}[Bezout]
-	Liczba $x_0$ jest pierwiastkiem wielomianu W(x) wtedy i tylko wtedy, gdy wielomian jest podzielny przez dwumian $x - x_0$
+	Liczba $x_0$ jest pierwiastkiem wielomianu W(x) wtedy i tylko wtedy, gdy wielomian jest podzielny przez dwumian $x - x_0$.
 \end{theorem}
 
+Dodatkowo zapoznajmy się jeszcze z krótkim dowodem poprawności powyższego twierdzenia.
+
 \begin{proof}
-	Jeżeli liczba $x_0$ jest pierwiastkiem wielomianu W, to wielomian ten możemy wyrazić jako iloczyn dwumianu $x - x_0$ oraz pewnego wielomianu Q:
-	$W(x) = (x-x_0) * Q(x)$.
-	Wyznaczając z tego wyrażenia wielomian Q, otrzymujemy $Q(x) = \frac{W(x)}{x-x_0}$. Widzimy zatem, że dzieląc wielomian W(x) przez dwumian $x-x_0$, otrzymujemy bez reszty, wielomian Q(x).
+	Jeżeli liczba $x_0$ jest pierwiastkiem wielomianu W, to wielomian ten możemy wyrazić jako iloczyn dwumianu $x - x_0$ oraz pewnego wielomianu Q: $W(x) = (x-x_0) * Q(x)$. Wyznaczając z tego wyrażenia wielomian Q, otrzymujemy $Q(x) = \frac{W(x)}{x-x_0}$. Widzimy zatem, że dzieląc wielomian W(x) przez dwumian $x-x_0$, otrzymujemy bez reszty, wielomian Q(x).
 \end{proof}
+
+Przejdźmy teraz, to twierdzenia mówiący o pierwiastkach wielokrotnych, bazującego na twierdzeniu Bezout.
 
 \begin{theorem}
 	Liczba $x_0$ jest pierwiastkiem k-krotnym wielomianu W(x) wtedy i tylko wtedy, gdy wielomian jest podzielny przez $(x - x_0)^k$ i nie jest podzielny przez $(x - x_0)^{k+1}$.
 \end{theorem}
 
-\begin{proof}
-	Dowód jest analogiczny, jak dla twierdzenia Bezout. Jedyną różnicą jest to, że wielomian W przedstawiamy jako: $W(x) = (x-x_0)^k * Q(x)$.
-\end{proof}
+Dowód poprawności jest analogiczny, jak dla twierdzenia Bezout. Jedyną różnicą jest to, że wielomian W przedstawiamy jako: $W(x) = (x-x_0)^k * Q(x)$.
 
 \begin{theorem}
 	Każdy wielomian W(x) nie będący wielomianem zerowym jest iloczynem czynników stopnia co najwyżej drugiego
 \end{theorem}
+
+\begin{theorem}
+	Niezerowy wielomian, o współczynnikach rzeczywistych, jest jednoznacznie rozkładalny na czynniki liniowe lub nierozkładalne czynniki kwadratowe, o współczynnikach rzeczywistych.
+\end{theorem}
+
+Oznacza to, że nie da się rozłożyć jednego wielomianu na czynniki, na dwa różne sposoby, tzn. tak, by istniał chociaż jeden czynnik (lub jego proporcjonalny odpowiednik), nie występujący w drugim rozkładzie. Ważnym aspektem, wynikającym z powyższego twierdzenia jest mowa, o tym że nie wszystkie wielomiany da się rozłożyć na czynniki liniowe, o współczynnikach całkowitych. Spójrzmy na pokazujący to przykład.
+
+\begin{example}
+	Mamy dany wielomian $W(x)=x^3-1$. Rózłóżmy go na czynniki.
+	Wiemy, że pierwiastkiem tego wielomianu jest $x_0 = 1$, zatem możemy przedstawić wielomian W jako iloczyn wielomianu $x-1$ oraz drugiego wielomianu.
+	\begin{equation}
+	\begin{split}
+	W(x)=&x^3-1=x^3-x^2+x^2-x+x-1=(x-1)x^2+(x-1)x+x-1 = \\
+	&=(x-1)(x2+x+1) \\
+	&\Delta = 1^2 - 4*1*1 = 1 - 4 = -3 < 0 - brak\ pierwiastków\ rzeczywistych\\
+	\end{split}
+	\end{equation}
+	Jak widać drugi z czynników jest właśnie przykładem nierozkładalnego czynnika kwadratowego, o współczynnikach rzeczywistych.
+\end{example}
+
+Powyższy czynnik da się rozłożyć na dwa czynniki liniowe, o współczynnikach zespolonych. W pracy tej będziemy jednak mówić wyłącznie o współczynnikach rzeczywistych, najczęściej zawężając jeszcze zbiór potencjalnych współczynników, do liczb wymiernych. \newline
+Zapoznajmy się z kolejnym twierdzeniem, mówiącym o wartości wielomianu w danym punkcie.
 
 \begin{theorem}
 	Każdy wielomian stopnia nieparzystego, ma przynajmniej jeden pierwiastek rzeczywisty.
