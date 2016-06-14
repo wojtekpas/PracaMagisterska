@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  15 JUN 2016 00:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  15 JUN 2016 00:45
 entering extended mode
 **./szablon.tex
 (szablon.tex
@@ -1201,27 +1201,27 @@ LaTeX Warning: Command \l invalid in math mode on input line 351.
 
 [7]
 
-LaTeX Warning: Command \l invalid in math mode on input line 405.
+LaTeX Warning: Command \l invalid in math mode on input line 415.
 
 
-LaTeX Warning: Command \l invalid in math mode on input line 405.
+LaTeX Warning: Command \l invalid in math mode on input line 415.
 
-[8]
+[8] [9]
 
-LaTeX Warning: Command \' invalid in math mode on input line 487.
+LaTeX Warning: Command \' invalid in math mode on input line 497.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 487.
+LaTeX Warning: Command \' invalid in math mode on input line 497.
 
-[9] [10]
-Overfull \hbox (1.9686pt too wide) in paragraph at lines 544--545
+[10] [11]
+Overfull \hbox (1.9686pt too wide) in paragraph at lines 554--555
 []\T1/lmr/m/it/10 Liczba ró»-nych pier-wiast-ków rze-czy-wi-stych wie-lo-mianu 
 W(x) jest równa $\OML/lmm/m/it/10 Z\OT1/lmr/m/n/10 (\OMS/lmsy/m/n/10  1\OT1/lmr
 /m/n/10 ) \OMS/lmsy/m/n/10  $
  []
 
-[11]
-Overfull \hbox (5.6166pt too wide) in paragraph at lines 573--574
+[12]
+Overfull \hbox (5.6166pt too wide) in paragraph at lines 583--584
 []\T1/lmr/m/it/10 Dany jest wie-lo-mian $\OML/lmm/m/it/10 W[]\OT1/lmr/m/n/10 (\
 OML/lmm/m/it/10 x\OT1/lmr/m/n/10 ) = \OML/lmm/m/it/10 a[]x[] \OT1/lmr/m/n/10 + 
 \OML/lmm/m/it/10 a[]x[] \OT1/lmr/m/n/10 + \OML/lmm/m/it/10 a[]x[] \OT1/lmr/m/n/
@@ -1230,60 +1230,60 @@ OML/lmm/m/it/10 x\OT1/lmr/m/n/10 ) = \OML/lmm/m/it/10 a[]x[] \OT1/lmr/m/n/10 +
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 580--604
+Underfull \hbox (badness 10000) in paragraph at lines 590--614
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 580--604
+Underfull \hbox (badness 10000) in paragraph at lines 590--614
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 580--604
+Underfull \hbox (badness 10000) in paragraph at lines 590--614
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 580--604
+Underfull \hbox (badness 10000) in paragraph at lines 590--614
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 580--604
+Underfull \hbox (badness 10000) in paragraph at lines 590--614
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 580--604
+Underfull \hbox (badness 10000) in paragraph at lines 590--614
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 580--604
+Underfull \hbox (badness 10000) in paragraph at lines 590--614
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 580--604
+Underfull \hbox (badness 10000) in paragraph at lines 590--614
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 580--604
+Underfull \hbox (badness 10000) in paragraph at lines 590--614
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 580--604
+Underfull \hbox (badness 10000) in paragraph at lines 590--614
 
  []
 
-[12] [13] [14
-
-]
+[13] [14]
 Rozdzia\l  3.
-[15] [16
+[15
+
+] [16
 
 ]
 Rozdzia\l  4.
@@ -1307,7 +1307,7 @@ Here is how much of TeX's memory you used:
  20083 multiletter control sequences out of 15000+200000
  53721 words of font info for 43 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 48i,15n,54p,901b,425s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 48i,15n,54p,921b,423s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Progr
 am Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Program Files (x
 86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program Files (x86)/MiKTeX 2.9/
@@ -1322,7 +1322,7 @@ eX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts
 b><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Progr
 am Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmsy5.pfb><C:/Program Files (x8
 6)/MiKTeX 2.9/fonts/type1/public/lm/lmsy7.pfb>
-Output written on szablon.pdf (25 pages, 267881 bytes).
+Output written on szablon.pdf (25 pages, 269318 bytes).
 PDF statistics:
  145 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

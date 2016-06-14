@@ -356,13 +356,19 @@ Z powyższego twierdzenia można zauważyć, że stopień otrzymanego wielomianu
 
 \subsubsection{Iloraz wielomianów}
 
+Dzielenie to zdecydowanie najtrudniejsza z elementarnych operacji na wielomianach. Aby dobrze zrozumieć jego zasady zapoznajmy się z definicją podzielności wielomianów oraz dzielnika wielomianu.
+
 \begin{definition}
 	Wielomian W(x) nazywamy podzielnym przez niezerowy wielomian P(x) wtedy i tylko wtedy, gdy istnieje taki wielomian Q(x), że spełniony jest warunek $W(x) = P(x) * Q(x)$. Wówczas: wielomian Q(x) nazywamy ilorazem wielomianu W(x) przez P(x), zaś wielomian P(x) nazywamy dzielnikiem wielomianu W(x).
 \end{definition}
 
+Bardzo ważnym aspektem obliczania ilorazu wielomianów jest reszta z dzielenia. Spójrzmy na poniższą definicję.
+
 \begin{definition}
 	Wielomian R(x) nazywamy resztą z dzielenia wielomianu W(x) przez niezerowy wielomian P(x) wtedy i tylko wtedy, gdy istnieje taki wielomian Q(x), że spełniony jest warunek $W(x) = P(x) * Q(x) + R(x)$.
 \end{definition}
+
+Łatwo zauważyć analogię w wyżej przedstawionych wzorach. Różnią się one właśnie wielomianem $R(x)$, czyli resztą z dzielenia. Gdy jest ona wielomianem zerowym, to znaczy, że mamy do czynienia z dzieleniem bez reszty i mówimy o podzielności dwóch wielomianów. Spórzmy na przykład, w którym zdefiniowane zostały dwa wielomiany, będące ilorazem i resztą z dzielenia dwóch wielomianów.
 
 \begin{example}
 	Mamy dane wielomian W oraz wielomian P.
@@ -375,17 +381,21 @@ Z powyższego twierdzenia można zauważyć, że stopień otrzymanego wielomianu
 	Zdefiniujmy wielomian: $Q(x) = \frac{W(x)}{P(x)}$ oraz $Q(x) = W(x)\ mod\ P(x)$. Wówczas:
 	\begin{equation}
 		\begin{split}
-			&Q(x) = c_0x^{n-m} + c_1x^{n-m-1} + ... + c_{n-m-1}x + c_{n-m} \\
+			&Q(x) = c_0x^{n-m} + c_1x^{n-m-1} + ... + c_{n-m-1}x + c_{n-m},\ gdzie\ c_0\ne 0 \\
 			&R(x) = d_0x^{n-m-1} + d_1x^{n-m-2} + ... + d_{n-m-2}x + d_{n-m-1} \\
 		\end{split}
 	\end{equation}
 \end{example}
+
+Zwróćmy uwagę na potęgi stojące przy najwyższych potęgach wielomianów $Q(x)$ oraz $R(x)$. Widzimy, że stopień ilorazu wielomianów jest zawsze równy różnicy stopni wielomianów, będących dzielną i dzielnikiem. Najważniejszym aspektem jest jednak fakt, że stopień reszty z dzielenia wielomianów jest zawsze mniejszy od stopnia ilorazu. Nie można natomiast ustalić jego wartości, bez dokładnej znajomości wielomianów W i P. W przykładzie podkreślony został fakt, że współczynnik stojący przy x, o potędze $n-m-1$ może być zerem. To samo tyczy się także kolejnych współczynników. Gdy wszystkie one są zerami, to znaczy, że mamy do czynienia z resztą, będąco wielomianem zerowym. Oznacza to wówczas, że wielomian W jest podzielny przez wielomian P. Poniżej znajduje się twierdzenie, o stopniach wielomianów, będących ilorazem i resztą z dzielenia.
 
 \begin{theorem}
 	\begin{equation}
 	deg(W_1\ mod\ W_2) < deg(W_1 / W_2) = deg(W_1) - deg(W_2)
 	\end{equation}
 \end{theorem}
+
+Jak widać, twierdzenie potwierdza nasze obserwacje i wnioski dotyczące stopni obu wielomianów.
 
 
 \subsubsection{Pochodna wielomianu}
