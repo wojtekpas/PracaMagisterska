@@ -495,9 +495,13 @@ Zapoznajmy się z kolejnym twierdzeniem, mówiącym o wartości wielomianu w dan
 
 \section{Eliminacja pierwiastków wielokrotnych}
 
+Ważnym aspektem obliczanie zer wielomianów jest eliminacja pierwiastków wielokrotnych. Jest ona niezbędna, by móc skorzystać z metody Sturmy. Zapoznajmy się z twierdzeniem dotyczącym krotności pierwiastków pochodnej wielomianu.
+
 \begin{theorem}
 	Jeżeli liczba jest pierwiastkiem k-krotnym wielomianu W, to jest pierwiastkiem (k-1)-krotnym pochodnej tego wielomianu.
 \end{theorem}
+
+By lepiej zrozumieć twierdzenie, spójrzmy na poniższy przykład.
 
 \begin{example}
 	Mamy dany wielomian $W(x) = x^3 + 2x^2 + x$. Obliczmy teraz kolejne pochodne wielomianu W.
@@ -524,16 +528,20 @@ Zapoznajmy się z kolejnym twierdzeniem, mówiącym o wartości wielomianu w dan
 	\end{equation}
 \end{example}
 
-Jak widać powyższy przykład potwierdza zastosowanie przedstawionego twierdzenia. Widzimy, że krotność wszystkich pierwiastków ulega zmniejszeniu o 1, w kolejnej pochodnej. Dodatkowo możemy zauwazyć, że pochodna może zawierać także pierwiastki, których nie miał dany wielomian. Ma to miejsce w przypadku, gdy wielomian, posiada przynajmniej dwa różne pierwiastki. Potwierdza to poniższe twierdzenie.
+Jak widać powyższy przykład potwierdza zastosowanie przedstawionego twierdzenia. Widzimy, że krotność wszystkich pierwiastków ulega zmniejszeniu o jeden, w kolejnej pochodnej. Dodatkowo możemy zauwazyć, że pochodna może zawierać także pierwiastki, których nie miał dany wielomian. Ma to miejsce w przypadku, gdy wielomian, posiada przynajmniej dwa różne pierwiastki. Potwierdza to poniższe twierdzenie.
 
 \begin{theorem}
 	Liczba nowych pierwiastków pochodnej wielomianu W' (takich których nie posiadał wielomian W) jest równa liczbie różnych pierwiastków wielomianu pomniejszonej o jeden.
 \end{theorem}
 
+By dowieść powyższego twierdzenia przeprowadźmy rozumowanie dowodzące jego poprawności.
+
 \begin{proof}
 	Zdefiniujmy wielomian: $W(x)=(x-x_1)^{k_1}*(x-x_2)^{k_2}*...*(x-x_{m-1})^{k_{m-1}}*(x-x_m)^{k_m}$. Przyjmijmy, że wielomian W jest stopnia n i posiada m różnych pierwiastków, gdzie $1\le m\le n,\ k_1+k_2+...+k_{m-1}+k_m=n$. Zdefiniujmy wielomian $P(x)=(x-x_1)*(x-x_2)*...*(x-x_{m-1})*(x-x_m)$, w którym każdy z pierwiastków wielomianu W występuję dokładnie jeden raz. Pierwiastków jest m, zatem wielomian P jest stopnia m. Dzieląc wielomian W przez wielomian P, otrzymujemy bez reszty wielomian $Q(x)=(x-x_1)^{k_1-1}*(x-x_2)^{k_2-1}*...*(x-x_{m-1})^{k_{m-1}-1}*(x-x_m)^{k_m-1}$, który posiada każdy z pierwiastków wielomianu W, krotności pomniejszonej o jeden. Skoro krotność każdego z m pierwiastków uległa zmniejszeniu o jeden, to stopień wielomianu Q w stosunku do wielomianu W zmniejszył się o m. Stopień wielomianu Q jest wieć równy n-m.
 	Na mocy twierdzenia wiemy także, że wielomian Q(x) jest podzielny również przez wielomian W', stopnia n-1. Zatem wielomian W' możemy przedstawić jako iloczyn wielomianu Q oraz innego wielomianu: $W'(x)=Q(x)*V(x)$. Wielomian V, zawiera wszystkie pierwiastki W', których nie posiadał wielomian W. Łatwo policzyć, że stopień wielomianu V jest równy: $\deg(V)=deg(W')-deg(Q)=(n-1)-(n-m)=n-1-n+m=m-1$. Jak widać, właśnie udowodniliśmy, że stopień ten jest równy liczbie różnych pierwiastków wielomianu W pomniejszonej o jeden.
 \end{proof}
+
+Spróbujmy teraz skorzystać z przedstawionego twierdzenia w przykładzie dokonującym eliminacji pierwiastków wielokrotnych.
 
 \begin{example}
 	Dany jest wielomian W, określony wzorem: $W(x)=x^6-6x^4-4x^3+9x^2+12x+4$. Dokonajmy eliminacji pierwiastków wielokrotnych dla wielomianu W. \\
@@ -553,22 +561,24 @@ Jak widać powyższy przykład potwierdza zastosowanie przedstawionego twierdzen
 	&-2x^4-2x^3+6x^2+10x \\
 	\end{split}
 	\end{equation}
-	Kluczowa jest wartość reszty z dzielenia. Gdyby otrzymana reszta z dzielenia była wielomianem zerowym, to pochodna wielomianu było równocześnie NWD(W, W'). W tym przypadku tak jednak nie jest, więc wykonujemy analogiczną operację z tą różnicą, że nową dzielną jest dotychczasowy dzielnik a reszta z wielomianu jest nowym dzielnikiem. Tę operację wykonujemy tak długo, jak otrzymana reszta jest niezerowego stopnia. W przypadku gdy jest ona jednocześnie wielomianem zerowym, to podobnie jak wyżej, aktualny dzielnik, jest naszym NWD(W, W'). W przypadku gdy otrzymana reszta jest niezerowym wielomianem stopnia zerowego, to największym wspólnym dzielnikiem wielomianów jest pewna niezerowa stała.
-	\begin{equation}
-	\begin{split}
-	&x\\\hline
-	&x^6-6x^4-4x^3+9x^2+12x+4 : (x^5-4x^3-2x^2+3x+2) \\
-	&-x^6+4x^4+2x^3-3x^2-2x \\\hline
-	&-2x^4-2x^3+6x^2+10x \\
-	\end{split}
-	\end{equation}
+	Kluczowa jest wartość reszty z dzielenia. Gdyby otrzymana reszta z dzielenia była wielomianem zerowym, to pochodna wielomianu było równocześnie NWD(W, W'). W tym przypadku tak jednak nie jest, więc wykonujemy analogiczną operację z tą różnicą, że nową dzielną jest dotychczasowy dzielnik, a reszta z wielomianu jest nowym dzielnikiem. Tę operację wykonujemy tak długo, jak otrzymana reszta jest niezerowego stopnia. W przypadku gdy jest ona jednocześnie wielomianem zerowym, to podobnie jak wyżej, aktualny dzielnik, jest naszym NWD(W, W'). W przypadku gdy otrzymana reszta jest niezerowym wielomianem stopnia zerowego, to największym wspólnym dzielnikiem wielomianów jest pewna niezerowa stała.
 \end{example}
 
 \section{Twierdzenie Sturma}
 
+Przeanalizujmy na początek sposób konstruowania ciągu Sturma dla wielomianu W. Pierwszym wyrazem ciagu jest sam wielomian W. Z kolei drugim wyrazem jest pochodna wielomianu W. Kolejne wyrazy ciągu Sturma wyznaczamy obliczając resztę z ilorazu dwóch poprzednich wyrazów. Dzieje się to do uzyskania pierwszej reszty wielomianu, będącą wielomianem stopnia zerowego. Za każdym razem dzieląc wielomian stopnia n, przez wielomian stopnia m, gdzie $m<n$, mamy gwarancję, że wielomian będacy resztą tego ilorazu będzie stopnia mniejszego niż m. Korzystając z tego faktu, wiemy, że liczba wyrazów ciągu Sturma dla wielomianu W jest niewiększa od $\deg(W)+1$.
+
 \begin{definition}
-	Ciąg Sturma
+	Ciągiem Sturma dla wielomianu W nazywamy ciąg wielomianów: $X_0, X_1, X_2,...,$, takich że $X_0=W$, $X_1=W'$, a kolejne wyrazy definiuje się jako wielomian przeciwny to reszty z dzielenia dwóch poprzednich wyrazów, przy czym ostatnim wyrazem ciągu Sturma jest pierwszy wielomian stopnia zerowego. 
 \end{definition}
+
+Wiemy już jak definiować ciąg Sturma. Przeanalizujmy teraz jaki wpływ ma uzyskany ciąg Sturma na obliczanie pierwiastków wielomianu. By to zrobić, zapoznajmy się z kolejną definicją, mówiącą o liczbie zmian znaków ciagu Sturma.
+
+\begin{definition}
+	Liczbą zmian znaków ciągu Sturma dla wielomianu W(x) w punkcie x, obliczamy zliczając liczbę zmian pomiędzy kolejnymi wyrazami, pomijac te o wartości równej zero w punkcie x. Liczbę zmian znaku w punkcie $x=x0$ definiujemy jako wartość funkcji $Z(x_0)$.
+\end{definition}
+
+Wiemy już jak obliczać liczbę zmian ciagu Sturma. Sprawdźmy zatem, jak przekłada się ona na liczbę pierwiastków w danym przedziale.
 
 \begin{theorem}
 	Jeżeli wielomian W(x) nie ma pierwiastków wielokrotnych, to liczba pierwiastków rzeczywistych w przedziale $a<x\le y)$, jest równa $Z(a) - Z(b)$.
@@ -581,13 +591,7 @@ W ogólności twierdzenie Sturma można zastosować dla przedziału $(-\infty,+\
 \end{theorem}
 
 Stosując twierdzenie Sturma dla coraz mniejszych przedziałów możliwe jest wyznaczenie pierwiastków wielomianu z dowolną dokładnością. Sposób ten określony jest mianem metody Sturma.
-Twierdzenie Sturma jest bardzo mocnym środkowiem używanym do znajdowania pierwiastków w określonym przedziale. Może być używana nie tylko dla wielomianów, ale dowolnej różniczkowalnej funkcji ciągłej.
-
-Przeanalizujmy teraz sposób konstruowania ciągu Sturma dla wielomianu W. Pierwszym wyrazem ciagu jest sam wielomian W. Z kolei drugim wyrazem jest pochodna wielomianu W. Kolejne wyrazy ciągu Sturma wyznaczamy obliczając resztę z ilorazu dwóch poprzednich wyrazów. Dzieje się to do uzyskania pierwszej reszty wielomianu, będącą wielomianem stopnia zerowego. Za każdym razem dzieląc wielomian stopnia n, przez wielomian stopnia m, gdzie $m<n$, mamy gwarancję, że wielomian będacy resztą tego ilorazu będzie stopnia mniejszego niż m. Korzystając z tego faktu, wiemy, że liczba wyrazów ciągu Sturma dla wielomianu W jest niewiększa od $\deg(W)+1$.
-
-\begin{definition}
-	Liczbą zmian znaków ciągu Sturma dla wielomianu W(x) w punkcie x, obliczamy zliczając liczbę zmian pomiędzy kolejnymi wyrazami, pomijac te o wartości równej zero w punkcie x.
-\end{definition}
+Twierdzenie Sturma jest bardzo mocnym środkowiem używanym do znajdowania pierwiastków w określonym przedziale. Może być używana nie tylko dla wielomianów, ale dowolnej różniczkowalnej funkcji ciągłej. Zapoznajmy się z twierdzeniem, mówiącym o ograniczeniach dotyczących maksymalnej liczby zmian znaków dla Ciąg Sturma.
 
 \begin{theorem}
 	Liczba zmian znaków ciągu Sturma dla wielomianu W(x) jest mniejsza od liczby wyrazów tego ciągu i niewiększa od stopnia wielomianu W(x).
@@ -615,28 +619,6 @@ Jak widać jesteśmy w stanie ustalić znak, a nawet dokładną wartość, najwi
 
 .\\
 .\\
-.\\
-.\\
-.\\
-.\\\\
-.\\\\
-.\\\\
-.\\
-.\\
-.\\
-.\\
-.\\
-.\\\\
-.\\\\
-.\\\\
-.\\
-.\\
-.\\
-.\\
-.\\
-.\\\\
-.\\\\
-.\\\\
 
 \chapter{Opis Rozwiązania}
 \section{Podział na moduły}
