@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  16 JUN 2016 00:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  16 JUN 2016 00:35
 entering extended mode
 **./szablon.tex
 (szablon.tex
@@ -1208,27 +1208,27 @@ LaTeX Warning: Command \l invalid in math mode on input line 419.
 
 [9]
 
-LaTeX Warning: Command \' invalid in math mode on input line 473.
+LaTeX Warning: Command \' invalid in math mode on input line 490.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 473.
+LaTeX Warning: Command \' invalid in math mode on input line 490.
 
 [10]
 
-LaTeX Warning: Command \' invalid in math mode on input line 527.
+LaTeX Warning: Command \' invalid in math mode on input line 534.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 527.
+LaTeX Warning: Command \' invalid in math mode on input line 534.
 
 [11] [12]
-Overfull \hbox (1.9686pt too wide) in paragraph at lines 590--591
+Overfull \hbox (1.9686pt too wide) in paragraph at lines 597--598
 []\T1/lmr/m/it/10 Liczba ró»-nych pier-wiast-ków rze-czy-wi-stych wie-lo-mianu 
 W(x) jest równa $\OML/lmm/m/it/10 Z\OT1/lmr/m/n/10 (\OMS/lmsy/m/n/10  1\OT1/lmr
 /m/n/10 ) \OMS/lmsy/m/n/10  $
  []
 
 [13]
-Overfull \hbox (5.6166pt too wide) in paragraph at lines 613--614
+Overfull \hbox (5.6166pt too wide) in paragraph at lines 620--621
 []\T1/lmr/m/it/10 Dany jest wie-lo-mian $\OML/lmm/m/it/10 W[]\OT1/lmr/m/n/10 (\
 OML/lmm/m/it/10 x\OT1/lmr/m/n/10 ) = \OML/lmm/m/it/10 a[]x[] \OT1/lmr/m/n/10 + 
 \OML/lmm/m/it/10 a[]x[] \OT1/lmr/m/n/10 + \OML/lmm/m/it/10 a[]x[] \OT1/lmr/m/n/
@@ -1237,25 +1237,25 @@ OML/lmm/m/it/10 x\OT1/lmr/m/n/10 ) = \OML/lmm/m/it/10 a[]x[] \OT1/lmr/m/n/10 +
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 620--622
+Underfull \hbox (badness 10000) in paragraph at lines 627--629
 
  []
 
-[14]
-Rozdzia\l  3.
-[15
-
-] [16
+[14] [15] [16
 
 ]
-Rozdzia\l  4.
+Rozdzia\l  3.
 [17] [18
 
 ]
-Rozdzia\l  5.
+Rozdzia\l  4.
 [19] [20
 
-] (szablon.bbl) [21
+]
+Rozdzia\l  5.
+[21] [22
+
+] (szablon.bbl) [23
 
 ] (szablon.aux)
 
@@ -1265,14 +1265,14 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of TeX's memory you used:
  17060 strings out of 493634
  311010 string characters out of 3141314
- 355749 words of memory out of 3000000
+ 354750 words of memory out of 3000000
  20083 multiletter control sequences out of 15000+200000
  53721 words of font info for 43 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  48i,15n,54p,921b,423s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Progr
-am Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Program Files (x
-86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program Files (x86)/MiKTeX 2.9/
+{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program F
+iles (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Program Files (x86)/
+MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Program Files (x86)/MiKTeX 2.9/
 fonts/enc/dvips/lm/lm-ec.enc}<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/pub
 lic/lm/lmbx10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmbx
 12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmmi10.pfb><C:/
@@ -1284,9 +1284,9 @@ eX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts
 b><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Progr
 am Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmsy5.pfb><C:/Program Files (x8
 6)/MiKTeX 2.9/fonts/type1/public/lm/lmsy7.pfb>
-Output written on szablon.pdf (25 pages, 273792 bytes).
+Output written on szablon.pdf (27 pages, 275642 bytes).
 PDF statistics:
- 145 PDF objects out of 1000 (max. 8388607)
+ 151 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  23 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -422,17 +422,26 @@ Widzimy, że powstały wielomian powstał poprzez pomnożenie wartości każdego
 
 Jak widać dla wszystkich wielomianów, nie będących stałą liczbową, stopień ich pochodnej ulega zmniejszeniu o jeden. Czas operacji obliczania pochodnej wielomianu jest porównywalny, z obliczaniem sumy wielomianów, gdyż wystarczy, że dokonamy jednokrotnego obliczania każdego z współczynników.
 
-\subsubsection{NWD wielomianów}
+%\subsubsection{NWD wielomianów}
 
 \subsection{Dodatkowe twierdzenia dotyczące wielomianów}
 
-Istnieje mnóstwo twierdzień dotyczących wielomianów. Zapoznajmy się z tymi, które ułatwią nam znajdowanie pierwiastków wielomianów.
+Istnieje mnóstwo twierdzień dotyczących wielomianów. Zapoznajmy się z tymi, które ułatwią nam znajdowanie pierwiastków wielomianów. Zapoznajmy się z pierwszym twierdzeniem, mówiącym o możliwości zamienienia dowolnego wielomianu o współczynnikach wymiernych, w wielomian o współczynnikach całkowitych.
+
+\begin{theorem}
+	Dowolny wielomian $W_1(x) = \frac{a_n}{b_n}x^n + \frac{a_{n-1}}{b_{n-1}}x^{n-1} + ... + \frac{a_1}{b_1}x + \frac{a_0}{b_0}$, o współczynnikach wymiernych, można przekształcić w wielomian $W_2(x) = k * W_1(x)$, o współczynnikach całkowitych i tych samych pierwiastkach, co wielomian W. Wówczas:
+	\begin{equation}
+	k = m * NWW(b_0, b_1, ..., b_{n-1}, b_n),\ gdzie\ m\in Z
+	\end{equation}
+\end{theorem}
+
+Twierdzenie to oznacza, że przy dysponując wyłącznie współczynnikami, będącymi liczbami całkowitymi, jesteśmy w stanie przedstawić dowolny wielomian o współczynnikach wymiernych. Przejdźmy teraz do twierdzenia, mówiącego o wartości wielomianu w danym punkcie.
 
 \begin{theorem}
 	Jeżeli wielomian W(x) podzelimy przez dwumian $x - x_0$, to reszta z tego dzielenia jest równa wartości tego wielomianu dla $x = x_0$.
 \end{theorem}
 
-W szczególnym przypadku reszta ta może być równa 0. Oznacza to, że liczba $x_0$ jest pierwiastkiem tego wielomianu. Wynika z tego bezpośrednio kolejne twierdzenie, znane jako twierdzenie Bezout.
+W szczególnym przypadku reszta ta może być równa zero. Oznacza to, że liczba $x_0$ jest pierwiastkiem tego wielomianu. Wynika z tego bezpośrednio kolejne twierdzenie, znane jako twierdzenie Bezout.
 
 \begin{theorem}[Bezout]
 	Liczba $x_0$ jest pierwiastkiem wielomianu W(x) wtedy i tylko wtedy, gdy wielomian jest podzielny przez dwumian $x - x_0$.
@@ -444,17 +453,25 @@ Dodatkowo zapoznajmy się jeszcze z krótkim dowodem poprawności powyższego tw
 	Jeżeli liczba $x_0$ jest pierwiastkiem wielomianu W, to wielomian ten możemy wyrazić jako iloczyn dwumianu $x - x_0$ oraz pewnego wielomianu Q: $W(x) = (x-x_0) * Q(x)$. Wyznaczając z tego wyrażenia wielomian Q, otrzymujemy $Q(x) = \frac{W(x)}{x-x_0}$. Widzimy zatem, że dzieląc wielomian W(x) przez dwumian $x-x_0$, otrzymujemy bez reszty, wielomian Q(x).
 \end{proof}
 
-Przejdźmy teraz, to twierdzenia mówiący o pierwiastkach wielokrotnych, bazującego na twierdzeniu Bezout.
+Przejdźmy teraz, to twierdzenia mówiącego o pierwiastkach wielokrotnych, bazującego na twierdzeniu Bezout.
 
 \begin{theorem}
 	Liczba $x_0$ jest pierwiastkiem k-krotnym wielomianu W(x) wtedy i tylko wtedy, gdy wielomian jest podzielny przez $(x - x_0)^k$ i nie jest podzielny przez $(x - x_0)^{k+1}$.
 \end{theorem}
 
-Dowód poprawności jest analogiczny, jak dla twierdzenia Bezout. Jedyną różnicą jest to, że wielomian W przedstawiamy jako: $W(x) = (x-x_0)^k * Q(x)$.
+Dowód poprawności jest analogiczny, jak dla twierdzenia Bezout. Jedyną różnicą jest to, że wielomian W przedstawiamy jako: $W(x) = (x-x_0)^k * Q(x)$. Zapoznajmy się z twierdzeniem, mówiących o możliwej wartości pierwiastków, o ile są one całkowite.
 
 \begin{theorem}
-	Każdy wielomian W(x) nie będący wielomianem zerowym jest iloczynem czynników stopnia co najwyżej drugiego
+	Dany jest wielomian $W(x) = x^n + a_{n-1}x^{n-1} + ... + a_1x + a_0$, o współczynnikach całkowitych. Jeżeli wielomian W posiada pierwiastki całkowite, to są one dzielnikami wyrazu wolnego $a_0$.
 \end{theorem}
+
+Przejdźmy teraz do twierdzeń mówiących o możliwości rozłożenia wielomianu na czynniki.
+
+\begin{theorem}
+	Każdy wielomian W(x) nie będący wielomianem zerowym jest iloczynem czynników stopnia co najwyżej drugiego.
+\end{theorem}
+
+Oznacza to, że każdy wielomian stopnia co najmniej trzeciego jest rozkładalny na czynniki. Z powyższego twierdzenia wynika kolejne, mówiące, że rozkład ten jest zawsze jednoznaczny.
 
 \begin{theorem}
 	Niezerowy wielomian, o współczynnikach rzeczywistych, jest jednoznacznie rozkładalny na czynniki liniowe lub nierozkładalne czynniki kwadratowe, o współczynnikach rzeczywistych.
@@ -475,23 +492,13 @@ Oznacza to, że nie da się rozłożyć jednego wielomianu na czynniki, na dwa r
 	Jak widać drugi z czynników jest właśnie przykładem nierozkładalnego czynnika kwadratowego, o współczynnikach rzeczywistych.
 \end{example}
 
-Powyższy czynnik da się rozłożyć na dwa czynniki liniowe, o współczynnikach zespolonych. W pracy tej będziemy jednak mówić wyłącznie o współczynnikach rzeczywistych, najczęściej zawężając jeszcze zbiór potencjalnych współczynników, do liczb wymiernych. \newline
-Zapoznajmy się z kolejnym twierdzeniem, mówiącym o wartości wielomianu w danym punkcie.
+Powyższy czynnik da się rozłożyć na dwa czynniki liniowe, o współczynnikach zespolonych. W pracy tej będziemy jednak mówić wyłącznie o współczynnikach rzeczywistych, najczęściej zawężając jeszcze zbiór potencjalnych współczynników, do liczb wymiernych. Przejdźmy do kolejnego twierdzenia, wynikającego bezpośrednio z dwóch poprzednich.
 
 \begin{theorem}
 	Każdy wielomian stopnia nieparzystego, ma przynajmniej jeden pierwiastek rzeczywisty.
 \end{theorem}
 
-\begin{theorem}
-	Dany jest wielomian $W(x) = x^n + a_{n-1}x^{n-1} + ... + a_1x + a_0$, o współczynnikach całkowitych. Jeżeli wielomian W posiada pierwiastki całkowite, to są one dzielnikami wyrazu wolnego $a_0$.
-\end{theorem}
-
-\begin{theorem}
-	Dowolny wielomian $W_1(x) = \frac{a_n}{b_n}x^n + \frac{a_{n-1}}{b_{n-1}}x^{n-1} + ... + \frac{a_1}{b_1}x + \frac{a_0}{b_0}$, o współczynnikach wymiernych, można przekształcić w wielomian $W_2(x) = k * W_1(x)$, o współczynnikach całkowitych i tych samych pierwiastkach, co wielomian W. Wówczas:
-	\begin{equation}
-	k = m * NWW(b_0, b_1, ..., b_{n-1}, b_n),\ gdzie\ m\in Z
-	\end{equation}
-\end{theorem}
+Oznacza to, że każdy wielomian stopnia nieparzystego jesteśmy w stanie przedstawić jako iloczyn dwóch czynników, z których jeden jest czynnikiem liniowym, a drugi czynnikiem stopnia parzystego, który z kolei być może da się dalej rozłożyć, na wielomiany, o mniejszych stopniach.
 
 \section{Eliminacja pierwiastków wielokrotnych}
 
