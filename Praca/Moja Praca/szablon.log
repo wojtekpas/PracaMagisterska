@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  16 JUN 2016 00:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  17 AUG 2016 01:11
 entering extended mode
 **./szablon.tex
 (szablon.tex
@@ -1236,26 +1236,41 @@ OML/lmm/m/it/10 x\OT1/lmr/m/n/10 ) = \OML/lmm/m/it/10 a[]x[] \OT1/lmr/m/n/10 +
 10 + \OML/lmm/m/it/10 a[];  gdzie a[] \OMS/lmsy/m/n/10 6\OT1/lmr/m/n/10 =$
  []
 
+[14]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Underfull \hbox (badness 10000) in paragraph at lines 627--629
+ [15]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [16]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [17]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [18]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [19]
+Underfull \hbox (badness 10000) in paragraph at lines 771--773
 
  []
 
-[14] [15] [16
-
-]
+[20]
 Rozdzia\l  3.
-[17] [18
+[21
+
+] [22
 
 ]
 Rozdzia\l  4.
-[19] [20
+[23] [24
 
 ]
 Rozdzia\l  5.
-[21] [22
+[25] [26
 
-] (szablon.bbl) [23
+] (szablon.bbl) [27
 
 ] (szablon.aux)
 
@@ -1263,13 +1278,13 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 17060 strings out of 493634
- 311010 string characters out of 3141314
- 354750 words of memory out of 3000000
- 20083 multiletter control sequences out of 15000+200000
+ 17061 strings out of 493634
+ 311017 string characters out of 3141314
+ 354751 words of memory out of 3000000
+ 20084 multiletter control sequences out of 15000+200000
  53721 words of font info for 43 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 48i,15n,54p,921b,423s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 48i,15n,54p,1478b,423s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program F
 iles (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Program Files (x86)/
 MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Program Files (x86)/MiKTeX 2.9/
@@ -1284,9 +1299,9 @@ eX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts
 b><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Progr
 am Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmsy5.pfb><C:/Program Files (x8
 6)/MiKTeX 2.9/fonts/type1/public/lm/lmsy7.pfb>
-Output written on szablon.pdf (27 pages, 275642 bytes).
+Output written on szablon.pdf (31 pages, 298531 bytes).
 PDF statistics:
- 151 PDF objects out of 1000 (max. 8388607)
+ 164 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  23 words of extra memory for PDF output out of 10000 (max. 10000000)
 

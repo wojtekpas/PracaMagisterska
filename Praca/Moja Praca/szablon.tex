@@ -622,6 +622,150 @@ Jeżeli zależy nam, na obliczeniu wartości wielomianu, dla odpowiednio dużych
 
 Jak widać jesteśmy w stanie ustalić znak, a nawet dokładną wartość, największego współczynnika wielomianu, będącego ilorazem dwóch innych wielomianów, wykonując proste dzielenie dwóch liczb, będących odpowiednio najwyższymi współczynnikami wielomianów - dzielnej i dzielnika.
 
+\section{Biblioteka Mpir}
+Licencja
+
+Biblioteka mpir jest przykładem wolnego oprogramowania, charakteryzującego się kilkoma podstawowymi założeniami. Pierwszą z nich jest wolność pozwalająca użytkownikowi na uruchamianie programu, w dowolnym celu. Drugą jest analizowanie programu oraz dostosowywania go do swoich potrzeb. Kolejną cechą jest możliwość dowolne rozpowszechnianie kopii programu, zaś ostatnią udoskonalanie programu i publiczne rozpowszechnianie własnych ulepszeń, z których każdy będzie mógł skorzystać.
+
+Wstęp
+
+Mpir jest przykładem biblioteki napisanej w języku C, pozwalającą na liczby o dowolnej wielkości i dowolnej dokładności. Jej celem było dostarczenie narzędzia dla arytmetyki na liczbach, które nie są wspierane przez podstawowe typy wbudowane w języku C.
+Kluczowy jest fakt, że biblioteka ta została zoptymalizowana w taki sposób, by w zależności od potrzeb używać różnych algorytmów. Stało się tak dlatego, że algorytm działania na małych liczbach z niewielką precyzją jest prosty i znacznie różni się od wymyślnej metody, używanej w przypadku wielkich liczb, z setkami cyfr po przecinku.
+Warto zauważyć, że optymalizacja kodu odbywa się także w zależności od rodzaju procesora, na którym są wykonywane obliczenia., dla przykładu Biblioteka dla procesorów Intel i7 dostarcza odmienny kod niż dla procesora Pentium 4 lub Athlon. Dzięki temu z pewnością działa w sposób bardziej wydajny, kosztem wygody programistów, którzy jej używają. Nie są oni w łatwy sposób zapewnić optymalnego działania programu, niezależnie od sprzętu na którym jest on uruchamiany, co może znacznie utrudnić proces powstawania nowego oprogramowania, bazującego na bibliotece mpir.
+
+Instalacja
+
+Instalacja biblioteki mpir jest różna w zależności od systemu operacyjnego. W systemach unixowych instalacja polega na zbudowaniu i instalacji, korzystając ze źródeł. Pod windowsem instalacja jest łatwa i przebiega analogicznie, o ile używamy cygwina lub mingw. Są to narzędzia, które zapewniają, programom działającym pod systemem Windows, funkcjonalność przypominającą system Linux. Bardziej skomplikowane będzie użycie biblioteki bez wyżej wymienionych narzędzi, ale warto zaznaczyć, że biblioteka ta może być budowana z użyciem Microsoft Visual Studio, począwszy od wersji 2010, korzystając z programu o nazwie yasm asembler. Dodatkowo korzystanie z biblioteki różni się w zależności od tego czy potrzebujemy jej statyczną (mpir/lib) czy dynamiczną (mpir/dll) wersję.
+
+Podstawy
+
+Aby używać biblioteki mpir w naszym programie musimy do naszego programu dodać następującą linię:
+\#include <mpir.h>
+Pozwoli to nam na używanie wszystkich funkcji i typów, które udostępnia dla nas biblioteka. Dodatkowo wymagana jest kompilacja z dołączeniem naszej biblioteki, poprzez dodanie opcji -lmpir, np.:
+gcc myprogram.c -lmpir
+Jeżeli chcemy skorzystać z biblioteki, wspierającej język C++ dodatkowo musimy dodać także opcję -mpirxx, np.:
+g++ myprogram.cc -lmpirxx -lmpir
+
+Nazewnictwo i typy
+
+Biblioteka mpir posiada odpowiedniki dla wszystkich podstawowych typów liczbowych, które są charakterystyczne dla języka C. Odpowiednikiem typów całkowitych jest typ mpz\_t, zaś odpowiednikiem liczb zmiennoprzecinkowych, typu float, jest mpf\_t. Dla liczb całkowitych możemy łatwo zdecydować, czy interesuje nas liczba ze znakiem, czy bez niego. Oba przypadki posiadają prawie identycznie nazwane funkcje. Jedyną różnicą jest to, że dla zmiennych ze znakiem występuje przyrostek si, od wyrazu angielskiego wyrazu signed, a dla zmiennych bez znaku przyrostek ui, od wyrazu unsigned.
+
+Funkcje
+W bibliotece przyjęto konwencję charakterystyczną, dla języka C, polegającą na tym, że zarówno argumenty wejściowe jak i wyjściowe funkcji są przekazywane za pomocą referencji do funkcji, która zazwyczaj jest typu void, czyli nie zwraca żadnej wartości. Warto zauważyć, że argumenty wyjściowe są podawane przed wejściowymi. Stało się tak poprzez zachowanie analogii do operatora przypisania, w którym to zmienna wynikowa znajduje się po lewej stronie.
+W bibliotece mpir zmienna po zadeklarowaniu nie jest natychmiastowo gotowa do użycia, ponieważ wymaga inicjalizacji, przydzielającej jej miejsce w pamięci. Możemy to zrobić poprzez wywołanie odpowiedniej funkcji init, w argumencie podając odpowiednią zmienną. Analogicznie, aby zwolnić zajmowany, przez zmienną, obszar pamięci należy wywołać funkcję clear. Istnieją także funkcje realokujące, czyli zwiększające lub zmniejszające, zajmowany obszar. Użycie ich jest jednak opcjonalne, gdyż zmiana rozmiaru jest automatycznie wykrywana. Raz zainicjalizowaną zmienną, można używać dowolną liczbę razy. Twórcy biblioteki zalecają unikanie nadmiernego korzystania z funkcji init i clear, ponieważ są to operacje czasochłonne i zbyt duża ich liczba może mieć negatywny wpływ na wydajność naszego programu.
+
+
+Zarządzanie pamięcią
+Biblioteka mpir, alokując w pamięci nowe obiekty, stara się minimalizować wielkość zajmowaną przez nie miejsca. Dodatkowa pamięć jest przyznawana dopiero, kiedy jej aktualna wielkość jest niewystarczająca. W przypadku zmiennych typów mpz\_t i mpg\_t, raz zwiększony rozmiar danej zmiennej nigdy nie zostanie zmniejszony. Zazwyczaj jest to najlepsza praktyka, ponieważ częsta alokacja pamięci ma niekorzystny wpływ na wydajność programu. Jeżeli aplikacja potrzebuje zmniejszyć zajmowane przez daną zmienną miejsce, można dokonać realokacji albo całkowicie zwolnić, zajmowane przez nią miejsce. Dodatkowo kolejne zwiększania rozmiaru przeznaczonego na poszczególne zmienne może być powodować zauważalny spadek wydajności lub fragmentację danych. Nie da się uniknąć, jeżeli chcemy zaalokować więcej miejsca dla danej zmiennej, w momencie, gdy w jej sąsiedztwie znajdują się już inne zmienne. Wówczas zależnie od implementacji mamy do czynienia z jednej z dwóch wariantów. W pierwszym przypadku, alokujemy nowe miejsce w pamięci, uzupełniając odpowiednio jego wartość, a następnie zwalniając wcześniej zajmowane miejsce. Alternatywą jest pozostawienie zajmowanej już pamięci i przydzielenie dodatkowej w innym miejscu. W takim przypadku jesteśmy zmuszeni do odpowiedniego zarządzania nieciągłymi fragmentami pamięci, co również może mieć bardzo negatywny wpływ na wydajność aplikacji.
+Z kolei, zmienne typu mpf\_t mają niezmienny rozmiar, zależny od wybranej precyzji. Warto zauważyć, że biblioteka standardowo do alokowania pamięci domyślnie używa funkcji malloc, ale możliwe jest także korzystanie z funkcji alloca. Pierwszy alokator zajmuje się tylko przydzieleniem pamięci, a użytkownik musi sam pamiętać, o jego zwolnieniu, w odpowiednim momencie. Z kolei, drugi z nich zdejmuje tę odpowiedzialność ze strony programisty i sam dba o zwolnienie pamięci, gdy jest ona już nie używana.
+
+Kompatybilność
+Poza kilkoma wyjątkami, biblioteka mpir jest kompatybilna z odpowiednimi wersjami biblioteki gmp.
+
+Wydajność
+Małe i duże liczby
+Dla małych liczb, narzut na korzystanie z biblioteki może być znaczący w porównaniu z korzystanie z typów prostych. Jest to nieuniknione, ale celem biblioteki jest próba znalezienia złotego środka pomiędzy wysoką wydajność, zarówno dla małych, jak i dużych liczb. 
+
+Operacje w miejscu
+Operacje obliczania wartości bezwzględnej i negacji danej liczby są bardzo szybkie, gdy obliczane są w miejscu, tzn. wtedy, gdy zmienna wejściowa jest również zmienną wyjściową. Wówczas nie ma potrzeby alokacji i zwalnia pamięci, a cała funkcja sprowadza się do ustawienia odpowiedniego bitu, mówiącego o znaku liczby. Według specyfikacji biblioteki mpir, zauważalny powinien być także zysk, w przypadku operacji dodawania, odejmowania i mnożenie w miejscu. W momencie, gdy drugim argumentem jest nieduża liczba całkowite operację te są nieskomplikowane i bardzo szybkie.
+
+Podstawowe operacje liczbowe
+W niniejszym podrozdziale, omówię podstawowe funkcje liczbowe, które mają zastosowanie, zarówno dla liczb całkowitych typu mpz\_t, jak i rzeczywistych typu mpq\_t.
+
+Funkcje inicjalizujące
+void mpz\_init (mpz\_t integer)
+Inicjuje wartość zmiennej integer i ustawia jej wartość na 0.
+void mpz\_clear (mpz\_t integer)
+Zwalnia miejsce zajmowaną przez zmienną. Funkcja ta powinna być używana dla każdej zmiennej, w momencie, gdy nie ma już potrzeby, by z niej korzystać.
+void mpz\_realloc2 (mpz\_t integer, mp bitcnt t n)
+Zmienia rozmiar zajmowanego przez zmienną miejsca. Funkcja jest używana z wartością n, większą od aktualnej, by zagwarantować zmiennej określone miejsce w pamięci. Z drugiej strony zostaje wołana z wartością mniejszą, jeżeli chcemy zmniejszyć liczbę zajmowanego przez zmienną miejsca. Jeżeli nowy rozmiar jest wystarczający by pomieścić aktualną wartość zmiennej, to zostaje ona zachowana. W przeciwnym razie wartość zmiennej zostanie ustawiona na 0. Istnieje również przestarzała funkcja mpz\_realloc, ale jej użycie jest niezalecane. Nie została usunięta, by zachować kompatybilność wsteczną.
+
+Funkcje przypisania
+void mpz\_set (mpz\_t rop, mpz\_t op)
+Pozwala na przypisanie wartości tych samów typów, wartość zmiennej op do wartości zmiennej rop. Jest to równoważnik operatora przypisania.
+void mpz\_set\_sx (mpz\_t rop, intmax t op)
+Pozwala na przypisanie zmiennej typu całkowitego do zmiennej typu mpz\_t.
+void mpz\_set\_d (mpz\_t rop, double op)
+Zapisuje zmienną typu double do zmiennej typu mpz\_t.
+void mpz\_set\_q (mpz\_t rop, mpq t op)
+Pozwala na zrzutowanie liczby rzeczywistej, typu mpq\_t to zmiennej mpz\_t. Gdy liczba mpq\_t nie jest liczbą całkowitą, zostaje ona zaokrąglona w dół, poprzez obcięcie jej części ułamkowej.
+int mpz\_set\_str (mpz\_t rop, char *str, int base)
+Konstruuje liczbę typu mpz\_t, na podstawie podanego łańcucha znaków, reprezentującego daną liczbę. Wartość zmiennej base mówi o podstawie podanej liczby. Zmienna znakowa dopuszcza występowanie białych znaków, które są ignorowane. Z kolei zmienna base dopuszcza 0 oraz wartości z zakresu (2,61). Gdy jest ona równa 0, podstawowa zostaje ustalona, bazując na początkowych znakach. Dla prefixów 0x oraz 0X reprezentacja liczby zostaje ustalona jako szesnastkowa. Gdy jest ona równa 0b lub 0X to liczba ta jest binarna, a gdy rozpoczyna się od zera, a drugi znak jest inny od wymienionych, to zostaje uznana za liczbę oktalną. W pozostałych wypadkach jest to liczba dziesiętna. Kolejne wartości dziesiętne od 10 do 35 są reprezentowane jako litery od a do z, przy czym nie ma rozróżnienia ze względu na wielkość liter. W przypadku wyższych wartości podstawy, wielkość liter ma znaczenia, przy czym liczby od 10 do 35 reprezentowane są przez duże litery, a liczby od 36 do 61 przez litery małe. Funkcja dokonuje weryfikacji, czy podane ciąg znaków w całości reprezentuje poprawną wartość liczbą. Jeżeli tak, to zwraca ona wartość 0. W przeciwnym wypadku jest to wartość 1.
+void mpz\_swap (mpz\_t rop1, mpz\_t rop2)
+Używana jest do zamiany wartości pomiędzy dwoma zmiennymi typu mpz\_t. Jej użycie jest rekomendowane, ze względów wydajnościowych. W przypadku braku tej funkcji, potrzeba by zmiennej tymczasowej. W tym celu musiała by ona na początku zostać zaalokowana w pamięci, a na końcu zwolniona. Obie operacje są czasochłonne i zaleca się minimalizować ich użycie, więc użycie zoptymalizowanej funkcji służącej do zamiany wartości dużych liczb wydaje się zdecydowanie najlepszą i najszybszą opcją.
+
+Funkcje konwersji
+intmax\_t mpz\_get\_sx (mpz\_t op)
+Zwraca zmienną typu int, a znak liczby zostaje przepisany. Jeżeli wartość jest poza zakresem liczb typu int, to rzutowanie następuje poprzez pozostawienie najmniej znaczącej części. Powoduje to, że funkcja w wielu przypadkach może okazać się bezużyteczna. 
+double mpz\_get\_d (mpz\_t op) [Function]
+Pozwala zrzutować typ mpz\_t na zmienną typu double. Jeżeli jest to konieczne, stosowane jest zaokrąglenie. Jeżeli eksponent jest za duży, zwrócony wynik jest zależny od danego systemu. Jeżeli jest dostępna, zwrócona może być wartość nieskończoności.
+char * mpz\_get\_str (char *str, int base, mpz\_t op)
+Zwraca ciąg znaków reprezentujących liczbę op., o podstawie danej w paremetrze o nazwie base. Funkcja ta jest analogiczna do mpz\_set\_str. Jeżeli parametrem str jest NULL, to ciąg znaków zostaje zwrócony przez funkcję. W przeciwnym razie funkcja umieszcza go pod adresem, na który wskazuje zmienna str. Należy zadbać o to, by bufor, do zapisania rezultatu funkcji, był wystarczający. Powinien on być 2 bajty dłuższy niż długość zwróconej liczby w danym systemie liczbowym. Pierwszy bajt to służy na wpisanie ewentualnego znaków minus, natomiast drugi na znak ‘\\0’ kończący łańcuch znaków. Długość zasadniczej części liczbowej można pobrać używając funkcji mpz\_sizeinbase (op, base), w której podajemy odpowiednio daną liczbę oraz podstawę.
+
+Funkcje arytmetyczne
+void mpz\_add (mpz\_t rop, mpz\_t op1, mpz\_t op2)
+Ustawia wartość rop jako sumę op1 i op2.
+void mpz\_sub (mpz\_t rop, mpz\_t op1, mpz\_t op2)
+Ustawia wartość rop jako różnicę op1 i op2.
+void mpz\_mul (mpz\_t rop, mpz\_t op1, mpz\_t op2)
+Ustawia wartość rop jako iloczyn op1 i op2.
+void mpz\_addmul (mpz\_t rop, mpz\_t op1, mpz\_t op2)
+Oblicza wartość iloczynu czynników op1 i op2, a następnie zwiększa wartość rop o otrzymany wynik. Tożsame z wykonaniem działania rop = rop + op1*op2.
+void mpz\_submul (mpz\_t rop, mpz\_t op1, mpz\_t op2)
+Oblicza wartość iloczynu czynników op1 i op2, a następnie zmniejsza wartość rop o otrzymany wynik. Tożsame z wykonaniem działania rop = rop - op1*op2.
+void mpz\_neg (mpz\_t rop, mpz\_t op)
+Jako rezultat ustawia liczbę przeciwną do danej. Gdy rop i op są tą samą zmienną to mamy do czynienia z przykładem operacji w miejscu. Wówczas całe funkcja jest bardzo szybka, gdyż opiera się tylko na zmianie bitu, mówiącym o znaku danej liczby.
+void mpz\_abs (mpz\_t rop, mpz\_t op)
+Funkcja w swoim działaniu bardzo podobna do funkcji mpz\_neg. Jedyną róznicą jest to, że bit znaku nie zostaje zanegowany, a ustawiony tak, by wskazywał na wartość nieujemną.
+
+Funkcje dzielenia
+Uzywając niżej wymienionych funkcji należy pamiętać, ze dzielenie przez 0, zarówno w przypadku obliczania wartości ilorazu, jak i reszty z dzielenia jest nielegalne. W przypadku, gdy wystąpi taka sytuacja, biblioteka zachowa się jak w przypadku dzielenia przez 0, dla liczb typu int, tzn. skończy działanie funkcji, rzucając odpowiedni wyjątek.
+
+void mpz\_tdiv\_q (mpz\_t q, mpz\_t n, mpz\_t d)
+Funkcja oblicza iloraz z liczb n i d. Litera przed ‘div’ w nazwie funkcji mówi, o jej zachowaniu w przypadku, gdy rezultat nie jest liczbą całkowitą. Symbol ‘t’ (truncate), oznacza obcięcie części ułamkowej. Zalecanym użyciem jest przypadek, gdy nie ma znaczenia wartość reszty z dzielenia.
+void mpz\_tdiv\_r (mpz\_t r, mpz\_t n, mpz\_t d)
+Oblicza wartość rezsty z dzielenia liczb n i d. Podobnie jak w fukcji mpz\_tdiv\_q, mamy do czynienia z przypadkiem obcięcia ewentualnej części ułamkowej ilorazu. Oznacza to, że zwracana reszta zawsze będzie tego samego znaku co zmienna n. Rekomendowana, gdy wartość ilorazu z dzielenia nie jest istotna.
+void mpz\_tdiv\_qr (mpz\_t q, mpz\_t r, mpz\_t n, mpz\_t d)
+Łączy w sumie dwie powyższe funkcje. Ze względów wygody i wydajności zaleca się jej użycie wówczas, gdy potrzebujemy obliczyć zarówno iloraz, jak i resztę z dzielenia. Ważne jest by pamiętać, że przekazane argumenty q i r, muszą być referencjami do różnych zmiennych. W przeciwnym razie, działanie funkcji będzie nie poprawne, a wynik najprawdopodobniej błędny.
+
+Oprócz wyżej wymienionych funkcji, istnieją także ich odpowiedniki, o odmiennym zachowaniu w kwestii zaokrąglania części ułamkowej ilorazu. Pierwszym z nich jest grupa funkcji, posiadająca w nazwie „cdiv”, gdzie litera ‘c’ (ceil) oznacza sufit. Oznacza to, że w razie potrzeby iloraz zostanie zaokrąglony w górę. Wówczas otrzymana reszta r będzie przeciwnego znaku do liczby d. Funkcjami z tej grupy są: mpz\_cdiv\_q, mpz\_cdiv\_r oraz mpz\_cdiv\_qr. Drugim odpowiednik jest grupa funkcji, posiadająca w nazwie „fdiv”, gdzie ‘f’ (floor) oznacza podłogę. Oznacza to, że w razie potrzeby wynik zostanie zaokrąglony w dół. Reszta r będzie w tym przypadku tego samegu znaku co liczba d. Przykładami funkcji z tej grupy są:  mpz\_fdiv\_q, mpz\_fdiv\_r oraz mpz\_fdiv\_qr. Zauważmy, że we wszystkich trzech przypadkach zostaje spełnione równanie n = q * d + r, gdzie 0 <= |r| < |d|.
+
+int mpz\_divisible\_p (mpz\_t n, mpz\_t d)
+Funkcja sprawdza, czy d dzieli liczbę n. Jeżeli nie, to zwracana 0, w przeciwnym razie zwraca wartość różną od zera.
+void mpz\_divexact (mpz\_t q, mpz\_t n, mpz\_t d)
+Oblicza iloraz z dzielenia liczb n przez d. Działa poprawnie tylko w przypadku, gdy n jest podzielna przez d. By to sprawdzić można uzyć funkcji mpz\_divisable\_p. Jest znacznie szybsza niż pozostałe funkcje, umożliwiające obliczanie ilorazu z dzielenia. Dlatego zawsze, gdy spełniony jest powyższy warunek,  użycie tej funkcji jest wysoko rekomendowane.
+
+Funkcje porównania
+int mpz\_cmp (mpz t op1, mpz t op2)
+Porównuje wartości dwóch liczb. Zwraca wartość dodatnią, gdy op1 > op2, ujemną, gdy op1 < op2, oraz 0, gdy obie wartości są równe.
+int mpz\_cmpabs (mpz t op1, mpz t op2)
+Porównuje wartość bezwzględną dwóch liczb. Zwraca wartość dodatnią, gdy |op1| > |op2|, ujemną, gdy |op1| < |op2|, oraz 0, gdy obie wartości są równe lub przeciwne.
+int mpz\_sgn (mpz t op)
+Określa znak danej liczby. Zwraca 1 dla wartości dodatnich, -1 dla wartości ujemnych oraz 0 w przypadku zera. Należy pamiętać, ze w obecnej implementacji mpz\_sgn jest makrem i rozpatruje dany argument wielokrotnie.
+
+Pozostałe funkcje
+void mpz\_pow\_ui (mpz t rop, mpz t base, mpir ui exp)
+Podnosi liczbę base do potęgi exp. 
+void mpz\_sqrt (mpz t rop, mpz t op)
+Oblicza pierwiastek całkowity dla danej liczby. W przypadku, gdy wynik nie jest liczbą całkowitą, część ułamkowa zostaje obcięta.
+void mpz\_sqrtrem (mpz t rop1, mpz t rop2, mpz t op)
+Jest bardzo podobna do funkcji mpz\_sqrt. Poza obliczeniem wartości pierwiastka z danej liczby, zwraca także różnicę pomiędzy daną liczbą a kwadratem tego pierwiastka.
+Rop1 = sqrt(op)
+Rop2 = op – sqrt(rop1)\^2.
+Zauważmy, że jeżeli rop2 = 0, to rop1 jest pierwiastkiem kwadratotowym z op.
+
+Operacje na liczbach rzeczywistych
+W tym podrozdziale, rozpatrzę funkcje dla zmiennych typu mpq\_t. Skupię się w nim na funkcjach, które nie występują dla liczb całkowitych typu mpz\_t, opisanych w poprzednim podrozdziale lub ich implementacja znacząco się różni, od już przedstawionej.
+Na początku warto zaznaczyć, że zmienne mpq\_t reprezentują wyłącznie liczby wymierne. Jest to spowodowane ich implementacją. Każda liczba typu mpq\_t składa się z dwóch liczb całkowitych typu mpz\_t, reprezentujących licznik i mianownik.
+
+void mpq\_init (mpq t dest\_rational)
+Funkcja alokuje miejsce w pamięci i inicjuje wartość danej liczby, ustawiając licznik na 0 i mianownik na 1.
+void mpq\_canonicalize (mpq t op)
+Znajduje wspólne dzielniki licznika i mianownika, skracając ułamek. Dodatkowo zapewnia, że mianownik jest liczbą dodatnią, w razie potrzeby, mnożąc licznik i mianownik przez liczbę -1.
+int mpq\_set\_str (mpq t rop, char *str, int base)
+Tworzy liczbę na podstawie wartości podanej w łańcuchu znaków. Jej wartość podawana jest w postaci najpierw licznik, a następnie mianownik, na zasadach podobnym jak w funkcji mpz\_set\_str. Obie liczby oddziela znak operatora dzielenia ‘/’. Funkcja zwraca wartość 0 w przypadku gdy cały łańcuch wejściowy jest poprawny oraz -1 w innym przypadku. Jeżeli argument base jest równy 0, to format liczbowy, dla licznika i mianownika, jest ustalany osobno. Oznacza to, że możemy podać liczby w dwóch różnych formatach, np. „0xFF/256” . Warto zauważyć, że funkcja mpq\_canonicalize nie jest wołana automatycznie, więc jeżeli podaliśmy ułamek, który chcemy skrócić, to musimy pamiętać o jej wywołaniu.
+char * mpq\_get\_str (char *str, int base, mpq t op)
+Funkcja zwracająca liczbę w postaci ułamka, tzn. licznik i mianownik, oddzielony znakiem kreski ułamkowej. Jest analogiczna do funkcji mpz\_get\_str. Bufor wyjściowy, w którym chcemy umieścić rezultat funkcji powinien być, wystarczający i wynosić mpz\_sizeinbase(mpq\_numref(op), base) + mpz\_sizeinbase (mpq\_denref(op), base) + 3. Jeden dodatkowy bajt w porównaniu do funkcji mpz\_get\_str, spowodowany jest koniecznością umieszczenia w buforze kreski ułamkowej.
 
 
 .\\
