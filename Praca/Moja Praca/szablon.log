@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  17 AUG 2016 01:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  17 AUG 2016 01:39
 entering extended mode
 **./szablon.tex
 (szablon.tex
@@ -1045,26 +1045,26 @@ Package: `anysize' 1.0 <1994/08/13>
 ) (szablon.aux)
 \openout1 = `szablon.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 154.
-LaTeX Font Info:    ... okay on input line 154.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 154.
-LaTeX Font Info:    ... okay on input line 154.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 154.
-LaTeX Font Info:    ... okay on input line 154.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 154.
-LaTeX Font Info:    ... okay on input line 154.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 154.
-LaTeX Font Info:    ... okay on input line 154.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 154.
-LaTeX Font Info:    ... okay on input line 154.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 154.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 154.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 155.
+LaTeX Font Info:    ... okay on input line 155.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 155.
+LaTeX Font Info:    ... okay on input line 155.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 155.
+LaTeX Font Info:    ... okay on input line 155.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 155.
+LaTeX Font Info:    ... okay on input line 155.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 155.
+LaTeX Font Info:    ... okay on input line 155.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 155.
+LaTeX Font Info:    ... okay on input line 155.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 155.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 155.
 
  ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 154.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 154.
+LaTeX Font Info:    ... okay on input line 155.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 155.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\t1lmr.fd"
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -1092,42 +1092,42 @@ Package caption Info: longtable package is loaded.
 Package: ltcaption 2013/06/09 v1.4-94 longtable captions (AR)
 )
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 158.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 159.
 
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\ot1lmr.fd"
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 158.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 159.
 
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\omllmm.fd"
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 158
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 159
 .
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\omslmsy.fd"
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 158
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 159
 .
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\omxlmex.fd"
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 158.
+(Font)              <10> on input line 159.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 158.
+(Font)              <7> on input line 159.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 158.
-LaTeX Font Info:    Try loading font information for U+msa on input line 158.
+(Font)              <5> on input line 159.
+LaTeX Font Info:    Try loading font information for U+msa on input line 159.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 158.
+LaTeX Font Info:    Try loading font information for U+msb on input line 159.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1135,32 +1135,32 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 <img/logo_pg.png, id=4, 28.908pt x 22.1628pt>
 File: img/logo_pg.png Graphic file (type png)
  <use img/logo_pg.png>
-Package pdftex.def Info: img/logo_pg.png used on input line 158.
+Package pdftex.def Info: img/logo_pg.png used on input line 159.
 (pdftex.def)             Requested size: 92.80782pt x 71.13188pt.
 
-Overfull \vbox (13.41185pt too high) detected at line 158
+Overfull \vbox (13.41185pt too high) detected at line 159
  []
 
 
 LaTeX Font Warning: Font shape `T1/lmr/bx/sc' undefined
-(Font)              using `T1/lmr/bx/n' instead on input line 158.
+(Font)              using `T1/lmr/bx/n' instead on input line 159.
 
 <img/logo_eti.png, id=5, 73.876pt x 73.876pt>
 File: img/logo_eti.png Graphic file (type png)
  <use img/logo_eti.png>
-Package pdftex.def Info: img/logo_eti.png used on input line 158.
+Package pdftex.def Info: img/logo_eti.png used on input line 159.
 (pdftex.def)             Requested size: 71.13206pt x 71.13188pt.
 
-Overfull \vbox (13.41185pt too high) detected at line 158
+Overfull \vbox (13.41185pt too high) detected at line 159
  []
 
 
-Overfull \hbox (24.0pt too wide) in alignment at lines 158--158
+Overfull \hbox (24.0pt too wide) in alignment at lines 159--159
 [][] 
  []
 
 
-Overfull \hbox (12.0pt too wide) in alignment at lines 158--158
+Overfull \hbox (12.0pt too wide) in alignment at lines 159--159
 [] 
  []
 
@@ -1173,62 +1173,61 @@ Overfull \hbox (12.0pt too wide) in alignment at lines 158--158
 {C:/Users/Gruby/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./img/logo_
 pg.png> <./img/logo_eti.png>] [2
 
-] (szablon.toc)
+] (szablon.toc [3])
 \tf@toc=\write4
 \openout4 = `szablon.toc'.
 
- [3] [4
-
-]
+ [4]
 Rozdzia\l  1.
 [1
+
 
 ] [2
 
 ]
 Rozdzia\l  2.
 [3] [4] [5]
-Underfull \hbox (badness 10000) in paragraph at lines 340--341
+Underfull \hbox (badness 10000) in paragraph at lines 341--342
 
  []
 
 [6]
 
-LaTeX Warning: Command \l invalid in math mode on input line 351.
+LaTeX Warning: Command \l invalid in math mode on input line 352.
 
 
-LaTeX Warning: Command \l invalid in math mode on input line 351.
+LaTeX Warning: Command \l invalid in math mode on input line 352.
 
 [7] [8]
 
-LaTeX Warning: Command \l invalid in math mode on input line 419.
+LaTeX Warning: Command \l invalid in math mode on input line 420.
 
 
-LaTeX Warning: Command \l invalid in math mode on input line 419.
+LaTeX Warning: Command \l invalid in math mode on input line 420.
 
 [9]
 
-LaTeX Warning: Command \' invalid in math mode on input line 490.
+LaTeX Warning: Command \' invalid in math mode on input line 491.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 490.
+LaTeX Warning: Command \' invalid in math mode on input line 491.
 
 [10]
 
-LaTeX Warning: Command \' invalid in math mode on input line 534.
+LaTeX Warning: Command \' invalid in math mode on input line 535.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 534.
+LaTeX Warning: Command \' invalid in math mode on input line 535.
 
 [11] [12]
-Overfull \hbox (1.9686pt too wide) in paragraph at lines 597--598
+Overfull \hbox (1.9686pt too wide) in paragraph at lines 598--599
 []\T1/lmr/m/it/10 Liczba ró»-nych pier-wiast-ków rze-czy-wi-stych wie-lo-mianu 
 W(x) jest równa $\OML/lmm/m/it/10 Z\OT1/lmr/m/n/10 (\OMS/lmsy/m/n/10  1\OT1/lmr
 /m/n/10 ) \OMS/lmsy/m/n/10  $
  []
 
 [13]
-Overfull \hbox (5.6166pt too wide) in paragraph at lines 620--621
+Overfull \hbox (5.6166pt too wide) in paragraph at lines 621--622
 []\T1/lmr/m/it/10 Dany jest wie-lo-mian $\OML/lmm/m/it/10 W[]\OT1/lmr/m/n/10 (\
 OML/lmm/m/it/10 x\OT1/lmr/m/n/10 ) = \OML/lmm/m/it/10 a[]x[] \OT1/lmr/m/n/10 + 
 \OML/lmm/m/it/10 a[]x[] \OT1/lmr/m/n/10 + \OML/lmm/m/it/10 a[]x[] \OT1/lmr/m/n/
@@ -1240,37 +1239,32 @@ OML/lmm/m/it/10 x\OT1/lmr/m/n/10 ) = \OML/lmm/m/it/10 a[]x[] \OT1/lmr/m/n/10 +
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [15]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [16]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [17]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [18]
+[16] [17] [18]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [19]
-Underfull \hbox (badness 10000) in paragraph at lines 771--773
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [20]
+Underfull \hbox (badness 10000) in paragraph at lines 780--782
 
  []
 
-[20]
-Rozdzia\l  3.
-[21
-
-] [22
+[21] [22
 
 ]
-Rozdzia\l  4.
+Rozdzia\l  3.
 [23] [24
 
 ]
-Rozdzia\l  5.
+Rozdzia\l  4.
 [25] [26
 
-] (szablon.bbl) [27
+]
+Rozdzia\l  5.
+[27] [28
+
+] (szablon.bbl) [29
 
 ] (szablon.aux)
 
@@ -1278,13 +1272,13 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 17061 strings out of 493634
- 311017 string characters out of 3141314
- 354751 words of memory out of 3000000
- 20084 multiletter control sequences out of 15000+200000
+ 17320 strings out of 493634
+ 312972 string characters out of 3141314
+ 355751 words of memory out of 3000000
+ 20343 multiletter control sequences out of 15000+200000
  53721 words of font info for 43 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 48i,15n,54p,1478b,423s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 48i,15n,54p,1478b,973s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program F
 iles (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Program Files (x86)/
 MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Program Files (x86)/MiKTeX 2.9/
@@ -1299,9 +1293,9 @@ eX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts
 b><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Progr
 am Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmsy5.pfb><C:/Program Files (x8
 6)/MiKTeX 2.9/fonts/type1/public/lm/lmsy7.pfb>
-Output written on szablon.pdf (31 pages, 298531 bytes).
+Output written on szablon.pdf (33 pages, 302421 bytes).
 PDF statistics:
- 164 PDF objects out of 1000 (max. 8388607)
+ 170 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  23 words of extra memory for PDF output out of 10000 (max. 10000000)
 
