@@ -678,14 +678,14 @@ Jeżeli chcemy skorzystać z biblioteki, wspierającej język C++ dodatkowo musi
 g++ myprogram.cc -lmpirxx -lmpir
 \end{lstlisting}
 
-\subsection{Podstawowe operacje liczbowe}
+\subsection{Operacje na liczbach całkowitych}
 W niniejszym podrozdziale, omówię podstawowe funkcje liczbowe, które mają zastosowanie, zarówno dla liczb całkowitych typu mpz\_t, jak i rzeczywistych typu mpq\_t.
 
 \subsubsection{Funkcje inicjalizujące}
 \begin{lstlisting}
 void mpz_init (mpz_t integer)
 \end{lstlisting}
-Inicjuje wartość zmiennej integer i ustawia jej wartość na 0.
+Alokuje w pamięci miejsce na zmienną integer i ustawia jej wartość na 0.
 
 \begin{lstlisting}
 void mpz_clear (mpz_t integer)
@@ -695,28 +695,29 @@ Zwalnia miejsce zajmowaną przez zmienną. Funkcja ta powinna być używana dla 
 \begin{lstlisting}
 void mpz_realloc2 (mpz_t integer, mp bitcnt_t n)
 \end{lstlisting}
-Zmienia rozmiar zajmowanego przez zmienną miejsca. Funkcja jest używana z wartością n, większą od aktualnej, by zagwarantować zmiennej określone miejsce w pamięci. Z drugiej strony zostaje wołana z wartością mniejszą, jeżeli chcemy zmniejszyć liczbę zajmowanego przez zmienną miejsca. Jeżeli nowy rozmiar jest wystarczający by pomieścić aktualną wartość zmiennej, to zostaje ona zachowana. W przeciwnym razie wartość zmiennej zostanie ustawiona na 0. Istnieje również przestarzała funkcja mpz\_realloc, ale jej użycie jest niezalecane. Nie została usunięta, by zachować kompatybilność wsteczną.
+Zmienia rozmiar zajmowanego przez zmienną miejsca. Funkcja jest używana z wartością n, większą od aktualnej, by zagwarantować zmiennej określone miejsce w pamięci. Z drugiej strony, zostaje wywołana z wartością mniejszą, jeżeli chcemy zmniejszyć liczbę zajmowanego przez zmienną miejsca. Gdy nowy rozmiar jest wystarczający by pomieścić aktualną wartość zmiennej, to zostaje ona zachowana. W przeciwnym razie zostanie ona ustawiona na 0. Istnieje również przestarzała funkcja mpz\_realloc, ale jej użycie jest niezalecane. Nie została usunięta, by zachować kompatybilność wsteczną.
 
 \subsubsection{Funkcje przypisania}
 
 \begin{lstlisting}
 void mpz_set (mpz_t rop, mpz_t op)
 \end{lstlisting}
-Pozwala na przypisanie wartości tych samów typów, wartość zmiennej op do wartości zmiennej rop. Jest to równoważnik operatora przypisania.
+Pozwala na przypisanie wartości tych samów typów. Wartość zmiennej op jest ustawiana jako rop. Jest to równoważnik operatora przypisania.
 
 \begin{lstlisting}
 void mpz_set_sx (mpz_t rop, intmax_t op)
 \end{lstlisting}
-Pozwala na przypisanie zmiennej typu całkowitego do zmiennej typu mpz\_t.
+Pozwala na przypisanie zmiennej typu całkowitego do wartości typu mpz\_t.
+
 \begin{lstlisting}
 void mpz_set_d (mpz_t rop, double op)
 \end{lstlisting}
-Zapisuje zmienną typu double do zmiennej typu mpz\_t.
+Zapisuje wqrtość typu double do zmiennej typu mpz\_t.
 
 \begin{lstlisting}
 void mpz_set_q (mpz_t rop, mpq_t op)
 \end{lstlisting}
-Pozwala na zrzutowanie liczby rzeczywistej, typu mpq\_t to zmiennej mpz\_t. Gdy liczba mpq\_t nie jest liczbą całkowitą, zostaje ona zaokrąglona w dół, poprzez obcięcie jej części ułamkowej.
+Pozwala na zrzutowanie liczby rzeczywistej, typu mpq\_t do zmiennej mpz\_t. Gdy liczba mpq\_t nie jest liczbą całkowitą, zostaje ona zaokrąglona w dół, poprzez obcięcie jej części ułamkowej.
 
 \begin{lstlisting}
 int mpz_set_str (mpz_t rop, char *str, int base)
