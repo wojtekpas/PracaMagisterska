@@ -25,15 +25,23 @@
 \contentsline {subsection}{\numberline {2.4.9}Wydajno\IeC {\'s}\IeC {\'c}}{17}
 \contentsline {subsection}{\numberline {2.4.10}Operacje w miejscu}{17}
 \contentsline {subsection}{\numberline {2.4.11}Podstawowe operacje liczbowe}{18}
-\contentsline {chapter}{\numberline {3}Opis Rozwi\IeC {\k a}zania}{23}
-\contentsline {section}{\numberline {3.1}Podzia\IeC {\l } na modu\IeC {\l }y}{23}
-\contentsline {section}{\numberline {3.2}G\IeC {\l }\IeC {\'o}wne klasy}{23}
-\contentsline {section}{\numberline {3.3}G\IeC {\l }\IeC {\'o}wne funkcje}{23}
-\contentsline {section}{\numberline {3.4}Zewn\IeC {\k e}trze biblioteki}{23}
-\contentsline {section}{\numberline {3.5}Instrukcja programu}{23}
-\contentsline {chapter}{\numberline {4}Przeprowadzone testy}{25}
-\contentsline {section}{\numberline {4.1}Testy jednostkowe}{25}
-\contentsline {section}{\numberline {4.2}Testy interfejsu u\IeC {\.z}ytkownika}{25}
-\contentsline {section}{\numberline {4.3}Testy wydajno\IeC {\'s}ci czasowej}{25}
-\contentsline {section}{\numberline {4.4}Testy wydajno\IeC {\'s}ci pami\IeC {\k e}ciowej}{25}
-\contentsline {chapter}{\numberline {5}Podsumowanie}{27}
+\contentsline {subsection}{\numberline {2.4.12}Funkcje inicjalizuj\IeC {\k a}ce}{18}
+\contentsline {subsection}{\numberline {2.4.13}Funkcje przypisania}{18}
+\contentsline {subsection}{\numberline {2.4.14}Funkcje konwersji}{19}
+\contentsline {subsection}{\numberline {2.4.15}Funkcje arytmetyczne}{20}
+\contentsline {subsection}{\numberline {2.4.16}Funkcje dzielenia}{20}
+\contentsline {subsection}{\numberline {2.4.17}Funkcje por\IeC {\'o}wnania}{21}
+\contentsline {subsection}{\numberline {2.4.18}Pozosta\IeC {\l }e funkcje}{22}
+\contentsline {subsection}{\numberline {2.4.19}Operacje na liczbach rzeczywistych}{22}
+\contentsline {chapter}{\numberline {3}Opis Rozwi\IeC {\k a}zania}{25}
+\contentsline {section}{\numberline {3.1}Podzia\IeC {\l } na modu\IeC {\l }y}{25}
+\contentsline {section}{\numberline {3.2}G\IeC {\l }\IeC {\'o}wne klasy}{25}
+\contentsline {section}{\numberline {3.3}G\IeC {\l }\IeC {\'o}wne funkcje}{25}
+\contentsline {section}{\numberline {3.4}Zewn\IeC {\k e}trze biblioteki}{26}
+\contentsline {section}{\numberline {3.5}Instrukcja programu}{26}
+\contentsline {chapter}{\numberline {4}Przeprowadzone testy}{27}
+\contentsline {section}{\numberline {4.1}Testy jednostkowe}{27}
+\contentsline {section}{\numberline {4.2}Testy interfejsu u\IeC {\.z}ytkownika}{27}
+\contentsline {section}{\numberline {4.3}Testy wydajno\IeC {\'s}ci czasowej}{27}
+\contentsline {section}{\numberline {4.4}Testy wydajno\IeC {\'s}ci pami\IeC {\k e}ciowej}{27}
+\contentsline {chapter}{\numberline {5}Podsumowanie}{29}
