@@ -626,24 +626,44 @@ Jak widać jesteśmy w stanie ustalić znak, a nawet dokładną wartość, najwi
 
 \section{Biblioteka Mpir}
 
+\subsection{Podstawowe informacje}
 
-\subsection{Licencja}
-
-Biblioteka mpir jest przykładem wolnego oprogramowania, charakteryzującego się kilkoma podstawowymi założeniami. Pierwszą z nich jest wolność pozwalająca użytkownikowi na uruchamianie programu, w dowolnym celu. Drugą jest jego analiza oraz dostosowywania go do swoich potrzeb. Kolejną cechą jest możliwość dowolnego rozpowszechnianie kopii programu. Ostatnią zaś jest udoskonalanie programu i publiczne rozprowadzanie własnych ulepszeń, z których każdy będzie mógł skorzystać.
-
-\subsection{Wstęp}
+\subsubsection{Wstęp}
 
 Mpir jest przykładem biblioteki napisanej w języku C, pozwalającą operować na liczby o dowolnej wielkości i dokładności. Jej celem było dostarczenie narzędzia dla arytmetyki na liczbach, które nie są wspierane przez podstawowe typy wbudowane w języku C.
 
 Kluczowy jest fakt, że biblioteka ta została zoptymalizowana w taki sposób, by w zależności od potrzeb używać odmiennych algorytmów. Stało się tak dlatego, że algorytm działania na małych liczbach z niewielką precyzją jest prosty i znacznie różni się od wymyślnej metody, używanej w przypadku wielkich liczb, z setkami cyfr po przecinku.
 
-Warto zauważyć, że optymalizacja kodu odbywa się także w zależności od rodzaju procesora, na którym są wykonywane obliczenia. Biblioteka przeznaczona dla procesorów Intel i7 dostarcza inny kod niż dla procesora Pentium 4 lub Athlon. Dzięki temu, z pewnością, działa w sposób bardziej wydajny, kosztem wygody programistów, którzy jej używają. Nie są oni w łatwy sposób zapewnić optymalnego działania programu, niezależnie od sprzętu na którym jest on uruchamiany, co może to znacznie utrudnić proces powstawania nowego oprogramowania, bazującego na bibliotece mpir.
+Warto zauważyć, że optymalizacja kodu odbywa się także w zależności od rodzaju procesora, na którym są wykonywane obliczenia. Biblioteka przeznaczona dla procesorów Intel i7 dostarcza inny kod niż dla procesora Pentium 4 lub Athlon. Dzięki temu, z pewnością, działa w sposób bardziej wydajny, kosztem wygody programistów, którzy jej używają. Nie są oni w łatwy sposób zapewnić optymalnego działania programu, niezależnie od sprzętu na którym jest on uruchamiany, co może znacznie utrudnić proces powstawania nowego oprogramowania, bazującego na bibliotece mpir.
+
+\subsubsection{Licencja}
+
+Biblioteka mpir jest przykładem wolnego oprogramowania, charakteryzującego się kilkoma podstawowymi założeniami. Pierwszą z nich jest wolność pozwalająca użytkownikowi na uruchamianie programu, w dowolnym celu. Drugą jest jego analiza oraz dostosowywania go do swoich potrzeb. Kolejną cechą jest możliwość dowolnego rozpowszechnianie kopii programu. Ostatnią zaś jest udoskonalanie programu i publiczne rozprowadzanie własnych ulepszeń, z których każdy będzie mógł skorzystać.
+
+\subsubsection{Nazewnictwo i typy}
+
+Biblioteka mpir posiada odpowiedniki dla wszystkich podstawowych typów liczbowych, które są charakterystyczne dla języka C. Odpowiednikiem typów całkowitych jest typ mpz\_t, zaś odpowiednikiem liczb zmiennoprzecinkowych, typu float, jest mpq\_t. Dla liczb całkowitych możemy łatwo zdecydować, czy interesuje nas liczba ze znakiem, czy bez niego. Oba przypadki posiadają prawie identycznie nazwane funkcje. Jedyną różnicą jest to, że dla zmiennych ze znakiem występuje przyrostek si, od wyrazu angielskiego wyrazu signed, a dla zmiennych bez znaku przyrostek ui, od wyrazu unsigned. Typ mpq\_t daje użytkownikowi możliwość zdefiniowana dowolnej liczby, dającej się przedstawić w postaci ułamka, czyli dowolnej liczby wymiernej. Ograniczenie to spowodowane jest faktem, iż liczba taka składa się z dwóch liczb typu mpz\_t. Pierwsza z nich jest licznikiem, a druga mianownikiem.
+
+\subsubsection{Funkcje}
+W bibliotece przyjęto konwencję charakterystyczną, dla języka C, polegającą na tym, że zarówno argumenty wejściowe jak i wyjściowe funkcji są przekazywane za pomocą referencji do funkcji, która zazwyczaj jest typu void, czyli nie zwraca żadnej wartości. Warto zauważyć, że argumenty wyjściowe są podawane przed wejściowymi. Stało się tak poprzez zachowanie analogii do operatora przypisania, w którym to zmienna wynikowa znajduje się po lewej stronie.
+W bibliotece mpir zmienna po zadeklarowaniu nie jest natychmiastowo gotowa do użycia, ponieważ wymaga inicjalizacji, przydzielającej jej miejsce w pamięci. Możemy to zrobić poprzez wywołanie odpowiedniej funkcji init, w argumencie podając odpowiednią zmienną. Analogicznie, aby zwolnić zajmowany, przez zmienną, obszar pamięci należy wywołać funkcję clear. Istnieją także funkcje realokujące, czyli zwiększające lub zmniejszające, zajmowany obszar. Użycie ich jest jednak opcjonalne, gdyż zmiana rozmiaru jest automatycznie wykrywana. Raz zainicjalizowaną zmienną, można używać dowolną liczbę razy. Twórcy biblioteki zalecają unikanie nadmiernego korzystania z funkcji init i clear, ponieważ są to operacje czasochłonne i zbyt duża liczba ich wywołań może mieć negatywny wpływ na wydajność naszego programu.
+
+\subsubsection{Zarządzanie pamięcią}
+Biblioteka mpir, alokując w pamięci nowe obiekty, stara się minimalizować wielkość, zajmowaną przez nie, miejsca. Dodatkowa pamięć jest przyznawana dopiero, kiedy jej aktualna wielkość jest niewystarczająca. W przypadku zmiennych typów mpz\_t i mpq\_t, raz zwiększony rozmiar danej zmiennej nigdy nie zostanie zmniejszony. Zazwyczaj jest to najlepsza praktyka, ponieważ częsta alokacja pamięci ma niekorzystny wpływ na wydajność programu. Jeżeli aplikacja potrzebuje zmniejszyć zajmowane przez daną zmienną miejsce, można dokonać realokacji albo całkowicie zwolnić, zajmowane przez nią miejsce. Dodatkowo kolejne zwiększania rozmiaru przeznaczonego na poszczególne zmienne może powodować zauważalny spadek wydajności lub fragmentację danych. Nie da się uniknąć, jeżeli chcemy zaalokować więcej miejsca dla danej zmiennej, w momencie, gdy w jej sąsiedztwie znajdują się już inne zmienne. Wówczas zależnie od implementacji mamy do czynienia z jednej z dwóch wariantów. W pierwszym przypadku, alokujemy nowe miejsce w pamięci, uzupełniając odpowiednio jego wartość, a następnie zwalniając wcześniej zajmowane miejsce. Alternatywą jest pozostawienie zajmowanej już pamięci i przydzielenie dodatkowej w innym miejscu. W takim przypadku jesteśmy zmuszeni do odpowiedniego zarządzania nieciągłymi fragmentami pamięci, co również może mieć bardzo negatywny wpływ na wydajność aplikacji. Z kolei, zmienne typu mpf\_t mają niezmienny rozmiar, zależny od wybranej precyzji. \\
+Warto zauważyć, że biblioteka standardowo do alokowania pamięci domyślnie używa funkcji malloc, ale możliwe jest także korzystanie z funkcji alloca. Pierwszy alokator zajmuje się tylko przydzieleniem pamięci, a użytkownik musi sam pamiętać, o jego zwolnieniu, w odpowiednim momencie. Z kolei, drugi z nich zdejmuje tę odpowiedzialność ze strony programisty i sam dba o zwolnienie pamięci, gdy jest ona już nie używana.
+
+\subsubsection{Kompatybilność}
+Poza kilkoma wyjątkami, biblioteka mpir jest kompatybilna z odpowiednimi wersjami biblioteki gmp. Dodatkowo, jej twórcy starają się nie usuwać istniejących już funkcji. W przypadku, gdy któraś przestanie być rekomendowana, zostaje po prostu zaznaczona jako przestarzawała, ale jej implementacja nie przestaje istnieć w kolejnych wydaniach biblioteki. Dzięki temu program, bazujący na starszej wersji biblioteki, zadziała też na nowszej edycji.
+
+\subsubsection{Wydajność}
+Dla małych liczb, narzut na korzystanie z biblioteki może być znaczący w porównaniu do typów prostych. Jest to nieuniknione, ale celem biblioteki jest próba znalezienia złotego środka pomiędzy wysoką wydajność, zarówno dla małych, jak i dużych liczb. 
+
+\subsubsection{Operacje w miejscu}
+Operacje obliczania wartości bezwzględnej i negacji danej liczby są bardzo szybkie, gdy obliczane są w miejscu, tzn. wtedy, gdy zmienna wejściowa jest również zmienną wyjściową. Wówczas nie ma potrzeby alokacji i zwalnia pamięci, a cała funkcja sprowadza się do ustawienia odpowiedniego bitu, mówiącego o znaku liczby. Według specyfikacji biblioteki mpir, zauważalny powinien być także zysk, w przypadku operacji dodawania, odejmowania i mnożenie w miejscu. W momencie, gdy drugim argumentem jest nieduża liczba całkowite operację te są nieskomplikowane i bardzo szybkie.
 
 \subsection{Instalacja}
 
 Instalacja biblioteki mpir jest różna w zależności od systemu operacyjnego. W systemach unixowych instalacja polega na zbudowaniu i instalacji, korzystając ze źródeł. Pod windowsem jest ona równie łatwa i przebiega analogicznie, o ile używamy cygwina lub mingw. Są to narzędzia, które zapewniają, programom działającym pod systemem Windows, funkcjonalność przypominającą system Linux. Bardziej skomplikowane będzie użycie biblioteki bez wyżej wymienionych narzędzi, ale warto zaznaczyć, że biblioteka ta może być budowana z użyciem Microsoft Visual Studio, począwszy od wersji 2010, korzystając z programu o nazwie yasm asembler. Dodatkowo korzystanie z biblioteki różni się w zależności od tego czy potrzebujemy jej statyczną (mpir/lib) czy dynamiczną (mpir/dll) wersję.
-
-\subsection{Podstawy}
 
 Aby używać biblioteki mpir w naszym programie musimy do naszego programu dodać następującą linię:
 \begin{lstlisting}
@@ -658,32 +678,10 @@ Jeżeli chcemy skorzystać z biblioteki, wspierającej język C++ dodatkowo musi
 g++ myprogram.cc -lmpirxx -lmpir
 \end{lstlisting}
 
-\subsection{Nazewnictwo i typy}
-
-Biblioteka mpir posiada odpowiedniki dla wszystkich podstawowych typów liczbowych, które są charakterystyczne dla języka C. Odpowiednikiem typów całkowitych jest typ mpz\_t, zaś odpowiednikiem liczb zmiennoprzecinkowych, typu float, jest mpf\_t. Dla liczb całkowitych możemy łatwo zdecydować, czy interesuje nas liczba ze znakiem, czy bez niego. Oba przypadki posiadają prawie identycznie nazwane funkcje. Jedyną różnicą jest to, że dla zmiennych ze znakiem występuje przyrostek si, od wyrazu angielskiego wyrazu signed, a dla zmiennych bez znaku przyrostek ui, od wyrazu unsigned.
-
-\subsection{Funkcje}
-W bibliotece przyjęto konwencję charakterystyczną, dla języka C, polegającą na tym, że zarówno argumenty wejściowe jak i wyjściowe funkcji są przekazywane za pomocą referencji do funkcji, która zazwyczaj jest typu void, czyli nie zwraca żadnej wartości. Warto zauważyć, że argumenty wyjściowe są podawane przed wejściowymi. Stało się tak poprzez zachowanie analogii do operatora przypisania, w którym to zmienna wynikowa znajduje się po lewej stronie.
-W bibliotece mpir zmienna po zadeklarowaniu nie jest natychmiastowo gotowa do użycia, ponieważ wymaga inicjalizacji, przydzielającej jej miejsce w pamięci. Możemy to zrobić poprzez wywołanie odpowiedniej funkcji init, w argumencie podając odpowiednią zmienną. Analogicznie, aby zwolnić zajmowany, przez zmienną, obszar pamięci należy wywołać funkcję clear. Istnieją także funkcje realokujące, czyli zwiększające lub zmniejszające, zajmowany obszar. Użycie ich jest jednak opcjonalne, gdyż zmiana rozmiaru jest automatycznie wykrywana. Raz zainicjalizowaną zmienną, można używać dowolną liczbę razy. Twórcy biblioteki zalecają unikanie nadmiernego korzystania z funkcji init i clear, ponieważ są to operacje czasochłonne i zbyt duża ich liczba może mieć negatywny wpływ na wydajność naszego programu.
-
-\subsection{Zarządzanie pamięcią}
-Biblioteka mpir, alokując w pamięci nowe obiekty, stara się minimalizować wielkość zajmowaną przez nie miejsca. Dodatkowa pamięć jest przyznawana dopiero, kiedy jej aktualna wielkość jest niewystarczająca. W przypadku zmiennych typów mpz\_t i mpg\_t, raz zwiększony rozmiar danej zmiennej nigdy nie zostanie zmniejszony. Zazwyczaj jest to najlepsza praktyka, ponieważ częsta alokacja pamięci ma niekorzystny wpływ na wydajność programu. Jeżeli aplikacja potrzebuje zmniejszyć zajmowane przez daną zmienną miejsce, można dokonać realokacji albo całkowicie zwolnić, zajmowane przez nią miejsce. Dodatkowo kolejne zwiększania rozmiaru przeznaczonego na poszczególne zmienne może być powodować zauważalny spadek wydajności lub fragmentację danych. Nie da się uniknąć, jeżeli chcemy zaalokować więcej miejsca dla danej zmiennej, w momencie, gdy w jej sąsiedztwie znajdują się już inne zmienne. Wówczas zależnie od implementacji mamy do czynienia z jednej z dwóch wariantów. W pierwszym przypadku, alokujemy nowe miejsce w pamięci, uzupełniając odpowiednio jego wartość, a następnie zwalniając wcześniej zajmowane miejsce. Alternatywą jest pozostawienie zajmowanej już pamięci i przydzielenie dodatkowej w innym miejscu. W takim przypadku jesteśmy zmuszeni do odpowiedniego zarządzania nieciągłymi fragmentami pamięci, co również może mieć bardzo negatywny wpływ na wydajność aplikacji.
-Z kolei, zmienne typu mpf\_t mają niezmienny rozmiar, zależny od wybranej precyzji. Warto zauważyć, że biblioteka standardowo do alokowania pamięci domyślnie używa funkcji malloc, ale możliwe jest także korzystanie z funkcji alloca. Pierwszy alokator zajmuje się tylko przydzieleniem pamięci, a użytkownik musi sam pamiętać, o jego zwolnieniu, w odpowiednim momencie. Z kolei, drugi z nich zdejmuje tę odpowiedzialność ze strony programisty i sam dba o zwolnienie pamięci, gdy jest ona już nie używana.
-
-\subsection{Kompatybilność}
-Poza kilkoma wyjątkami, biblioteka mpir jest kompatybilna z odpowiednimi wersjami biblioteki gmp.
-
-\subsection{Wydajność}
-Małe i duże liczby
-Dla małych liczb, narzut na korzystanie z biblioteki może być znaczący w porównaniu z korzystanie z typów prostych. Jest to nieuniknione, ale celem biblioteki jest próba znalezienia złotego środka pomiędzy wysoką wydajność, zarówno dla małych, jak i dużych liczb. 
-
-\subsection{Operacje w miejscu}
-Operacje obliczania wartości bezwzględnej i negacji danej liczby są bardzo szybkie, gdy obliczane są w miejscu, tzn. wtedy, gdy zmienna wejściowa jest również zmienną wyjściową. Wówczas nie ma potrzeby alokacji i zwalnia pamięci, a cała funkcja sprowadza się do ustawienia odpowiedniego bitu, mówiącego o znaku liczby. Według specyfikacji biblioteki mpir, zauważalny powinien być także zysk, w przypadku operacji dodawania, odejmowania i mnożenie w miejscu. W momencie, gdy drugim argumentem jest nieduża liczba całkowite operację te są nieskomplikowane i bardzo szybkie.
-
 \subsection{Podstawowe operacje liczbowe}
 W niniejszym podrozdziale, omówię podstawowe funkcje liczbowe, które mają zastosowanie, zarówno dla liczb całkowitych typu mpz\_t, jak i rzeczywistych typu mpq\_t.
 
-\subsection{Funkcje inicjalizujące}
+\subsubsection{Funkcje inicjalizujące}
 \begin{lstlisting}
 void mpz_init (mpz_t integer)
 \end{lstlisting}
@@ -699,7 +697,7 @@ void mpz_realloc2 (mpz_t integer, mp bitcnt_t n)
 \end{lstlisting}
 Zmienia rozmiar zajmowanego przez zmienną miejsca. Funkcja jest używana z wartością n, większą od aktualnej, by zagwarantować zmiennej określone miejsce w pamięci. Z drugiej strony zostaje wołana z wartością mniejszą, jeżeli chcemy zmniejszyć liczbę zajmowanego przez zmienną miejsca. Jeżeli nowy rozmiar jest wystarczający by pomieścić aktualną wartość zmiennej, to zostaje ona zachowana. W przeciwnym razie wartość zmiennej zostanie ustawiona na 0. Istnieje również przestarzała funkcja mpz\_realloc, ale jej użycie jest niezalecane. Nie została usunięta, by zachować kompatybilność wsteczną.
 
-\subsection{Funkcje przypisania}
+\subsubsection{Funkcje przypisania}
 
 \begin{lstlisting}
 void mpz_set (mpz_t rop, mpz_t op)
@@ -730,7 +728,7 @@ void mpz_swap (mpz_t rop1, mpz_t rop2)
 \end{lstlisting}
 Używana jest do zamiany wartości pomiędzy dwoma zmiennymi typu mpz\_t. Jej użycie jest rekomendowane, ze względów wydajnościowych. W przypadku braku tej funkcji, potrzeba by zmiennej tymczasowej. W tym celu musiała by ona na początku zostać zaalokowana w pamięci, a na końcu zwolniona. Obie operacje są czasochłonne i zaleca się minimalizować ich użycie, więc użycie zoptymalizowanej funkcji służącej do zamiany wartości dużych liczb wydaje się zdecydowanie najlepszą i najszybszą opcją.
 
-\subsection{Funkcje konwersji}
+\subsubsection{Funkcje konwersji}
 
 \begin{lstlisting}
 intmax_t mpz_get_sx (mpz_t op)
@@ -747,7 +745,7 @@ char * mpz_get_str (char *str, int base, mpz_t op)
 \end{lstlisting}
 Zwraca ciąg znaków reprezentujących liczbę op., o podstawie danej w paremetrze o nazwie base. Funkcja ta jest analogiczna do mpz\_set\_str. Jeżeli parametrem str jest NULL, to ciąg znaków zostaje zwrócony przez funkcję. W przeciwnym razie funkcja umieszcza go pod adresem, na który wskazuje zmienna str. Należy zadbać o to, by bufor, do zapisania rezultatu funkcji, był wystarczający. Powinien on być 2 bajty dłuższy niż długość zwróconej liczby w danym systemie liczbowym. Pierwszy bajt to służy na wpisanie ewentualnego znaków minus, natomiast drugi na znak ‘\\0’ kończący łańcuch znaków. Długość zasadniczej części liczbowej można pobrać używając funkcji mpz\_sizeinbase (op, base), w której podajemy odpowiednio daną liczbę oraz podstawę.
 
-\subsection{Funkcje arytmetyczne}
+\subsubsection{Funkcje arytmetyczne}
 
 \begin{lstlisting}
 void mpz_add (mpz_t rop, mpz_t op1, mpz_t op2)
@@ -784,7 +782,7 @@ void mpz_abs (mpz_t rop, mpz_t op)
 \end{lstlisting}
 Funkcja w swoim działaniu bardzo podobna do funkcji mpz\_neg. Jedyną róznicą jest to, że bit znaku nie zostaje zanegowany, a ustawiony tak, by wskazywał na wartość nieujemną.
 
-\subsection{Funkcje dzielenia}
+\subsubsection{Funkcje dzielenia}
 Uzywając niżej wymienionych funkcji należy pamiętać, ze dzielenie przez 0, zarówno w przypadku obliczania wartości ilorazu, jak i reszty z dzielenia jest nielegalne. W przypadku, gdy wystąpi taka sytuacja, biblioteka zachowa się jak w przypadku dzielenia przez 0, dla liczb typu int, tzn. skończy działanie funkcji, rzucając odpowiedni wyjątek.
 
 \begin{lstlisting}
@@ -815,7 +813,7 @@ void mpz_divexact (mpz_t q, mpz_t n, mpz_t d)
 \end{lstlisting}
 Oblicza iloraz z dzielenia liczb n przez d. Działa poprawnie tylko w przypadku, gdy n jest podzielna przez d. By to sprawdzić można uzyć funkcji mpz\_divisable\_p. Jest znacznie szybsza niż pozostałe funkcje, umożliwiające obliczanie ilorazu z dzielenia. Dlatego zawsze, gdy spełniony jest powyższy warunek,  użycie tej funkcji jest wysoko rekomendowane.
 
-\subsection{Funkcje porównania}
+\subsubsection{Funkcje porównania}
 
 \begin{lstlisting}
 int mpz_cmp (mpz_t op1, mpz_t op2)
@@ -832,7 +830,7 @@ int mpz_sgn (mpz_t op)
 \end{lstlisting}
 Określa znak danej liczby. Zwraca 1 dla wartości dodatnich, -1 dla wartości ujemnych oraz 0 w przypadku zera. Należy pamiętać, ze w obecnej implementacji mpz\_sgn jest makrem i rozpatruje dany argument wielokrotnie.
 
-\subsection{Pozostałe funkcje}
+\subsubsection{Pozostałe funkcje}
 
 \begin{lstlisting}
 void mpz_pow_ui (mpz_t rop, mpz_t base, mpir_ui exp)
@@ -852,7 +850,7 @@ Rop1 = sqrt(op)
 Rop2 = op – sqrt(rop1)\^2.
 Zauważmy, że jeżeli rop2 = 0, to rop1 jest pierwiastkiem kwadratotowym z op.
 
-\subsection{Operacje na liczbach rzeczywistych}
+\subsubsection{Operacje na liczbach rzeczywistych}
 W tym podrozdziale, rozpatrzę funkcje dla zmiennych typu mpq\_t. Skupię się w nim na funkcjach, które nie występują dla liczb całkowitych typu mpz\_t, opisanych w poprzednim podrozdziale lub ich implementacja znacząco się różni, od już przedstawionej.
 Na początku warto zaznaczyć, że zmienne mpq\_t reprezentują wyłącznie liczby wymierne. Jest to spowodowane ich implementacją. Każda liczba typu mpq\_t składa się z dwóch liczb całkowitych typu mpz\_t, reprezentujących licznik i mianownik.
 
