@@ -32,7 +32,7 @@
 \contentsline {subsubsection}{Funkcje dzielenia}{20}
 \contentsline {subsubsection}{Funkcje por\IeC {\'o}wnania}{21}
 \contentsline {subsubsection}{Pozosta\IeC {\l }e funkcje}{22}
-\contentsline {subsubsection}{Operacje na liczbach rzeczywistych}{22}
+\contentsline {subsection}{\numberline {2.4.4}Operacje na liczbach wymiernych}{22}
 \contentsline {chapter}{\numberline {3}Opis Rozwi\IeC {\k a}zania}{25}
 \contentsline {section}{\numberline {3.1}Podzia\IeC {\l } na modu\IeC {\l }y}{25}
 \contentsline {section}{\numberline {3.2}G\IeC {\l }\IeC {\'o}wne klasy}{25}

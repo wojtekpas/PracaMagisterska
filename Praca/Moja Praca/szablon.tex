@@ -712,22 +712,22 @@ Pozwala na przypisanie zmiennej typu całkowitego do wartości typu mpz\_t.
 \begin{lstlisting}
 void mpz_set_d (mpz_t rop, double op)
 \end{lstlisting}
-Zapisuje wqrtość typu double do zmiennej typu mpz\_t.
+Zapisuje wartość typu double do zmiennej typu mpz\_t.
 
 \begin{lstlisting}
 void mpz_set_q (mpz_t rop, mpq_t op)
 \end{lstlisting}
-Pozwala na zrzutowanie liczby rzeczywistej, typu mpq\_t do zmiennej mpz\_t. Gdy liczba mpq\_t nie jest liczbą całkowitą, zostaje ona zaokrąglona w dół, poprzez obcięcie jej części ułamkowej.
+Pozwala na zrzutowanie liczby rzeczywistej, typu mpq\_t do zmiennej mpz\_t. Gdy wartość mpq\_t nie jest liczbą całkowitą, zostaje ona zaokrąglona w dół, poprzez obcięcie jej części ułamkowej.
 
 \begin{lstlisting}
 int mpz_set_str (mpz_t rop, char *str, int base)
 \end{lstlisting}
-Konstruuje liczbę typu mpz\_t, na podstawie podanego łańcucha znaków, reprezentującego daną liczbę. Wartość zmiennej base mówi o podstawie podanej liczby. Zmienna znakowa dopuszcza występowanie białych znaków, które są ignorowane. Z kolei zmienna base dopuszcza 0 oraz wartości z zakresu (2,61). Gdy jest ona równa 0, podstawowa zostaje ustalona, bazując na początkowych znakach. Dla prefixów 0x oraz 0X reprezentacja liczby zostaje ustalona jako szesnastkowa. Gdy jest ona równa 0b lub 0X to liczba ta jest binarna, a gdy rozpoczyna się od zera, a drugi znak jest inny od wymienionych, to zostaje uznana za liczbę oktalną. W pozostałych wypadkach jest to liczba dziesiętna. Kolejne wartości dziesiętne od 10 do 35 są reprezentowane jako litery od a do z, przy czym nie ma rozróżnienia ze względu na wielkość liter. W przypadku wyższych wartości podstawy, wielkość liter ma znaczenia, przy czym liczby od 10 do 35 reprezentowane są przez duże litery, a liczby od 36 do 61 przez litery małe. Funkcja dokonuje weryfikacji, czy podane ciąg znaków w całości reprezentuje poprawną wartość liczbą. Jeżeli tak, to zwraca ona wartość 0. W przeciwnym wypadku jest to wartość 1.
+Konstruuje liczbę typu mpz\_t, na podstawie podanego łańcucha znaków, reprezentującego daną wartość. Zmienna base mówi o podstawie podanej liczby. Dopuszcza się występowanie białych znaków, które są ignorowane. Z kolei zmienna base dopuszcza 0 oraz wartości z zakresu (2; 61). Gdy jest ona równa 0, podstawowa zostaje ustalona, bazując na początkowych znakach. Dla prefixów 0x oraz 0X, reprezentacja liczby zostaje ustalona jako szesnastkowa. Gdy jest ona równa 0b lub 0X, to liczba ta jest binarna, a gdy rozpoczyna się od zera, a drugi znak jest inny od wymienionych, to zostaje uznana za liczbę oktalną. W pozostałych wypadkach jest to liczba dziesiętna. Kolejne wartości dziesiętne od 10 do 35 są reprezentowane jako litery od a do z, przy czym nie ma rozróżnienia ze względu na wielkość liter. W przypadku wyższych wartości podstawy, wielkość liter ma znaczenia, przy czym liczby od 10 do 35 reprezentowane są przez duże litery, a liczby od 36 do 61 przez małe. Funkcja dokonuje weryfikacji, czy podany ciąg znaków w całości reprezentuje poprawną liczbę. Jeżeli tak, to zwraca ona wartość 0. W przeciwnym wypadku jest to 1.
 
 \begin{lstlisting}
 void mpz_swap (mpz_t rop1, mpz_t rop2)
 \end{lstlisting}
-Używana jest do zamiany wartości pomiędzy dwoma zmiennymi typu mpz\_t. Jej użycie jest rekomendowane, ze względów wydajnościowych. W przypadku braku tej funkcji, potrzeba by zmiennej tymczasowej. W tym celu musiała by ona na początku zostać zaalokowana w pamięci, a na końcu zwolniona. Obie operacje są czasochłonne i zaleca się minimalizować ich użycie, więc użycie zoptymalizowanej funkcji służącej do zamiany wartości dużych liczb wydaje się zdecydowanie najlepszą i najszybszą opcją.
+Używana jest do zamiany wartości pomiędzy dwoma zmiennymi typu mpz\_t. Jej użycie jest rekomendowane, ze względów wydajnościowych. W przypadku braku tej funkcji, potrzebaby zmiennej tymczasowej. W tym celu musiała by ona na początku zostać zaalokowana w pamięci, a na końcu zwolniona. Obie operacje są czasochłonne i zaleca się minimalizować ich użycie, więc użycie zoptymalizowanej funkcji służącej do zamiany wartości dużych liczb wydaje się zdecydowanie najlepszą i najszybszą opcją.
 
 \subsubsection{Funkcje konwersji}
 
@@ -739,12 +739,12 @@ Zwraca zmienną typu int, a znak liczby zostaje przepisany. Jeżeli wartość je
 \begin{lstlisting}
 double mpz_get_d (mpz_t op)
 \end{lstlisting}
-Pozwala zrzutować typ mpz\_t na zmienną typu double. Jeżeli jest to konieczne, stosowane jest zaokrąglenie. Jeżeli eksponent jest za duży, zwrócony wynik jest zależny od danego systemu. Jeżeli jest dostępna, zwrócona może być wartość nieskończoności.
+Pozwala zrzutować typ mpz\_t na zmienną typu double. Jeżeli jest to konieczne, stosowane jest zaokrąglenie. W przypadku, gdy eksponent jest za duży, zwrócony wynik jest zależny od danego systemu. Jeżeli jest dostępna, zwrócona może być wartość nieskończoności.
 
 \begin{lstlisting}
 char * mpz_get_str (char *str, int base, mpz_t op)
 \end{lstlisting}
-Zwraca ciąg znaków reprezentujących liczbę op., o podstawie danej w paremetrze o nazwie base. Funkcja ta jest analogiczna do mpz\_set\_str. Jeżeli parametrem str jest NULL, to ciąg znaków zostaje zwrócony przez funkcję. W przeciwnym razie funkcja umieszcza go pod adresem, na który wskazuje zmienna str. Należy zadbać o to, by bufor, do zapisania rezultatu funkcji, był wystarczający. Powinien on być 2 bajty dłuższy niż długość zwróconej liczby w danym systemie liczbowym. Pierwszy bajt to służy na wpisanie ewentualnego znaków minus, natomiast drugi na znak ‘\\0’ kończący łańcuch znaków. Długość zasadniczej części liczbowej można pobrać używając funkcji mpz\_sizeinbase (op, base), w której podajemy odpowiednio daną liczbę oraz podstawę.
+Zwraca ciąg znaków reprezentujących liczbę op., o podstawie danej w paremetrze o nazwie base. Funkcja ta jest analogiczna do mpz\_set\_str. Jeżeli parametrem str jest NULL, to ciąg znaków zostaje zwrócony przez funkcję. W przeciwnym razie funkcja umieszcza go pod adresem, na który wskazuje zmienna str. Należy zadbać o to, by bufor, do zapisania rezultatu funkcji, był wystarczający. Powinien on być 2 bajty dłuższy niż długość zwróconej liczby w danym systemie liczbowym. Pierwszy bajt służy na wpisanie ewentualnego znaków minus, natomiast drugi na znak ‘\\0’ kończący łańcuch znaków. Długość zasadniczej części liczbowej można pobrać używając funkcji mpz\_sizeinbase (op, base), w której podajemy daną liczbę oraz podstawę.
 
 \subsubsection{Funkcje arytmetyczne}
 
@@ -766,22 +766,22 @@ Ustawia wartość rop jako iloczyn op1 i op2.
 \begin{lstlisting}
 void mpz_addmul (mpz_t rop, mpz_t op1, mpz_t op2)
 \end{lstlisting}
-Oblicza wartość iloczynu czynników op1 i op2, a następnie zwiększa wartość rop o otrzymany wynik. Tożsame z wykonaniem działania rop = rop + op1*op2.
+Oblicza wartość iloczynu czynników op1 i op2, a następnie zwiększa rop o otrzymany wynik. Tożsame z wykonaniem działania rop = rop + op1 * op2.
 
 \begin{lstlisting}
 void mpz_submul (mpz_t rop, mpz_t op1, mpz_t op2)
 \end{lstlisting}
-Oblicza wartość iloczynu czynników op1 i op2, a następnie zmniejsza wartość rop o otrzymany wynik. Tożsame z wykonaniem działania rop = rop - op1*op2.
+Oblicza wartość iloczynu czynników op1 i op2, a następnie zmniejsza rop o otrzymany wynik. Tożsame z wykonaniem działania rop = rop - op1 * op2.
 
 \begin{lstlisting}
 void mpz_neg (mpz_t rop, mpz_t op)
 \end{lstlisting}
-Jako rezultat ustawia liczbę przeciwną do danej. Gdy rop i op są tą samą zmienną to mamy do czynienia z przykładem operacji w miejscu. Wówczas całe funkcja jest bardzo szybka, gdyż opiera się tylko na zmianie bitu, mówiącym o znaku danej liczby.
+Jako rezultat ustawia liczbę przeciwną do danej. Gdy rop i op są tą samą zmienną to mamy do czynienia z przykładem operacji w miejscu. Wówczas całe funkcja jest bardzo szybka, gdyż opiera się tylko na zmianie bitu, mówiącego o znaku danej liczby.
 
 \begin{lstlisting}
 void mpz_abs (mpz_t rop, mpz_t op)
 \end{lstlisting}
-Funkcja w swoim działaniu bardzo podobna do funkcji mpz\_neg. Jedyną róznicą jest to, że bit znaku nie zostaje zanegowany, a ustawiony tak, by wskazywał na wartość nieujemną.
+Funkcja w swoim działaniu jest bardzo podobna do funkcji mpz\_neg. Jedyną róznicą jest to, że bit znaku nie zostaje zanegowany, a ustawiony tak, by wskazywał na wartość nieujemną.
 
 \subsubsection{Funkcje dzielenia}
 Uzywając niżej wymienionych funkcji należy pamiętać, ze dzielenie przez 0, zarówno w przypadku obliczania wartości ilorazu, jak i reszty z dzielenia jest nielegalne. W przypadku, gdy wystąpi taka sytuacja, biblioteka zachowa się jak w przypadku dzielenia przez 0, dla liczb typu int, tzn. skończy działanie funkcji, rzucając odpowiedni wyjątek.
@@ -789,7 +789,7 @@ Uzywając niżej wymienionych funkcji należy pamiętać, ze dzielenie przez 0, 
 \begin{lstlisting}
 void mpz_tdiv_q (mpz_t q, mpz_t n, mpz_t d)
 \end{lstlisting}
-Funkcja oblicza iloraz z liczb n i d. Litera przed ‘div’ w nazwie funkcji mówi, o jej zachowaniu w przypadku, gdy rezultat nie jest liczbą całkowitą. Symbol ‘t’ (truncate), oznacza obcięcie części ułamkowej. Zalecanym użyciem jest przypadek, gdy nie ma znaczenia wartość reszty z dzielenia.
+Funkcja oblicza iloraz z liczb n i d. Litera przed ‘div’ w nazwie funkcji mówi, o jej zachowaniu w przypadku, gdy rezultat nie jest liczbą całkowitą. Symbol ‘t’ ('truncate'), oznacza obcięcie części ułamkowej. Zalecanym użyciem jest przypadek, gdy nie ma znaczenia wartość reszty z dzielenia.
 
 \begin{lstlisting}
 void mpz_tdiv_r (mpz_t r, mpz_t n, mpz_t d)
@@ -799,10 +799,8 @@ Oblicza wartość rezsty z dzielenia liczb n i d. Podobnie jak w fukcji mpz\_tdi
 \begin{lstlisting}
 void mpz_tdiv_qr (mpz_t q, mpz_t r, mpz_t n, mpz_t d)
 \end{lstlisting}
-
-Łączy w sumie dwie powyższe funkcje. Ze względów wygody i wydajności zaleca się jej użycie wówczas, gdy potrzebujemy obliczyć zarówno iloraz, jak i resztę z dzielenia. Ważne jest by pamiętać, że przekazane argumenty q i r, muszą być referencjami do różnych zmiennych. W przeciwnym razie, działanie funkcji będzie nie poprawne, a wynik najprawdopodobniej błędny.
-
-Oprócz wyżej wymienionych funkcji, istnieją także ich odpowiedniki, o odmiennym zachowaniu w kwestii zaokrąglania części ułamkowej ilorazu. Pierwszym z nich jest grupa funkcji, posiadająca w nazwie „cdiv”, gdzie litera ‘c’ (ceil) oznacza sufit. Oznacza to, że w razie potrzeby iloraz zostanie zaokrąglony w górę. Wówczas otrzymana reszta r będzie przeciwnego znaku do liczby d. Funkcjami z tej grupy są: mpz\_cdiv\_q, mpz\_cdiv\_r oraz mpz\_cdiv\_qr. Drugim odpowiednik jest grupa funkcji, posiadająca w nazwie „fdiv”, gdzie ‘f’ (floor) oznacza podłogę. Oznacza to, że w razie potrzeby wynik zostanie zaokrąglony w dół. Reszta r będzie w tym przypadku tego samegu znaku co liczba d. Przykładami funkcji z tej grupy są:  mpz\_fdiv\_q, mpz\_fdiv\_r oraz mpz\_fdiv\_qr. Zauważmy, że we wszystkich trzech przypadkach zostaje spełnione równanie n = q * d + r, gdzie 0 <= |r| < |d|.
+Łączy w sumie dwie powyższe funkcje. Ze względów wygody i wydajności, zaleca się jej użycie wówczas, gdy potrzebujemy obliczyć zarówno iloraz, jak i resztę z dzielenia. Ważne jest by pamiętać, że przekazane argumenty q i r, muszą być referencjami do różnych zmiennych. W przeciwnym razie, działanie funkcji będzie nie poprawne, a wynik najprawdopodobniej błędny.\\
+Oprócz wyżej wymienionych funkcji, istnieją także ich odpowiedniki, o odmiennym zachowaniu w kwestii zaokrąglania części ułamkowej ilorazu. Pierwszym z nich jest grupa funkcji, posiadająca w nazwie 'cdiv', gdzie litera ‘c’ ('ceil') oznacza sufit. Powoduje to, że w razie potrzeby, iloraz zostanie zaokrąglony w górę. Wówczas otrzymana reszta r będzie przeciwnego znaku do liczby d. Funkcjami z tej grupy są: mpz\_cdiv\_q, mpz\_cdiv\_r oraz mpz\_cdiv\_qr. Drugim odpowiednik jest grupa funkcji, posiadająca w nazwie 'fdiv', gdzie ‘f’ ('floor') oznacza podłogę. W tym przypadku, w razie potrzeby wynik zostanie zaokrąglony w dół. Reszta r będzie w tym przypadku tego samegu znaku co liczba d. Przykładami funkcji z tej grupy są:  mpz\_fdiv\_q, mpz\_fdiv\_r oraz mpz\_fdiv\_qr. Zauważmy, że we wszystkich trzech przypadkach zostaje spełnione równanie: $n = q*d+r,\ gdzie\ 0 \le |r| < |d|.$
 
 \begin{lstlisting}
 int mpz_divisible_p (mpz_t n, mpz_t d)
@@ -812,24 +810,24 @@ Funkcja sprawdza, czy d dzieli liczbę n. Jeżeli nie, to zwracana 0, w przeciwn
 \begin{lstlisting}
 void mpz_divexact (mpz_t q, mpz_t n, mpz_t d)
 \end{lstlisting}
-Oblicza iloraz z dzielenia liczb n przez d. Działa poprawnie tylko w przypadku, gdy n jest podzielna przez d. By to sprawdzić można uzyć funkcji mpz\_divisable\_p. Jest znacznie szybsza niż pozostałe funkcje, umożliwiające obliczanie ilorazu z dzielenia. Dlatego zawsze, gdy spełniony jest powyższy warunek,  użycie tej funkcji jest wysoko rekomendowane.
+Oblicza iloraz z dzielenia liczb n przez d. Działa poprawnie tylko w przypadku, gdy n jest podzielna przez d. By to sprawdzić można uzyć funkcji mpz\_divisable\_p. Jest znacznie szybsza niż pozostałe funkcje, umożliwiające obliczanie ilorazu z dzielenia. Dlatego zawsze, gdy wiemy, że spełniony jest powyższy warunek, użycie tej funkcji jest wysoko rekomendowane.
 
 \subsubsection{Funkcje porównania}
 
 \begin{lstlisting}
 int mpz_cmp (mpz_t op1, mpz_t op2)
 \end{lstlisting}
-Porównuje wartości dwóch liczb. Zwraca wartość dodatnią, gdy op1 > op2, ujemną, gdy op1 < op2, oraz 0, gdy obie wartości są równe.
+Porównuje wartości dwóch liczb. Zwraca wartość dodatnią, gdy $op1>op2$, ujemną, gdy $op1<op2$, oraz 0, gdy obie wartości są równe.
 
 \begin{lstlisting}
 int mpz_cmpabs (mpz_t op1, mpz_t op2)
 \end{lstlisting}
-Porównuje wartość bezwzględną dwóch liczb. Zwraca wartość dodatnią, gdy |op1| > |op2|, ujemną, gdy |op1| < |op2|, oraz 0, gdy obie wartości są równe lub przeciwne.
+Porównuje wartość bezwzględną dwóch liczb. Zwraca wartość dodatnią, gdy $|op1|>|op2|$, ujemną, gdy $|op1|<|op2|$, oraz 0, gdy obie wartości są równe lub przeciwne.
 
 \begin{lstlisting}
 int mpz_sgn (mpz_t op)
 \end{lstlisting}
-Określa znak danej liczby. Zwraca 1 dla wartości dodatnich, -1 dla wartości ujemnych oraz 0 w przypadku zera. Należy pamiętać, ze w obecnej implementacji mpz\_sgn jest makrem i rozpatruje dany argument wielokrotnie.
+Określa znak danej liczby. Zwraca 1 dla wartości dodatnich, -1 dla ujemnych oraz 0 w przypadku zera. Należy zwrócić uwagę, ze w obecnej implementacji mpz\_sgn jest makrem i rozpatruje dany argument wielokrotnie.
 
 \subsubsection{Pozostałe funkcje}
 
@@ -846,12 +844,17 @@ Oblicza pierwiastek całkowity dla danej liczby. W przypadku, gdy wynik nie jest
 \begin{lstlisting}
 void mpz_sqrtrem (mpz_t rop1, mpz_t rop2, mpz_t op)
 \end{lstlisting}
-Jest bardzo podobna do funkcji mpz\_sqrt. Poza obliczeniem wartości pierwiastka z danej liczby, zwraca także różnicę pomiędzy daną liczbą a kwadratem tego pierwiastka.
-Rop1 = sqrt(op)
-Rop2 = op – sqrt(rop1)\^2.
+Jest bardzo podobna do funkcji mpz\_sqrt. Poza obliczeniem wartości pierwiastka z danej liczby, zwraca także różnicę pomiędzy daną liczbą, a kwadratem tego pierwiastka. Wartości zwracane można określić równaniem:
+\begin{equation}
+\begin{split}
+&Rop1 = \sqrt{op} \\
+&Rop2 = op - (\sqrt{rop1})^2 \\
+\end{split}
+\end{equation}
+
 Zauważmy, że jeżeli rop2 = 0, to rop1 jest pierwiastkiem kwadratotowym z op.
 
-\subsubsection{Operacje na liczbach rzeczywistych}
+\subsection{Operacje na liczbach wymiernych}
 W tym podrozdziale, rozpatrzę funkcje dla zmiennych typu mpq\_t. Skupię się w nim na funkcjach, które nie występują dla liczb całkowitych typu mpz\_t, opisanych w poprzednim podrozdziale lub ich implementacja znacząco się różni, od już przedstawionej.
 Na początku warto zaznaczyć, że zmienne mpq\_t reprezentują wyłącznie liczby wymierne. Jest to spowodowane ich implementacją. Każda liczba typu mpq\_t składa się z dwóch liczb całkowitych typu mpz\_t, reprezentujących licznik i mianownik.
 
@@ -868,12 +871,12 @@ Znajduje wspólne dzielniki licznika i mianownika, skracając ułamek. Dodatkowo
 \begin{lstlisting}
 int mpq_set_str (mpq_t rop, char *str, int base)
 \end{lstlisting}
-Tworzy liczbę na podstawie wartości podanej w łańcuchu znaków. Jej wartość podawana jest w postaci najpierw licznik, a następnie mianownik, na zasadach podobnym jak w funkcji mpz\_set\_str. Obie liczby oddziela znak operatora dzielenia ‘/’. Funkcja zwraca wartość 0 w przypadku gdy cały łańcuch wejściowy jest poprawny oraz -1 w innym przypadku. Jeżeli argument base jest równy 0, to format liczbowy, dla licznika i mianownika, jest ustalany osobno. Oznacza to, że możemy podać liczby w dwóch różnych formatach, np. „0xFF/256” . Warto zauważyć, że funkcja mpq\_canonicalize nie jest wołana automatycznie, więc jeżeli podaliśmy ułamek, który chcemy skrócić, to musimy pamiętać o jej wywołaniu.
+Tworzy liczbę na podstawie wartości podanej jako łańcuch znaków. Jej wartość podawana jest w postaci najpierw licznik, a następnie mianownik, na zasadach podobnym jak w funkcji mpz\_set\_str. Obie liczby oddziela znak operatora dzielenia ‘/’. Funkcja zwraca wartość 0, w przypadku, gdy cały łańcuch wejściowy jest poprawny oraz -1 w innym przypadku. Jeżeli argument base jest równy 0, to format liczbowy, dla licznika i mianownika, jest ustalany osobno. Oznacza to, że możemy podać liczby w dwóch różnych formatach, np. „0xFF/256” . Warto zauważyć, że funkcja mpq\_canonicalize nie jest wołana automatycznie, więc jeżeli podaliśmy ułamek, który chcemy skrócić, to musimy pamiętać o jej wywołaniu.
 
 \begin{lstlisting}
 char * mpq_get_str (char *str, int base, mpq_t op)
 \end{lstlisting}
-Funkcja zwracająca liczbę w postaci ułamka, tzn. licznik i mianownik, oddzielony znakiem kreski ułamkowej. Jest analogiczna do funkcji mpz\_get\_str. Bufor wyjściowy, w którym chcemy umieścić rezultat funkcji powinien być, wystarczający i wynosić mpz\_sizeinbase(mpq\_numref(op), base) + mpz\_sizeinbase (mpq\_denref(op), base) + 3. Jeden dodatkowy bajt w porównaniu do funkcji mpz\_get\_str, spowodowany jest koniecznością umieszczenia w buforze kreski ułamkowej.
+Funkcja zwracająca liczbę w postaci ułamka, tzn. licznik i mianownik, oddzielony znakiem kreski ułamkowej. Jest analogiczna do funkcji mpz\_get\_str. Bufor wyjściowy, w którym chcemy umieścić rezultat funkcji powinien być, wystarczający i wynosić $mpz\_sizeinbase(mpq\_numref(op), base) + mpz\_sizeinbase (mpq\_denref(op), base) + 3$. Jeden dodatkowy bajt w porównaniu do funkcji mpz\_get\_str, spowodowany jest koniecznością umieszczenia w buforze kreski ułamkowej.
 
 
 .\\
@@ -885,10 +888,9 @@ Funkcja zwracająca liczbę w postaci ułamka, tzn. licznik i mianownik, oddziel
 \section{Główne funkcje}
 Parser
 Klasa umożliwiająca użytkownikom podanie wielomianów poprzez standardowe wejście. Składa się tylko z dwóch metod.
-Zadaniem pierwszej z nich jest unifikacja wielomianu podanego na wejściu. Funkcja jako argument przyjmuje pojedynczy obiekt klasy string. Po dokonaniu odpowiednich operacji, jako rezultat funkcji, zwraca również typ string. Użycie funkcji ma na celu ułatwienie przetwarzania w kolejnym etapie, w którym na podstawie podanego ciągu znaków, tworzony będzie obiekt wielomianu. Głównym zadaniem funkcji, jest weryfikacja, czy ciąg znaków podanych na wejściu reprezentuje poprawny składniowo wielomian. Weryfikowana jest liczba nawias otwierających i zamykających oraz fakt, czy w każdym miejscu wyrażenia liczba otwartych nawiasów jest nie mniejsza niż liczba nawiasów zamkniętych. Dodatkowo sprawdzane jest, 
-czy na sąsiednich miejscach nie występują dwa operatory. Dodatkowo poprawne wyrażenie nigdy nie kończy się operatorem, a zaczynać może się tylko minusem, literałem, cyfrą lub nawiasem otwierającym. W czasie unifikacji wyrażenia, ignorowane są wszystkie występujące w nim białe znaki. Warto zaznaczyć, że dopuszczalny jest tylko jeden znak, reprezentujący zmienną wielomianu. Nie ma ograniczeń co do wartości tego znaku, może być to znak ‘a’, ‘x’, lub jakikolwiek chcemy, ale powinniśmy zadbać, by w całym wyrażeniu występował on w tej samej postaci. Sporym ułatwieniem w interfejsie jest brak konieczności 
-wpisywania operatorów mnożenia (*) i potęgowania (\^) w oczywistych miejscach. Z punktu widzenia aplikacji wyrażenia 4x oraz 4*x są identyczne. Podobnie jest w przypadku x3 oraz x\^3. Funkcja
-przeanalizuje wyrażenie i zwróci je w odpowiedniej postaci. Dla przykładu wyrażenia x3+2x2+3x+1, x\^3 +2x\^2 + 3x+1 zostaną zamienione w x\^3+2*x\^2+3*x+1.
+Zadaniem pierwszej z nich jest unifikacja wielomianu podanego na wejściu. Funkcja jako argument przyjmuje pojedynczy obiekt klasy string. Po dokonaniu odpowiednich operacji, jako rezultat funkcji, zwraca również typ string. Użycie jej ma na celu ułatwienie przetwarzania w kolejnym etapie, w którym na podstawie podanego ciągu znaków, tworzony będzie obiekt wielomianu. Głównym zadaniem funkcji, jest weryfikacja, czy ciąg znaków podanych na wejściu reprezentuje poprawny składniowo wielomian. Weryfikowana jest liczba nawiasów otwierających i zamykających oraz fakt, czy w każdym miejscu wyrażenia liczba otwartych nawiasów jest nie mniejsza niż liczba nawiasów zamkniętych. Dodatkowo sprawdzane jest, czy na sąsiednich miejscach nie występują dwa operatory. Dodatkowo, poprawne wyrażenie nigdy nie kończy się operatorem, a zaczynać może się tylko minusem, literałem, cyfrą lub nawiasem otwierającym. W czasie unifikacji wyrażenia, ignorowane są wszystkie występujące w nim białe znaki. Warto zaznaczyć, że dopuszczalny jest tylko jeden znak, reprezentujący zmienną wielomianu. Nie ma ograniczeń co do wartości tego znaku, może być to znak ‘a’, ‘x’, lub jakikolwiek chcemy, ale powinniśmy zadbać, by w całym wyrażeniu występował on w tej samej postaci. Sporym ułatwieniem w interfejsie jest brak konieczności 
+wpisywania operatorów mnożenia ('*') i potęgowania ('\^') w oczywistych miejscach. Z punktu widzenia aplikacji, wyrażenia 4x oraz 4*x są identyczne. Podobnie jest w przypadku x3 oraz $x^3$. Funkcja analizuje wyrażenie i zwraca je w odpowiedniej postaci. Dla przykładu wyrażenia x3+2x2+3x+1, x\^3 +2x\^2 + 3x+1 zostaną zamienione w x\^3+2*x\^2+3*x+1.
+
 \section{Zewnętrze biblioteki}
 \section{Instrukcja programu}
 
