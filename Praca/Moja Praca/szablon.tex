@@ -618,7 +618,7 @@ Na podstawie powyższego twierdzenia można zauważyć, że nie ma potrzeby wyli
 Jeżeli zależy nam, na obliczeniu wartości wielomianu, dla odpowiednio dużych x, będącego ilorazem dwóch wielomianów, możemy skorzystać z poniższego twierdzenia.
 
 \begin{theorem}
-	Dany jest wielomian $W_1(x) = a_0x^n + a_1x^{n-1} + a_2x^{n-2} + ... + a_{n-1}x  + a_n,\ gdzie \ a_0 \ne 0$, stopnia n oraz wielomian $W_2(x) = b_0x^{n-1} + b_1x^{n-2} + b_2x^{n-3} + ... + b_{n-2}x  + b_{n-1},\ gdzie\ b_0 \ne 0$, stopnia n-1. Wówczas $\lim_{x \to +\infty}\frac{W_1(x)}{W_2(x)} = \frac{a_0}{b_0}$ oraz $\lim_{x \to -\infty}\frac{W_1(x)}{W_2(x)} = -\frac{a_0}{b_0}.$
+	Dany jest wielomian $W_1(x) = a_0x^n + a_1x^{n-1} + a_2x^{n-2} + ... + a_{n-1}x + a_n,\ gdzie \ a_0 \ne 0$, stopnia n oraz wielomian $W_2(x) = b_0x^{n-1} + b_1x^{n-2} + b_2x^{n-3} + ... + b_{n-2}x + b_{n-1},\ gdzie\ b_0 \ne 0$, stopnia n-1. Wówczas $\lim_{x \to +\infty}\frac{W_1(x)}{W_2(x)} = \frac{a_0}{b_0}$ oraz $\lim_{x \to -\infty}\frac{W_1(x)}{W_2(x)} = -\frac{a_0}{b_0}.$
 \end{theorem}
 
 Jak widać jesteśmy w stanie ustalić znak, a nawet dokładną wartość, największego współczynnika wielomianu, będącego ilorazem dwóch innych wielomianów, wykonując proste dzielenie dwóch liczb, będących odpowiednio najwyższymi współczynnikami wielomianów - dzielnej i dzielnika.
@@ -669,10 +669,12 @@ Aby używać biblioteki mpir w naszym programie musimy do naszego programu doda�
 \begin{lstlisting}
 #include <mpir.h>
 \end{lstlisting}
+
 Pozwoli ona nam na używanie wszystkich funkcji i typów, które udostępnia dla nas biblioteka. Dodatkowo wymagana jest kompilacja z dołączeniem naszej biblioteki, poprzez dodanie opcji -lmpir, np.:
 \begin{lstlisting}
 gcc myprogram.c -lmpir
 \end{lstlisting}
+
 Jeżeli chcemy skorzystać z biblioteki, wspierającej język C++ dodatkowo musimy dodać także opcję -mpirxx, np.:
 \begin{lstlisting}
 g++ myprogram.cc -lmpirxx -lmpir
@@ -685,16 +687,19 @@ W niniejszym podrozdziale, omówię podstawowe funkcje liczbowe, które mają za
 \begin{lstlisting}
 void mpz_init (mpz_t integer)
 \end{lstlisting}
+
 Alokuje w pamięci miejsce na zmienną integer i ustawia jej wartość na 0.
 
 \begin{lstlisting}
 void mpz_clear (mpz_t integer)
 \end{lstlisting}
+
 Zwalnia miejsce zajmowaną przez zmienną. Funkcja ta powinna być używana dla każdej zmiennej, w momencie, gdy nie ma już potrzeby, by z niej korzystać.
 
 \begin{lstlisting}
 void mpz_realloc2 (mpz_t integer, mp bitcnt_t n)
 \end{lstlisting}
+
 Zmienia rozmiar zajmowanego przez zmienną miejsca. Funkcja jest używana z wartością n, większą od aktualnej, by zagwarantować zmiennej określone miejsce w pamięci. Z drugiej strony, zostaje wywołana z wartością mniejszą, jeżeli chcemy zmniejszyć liczbę zajmowanego przez zmienną miejsca. Gdy nowy rozmiar jest wystarczający by pomieścić aktualną wartość zmiennej, to zostaje ona zachowana. W przeciwnym razie zostanie ona ustawiona na 0. Istnieje również przestarzała funkcja mpz\_realloc, ale jej użycie jest niezalecane. Nie została usunięta, by zachować kompatybilność wsteczną.
 
 \subsubsection{Funkcje przypisania}
@@ -702,31 +707,37 @@ Zmienia rozmiar zajmowanego przez zmienną miejsca. Funkcja jest używana z wart
 \begin{lstlisting}
 void mpz_set (mpz_t rop, mpz_t op)
 \end{lstlisting}
+
 Pozwala na przypisanie wartości tych samów typów. Wartość zmiennej op jest ustawiana jako rop. Jest to równoważnik operatora przypisania.
 
 \begin{lstlisting}
 void mpz_set_sx (mpz_t rop, intmax_t op)
 \end{lstlisting}
+
 Pozwala na przypisanie zmiennej typu całkowitego do wartości typu mpz\_t.
 
 \begin{lstlisting}
 void mpz_set_d (mpz_t rop, double op)
 \end{lstlisting}
+
 Zapisuje wartość typu double do zmiennej typu mpz\_t.
 
 \begin{lstlisting}
 void mpz_set_q (mpz_t rop, mpq_t op)
 \end{lstlisting}
+
 Pozwala na zrzutowanie liczby rzeczywistej, typu mpq\_t do zmiennej mpz\_t. Gdy wartość mpq\_t nie jest liczbą całkowitą, zostaje ona zaokrąglona w dół, poprzez obcięcie jej części ułamkowej.
 
 \begin{lstlisting}
 int mpz_set_str (mpz_t rop, char *str, int base)
 \end{lstlisting}
+
 Konstruuje liczbę typu mpz\_t, na podstawie podanego łańcucha znaków, reprezentującego daną wartość. Zmienna base mówi o podstawie podanej liczby. Dopuszcza się występowanie białych znaków, które są ignorowane. Z kolei zmienna base dopuszcza 0 oraz wartości z zakresu (2; 61). Gdy jest ona równa 0, podstawowa zostaje ustalona, bazując na początkowych znakach. Dla prefixów 0x oraz 0X, reprezentacja liczby zostaje ustalona jako szesnastkowa. Gdy jest ona równa 0b lub 0X, to liczba ta jest binarna, a gdy rozpoczyna się od zera, a drugi znak jest inny od wymienionych, to zostaje uznana za liczbę oktalną. W pozostałych wypadkach jest to liczba dziesiętna. Kolejne wartości dziesiętne od 10 do 35 są reprezentowane jako litery od a do z, przy czym nie ma rozróżnienia ze względu na wielkość liter. W przypadku wyższych wartości podstawy, wielkość liter ma znaczenia, przy czym liczby od 10 do 35 reprezentowane są przez duże litery, a liczby od 36 do 61 przez małe. Funkcja dokonuje weryfikacji, czy podany ciąg znaków w całości reprezentuje poprawną liczbę. Jeżeli tak, to zwraca ona wartość 0. W przeciwnym wypadku jest to 1.
 
 \begin{lstlisting}
 void mpz_swap (mpz_t rop1, mpz_t rop2)
 \end{lstlisting}
+
 Używana jest do zamiany wartości pomiędzy dwoma zmiennymi typu mpz\_t. Jej użycie jest rekomendowane, ze względów wydajnościowych. W przypadku braku tej funkcji, potrzebaby zmiennej tymczasowej. W tym celu musiała by ona na początku zostać zaalokowana w pamięci, a na końcu zwolniona. Obie operacje są czasochłonne i zaleca się minimalizować ich użycie, więc użycie zoptymalizowanej funkcji służącej do zamiany wartości dużych liczb wydaje się zdecydowanie najlepszą i najszybszą opcją.
 
 \subsubsection{Funkcje konwersji}
@@ -734,16 +745,19 @@ Używana jest do zamiany wartości pomiędzy dwoma zmiennymi typu mpz\_t. Jej u�
 \begin{lstlisting}
 intmax_t mpz_get_sx (mpz_t op)
 \end{lstlisting}
+
 Zwraca zmienną typu int, a znak liczby zostaje przepisany. Jeżeli wartość jest poza zakresem liczb typu int, to rzutowanie następuje poprzez pozostawienie najmniej znaczącej części. Powoduje to, że funkcja w wielu przypadkach może okazać się bezużyteczna.
 
 \begin{lstlisting}
 double mpz_get_d (mpz_t op)
 \end{lstlisting}
+
 Pozwala zrzutować typ mpz\_t na zmienną typu double. Jeżeli jest to konieczne, stosowane jest zaokrąglenie. W przypadku, gdy eksponent jest za duży, zwrócony wynik jest zależny od danego systemu. Jeżeli jest dostępna, zwrócona może być wartość nieskończoności.
 
 \begin{lstlisting}
 char * mpz_get_str (char *str, int base, mpz_t op)
 \end{lstlisting}
+
 Zwraca ciąg znaków reprezentujących liczbę op., o podstawie danej w paremetrze o nazwie base. Funkcja ta jest analogiczna do mpz\_set\_str. Jeżeli parametrem str jest NULL, to ciąg znaków zostaje zwrócony przez funkcję. W przeciwnym razie funkcja umieszcza go pod adresem, na który wskazuje zmienna str. Należy zadbać o to, by bufor, do zapisania rezultatu funkcji, był wystarczający. Powinien on być 2 bajty dłuższy niż długość zwróconej liczby w danym systemie liczbowym. Pierwszy bajt służy na wpisanie ewentualnego znaków minus, natomiast drugi na znak ‘\\0’ kończący łańcuch znaków. Długość zasadniczej części liczbowej można pobrać używając funkcji mpz\_sizeinbase (op, base), w której podajemy daną liczbę oraz podstawę.
 
 \subsubsection{Funkcje arytmetyczne}
@@ -751,36 +765,43 @@ Zwraca ciąg znaków reprezentujących liczbę op., o podstawie danej w paremetr
 \begin{lstlisting}
 void mpz_add (mpz_t rop, mpz_t op1, mpz_t op2)
 \end{lstlisting}
+
 Ustawia wartość rop jako sumę op1 i op2.
 
 \begin{lstlisting}
 void mpz_sub (mpz_t rop, mpz_t op1, mpz_t op2)
 \end{lstlisting}
+
 Ustawia wartość rop jako różnicę op1 i op2.
 
 \begin{lstlisting}
 void mpz_mul (mpz_t rop, mpz_t op1, mpz_t op2)
 \end{lstlisting}
+
 Ustawia wartość rop jako iloczyn op1 i op2.
 
 \begin{lstlisting}
 void mpz_addmul (mpz_t rop, mpz_t op1, mpz_t op2)
 \end{lstlisting}
+
 Oblicza wartość iloczynu czynników op1 i op2, a następnie zwiększa rop o otrzymany wynik. Tożsame z wykonaniem działania rop = rop + op1 * op2.
 
 \begin{lstlisting}
 void mpz_submul (mpz_t rop, mpz_t op1, mpz_t op2)
 \end{lstlisting}
+
 Oblicza wartość iloczynu czynników op1 i op2, a następnie zmniejsza rop o otrzymany wynik. Tożsame z wykonaniem działania rop = rop - op1 * op2.
 
 \begin{lstlisting}
 void mpz_neg (mpz_t rop, mpz_t op)
 \end{lstlisting}
+
 Jako rezultat ustawia liczbę przeciwną do danej. Gdy rop i op są tą samą zmienną to mamy do czynienia z przykładem operacji w miejscu. Wówczas całe funkcja jest bardzo szybka, gdyż opiera się tylko na zmianie bitu, mówiącego o znaku danej liczby.
 
 \begin{lstlisting}
 void mpz_abs (mpz_t rop, mpz_t op)
 \end{lstlisting}
+
 Funkcja w swoim działaniu jest bardzo podobna do funkcji mpz\_neg. Jedyną róznicą jest to, że bit znaku nie zostaje zanegowany, a ustawiony tak, by wskazywał na wartość nieujemną.
 
 \subsubsection{Funkcje dzielenia}
@@ -789,27 +810,32 @@ Uzywając niżej wymienionych funkcji należy pamiętać, ze dzielenie przez 0, 
 \begin{lstlisting}
 void mpz_tdiv_q (mpz_t q, mpz_t n, mpz_t d)
 \end{lstlisting}
+
 Funkcja oblicza iloraz z liczb n i d. Litera przed ‘div’ w nazwie funkcji mówi, o jej zachowaniu w przypadku, gdy rezultat nie jest liczbą całkowitą. Symbol ‘t’ ('truncate'), oznacza obcięcie części ułamkowej. Zalecanym użyciem jest przypadek, gdy nie ma znaczenia wartość reszty z dzielenia.
 
 \begin{lstlisting}
 void mpz_tdiv_r (mpz_t r, mpz_t n, mpz_t d)
 \end{lstlisting}
+
 Oblicza wartość rezsty z dzielenia liczb n i d. Podobnie jak w fukcji mpz\_tdiv\_q, mamy do czynienia z przypadkiem obcięcia ewentualnej części ułamkowej ilorazu. Oznacza to, że zwracana reszta zawsze będzie tego samego znaku co zmienna n. Rekomendowana, gdy wartość ilorazu z dzielenia nie jest istotna.
 
 \begin{lstlisting}
 void mpz_tdiv_qr (mpz_t q, mpz_t r, mpz_t n, mpz_t d)
 \end{lstlisting}
+
 Łączy w sumie dwie powyższe funkcje. Ze względów wygody i wydajności, zaleca się jej użycie wówczas, gdy potrzebujemy obliczyć zarówno iloraz, jak i resztę z dzielenia. Ważne jest by pamiętać, że przekazane argumenty q i r, muszą być referencjami do różnych zmiennych. W przeciwnym razie, działanie funkcji będzie nie poprawne, a wynik najprawdopodobniej błędny.\\
-Oprócz wyżej wymienionych funkcji, istnieją także ich odpowiedniki, o odmiennym zachowaniu w kwestii zaokrąglania części ułamkowej ilorazu. Pierwszym z nich jest grupa funkcji, posiadająca w nazwie 'cdiv', gdzie litera ‘c’ ('ceil') oznacza sufit. Powoduje to, że w razie potrzeby, iloraz zostanie zaokrąglony w górę. Wówczas otrzymana reszta r będzie przeciwnego znaku do liczby d. Funkcjami z tej grupy są: mpz\_cdiv\_q, mpz\_cdiv\_r oraz mpz\_cdiv\_qr. Drugim odpowiednik jest grupa funkcji, posiadająca w nazwie 'fdiv', gdzie ‘f’ ('floor') oznacza podłogę. W tym przypadku, w razie potrzeby wynik zostanie zaokrąglony w dół. Reszta r będzie w tym przypadku tego samegu znaku co liczba d. Przykładami funkcji z tej grupy są:  mpz\_fdiv\_q, mpz\_fdiv\_r oraz mpz\_fdiv\_qr. Zauważmy, że we wszystkich trzech przypadkach zostaje spełnione równanie: $n = q*d+r,\ gdzie\ 0 \le |r| < |d|.$
+Oprócz wyżej wymienionych funkcji, istnieją także ich odpowiedniki, o odmiennym zachowaniu w kwestii zaokrąglania części ułamkowej ilorazu. Pierwszym z nich jest grupa funkcji, posiadająca w nazwie 'cdiv', gdzie litera ‘c’ ('ceil') oznacza sufit. Powoduje to, że w razie potrzeby, iloraz zostanie zaokrąglony w górę. Wówczas otrzymana reszta r będzie przeciwnego znaku do liczby d. Funkcjami z tej grupy są: mpz\_cdiv\_q, mpz\_cdiv\_r oraz mpz\_cdiv\_qr. Drugim odpowiednik jest grupa funkcji, posiadająca w nazwie 'fdiv', gdzie ‘f’ ('floor') oznacza podłogę. W tym przypadku, w razie potrzeby wynik zostanie zaokrąglony w dół. Reszta r będzie w tym przypadku tego samegu znaku co liczba d. Przykładami funkcji z tej grupy są: mpz\_fdiv\_q, mpz\_fdiv\_r oraz mpz\_fdiv\_qr. Zauważmy, że we wszystkich trzech przypadkach zostaje spełnione równanie: $n = q*d+r,\ gdzie\ 0 \le |r| < |d|.$
 
 \begin{lstlisting}
 int mpz_divisible_p (mpz_t n, mpz_t d)
 \end{lstlisting}
+
 Funkcja sprawdza, czy d dzieli liczbę n. Jeżeli nie, to zwracana 0, w przeciwnym razie zwraca wartość różną od zera.
 
 \begin{lstlisting}
 void mpz_divexact (mpz_t q, mpz_t n, mpz_t d)
 \end{lstlisting}
+
 Oblicza iloraz z dzielenia liczb n przez d. Działa poprawnie tylko w przypadku, gdy n jest podzielna przez d. By to sprawdzić można uzyć funkcji mpz\_divisable\_p. Jest znacznie szybsza niż pozostałe funkcje, umożliwiające obliczanie ilorazu z dzielenia. Dlatego zawsze, gdy wiemy, że spełniony jest powyższy warunek, użycie tej funkcji jest wysoko rekomendowane.
 
 \subsubsection{Funkcje porównania}
@@ -817,16 +843,19 @@ Oblicza iloraz z dzielenia liczb n przez d. Działa poprawnie tylko w przypadku,
 \begin{lstlisting}
 int mpz_cmp (mpz_t op1, mpz_t op2)
 \end{lstlisting}
+
 Porównuje wartości dwóch liczb. Zwraca wartość dodatnią, gdy $op1>op2$, ujemną, gdy $op1<op2$, oraz 0, gdy obie wartości są równe.
 
 \begin{lstlisting}
 int mpz_cmpabs (mpz_t op1, mpz_t op2)
 \end{lstlisting}
+
 Porównuje wartość bezwzględną dwóch liczb. Zwraca wartość dodatnią, gdy $|op1|>|op2|$, ujemną, gdy $|op1|<|op2|$, oraz 0, gdy obie wartości są równe lub przeciwne.
 
 \begin{lstlisting}
 int mpz_sgn (mpz_t op)
 \end{lstlisting}
+
 Określa znak danej liczby. Zwraca 1 dla wartości dodatnich, -1 dla ujemnych oraz 0 w przypadku zera. Należy zwrócić uwagę, ze w obecnej implementacji mpz\_sgn jest makrem i rozpatruje dany argument wielokrotnie.
 
 \subsubsection{Pozostałe funkcje}
@@ -834,16 +863,19 @@ Określa znak danej liczby. Zwraca 1 dla wartości dodatnich, -1 dla ujemnych or
 \begin{lstlisting}
 void mpz_pow_ui (mpz_t rop, mpz_t base, mpir_ui exp)
 \end{lstlisting}
+
 Podnosi liczbę base do potęgi exp.
 
 \begin{lstlisting}
 void mpz_sqrt (mpz_t rop, mpz_t op)
 \end{lstlisting}
+
 Oblicza pierwiastek całkowity dla danej liczby. W przypadku, gdy wynik nie jest liczbą całkowitą, część ułamkowa zostaje obcięta.
 
 \begin{lstlisting}
 void mpz_sqrtrem (mpz_t rop1, mpz_t rop2, mpz_t op)
 \end{lstlisting}
+
 Jest bardzo podobna do funkcji mpz\_sqrt. Poza obliczeniem wartości pierwiastka z danej liczby, zwraca także różnicę pomiędzy daną liczbą, a kwadratem tego pierwiastka. Wartości zwracane można określić równaniem:
 \begin{equation}
 \begin{split}
@@ -855,42 +887,44 @@ Jest bardzo podobna do funkcji mpz\_sqrt. Poza obliczeniem wartości pierwiastka
 Zauważmy, że jeżeli rop2 = 0, to rop1 jest pierwiastkiem kwadratotowym z op.
 
 \subsection{Operacje na liczbach wymiernych}
+
 W tym podrozdziale, rozpatrzę funkcje dla zmiennych typu mpq\_t. Skupię się w nim na funkcjach, które nie występują dla liczb całkowitych typu mpz\_t, opisanych w poprzednim podrozdziale lub ich implementacja znacząco się różni, od już przedstawionej.
 Na początku warto zaznaczyć, że zmienne mpq\_t reprezentują wyłącznie liczby wymierne. Jest to spowodowane ich implementacją. Każda liczba typu mpq\_t składa się z dwóch liczb całkowitych typu mpz\_t, reprezentujących licznik i mianownik.
 
 \begin{lstlisting}
 void mpq_init (mpq_t dest_rational)
 \end{lstlisting}
+
 Funkcja alokuje miejsce w pamięci i inicjuje wartość danej liczby, ustawiając licznik na 0 i mianownik na 1.
 
 \begin{lstlisting}
 void mpq_canonicalize (mpq_t op)
 \end{lstlisting}
+
 Znajduje wspólne dzielniki licznika i mianownika, skracając ułamek. Dodatkowo zapewnia, że mianownik jest liczbą dodatnią, w razie potrzeby, mnożąc licznik i mianownik przez liczbę -1.
 
 \begin{lstlisting}
 int mpq_set_str (mpq_t rop, char *str, int base)
 \end{lstlisting}
+
 Tworzy liczbę na podstawie wartości podanej jako łańcuch znaków. Jej wartość podawana jest w postaci najpierw licznik, a następnie mianownik, na zasadach podobnym jak w funkcji mpz\_set\_str. Obie liczby oddziela znak operatora dzielenia ‘/’. Funkcja zwraca wartość 0, w przypadku, gdy cały łańcuch wejściowy jest poprawny oraz -1 w innym przypadku. Jeżeli argument base jest równy 0, to format liczbowy, dla licznika i mianownika, jest ustalany osobno. Oznacza to, że możemy podać liczby w dwóch różnych formatach, np. „0xFF/256” . Warto zauważyć, że funkcja mpq\_canonicalize nie jest wołana automatycznie, więc jeżeli podaliśmy ułamek, który chcemy skrócić, to musimy pamiętać o jej wywołaniu.
 
 \begin{lstlisting}
 char * mpq_get_str (char *str, int base, mpq_t op)
 \end{lstlisting}
+
 Funkcja zwracająca liczbę w postaci ułamka, tzn. licznik i mianownik, oddzielony znakiem kreski ułamkowej. Jest analogiczna do funkcji mpz\_get\_str. Bufor wyjściowy, w którym chcemy umieścić rezultat funkcji powinien być, wystarczający i wynosić $mpz\_sizeinbase(mpq\_numref(op), base) + mpz\_sizeinbase (mpq\_denref(op), base) + 3$. Jeden dodatkowy bajt w porównaniu do funkcji mpz\_get\_str, spowodowany jest koniecznością umieszczenia w buforze kreski ułamkowej.
-
-
-.\\
-.\\
 
 \chapter{Opis Rozwiązania}
 \section{Podział na moduły}
 \section{Główne klasy}
 \subsection{Parser}
 Parser
-Klasa umożliwiająca użytkownikom podanie wielomianów poprzez standardowe wejście. Składa się tylko z dwóch metod.
+Klasa umożliwiająca użytkownikom podanie wielomianów poprzez standardowe wejście. Składa się tylko z dwóch metod. Zadaniem pierwszej z nich jest unifikacja wielomianu podanego na wejściu. Drugą metodą klasy jest tworzenie obiektu, reprezentującego wielomian.
 
 \subsection{Number}
 Klasa Number stanowi warstwę pośrednia pomiędzy klasą wielomianu, a wykorzystaniem typów liczbowych, z biblioteki mpir. Została ona stworzona, by uniezależnić implementacje wielomianów od wykorzystanego sposobu reprezentacji dużych liczb. Dzięki temu jakakolwiek zmiana w udostępnianych przez bibliotekę mpir, klasach i funkcjach, wymaga zmiany kodu aplikacji, tylko w jednym miejscu. Ma to niebagatelny wpływ na łatwość utrzymania aplikacji. Dodatkowo, wprowadzając metody opakowujące funkcje biblioteczne, możliwe jest automatyczne wykonanie dodatkowych operacji i stworzenie nowych funkcji, ułatwiających tworzenie klas i zwiększających czytelność kodu. Narzut czasowy związany z koniecznością wywoływania funkcji pośrednich został oceniony jako niewielki, a ich wpływ na przeprowadzone testy i otrzymane rezultaty jako pomijalny.
+
 Klasa posiada tylko jeden element – obiekt typu mpq\_t, reprezentujący właściwą liczbę wymiernę. W klasie zostały zdefiniowane podstawowe funkcje, takie jak obliczenie wartości bezwzględnej oraz liczby przeciwnej. W celu zwiększenia czytelności i łatwiejszej implementacji, zostały przeciążone wszystkie przydatne operatory. Rozpatrzmy dwa przykłady użycia biblioteki mpir – pierwszy z bezpośrednim użyciem dostępnych funkcji i drugi z wykorzystaniem klasy Number.
 
 \begin{lstlisting}
@@ -932,25 +966,38 @@ mpq_t simple_function(int a, int b)
 \subsection{Polynomial}
 
 Klasa Polynomial to klasa abstrakcyjna, posiadająca zdefiniowane wszystkie funkcje, niezbędne do znalezienia pierwiastków danego wielomianu. Jest ona klasą bazową dla klas PolynomialMap i PolynomialVector, reprezentujących wielomiany, przy pomocy odpowiedniej struktury. Pierwsza z nich bazuje na mapie, czyli strukturze opartej na parach (klucz, wartość). Klucze muszą być różnowartościowe, co umożliwia jednoznaczne znalezienie wartości dla dowolnego z nich. Pozwala to na posiadanie informacji wyłącznie o niezerowych współczynnikach wielomianu. Druga z nich bazuje na wektorze, jako przykładzie tablicy, której kolejne elementy są położone w pamięci operacyjnej obok siebie. Pierwszy element tablicy to współczynnik wielomianu, stojący przy potędze zerowej, a następne wartości to współczynniki, stojące przy kolejnych, coraz to wyższych potęgach. Dzięki temu dostęp do dowolnego wyrazu wielomianu jest bardzo szybki. Jednocześnie jednak, konieczne jest przetrzymywanie informacji o wszystkich współczynnikach wielomianu, stojących przy kolejnych potęgach, od potęgi zerowej, aż do najwyższej potęgi z niezerowym współczynnikiem, równej stopniowi wielomianu.
+
 Klasa Polynomial posiada zarówno już napisane metody, jak i takie, które zostały tylko zaprojektowane i oznaczone jako czysto wirtualne, czyli koniecznie do zaimplementowania w klasie dziedziczącej. Do tego pierwszego zbioru zalicza się część metod, która nie odnosi się do konkretnej struktury wielomianu. Dzięki temu, w klasach podrzędnych nie ma konieczności ponownego ich pisania. Posiadanie jednej implementacji zamiast dwóch pozwalało na łatwiejszą i dużo sprawniejszą konstrukcję obu klas dziedziczących. Spore zmiany projektowe i niewielkie korekty wystarczyło wprowadzić tylko raz, zamiast niepotrzebnie je powielać. Niestety, w przypadku sporej części funkcji, mimo bardzo zbliżonej implementacji, nie było możliwe ich połączenie i umieszczenie w klasie bazowej. Spowodowane to było koniecznością odwołań do konkretnego typu danych, w którym zostały umieszczone wyrazu wielomianu. Uogólnione są natomiast wszystkie pozostałe funkcje, w tym także te, które posiadają wywołania funkcji czysto wirtualnych. W przypadku tym, zastosowany został polimorfizm, czyli jeden z paradygmatów programowania obiektowego. Pozwala on odwoływać się do zdefiniowanej metody, bez znajomości jej implementacji. Wywołana funkcja zadziała różnie, zależnie od typu obiektu, na którym zostanie wykonana. Z punktu widzenia poprawnego działania klasy Polynomial, bez znaczenia jest implementacja operatora przypisania, o ile spełnia on swoją rolę. W ten sposób możliwe jest działanie na obiekcie wielomianu, niezależnie, czy bazuje on na tablicy, czy mapie.
+
 W języku C++, by można zastosować polimorfizm, poszczególne metody muszą operować na wskaźnikach lub referencjach. Nie możliwe jest użycie tego mechanizmu w przypadku przekazywaniu obiektów poprzez wartość. Wytłumaczenie tego jest bardzo proste i opiera się na zmiennym rozmiarze obiektów klas pochodnych. Uniemożliwia to odwołanie się do danego obiektu, póki nie znamy jego dokładne typu. Inaczej jest w przypadku referencji i wskaźników, ponieważ ich rozmiar jest stały, a zmieniać się może jedynie ich wartość, czyli miejsce w pamięci, do którego się odwołują.
+
 Z uwagi na powyższy fakt, w programie wszystkie obiekty klasy Polynomial są przekazywane poprzez referencję. By referencję, można przekazywać pomiędzy funkcjami, obiekt na który wskazuje, musi zostać stworzony dynamicznie. Można to zrobić poprzez użycie, znanej z języka C, funkcji malloc, alokującej miejsce w pamięci lub typowego dla języka C++, operatora new. W przeciwnym wypadku, zmienna będzie widoczna tylko w miejscu, w którym zostanie stworzona, np. wewnątrz funkcji. Próba odwołania się do takiej wartości, w miejscu, w którym zmienna nie jest widoczna, skończy się błędem czasu wykonania i komunikatem o naruszeniu dostępu. Stanie się tak, ponieważ referencja w takim przypadku będzie dalej istnieć, ale obiekt, na który wskazuje, już nie. Takie błędy często są popełniane przez niedoświadczonych programistów, a próba ich lokalizacji i znalezienia przyczyny, na pierwszy rzut oka, nie jest oczywista. W momencie, gdy skorzystamy z dynamicznego tworzenia obiektu, będzie on istniał tak długo, dopóki nie zostanie jawnie usunięty w kodzie programu lub aplikacja nie skończy swojego działania, zwalniając przy tym całą zajmowaną pamięć. Kiedy nie wszystkie stworzone obiekty zostają usunięte, dochodzi do tzw. wycieków pamięci. W zależności od ich rozmiarów i czasu działania aplikacje, ich konsekwencje mogą być bardzo różne. W skrajnym wypadku, może dojść do wyczerpania całej dostępnej pamięci. Gdy zaczyna jej brakować, system operacyjny zapisuje jej ostatnio nieużywaną część na dysku, by w razie potrzeby móc ją odczytać. Z uwagi na to, że pamięć operacyjna jest wielokrotnie szybsza od dysków twardych, taka operacja powoduje gigantyczne opóźnienia w pracy komputera. Gdy szybkość kolejnych alokacji pamięci jest większa, niż jej zrzucanie na dysk, w pewnym momencie komputer ulegnie całkowitemu zawieszeniu. Wówczas jedynym wyjściem jest, często bardzo niepożądany, restart systemu. Bezpiecznym rozwiązaniem jest ustalenie limitu na wykorzystanie przez pojedynczą aplikację. Może to znacznie ułatwić debugowanie i znalezienie ewentualnego błędu, a także zabezpieczy użytkownika przed uruchomieniem złośliwego oprogramowania, mającego na celu doprowadzenie do wspomnianej wyżej sytuacji.
 
 
 \section{Główne funkcje}
 
-Zadaniem pierwszej z nich jest unifikacja wielomianu podanego na wejściu. Funkcja jako argument przyjmuje pojedynczy obiekt klasy string. Po dokonaniu odpowiednich operacji, jako rezultat funkcji, zwraca również typ string. Użycie jej ma na celu ułatwienie przetwarzania w kolejnym etapie, w którym na podstawie podanego ciągu znaków, tworzony będzie obiekt wielomianu. Głównym zadaniem funkcji, jest weryfikacja, czy ciąg znaków podanych na wejściu reprezentuje poprawny składniowo wielomian. Weryfikowana jest liczba nawiasów otwierających i zamykających oraz fakt, czy w każdym miejscu wyrażenia liczba otwartych nawiasów jest nie mniejsza niż liczba nawiasów zamkniętych. Dodatkowo sprawdzane jest, czy na sąsiednich miejscach nie występują dwa operatory. Dodatkowo, poprawne wyrażenie nigdy nie kończy się operatorem, a zaczynać może się tylko minusem, literałem, cyfrą lub nawiasem otwierającym. W czasie unifikacji wyrażenia, ignorowane są wszystkie występujące w nim białe znaki. Warto zaznaczyć, że dopuszczalny jest tylko jeden znak, reprezentujący zmienną wielomianu. Nie ma ograniczeń co do wartości tego znaku, może być to znak ‘a’, ‘x’, lub jakikolwiek chcemy, ale powinniśmy zadbać, by w całym wyrażeniu występował on w tej samej postaci. Sporym ułatwieniem w interfejsie jest brak konieczności 
-wpisywania operatorów mnożenia ('*') i potęgowania ('\^') w oczywistych miejscach. Z punktu widzenia aplikacji, wyrażenia 4x oraz 4*x są identyczne. Podobnie jest w przypadku x3 oraz $x^3$. Funkcja analizuje wyrażenie i zwraca je w odpowiedniej postaci. Dla przykładu wyrażenia x3+2x2+3x+1, x\^3 +2x\^2 + 3x+1 zostaną zamienione w x\^3+2*x\^2+3*x+1.
+\subsection{Metody klasy Parser}
 
-Drugą metodą klasy Parser jest metoda, tworząca obiekt reprezentujący wielomian.
+\subsubsection{UniformInputString}
 \begin{lstlisting}
-Polynomial& Parser::ConvertToPolynomial(string inputS, int type)
+inline string Parser::UniformInputString(string s)
 \end{lstlisting}
-Funkcja ma na celu stworzenie wielomianu na podstawie wartości znakowej i zwrócenie odpowiedniej referencji. W zależności od wartości parametru type, wielomian reprezentowany jest przez jeden z dwóch rodzajów struktur. Pierwszą z nich jest wektor - począwszy od wyrazu stojącego przy najwyższej potędze, reprezentowane są wszystkie współczynniki, także zerowe. Drugim jest mapa - która posiada informacje tylko o niezerowych współczynnikach.
-Na początku funkcji wykonywana jest funkcja UniformInputString. Jeżeli zwróci ona pustą wartość, to funkcja przerywa swoje działanie, zwracając pusty obiekt wielomianu. W przeciwnym wypadku następuje iteracja po kolejnych znakach łańcucha wejściowego. Ze względu na kolejność wykonywania działań, w funkcji występują trzy obiekty wielomianów. Pierwszy z nich posiada informacje o aktualnie przetwarzanym fragmencie wejścia. Drugi mówi o wartości fragmentu wielomianu, który wystąpił przed znakiem mnożenia lub dzielenia, stanowiąc, obok aktualnego wielomianu, drugi operand dla wskazanej operacji. Z kolei, trzeci jest analogiczny i mówi, o wartości drugiego operandu dla dodawania i odejmowania. Wszystkie działania zostają dokonywane w momencie, gdy natrafimy na operator.
-W przypadku, gdy mamy do czynienia, ze znakiem nawiasu otwierającego, zostaje wyszukany odpowiedni nawias zamykający, a na wewnętrzny zakresie zostaje wywoływana rekurencyjnie ta sama funkcja. Zwraca wartość zapisywana jest jako aktualny element, a wskaźnik zostaje przesunięty na kolejny element.
-Gdy aktualnie przetwarzanym znakiem jest potęgowanie  zachowanie funkcji jest analogiczne. Wielomian zostaje podniesiony do odpowiedniej potęgi, otrzymana wartość zapisana, a wskaźnik ustawiony na kolejny element, występujący po wykładniku.
-W przypadku pozostałych operatorów działanie funkcji jest nieco odmienne. Spowodowane jest to faktem, że trafiając na dany operator, nie znamy jeszcze jego obu argumentów, a jedynie pierwszy z nich. Drugi jest nieznany, a dodatkowo sam w sobie może zawierać operatory z wyższym priorytetem, np. w przypadku wielomianu x+3*2 potrzebujemy najpierw obliczyć wartość wyrażenia 3*2 i dopiero wówczas uzyskany wynik zsumować z pierwszym operandem, równym x. Fakt ten, dopiero w momencie natrafienia na dany operator, narzuca wykonywanie poprzedniego działania. Uwaga ta tyczy się jednak tylko natrafienia na znaki dodawania, odejmowania, mnożenia i dzielenia, ponieważ, jak zostało wspomniane wcześniej, operator potęgowania i nawiasy posługują się osobnym algorytmem. Zachowanie to, można porównać do działania stosu, na którym mogą leżeć tylko dwa argumenty. Pierwszym z nich jest operacja dodawania, a drugim mnożenia. Za pomocą nich można przedstawić także odejmowanie i dzielenie, zatem funkcje te nie będą przeze mnie rozpatrywane osobno. Operator mnożenia jest traktowany jako operator z wyższym priorytetem, a dodawania z niższym. Oznacza to, że aby wykonać sumowanie, należy zadbać o to by ewentualna operacja mnożenia została wykonana wcześniej. Tak więc, w momencie natrafienia na znak mnożenia lub dzielenia, wystarczy przemnożyć, lub podzielić przez siebie dwa operandy. W momencie dodawania, sytuacja jest bardziej skomplikowana. Zostaje wykonane sprawdzenie, czy odłożony został operator mnożenia. Jeżeli tak, to wartość aktualnego elementu zostaje przemnożona przez zapisany argument, w przeciwnym razie pozostaje bez zmian. Następnie, wynik operacji zostaje dodany lub odjęty od zapisanego argumentu. W momencie, gdy zakończymy iterowanie po całym łańcuchu wejściowym, należy zadbać o ewentualne wykonanie mnożenia oraz dodawania, czyniąc to analogicznie jak w momencie rozpatrywania znaku dodawania lub odejmowania.
+
+Zadaniem funkcji jest ujednolicenie podanego na wejściu, wtaki sposób, był jednoznaczny i łatwy do dalszego przetworzenia. Jako argument przyjmuje ona pojedynczy obiekt klasy string. Po dokonaniu odpowiednich operacji, jako rezultat, zwraca również typ string. Użycie jej ma na celu ułatwienie przetwarzania w kolejnym etapie, w którym na podstawie podanego ciągu znaków, tworzony będzie obiekt wielomianu. Głównym zadaniem funkcji, jest weryfikacja, czy ciąg znaków podanych na wejściu reprezentuje poprawny składniowo wielomian. Sprawdzana jest liczba nawiasów otwierających i zamykających oraz fakt, czy w każdym miejscu wyrażenia liczba otwartych nawiasów jest nie mniejsza niż liczba nawiasów zamkniętych. Dodatkowo sprawdzane jest, czy na sąsiednich miejscach nie występują dwa operatory. Poprawne wyrażenie nigdy nie kończy się operatorem, a zaczynać może się tylko minusem, literałem, cyfrą lub nawiasem otwierającym. W czasie unifikacji wyrażenia, ignorowane są wszystkie występujące w nim białe znaki. Warto zaznaczyć, że dopuszczalny jest tylko jeden znak, reprezentujący zmienną wielomianu. Nie ma ograniczeń co do wartości tego znaku, może być to znak ‘a’, ‘x’ lub jakikolwiek inny, ale powinniśmy zadbać, by w całym wyrażeniu występował on w tej samej postaci. Sporym ułatwieniem w interfejsie jest brak konieczności wpisywania operatorów mnożenia ('*') i potęgowania ('\^{}') w oczywistych miejscach. Z punktu widzenia aplikacji, wyrażenia 4x oraz 4*x są identyczne. Podobnie jest w przypadku x3 oraz x\^{}3. Funkcja analizuje wyrażenie i zwraca je w odpowiedniej postaci. Dla przykładu wyrażenia x3+2x2+3x+1, x\^{}3 +2x\^{}2 + 3x+1 zostaną zamienione w x\^{}3+2*x\^{}2+3*x+1.
+\\
+
+\subsubsection{ConvertToPolynomial}
+\begin{lstlisting}
+inline Polynomial& Parser::ConvertToPolynomial(string inputS, int type)
+\end{lstlisting}
+
+Funkcja ma na celu stworzenie wielomianu na podstawie wartości znakowej i zwrócenie odpowiedniej referencji. W zależności od parametru type, wielomian reprezentowany jest przez jeden z dwóch rodzajów struktur. Pierwszą z nich jest wektor - począwszy od wyrazu stojącego przy najwyższej potędze, reprezentowane są wszystkie współczynniki, także zerowe. Drugim jest mapa - która posiada informacje tylko o niezerowych współczynnikach.
+
+Na początku funkcji wykonywana jest metoda UniformInputString. Jeżeli zwróci ona pustą wartość, to funkcja przerywa swoje działanie, zwracając pusty obiekt wielomianu. W przeciwnym wypadku następuje iteracja po kolejnych znakach łańcucha wejściowego. Ze względu na kolejność wykonywania działań, w funkcji występują trzy obiekty wielomianów. Pierwszy z nich posiada informacje o aktualnie przetwarzanym fragmencie wejścia. Drugi mówi o wartości fragmentu wielomianu, który wystąpił przed znakiem mnożenia lub dzielenia, stanowiąc, obok aktualnego wielomianu, drugi operand, dla wskazanej operacji. Z kolei, trzeci jest analogiczny i mówi, o wartości drugiego operandu, dla dodawania i odejmowania. Wszystkie działania zostają dokonywane w momencie, gdy natrafimy na operator.
+
+W przypadku, gdy mamy do czynienia, ze znakiem nawiasu otwierającego, zostaje wyszukany odpowiedni nawias zamykający, a na wewnętrznym zakresie jest wywoływana rekurencyjnie ta sama funkcja. Zwracana wartość zapisywana jest jako aktualny element, a wskaźnik zostaje przesunięty na kolejny. Gdy aktualnie przetwarzanym znakiem jest potęgowanie zachowanie funkcji jest analogiczne. Wielomian zostaje podniesiony do odpowiedniej potęgi, otrzymana wartość zapisana, a wskaźnik ustawiony na kolejny element, występujący po wykładniku.
+
+W przypadku pozostałych operatorów działanie funkcji jest nieco odmienne. Spowodowane jest to faktem, że trafiając na dany operator, nie znamy jeszcze jego obu argumentów, a jedynie pierwszy z nich. Drugi jest nieznany, a dodatkowo sam w sobie może zawierać operatory z wyższym priorytetem, np. w przypadku wielomianu x+3*2 potrzebujemy najpierw obliczyć wartość wyrażenia 3*2 i dopiero wówczas uzyskany wynik zsumować z pierwszym operandem, równym x. Fakt ten, dopiero w momencie natrafienia na dany operator, narzuca wykonywanie poprzedniego działania. Uwaga ta tyczy się jednak tylko natrafienia na znaki dodawania, odejmowania, mnożenia i dzielenia, ponieważ, jak zostało wspomniane wcześniej, operator potęgowania i nawiasy posługują się osobnym algorytmem. Zachowanie to, można porównać do działania stosu, na którym mogą leżeć tylko dwa argumenty. Pierwszym z nich jest operacja dodawania, a drugim mnożenia. Za pomocą nich można przedstawić także odejmowanie i dzielenie, zatem funkcje te nie będą przeze mnie rozpatrywane osobno. Operator mnożenia jest traktowany jako działanie z wyższym priorytetem, a dodawania z niższym. Oznacza to, że aby wykonać sumowanie, należy zadbać o to by ewentualna operacja mnożenia została wykonana wcześniej. Tak więc, w momencie natrafienia na znak mnożenia lub dzielenia, wystarczy przemnożyć lub podzielić przez siebie dwa operandy. W momencie dodawania, sytuacja jest bardziej skomplikowana. Zostaje wykonane sprawdzenie, czy odłożony został operator mnożenia. Jeżeli tak, to wartość aktualnego elementu zostaje przemnożona przez zapisany argument, w przeciwnym razie pozostaje bez zmian. Następnie, wynik operacji zostaje dodany lub odjęty od zapisanego argumentu. W momencie, gdy zakończymy iterowanie po całym łańcuchu wejściowym, należy zadbać o ewentualne wykonanie mnożenia oraz dzielenia, czyniąc to analogicznie jak w momencie rozpatrywania znaku dodawania lub odejmowania.
 
 
 %\section{Zewnętrze biblioteki}

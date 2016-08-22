@@ -39,3 +39,6 @@
 \contentsline {subsection}{\numberline {2.2.2}Number}{23}
 \contentsline {subsection}{\numberline {2.2.3}Polynomial}{24}
 \contentsline {section}{\numberline {2.3}G\IeC {\l }\IeC {\'o}wne funkcje}{26}
+\contentsline {subsection}{\numberline {2.3.1}Metody klasy Parser}{26}
+\contentsline {subsubsection}{UniformInputString}{26}
+\contentsline {subsubsection}{ConvertToPolynomial}{26}
