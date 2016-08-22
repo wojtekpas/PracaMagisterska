@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  22 AUG 2016 23:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  23 AUG 2016 01:37
 entering extended mode
 **./szablon.tex
 (szablon.tex
@@ -1254,17 +1254,16 @@ se\OT1/lmr/m/n/10 ) +$
 
 ]
 Rozdzia\l  2.
-[23] [24]
+[23] [24] [25] [26] [27]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [25]
-Underfull \hbox (badness 10000) in paragraph at lines 986--988
+ [28]
+Underfull \hbox (badness 10000) in paragraph at lines 1095--1097
 
  []
 
-[26] [27] [28
+[29] [30] (szablon.bbl) [31
 
-] (szablon.bbl) [29
 
 ] (szablon.aux)
 
@@ -1274,11 +1273,11 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of TeX's memory you used:
  17355 strings out of 493634
  313856 string characters out of 3141314
- 363752 words of memory out of 3000000
+ 371751 words of memory out of 3000000
  20372 multiletter control sequences out of 15000+200000
  60059 words of font info for 46 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 48i,15n,54p,2341b,1711s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 48i,15n,54p,2341b,1748s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathex.enc}{C:/Progr
 am Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ts1.enc}{C:/Program Files (x86)
 /MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program Files (x86)/MiKTeX 2.9/fon
@@ -1296,9 +1295,9 @@ m Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmr7.pfb><C:/Program Files (x86)
 /fonts/type1/public/lm/lmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type
 1/public/lm/lmsy5.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/
 lmsy7.pfb>
-Output written on szablon.pdf (33 pages, 321178 bytes).
+Output written on szablon.pdf (35 pages, 329964 bytes).
 PDF statistics:
- 178 PDF objects out of 1000 (max. 8388607)
+ 184 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  23 words of extra memory for PDF output out of 10000 (max. 10000000)
 

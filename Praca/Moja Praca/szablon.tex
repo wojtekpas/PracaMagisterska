@@ -915,9 +915,109 @@ char * mpq_get_str (char *str, int base, mpq_t op)
 
 Funkcja zwracająca liczbę w postaci ułamka, tzn. licznik i mianownik, oddzielony znakiem kreski ułamkowej. Jest analogiczna do funkcji mpz\_get\_str. Bufor wyjściowy, w którym chcemy umieścić rezultat funkcji powinien być, wystarczający i wynosić $mpz\_sizeinbase(mpq\_numref(op), base) + mpz\_sizeinbase (mpq\_denref(op), base) + 3$. Jeden dodatkowy bajt w porównaniu do funkcji mpz\_get\_str, spowodowany jest koniecznością umieszczenia w buforze kreski ułamkowej.
 
-\chapter{Opis Rozwiązania}
+
+
+
+
+
+
+
+
+
+
+\chapter{Opis rozwiązania}
 \section{Podział na moduły}
+
+Aplikacja została podzielona na trzy główne moduły: statyczna biblioteka, aplikacja konsolowa oraz testy jednostkowe. Każdy z nich został zawarty w osobnym projekcie, stworzonym w programie Microsoft Visual Studio 2015. Moduły te zostały ze sobą odpowiednio powiązane, razem tworząc solucje. Pomiędzy modułami występują jasno określone zależności.
+
+\subsection{Statyczna biblioteka}
+
+Statyczna biblioteka zawiera wszystkie logiczne aspekty projektu, posiada odpowiednie klasy, zdefiniowane funkcje i zaimplementowane algorytmy, gotowe do wykorzystania i przetestowania.
+
+\subsection{Aplikacja konsolowa}
+
+Aplikacja konsolowa pozwala, w łatwy dla użytkownika sposób, na tworzenie wielomianów i obliczanie wartości ich pierwiastków w zadanym przedziale. Użytkownik podaje odpowiednie dane wejściowe z linii poleceń, a te są następnie przetwarzane. Otrzymane wyniki są wypisywane na standardowe wyjście w przystępny sposób, tzn. w systemie dziesiętnym i z określoną precyzją.
+
+Warto zaznaczyć, że użytkownik może wprowadzać wielomiany, w dowolny sposób. Mogą być one, zarówno w postaci sumy kolejnych współczynników, jak i skomplikowanych iloczynów, składających się z poszczególnych wielomianów. Jedynym ograniczeniem jest to, by wyrażenie było poprawne składniowo oraz zawierało wyłącznie całkowite współczyniki i naturalne potęgi. Nie powinna być to jednak przeszkodą, w obliczaniu pierwiastków dla skomplikowanych wielomianów. Należy bowiem pamiętać, że kazdy wielomian o współczynnikach wymiernych, a tylko takie będziemy rozwazać w niniejszej pracy, da się przedstawić przy pomocy proporcjonalnych liczb całkowitych. Odpowiednie ułamki zwykłe, zawsze możemy w ten sposób zamienić, wyciągając z danego wielomianu czynnik, będący odwrotnością najmniejszej wspólnej wielokrotności, wszystkich współczynników. Jako, że czynnik ten będzie stałą, to przy obliczaniu pierwiastków, można go po prostu pominąć, gdyż nie ma on na nie żadnego wpływu.
+
+Użytkownik może korzystać z aplikacji tak długo, jak będzie sobie tego życzył. Zapytanie o kolejne wielomiany przeprowadzonę są w pętli i trwają, dopóki użytkownik nie wprowadzi ciągu znaków, odpowiedzialnego za wyjście z programu. Szczegółowe informację, o tym jak korzystać z aplikacji są podane w jego instrukcji.
+
+\subsection{Testy jednostkowe}
+Testy jednostkowe umożliwiają użytkownikowi sprawdzenie, czy określona funkcjonalność działa bezblędnie. Zgodnie z ich założeniami, są w nich zdefiniowe podstawowe testy, weryfikujące różne przypadki testowe. W tym przypadku jest nieco inaczej, ponieważ w postaci testów jednostkowych, zostały zawarte również bardziej skomplikowane testy funkcjonalne. Wśród nich znajdują się też takie, które testują główne zadanie projektu, czyli dla wielomianu, tworzonego na podstawie otrzymanego wejścia w postaci łańcucha znaków, potrafią, z określoną precyzją, znaleźć jego wszystkie pierwiastki rzeczywiste.
+
+Jako środowisko testowe wybrany został framework wbudowany w narzędzie Microsoft Visual Studio 2015. Rozważana była też biblioteka o nazwie Google Test. Jej istotną zaletą, była przenośność, pomiędzy platformami, ale ostatecznie koncepcja ta została odrzucona. Spowodowane było to faktem, iż cały projekt pisany był w Visual Studio, a łatwość i wygoda, uruchamiania tam testów jednostkowych jest bardzo duża. Dzięki temu wyborowi, każda, nawet najmniejsza zmiana, mogła być bardzo szybka przetestowana, bez potrzeby wprowadzania jakichkolwiek dodatkowych zmian, co znacznie przyspieszało proces implementacji i weryfikacji przyjętego rozwiązania.
+
 \section{Główne klasy}
+
+\subsection{CharsConstants}
+
+Klasa CharsConstants została zaimplementowana w celu zapewnienia większej czytelności kodu. Ważnym aspektem było zdefiniowane i łatwe rozpoznawanie wszystkich, mogących występować w łańcuchu wejściowym, legalnych znaków. Takie podejście ogranicza możliwość popełnienia prostych, a trudnych do wykrycia błędów w przetwarzaniu otrzymanego tekstu, np. literówki. W przypadku, gdy są zdefiniowane odpowiednio stałe i funkcji, ewentualna literówka, skończy się zasygnalizowaniem błędu już na etapie kompilacji. Przypadek taki jest sygnalizowany i łatwy do naprawienia, dzięki czemu programista nie musi zastanawiać się dlaczego, poprawny, wydałoby się, kod nie działa. Poniżej przedstawiam strukturę klasy, wraz ze zdefiniowanymi w niej stałymi i statycznymi metodami. 
+
+\begin{lstlisting}
+class CharsConstants
+{
+	static const char Space = ' ';
+	static const char Tab = '\t';
+	static const char NewLine = '\n';
+	static const char LeastDigit = '0';
+	static const char GreatestDigit = '9';
+	static const char LeastUppercase = 'A';
+	static const char GreatestUppercase = 'Z';
+	static const char LeastLowercase = 'a';
+	static const char GreatestLowercase = 'z';
+	
+public:
+	static const char Plus = '+';
+	static const char Minus = '-';
+	static const char Mul = '*';
+	static const char Div = '/';
+	static const char Exp = '^';
+	static const char OpeningParenthesis = '(';
+	static const char ClosingParenthesis = ')';
+	static const char Var = 'x';
+	
+	static int CharToInt(char c);
+	static bool IsDigit(char c);
+	static bool IsLetter(char c);
+	static bool IsUppercase(char c);
+	static bool IsLowercase(char c);
+	static bool IsWhitespace(char c);
+	static bool IsPlus(char c);
+	static bool IsMinus(char c);
+	static bool IsMul(char c);
+	static bool IsDiv(char c);
+	static bool IsExp(char c);
+	static bool IsOpeningParenthesis(char c);
+	static bool IsClosingParenthesis(char c);
+	static bool IsVar(char c);
+	static bool IsOperator(char c);
+	static bool IsLegalValue(char c);
+	static bool IsLegalOpeningOperator(char c);
+};
+\end{lstlisting}
+
+\subsection{StringManager}
+
+\begin{lstlisting}
+class StringManager
+{
+public:
+	static string EmptyString();
+	static bool IsEmptyString(string s);
+	static char ReturnLastChar(string s);
+	static bool LastCharIsADigit(string s);
+	static bool LastCharIsALetter(string s);
+	static bool LastCharIsADigitOrALetter(string s);
+	static bool LastCharIsAdigitOrALetterOrAParenthesis(string s);
+	static int FindFirst(string s, char c);
+	static int FindLast(string s, char c);
+	static string Substr(string s, int first, int last);
+	static vector<string> Split(string s, string operators);
+	static int FindClosingParenthesis(string s);
+	static string ParenthesisContent(string s);
+};
+\end{lstlisting}
+
 \subsection{Parser}
 Parser
 Klasa umożliwiająca użytkownikom podanie wielomianów poprzez standardowe wejście. Składa się tylko z dwóch metod. Zadaniem pierwszej z nich jest unifikacja wielomianu podanego na wejściu. Drugą metodą klasy jest tworzenie obiektu, reprezentującego wielomian.
@@ -972,6 +1072,15 @@ Klasa Polynomial posiada zarówno już napisane metody, jak i takie, które zost
 W języku C++, by można zastosować polimorfizm, poszczególne metody muszą operować na wskaźnikach lub referencjach. Nie możliwe jest użycie tego mechanizmu w przypadku przekazywaniu obiektów poprzez wartość. Wytłumaczenie tego jest bardzo proste i opiera się na zmiennym rozmiarze obiektów klas pochodnych. Uniemożliwia to odwołanie się do danego obiektu, póki nie znamy jego dokładne typu. Inaczej jest w przypadku referencji i wskaźników, ponieważ ich rozmiar jest stały, a zmieniać się może jedynie ich wartość, czyli miejsce w pamięci, do którego się odwołują.
 
 Z uwagi na powyższy fakt, w programie wszystkie obiekty klasy Polynomial są przekazywane poprzez referencję. By referencję, można przekazywać pomiędzy funkcjami, obiekt na który wskazuje, musi zostać stworzony dynamicznie. Można to zrobić poprzez użycie, znanej z języka C, funkcji malloc, alokującej miejsce w pamięci lub typowego dla języka C++, operatora new. W przeciwnym wypadku, zmienna będzie widoczna tylko w miejscu, w którym zostanie stworzona, np. wewnątrz funkcji. Próba odwołania się do takiej wartości, w miejscu, w którym zmienna nie jest widoczna, skończy się błędem czasu wykonania i komunikatem o naruszeniu dostępu. Stanie się tak, ponieważ referencja w takim przypadku będzie dalej istnieć, ale obiekt, na który wskazuje, już nie. Takie błędy często są popełniane przez niedoświadczonych programistów, a próba ich lokalizacji i znalezienia przyczyny, na pierwszy rzut oka, nie jest oczywista. W momencie, gdy skorzystamy z dynamicznego tworzenia obiektu, będzie on istniał tak długo, dopóki nie zostanie jawnie usunięty w kodzie programu lub aplikacja nie skończy swojego działania, zwalniając przy tym całą zajmowaną pamięć. Kiedy nie wszystkie stworzone obiekty zostają usunięte, dochodzi do tzw. wycieków pamięci. W zależności od ich rozmiarów i czasu działania aplikacje, ich konsekwencje mogą być bardzo różne. W skrajnym wypadku, może dojść do wyczerpania całej dostępnej pamięci. Gdy zaczyna jej brakować, system operacyjny zapisuje jej ostatnio nieużywaną część na dysku, by w razie potrzeby móc ją odczytać. Z uwagi na to, że pamięć operacyjna jest wielokrotnie szybsza od dysków twardych, taka operacja powoduje gigantyczne opóźnienia w pracy komputera. Gdy szybkość kolejnych alokacji pamięci jest większa, niż jej zrzucanie na dysk, w pewnym momencie komputer ulegnie całkowitemu zawieszeniu. Wówczas jedynym wyjściem jest, często bardzo niepożądany, restart systemu. Bezpiecznym rozwiązaniem jest ustalenie limitu na wykorzystanie przez pojedynczą aplikację. Może to znacznie ułatwić debugowanie i znalezienie ewentualnego błędu, a także zabezpieczy użytkownika przed uruchomieniem złośliwego oprogramowania, mającego na celu doprowadzenie do wspomnianej wyżej sytuacji.
+
+
+
+
+
+
+
+
+
 
 
 \section{Główne funkcje}
