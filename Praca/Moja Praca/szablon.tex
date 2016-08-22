@@ -163,7 +163,7 @@
 % właściwa część książki, numerowana arabskimi od 1
 \mainmatter
 
-\chapter{Wstęp}
+%\chapter{Wstęp}
 \chapter{Przegląd literatury}
 \section{Wielomiany}
 \subsection{Definicja}
@@ -885,21 +885,83 @@ Funkcja zwracająca liczbę w postaci ułamka, tzn. licznik i mianownik, oddziel
 \chapter{Opis Rozwiązania}
 \section{Podział na moduły}
 \section{Główne klasy}
-\section{Główne funkcje}
+\subsection{Parser}
 Parser
 Klasa umożliwiająca użytkownikom podanie wielomianów poprzez standardowe wejście. Składa się tylko z dwóch metod.
+
+\subsection{Number}
+Klasa Number stanowi warstwę pośrednia pomiędzy klasą wielomianu, a wykorzystaniem typów liczbowych, z biblioteki mpir. Została ona stworzona, by uniezależnić implementacje wielomianów od wykorzystanego sposobu reprezentacji dużych liczb. Dzięki temu jakakolwiek zmiana w udostępnianych przez bibliotekę mpir, klasach i funkcjach, wymaga zmiany kodu aplikacji, tylko w jednym miejscu. Ma to niebagatelny wpływ na łatwość utrzymania aplikacji. Dodatkowo, wprowadzając metody opakowujące funkcje biblioteczne, możliwe jest automatyczne wykonanie dodatkowych operacji i stworzenie nowych funkcji, ułatwiających tworzenie klas i zwiększających czytelność kodu. Narzut czasowy związany z koniecznością wywoływania funkcji pośrednich został oceniony jako niewielki, a ich wpływ na przeprowadzone testy i otrzymane rezultaty jako pomijalny.
+Klasa posiada tylko jeden element – obiekt typu mpq\_t, reprezentujący właściwą liczbę wymiernę. W klasie zostały zdefiniowane podstawowe funkcje, takie jak obliczenie wartości bezwzględnej oraz liczby przeciwnej. W celu zwiększenia czytelności i łatwiejszej implementacji, zostały przeciążone wszystkie przydatne operatory. Rozpatrzmy dwa przykłady użycia biblioteki mpir – pierwszy z bezpośrednim użyciem dostępnych funkcji i drugi z wykorzystaniem klasy Number.
+
+\begin{lstlisting}
+mpq_t simple_function(int a, int b)
+{
+	mpq_t value1, value2, value3, value4;
+	mpq_inits(value1, value2, value3, value4);
+	mpq_set_d(value1, (double) a);
+	mpq_set_d(value2, (double) b);
+	mpq_mul(value3, value1, value2);
+	if (mpq_cmp(value1, value2) > 0)
+		mpq_add(value4, value1, value3);
+	else
+		mpq_add(value4, value2, value3);
+	mpq_clears(value1, value2, value3);
+	return value4;
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+mpq_t simple_function(int a, int b)
+{
+	Number number1, number2, number3, number4;
+	number1 = new Number(a);
+	number2 = new Number(b);
+	number3 = new Number(a*b)
+	number4 = new Number();
+	if (number1 > number2)
+		number4 = number1 + number3;
+	else
+		number4 = number2 + number3;
+	delete(number1);
+	delete(number2);
+	delete(number3);
+	return number4;
+}
+\end{lstlisting}
+
+\subsection{Polynomial}
+
+Klasa Polynomial to klasa abstrakcyjna, posiadająca zdefiniowane wszystkie funkcje, niezbędne do znalezienia pierwiastków danego wielomianu. Jest ona klasą bazową dla klas PolynomialMap i PolynomialVector, reprezentujących wielomiany, przy pomocy odpowiedniej struktury. Pierwsza z nich bazuje na mapie, czyli strukturze opartej na parach (klucz, wartość). Klucze muszą być różnowartościowe, co umożliwia jednoznaczne znalezienie wartości dla dowolnego z nich. Pozwala to na posiadanie informacji wyłącznie o niezerowych współczynnikach wielomianu. Druga z nich bazuje na wektorze, jako przykładzie tablicy, której kolejne elementy są położone w pamięci operacyjnej obok siebie. Pierwszy element tablicy to współczynnik wielomianu, stojący przy potędze zerowej, a następne wartości to współczynniki, stojące przy kolejnych, coraz to wyższych potęgach. Dzięki temu dostęp do dowolnego wyrazu wielomianu jest bardzo szybki. Jednocześnie jednak, konieczne jest przetrzymywanie informacji o wszystkich współczynnikach wielomianu, stojących przy kolejnych potęgach, od potęgi zerowej, aż do najwyższej potęgi z niezerowym współczynnikiem, równej stopniowi wielomianu.
+Klasa Polynomial posiada zarówno już napisane metody, jak i takie, które zostały tylko zaprojektowane i oznaczone jako czysto wirtualne, czyli koniecznie do zaimplementowania w klasie dziedziczącej. Do tego pierwszego zbioru zalicza się część metod, która nie odnosi się do konkretnej struktury wielomianu. Dzięki temu, w klasach podrzędnych nie ma konieczności ponownego ich pisania. Posiadanie jednej implementacji zamiast dwóch pozwalało na łatwiejszą i dużo sprawniejszą konstrukcję obu klas dziedziczących. Spore zmiany projektowe i niewielkie korekty wystarczyło wprowadzić tylko raz, zamiast niepotrzebnie je powielać. Niestety, w przypadku sporej części funkcji, mimo bardzo zbliżonej implementacji, nie było możliwe ich połączenie i umieszczenie w klasie bazowej. Spowodowane to było koniecznością odwołań do konkretnego typu danych, w którym zostały umieszczone wyrazu wielomianu. Uogólnione są natomiast wszystkie pozostałe funkcje, w tym także te, które posiadają wywołania funkcji czysto wirtualnych. W przypadku tym, zastosowany został polimorfizm, czyli jeden z paradygmatów programowania obiektowego. Pozwala on odwoływać się do zdefiniowanej metody, bez znajomości jej implementacji. Wywołana funkcja zadziała różnie, zależnie od typu obiektu, na którym zostanie wykonana. Z punktu widzenia poprawnego działania klasy Polynomial, bez znaczenia jest implementacja operatora przypisania, o ile spełnia on swoją rolę. W ten sposób możliwe jest działanie na obiekcie wielomianu, niezależnie, czy bazuje on na tablicy, czy mapie.
+W języku C++, by można zastosować polimorfizm, poszczególne metody muszą operować na wskaźnikach lub referencjach. Nie możliwe jest użycie tego mechanizmu w przypadku przekazywaniu obiektów poprzez wartość. Wytłumaczenie tego jest bardzo proste i opiera się na zmiennym rozmiarze obiektów klas pochodnych. Uniemożliwia to odwołanie się do danego obiektu, póki nie znamy jego dokładne typu. Inaczej jest w przypadku referencji i wskaźników, ponieważ ich rozmiar jest stały, a zmieniać się może jedynie ich wartość, czyli miejsce w pamięci, do którego się odwołują.
+Z uwagi na powyższy fakt, w programie wszystkie obiekty klasy Polynomial są przekazywane poprzez referencję. By referencję, można przekazywać pomiędzy funkcjami, obiekt na który wskazuje, musi zostać stworzony dynamicznie. Można to zrobić poprzez użycie, znanej z języka C, funkcji malloc, alokującej miejsce w pamięci lub typowego dla języka C++, operatora new. W przeciwnym wypadku, zmienna będzie widoczna tylko w miejscu, w którym zostanie stworzona, np. wewnątrz funkcji. Próba odwołania się do takiej wartości, w miejscu, w którym zmienna nie jest widoczna, skończy się błędem czasu wykonania i komunikatem o naruszeniu dostępu. Stanie się tak, ponieważ referencja w takim przypadku będzie dalej istnieć, ale obiekt, na który wskazuje, już nie. Takie błędy często są popełniane przez niedoświadczonych programistów, a próba ich lokalizacji i znalezienia przyczyny, na pierwszy rzut oka, nie jest oczywista. W momencie, gdy skorzystamy z dynamicznego tworzenia obiektu, będzie on istniał tak długo, dopóki nie zostanie jawnie usunięty w kodzie programu lub aplikacja nie skończy swojego działania, zwalniając przy tym całą zajmowaną pamięć. Kiedy nie wszystkie stworzone obiekty zostają usunięte, dochodzi do tzw. wycieków pamięci. W zależności od ich rozmiarów i czasu działania aplikacje, ich konsekwencje mogą być bardzo różne. W skrajnym wypadku, może dojść do wyczerpania całej dostępnej pamięci. Gdy zaczyna jej brakować, system operacyjny zapisuje jej ostatnio nieużywaną część na dysku, by w razie potrzeby móc ją odczytać. Z uwagi na to, że pamięć operacyjna jest wielokrotnie szybsza od dysków twardych, taka operacja powoduje gigantyczne opóźnienia w pracy komputera. Gdy szybkość kolejnych alokacji pamięci jest większa, niż jej zrzucanie na dysk, w pewnym momencie komputer ulegnie całkowitemu zawieszeniu. Wówczas jedynym wyjściem jest, często bardzo niepożądany, restart systemu. Bezpiecznym rozwiązaniem jest ustalenie limitu na wykorzystanie przez pojedynczą aplikację. Może to znacznie ułatwić debugowanie i znalezienie ewentualnego błędu, a także zabezpieczy użytkownika przed uruchomieniem złośliwego oprogramowania, mającego na celu doprowadzenie do wspomnianej wyżej sytuacji.
+
+
+\section{Główne funkcje}
+
 Zadaniem pierwszej z nich jest unifikacja wielomianu podanego na wejściu. Funkcja jako argument przyjmuje pojedynczy obiekt klasy string. Po dokonaniu odpowiednich operacji, jako rezultat funkcji, zwraca również typ string. Użycie jej ma na celu ułatwienie przetwarzania w kolejnym etapie, w którym na podstawie podanego ciągu znaków, tworzony będzie obiekt wielomianu. Głównym zadaniem funkcji, jest weryfikacja, czy ciąg znaków podanych na wejściu reprezentuje poprawny składniowo wielomian. Weryfikowana jest liczba nawiasów otwierających i zamykających oraz fakt, czy w każdym miejscu wyrażenia liczba otwartych nawiasów jest nie mniejsza niż liczba nawiasów zamkniętych. Dodatkowo sprawdzane jest, czy na sąsiednich miejscach nie występują dwa operatory. Dodatkowo, poprawne wyrażenie nigdy nie kończy się operatorem, a zaczynać może się tylko minusem, literałem, cyfrą lub nawiasem otwierającym. W czasie unifikacji wyrażenia, ignorowane są wszystkie występujące w nim białe znaki. Warto zaznaczyć, że dopuszczalny jest tylko jeden znak, reprezentujący zmienną wielomianu. Nie ma ograniczeń co do wartości tego znaku, może być to znak ‘a’, ‘x’, lub jakikolwiek chcemy, ale powinniśmy zadbać, by w całym wyrażeniu występował on w tej samej postaci. Sporym ułatwieniem w interfejsie jest brak konieczności 
 wpisywania operatorów mnożenia ('*') i potęgowania ('\^') w oczywistych miejscach. Z punktu widzenia aplikacji, wyrażenia 4x oraz 4*x są identyczne. Podobnie jest w przypadku x3 oraz $x^3$. Funkcja analizuje wyrażenie i zwraca je w odpowiedniej postaci. Dla przykładu wyrażenia x3+2x2+3x+1, x\^3 +2x\^2 + 3x+1 zostaną zamienione w x\^3+2*x\^2+3*x+1.
 
-\section{Zewnętrze biblioteki}
-\section{Instrukcja programu}
+Drugą metodą klasy Parser jest metoda, tworząca obiekt reprezentujący wielomian.
+\begin{lstlisting}
+Polynomial& Parser::ConvertToPolynomial(string inputS, int type)
+\end{lstlisting}
+Funkcja ma na celu stworzenie wielomianu na podstawie wartości znakowej i zwrócenie odpowiedniej referencji. W zależności od wartości parametru type, wielomian reprezentowany jest przez jeden z dwóch rodzajów struktur. Pierwszą z nich jest wektor - począwszy od wyrazu stojącego przy najwyższej potędze, reprezentowane są wszystkie współczynniki, także zerowe. Drugim jest mapa - która posiada informacje tylko o niezerowych współczynnikach.
+Na początku funkcji wykonywana jest funkcja UniformInputString. Jeżeli zwróci ona pustą wartość, to funkcja przerywa swoje działanie, zwracając pusty obiekt wielomianu. W przeciwnym wypadku następuje iteracja po kolejnych znakach łańcucha wejściowego. Ze względu na kolejność wykonywania działań, w funkcji występują trzy obiekty wielomianów. Pierwszy z nich posiada informacje o aktualnie przetwarzanym fragmencie wejścia. Drugi mówi o wartości fragmentu wielomianu, który wystąpił przed znakiem mnożenia lub dzielenia, stanowiąc, obok aktualnego wielomianu, drugi operand dla wskazanej operacji. Z kolei, trzeci jest analogiczny i mówi, o wartości drugiego operandu dla dodawania i odejmowania. Wszystkie działania zostają dokonywane w momencie, gdy natrafimy na operator.
+W przypadku, gdy mamy do czynienia, ze znakiem nawiasu otwierającego, zostaje wyszukany odpowiedni nawias zamykający, a na wewnętrzny zakresie zostaje wywoływana rekurencyjnie ta sama funkcja. Zwraca wartość zapisywana jest jako aktualny element, a wskaźnik zostaje przesunięty na kolejny element.
+Gdy aktualnie przetwarzanym znakiem jest potęgowanie  zachowanie funkcji jest analogiczne. Wielomian zostaje podniesiony do odpowiedniej potęgi, otrzymana wartość zapisana, a wskaźnik ustawiony na kolejny element, występujący po wykładniku.
+W przypadku pozostałych operatorów działanie funkcji jest nieco odmienne. Spowodowane jest to faktem, że trafiając na dany operator, nie znamy jeszcze jego obu argumentów, a jedynie pierwszy z nich. Drugi jest nieznany, a dodatkowo sam w sobie może zawierać operatory z wyższym priorytetem, np. w przypadku wielomianu x+3*2 potrzebujemy najpierw obliczyć wartość wyrażenia 3*2 i dopiero wówczas uzyskany wynik zsumować z pierwszym operandem, równym x. Fakt ten, dopiero w momencie natrafienia na dany operator, narzuca wykonywanie poprzedniego działania. Uwaga ta tyczy się jednak tylko natrafienia na znaki dodawania, odejmowania, mnożenia i dzielenia, ponieważ, jak zostało wspomniane wcześniej, operator potęgowania i nawiasy posługują się osobnym algorytmem. Zachowanie to, można porównać do działania stosu, na którym mogą leżeć tylko dwa argumenty. Pierwszym z nich jest operacja dodawania, a drugim mnożenia. Za pomocą nich można przedstawić także odejmowanie i dzielenie, zatem funkcje te nie będą przeze mnie rozpatrywane osobno. Operator mnożenia jest traktowany jako operator z wyższym priorytetem, a dodawania z niższym. Oznacza to, że aby wykonać sumowanie, należy zadbać o to by ewentualna operacja mnożenia została wykonana wcześniej. Tak więc, w momencie natrafienia na znak mnożenia lub dzielenia, wystarczy przemnożyć, lub podzielić przez siebie dwa operandy. W momencie dodawania, sytuacja jest bardziej skomplikowana. Zostaje wykonane sprawdzenie, czy odłożony został operator mnożenia. Jeżeli tak, to wartość aktualnego elementu zostaje przemnożona przez zapisany argument, w przeciwnym razie pozostaje bez zmian. Następnie, wynik operacji zostaje dodany lub odjęty od zapisanego argumentu. W momencie, gdy zakończymy iterowanie po całym łańcuchu wejściowym, należy zadbać o ewentualne wykonanie mnożenia oraz dodawania, czyniąc to analogicznie jak w momencie rozpatrywania znaku dodawania lub odejmowania.
 
-\chapter{Przeprowadzone testy}
-\section{Testy jednostkowe}
-\section{Testy interfejsu użytkownika}
-\section{Testy wydajności czasowej}
-\section{Testy wydajności pamięciowej}
-\chapter{Podsumowanie}
+
+%\section{Zewnętrze biblioteki}
+%\section{Instrukcja programu}
+
+%\chapter{Przeprowadzone testy}
+%\section{Testy jednostkowe}
+%\section{Testy interfejsu użytkownika}
+%\section{Testy wydajności czasowej}
+%\section{Testy wydajności pamięciowej}
+%\chapter{Podsumowanie}
 
 
 \backmatter

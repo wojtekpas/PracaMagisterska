@@ -1,47 +1,41 @@
 \select@language {polish}
-\contentsline {chapter}{\numberline {1}Wst\IeC {\k e}p}{1}
-\contentsline {chapter}{\numberline {2}Przegl\IeC {\k a}d literatury}{3}
-\contentsline {section}{\numberline {2.1}Wielomiany}{3}
-\contentsline {subsection}{\numberline {2.1.1}Definicja}{3}
-\contentsline {subsection}{\numberline {2.1.2}Podstawowe dzia\IeC {\l }ania na wielomianach}{3}
-\contentsline {subsubsection}{Por\IeC {\'o}wnywanie wielomian\IeC {\'o}w}{4}
-\contentsline {subsubsection}{Suma wielomian\IeC {\'o}w}{4}
-\contentsline {subsubsection}{R\IeC {\'o}\IeC {\.z}nica wielomian\IeC {\'o}w}{5}
-\contentsline {subsubsection}{Iloczyn wielomian\IeC {\'o}w}{6}
-\contentsline {subsubsection}{Iloraz wielomian\IeC {\'o}w}{7}
-\contentsline {subsubsection}{Pochodna wielomianu}{8}
-\contentsline {subsection}{\numberline {2.1.3}Dodatkowe twierdzenia dotycz\IeC {\k a}ce wielomian\IeC {\'o}w}{9}
-\contentsline {section}{\numberline {2.2}Eliminacja pierwiastk\IeC {\'o}w wielokrotnych}{11}
-\contentsline {section}{\numberline {2.3}Twierdzenie Sturma}{13}
-\contentsline {section}{\numberline {2.4}Biblioteka Mpir}{15}
-\contentsline {subsection}{\numberline {2.4.1}Podstawowe informacje}{15}
-\contentsline {subsubsection}{Wst\IeC {\k e}p}{15}
-\contentsline {subsubsection}{Licencja}{15}
-\contentsline {subsubsection}{Nazewnictwo i typy}{15}
-\contentsline {subsubsection}{Funkcje}{16}
-\contentsline {subsubsection}{Zarz\IeC {\k a}dzanie pami\IeC {\k e}ci\IeC {\k a}}{16}
-\contentsline {subsubsection}{Kompatybilno\IeC {\'s}\IeC {\'c}}{17}
-\contentsline {subsubsection}{Wydajno\IeC {\'s}\IeC {\'c}}{17}
-\contentsline {subsubsection}{Operacje w miejscu}{17}
-\contentsline {subsection}{\numberline {2.4.2}Instalacja}{17}
-\contentsline {subsection}{\numberline {2.4.3}Operacje na liczbach ca\IeC {\l }kowitych}{18}
-\contentsline {subsubsection}{Funkcje inicjalizuj\IeC {\k a}ce}{18}
-\contentsline {subsubsection}{Funkcje przypisania}{18}
-\contentsline {subsubsection}{Funkcje konwersji}{19}
-\contentsline {subsubsection}{Funkcje arytmetyczne}{20}
-\contentsline {subsubsection}{Funkcje dzielenia}{20}
-\contentsline {subsubsection}{Funkcje por\IeC {\'o}wnania}{21}
-\contentsline {subsubsection}{Pozosta\IeC {\l }e funkcje}{22}
-\contentsline {subsection}{\numberline {2.4.4}Operacje na liczbach wymiernych}{22}
-\contentsline {chapter}{\numberline {3}Opis Rozwi\IeC {\k a}zania}{25}
-\contentsline {section}{\numberline {3.1}Podzia\IeC {\l } na modu\IeC {\l }y}{25}
-\contentsline {section}{\numberline {3.2}G\IeC {\l }\IeC {\'o}wne klasy}{25}
-\contentsline {section}{\numberline {3.3}G\IeC {\l }\IeC {\'o}wne funkcje}{25}
-\contentsline {section}{\numberline {3.4}Zewn\IeC {\k e}trze biblioteki}{26}
-\contentsline {section}{\numberline {3.5}Instrukcja programu}{26}
-\contentsline {chapter}{\numberline {4}Przeprowadzone testy}{27}
-\contentsline {section}{\numberline {4.1}Testy jednostkowe}{27}
-\contentsline {section}{\numberline {4.2}Testy interfejsu u\IeC {\.z}ytkownika}{27}
-\contentsline {section}{\numberline {4.3}Testy wydajno\IeC {\'s}ci czasowej}{27}
-\contentsline {section}{\numberline {4.4}Testy wydajno\IeC {\'s}ci pami\IeC {\k e}ciowej}{27}
-\contentsline {chapter}{\numberline {5}Podsumowanie}{29}
+\contentsline {chapter}{\numberline {1}Przegl\IeC {\k a}d literatury}{1}
+\contentsline {section}{\numberline {1.1}Wielomiany}{1}
+\contentsline {subsection}{\numberline {1.1.1}Definicja}{1}
+\contentsline {subsection}{\numberline {1.1.2}Podstawowe dzia\IeC {\l }ania na wielomianach}{1}
+\contentsline {subsubsection}{Por\IeC {\'o}wnywanie wielomian\IeC {\'o}w}{2}
+\contentsline {subsubsection}{Suma wielomian\IeC {\'o}w}{2}
+\contentsline {subsubsection}{R\IeC {\'o}\IeC {\.z}nica wielomian\IeC {\'o}w}{3}
+\contentsline {subsubsection}{Iloczyn wielomian\IeC {\'o}w}{4}
+\contentsline {subsubsection}{Iloraz wielomian\IeC {\'o}w}{5}
+\contentsline {subsubsection}{Pochodna wielomianu}{6}
+\contentsline {subsection}{\numberline {1.1.3}Dodatkowe twierdzenia dotycz\IeC {\k a}ce wielomian\IeC {\'o}w}{7}
+\contentsline {section}{\numberline {1.2}Eliminacja pierwiastk\IeC {\'o}w wielokrotnych}{9}
+\contentsline {section}{\numberline {1.3}Twierdzenie Sturma}{11}
+\contentsline {section}{\numberline {1.4}Biblioteka Mpir}{13}
+\contentsline {subsection}{\numberline {1.4.1}Podstawowe informacje}{13}
+\contentsline {subsubsection}{Wst\IeC {\k e}p}{13}
+\contentsline {subsubsection}{Licencja}{13}
+\contentsline {subsubsection}{Nazewnictwo i typy}{13}
+\contentsline {subsubsection}{Funkcje}{14}
+\contentsline {subsubsection}{Zarz\IeC {\k a}dzanie pami\IeC {\k e}ci\IeC {\k a}}{14}
+\contentsline {subsubsection}{Kompatybilno\IeC {\'s}\IeC {\'c}}{15}
+\contentsline {subsubsection}{Wydajno\IeC {\'s}\IeC {\'c}}{15}
+\contentsline {subsubsection}{Operacje w miejscu}{15}
+\contentsline {subsection}{\numberline {1.4.2}Instalacja}{15}
+\contentsline {subsection}{\numberline {1.4.3}Operacje na liczbach ca\IeC {\l }kowitych}{16}
+\contentsline {subsubsection}{Funkcje inicjalizuj\IeC {\k a}ce}{16}
+\contentsline {subsubsection}{Funkcje przypisania}{16}
+\contentsline {subsubsection}{Funkcje konwersji}{17}
+\contentsline {subsubsection}{Funkcje arytmetyczne}{18}
+\contentsline {subsubsection}{Funkcje dzielenia}{18}
+\contentsline {subsubsection}{Funkcje por\IeC {\'o}wnania}{19}
+\contentsline {subsubsection}{Pozosta\IeC {\l }e funkcje}{20}
+\contentsline {subsection}{\numberline {1.4.4}Operacje na liczbach wymiernych}{20}
+\contentsline {chapter}{\numberline {2}Opis Rozwi\IeC {\k a}zania}{23}
+\contentsline {section}{\numberline {2.1}Podzia\IeC {\l } na modu\IeC {\l }y}{23}
+\contentsline {section}{\numberline {2.2}G\IeC {\l }\IeC {\'o}wne klasy}{23}
+\contentsline {subsection}{\numberline {2.2.1}Parser}{23}
+\contentsline {subsection}{\numberline {2.2.2}Number}{23}
+\contentsline {subsection}{\numberline {2.2.3}Polynomial}{24}
+\contentsline {section}{\numberline {2.3}G\IeC {\l }\IeC {\'o}wne funkcje}{26}
