@@ -42,8 +42,10 @@
 \contentsline {subsection}{\numberline {2.2.2}StringManager}{26}
 \contentsline {subsection}{\numberline {2.2.3}Parser}{27}
 \contentsline {subsection}{\numberline {2.2.4}Number}{27}
-\contentsline {subsection}{\numberline {2.2.5}Polynomial}{28}
-\contentsline {section}{\numberline {2.3}G\IeC {\l }\IeC {\'o}wne funkcje}{29}
-\contentsline {subsection}{\numberline {2.3.1}Metody klasy Parser}{29}
-\contentsline {subsubsection}{UniformInputString}{29}
-\contentsline {subsubsection}{ConvertToPolynomial}{30}
+\contentsline {subsection}{\numberline {2.2.5}Polynomial}{30}
+\contentsline {subsection}{\numberline {2.2.6}PolynomialMap}{34}
+\contentsline {subsection}{\numberline {2.2.7}PolynomialVector}{34}
+\contentsline {section}{\numberline {2.3}G\IeC {\l }\IeC {\'o}wne funkcje}{34}
+\contentsline {subsection}{\numberline {2.3.1}Metody klasy Parser}{34}
+\contentsline {subsubsection}{UniformInputString}{34}
+\contentsline {subsubsection}{ConvertToPolynomial}{34}

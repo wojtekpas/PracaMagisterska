@@ -1002,6 +1002,8 @@ public:
 
 \subsection{StringManager}
 
+Klasa StringManager oferuje przydatne funkcje, na łańcuchach znaków. Wykorzystywana jest w metodach klasy Parser, w celu łatwiejszej jego implementacji oraz zwiększenia czytelności. Poniżej deklaracja klasy StringManager i udostępnianych przez nią metod.
+
 \begin{lstlisting}
 class StringManager
 {
@@ -1024,10 +1026,78 @@ public:
 
 \subsection{Parser}
 Parser
-Klasa umożliwiająca użytkownikom podanie wielomianów poprzez standardowe wejście. Składa się tylko z dwóch metod. Zadaniem pierwszej z nich jest unifikacja wielomianu podanego na wejściu. Drugą metodą klasy jest tworzenie obiektu, reprezentującego wielomian.
+Klasa umożliwiająca użytkownikom podanie wielomianów poprzez standardowe wejście. Składa się tylko z dwóch metod. Zadaniem pierwszej z nich jest unifikacja wielomianu podanego na wejściu. Drugą metodą klasy jest tworzenie obiektu, reprezentującego wielomian. Metoda UniformInputString jest wykonywana zawsze na początku funkcji ConvertToPolynomial. Następnie na podstawie otrzymanego wyniku, funkcja ta dokonuje kolejnych obliczeń. Argument type, mówi o tym jakie typu wielomian ma zostać stworzony wewnątrz funkcji. Zwracana referencja wskazuje na obiekt wybranego typu. Dla wartości 0 lub 1, wybierany jest odpowiedni typ - PolynomialMap lub PolynomialVector. Poniżej, krótka definicja klasy Parser oraz jej metod.
+
+\begin{lstlisting}
+class Parser
+{
+	string UniformInputString(string s);
+	Polynomial& ConvertToPolynomial(string inputS, int type = 0);
+};
+\end{lstlisting}
 
 \subsection{Number}
-Klasa Number stanowi warstwę pośrednia pomiędzy klasą wielomianu, a wykorzystaniem typów liczbowych, z biblioteki mpir. Została ona stworzona, by uniezależnić implementacje wielomianów od wykorzystanego sposobu reprezentacji dużych liczb. Dzięki temu jakakolwiek zmiana w udostępnianych przez bibliotekę mpir, klasach i funkcjach, wymaga zmiany kodu aplikacji, tylko w jednym miejscu. Ma to niebagatelny wpływ na łatwość utrzymania aplikacji. Dodatkowo, wprowadzając metody opakowujące funkcje biblioteczne, możliwe jest automatyczne wykonanie dodatkowych operacji i stworzenie nowych funkcji, ułatwiających tworzenie klas i zwiększających czytelność kodu. Narzut czasowy związany z koniecznością wywoływania funkcji pośrednich został oceniony jako niewielki, a ich wpływ na przeprowadzone testy i otrzymane rezultaty jako pomijalny.
+Klasa Number stanowi warstwę pośrednia pomiędzy klasą wielomianu, a wykorzystaniem typów liczbowych, z biblioteki mpir. Została ona stworzona, by uniezależnić implementacje wielomianów od wykorzystanego sposobu reprezentacji dużych liczb. Dzięki temu jakakolwiek zmiana w udostępnianych przez bibliotekę mpir, klasach i funkcjach, wymaga zmiany kodu aplikacji, tylko w jednym miejscu. Ma to niebagatelny wpływ na łatwość utrzymania aplikacji. Dodatkowo, wprowadzając metody opakowujące funkcje biblioteczne, możliwe jest automatyczne wykonanie dodatkowych operacji i stworzenie nowych funkcji, ułatwiających tworzenie klas i zwiększających czytelność kodu. Narzut czasowy związany z koniecznością wywoływania funkcji pośrednich został oceniony jako niewielki, a ich wpływ na przeprowadzone testy i otrzymane rezultaty jako pomijalny. Zapoznajmy się teraz z definicją klasy Number.
+
+\begin{lstlisting}
+class Number
+{
+public:
+	mpq_t value;
+	explicit Number();
+	explicit Number(double value);
+	Number(const Number &bigNumber);
+	~Number();
+	Number Neg();
+	Number Abs();
+	Number Copy();
+	void SetMaxNegativeValue();
+	void SetMaxValue();
+	bool IsPlusInfinity();
+	bool IsMinusInfinity();
+	bool IsInfinity();
+	bool IsVerySmallValue();
+	bool IsZero();
+	int IsInVector(vector<Number> v);
+	
+	bool operator == (Number bigNumber);
+	bool operator != (Number bigNumber);
+	bool operator > (Number bigNumber);
+	bool operator < (Number bigNumber);
+	bool operator >= (Number bigNumber);
+	bool operator <= (Number bigNumber);
+	Number operator = (Number bigNumber);
+	Number operator + (Number bigNumber);
+	Number operator - (Number bigNumber);
+	Number operator * (Number bigNumber);
+	Number operator / (Number bigNumber);
+	Number operator ^ (int power);
+	Number operator += (Number bigNumber);
+	Number operator -= (Number bigNumber);
+	Number operator *= (Number bigNumber);
+	Number operator /= (Number bigNumber);
+	Number operator ^= (int power);
+	bool operator == (double value);
+	bool operator != (double value);
+	bool operator > (double value);
+	bool operator < (double value);
+	bool operator >= (double value);
+	bool operator <= (double value);
+	Number operator = (double value);
+	Number operator + (double value);
+	Number operator - (double value);
+	Number operator * (double value);
+	Number operator / (double value);
+	Number operator += (double value);
+	Number operator -= (double value);
+	Number operator *= (double value);
+	Number operator /= (double value);
+	string ToString();
+	void Print();
+}
+\end{lstlisting}
+
+Jak widać, przeciązone zostały wszystkie przypadne, w przypadku liczb, operatory, zarówno dla klasy Number jak i dla typu double. W języku C++ wszystkie wbudowane typu liczbowe - int, long oraz float, można łatwo zrzutować na ten zmienną typu double. Wynika, z tego, że przy pomocy powyższych operatorów, jesteśmy w stanie w łatwy sposób, dokonać dowolnego działania na dużych liczbach, niezależnie od typu drugiego operandu. Wyjątkiem jest operator potęgowania, dla którego możliwe jest podniesienie do dowolnej potęgi, pod warunkiem, że jej wartość jest liczbą naturalną.
 
 Klasa posiada tylko jeden element – obiekt typu mpq\_t, reprezentujący właściwą liczbę wymiernę. W klasie zostały zdefiniowane podstawowe funkcje, takie jak obliczenie wartości bezwzględnej oraz liczby przeciwnej. W celu zwiększenia czytelności i łatwiejszej implementacji, zostały przeciążone wszystkie przydatne operatory. Rozpatrzmy dwa przykłady użycia biblioteki mpir – pierwszy z bezpośrednim użyciem dostępnych funkcji i drugi z wykorzystaniem klasy Number.
 
@@ -1038,34 +1108,39 @@ mpq_t simple_function(int a, int b)
 	mpq_inits(value1, value2, value3, value4);
 	mpq_set_d(value1, (double) a);
 	mpq_set_d(value2, (double) b);
+
 	mpq_mul(value3, value1, value2);
 	if (mpq_cmp(value1, value2) > 0)
 		mpq_add(value4, value1, value3);
 	else
 		mpq_add(value4, value2, value3);
+
 	mpq_clears(value1, value2, value3);
 	return value4;
 }
 \end{lstlisting}
 
 \begin{lstlisting}
-mpq_t simple_function(int a, int b)
+mpq_t simple_function_with_Number(int a, int b)
 {
-	Number number1, number2, number3, number4;
-	number1 = new Number(a);
-	number2 = new Number(b);
-	number3 = new Number(a*b)
-	number4 = new Number();
+	Number& number1 = new Number(a);
+	Number& number2 = new Number(b);
+	Number& number3 = new Number(a*b)
+	Number& number4 = new Number();
+
 	if (number1 > number2)
 		number4 = number1 + number3;
 	else
 		number4 = number2 + number3;
+
 	delete(number1);
 	delete(number2);
 	delete(number3);
 	return number4;
 }
 \end{lstlisting}
+
+Łatwo zauwazyć, że w drugim przypadku kod jest zdecydowanie czytelniejszych. Poprzez przeciążenie operatorów, operacje na dużych liczbach wymiernych wyglądają identycznie jak działania na wbudowanych typach liczbowych. Dzięki temu, wyeliminowano bezpośrednie wywoływanie funkcji bibliotecznych. Ich użycie, pomimo charakterystycznych nazwa, zawsze wymagało chwili zastanowienia nad kolejno przekazywanymi argumentami. W przypadku nieskomplikowanych funkcji, stosunkowo duży narzut związany jest z koniecznością inicjalizowania referencji i zwalniania miejsca, przez obiekty na które wskazują. Nie stanowi to jednak sporej zmiany, w stosunku do przykładu pierwszego, w którym, na początku funkcji nastąpiły deklaracja i inicjalizacja zmiennych, a na końcu ich zwolnienie z pamięci.
 
 \subsection{Polynomial}
 
@@ -1077,13 +1152,91 @@ W języku C++, by można zastosować polimorfizm, poszczególne metody muszą op
 
 Z uwagi na powyższy fakt, w programie wszystkie obiekty klasy Polynomial są przekazywane poprzez referencję. By referencję, można przekazywać pomiędzy funkcjami, obiekt na który wskazuje, musi zostać stworzony dynamicznie. Można to zrobić poprzez użycie, znanej z języka C, funkcji malloc, alokującej miejsce w pamięci lub typowego dla języka C++, operatora new. W przeciwnym wypadku, zmienna będzie widoczna tylko w miejscu, w którym zostanie stworzona, np. wewnątrz funkcji. Próba odwołania się do takiej wartości, w miejscu, w którym zmienna nie jest widoczna, skończy się błędem czasu wykonania i komunikatem o naruszeniu dostępu. Stanie się tak, ponieważ referencja w takim przypadku będzie dalej istnieć, ale obiekt, na który wskazuje, już nie. Takie błędy często są popełniane przez niedoświadczonych programistów, a próba ich lokalizacji i znalezienia przyczyny, na pierwszy rzut oka, nie jest oczywista. W momencie, gdy skorzystamy z dynamicznego tworzenia obiektu, będzie on istniał tak długo, dopóki nie zostanie jawnie usunięty w kodzie programu lub aplikacja nie skończy swojego działania, zwalniając przy tym całą zajmowaną pamięć. Kiedy nie wszystkie stworzone obiekty zostają usunięte, dochodzi do tzw. wycieków pamięci. W zależności od ich rozmiarów i czasu działania aplikacje, ich konsekwencje mogą być bardzo różne. W skrajnym wypadku, może dojść do wyczerpania całej dostępnej pamięci. Gdy zaczyna jej brakować, system operacyjny zapisuje jej ostatnio nieużywaną część na dysku, by w razie potrzeby móc ją odczytać. Z uwagi na to, że pamięć operacyjna jest wielokrotnie szybsza od dysków twardych, taka operacja powoduje gigantyczne opóźnienia w pracy komputera. Gdy szybkość kolejnych alokacji pamięci jest większa, niż jej zrzucanie na dysk, w pewnym momencie komputer ulegnie całkowitemu zawieszeniu. Wówczas jedynym wyjściem jest, często bardzo niepożądany, restart systemu. Bezpiecznym rozwiązaniem jest ustalenie limitu na wykorzystanie przez pojedynczą aplikację. Może to znacznie ułatwić debugowanie i znalezienie ewentualnego błędu, a także zabezpieczy użytkownika przed uruchomieniem złośliwego oprogramowania, mającego na celu doprowadzenie do wspomnianej wyżej sytuacji.
 
+Poniżej przedstawiam definicję klasy abstrakcyjnej Polynomial. Wyróżnić w niej można kolejne sekcje - zmienne klasy, konstruktory, funkcje i operatory. Te ostatnie możemy podzielić pomiędzy te, które posiadają implementacje w klasie abstrakcyjnej Polynomial oraz te, które zostały zdefiniowane jako czysto wirtualne i konieczne jest ich nadpisanie w klasie pochodnej.
 
+\begin{lstlisting}
+class Polynomial
+{
+public:
+	MAP m;
+	VECTOR v;
+	bool isNew = true;
+	int type = 0;
+	string inputS = "";
+	vector<Number> roots;
+	int id = 0;
+	
+	explicit Polynomial();
+	explicit Polynomial(Number number);
+	~Polynomial();
+	
+	virtual Polynomial& CreatePolynomial() = 0;
+	virtual Polynomial& CreatePolynomial(Number number) = 0;
+	virtual void Clear() = 0;
+	virtual bool IsZero() = 0;
+	virtual int Size() = 0;
+	virtual int PolynomialDegree() = 0;
+	virtual Number Value(int power) = 0;
+	virtual pair<Polynomial&, Polynomial&> \
+		DividePolynomials(Polynomial& p1, Polynomial& p2) = 0;
+	virtual void SetNumberValue(int power, Number number) = 0;
+	virtual int NumberOfChangesSign(Number a) = 0;
+	virtual Polynomial& NegativePolynomial() = 0;
+	virtual Polynomial& Derivative() = 0;
+	virtual Number PolynomialValue(Number a) = 0;
+	virtual string ToString() = 0;
+	virtual void SturmClear() = 0;
+	virtual int TheLowestNonZeroValue() = 0;
+	
+	virtual bool operator==(Polynomial& p2) = 0;
+	virtual Polynomial& operator = (Polynomial& p2) = 0;
+	virtual Polynomial& operator + (Polynomial& p2) = 0;
+	virtual Polynomial& operator - (Polynomial& p2) = 0;
+	virtual Polynomial& operator * (Polynomial& p2) = 0;
+	
+	virtual VECTOR VectorValuesExceptValueOfPolynomialDegree(int degree) \
+		{ return{}; };
+	virtual MAP MapValuesExceptValueOfPolynomialDegree(int degree) \
+		{ return{}; };
+	
+	bool Set(string s);
+	bool IsNew();
+	PAIR ValueOfPolynomialDegree();
+	
+	bool ValueEquals(int power, Polynomial& p2);
+	void SetValue(int power, int value);
+	void Add(int power, Number number);
+	void Sub(int power, Number number);
+	PAIR Mul(int power1, Number number1, int power2, Number number2);
+	PAIR Div(int power1, Number number1, int power2, Number number2);
+	Polynomial& Nwd(Polynomial& p1, Polynomial& p2);
+	Polynomial& PolynomialAfterEliminationOfMultipleRoots();
+	void Normalize();
+	Number CoefficientValue(PAIR pair1, Number a);
+	Number NextNumberFromRange(Number a, Number b);
+	int NumberOfRoots(Number a, Number b);
+	int AddNextRoot(Number x);
+	vector<Number> FindRoots(Number a, Number b);
+	void PrintRoots(double a, double b);
+	
+	bool operator!=(Polynomial& p2);
+	Polynomial& operator / (Polynomial& p2);
+	Polynomial& operator % (Polynomial& p2);
+	Polynomial& operator ^ (int power);
+	Polynomial& operator += (Polynomial& p2);
+	Polynomial& operator -= (Polynomial& p2);
+	Polynomial& operator *= (Polynomial& p2);
+	Polynomial& operator /= (Polynomial& p2);
+	Polynomial& operator %= (Polynomial& p2);
+	Polynomial& operator ^= (int power);
+	void Print();
+	void PrintInput();
+	};
+\end{lstlisting}
 
+\subsection{PolynomialMap}
 
-
-
-
-
+\subsection{PolynomialVector}
 
 
 
