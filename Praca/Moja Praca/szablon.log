@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  25 AUG 2016 00:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  28 AUG 2016 13:14
 entering extended mode
 **./szablon.tex
 (szablon.tex
@@ -1173,15 +1173,14 @@ Overfull \hbox (12.0pt too wide) in alignment at lines 159--159
 {C:/Users/Gruby/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./img/logo_
 pg.png> <./img/logo_eti.png>] [2
 
-] (szablon.toc)
+] (szablon.toc [3])
 \tf@toc=\write4
 \openout4 = `szablon.toc'.
 
- [3] [4
-
-]
+ [4]
 Rozdzia\l  1.
 [1
+
 
 ] [2] [3]
 Underfull \hbox (badness 10000) in paragraph at lines 341--342
@@ -1287,9 +1286,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 1252--1254
 
  []
 
-[34] [35] [36
+[34] [35] [36] [37] [38
 
-] (szablon.bbl) [37
+] (szablon.bbl) [39
 
 ] (szablon.aux)
 
@@ -1299,7 +1298,7 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of TeX's memory you used:
  17355 strings out of 493634
  313856 string characters out of 3141314
- 375750 words of memory out of 3000000
+ 375752 words of memory out of 3000000
  20372 multiletter control sequences out of 15000+200000
  60059 words of font info for 46 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
@@ -1321,9 +1320,9 @@ m Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmr7.pfb><C:/Program Files (x86)
 /fonts/type1/public/lm/lmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type
 1/public/lm/lmsy5.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/
 lmsy7.pfb>
-Output written on szablon.pdf (41 pages, 344631 bytes).
+Output written on szablon.pdf (43 pages, 350438 bytes).
 PDF statistics:
- 205 PDF objects out of 1000 (max. 8388607)
+ 212 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  23 words of extra memory for PDF output out of 10000 (max. 10000000)
 

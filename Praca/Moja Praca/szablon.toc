@@ -49,3 +49,8 @@
 \contentsline {subsection}{\numberline {2.3.1}Metody klasy Parser}{34}
 \contentsline {subsubsection}{UniformInputString}{34}
 \contentsline {subsubsection}{ConvertToPolynomial}{34}
+\contentsline {subsection}{\numberline {2.3.2}Metody klasy Number}{35}
+\contentsline {subsubsection}{SortNumbers}{35}
+\contentsline {subsubsection}{VectorsAreEqual}{36}
+\contentsline {subsubsection}{IsInVector}{36}
+\contentsline {subsubsection}{ToString}{36}
