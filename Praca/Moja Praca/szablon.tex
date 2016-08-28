@@ -1315,7 +1315,55 @@ Funkcja dla danego wielomianu, dokonuje eliminacji pierwiastków wielokrotnych i
 \begin{lstlisting}
 inline Number Polynomial::NextNumberFromRange(Number a, Number b)
 \end{lstlisting}
-Funkcja zwraca wybraną liczbę z przedziału (a, b). Algorytm funkcji działa tak, by zoptymalizować wybieranie przedziałów, w którym sprawdzane będzie istnienie pierwiastków. Ma to na celu jak najszybsze zawężenie przedziału, w którym znajduje się szukany pierwiastek.
+Funkcja zwraca wybraną liczbę z przedziału (a, b). Algorytm funkcji działa tak, by zoptymalizować wybieranie przedziałów, w którym sprawdzane będzie istnienie pierwiastków. Ma to na celu jak najszybsze zawężenie przedziału, w którym znajduje się szukany pierwiastek. Zakładamy, że długośc przedziału jest niezerowa, a liczby a i b reprezentują odpowiednio - lewy i prawy kraniec przedziału. Z tego założenia wynika, że $a<b$ i takich parametrów spodziewa się funkcja. W celu optymalizacji, wewnątrz funkcji nie jest sprawdzane, czy przedstawiony warunek jest spełniony. Poniżej przedstawiona została wartość zwracana przez funkcję, w zależności od otrzymanych na wejściu parametrów.
+
+\[
+f(a,b)=\left\{
+\begin{array}{ll}
+-2,\ dla\ a=-\infty \wedge b=-1\\
+-1,\ dla\ a=-\infty \wedge b=0\\
+0,\ dla\ a*b<0\\
+1,\ dla\ a=0 \wedge b=+\infty\\
+2,\ dla\ a=1 \wedge b=+\infty\\
+a*|a|,\ dla\ a \in (0,1) \cap (1,+\infty) \cap \{-1\} \wedge b=-\infty\ \\
+b*|b|,\ dla\ a=-\infty\ \wedge \ b \in (-\infty,-1) \cap (-1,0) \cap \{1\}\\
+\frac{a+b}{2},\ w\ pozostałych\ przypadkach
+\end{array}
+\right.
+\]
+
+Jak widać, funkcja w pierwszej kolejności stara się dokonać takie podziału, by w obu podprzedziałach znajdowały się wartości tego samego znaku. Kolejnymi wartościami, o których należy wspomnieć są liczby -1 oraz 1. Dzieje się tak z uwagi na to, żeby zoptymalizować znajdowanie pierwiastków, zarówno takich, o niewielkiej wartości bezwzględnej, bliskich zeru, jak i, bardzo dużych. Wówczas poprzez obliczanie kwadratu aktualnej wartości, z zachowaniem jej dotychczasowego znaku jesteśmy w niewielkiej liczbie iteracji maksymalnie zawęzić szukany przedział. Warto zauważyć, że dla liczb mniejszych od 1, posiadających, jako drugi kraniec przedziału 0, w tempie wykładniczym zbliżamy się do 0. Natomiast dla liczb większych od 1, gdy drugim krańcem przedziału jest $+\infty$, w tym samym tempie się od niego oddalamy. Przeanalizujmy jak powstają kolejne podziały w dwóch przypadkach, gdy przedział jest równy $(-\infty,\infty)$, a szukany pierwiastek to -0.1 oraz gdy przedziałem jest (-1, 30), a pierwiastkiem 5. W celu wygody i przejrzystości prezentowanych obliczeń, w przykładzie przyjmijmy, że szukamy pierwiastka z dokładnością 0.1. Oznacza to, że w momencie, gdy mamy przedział długości nie większej niż 0.2, o którym wiemy, że znajduje się w nim pierwiastek, to jesteśmy w stanie podać jego wartość z żądaną precyzją, wskazując dokładnie środek danego przedziału.
+
+\begin{example}
+	\begin{equation}
+		\begin{split}
+			&a = -\infty,\ b = +\infty\ =>\ c=0 \\
+			&a = -\infty,\ b = 0\ =>\ c=-1 \\
+			&a = -1,\ b = 0\ =>\ c=-0.5 \\
+			&a = -0.5,\ b = 0\ =>\ c=-0.25 \\
+			&a = -0.25,\ b = 0\ =>\ c=-0.0625 \\
+		\end{split}
+	\end{equation}
+\end{example}
+
+Jak widać dla tego specyficznego przypadku, algorytm już w 5 krokach ustalił wartość poszukiwanej liczby. Długość przedziału jest równa $-0.0625-(-0.25)=0.1875<0.2$, zatem podając środek otrzymanego przedziału, równy $\frac{-0.0625+(-0.25)}{2}=\frac{-0.3125}{2}=0.15625$, mamy pewność, że będzie wskazywał on badany pierwiastek, z wymaganą precyzją. Teraz spójrzmy na drugi scenariusz.
+
+\begin{example}
+	\begin{equation}
+	\begin{split}
+	&a = -1,\ b = 30\ =>\ c=0 \\
+	&a = 0,\ b = 30\ =>\ c=15 \\
+	&a = 0,\ b = 15\ =>\ c=-7.5 \\
+	&a = 0,\ b = 7.5\ =>\ c=3.75 \\
+	&a = 3.75,\ b = 7.5\ =>\ c=5.625 \\
+	&a = 3.75,\ b = 5.625\ =>\ c=4,6875 \\
+	&a = 4.6875,\ b = 5.625\ =>\ c=5,15625 \\
+	&a = 4.6875,\ b = 5.15625\ =>\ c=4.921875 \\
+	\end{split}
+	\end{equation}
+\end{example}
+
+W drugim przypadku, funkcja zakończyła działanie po 8 iteracjach. Możemy zauważyć, że liczba kroków, jest zależna bezpośrednio od żądanej precyzji. Podając jako rozwiązanie, kolejne środki przedziału, jesteśmy w czasie logarytmicznym dla badanego przedzialu, znaleźć leżący w nim pierwiastek. Należy zwrócić uwagę, że w niekorzystnym przypadku, kolejne przybliżenia niekoniecznie muszą być coraz bliższe szukanemu rozwiązaniu. Tak było by, gdy pierwiastkiem w powyższym przykładzie była liczba 5.15. Wówczas pomimo bycia w bliskim jego otoczeniu, kontynuowalibyśmy pracę algorytmu, a ten znalazł by szukane rozwiązanie, dopiero kilka iteracji później. Jest to niewątpliwy minus zastosowanego algorytmu, jednak ciężki do wyeliminowania.
 
 \subsubsection{Liczba pierwiastków wielomianu w badanym przedziale}
 \begin{lstlisting}

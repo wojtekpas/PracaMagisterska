@@ -58,5 +58,5 @@
 \contentsline {subsubsection}{Najwi\IeC {\k e}kszy wsp\IeC {\'o}lny dzielnik wielomian\IeC {\'o}w}{37}
 \contentsline {subsubsection}{Eliminacja pierwiastk\IeC {\'o}w wielokrotnych wielomianu}{37}
 \contentsline {subsubsection}{Algorytm podzia\IeC {\l }u przedzia\IeC {\l }\IeC {\'o}w wyszukiwania}{38}
-\contentsline {subsubsection}{Liczba pierwiastk\IeC {\'o}w wielomianu w badanym przedziale}{38}
-\contentsline {subsubsection}{Znajdowanie pierwiastk\IeC {\'o}w wielomianu w badanym przedziale}{38}
+\contentsline {subsubsection}{Liczba pierwiastk\IeC {\'o}w wielomianu w badanym przedziale}{39}
+\contentsline {subsubsection}{Znajdowanie pierwiastk\IeC {\'o}w wielomianu w badanym przedziale}{39}
