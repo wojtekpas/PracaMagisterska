@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  28 AUG 2016 13:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  28 AUG 2016 15:18
 entering extended mode
 **./szablon.tex
 (szablon.tex
@@ -1286,9 +1286,38 @@ Underfull \hbox (badness 10000) in paragraph at lines 1252--1254
 
  []
 
-[34] [35] [36] [37] [38
+[34]
+Underfull \hbox (badness 10000) in paragraph at lines 1266--1268
 
-] (szablon.bbl) [39
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1275--1277
+
+ []
+
+[35]
+Underfull \hbox (badness 10000) in paragraph at lines 1282--1284
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1289--1291
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1296--1298
+
+ []
+
+[36]
+
+LaTeX Warning: Command \textquoteright invalid in math mode on input line 1312.
+
+
+[37] [38] (szablon.bbl) [39
+
 
 ] (szablon.aux)
 
@@ -1320,7 +1349,7 @@ m Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmr7.pfb><C:/Program Files (x86)
 /fonts/type1/public/lm/lmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type
 1/public/lm/lmsy5.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/
 lmsy7.pfb>
-Output written on szablon.pdf (43 pages, 350438 bytes).
+Output written on szablon.pdf (43 pages, 354605 bytes).
 PDF statistics:
  212 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

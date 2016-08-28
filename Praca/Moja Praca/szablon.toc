@@ -47,10 +47,16 @@
 \contentsline {subsection}{\numberline {2.2.7}PolynomialVector}{34}
 \contentsline {section}{\numberline {2.3}G\IeC {\l }\IeC {\'o}wne funkcje}{34}
 \contentsline {subsection}{\numberline {2.3.1}Metody klasy Parser}{34}
-\contentsline {subsubsection}{UniformInputString}{34}
-\contentsline {subsubsection}{ConvertToPolynomial}{34}
+\contentsline {subsubsection}{Unifikacja wej\IeC {\'s}ciowego \IeC {\l }a\IeC {\'n}cucha znak\IeC {\'o}w}{34}
+\contentsline {subsubsection}{Konwersja \IeC {\l }a\IeC {\'n}cucha znak\IeC {\'o}w do postaci wielomianu}{34}
 \contentsline {subsection}{\numberline {2.3.2}Metody klasy Number}{35}
-\contentsline {subsubsection}{SortNumbers}{35}
-\contentsline {subsubsection}{VectorsAreEqual}{36}
-\contentsline {subsubsection}{IsInVector}{36}
-\contentsline {subsubsection}{ToString}{36}
+\contentsline {subsubsection}{Sortowanie liczb typu mpq\_t}{35}
+\contentsline {subsubsection}{Por\IeC {\'o}wnywanie wektor\IeC {\'o}w liczbowych}{36}
+\contentsline {subsubsection}{Wyszukiwanie danej liczby w tablicy}{36}
+\contentsline {subsubsection}{Zwracanie warto\IeC {\'s}ci liczby w postaci \IeC {\l }a\IeC {\'n}cucha znak\IeC {\'o}w}{36}
+\contentsline {subsection}{\numberline {2.3.3}Metody klasy Polynomial}{37}
+\contentsline {subsubsection}{Najwi\IeC {\k e}kszy wsp\IeC {\'o}lny dzielnik wielomian\IeC {\'o}w}{37}
+\contentsline {subsubsection}{Eliminacja pierwiastk\IeC {\'o}w wielokrotnych wielomianu}{37}
+\contentsline {subsubsection}{Algorytm podzia\IeC {\l }u przedzia\IeC {\l }\IeC {\'o}w wyszukiwania}{38}
+\contentsline {subsubsection}{Liczba pierwiastk\IeC {\'o}w wielomianu w badanym przedziale}{38}
+\contentsline {subsubsection}{Znajdowanie pierwiastk\IeC {\'o}w wielomianu w badanym przedziale}{38}

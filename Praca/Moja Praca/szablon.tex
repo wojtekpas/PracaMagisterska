@@ -1244,7 +1244,7 @@ public:
 
 \subsection{Metody klasy Parser}
 
-\subsubsection{UniformInputString}
+\subsubsection{Unifikacja wejściowego łańcucha znaków}
 \begin{lstlisting}
 inline string Parser::UniformInputString(string s)
 \end{lstlisting}
@@ -1252,7 +1252,7 @@ inline string Parser::UniformInputString(string s)
 Zadaniem funkcji jest ujednolicenie podanego na wejściu, wtaki sposób, był jednoznaczny i łatwy do dalszego przetworzenia. Jako argument przyjmuje ona pojedynczy obiekt klasy string. Po dokonaniu odpowiednich operacji, jako rezultat, zwraca również typ string. Użycie jej ma na celu ułatwienie przetwarzania w kolejnym etapie, w którym na podstawie podanego ciągu znaków, tworzony będzie obiekt wielomianu. Głównym zadaniem funkcji, jest weryfikacja, czy ciąg znaków podanych na wejściu reprezentuje poprawny składniowo wielomian. Sprawdzana jest liczba nawiasów otwierających i zamykających oraz fakt, czy w każdym miejscu wyrażenia liczba otwartych nawiasów jest nie mniejsza niż liczba nawiasów zamkniętych. Dodatkowo sprawdzane jest, czy na sąsiednich miejscach nie występują dwa operatory. Poprawne wyrażenie nigdy nie kończy się operatorem, a zaczynać może się tylko minusem, literałem, cyfrą lub nawiasem otwierającym. W czasie unifikacji wyrażenia, ignorowane są wszystkie występujące w nim białe znaki. Warto zaznaczyć, że dopuszczalny jest tylko jeden znak, reprezentujący zmienną wielomianu. Nie ma ograniczeń co do wartości tego znaku, może być to znak ‘a’, ‘x’ lub jakikolwiek inny, ale powinniśmy zadbać, by w całym wyrażeniu występował on w tej samej postaci. Sporym ułatwieniem w interfejsie jest brak konieczności wpisywania operatorów mnożenia ('*') i potęgowania ('\^{}') w oczywistych miejscach. Z punktu widzenia aplikacji, wyrażenia 4x oraz 4*x są identyczne. Podobnie jest w przypadku x3 oraz x\^{}3. Funkcja analizuje wyrażenie i zwraca je w odpowiedniej postaci. Dla przykładu wyrażenia x3+2x2+3x+1, x\^{}3 +2x\^{}2 + 3x+1 zostaną zamienione w x\^{}3+2*x\^{}2+3*x+1.
 \\
 
-\subsubsection{ConvertToPolynomial}
+\subsubsection{Konwersja łańcucha znaków do postaci wielomianu}
 \begin{lstlisting}
 inline Polynomial& Parser::ConvertToPolynomial(string inputS, int type)
 \end{lstlisting}
@@ -1264,33 +1264,72 @@ Na początku funkcji wykonywana jest metoda UniformInputString. Jeżeli zwróci 
 W przypadku, gdy mamy do czynienia, ze znakiem nawiasu otwierającego, zostaje wyszukany odpowiedni nawias zamykający, a na wewnętrznym zakresie jest wywoływana rekurencyjnie ta sama funkcja. Zwracana wartość zapisywana jest jako aktualny element, a wskaźnik zostaje przesunięty na kolejny. Gdy aktualnie przetwarzanym znakiem jest potęgowanie zachowanie funkcji jest analogiczne. Wielomian zostaje podniesiony do odpowiedniej potęgi, otrzymana wartość zapisana, a wskaźnik ustawiony na kolejny element, występujący po wykładniku.
 
 W przypadku pozostałych operatorów działanie funkcji jest nieco odmienne. Spowodowane jest to faktem, że trafiając na dany operator, nie znamy jeszcze jego obu argumentów, a jedynie pierwszy z nich. Drugi jest nieznany, a dodatkowo sam w sobie może zawierać operatory z wyższym priorytetem, np. w przypadku wielomianu x+3*2 potrzebujemy najpierw obliczyć wartość wyrażenia 3*2 i dopiero wówczas uzyskany wynik zsumować z pierwszym operandem, równym x. Fakt ten, dopiero w momencie natrafienia na dany operator, narzuca wykonywanie poprzedniego działania. Uwaga ta tyczy się jednak tylko natrafienia na znaki dodawania, odejmowania, mnożenia i dzielenia, ponieważ, jak zostało wspomniane wcześniej, operator potęgowania i nawiasy posługują się osobnym algorytmem. Zachowanie to, można porównać do działania stosu, na którym mogą leżeć tylko dwa argumenty. Pierwszym z nich jest operacja dodawania, a drugim mnożenia. Za pomocą nich można przedstawić także odejmowanie i dzielenie, zatem funkcje te nie będą przeze mnie rozpatrywane osobno. Operator mnożenia jest traktowany jako działanie z wyższym priorytetem, a dodawania z niższym. Oznacza to, że aby wykonać sumowanie, należy zadbać o to by ewentualna operacja mnożenia została wykonana wcześniej. Tak więc, w momencie natrafienia na znak mnożenia lub dzielenia, wystarczy przemnożyć lub podzielić przez siebie dwa operandy. W momencie dodawania, sytuacja jest bardziej skomplikowana. Zostaje wykonane sprawdzenie, czy odłożony został operator mnożenia. Jeżeli tak, to wartość aktualnego elementu zostaje przemnożona przez zapisany argument, w przeciwnym razie pozostaje bez zmian. Następnie, wynik operacji zostaje dodany lub odjęty od zapisanego argumentu. W momencie, gdy zakończymy iterowanie po całym łańcuchu wejściowym, należy zadbać o ewentualne wykonanie mnożenia oraz dzielenia, czyniąc to analogicznie jak w momencie rozpatrywania znaku dodawania lub odejmowania.
+\\
 
 \subsection{Metody klasy Number}
 
-\subsubsection{SortNumbers}
+\subsubsection{Sortowanie liczb typu mpq\_t}
 \begin{lstlisting}
 inline vector<Number> SortNumbers(vector<Number>v)
 \end{lstlisting}
 Zadaniem tej metody jest posortować liczby, z biblioteki mpir, w kolejności niemalejącej. Zarówno wejściem, jak i wyjściem funkcji jest wektor obiektów klasy Number. Metoda jest używana w celu sortowania tablicy, o niewielkiej liczbie elementów. Oznacza to, że w takim przypadku, bardzo dobrze sprawdzi się nieskomplikowany algorytm sortujący, np. sortowanie bąbelkowe. Z uwagi na mały zestaw danych, rzędu kilkudziesięciu elementów, kwadratowa złożoność czasowa, będzie akceptowalna, gdy weźmiemy pod uwagę bardzo niewielką liczbę koniecznych operacji, w jednym obiegu pętli. Metoda skorzysta z operatora porównania i metody zamiany elementów klasy Number, bazujących na funkcjach mpq\_cmp oraz mpq\_swap, z biblioteki mpir.
+\\
 
-\subsubsection{VectorsAreEqual}
+\subsubsection{Porównywanie wektorów liczbowych}
 \begin{lstlisting}
 inline int VectorsAreEqual(vector<Number>v1, vector<Number>v2)
 \end{lstlisting}
 Głównym celem metody jest sprawdzenie, czy dwa wektory liczbowe są sobie równe, tzn. czy zawierają wszystkie te same elementy, w dowolnej kolejności. Funkcja przyjmuje, jako argumenty, dwa wektory, a zwraca liczbę typu int. Jest ona równa 0, gdy wektory są różne oraz 1, gdy są równe. W pierwszej kolejności porównywana jest liczba elementów obu wektorów. Gdy jest ona różna, wówczas mamy pewność, że wektory są różne. Gdy liczba elementów, jest równa, elementy w obu tablicach zostają posortowane, pry pomocy funkcji SortNumbers. Następnie porównywane są kolejne elementy wektorów. Wektory uznajemy za inne, gdy chociaż jedna para jest różna.
+\\
 
-\subsubsection{IsInVector}
+\subsubsection{Wyszukiwanie danej liczby w tablicy}
 \begin{lstlisting}
 inline int Number::IsInVector(vector<Number> v)
 \end{lstlisting}
 Metoda stwierdza, czy obiekt, na którym będzie wykonywana, jest element wektora, podanego jako argument funkcji. Zwraca ona -1, gdy tablica nie zawiera danej wartości liczbowej. W przeciwnym wypadku, rezultatem funkcji jest indeks w podanej tablicy, przy czym pierwszy jej element ma indeks równy 0. Z uwagi, na to, że dany wektor, nie zawsze jest posortowany, nie możemy skorzystać z algorytmu wyszukiwania binarnego, posiadającego logarytmiczną złożoność, ze względu na liczbę jego elementów. By z niego skorzystać, musielibyśmy wykonać sortowanie, a także zapamiętywać informację o indeksie danej liczby, w wektorze inicjalnym. Najszybszy algorytm sortowania, wykonywana na jednym wątku ma złożoność liniową. Jego użycie jest, wiec zupełnie nie opłacalne, jeżeli weźmiemy pod uwagę, że przejrzenie wszystkich liczb tablicy, ma dokładnie taką samą złożoność. Dodatkowo zastosowany algorytm ma własność stopu, tzn. gdy natrafi na element, którego szukamy, kończy swoje działania, zwracając odpowiedni indeks.
+\\
 
-\subsubsection{ToString}
+\subsubsection{Zwracanie wartości liczby w postaci łańcucha znaków}
 \begin{lstlisting}
 inline string Number::ToString()
 \end{lstlisting}
 Funkcja ma celu przekształcenie danej liczby, standardowo podawanej jako ułamek, w postaci - licznik i mianownik, na liczbę, zapisaną w postaci dziesiętnej. By to osiągnąć, potrzebna jest informacje, o wymaganej precyzji obliczeń. Na początku liczba zostaje przyrównana do zera, gdy jest mniejsza, jako pierwszy znak wyniku, zostaje ustawiony minus, a dalej liczba jest zawsze rozpatrywana jako nieujemna. Na początku zostaje obliczony iloczyn licznika i liczby równej $10^x$, gdzie x = precyzja, wyrażona w ważnych cyfrach po przecinku. Następnie obliczany jest całkowitoliczbowy wynik dzielenia. Do otrzymanego, w ten sposób, rezultatu wystarczy już tylko dodać separator, oddzielający część całkowitą i ułamkową w odpowiednim miejscu. Przypada ono w takim miejscu, by po stronie ułamkowej znajdowała się dokładnie żądana liczba cyfr. Na koniec, należy jeszcze zadbać, by otrzymany wynik był dobrze sformatowany, trzeba więc usunąć, nieznaczące zera w części ułamkowej. Dodatko potrzeba pamiętać, że po wykonaniu takiej operacji, może zdarzyć, się że część ułamkowa nie zawiera już żadnych cyfr. Wówczas należy nie zapomnieć, o usunięciu znaku separatora, tak by dla powstałej liczby całkowitej, ostatnim w kolejności znakiem, była cyfra jedności.
+\\
 
+\subsection{Metody klasy Polynomial}
+
+\subsubsection{Największy wspólny dzielnik wielomianów}
+\begin{lstlisting}
+inline Polynomial& Polynomial::Nwd(Polynomial& p1, Polynomial& p2)
+\end{lstlisting}
+Jest to funkcja obliczająca największy wspólny dzielnik dwóch wielomianów. Wynik jest zwracany przy pomocy referencji, do uzyskanego wielomianu. Na początku, obliczana jest wartość reszty z dzielenia ilorazu podanych wielomianów. Funkcja wołana jest w sposób rekurencyjny. Kolejnymi argumentami funkcji dla wielomianów p1 i p2 są wielomian p2 oraz reszta z dzielenia wielomianu p1 przez wielomian p2. Funkcja wołana jest rekurencyjnie, pod warunkiem, że otrzymana reszta, nie jest wielomianem stopnia zerowego. W takim przypadku zwracana jest wartość p2, jeżeli dzieli ona bez reszty wielomian p1 lub wielomian $W(x)=1$, w przeciwnym wypadku. Warto zauważyć, że z każdym wywołaniem funkcji, stopień wielomianów, które są jej argumentami, maleje. Oznacza to, że dla wielomianów stopnia n i m, maksymalna liczba rekurencyjnych wywołań funkcji jest równa $min(n,m)+1$.
+
+\subsubsection{Eliminacja pierwiastków wielokrotnych wielomianu}
+\begin{lstlisting}
+inline Polynomial&
+	Polynomial::PolynomialAfterEliminationOfMultipleRoots()
+\end{lstlisting}
+Funkcja dla danego wielomianu, dokonuje eliminacji pierwiastków wielokrotnych i zwraca otrzymany w ten sposób wielomian. Na początku funkcji, obliczana jest pochodna wielomianu, a następnie dla tych wielomianów, znajdowany jest największy wspólny dzielnik. Na otrzymywanych wielomianach dokonywana jest operacja normalizacji, tzn. podzielenie wszystkich jest współczynników, przez wartość, równą współczynnikowi, stojącemu przy najwyższej potędze. W ten sposób otrzymamy wielomian, o tych samych pierwiastkach, ze współczynnikiem, przy najwyższej potędze równym 1. Pozwala to na dokonanie łatwiejszych, dzięki czemu często szybszych, obliczeń, na danych wielomianach. W drugiej części funkcji, dokonywana jest eliminacja pierwiastków wielokrotnych, poprzez podzielenie wielomianu W, przez wielomian równy $NWD(W, W’)$. Otrzymany wynik jest rezultatem funkcji. Zarówno dzielna, jak i dzielnik, są wielomianami, dla których dokonaliśmy już normalizacji, wiadomo więc, że wynikowa wartość, jest już znormalizowana.
+
+\subsubsection{Algorytm podziału przedziałów wyszukiwania}
+\begin{lstlisting}
+inline Number Polynomial::NextNumberFromRange(Number a, Number b)
+\end{lstlisting}
+Funkcja zwraca wybraną liczbę z przedziału (a, b). Algorytm funkcji działa tak, by zoptymalizować wybieranie przedziałów, w którym sprawdzane będzie istnienie pierwiastków. Ma to na celu jak najszybsze zawężenie przedziału, w którym znajduje się szukany pierwiastek.
+
+\subsubsection{Liczba pierwiastków wielomianu w badanym przedziale}
+\begin{lstlisting}
+inline int Polynomial::NumberOfRoots(Number a, Number b)
+\end{lstlisting}
+Funkcja zwraca liczbę pierwiastków w zadanym przedziale. Jest ona obliczana na podstawie liczby zmian znaku na krańcach przedziałach i równa liczbie takich zmian na prawym krańcu, pomniejszona o ich wartość na lewym.
+
+\subsubsection{Znajdowanie pierwiastków wielomianu w badanym przedziale}
+\begin{lstlisting}
+inline vector<Number> Polynomial::FindRoots(Number a, Number b)
+\end{lstlisting}
+Jest to najważniejsza funkcja całego projektu, ponieważ wewnątrz niej znajduje się cała logika projektu. Zwraca ona tablicę, z wartościami kolejnych pierwiastków wielomianu.  Na początku funkcji sprawdzana jest liczba pierwiastków w badanym przedziale. Liczba ich nie może być ujemna, a kiedy równa jest 0, funkcja kończy swoje działanie i zwraca pusty wektor.
+Zgodnie z twierdzeniem, liczba pierwiastków w przedziale, wlicza także ewentualny pierwiastek, na prawym krańcu przedziału. Gdy funkcja stwierdzi, istnienie tego pierwiastka, zostaje on dodany do wektora wyjściowego. Jeżeli liczba pierwiastków w przedziale była równa 1, wiemy już, że był to jedyny pierwiastek w danym przedziale i możemy zwrócić jednoelementowy wektor, z wartościami pierwiastków.
+Następnie, na podstawie funkcji NextNumberFromRange, przedział zostaje podzielony na dwa mniejsze. W otrzymanych przedziałach zostaje obliczona liczba pierwiastków. Jeżeli jest ona dodatnia, to następuje rekurencyjne wywołanie funkcji, z argumentami, będącymi granicami danego podprzedziału. Wywołana rekurencyjnie metoda, po wykonaniu, zwróci wynik, który zostanie przetworzony przez funkcje wywołującą. 
 
 
 
