@@ -1379,6 +1379,87 @@ Jest to najważniejsza funkcja całego projektu, ponieważ wewnątrz niej znajdu
 Zgodnie z twierdzeniem, liczba pierwiastków w przedziale, wlicza także ewentualny pierwiastek, na prawym krańcu przedziału. Gdy funkcja stwierdzi, istnienie tego pierwiastka, zostaje on dodany do wektora wyjściowego. Jeżeli liczba pierwiastków w przedziale była równa 1, wiemy już, że był to jedyny pierwiastek w danym przedziale i możemy zwrócić jednoelementowy wektor, z wartościami pierwiastków.
 Następnie, na podstawie funkcji NextNumberFromRange, przedział zostaje podzielony na dwa mniejsze. W otrzymanych przedziałach zostaje obliczona liczba pierwiastków. Jeżeli jest ona dodatnia, to następuje rekurencyjne wywołanie funkcji, z argumentami, będącymi granicami danego podprzedziału. Wywołana rekurencyjnie metoda, po wykonaniu, zwróci wynik, który zostanie przetworzony przez funkcje wywołującą. 
 
+\subsection{Metody czysto wirtualne klasy Polynonial – porównanie działania metod klas PolynomialMap i PolynomialVector}
+
+\subsubsection{Ustawianie wartości wyrazu wielomianu}
+\begin{lstlisting}
+inline void PolynomialMap::SetNumberValue(int power, Number number)
+inline void PolynomialVector::SetNumberValue(int power, Number number)
+\end{lstlisting}
+Głównym zadaniem funkcji jest ustawienie wartości podanego współczynnika na daną wartość liczbową. W przypadku mapy, konieczna jest wyryfikacja, czy liczba jest równa zero. Jeżeli tak, to następuje sprawdzenie, czy w mapie występuje już klucz, równy podanej potędzę. W takim przypadku następuje jego usunięcie, a gdy klucz nie istnieje, jej opuszczenie, bez jakichkolwiek dodatkowych działań. Jeżeli wartość liczbowa jest niezerowa, to sprawdzenie jest analogiczne. W pierwszym przypadku następuje wówczas nadpisanie wartości o danym kluczu, a w drugim wstawienie do mapy pary – klucz (potęga), wartość (liczba).
+\\
+
+W przypadku klasy PolynomialVector meotoda została nieco bardziej rozbudowana. Na początku następuje sprawdzenie, czy dany stopień potęgi jest wyższy od aktualnego stopnia wielomianu. Jeżeli tak, to następuje sprawdzenie, czy dana wartość jest zerowa. Wówczas funkcja kończy swoje działanie, a w przeciwnym wypadku rozpoczyna operację wstawiania do wektora żądanej pary – potęga, wartość współczynnika. Gdy stopien wielomianu zwiększa się o 1, wystarczy, po prostu, na kolejnym miejscu w tablicy wstawić daną wartość. W przeciwnym zaś przypadku, musimy zadbać o to, by na miejscach wszystkich współczynników, reprezentujących ich wartości dla kolejnych potęg, począwszy od dotychczasowego stopnia wielomianu, powiększego o 1, aż do jego nowego stopnia, pomniejszonego o 1, zostały wstawione zera. Dopiero wówczas na kolejnym miejscu w tablicy może zostać wstawiona wartość dla odpowiedniej potęgi.
+\\
+
+Gdy, podana w argumencie funkcji, potęga, jest niewiększa od stopnia wielomianu, następuje uaktualnienie wartości na odpowiedniej pozycji w tablicy. Konieczne jest wówczas dodatkowe sprawdzenie. Jeżeli, podana para – potęga, wartość współczynika wskazują na zerowy współczynnik dla potęgi, równej stopniowi danego wielomianu, niezbędne jest przesunięcie końca tablicy o jedno miejsce. Następnie wykonywane są sprawdzenia kolejnych elementów funkcji, począwszy od końca. W przypadku, gdy mamy do czynienia z  zerami, następują kolejne korekty granicy tablicy. Podana operacja trwa tak, dopóki nie zostaną przeanalizowane wszystkie elementy lub nie natrafimy na dowolną wartość różną od zera.
+\\
+
+Warto zauwazyć, że w przypadku obu klas, funkcja ma wpływ na stopień wielomianu. Dodatkowo, operacja dokładania i zdejmowania kolejnych argumentów, w przypadku wektora nie została zoptymalizowana. Możliwe, że w sytucji konieczności, wielokrotnej zmiany jej rozmiarów, korzystniejsza byłaby pojedyncza operacja, zwłaszcza w przypadku konieczności usuwania kolejnych zerowych współczynników. Należałoby wówcas, najpierw przeanalizować kolejne ich wartości i zliczyć wszystkie zera znaczące, a następnie pojedynczą operacją, odpowiednio zmanipulować wskaźnik na ostatni element.
+
+\subsubsection{Stwierdzanie czy wielomian jest wielomianem zerowym}
+\begin{lstlisting}
+inline bool PolynomialMap::IsZero()
+inline bool PolynomialVector::IsZero()
+\end{lstlisting}
+Funkcja ma na celu przeanalizowanie struktury wielomianu i stwierdzenie, czy dany wielomian jest wielomianem zerowym. Implementacja metody w obu klasach jest analogiczna. Następuje sprawdzenie, czy wielomian posiada wyłącznie zerowe współczynniki. Zgodnie z założeniami, w mapie przetrzymywane są tylko niezerowe wartości wyrazów wielomianu, a w wektorze, przechowywane są wszystkie spółczynnik, aż do ostatniego niezerowego współczynnika, stojacego przy najwyższej potędze. Na tej podstawie jesteśmy w stanie stwierdzić, że funkcja zwraca prawdę, tylko, jeżeli mapa, bądź wektor są puste.
+
+\subsubsection{Obliczanie stopnia wielomianu}
+\begin{lstlisting}
+inline int PolynomialMap::PolynomialDegree()
+inline int PolynomialVector::PolynomialDegree()
+\end{lstlisting}
+Zadaniem tej metody jest obliczenie stopnia danego wielomianu. Złożoność funkcji jest zależna od wybranej klasy. W przypadku PolynomialMap konieczna jest analiza jej kolejnych elementów i stwierdzenie, jaka jest największa, występująca w niej potęga. W przypadku PolynomialVector złożonośc funkcji jest stała, gdyż stopień wielomianu jest równy rozmiarowi tablicy, pomniejszonego o jeden. Dla obu klas, gdy mamy do czynienia z wielomianem zerowym, zwracaną wartością jest -1.
+
+\subsubsection{Zwrócania wartości wielomianu w postaci łańcucha znaków}
+\begin{lstlisting}
+inline string PolynomialMap::ToString()
+inline string PolynomialVector::ToString()
+\end{lstlisting}
+Celem funkcji jest zwrócenie wartości wielomianu w postaci zmiennej znakowej. Jej rezultat wygląda analogicznie, jak wynik metody UniformInputString w klasie Parser. Na podstawie odpowiednich par – potęgi i wartości współczynnika, zostaje stworzony obiekt typu string. Na podstawie kolejnych liczb, przed kolejnymi wyrazami, zostają dostawione odpowiednio znaki plus, dla wartości większych od 0 oraz minus, dla wartości mniejszych. Wyjątkiem jest pierwszy wyraz, w przypadku którego ewentualny znak minus, jest ignorowany. Pomijane są także zbędnę elementy, takie jak „1*” dla współczynników, stojących przy potęgach dodatnich oraz „*x\^{}0” „\^{}1” dla odpowiednio – zerowej i pierwszej potęgi.
+
+\subsubsection{Obliczanie pochodnej wielomianu}
+\begin{lstlisting}
+inline Polynomial& PolynomialMap::Derivative()
+inline Polynomial& PolynomialVector::Derivative()
+\end{lstlisting}
+Celem funkcji jest obliczenie pochodnej danego wielomianu. Jej wartość jest obliczana tylko w przypadku, gdy wielomian nie jest zerowy i jest równa: TUTAJ WZÓR
+
+\subsubsection{Obliczanie wyrazów ciagu Sturma}
+\begin{lstlisting}
+inline vector<PolynomialMap> PolynomialMap::GetSturm()
+inline vector<PolynomialVector> PolynomialVector::GetSturm()
+\end{lstlisting}
+Funkcja ma na celu zwrócenie wektora wielomianów, w którym wartościami będą kolejne wyrazu ciągu Sturma. Na początku, przy pomocy funkcji Derivative obliczana jest pochodna wielomianu. Gdy jest ona wielomianem zerowym, zostaje zwrócony ciąg Sturma, zawierający tylko jeden element – wielomian, dla którego ciąg ten jest obliczany. Wiadomo wówczas, że liczba zmian znaków dla takie ciagu, niezależnie od wybranego punktu, będzie równa zero, co oznacza, że dany wielomian nie zawiera pierwiastków rzeczywistych.
+\\
+
+Kolejnym krokiem jest obliczenie reszty z dzielenia wielomianu, przez jego pochodną. Jeżeli jest ona wielomianem zerowym, to zwracany jest dwuelementowy ciąg Sturma – wielomian i jego pochodna. W przeciwnym razie, wartość do niej przeciwna stanowi kolejny element ciągu Sturma. Podobnie jak w przypadku pierwszej reszty z dzielenia, także kolejne wyrazy są obliczane jako iloraz dwóch poprzednich wyrazów ciągu Sturma. Dzieje się to tak długo, dopóki otrzymany wielomian jest wielomianem zerowym. Warto zauważyć, że maksymalna liczba wyrazów ciągu Sturma jest równa stopniowi wielomianu, powiększonemu o jeden. Wówczas stopnie kolejnych wyrazów ciągu Sturma są równe kolejnym potęgom, od stopnia wielomianu, do zera.
+
+\subsubsection{Liczba zmian znaków w danym punkcie}
+\begin{lstlisting}
+inline int PolynomialMap::NumberOfChangesSign(Number a)
+inline int PolynomialVector::NumberOfChangesSign(Number a)
+\end{lstlisting}
+Funkcja na postawie ciągu Sturma i metody GetSturm, oblicza liczbę zmian znaków dla podanego punktu. Porównuje ona wartości dwóch kolejnych wyrazów ciagu Sturma. Jeżeli ich iloczyn jest ujemny, następuje zwiększenie licznika o jeden. W przypadku wartości zerowych, element taki jest pomijany, tzn. ciąg jest rozpatrywany, tak jakby go nie zawierał. Warto zauwazyć, że dla odpowiednio dużych wartości absolutnym liczby a, w tym wartości niewłaściwych $-\infty$ i $\infty$, liczba znak znaków, zależy wyłącznie od współczynników stojących, przy najwyższych potęgach kolejnych wielomianów. Fakt ten powoduje możliwą optymalizację działania funkcji, w zależności od otrzymanego parametru. Najbardziej czasochłonna operacja, jaką jest dzielenie wielomianów, i tak musi zostać wykonana, by znaleźć wszystkie wyrazy ciągu Sturma, ale zysk z takiej optymalizacji, może być zauważalny i znacząco poprawić wydajność funkcji.
+
+\subsubsection{Dzielenie wielomianów}
+\begin{lstlisting}
+inline pair<Polynomial&, Polynomial&>
+PolynomialMap::DividePolynomials(Polynomial& p1, Polynomial& p2)
+
+inline pair<Polynomial&, Polynomial&>
+PolynomialVector::DividePolynomials(Polynomial& p1, Polynomial& p2)
+\end{lstlisting}
+Metoda dla podanych wielomianów oblicza ich iloraz oraz resztę z dzielenia i zwraca je jako parę obiektów. Na początku, funkcja oblicza wartość pierwszego wyrazu wielomianu, który zostanie zwrócony, jako iloraz. Jest on równy wynikowi dzielenia wyrazów stojących przy najwyższych potęgach wielomianów – dzielnej i dzielnika. Kolejne wyrazy drugiego z nich są mnożenie przez otrzymaną wartość, a wynik jest odejmowany od dzielnej. W rezultacie tego działania, współczynnik przy najwyższej potędze staje się równy zero i zostaje zredukowany. Daje to gwarancję, że nowy stopień wielomianu, będzie przynajmniej o jeden, mniejszy, niż stopień danego wielomianu. Funkcja, kończy swoje działanie, gdy dokonona powyższej operacji dla wszystkich wyrazów dzielnej. Wówczas aktualnie przetwarzany wielomian jest zwracany jako obliczona reszta. Warto zauwazyć, że stopień tego wielomianu jest mniejszy od stopnia dzielnika i co najmniej o 2 mniejszy od stopnia dzielnej.
+
+
+
+
+
+
+
+
+
 
 
 %\section{Zewnętrze biblioteki}

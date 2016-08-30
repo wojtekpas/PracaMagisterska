@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  29 AUG 2016 01:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  30 AUG 2016 21:54
 entering extended mode
 **./szablon.tex
 (szablon.tex
@@ -1324,8 +1324,29 @@ LaTeX Warning: Command \l invalid in math mode on input line 1330.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [38]
-[39] [40] (szablon.bbl) [41
+[39]
+Underfull \hbox (badness 10000) in paragraph at lines 1389--1391
 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1392--1394
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1395--1397
+
+ []
+
+[40] [41]
+Underfull \hbox (badness 10000) in paragraph at lines 1433--1435
+
+ []
+
+[42] [43] [44
+
+] (szablon.bbl) [45
 
 ] (szablon.aux)
 
@@ -1335,7 +1356,7 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of TeX's memory you used:
  17355 strings out of 493634
  313856 string characters out of 3141314
- 375751 words of memory out of 3000000
+ 375752 words of memory out of 3000000
  20372 multiletter control sequences out of 15000+200000
  60059 words of font info for 46 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
@@ -1357,9 +1378,9 @@ m Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmr7.pfb><C:/Program Files (x86)
 /fonts/type1/public/lm/lmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type
 1/public/lm/lmsy5.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/
 lmsy7.pfb>
-Output written on szablon.pdf (45 pages, 362714 bytes).
+Output written on szablon.pdf (49 pages, 374129 bytes).
 PDF statistics:
- 218 PDF objects out of 1000 (max. 8388607)
+ 231 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  23 words of extra memory for PDF output out of 10000 (max. 10000000)
 
