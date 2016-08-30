@@ -65,7 +65,7 @@
 \contentsline {subsubsection}{Stwierdzanie czy wielomian jest wielomianem zerowym}{41}
 \contentsline {subsubsection}{Obliczanie stopnia wielomianu}{41}
 \contentsline {subsubsection}{Zwr\IeC {\'o}cania warto\IeC {\'s}ci wielomianu w postaci \IeC {\l }a\IeC {\'n}cucha znak\IeC {\'o}w}{41}
+\contentsline {subsubsection}{Dzielenie wielomian\IeC {\'o}w}{42}
 \contentsline {subsubsection}{Obliczanie pochodnej wielomianu}{42}
-\contentsline {subsubsection}{Obliczanie wyraz\IeC {\'o}w ciagu Sturma}{42}
-\contentsline {subsubsection}{Liczba zmian znak\IeC {\'o}w w danym punkcie}{42}
-\contentsline {subsubsection}{Dzielenie wielomian\IeC {\'o}w}{43}
+\contentsline {subsubsection}{Obliczanie wyraz\IeC {\'o}w ciagu Sturma}{43}
+\contentsline {subsubsection}{Liczba zmian znak\IeC {\'o}w w danym punkcie}{43}
