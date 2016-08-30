@@ -919,6 +919,12 @@ Funkcja zwracająca liczbę w postaci ułamka, tzn. licznik i mianownik, oddziel
 
 
 
+
+
+
+
+
+
 \chapter{Opis rozwiązania}
 \section{Podział na moduły}
 
@@ -940,10 +946,10 @@ Warto zaznaczyć, że użytkownik może wprowadzać wielomiany w dowolny sposób
 
 Użytkownik może korzystać z aplikacji tak długo, jak będzie sobie tego życzył. Zapytanie o kolejne wielomiany przeprowadzonę są w pętli i trwają, dopóki użytkownik nie wprowadzi ciągu znaków, odpowiedzialnego za wyjście z programu. Szczegółowe informację, o tym jak korzystać z aplikacji są podane w jego instrukcji.
 
-\subsection{Framework testowy}
-Testy jednostkowe umożliwiają użytkownikowi sprawdzenie, czy określona funkcjonalność działa bezblędnie. Zgodnie z ich założeniami, są w nich zdefiniowe podstawowe testy, weryfikujące różne przypadki testowe. W tym przypadku jest nieco inaczej, ponieważ w postaci testów jednostkowych, zostały zawarte również bardziej skomplikowane testy funkcjonalne. Wśród nich znajdują się też takie, które testują główne zadanie projektu, czyli dla wielomianu, tworzonego na podstawie otrzymanego wejścia, w postaci łańcucha znaków, potrafią, z określoną precyzją, znaleźć jego wszystkie pierwiastki rzeczywiste.
+\subsection{Testy jednostkowe}
+Testy jednostkowe umożliwiają użytkownikowi sprawdzenie, czy określona funkcjonalność działa bezblędnie. Zgodnie z ich założeniami, są w nich zdefiniowe podstawowe testy, weryfikujące różne przypadki testowe. W tym przypadku jest nieco inaczej, ponieważ w postaci testów jednostkowych, zostały zawarte również bardziej skomplikowane testy funkcjonalne. Wśród nich znajdują się też takie, które testują główne zadanie projektu, czyli dla wielomianu, tworzonego na podstawie otrzymanego wejścia w postaci łańcucha znaków, potrafią, z określoną precyzją, znaleźć jego wszystkie pierwiastki rzeczywiste.
 
-Jako środowisko testowe wybrany został framework wbudowany w narzędzie Microsoft Visual Studio 2015. Rozważana była też biblioteka o nazwie Google Test. Jej istotną zaletą, była przenośność, pomiędzy platformami, ale ostatecznie koncepcja ta została odrzucona. Spowodowane było to faktem, iż cały projekt pisany był w Visual Studio, a łatwość i wygoda, uruchamiania w nim testów jednostkowych jest bardzo duża. Dzięki temu wyborowi, każda, nawet najmniejsza zmiana, mogła być bardzo szybka przetestowana, bez potrzeby wprowadzania jakichkolwiek dodatkowych zmian, co znacznie przyspieszało proces implementacji i weryfikacji przyjętego rozwiązania.
+Jako środowisko testowe wybrany został framework wbudowany w narzędzie Microsoft Visual Studio 2015. Rozważana była też biblioteka o nazwie Google Test. Jej istotną zaletą, była przenośność, pomiędzy platformami, ale ostatecznie koncepcja ta została odrzucona. Spowodowane było to faktem, iż cały projekt pisany był w Visual Studio, a łatwość i wygoda, uruchamiania tam testów jednostkowych jest bardzo duża. Dzięki temu wyborowi, każda, nawet najmniejsza zmiana, mogła być bardzo szybka przetestowana, bez potrzeby wprowadzania jakichkolwiek dodatkowych zmian, co znacznie przyspieszało proces implementacji i weryfikacji przyjętego rozwiązania.
 
 \section{Główne klasy}
 
@@ -994,7 +1000,6 @@ public:
 };
 \end{lstlisting}
 
-
 \subsection{StringManager}
 
 Klasa StringManager oferuje przydatne funkcje, na łańcuchach znaków. Wykorzystywana jest w metodach klasy Parser, w celu łatwiejszej jego implementacji oraz zwiększenia czytelności. Poniżej deklaracja klasy StringManager i udostępnianych przez nią metod.
@@ -1019,7 +1024,6 @@ public:
 };
 \end{lstlisting}
 
-
 \subsection{Parser}
 Parser
 Klasa umożliwiająca użytkownikom podanie wielomianów poprzez standardowe wejście. Składa się tylko z dwóch metod. Zadaniem pierwszej z nich jest unifikacja wielomianu podanego na wejściu. Drugą metodą klasy jest tworzenie obiektu, reprezentującego wielomian. Metoda UniformInputString jest wykonywana zawsze na początku funkcji ConvertToPolynomial. Następnie na podstawie otrzymanego wyniku, funkcja ta dokonuje kolejnych obliczeń. Argument type, mówi o tym jakie typu wielomian ma zostać stworzony wewnątrz funkcji. Zwracana referencja wskazuje na obiekt wybranego typu. Dla wartości 0 lub 1, wybierany jest odpowiedni typ - PolynomialMap lub PolynomialVector. Poniżej, krótka definicja klasy Parser oraz jej metod.
@@ -1031,7 +1035,6 @@ class Parser
 	Polynomial& ConvertToPolynomial(string inputS, int type = 0);
 };
 \end{lstlisting}
-
 
 \subsection{Number}
 Klasa Number stanowi warstwę pośrednia pomiędzy klasą wielomianu, a wykorzystaniem typów liczbowych, z biblioteki mpir. Została ona stworzona, by uniezależnić implementacje wielomianów od wykorzystanego sposobu reprezentacji dużych liczb. Dzięki temu jakakolwiek zmiana w udostępnianych przez bibliotekę mpir, klasach i funkcjach, wymaga zmiany kodu aplikacji, tylko w jednym miejscu. Ma to niebagatelny wpływ na łatwość utrzymania aplikacji. Dodatkowo, wprowadzając metody opakowujące funkcje biblioteczne, możliwe jest automatyczne wykonanie dodatkowych operacji i stworzenie nowych funkcji, ułatwiających tworzenie klas i zwiększających czytelność kodu. Narzut czasowy związany z koniecznością wywoływania funkcji pośrednich został oceniony jako niewielki, a ich wpływ na przeprowadzone testy i otrzymane rezultaty jako pomijalny. Zapoznajmy się teraz z definicją klasy Number.
@@ -1139,7 +1142,6 @@ mpq_t simple_function_with_Number(int a, int b)
 
 Łatwo zauwazyć, że w drugim przypadku kod jest zdecydowanie czytelniejszych. Poprzez przeciążenie operatorów, operacje na dużych liczbach wymiernych wyglądają identycznie jak działania na wbudowanych typach liczbowych. Dzięki temu, wyeliminowano bezpośrednie wywoływanie funkcji bibliotecznych. Ich użycie, pomimo charakterystycznych nazwa, zawsze wymagało chwili zastanowienia nad kolejno przekazywanymi argumentami. W przypadku nieskomplikowanych funkcji, stosunkowo duży narzut związany jest z koniecznością inicjalizowania referencji i zwalniania miejsca, przez obiekty na które wskazują. Nie stanowi to jednak sporej zmiany, w stosunku do przykładu pierwszego, w którym, na początku funkcji nastąpiły deklaracja i inicjalizacja zmiennych, a na końcu ich zwolnienie z pamięci.
 
-
 \subsection{Polynomial}
 
 Klasa Polynomial to klasa abstrakcyjna, posiadająca zdefiniowane wszystkie funkcje, niezbędne do znalezienia pierwiastków danego wielomianu. Jest ona klasą bazową dla klas PolynomialMap i PolynomialVector, reprezentujących wielomiany, przy pomocy odpowiedniej struktury. Pierwsza z nich bazuje na mapie, czyli strukturze opartej na parach (klucz, wartość). Klucze muszą być różnowartościowe, co umożliwia jednoznaczne znalezienie wartości dla dowolnego z nich. Pozwala to na posiadanie informacji wyłącznie o niezerowych współczynnikach wielomianu. Druga z nich bazuje na wektorze, jako przykładzie tablicy, której kolejne elementy są położone w pamięci operacyjnej obok siebie. Pierwszy element tablicy to współczynnik wielomianu, stojący przy potędze zerowej, a następne wartości to współczynniki, stojące przy kolejnych, coraz to wyższych potęgach. Dzięki temu dostęp do dowolnego wyrazu wielomianu jest bardzo szybki. Jednocześnie jednak, konieczne jest przetrzymywanie informacji o wszystkich współczynnikach wielomianu, stojących przy kolejnych potęgach, od potęgi zerowej, aż do najwyższej potęgi z niezerowym współczynnikiem, równej stopniowi wielomianu.
@@ -1232,16 +1234,11 @@ public:
 	};
 \end{lstlisting}
 
+\subsection{PolynomialMap}
 
-\subsection{PolynomialMap i PolynomialVector}
+\subsection{PolynomialVector}
 
-Klasy PolynomialMap i PolynomialVector są implementacjami klasy abstrakcyjnej Polynomial. Obie one nadpisują wszystkie czysto wirtualne metody klasy bazowej. Wiele z tych metom wygląda bardzo podobnie, natomiast istotną różnicą jest konieczność odwołania się do konkretnej reprezentacji danych. To właśnie dlatego zostały one oznaczone w klasie bazowej, jako metody abstrakcyjne. Takie zaprojektowanie klasy, wymusza na użytkowniku korzystanie z interfejsu, udostępnionego przez klase bazowe. Jego poprawne zaimplementowanie daje gwarancje, że klasa będzie wykonywać to czego oczekuje bazowa, nie narzucajac sposóbu, w jaki ma to robić.
 
-Jak zostało wspomniane, różnicą obu klas jest podejście do współczynników zerowych. Tablica zakłada, że kolejne współczynniki bedą zapisywane w jej kolejnych komórkach, przy czym indeks w tablicy, począwszy od zerowego, określa potęgę dla współczynnika, którego wartość jest tam zapisana. Aplikacja musi pamiętać wskaźniki na pierwszy i ostatni element. Na ich podstawie jest ona w stanie stwierdzić, ile elementów zawiera, co w sposób bezpośredni przekłada się na stopień danego wielomianu. Największym mankamentem takie podejścia jest konieczność posiadania informacji, o wszystkich współczynnikach, także zerowych. W przypadku wielomianów rzadkich, o wysokim stopniu, np. $x^{1000}-1$, konieczne jest przechowywanie 999 zer w kolejnych komórkach. Poza negatywnym wpływem na złożoność pamięciową takiego podejścia, istotniejszym wydaje się fakt, że znalezienie wyłącznie niezerowych elementów, wymaga przejrzenia wszystkich komórek tablicy. Zatem, by dodać do siebie dwa wielomiany $x^{1000}$ oraz $2x^{1000}$, konieczne jest wykonanie aż 1001 sumowań lub sprawdzenie dla każdego z nich, czy jest potrzebne.
-
-Dodatkowo, w przypadku, gdy w wyniku działania, zmienia się stopień wielomianu, konieczne jest rozszerzenie lub pomniejszenie tablicy, poprzez aktualizacje odpowiednich wskaźników. Jeżeli chodzi o złożoność czasową funkcji, nie ma to jednak wpływu, ponieważ dla wszystkich typów operacji, i tak jesteśmy zmuszeni przejrzeć wszystkie elementy. Wyjątkiem jest stwierdzenie, czy mamy do czynienia, z wielomianem zerowym, którego złożoność jest stała, gdyż wartość ustalana jest na podstawie rozmiaru tablicy.
-
-Jeżeli chodzi o zalety korzystania z tablicy, jako struktury do przechowywania współczynników wielomianu, to najważniejszy jest stały czas dostępu do dowolnego z nich, poprzez możliwość odwołania się do konkretnego elementu tablicy. W przypadku zapisu pod wskazany adres, czas ten może się wydłużyć, w przypadku zmiany stopnia wielomianu. Widać więc, że użycie tablicy wydaje się uzasadnione w przypadku operacji na wielomianach gęstych, których stopień wielomianu nie zmienia się zbyt często. Struktura ta doskonale sprawdzi się do zsumowania dwóch wielomianów, stopnia setnego, zawierających wszystkie współczynniki równe 1. Z kolei, dla przypadku, gdy wielokrotnie sumujemy rzadkie wielomiany, o przeciwnych współczynnikach, wydajność tej struktury prawdopodobnie nie będzie zadowalająca.
 
 \section{Główne funkcje}
 
@@ -1311,7 +1308,6 @@ inline Polynomial& Polynomial::Nwd(Polynomial& p1, Polynomial& p2)
 \end{lstlisting}
 
 Jest to funkcja obliczająca największy wspólny dzielnik dwóch wielomianów. Wynik jest zwracany przy pomocy referencji, do uzyskanego wielomianu. Na początku, obliczana jest wartość reszty z dzielenia ilorazu podanych wielomianów. Funkcja wołana jest w sposób rekurencyjny. Kolejnymi argumentami funkcji dla wielomianów p1 i p2 są wielomian p2 oraz reszta z dzielenia wielomianu p1 przez wielomian p2. Funkcja wołana jest rekurencyjnie, pod warunkiem, że otrzymana reszta, nie jest wielomianem stopnia zerowego. W takim przypadku zwracana jest wartość p2, jeżeli dzieli ona bez reszty wielomian p1 lub wielomian $W(x)=1$, w przeciwnym wypadku. Warto zauważyć, że z każdym wywołaniem funkcji, stopień wielomianów, które są jej argumentami, maleje. Oznacza to, że dla wielomianów stopnia n i m, maksymalna liczba rekurencyjnych wywołań funkcji jest równa $min(n,m)+1$.
-\\
 
 \subsubsection{Eliminacja pierwiastków wielokrotnych wielomianu}
 \begin{lstlisting}
@@ -1320,9 +1316,8 @@ inline Polynomial&
 \end{lstlisting}
 
 Funkcja dla danego wielomianu, dokonuje eliminacji pierwiastków wielokrotnych i zwraca otrzymany w ten sposób wielomian. Na początku funkcji, obliczana jest pochodna wielomianu, a następnie dla tych wielomianów, znajdowany jest największy wspólny dzielnik. Na otrzymywanych wielomianach dokonywana jest operacja normalizacji, tzn. podzielenie wszystkich jest współczynników, przez wartość, równą współczynnikowi, stojącemu przy najwyższej potędze. W ten sposób otrzymamy wielomian, o tych samych pierwiastkach, ze współczynnikiem, przy najwyższej potędze równym 1. Pozwala to na dokonanie łatwiejszych, dzięki czemu często szybszych, obliczeń, na danych wielomianach. W drugiej części funkcji, dokonywana jest eliminacja pierwiastków wielokrotnych, poprzez podzielenie wielomianu W, przez wielomian równy $NWD(W, W’)$. Otrzymany wynik jest rezultatem funkcji. Zarówno dzielna, jak i dzielnik, są wielomianami, dla których dokonaliśmy już normalizacji, wiadomo więc, że wynikowa wartość, jest już znormalizowana.
-\\
 
-\subsubsection{Algorytm wyznaczania kolejnych przedziałów wyszukiwania}
+\subsubsection{Algorytm podziału przedziałów wyszukiwania}
 \begin{lstlisting}
 inline Number Polynomial::NextNumberFromRange(Number a, Number b)
 \end{lstlisting}
@@ -1376,7 +1371,6 @@ Jak widać dla tego specyficznego przypadku, algorytm już w 5 krokach ustalił 
 \end{example}
 
 W drugim przypadku, funkcja zakończyła działanie po 8 iteracjach. Możemy zauważyć, że liczba kroków, jest zależna bezpośrednio od żądanej precyzji. Podając jako rozwiązanie, kolejne środki przedziału, jesteśmy w czasie logarytmicznym dla badanego przedzialu, znaleźć leżący w nim pierwiastek. Należy zwrócić uwagę, że w niekorzystnym przypadku, kolejne przybliżenia niekoniecznie muszą być coraz bliższe szukanemu rozwiązaniu. Tak było by, gdy pierwiastkiem w powyższym przykładzie była liczba 5.15. Wówczas pomimo bycia w bliskim jego otoczeniu, kontynuowalibyśmy pracę algorytmu, a ten znalazł by szukane rozwiązanie, dopiero kilka iteracji później. Jest to niewątpliwy minus zastosowanego algorytmu, jednak ciężki do wyeliminowania.
-\\
 
 \subsubsection{Liczba pierwiastków wielomianu w badanym przedziale}
 \begin{lstlisting}
@@ -1384,7 +1378,6 @@ inline int Polynomial::NumberOfRoots(Number a, Number b)
 \end{lstlisting}
 
 Funkcja zwraca liczbę pierwiastków w zadanym przedziale. Jest ona obliczana na podstawie liczby zmian znaku na krańcach przedziałach i równa liczbie takich zmian na prawym krańcu, pomniejszona o ich wartość na lewym.
-\\
 
 \subsubsection{Znajdowanie pierwiastków wielomianu w badanym przedziale}
 \begin{lstlisting}

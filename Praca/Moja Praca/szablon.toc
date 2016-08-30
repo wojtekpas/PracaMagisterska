@@ -36,36 +36,35 @@
 \contentsline {section}{\numberline {2.1}Podzia\IeC {\l } na modu\IeC {\l }y}{23}
 \contentsline {subsection}{\numberline {2.1.1}Statyczna biblioteka}{23}
 \contentsline {subsection}{\numberline {2.1.2}Aplikacja konsolowa}{24}
-\contentsline {subsection}{\numberline {2.1.3}Testy jednostkowe}{24}
+\contentsline {subsection}{\numberline {2.1.3}Framework testowy}{24}
 \contentsline {section}{\numberline {2.2}G\IeC {\l }\IeC {\'o}wne klasy}{25}
 \contentsline {subsection}{\numberline {2.2.1}CharsConstants}{25}
 \contentsline {subsection}{\numberline {2.2.2}StringManager}{26}
 \contentsline {subsection}{\numberline {2.2.3}Parser}{27}
 \contentsline {subsection}{\numberline {2.2.4}Number}{27}
 \contentsline {subsection}{\numberline {2.2.5}Polynomial}{30}
-\contentsline {subsection}{\numberline {2.2.6}PolynomialMap}{34}
-\contentsline {subsection}{\numberline {2.2.7}PolynomialVector}{34}
-\contentsline {section}{\numberline {2.3}G\IeC {\l }\IeC {\'o}wne funkcje}{34}
-\contentsline {subsection}{\numberline {2.3.1}Metody klasy Parser}{34}
-\contentsline {subsubsection}{Unifikacja wej\IeC {\'s}ciowego \IeC {\l }a\IeC {\'n}cucha znak\IeC {\'o}w}{34}
-\contentsline {subsubsection}{Konwersja \IeC {\l }a\IeC {\'n}cucha znak\IeC {\'o}w do postaci wielomianu}{34}
-\contentsline {subsection}{\numberline {2.3.2}Metody klasy Number}{35}
-\contentsline {subsubsection}{Sortowanie liczb typu mpq\_t}{35}
-\contentsline {subsubsection}{Por\IeC {\'o}wnywanie wektor\IeC {\'o}w liczbowych}{36}
-\contentsline {subsubsection}{Wyszukiwanie danej liczby w tablicy}{36}
-\contentsline {subsubsection}{Zwracanie warto\IeC {\'s}ci liczby w postaci \IeC {\l }a\IeC {\'n}cucha znak\IeC {\'o}w}{36}
-\contentsline {subsection}{\numberline {2.3.3}Metody klasy Polynomial}{37}
-\contentsline {subsubsection}{Najwi\IeC {\k e}kszy wsp\IeC {\'o}lny dzielnik wielomian\IeC {\'o}w}{37}
-\contentsline {subsubsection}{Eliminacja pierwiastk\IeC {\'o}w wielokrotnych wielomianu}{37}
-\contentsline {subsubsection}{Algorytm podzia\IeC {\l }u przedzia\IeC {\l }\IeC {\'o}w wyszukiwania}{38}
-\contentsline {subsubsection}{Liczba pierwiastk\IeC {\'o}w wielomianu w badanym przedziale}{39}
-\contentsline {subsubsection}{Znajdowanie pierwiastk\IeC {\'o}w wielomianu w badanym przedziale}{39}
-\contentsline {subsection}{\numberline {2.3.4}Metody czysto wirtualne klasy Polynonial \IeC {\textendash } por\IeC {\'o}wnanie dzia\IeC {\l }ania metod klas PolynomialMap i PolynomialVector}{40}
-\contentsline {subsubsection}{Ustawianie warto\IeC {\'s}ci wyrazu wielomianu}{40}
-\contentsline {subsubsection}{Stwierdzanie czy wielomian jest wielomianem zerowym}{41}
-\contentsline {subsubsection}{Obliczanie stopnia wielomianu}{41}
-\contentsline {subsubsection}{Zwr\IeC {\'o}cania warto\IeC {\'s}ci wielomianu w postaci \IeC {\l }a\IeC {\'n}cucha znak\IeC {\'o}w}{41}
-\contentsline {subsubsection}{Dzielenie wielomian\IeC {\'o}w}{42}
-\contentsline {subsubsection}{Obliczanie pochodnej wielomianu}{42}
-\contentsline {subsubsection}{Obliczanie wyraz\IeC {\'o}w ciagu Sturma}{43}
-\contentsline {subsubsection}{Liczba zmian znak\IeC {\'o}w w danym punkcie}{43}
+\contentsline {subsection}{\numberline {2.2.6}PolynomialMap i PolynomialVector}{34}
+\contentsline {section}{\numberline {2.3}G\IeC {\l }\IeC {\'o}wne funkcje}{35}
+\contentsline {subsection}{\numberline {2.3.1}Metody klasy Parser}{35}
+\contentsline {subsubsection}{Unifikacja wej\IeC {\'s}ciowego \IeC {\l }a\IeC {\'n}cucha znak\IeC {\'o}w}{35}
+\contentsline {subsubsection}{Konwersja \IeC {\l }a\IeC {\'n}cucha znak\IeC {\'o}w do postaci wielomianu}{35}
+\contentsline {subsection}{\numberline {2.3.2}Metody klasy Number}{36}
+\contentsline {subsubsection}{Sortowanie liczb typu mpq\_t}{36}
+\contentsline {subsubsection}{Por\IeC {\'o}wnywanie wektor\IeC {\'o}w liczbowych}{37}
+\contentsline {subsubsection}{Wyszukiwanie danej liczby w tablicy}{37}
+\contentsline {subsubsection}{Zwracanie warto\IeC {\'s}ci liczby w postaci \IeC {\l }a\IeC {\'n}cucha znak\IeC {\'o}w}{37}
+\contentsline {subsection}{\numberline {2.3.3}Metody klasy Polynomial}{38}
+\contentsline {subsubsection}{Najwi\IeC {\k e}kszy wsp\IeC {\'o}lny dzielnik wielomian\IeC {\'o}w}{38}
+\contentsline {subsubsection}{Eliminacja pierwiastk\IeC {\'o}w wielokrotnych wielomianu}{38}
+\contentsline {subsubsection}{Algorytm wyznaczania kolejnych przedzia\IeC {\l }\IeC {\'o}w wyszukiwania}{38}
+\contentsline {subsubsection}{Liczba pierwiastk\IeC {\'o}w wielomianu w badanym przedziale}{40}
+\contentsline {subsubsection}{Znajdowanie pierwiastk\IeC {\'o}w wielomianu w badanym przedziale}{40}
+\contentsline {subsection}{\numberline {2.3.4}Metody czysto wirtualne klasy Polynonial \IeC {\textendash } por\IeC {\'o}wnanie dzia\IeC {\l }ania metod klas PolynomialMap i PolynomialVector}{41}
+\contentsline {subsubsection}{Ustawianie warto\IeC {\'s}ci wyrazu wielomianu}{41}
+\contentsline {subsubsection}{Stwierdzanie czy wielomian jest wielomianem zerowym}{42}
+\contentsline {subsubsection}{Obliczanie stopnia wielomianu}{42}
+\contentsline {subsubsection}{Zwr\IeC {\'o}cania warto\IeC {\'s}ci wielomianu w postaci \IeC {\l }a\IeC {\'n}cucha znak\IeC {\'o}w}{42}
+\contentsline {subsubsection}{Dzielenie wielomian\IeC {\'o}w}{43}
+\contentsline {subsubsection}{Obliczanie pochodnej wielomianu}{43}
+\contentsline {subsubsection}{Obliczanie wyraz\IeC {\'o}w ciagu Sturma}{44}
+\contentsline {subsubsection}{Liczba zmian znak\IeC {\'o}w w danym punkcie}{44}
