@@ -68,3 +68,6 @@
 \contentsline {subsubsection}{Obliczanie pochodnej wielomianu}{43}
 \contentsline {subsubsection}{Obliczanie wyraz\IeC {\'o}w ciagu Sturma}{44}
 \contentsline {subsubsection}{Liczba zmian znak\IeC {\'o}w w danym punkcie}{44}
+\contentsline {chapter}{\numberline {3}Przeprowadzone testy}{45}
+\contentsline {section}{\numberline {3.1}Testy funkcjonalne}{45}
+\contentsline {subsection}{\numberline {3.1.1}ParserUniform}{45}

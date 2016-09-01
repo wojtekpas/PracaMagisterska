@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  31 AUG 2016 00:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  2 SEP 2016 00:45
 entering extended mode
 **./szablon.tex
 (szablon.tex
@@ -1367,7 +1367,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 1473--1475
 
  []
 
-[44] (szablon.bbl) [45
+[44]
+Rozdzia\l  3.
+[45
+
+] [46] (szablon.bbl) [47
 
 
 ] (szablon.aux)
@@ -1400,9 +1404,9 @@ m Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmr7.pfb><C:/Program Files (x86)
 /fonts/type1/public/lm/lmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type
 1/public/lm/lmsy5.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/
 lmsy7.pfb>
-Output written on szablon.pdf (49 pages, 378315 bytes).
+Output written on szablon.pdf (51 pages, 382038 bytes).
 PDF statistics:
- 231 PDF objects out of 1000 (max. 8388607)
+ 237 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  23 words of extra memory for PDF output out of 10000 (max. 10000000)
 

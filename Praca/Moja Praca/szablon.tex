@@ -1482,6 +1482,36 @@ inline int PolynomialVector::NumberOfChangesSign(Number a)
 Funkcja na postawie ciągu Sturma i metody GetSturm, oblicza liczbę zmian znaków dla podanego punktu. Porównuje ona wartości dwóch kolejnych wyrazów ciagu Sturma. Jeżeli ich iloczyn jest ujemny, następuje zwiększenie licznika o jeden. W przypadku wartości zerowych, element taki jest pomijany, tzn. ciąg jest rozpatrywany, tak jakby go nie zawierał. Warto zauwazyć, że dla odpowiednio dużych wartości absolutnym liczby a, w tym wartości niewłaściwych $-\infty$ i $\infty$, liczba zmian znaków, zależy wyłącznie od współczynników stojących, przy najwyższych potęgach kolejnych wielomianów. Fakt ten powoduje możliwą optymalizację działania funkcji, w zależności od otrzymanego parametru. Najbardziej czasochłonna operacja, jaką jest dzielenie wielomianów, i tak musi zostać wykonana, by znaleźć wszystkie wyrazy ciągu Sturma, ale zysk z takiej optymalizacji, może być zauważalny i znacząco poprawić wydajność funkcji.
 
 
+\chapter{Przeprowadzone testy}
+
+\section{Testy funkcjonalne}
+
+\subsection{ParserUniform}
+
+Klasa testowa pozwalająca na weryfikacje metody UniformInputString, mającej na celu unifikację otrzymanej wartości znakowej, przedstawiającej wielomian. Testy dla niej zostały napisane, pomimo, że funkcja nie jest skomplikowana. Jej funkcjonalność została uznana za podstawową, a jej poprawne działanie jest niezbędne, by korzystać z programu. Jest to jedyna funkcja, która jest wołana, niezależnie od innych.
+
+Jej zadaniem jest nie tylko ujednolicić wprowadzaną postać wielomianu, ale przede wszystkim dokonać walidacji jej poprawności. Musi być ona odporna na róznego rodzaju przypadki, wprowadzane przez użytkownika, zarówno przypadkiem, jak i celowo. Jej zadaniem jest przeanalizować i zwrócić pusty obiekt typu string, w momencie, gdy nie uda się jej zrozumieć i w pełni przeanalizować otrzymanego wejścia. Funkcja ConvertToPolynomial wywołuje ją na początku, a następnie bazując na otrzymanym rezultacie, tworzy wybrany obiekt typu PolynomialMap lub PolynomialVector.
+
+Testy tej funkcji zakładają sprawdzenie, że dla danego wejścia, zostaje zwrócone poprawne wyjście, czyli takie, które jest standardowe i łatwe do sparsowania. W przeciwnym wypadku, zwrócony ma zostać pusty łańcuch. Niezależnie jakie dane zostaną podane na wejściu, program nie ma praw, zakończyć się błędem, rzucając wyjątek, ani w ogóle się nie zakończyć.
+
+Na przedstawioną funkcjonalność napisałem ponad 20 testów funkcjonalnych. Poniżej zamieszczam przykładowe z nich, przedstawiając je w postaci - wejście, wyjście. 
+
+\begin{lstlisting}
+"" -> ""
+"2x*+4" -> ""
+"3*x-2" -> "3*x-2"
+"4x" -> "4*x"
+"x2+5" -> "x^2+5"
+"10x3 - 4 x2 + 5x" -> "10*x^3-4*x^2+5*x"
+"(3x-1)(2x+4)+2(x-4)" -> "(3x-1)*(2x+4)+2*(x-4)"
+\end{lstlisting}
+
+\subsection{ParserConvert}
+
+Klasa pozwalająca na testowanie metody ConvertToPolynomial.
+
+Gdy jest to pusta wartość, tworzy wielomian zerowy. W przeciwnym wypadku, analizuje ona uzyskany rezultat i na jego podstawie tworzy wybrany obiekt typu PolynomialMap lub PolynomialVector. 
+
 
 
 
