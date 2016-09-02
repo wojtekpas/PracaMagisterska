@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  2 SEP 2016 00:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  2 SEP 2016 21:24
 entering extended mode
 **./szablon.tex
 (szablon.tex
@@ -1275,85 +1275,86 @@ Overfull \hbox (11.2131pt too wide) in paragraph at lines 1209--1210
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [34]
-Underfull \hbox (badness 10000) in paragraph at lines 1255--1257
+Underfull \hbox (badness 10000) in paragraph at lines 1267--1269
 
  []
 
 [35]
-Underfull \hbox (badness 10000) in paragraph at lines 1269--1271
+Underfull \hbox (badness 10000) in paragraph at lines 1281--1283
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1279--1281
+Underfull \vbox (badness 1394) has occurred while \output is active []
 
- []
-
-[36]
-Underfull \hbox (badness 10000) in paragraph at lines 1287--1289
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1295--1297
+ [36]
+Underfull \hbox (badness 10000) in paragraph at lines 1291--1293
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1303--1305
+Underfull \hbox (badness 10000) in paragraph at lines 1299--1301
 
  []
 
 [37]
-Underfull \hbox (badness 10000) in paragraph at lines 1313--1315
+Underfull \hbox (badness 10000) in paragraph at lines 1307--1309
 
  []
 
 
-LaTeX Warning: Command \textquoteright invalid in math mode on input line 1322.
-
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1322--1324
+Underfull \hbox (badness 10000) in paragraph at lines 1315--1317
 
  []
 
-[38]
 
-LaTeX Warning: Command \l invalid in math mode on input line 1342.
+Underfull \vbox (badness 1584) has occurred while \output is active []
+
+ [38]
+Underfull \hbox (badness 10000) in paragraph at lines 1325--1327
+
+ []
+
+
+LaTeX Warning: Command \textquoteright invalid in math mode on input line 1334.
+
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1334--1336
+
+ []
 
 [39]
-Underfull \hbox (badness 10000) in paragraph at lines 1378--1380
+
+LaTeX Warning: Command \l invalid in math mode on input line 1354.
+
+[40]
+Underfull \hbox (badness 10000) in paragraph at lines 1390--1392
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1386--1388
+Underfull \hbox (badness 10000) in paragraph at lines 1398--1400
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1394--1398
+Underfull \hbox (badness 10000) in paragraph at lines 1406--1410
 
  []
 
-[40] [41]
-Underfull \hbox (badness 10000) in paragraph at lines 1413--1415
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1422--1424
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1431--1433
+[41]
+Underfull \hbox (badness 10000) in paragraph at lines 1425--1427
 
  []
 
 [42]
-Underfull \hbox (badness 10000) in paragraph at lines 1442--1444
+Underfull \hbox (badness 10000) in paragraph at lines 1434--1436
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1443--1445
 
  []
 
@@ -1363,15 +1364,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 1454--1456
  []
 
 [43]
-Underfull \hbox (badness 10000) in paragraph at lines 1473--1475
+Underfull \hbox (badness 10000) in paragraph at lines 1466--1468
 
  []
 
 [44]
-Rozdzia\l  3.
-[45
+Underfull \hbox (badness 10000) in paragraph at lines 1485--1487
 
-] [46] (szablon.bbl) [47
+ []
+
+[45] [46
+
+]
+Rozdzia\l  3.
+[47] [48] (szablon.bbl) [49
 
 
 ] (szablon.aux)
@@ -1382,7 +1388,7 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of TeX's memory you used:
  17355 strings out of 493634
  313856 string characters out of 3141314
- 375750 words of memory out of 3000000
+ 376752 words of memory out of 3000000
  20372 multiletter control sequences out of 15000+200000
  60059 words of font info for 46 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
@@ -1404,9 +1410,9 @@ m Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmr7.pfb><C:/Program Files (x86)
 /fonts/type1/public/lm/lmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type
 1/public/lm/lmsy5.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/
 lmsy7.pfb>
-Output written on szablon.pdf (51 pages, 382038 bytes).
+Output written on szablon.pdf (53 pages, 386084 bytes).
 PDF statistics:
- 237 PDF objects out of 1000 (max. 8388607)
+ 243 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  23 words of extra memory for PDF output out of 10000 (max. 10000000)
 
