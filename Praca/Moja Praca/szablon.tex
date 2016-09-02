@@ -1520,9 +1520,11 @@ Na przedstawioną funkcjonalność napisałem ponad 20 testów funkcjonalnych. P
 
 \subsection{ParserConvert}
 
-Klasa pozwalająca na testowanie metody ConvertToPolynomial.
+Klasa pozwalająca na testowanie metody ConvertToPolynomial. Wywołuje ona funkcje UniformInputString i analizuje jej wartość. Gdy jest to pusta wartość, tworzy wielomian zerowy. W przeciwnym wypadku, analizuje ona uzyskany rezultat i na jego podstawie tworzy wybrany obiekt typu PolynomialMap lub PolynomialVector. Rodzaj stworzonego wielomianu jest podawany jako parametr funkcji. W zależności od niego, także wszystkie pośrednie wielomianu, przybierają żądaną formę.
 
-Gdy jest to pusta wartość, tworzy wielomian zerowy. W przeciwnym wypadku, analizuje ona uzyskany rezultat i na jego podstawie tworzy wybrany obiekt typu PolynomialMap lub PolynomialVector. 
+Przetestowanie tej funkcji powinno być możliwie bardzo dokładne i zawierać różne przypadki graniczne. Bez poprawnej działania tej funkcji, użytkownik w żaden sposób nie może przewidzieć jaką wartośc będzie miał dany wielomian. Ewentualny błąd w tej funkcji, może powodować nieprzewidziane zachowanie pozostałych. W zachowaniu funkcji uwzględnione przypadki niedopuszczalnych wielomianóW, które jednak przeszły weryfikacji poprawności funkcji UniformInputData. Są nimi między innymi: ujemna lub niecałkowita potęga wielomianu, czy dzielenie przez wielomian zerowy. Wejścia takie nie zostaną odrzucone, ponieważ zawierają one wielomiany poprawne składniowo, a nielegalne wartości zostaną wykrytę, dopiero w momencie dokonania obliczeń, wykonanywanych jako pierwsze, np. z powodu nawiasu.
+
+By przetestować funkcję, napisałem blisko 50 różnych testów. Poniżej zamieszczam wybrane z nich przypadki testowe.
 
 
 
