@@ -1524,9 +1524,98 @@ Klasa pozwalająca na testowanie metody ConvertToPolynomial. Wywołuje ona funkc
 
 Przetestowanie tej funkcji powinno być możliwie bardzo dokładne i zawierać różne przypadki graniczne. Bez poprawnej działania tej funkcji, użytkownik w żaden sposób nie może przewidzieć jaką wartośc będzie miał dany wielomian. Ewentualny błąd w tej funkcji, może powodować nieprzewidziane zachowanie pozostałych. W zachowaniu funkcji uwzględnione przypadki niedopuszczalnych wielomianóW, które jednak przeszły weryfikacji poprawności funkcji UniformInputData. Są nimi między innymi: ujemna lub niecałkowita potęga wielomianu, czy dzielenie przez wielomian zerowy. Wejścia takie nie zostaną odrzucone, ponieważ zawierają one wielomiany poprawne składniowo, a nielegalne wartości zostaną wykrytę, dopiero w momencie dokonania obliczeń, wykonanywanych jako pierwsze, np. z powodu nawiasu.
 
-By przetestować funkcję, napisałem blisko 50 różnych testów. Poniżej zamieszczam wybrane z nich przypadki testowe.
+By przetestować funkcję, napisałem blisko 50 różnych testów. Poniżej przedstawiam wybrane z nich przypadki testowe.
 
+\begin{lstlisting}
+-
+\end{lstlisting}
 
+\subsection{Operatory dodawania, odejmowania i mnożenia}
+
+\subsubsection{PolynomialSumOperator}
+
+Jest to klasa testowa odpowiedzialna za testowanie funkcjonalne operatora dodawania. W klasie Polynomial został przeciążony operator dodawania, pozwalający dodawać dwa wielomiany, zapisując działanie to w czytelny i przejrzysty sposób. Testowanie poprawności tego działania polega na wywołaniu funkcji weryfikującej z trzema parametrami. Dwa pierwsze są składnikami dodawania, a ostatni to oczekiwana suma. Funkcja za pomocą operatora dodawania oblicza sumę wielomianów, a następnie porównuje ją z oczekiwanym wynikiem. Działanie polega na dodaniu wartości wyrazów, o tych samych potęgach, czyli redukcji wyrazów podobnych. Poniżej zamieszczam przykładowe testy.
+
+\begin{lstlisting}
+-
+\end{lstlisting}
+
+\subsubsection{PolynomialSubOperator}
+
+Jest to bliźniacza klasa testowa dla PolynomialSumOperator. Jedyną zmianą jest to, że w tym przypadku, podajemy kolejno: odjemną, odjemnik i oczekiwana różnicę. Warto zauważyć, że odejmowanie dwóch wielomianów, podobnie jak w przypadku liczb, sprowadza się do zsumowania pierwszego z nich i wartości przeciwnej do drugiego. Przeprowadzone testy są analogiczne, jak dla operatora sumy.
+
+\begin{lstlisting}
+-
+\end{lstlisting}
+
+\subsubsection{PolynomialModOperator}
+
+Jest klasą, której zadaniem jest jak najdokładniej przetestować operator mnożenia wielomianów. Testy analogicznie jak w przypadku poprzednich klas, mają na celu sprawdzenie, czy dla dwóch podanych czynników, uzyskamy pożądany wynik. Operacja iloczynu wielomianów polega na przemnożeniu wszystkich wyrazów pierwszego z nich przez wyrazy drugiego. Mnożąc dwa wyrazy, mnożymy przez siebie ich wartości, zaś wykładniki sumujemy. Następnie dokonujemy redukcji wyrazów podobnych, poprzez ich zsumowanie, a uzyskany w ten sposób wielomian jest szukanym iloczynem.
+
+\begin{lstlisting}
+-
+\end{lstlisting}
+
+\subsection{Operatory dzielenia i modulo}
+
+\subsubsection{PolynomialDivOperator}
+
+PolynomialDivOperator jest klasą testową, pozwalającą na przetestowania poprawności dzielenia wielomianów. Funkcja ją weryfikują przyjmuje trzy parametry. Są nimi dzielna, dzielnik oraz spodziewany iloraz. Podany dzielnik nie może być wielomianem zerowym, ponieważ dzielenie przez 0, również w przypadku wielomianów nie jest dopuszczalne. Operacja dzielenia jest, w przypadku wielomianów, najbardziej skomplikowaną operacją. Algorytm jej wykonania przypomina nieco dzielenie pisemne w przypadku liczb całkowitych. Wyraz, stojący przy najwyższej potędze dzielnej, jest dzielony przez wyraz, stojący przy najwyższej potędze dzielnika, a wynik jest zapisywany. Następnie otrzymany wyraz jest mnożony przez wielomian przeciwny do dzielnika, a otrzymany rezultat sumowany z dotychczasową wartością wielomianu. Uzyskany wynik staje się nową dzielną, a sytuacja powtarza się do momentu, gdy stopień dzielnej będzie niższy, niż stopień wielomianu dzielącego. Wartości otrzymane z kolejnych dzieleń tworzą wyrazy ilorazu, o którym wiemy, że jego stopień jest równy różnicy stopni argumentów operatora dzielenia.
+
+\begin{lstlisting}
+-
+\end{lstlisting}
+
+\subsubsection{PolynomialModOperator}
+
+Jest klasą testową dla operatora modulo, którego obliczanie oparte jest na wykonywaniu operacji dzielenia, z tymże w tej sytuacji zwracany jest inny wielomian. W przypadku opisanym powyżej, tzn. w momencie gdy stopień dzielnej jest większy niż stopień aktualnie przetwarzanego wielomianu, to drugi z tych wielomianów nazywany jest resztą z dzielenia. Wiemy o nim, że jego stopień jest mniejszy niż dzielnika. W szczególnym przypadku, gdy dzielnik jest podzielny przez dzielną, uzyskana reszta jest wielomianem zerowym. Warto zaznaczyć, że podobnie jak w przypadku dzielenia, w celu weryfikacji podawane są także trzy wielomiany. Ostatni z nich jest pożądanym wynikiem operacji modulo, zaś środkowy dzielnikiem, co wymusza by jego wartość była różna od zera. Poniżej zaprezentowane zostały te same przypadki testowe jak dla dzielenia, ale w tej sytuacji wynikiem jest rezultat operacji modulo.
+
+\begin{lstlisting}
+-
+\end{lstlisting}
+
+\subsection{PolynomialDerivative}
+
+Zadaniem tej klasy jest sprawdzenie, czy metoda, pozwalająca na obliczanie pochodnej wielomianu, działa poprawnie. Jest ona wykonywana na konkretnej instancji obiektu typu Polynomial i zwraca referencję do jego pochodnej. Funkcja bazuje na operatorach dodawania i mnożenia. Ich poprawne działanie jest zatem niezbędne, by metoda ta mogła poprawnie funkcjonować.
+Weryfikacje poprawności wyników następuje poprzez porównanie oczekiwanej wartości pochodnej wielomianu z wartością obliczoną. Poniżej prezentuję wybrane przypadki testowe dla tej funkcjonalności.
+
+\begin{lstlisting}
+-
+\end{lstlisting}
+
+\subsection{PolynomialAfterElimination}
+
+Jest to klasa weryfikująca, czy wartość wielomianu, po eliminacji pierwiastków wielokrotnych, jest poprawna. Metoda ta jest wykonywana dla danego obiektu typu Polynomial i zwraca referencję do wielomianu wynikowego. Jej wartość nie jest jednak bezpośrednio porównywana z oczekiwanym wynikiem. Wcześniej jest bowiem wykonywana jeszcze funkcja normalizująca uzyskany wielomian. Jest to niezbędne, gdyż w przeciwnym razie, wykonywane porównanie mogłoby wskazać fałszywy rezultat. Jest to spowodowane tym, że funkcja porównująca, ze względów wydajnościowych, nie normalizuje danych wielomianów. Decyzja taka była umotywowana faktem, że w takim przypadku porównanie całkowicie odmiennych wielomianów byłoby liniowe ze względu na ich stopień, zamiast odbywać się w czasie stałym. Aplikacja zakłada, że w każdym miejscu, gdzie jest to wymagane, będzie następowało jawne wywołanie odpowiedniej funkcji.
+
+Aspektem bardzo ułatwiającym testowanie tej funkcjonalności jest możliwość podawania wielomianu wejściowego w postaci iloczynu wielu czynników. Pozwala to podawać kolejne czynniki, zawierające dane pierwiastki wielomianu, z określonymi krotnościami i spodziewać się dokładnie tych samych, ale jednokrotnych. Dzięki temu jest się niezależnym od innych programów, pozwalających na obliczanie zer wielomianów, ponieważ spodziewane wartości, zawarte są pośrednio w wielomianie wejściowym. Poniżej zamieszczam przykładowe testy, z uwzględnieniem podawania wejścia, w różnej postaci.
+
+\begin{lstlisting}
+-
+\end{lstlisting}
+
+\subsection{PolynomialValue}
+
+Jest klasą weryfikującą, czy wartość wielomianu w danym punkcie jest obliczana poprawnie. Funkcja weryfikująca przyjmuje dwa argumenty wejściowe – wielomian oraz dany punkt. Otrzymany wynik porównuje z trzecim parametrem, którym jest oczekiwane rezultat. Poza sprawdzeniem poprawności działania samego wielomianu, weryfikowane jest także działanie klasy Number. Ważnym aspektem jest tutaj przede wszystkim sprawdzenie zachowania funkcji, w przypadku dużych liczb, które często pojawiają się w momencie obliczania wartości wielomianów wysokich stopni. Należy wziąć pod uwagę, że obliczenie wartości w punkcie $x_0=10$, dla wielomianu stopnia setnego wymaga liczby posiadającej aż 101 cyfr. To właśnie z tego względu w projekcie niezbędna była biblioteka mpir, pozwalająca na posługiwanie się takimi wartościami liczbowymi. Poniżej prezentuję przykładowe testy na obliczanie wartości wielomianu w danym punkcie.
+
+\begin{lstlisting}
+-
+\end{lstlisting}
+
+\subsection{PolynomialNumberOfRoots}
+
+Jest to klasa, sprawdzająca ile pierwiastków rzeczywistych znajduje się w podanym przedziale. Pod uwagę brane są wyłącznie rożne pierwiastki, dlatego na początku funkcji weryfikującej wywoływana jest funkcja PolynomialAfterEliminationOfMultipleRoots, a dopiero na jej znormalizowanym rezultacie wykonywana jest właściwa funkcja. Jej rezultat porównywany jest ze spodziewaną wartością, podawaną w postaci zmiennej typu int. Domyślnymi granicami przedziału są wartości niewłaściwe $-\infty$ i $+\infty$, więc gdy interesują nas pierwiastki w całym zbiorze liczb rzeczywistych, nie ma potrzeby ich podawać. W przeciwnym razie nadpisywana jest wartością zmiennych klasy – a i b, oznaczających lewy i prawy kraniec przedziału. Możliwe jest także sprecyzowanie granicy przedziału tylko z jednej strony, np. gdy szukamy liczby pierwiastków dodatnich. Poniżej zamieszczam przykładowe testy dla różnych przedziałów wyszukiwania.
+
+\begin{lstlisting}
+-
+\end{lstlisting}
+
+\subsection{PolynomialRoots}
+
+Na początku funkcji weryfikującej dokonywana jest eliminacja pierwiastków wielokrotnych. Otrzymany wielomian poddawany jest normalizacji, a wówczas znajdowane są jego pierwiastki w podanym przedziale. Podobnie jak w przypadku klasy PolynomialNumberOfRoots, domyślnym przedziałem jest zakres od $-\infty$ do $+\infty$. Pierwiastki w wektorze wyjściowym funkcji znajdują się w kolejności ich znalezienia. Także w tym przypadku, konieczne jest więc ich posortowanie. Poniżej zamieszczam większość testów, sprawdzających ostateczną funkcjonalność programu. Lista ta jest bardziej rozbudowana niż poprzednie, ponieważ uznałem, że jest ona zdecydowanie najistotniejszą częścią testów funkcjonalnych mojego programu.
+
+\begin{lstlisting}
+-
+\end{lstlisting}
 
 
 %\section{Zewnętrze biblioteki}
