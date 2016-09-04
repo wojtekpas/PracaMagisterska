@@ -1537,7 +1537,12 @@ By przetestować funkcję, napisałem blisko 50 różnych testów. Poniżej prze
 Jest to klasa testowa odpowiedzialna za testowanie funkcjonalne operatora dodawania. W klasie Polynomial został przeciążony operator dodawania, pozwalający dodawać dwa wielomiany, zapisując działanie to w czytelny i przejrzysty sposób. Testowanie poprawności tego działania polega na wywołaniu funkcji weryfikującej z trzema parametrami. Dwa pierwsze są składnikami dodawania, a ostatni to oczekiwana suma. Funkcja za pomocą operatora dodawania oblicza sumę wielomianów, a następnie porównuje ją z oczekiwanym wynikiem. Działanie polega na dodaniu wartości wyrazów, o tych samych potęgach, czyli redukcji wyrazów podobnych. Poniżej zamieszczam przykładowe testy.
 
 \begin{lstlisting}
--
+"1" + "20" = "21"
+"5" + "-11" = "-6"
+"12x" + "0" = "12x"
+"12x3" + 15x3" = "27x3"
+"12x3+4x2" + "-15x2" = "12x3-11x2"
+"12x3+4x+8" + "-15x2+30x+5x-5-3" = "12x3-15x2+39x"
 \end{lstlisting}
 
 \subsubsection{PolynomialSubOperator}
@@ -1545,15 +1550,26 @@ Jest to klasa testowa odpowiedzialna za testowanie funkcjonalne operatora dodawa
 Jest to bliźniacza klasa testowa dla PolynomialSumOperator. Jedyną zmianą jest to, że w tym przypadku, podajemy kolejno: odjemną, odjemnik i oczekiwana różnicę. Warto zauważyć, że odejmowanie dwóch wielomianów, podobnie jak w przypadku liczb, sprowadza się do zsumowania pierwszego z nich i wartości przeciwnej do drugiego. Przeprowadzone testy są analogiczne, jak dla operatora sumy.
 
 \begin{lstlisting}
--
+"1" - "20" = "-19"
+"5" - "-11" = "16"
+"12x" - "0" = "12x"
+"12x3" - 15x3" = "-3x3"
+"12x3+4x2" - "-15x2" = "12x3+19x2"
+"12x3+4x+8" - "-15x2+30x+5x-5-3" = "12x3+15x2-31x+16"
 \end{lstlisting}
 
-\subsubsection{PolynomialModOperator}
+\subsubsection{PolynomialMulOperator}
 
 Jest klasą, której zadaniem jest jak najdokładniej przetestować operator mnożenia wielomianów. Testy analogicznie jak w przypadku poprzednich klas, mają na celu sprawdzenie, czy dla dwóch podanych czynników, uzyskamy pożądany wynik. Operacja iloczynu wielomianów polega na przemnożeniu wszystkich wyrazów pierwszego z nich przez wyrazy drugiego. Mnożąc dwa wyrazy, mnożymy przez siebie ich wartości, zaś wykładniki sumujemy. Następnie dokonujemy redukcji wyrazów podobnych, poprzez ich zsumowanie, a uzyskany w ten sposób wielomian jest szukanym iloczynem.
 
 \begin{lstlisting}
--
+"1" * "20" = "20"
+"0" * "-55" = "-55"
+"-2x" * "7" = "-14x"
+"12x" * "-5x" = "-60x2"
+"12x3" * "15x3" = "180x6"
+"12x3+4x2" * "-15x2" = "-180x5-60x4"
+"12x3+4x+8" * "-15x2+35x-8" = "-180x5+420x4-156x3+20x2+248x-64"
 \end{lstlisting}
 
 \subsection{Operatory dzielenia i modulo}
@@ -1563,15 +1579,30 @@ Jest klasą, której zadaniem jest jak najdokładniej przetestować operator mno
 PolynomialDivOperator jest klasą testową, pozwalającą na przetestowania poprawności dzielenia wielomianów. Funkcja ją weryfikują przyjmuje trzy parametry. Są nimi dzielna, dzielnik oraz spodziewany iloraz. Podany dzielnik nie może być wielomianem zerowym, ponieważ dzielenie przez 0, również w przypadku wielomianów nie jest dopuszczalne. Operacja dzielenia jest, w przypadku wielomianów, najbardziej skomplikowaną operacją. Algorytm jej wykonania przypomina nieco dzielenie pisemne w przypadku liczb całkowitych. Wyraz, stojący przy najwyższej potędze dzielnej, jest dzielony przez wyraz, stojący przy najwyższej potędze dzielnika, a wynik jest zapisywany. Następnie otrzymany wyraz jest mnożony przez wielomian przeciwny do dzielnika, a otrzymany rezultat sumowany z dotychczasową wartością wielomianu. Uzyskany wynik staje się nową dzielną, a sytuacja powtarza się do momentu, gdy stopień dzielnej będzie niższy, niż stopień wielomianu dzielącego. Wartości otrzymane z kolejnych dzieleń tworzą wyrazy ilorazu, o którym wiemy, że jego stopień jest równy różnicy stopni argumentów operatora dzielenia.
 
 \begin{lstlisting}
--
+"20" / "20x" = "0"
+"20" / "-1" = "=-20"
+"-21x" / "7x" = "-3"
+"-12x2" / "-6x" = "2x"
+"x3+x2+x" / "x" = "x2+x+1"
+"-30x3-15x" / "-5x2" = "6x"
+"x6-6x4-4x3+9x2+12x+4" / "x5-4x3-2x2+3x+2" = "x"
 \end{lstlisting}
 
 \subsubsection{PolynomialModOperator}
 
-Jest klasą testową dla operatora modulo, którego obliczanie oparte jest na wykonywaniu operacji dzielenia, z tymże w tej sytuacji zwracany jest inny wielomian. W przypadku opisanym powyżej, tzn. w momencie gdy stopień dzielnej jest większy niż stopień aktualnie przetwarzanego wielomianu, to drugi z tych wielomianów nazywany jest resztą z dzielenia. Wiemy o nim, że jego stopień jest mniejszy niż dzielnika. W szczególnym przypadku, gdy dzielnik jest podzielny przez dzielną, uzyskana reszta jest wielomianem zerowym. Warto zaznaczyć, że podobnie jak w przypadku dzielenia, w celu weryfikacji podawane są także trzy wielomiany. Ostatni z nich jest pożądanym wynikiem operacji modulo, zaś środkowy dzielnikiem, co wymusza by jego wartość była różna od zera. Poniżej zaprezentowane zostały te same przypadki testowe jak dla dzielenia, ale w tej sytuacji wynikiem jest rezultat operacji modulo.
+Jest klasą testową dla operatora modulo, którego obliczanie oparte jest na wykonywaniu operacji dzielenia, z tymże w tej sytuacji zwracany jest inny wielomian. W przypadku opisanym powyżej, tzn. w momencie gdy stopień dzielnej jest większy niż stopień aktualnie przetwarzanego wielomianu, to drugi z tych wielomianów nazywany jest resztą z dzielenia. Wiemy o nim, że jego stopień jest mniejszy niż dzielnika. W szczególnym przypadku, gdy dzielnik jest podzielny przez dzielną, uzyskana reszta jest wielomianem zerowym. Warto zaznaczyć, że podobnie jak w przypadku dzielenia, w celu weryfikacji podawane są także trzy wielomiany. Ostatni z nich jest pożądanym wynikiem operacji modulo, zaś środkowy dzielnikiem, co wymusza by jego wartość była różna od zera. Poniżej zaprezentowane zostały te same przypadki testowe jak dla dzielenia, ale w tej sytuacji wynikiem jest rezultat operacji modulo. Dodatkowo lista testów została powiększona o testy, charakteryzujące się niezerową resztą.
 
 \begin{lstlisting}
--
+"20" % "20x" = "20"
+"20" % "-1" = "=0"
+"-21x" % "7x" = "0"
+"-12x2" % "-6x" = "0"
+"x3+x2+x" % "x" = "0"
+"-30x3-15x" % "-5x2" = "-15x"
+"x6-6x4-4x3+9x2+12x+4" % "x5-4x3-2x2+3x+2" = "-2(x4+x3-3x2-5x-2)"
+"x3+x2+x1+11" % "x2+1" = "10"
+"(x+2)^3+1" % "x+2" = "1"
+"x4-4x3+6x2-7x+3" % "(x-1)^2 = "-3x+2"
 \end{lstlisting}
 
 \subsection{PolynomialDerivative}
