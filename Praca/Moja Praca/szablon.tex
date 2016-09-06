@@ -757,7 +757,7 @@ Pozwala zrzutować typ mpz\_t na zmienną typu double. Jeżeli jest to konieczne
 char * mpz_get_str (char *str, int base, mpz_t op)
 \end{lstlisting}
 
-Zwraca ciąg znaków reprezentujących liczbę op., o podstawie danej w paremetrze o nazwie base. Funkcja ta jest analogiczna do mpz\_set\_str. Jeżeli parametrem str jest NULL, to ciąg znaków zostaje zwrócony przez funkcję. W przeciwnym razie funkcja umieszcza go pod adresem, na który wskazuje zmienna str. Należy zadbać o to, by bufor, do zapisania rezultatu funkcji, był wystarczający. Powinien on być 2 bajty dłuższy niż długość zwróconej liczby w danym systemie liczbowym. Pierwszy bajt służy na wpisanie ewentualnego znaków minus, natomiast drugi na znak $ 0$ kończący łańcuch znaków. Długość zasadniczej części liczbowej można pobrać używając funkcji mpz\_sizeinbase (op, base), w której podajemy daną liczbę oraz podstawę.
+Zwraca ciąg znaków reprezentujących liczbę op., o podstawie danej w paremetrze o nazwie base. Funkcja ta jest analogiczna do mpz\_set\_str. Jeżeli parametrem str jest NULL, to ciąg znaków zostaje zwrócony przez funkcję. W przeciwnym razie funkcja umieszcza go pod adresem, na który wskazuje zmienna str. Należy zadbać o to, by bufor, do zapisania rezultatu funkcji, był wystarczający. Powinien on być 2 bajty dłuższy niż długość zwróconej liczby w danym systemie liczbowym. Pierwszy bajt służy na wpisanie ewentualnego znaków minus, natomiast drugi na znak '\textbackslash0' kończący łańcuch znaków. Długość zasadniczej części liczbowej można pobrać używając funkcji mpz\_sizeinbase (op, base), w której podajemy daną liczbę oraz podstawę.
 
 \subsubsection{Funkcje arytmetyczne}
 
@@ -810,7 +810,7 @@ Używając niżej wymienionych funkcji należy pamiętać, że dzielenie przez 0
 void mpz_tdiv_q (mpz_t q, mpz_t n, mpz_t d)
 \end{lstlisting}
 
-Funkcja oblicza iloraz z liczb n i d. Litera przed ‘div’ w nazwie funkcji mówi, o jej zachowaniu w przypadku, gdy rezultat nie jest liczbą całkowitą. Symbol ‘t’ ('truncate'), oznacza obcięcie części ułamkowej. Zalecanym użyciem jest przypadek, gdy nie ma znaczenia wartość reszty z dzielenia.
+Funkcja oblicza iloraz z liczb n i d. Litera przed 'div' w nazwie funkcji mówi, o jej zachowaniu w przypadku, gdy rezultat nie jest liczbą całkowitą. Symbol 't' ('truncate'), oznacza obcięcie części ułamkowej. Zalecanym użyciem jest przypadek, gdy nie ma znaczenia wartość reszty z dzielenia.
 
 \begin{lstlisting}
 void mpz_tdiv_r (mpz_t r, mpz_t n, mpz_t d)
@@ -823,7 +823,7 @@ void mpz_tdiv_qr (mpz_t q, mpz_t r, mpz_t n, mpz_t d)
 \end{lstlisting}
 
 Łączy w sumie dwie powyższe funkcje. Ze względów wygody i wydajności, zaleca się jej użycie wówczas, gdy potrzebujemy obliczyć zarówno iloraz, jak i resztę z dzielenia. Ważne jest by pamiętać, że przekazane argumenty q i r, muszą być referencjami do różnych zmiennych. W przeciwnym razie, działanie funkcji będzie nie poprawne, a wynik najprawdopodobniej błędny.\\
-Oprócz wyżej wymienionych funkcji, istnieją także ich odpowiedniki, o odmiennym zachowaniu w kwestii zaokrąglania części ułamkowej ilorazu. Pierwszym z nich jest grupa funkcji, posiadająca w nazwie 'cdiv', gdzie litera ‘c’ ('ceil') oznacza sufit. Powoduje to, że w razie potrzeby, iloraz zostanie zaokrąglony w górę. Wówczas otrzymana reszta r będzie przeciwnego znaku do liczby d. Funkcjami z tej grupy są: mpz\_cdiv\_q, mpz\_cdiv\_r oraz mpz\_cdiv\_qr. Drugim odpowiednik jest grupa funkcji, posiadająca w nazwie 'fdiv', gdzie ‘f’ ('floor') oznacza podłogę. W tym przypadku, w razie potrzeby wynik zostanie zaokrąglony w dół. Reszta r będzie w tym przypadku tego samegu znaku co liczba d. Przykładami funkcji z tej grupy są: mpz\_fdiv\_q, mpz\_fdiv\_r oraz mpz\_fdiv\_qr. Zauważmy, że we wszystkich trzech przypadkach zostaje spełnione równanie: $n = q*d+r,\ gdzie\ 0 \le |r| < |d|.$
+Oprócz wyżej wymienionych funkcji, istnieją także ich odpowiedniki, o odmiennym zachowaniu w kwestii zaokrąglania części ułamkowej ilorazu. Pierwszym z nich jest grupa funkcji, posiadająca w nazwie 'cdiv', gdzie litera 'c' ('ceil') oznacza sufit. Powoduje to, że w razie potrzeby, iloraz zostanie zaokrąglony w górę. Wówczas otrzymana reszta r będzie przeciwnego znaku do liczby d. Funkcjami z tej grupy są: mpz\_cdiv\_q, mpz\_cdiv\_r oraz mpz\_cdiv\_qr. Drugim odpowiednik jest grupa funkcji, posiadająca w nazwie 'fdiv', gdzie 'f' ('floor') oznacza podłogę. W tym przypadku, w razie potrzeby wynik zostanie zaokrąglony w dół. Reszta r będzie w tym przypadku tego samegu znaku co liczba d. Przykładami funkcji z tej grupy są: mpz\_fdiv\_q, mpz\_fdiv\_r oraz mpz\_fdiv\_qr. Zauważmy, że we wszystkich trzech przypadkach zostaje spełnione równanie: $n = q*d+r,\ gdzie\ 0 \le |r| < |d|.$
 
 \begin{lstlisting}
 int mpz_divisible_p (mpz_t n, mpz_t d)
@@ -903,10 +903,34 @@ void mpq_canonicalize (mpq_t op)
 Znajduje wspólne dzielniki licznika i mianownika, skracając ułamek. Dodatkowo zapewnia, że mianownik jest liczbą dodatnią, w razie potrzeby, mnożąc licznik i mianownik przez liczbę -1.
 
 \begin{lstlisting}
+mpz_t mpq_numref (mpq t op)
+\end{lstlisting}
+
+Jest to makro, które dla podanego ułamka zwraca wartość jego licznika. Posiada odpowiednik w postaci funkcji, której użycie nie jest jednak zalecana ze względów wydajonościowych.
+
+\begin{lstlisting}
+mpz_t mpq_denref (mpq t op))
+\end{lstlisting}
+
+Jest makrem, które zwraca wartość mianownika dla podanego ułamka. Działa analogicznie jak mpq\_numref.
+
+\begin{lstlisting}
+void mpq_set_num (mpq t rational, mpz t numerator)
+\end{lstlisting}
+
+Ustawia licznik podanego ułamka na wskazaną wartość. Funkcja stanowi ekwiwalent dla wywołania metody mpz\_set, wywoływanej dla licznika, uzyskanego przy pomocy makra. Jej działanie jest wolniejsze, dlatego jej użycie nie jest zalecane, ze zwględów wydajnościowych.
+
+\begin{lstlisting}
+void mpq_set_den (mpq t rational, mpz t denominator)
+\end{lstlisting}
+Funkcja ustawia mianownik danego ułamka na podaną liczbę całkowitą. Jej działanie jest analogczne jak w przypadku mpq\_set\_num.
+
+
+\begin{lstlisting}
 int mpq_set_str (mpq_t rop, char *str, int base)
 \end{lstlisting}
 
-Tworzy liczbę na podstawie wartości podanej jako łańcuch znaków. Jej wartość podawana jest w postaci najpierw licznik, a następnie mianownik, na zasadach podobnym jak w funkcji mpz\_set\_str. Obie liczby oddziela znak operatora dzielenia ‘/’. Funkcja zwraca wartość 0, w przypadku, gdy cały łańcuch wejściowy jest poprawny oraz -1 w innym przypadku. Jeżeli argument base jest równy 0, to format liczbowy, dla licznika i mianownika, jest ustalany osobno. Oznacza to, że możemy podać liczby w dwóch różnych formatach, np. „0xFF/256” . Warto zauważyć, że funkcja mpq\_canonicalize nie jest wołana automatycznie, więc jeżeli podaliśmy ułamek, który chcemy skrócić, to musimy pamiętać o jej wywołaniu.
+Tworzy liczbę na podstawie wartości podanej jako łańcuch znaków. Jej wartość podawana jest w postaci najpierw licznik, a następnie mianownik, na zasadach podobnym jak w funkcji mpz\_set\_str. Obie liczby oddziela znak operatora dzielenia '/'. Funkcja zwraca wartość 0, w przypadku, gdy cały łańcuch wejściowy jest poprawny oraz -1 w innym przypadku. Jeżeli argument base jest równy 0, to format liczbowy, dla licznika i mianownika, jest ustalany osobno. Oznacza to, że możemy podać liczby w dwóch różnych formatach, np. „0xFF/256” . Warto zauważyć, że funkcja mpq\_canonicalize nie jest wołana automatycznie, więc jeżeli podaliśmy ułamek, który chcemy skrócić, to musimy pamiętać o jej wywołaniu.
 
 \begin{lstlisting}
 char * mpq_get_str (char *str, int base, mpq_t op)
@@ -1090,7 +1114,7 @@ public:
 }
 \end{lstlisting}
 
-Jak widać, przeciążone zostały wszystkie przypadne, w przypadku liczb, operatory, zarówno dla klasy Number jak i dla typu double. W języku C++ wszystkie wbudowane typy liczbowe - int, long oraz float, można łatwo zrzutować na zmienną typu double. Wynika z tego, że przy pomocy powyższych operatorów, jesteśmy w stanie w łatwy sposób, dokonać dowolnego działania na dużych liczbach, niezależnie od typu drugiego operandu. Wyjątkiem jest operator potęgowania, dla którego możliwe jest podniesienie do dowolnej potęgi, pod warunkiem, że jej wartość jest liczbą naturalną.
+Jak widać, przeciążone zostały wszystkie przydatne dla liczb operatory, zarówno dla klasy Number jak i dla typu double. W języku C++ wszystkie wbudowane typy liczbowe - int, long oraz float, można łatwo zrzutować na zmienną typu double. Wynika z tego, że przy pomocy powyższych operatorów, jesteśmy w stanie w łatwy sposób, dokonać dowolnego działania na dużych liczbach, niezależnie od typu drugiego operandu. Wyjątkiem jest operator potęgowania, dla którego możliwe jest podniesienie do dowolnej potęgi, pod warunkiem, że jej wartość jest liczbą naturalną.
 
 Klasa posiada tylko jeden element – obiekt typu mpq\_t, reprezentujący właściwą liczbę wymiernę. W klasie zostały zdefiniowane podstawowe funkcje, takie jak obliczenie wartości bezwzględnej oraz liczby przeciwnej. W celu zwiększenia czytelności i łatwiejszej implementacji, zostały przeciążone wszystkie przydatne operatory. Rozpatrzmy dwa przykłady użycia biblioteki mpir – pierwszy z bezpośrednim użyciem dostępnych funkcji i drugi z wykorzystaniem klasy Number.
 
@@ -1259,7 +1283,7 @@ Wydaje się więc, że aby uzyskać w przypadku takiej struktury, wydajność le
 inline string Parser::UniformInputString(string s)
 \end{lstlisting}
 
-Zadaniem funkcji jest ujednolicenie wielomianu podanego na wejściu, w taki sposób, by był jednoznaczny i łatwy do dalszego przetworzenia. Jako argument przyjmuje ona pojedynczy obiekt klasy string. Po dokonaniu odpowiednich operacji, jako rezultat, zwraca również typ string. Użycie jej ma na celu ułatwienie przetwarzania w kolejnym etapie, w którym na podstawie podanego ciągu znaków, tworzony będzie obiekt wielomianu. Głównym zadaniem funkcji, jest weryfikacja, czy ciąg znaków podanych na wejściu reprezentuje poprawny składniowo wielomian. Sprawdzana jest liczba nawiasów otwierających i zamykających oraz fakt, czy w każdym miejscu wyrażenia liczba otwartych nawiasów jest nie mniejsza niż liczba nawiasów zamkniętych. Dodatkowo sprawdzane jest, czy na sąsiednich miejscach nie występują dwa operatory. Poprawne wyrażenie nigdy nie kończy się operatorem, a zaczynać może się tylko minusem, literałem, cyfrą lub nawiasem otwierającym. W czasie unifikacji wyrażenia, ignorowane są wszystkie występujące w nim białe znaki. Warto zaznaczyć, że dopuszczalny jest tylko jeden znak, reprezentujący zmienną wielomianu. Nie ma ograniczeń co do wartości tego znaku, może być to znak ‘a’, ‘x’ lub jakikolwiek inny, ale powinniśmy zadbać, by w całym wyrażeniu występował on w tej samej postaci. Sporym ułatwieniem w interfejsie jest brak konieczności wpisywania operatorów mnożenia ('*') i potęgowania ('\^{}') w oczywistych miejscach. Z punktu widzenia aplikacji, wyrażenia 4x oraz 4*x są identyczne. Podobnie jest w przypadku x3 oraz x\^{}3. Funkcja analizuje wyrażenie i zwraca je w odpowiedniej postaci. Dla przykładu wyrażenia x3+2x2+3x+1, x\^{}3 +2x\^{}2 + 3x+1 zostaną zamienione w x\^{}3+2*x\^{}2+3*x+1.
+Zadaniem funkcji jest ujednolicenie wielomianu podanego na wejściu, w taki sposób, by był jednoznaczny i łatwy do dalszego przetworzenia. Jako argument przyjmuje ona pojedynczy obiekt klasy string. Po dokonaniu odpowiednich operacji, jako rezultat, zwraca również typ string. Użycie jej ma na celu ułatwienie przetwarzania w kolejnym etapie, w którym na podstawie podanego ciągu znaków, tworzony będzie obiekt wielomianu. Głównym zadaniem funkcji, jest weryfikacja, czy ciąg znaków podanych na wejściu reprezentuje poprawny składniowo wielomian. Sprawdzana jest liczba nawiasów otwierających i zamykających oraz fakt, czy w każdym miejscu wyrażenia liczba otwartych nawiasów jest nie mniejsza niż liczba nawiasów zamkniętych. Dodatkowo sprawdzane jest, czy na sąsiednich miejscach nie występują dwa operatory. Poprawne wyrażenie nigdy nie kończy się operatorem, a zaczynać może się tylko minusem, literałem, cyfrą lub nawiasem otwierającym. W czasie unifikacji wyrażenia, ignorowane są wszystkie występujące w nim białe znaki. Warto zaznaczyć, że dopuszczalny jest tylko jeden znak, reprezentujący zmienną wielomianu. Nie ma ograniczeń co do wartości tego znaku, może być to znak 'a', 'x' lub jakikolwiek inny, ale powinniśmy zadbać, by w całym wyrażeniu występował on w tej samej postaci. Sporym ułatwieniem w interfejsie jest brak konieczności wpisywania operatorów mnożenia ('*') i potęgowania ('\^{}') w oczywistych miejscach. Z punktu widzenia aplikacji, wyrażenia 4x oraz 4*x są identyczne. Podobnie jest w przypadku x3 oraz x\^{}3. Funkcja analizuje wyrażenie i zwraca je w odpowiedniej postaci. Dla przykładu wyrażenia x3+2x2+3x+1, x\^{}3 +2x\^{}2 + 3x+1 zostaną zamienione w x\^{}3+2*x\^{}2+3*x+1.
 \\
 
 \subsubsection{Konwersja łańcucha znaków do postaci wielomianu}
@@ -1398,7 +1422,7 @@ Funkcja zwraca liczbę pierwiastków w zadanym przedziale. Jest ona obliczana na
 inline vector<Number> Polynomial::FindRoots(Number a, Number b)
 \end{lstlisting}
 
-Jest to najważniejsza funkcja całego projektu, ponieważ wewnątrz niej znajduje się cała logika projektu. Zwraca ona tablicę, z wartościami kolejnych pierwiastków wielomianu.  Na początku funkcji sprawdzana jest liczba pierwiastków w badanym przedziale. Liczba ich nie może być ujemna, a kiedy równa jest 0, funkcja kończy swoje działanie i zwraca pusty wektor.
+Jest to najważniejsza funkcja całego projektu, ponieważ wewnątrz niej znajduje się cała logika projektu. Zwraca ona tablicę, z wartościami kolejnych pierwiastków wielomianu. Na początku funkcji sprawdzana jest liczba pierwiastków w badanym przedziale. Liczba ich nie może być ujemna, a kiedy równa jest 0, funkcja kończy swoje działanie i zwraca pusty wektor.
 Zgodnie z twierdzeniem, liczba pierwiastków w przedziale, wlicza także ewentualny pierwiastek, na prawym krańcu przedziału. Gdy funkcja stwierdzi, istnienie tego pierwiastka, zostaje on dodany do wektora wyjściowego. Jeżeli liczba pierwiastków w przedziale była równa 1, wiemy już, że był to jedyny pierwiastek w danym przedziale i możemy zwrócić jednoelementowy wektor, z wartościami pierwiastków.
 Następnie, na podstawie funkcji NextNumberFromRange, przedział zostaje podzielony na dwa mniejsze. W otrzymanych przedziałach zostaje obliczona liczba pierwiastków. Jeżeli jest ona dodatnia, to następuje rekurencyjne wywołanie funkcji, z argumentami, będącymi granicami danego podprzedziału. Wywołana rekurencyjnie metoda, po wykonaniu, zwróci wynik, który zostanie przetworzony przez funkcje wywołującą. 
 \\
@@ -1415,7 +1439,7 @@ Głównym zadaniem funkcji jest ustawienie wartości podanego współczynnika na
 
 W przypadku klasy PolynomialVector meotoda została nieco bardziej rozbudowana. Na początku następuje sprawdzenie, czy dany stopień potęgi jest wyższy od aktualnego stopnia wielomianu. Jeżeli tak, to następuje sprawdzenie, czy dana wartość jest zerowa. Wówczas funkcja kończy swoje działanie, a w przeciwnym wypadku rozpoczyna operację wstawiania do wektora żądanej pary – potęga, wartość współczynnika. Gdy stopien wielomianu zwiększa się o 1, wystarczy, po prostu, na kolejnym miejscu w tablicy wstawić daną wartość. W przeciwnym zaś przypadku, musimy zadbać o to, by na miejscach wszystkich współczynników, reprezentujących ich wartości dla kolejnych potęg, począwszy od dotychczasowego stopnia wielomianu, powiększego o 1, aż do jego nowego stopnia, pomniejszonego o 1, zostały wstawione zera. Dopiero wówczas na kolejnym miejscu w tablicy może zostać wstawiona wartość dla odpowiedniej potęgi.
 
-Gdy, podana w argumencie funkcji, potęga, jest niewiększa od stopnia wielomianu, następuje uaktualnienie wartości na odpowiedniej pozycji w tablicy. Konieczne jest wówczas dodatkowe sprawdzenie. Jeżeli, podana para – potęga, wartość współczynika wskazują na zerowy współczynnik dla potęgi, równej stopniowi danego wielomianu, niezbędne jest przesunięcie końca tablicy o jedno miejsce. Następnie wykonywane są sprawdzenia kolejnych elementów funkcji, począwszy od końca. W przypadku, gdy mamy do czynienia z  zerami, następują kolejne korekty granicy tablicy. Podana operacja trwa tak, dopóki nie zostaną przeanalizowane wszystkie elementy lub nie natrafimy na dowolną wartość różną od zera.
+Gdy, podana w argumencie funkcji, potęga, jest niewiększa od stopnia wielomianu, następuje uaktualnienie wartości na odpowiedniej pozycji w tablicy. Konieczne jest wówczas dodatkowe sprawdzenie. Jeżeli, podana para – potęga, wartość współczynika wskazują na zerowy współczynnik dla potęgi, równej stopniowi danego wielomianu, niezbędne jest przesunięcie końca tablicy o jedno miejsce. Następnie wykonywane są sprawdzenia kolejnych elementów funkcji, począwszy od końca. W przypadku, gdy mamy do czynienia z zerami, następują kolejne korekty granicy tablicy. Podana operacja trwa tak, dopóki nie zostaną przeanalizowane wszystkie elementy lub nie natrafimy na dowolną wartość różną od zera.
 
 Warto zauwazyć, że w przypadku obu klas, funkcja ma wpływ na stopień wielomianu. Dodatkowo, operacja dokładania i zdejmowania kolejnych argumentów, w przypadku wektora nie została zoptymalizowana. Możliwe, że w sytucji konieczności, wielokrotnej zmiany jej rozmiarów, korzystniejsza byłaby pojedyncza operacja, zwłaszcza w przypadku konieczności usuwania kolejnych zerowych współczynników. Należałoby wówcas, najpierw przeanalizować kolejne ich wartości i zliczyć wszystkie zera znaczące, a następnie pojedynczą operacją, odpowiednio zmanipulować wskaźnik na ostatni element.
 \\

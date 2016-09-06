@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  6 SEP 2016 22:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  6 SEP 2016 23:46
 entering extended mode
 **./szablon.tex
 (szablon.tex
@@ -1237,7 +1237,7 @@ LaTeX Font Info:    Try loading font information for TS1+lmr on input line 731.
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) [17]
 [18] [19] [20]
-Overfull \hbox (13.32976pt too wide) in paragraph at lines 915--916
+Overfull \hbox (13.32976pt too wide) in paragraph at lines 939--940
 \T1/lmr/m/n/10 ±ci¢ re-zul-tat funk-cji po-wi-nien by¢ wy-star-cza-j¡cy i wy-no
 -si¢ $\OML/lmm/m/it/10 mpz[]sizeinbase\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 mpq[]nu
 mref\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 op\OT1/lmr/m/n/10 )\OML/lmm/m/it/10 ; bas
@@ -1257,28 +1257,25 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [31]
 [32]
-Overfull \hbox (11.2131pt too wide) in paragraph at lines 1204--1205
+Overfull \hbox (11.2131pt too wide) in paragraph at lines 1228--1229
 [][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (11.2131pt too wide) in paragraph at lines 1205--1206
+Overfull \hbox (11.2131pt too wide) in paragraph at lines 1229--1230
 [][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-
+[33]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [33]
-Underfull \vbox (badness 5817) has occurred while \output is active []
-
  [34]
-Underfull \hbox (badness 10000) in paragraph at lines 1262--1264
+Underfull \hbox (badness 10000) in paragraph at lines 1286--1288
 
  []
 
 [35]
-Underfull \hbox (badness 10000) in paragraph at lines 1276--1278
+Underfull \hbox (badness 10000) in paragraph at lines 1300--1302
 
  []
 
@@ -1286,22 +1283,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 1276--1278
 Underfull \vbox (badness 1394) has occurred while \output is active []
 
  [36]
-Underfull \hbox (badness 10000) in paragraph at lines 1286--1288
+Underfull \hbox (badness 10000) in paragraph at lines 1310--1312
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1294--1296
+Underfull \hbox (badness 10000) in paragraph at lines 1318--1320
 
  []
 
 [37]
-Underfull \hbox (badness 10000) in paragraph at lines 1302--1304
+Underfull \hbox (badness 10000) in paragraph at lines 1326--1328
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1310--1312
+Underfull \hbox (badness 10000) in paragraph at lines 1334--1336
 
  []
 
@@ -1309,65 +1306,65 @@ Underfull \hbox (badness 10000) in paragraph at lines 1310--1312
 Underfull \vbox (badness 1584) has occurred while \output is active []
 
  [38]
-Underfull \hbox (badness 10000) in paragraph at lines 1320--1322
+Underfull \hbox (badness 10000) in paragraph at lines 1344--1346
 
  []
 
 
-LaTeX Warning: Command \textquoteright invalid in math mode on input line 1329.
+LaTeX Warning: Command \textquoteright invalid in math mode on input line 1353.
 
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1329--1331
+Underfull \hbox (badness 10000) in paragraph at lines 1353--1355
 
  []
 
 [39]
 
-LaTeX Warning: Command \l invalid in math mode on input line 1349.
+LaTeX Warning: Command \l invalid in math mode on input line 1373.
 
 [40]
-Underfull \hbox (badness 10000) in paragraph at lines 1385--1387
+Underfull \hbox (badness 10000) in paragraph at lines 1409--1411
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1393--1395
+Underfull \hbox (badness 10000) in paragraph at lines 1417--1419
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1401--1405
+Underfull \hbox (badness 10000) in paragraph at lines 1425--1429
 
  []
 
 [41]
-Underfull \hbox (badness 10000) in paragraph at lines 1420--1422
+Underfull \hbox (badness 10000) in paragraph at lines 1444--1446
 
  []
 
 [42]
-Underfull \hbox (badness 10000) in paragraph at lines 1429--1431
+Underfull \hbox (badness 10000) in paragraph at lines 1453--1455
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1438--1440
+Underfull \hbox (badness 10000) in paragraph at lines 1462--1464
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1449--1451
+Underfull \hbox (badness 10000) in paragraph at lines 1473--1475
 
  []
 
 [43]
-Underfull \hbox (badness 10000) in paragraph at lines 1461--1463
+Underfull \hbox (badness 10000) in paragraph at lines 1485--1487
 
  []
 
 [44]
-Underfull \hbox (badness 10000) in paragraph at lines 1480--1482
+Underfull \hbox (badness 10000) in paragraph at lines 1504--1506
 
  []
 
@@ -1413,7 +1410,7 @@ m Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmr7.pfb><C:/Program Files (x86)
 /fonts/type1/public/lm/lmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type
 1/public/lm/lmsy5.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/
 lmsy7.pfb>
-Output written on szablon.pdf (61 pages, 409141 bytes).
+Output written on szablon.pdf (61 pages, 409730 bytes).
 PDF statistics:
  269 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
