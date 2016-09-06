@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  4 SEP 2016 22:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  6 SEP 2016 22:25
 entering extended mode
 **./szablon.tex
 (szablon.tex
@@ -1182,12 +1182,7 @@ Rozdzia\l  1.
 [1
 
 
-] [2] [3]
-Underfull \hbox (badness 10000) in paragraph at lines 341--342
-
- []
-
-[4]
+] [2] [3] [4]
 
 LaTeX Warning: Command \l invalid in math mode on input line 352.
 
@@ -1236,17 +1231,17 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [14]
 [15] [16]
-LaTeX Font Info:    Try loading font information for TS1+lmr on input line 732.
+LaTeX Font Info:    Try loading font information for TS1+lmr on input line 731.
 
  ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\ts1lmr.fd"
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) [17]
 [18] [19] [20]
-Overfull \hbox (16.32974pt too wide) in paragraph at lines 916--917
-\T1/lmr/m/n/10 ±ci¢ re-zul-tat funk-cji po-wi-nien by¢, wy-star-cza-j¡cy i wy-n
-o-si¢ $\OML/lmm/m/it/10 mpz[]sizeinbase\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 mpq[]n
-umref\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 op\OT1/lmr/m/n/10 )\OML/lmm/m/it/10 ; ba
-se\OT1/lmr/m/n/10 ) +$
+Overfull \hbox (13.32976pt too wide) in paragraph at lines 915--916
+\T1/lmr/m/n/10 ±ci¢ re-zul-tat funk-cji po-wi-nien by¢ wy-star-cza-j¡cy i wy-no
+-si¢ $\OML/lmm/m/it/10 mpz[]sizeinbase\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 mpq[]nu
+mref\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 op\OT1/lmr/m/n/10 )\OML/lmm/m/it/10 ; bas
+e\OT1/lmr/m/n/10 ) +$
  []
 
 [21] [22
@@ -1262,25 +1257,28 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [31]
 [32]
-Overfull \hbox (11.2131pt too wide) in paragraph at lines 1208--1209
+Overfull \hbox (11.2131pt too wide) in paragraph at lines 1204--1205
 [][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (11.2131pt too wide) in paragraph at lines 1209--1210
+Overfull \hbox (11.2131pt too wide) in paragraph at lines 1205--1206
 [][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[33]
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
+ [33]
+Underfull \vbox (badness 5817) has occurred while \output is active []
+
  [34]
-Underfull \hbox (badness 10000) in paragraph at lines 1267--1269
+Underfull \hbox (badness 10000) in paragraph at lines 1262--1264
 
  []
 
 [35]
-Underfull \hbox (badness 10000) in paragraph at lines 1281--1283
+Underfull \hbox (badness 10000) in paragraph at lines 1276--1278
 
  []
 
@@ -1288,22 +1286,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 1281--1283
 Underfull \vbox (badness 1394) has occurred while \output is active []
 
  [36]
-Underfull \hbox (badness 10000) in paragraph at lines 1291--1293
+Underfull \hbox (badness 10000) in paragraph at lines 1286--1288
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1299--1301
+Underfull \hbox (badness 10000) in paragraph at lines 1294--1296
 
  []
 
 [37]
-Underfull \hbox (badness 10000) in paragraph at lines 1307--1309
+Underfull \hbox (badness 10000) in paragraph at lines 1302--1304
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1315--1317
+Underfull \hbox (badness 10000) in paragraph at lines 1310--1312
 
  []
 
@@ -1311,65 +1309,65 @@ Underfull \hbox (badness 10000) in paragraph at lines 1315--1317
 Underfull \vbox (badness 1584) has occurred while \output is active []
 
  [38]
-Underfull \hbox (badness 10000) in paragraph at lines 1325--1327
+Underfull \hbox (badness 10000) in paragraph at lines 1320--1322
 
  []
 
 
-LaTeX Warning: Command \textquoteright invalid in math mode on input line 1334.
+LaTeX Warning: Command \textquoteright invalid in math mode on input line 1329.
 
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1334--1336
+Underfull \hbox (badness 10000) in paragraph at lines 1329--1331
 
  []
 
 [39]
 
-LaTeX Warning: Command \l invalid in math mode on input line 1354.
+LaTeX Warning: Command \l invalid in math mode on input line 1349.
 
 [40]
-Underfull \hbox (badness 10000) in paragraph at lines 1390--1392
+Underfull \hbox (badness 10000) in paragraph at lines 1385--1387
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1398--1400
+Underfull \hbox (badness 10000) in paragraph at lines 1393--1395
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1406--1410
+Underfull \hbox (badness 10000) in paragraph at lines 1401--1405
 
  []
 
 [41]
-Underfull \hbox (badness 10000) in paragraph at lines 1425--1427
+Underfull \hbox (badness 10000) in paragraph at lines 1420--1422
 
  []
 
 [42]
-Underfull \hbox (badness 10000) in paragraph at lines 1434--1436
+Underfull \hbox (badness 10000) in paragraph at lines 1429--1431
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1443--1445
+Underfull \hbox (badness 10000) in paragraph at lines 1438--1440
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1454--1456
+Underfull \hbox (badness 10000) in paragraph at lines 1449--1451
 
  []
 
 [43]
-Underfull \hbox (badness 10000) in paragraph at lines 1466--1468
+Underfull \hbox (badness 10000) in paragraph at lines 1461--1463
 
  []
 
 [44]
-Underfull \hbox (badness 10000) in paragraph at lines 1485--1487
+Underfull \hbox (badness 10000) in paragraph at lines 1480--1482
 
  []
 
@@ -1377,8 +1375,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 1485--1487
 
 ]
 Rozdzia\l  3.
-[47] [48] [49] [50] [51] [52] (szablon.bbl) [53
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [47]
+[48] [49] [50] [51] [52] [53] [54] [55] [56
+
+] (szablon.bbl) [57
 
 ] (szablon.aux)
 
@@ -1410,9 +1413,9 @@ m Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmr7.pfb><C:/Program Files (x86)
 /fonts/type1/public/lm/lmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type
 1/public/lm/lmsy5.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/
 lmsy7.pfb>
-Output written on szablon.pdf (57 pages, 400333 bytes).
+Output written on szablon.pdf (61 pages, 409141 bytes).
 PDF statistics:
- 256 PDF objects out of 1000 (max. 8388607)
+ 269 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  23 words of extra memory for PDF output out of 10000 (max. 10000000)
 

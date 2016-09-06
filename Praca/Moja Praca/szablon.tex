@@ -229,7 +229,7 @@ Powyższe twierdzenie nie jest złożone, nie mniej w celu pełnego zrozumienia,
 	$\forall{i\in N}\ a_i = b_i$.
 \end{example}
 
-Można zauwazyć, potencalny wpływ reprezentacji wielomianu na szybkość operacji porównania. Gdy mamy do czynienia z wielomianem, w którym uwzględniamy każdy współczynnik, także gdy jest on zerowy, złożoność czasowa porównania jest liniowa względem stopnia wielomianu. Natomiast w przypadku, gdy pomijamy wszystkie zerowe współczynniki wielomianu, złożoność również jest liniowa, ale tym razem względem liczby niezerowych współczynników wielomianów. Jak widać, w sytuacji, gdy stopień wielomianu jest znacznie większy od liczby zerowych współczynników, reprezentacja wielomianu ma niebagatelne znaczenie. \newline
+Można zauważyć, potencjalny wpływ reprezentacji wielomianu na szybkość operacji porównania. Gdy mamy do czynienia z wielomianem, w którym uwzględniamy każdy współczynnik, także gdy jest on zerowy, złożoność czasowa porównania jest liniowa względem stopnia wielomianu. Natomiast w przypadku, gdy pomijamy wszystkie zerowe współczynniki wielomianu, złożoność również jest liniowa, ale tym razem względem liczby niezerowych współczynników wielomianów. Jak widać, w sytuacji, gdy stopień wielomianu jest znacznie większy od liczby zerowych współczynników, reprezentacja wielomianu ma niebagatelne znaczenie. \newline
 Dodatkowo, podobnie jak w przypadku porównywania liczb i sprawdzania kolejnych bitów, operacja porównania kończy się w momencie stwierdzenie, że porównywane współczynniki są różne lub porównaliśmy ze sobą już wszystkie współczynniki. Wynika z tego, że zakładając stały czas porównywania dwóch liczb, będącymi współczynnikami wielomianów, operacja porównania różnych wielomianów nigdy nie jest dłuższa od stwierdzenia, że porównywane wielomiany są równe.
 
 \subsubsection{Suma wielomianów}
@@ -264,7 +264,7 @@ Na powyższym przykładzie łatwo zaobserwować, że stopień sumy dwóch wielom
 	\end{equation}
 \end{theorem}
 
-W przedstawionym twierdzeniu, należy uwagę na operator mniejsze równe. W przypadku gdy oba te wielomiany są tego samego stopnia, o przeciwnym współczynniku przy najwyższej potędze, to stopień ten będzie mniejszy.
+W przedstawionym twierdzeniu, należy zwrócić uwagę na operator mniejsze równe. W przypadku, gdy oba te wielomiany są tego samego stopnia, o przeciwnym współczynniku przy najwyższej potędze, to stopień ten będzie mniejszy.
 
 \subsubsection{Różnica wielomianów}
 
@@ -293,7 +293,7 @@ Wiemy już, czym jest wielomian przeciwny. Przedstawmy teraz twierdzenie mówią
 	Aby obliczyć różnicę wielomianów $W_1$ i $W_2$, należy dodać ze sobą wielomiany $W_1$ i $-W_2$, czyli wielomian przeciwny do wielomianu $W_2$.
 \end{theorem}
 
-Jak widać, przedstawione twierdzenie potwierdza analogię obliczania róznicy i sumy wielomianów. Spójrzmy na przykład, pokazujący jak obliczać różnicę wielomianów, potrafiając już je do siebie dodawać.
+Jak widać, przedstawione twierdzenie potwierdza analogię obliczania róznicy i sumy wielomianów. Spójrzmy na przykład pokazujący, jak obliczać różnicę wielomianów, potrafiąc już je do siebie dodawać.
 
 \begin{example}
 	Mamy dane wielomian $W_1$ oraz wielomian $W_2$.
@@ -313,7 +313,7 @@ Warto zauważyć, że wielomianem neutralnym ze względu na dodawanie i odejmowa
 
 \subsubsection{Iloczyn wielomianów}
 
-Mnożenie to kolejne operacja zaliczająca się do podstawowych działań na wielomianach. Jego zasady przypominają nieco zwykłe mnożenie. Dokonujemy przemnożenia odpowiednich wyrazów, z tą różnicą, że w tym przypadku po prostu dodajemy wartości potęg dla odpowiednich współczynników. Zapoznajmy się z twierdzeniem, mówiącym dokładnie jak należy obliczać iloczyn wielomianów.
+Mnożenie to kolejna operacja zaliczająca się do podstawowych działań na wielomianach. Jego zasady przypominają nieco zwykłe mnożenie. Dokonujemy przemnożenia odpowiednich wyrazów, z tą różnicą, że w tym przypadku po prostu dodajemy wartości potęg dla odpowiednich współczynników. Zapoznajmy się z twierdzeniem, mówiącym dokładnie jak należy obliczać iloczyn wielomianów.
 
 \begin{theorem}
 	Aby pomnożyć dwa wielomiany, należy wymnożyć przez siebie wyrazy obu wielomianów, a następnie dodać do siebie wyrazy podobne.
@@ -338,11 +338,11 @@ Jak wynika z przedstawionej definicji poza mnożeniem dwóch liczb, mnożenie wi
 	\end{equation}
 \end{example}
 
-Można zauważyć, że po wymnożeniu wszystkich współczynników wielomianu liczba wyrazów iloczynu wynosi $(n+1)(m+1)$. Po dokonaniu redukcji wyrazów podobnych liczba ta ulega zmniejszeniu do wartości $n+m+2$. Oznacza to zmianę liczby wyrazów z wartości kwadratowej, do wartości liniowej względem stopni wielomianów. Liczba wyrazów podobnych, po przemnożeniu dwóch wielomianów jest symetryczna względem wykładników potęg poszczególnych współczynników. Można zauważyć, że skrajne wyrazy posiadają tylko po jednym wyrazie potęgi, a zbliżając się do współczynników o środkowych indeksach, liczba ta wzrasta, aż do wartości równej połowie stopnia otrzymanego wielomianu. \newline
+Można zauważyć, że po wymnożeniu wszystkich współczynników wielomianu liczba wyrazów iloczynu wynosi $(n+1)(m+1)$. Po dokonaniu redukcji wyrazów podobnych, liczba ta ulega zmniejszeniu do wartości $n+m+2$. Oznacza to zmianę liczby wyrazów z wartości kwadratowej, do wartości liniowej względem stopni wielomianów. Liczba wyrazów podobnych, po przemnożeniu dwóch wielomianów jest symetryczna względem wykładników potęg poszczególnych współczynników. Można zauważyć, że skrajne wyrazy posiadają tylko po jednym wyrazie potęgi, a zbliżając się do współczynników o środkowych indeksach, liczba ta wzrasta, aż do wartości równej połowie stopnia otrzymanego wielomianu.
 
-Widzimy, że czas operacji mnożenia wielomianów jest kwadratowy, wzgędem stopni mnożonych przez siebie czynników. Należy zauważyć, że jeżeli użyjemy reprezentacji wielomianu, w których posiadamy informację tylko o jego niezerowych współczynników, to czas operacji mnożenie będzie nadal kwadratowy, jednak względem liczby tych współczynników. Dla wielomianów wysokich stopni, w których zaledwie kilka współczynników jest niezerowych różnica ta może być niegatelna i w skrajnych przypadkach czas operacji może zmniejszyć się z kwadratowego, do czasu stałego.
+Widzimy, że czas operacji mnożenia wielomianów jest kwadratowy, względem stopni mnożonych przez siebie czynników. Należy zauważyć, że jeżeli użyjemy reprezentacji wielomianu, w których posiadamy informację tylko o jego niezerowych współczynnikach, to czas operacji mnożenia będzie nadal kwadratowy, ale względem liczby tych współczynników. Dla wielomianów wysokich stopni, w których zaledwie kilka współczynników jest niezerowych różnica ta może być niegatelna i w skrajnych przypadkach czas operacji może zmniejszyć się z kwadratowego, do czasu stałego.
 
-Na podstawie powyższego przykładu, możemy także zaobserwować, że stopień wielomianu, będącego iloczynem dwóch wielomianów niezerowych, jest standardowo równy sumie stopni tych wielomianów. Wyjątkiem jest sytuacja gdy jeden z czynników jest wielomianem zerowym. Wówczas wynik takiej operacji również będzie wielomianem zerowym. Fakt ten znajduje potwierdzenie w poniższym twierdzeniu.
+Na podstawie powyższego przykładu, możemy także zaobserwować, że stopień wielomianu, będącego iloczynem dwóch wielomianów niezerowych, jest standardowo równy sumie stopni tych wielomianów. Wyjątkiem jest sytuacja, gdy jeden z czynników jest wielomianem zerowym. Wówczas wynik takiej operacji również będzie wielomianem zerowym. Fakt ten znajduje potwierdzenie w poniższym twierdzeniu.
 
 \begin{theorem}
 	\begin{equation}
@@ -436,7 +436,7 @@ Istnieje mnóstwo twierdzień dotyczących wielomianów. Zapoznajmy się z tymi,
 	\end{equation}
 \end{theorem}
 
-Twierdzenie to oznacza, że przy dysponując wyłącznie współczynnikami, będącymi liczbami całkowitymi, jesteśmy w stanie przedstawić dowolny wielomian o współczynnikach wymiernych. Przejdźmy teraz do twierdzenia, mówiącego o wartości wielomianu w danym punkcie.
+Twierdzenie to oznacza, że dysponując wyłącznie współczynnikami, będącymi liczbami całkowitymi, jesteśmy w stanie przedstawić dowolny wielomian o współczynnikach wymiernych. Przejdźmy teraz do twierdzenia, mówiącego o wartości wielomianu w danym punkcie.
 
 \begin{theorem}
 	Jeżeli wielomian W(x) podzelimy przez dwumian $x - x_0$, to reszta z tego dzielenia jest równa wartości tego wielomianu dla $x = x_0$.
@@ -454,7 +454,7 @@ Dodatkowo zapoznajmy się jeszcze z krótkim dowodem poprawności powyższego tw
 	Jeżeli liczba $x_0$ jest pierwiastkiem wielomianu W, to wielomian ten możemy wyrazić jako iloczyn dwumianu $x - x_0$ oraz pewnego wielomianu Q: $W(x) = (x-x_0) * Q(x)$. Wyznaczając z tego wyrażenia wielomian Q, otrzymujemy $Q(x) = \frac{W(x)}{x-x_0}$. Widzimy zatem, że dzieląc wielomian W(x) przez dwumian $x-x_0$, otrzymujemy bez reszty, wielomian Q(x).
 \end{proof}
 
-Przejdźmy teraz, to twierdzenia mówiącego o pierwiastkach wielokrotnych, bazującego na twierdzeniu Bezout.
+Przejdźmy teraz do twierdzenia mówiącego o pierwiastkach wielokrotnych, bazującego na twierdzeniu Bezout.
 
 \begin{theorem}
 	Liczba $x_0$ jest pierwiastkiem k-krotnym wielomianu W(x) wtedy i tylko wtedy, gdy wielomian jest podzielny przez $(x - x_0)^k$ i nie jest podzielny przez $(x - x_0)^{k+1}$.
@@ -536,7 +536,7 @@ By lepiej zrozumieć twierdzenie, spójrzmy na poniższy przykład.
 	\end{equation}
 \end{example}
 
-Jak widać powyższy przykład potwierdza zastosowanie przedstawionego twierdzenia. Widzimy, że krotność wszystkich pierwiastków ulega zmniejszeniu o jeden, w kolejnej pochodnej. Dodatkowo możemy zauwazyć, że pochodna może zawierać także pierwiastki, których nie miał dany wielomian. Ma to miejsce w przypadku, gdy wielomian, posiada przynajmniej dwa różne pierwiastki. Potwierdza to poniższe twierdzenie.
+Jak widać powyższy przykład potwierdza zastosowanie przedstawionego twierdzenia. Widzimy, że krotność wszystkich pierwiastków ulega zmniejszeniu o jeden, w kolejnej pochodnej. Dodatkowo możemy zauważyć, że pochodna może zawierać także pierwiastki, których nie miał dany wielomian. Ma to miejsce w przypadku, gdy wielomian, posiada przynajmniej dwa różne pierwiastki. Potwierdza to poniższe twierdzenie.
 
 \begin{theorem}
 	Liczba nowych pierwiastków pochodnej wielomianu W' (takich których nie posiadał wielomian W) jest równa liczbie różnych pierwiastków wielomianu pomniejszonej o jeden.
@@ -569,7 +569,7 @@ Spróbujmy teraz skorzystać z przedstawionego twierdzenia w przykładzie dokonu
 	&-2x^4-2x^3+6x^2+10x \\
 	\end{split}
 	\end{equation}
-	Kluczowa jest wartość reszty z dzielenia. Gdyby otrzymana reszta z dzielenia była wielomianem zerowym, to pochodna wielomianu było równocześnie NWD(W, W'). W tym przypadku tak jednak nie jest, więc wykonujemy analogiczną operację z tą różnicą, że nową dzielną jest dotychczasowy dzielnik, a reszta z wielomianu jest nowym dzielnikiem. Tę operację wykonujemy tak długo, jak otrzymana reszta jest niezerowego stopnia. W przypadku gdy jest ona jednocześnie wielomianem zerowym, to podobnie jak wyżej, aktualny dzielnik, jest naszym NWD(W, W'). W przypadku gdy otrzymana reszta jest niezerowym wielomianem stopnia zerowego, to największym wspólnym dzielnikiem wielomianów jest pewna niezerowa stała.
+	Kluczowa jest wartość reszty z dzielenia. Gdyby otrzymana reszta z dzielenia była wielomianem zerowym, to pochodna wielomianu było równocześnie NWD(W, W'). W tym przypadku tak jednak nie jest, więc wykonujemy analogiczną operację z tą różnicą, że nową dzielną jest dotychczasowy dzielnik, a reszta z wielomianu jest nowym dzielnikiem. Tę operację wykonujemy tak długo, jak otrzymana reszta jest niezerowego stopnia. W przypadku gdy jest ona jednocześnie wielomianem zerowym, to podobnie jak wyżej, aktualny dzielnik, jest naszym NWD(W, W'). W przypadku, gdy otrzymana reszta jest niezerowym wielomianem stopnia zerowego, to największym wspólnym dzielnikiem wielomianów jest pewna niezerowa stała.
 \end{example}
 
 \section{Twierdzenie Sturma}
@@ -577,7 +577,7 @@ Spróbujmy teraz skorzystać z przedstawionego twierdzenia w przykładzie dokonu
 Przeanalizujmy na początek sposób konstruowania ciągu Sturma dla wielomianu W. Pierwszym wyrazem ciagu jest sam wielomian W. Z kolei drugim wyrazem jest pochodna wielomianu W. Kolejne wyrazy ciągu Sturma wyznaczamy obliczając resztę z ilorazu dwóch poprzednich wyrazów. Dzieje się to do uzyskania pierwszej reszty wielomianu, będącą wielomianem stopnia zerowego. Za każdym razem dzieląc wielomian stopnia n, przez wielomian stopnia m, gdzie $m<n$, mamy gwarancję, że wielomian będacy resztą tego ilorazu będzie stopnia mniejszego niż m. Korzystając z tego faktu, wiemy, że liczba wyrazów ciągu Sturma dla wielomianu W jest niewiększa od $\deg(W)+1$.
 
 \begin{definition}
-	Ciągiem Sturma dla wielomianu W nazywamy ciąg wielomianów: $X_0, X_1, X_2,...,$, takich że $X_0=W$, $X_1=W'$, a kolejne wyrazy definiuje się jako wielomian przeciwny to reszty z dzielenia dwóch poprzednich wyrazów, przy czym ostatnim wyrazem ciągu Sturma jest pierwszy wielomian stopnia zerowego. 
+	Ciągiem Sturma dla wielomianu W nazywamy ciąg wielomianów: $X_0, X_1, X_2,...$, takich że $X_0=W$, $X_1=W'$, a kolejne wyrazy definiuje się jako wielomiany przeciwne do reszty z dzielenia dwóch poprzednich wyrazów, przy czym ostatnim wyrazem ciągu Sturma jest pierwszy wielomian stopnia zerowego. 
 \end{definition}
 
 Wiemy już jak definiować ciąg Sturma. Przeanalizujmy teraz jaki wpływ ma uzyskany ciąg Sturma na obliczanie pierwiastków wielomianu. By to zrobić, zapoznajmy się z kolejną definicją, mówiącą o liczbie zmian znaków ciagu Sturma.
@@ -599,19 +599,19 @@ W ogólności twierdzenie Sturma można zastosować dla przedziału $(-\infty,+\
 \end{theorem}
 
 Stosując twierdzenie Sturma dla coraz mniejszych przedziałów możliwe jest wyznaczenie pierwiastków wielomianu z dowolną dokładnością. Sposób ten określony jest mianem metody Sturma.
-Twierdzenie Sturma jest bardzo mocnym środkowiem używanym do znajdowania pierwiastków w określonym przedziale. Może być używana nie tylko dla wielomianów, ale dowolnej różniczkowalnej funkcji ciągłej. Zapoznajmy się z twierdzeniem, mówiącym o ograniczeniach dotyczących maksymalnej liczby zmian znaków dla Ciąg Sturma.
+Twierdzenie Sturma jest bardzo mocnym środkiem, używanym do znajdowania pierwiastków w określonym przedziale. Może być używane nie tylko dla wielomianów, ale dowolnej różniczkowalnej funkcji ciągłej. Zapoznajmy się z twierdzeniem, mówiącym o ograniczeniach dotyczących maksymalnej liczby zmian znaków dla ciągu Sturma.
 
 \begin{theorem}
-	Liczba zmian znaków ciągu Sturma dla wielomianu W(x) jest mniejsza od liczby wyrazów tego ciągu i niewiększa od stopnia wielomianu W(x).
+	Liczba zmian znaków ciągu Sturma dla wielomianu W(x) jest mniejsza od liczby wyrazów tego ciągu i nie większa od stopnia wielomianu W(x).
 \end{theorem}
 
-Można, więc zauważyć, że warunkiem wystarczającym i jednocześnie koniecznym do tego by wielomian W(x) stopnia n, posiadający wyłącznie pierwiastki jednokrotne, posiadał n pierwiastków rzeczywistych jest to by wartość ciągu Sturma wynosiła n dla $x=-\infty$ oraz 0 dla $x=+\infty$. 
+Można więc zauważyć, że warunkiem wystarczającym i jednocześnie koniecznym do tego by wielomian W(x) stopnia n, posiadający wyłącznie pierwiastki jednokrotne, posiadał n pierwiastków rzeczywistych jest to, by wartość ciągu Sturma wynosiła n dla $x=-\infty$ oraz 0 dla $x=+\infty$. 
 
-Warto zauwazyć, że dla liczb dostatecznie dużych, co do wartości bezwzględnej, z uwzględnieniem wartości niewłaściwych $+\infty$ oraz $-\infty$ liczba zmian znaków zależy wyłącznie od współczynnika stojącego przy najwyżej potędze wielomianu. Znajduje to potwierdzenie w poniższym twierdzeniu.
+Warto zauważyć, że dla liczb dostatecznie dużych, co do wartości bezwzględnej, z uwzględnieniem wartości niewłaściwych $+\infty$ oraz $-\infty$ liczba zmian znaków zależy wyłącznie od współczynnika stojącego przy najwyżej potędze wielomianu. Znajduje to potwierdzenie w poniższym twierdzeniu.
 
 \begin{theorem}
-	Jeżeli współczynnik stojący przy najwyższej potędze wielomianu jest większy od 0, to wartość tego wielomianu jest większa od zera w punkcie $x=+\infty$ oraz mniejsza od zera w punkcie $x=-\infty$.
-	Z kolei, gdy współczynnik stojący przy najwyższej potędze wielomianu jest mniejszy od 0, to wartość tego wielomianu jest mniejsza od zera w punkcie $x=+\infty$ oraz większa od zera w punkcie $x=-\infty$.
+	Jeżeli współczynnik stojący przy najwyższej potędze wielomianu jest większy od 0, to wartość tego wielomianu jest większa od 0 w punkcie $x=+\infty$ oraz mniejsza od 0 w punkcie $x=-\infty$.
+	Z kolei, gdy współczynnik stojący przy najwyższej potędze wielomianu jest mniejszy od 0, to wartość tego wielomianu jest mniejsza od 0 w punkcie $x=+\infty$ oraz większa od 0 w punkcie $x=-\infty$.
 \end{theorem}
 
 Na podstawie powyższego twierdzenia można zauważyć, że nie ma potrzeby wyliczania wartości wyrazów ciągu sturma dla wartości niewłaściwych, tzn. $x=-\infty$ oraz $x=+\infty.$ Dzieje się tak dlatego, że wartość wielomianu nie jest ważna, a istotny jest jedynie znak. Fakt ten ma duży wpływ na optymalizacje obliczeń, gdyż dla wielomianów wysokich stopni ograniczamy się jedynie do sprawdzenia znaku przy najwyższej potędze, pomijąc wykonywanie potęgowania, mnożenia i sumowania kolejnych wyrazów wielomianu.
@@ -623,18 +623,17 @@ Jeżeli zależy nam, na obliczeniu wartości wielomianu, dla odpowiednio dużych
 
 Jak widać jesteśmy w stanie ustalić znak, a nawet dokładną wartość, największego współczynnika wielomianu, będącego ilorazem dwóch innych wielomianów, wykonując proste dzielenie dwóch liczb, będących odpowiednio najwyższymi współczynnikami wielomianów - dzielnej i dzielnika.
 
-
 \section{Biblioteka Mpir}
 
 \subsection{Podstawowe informacje}
 
 \subsubsection{Wstęp}
 
-Mpir jest przykładem biblioteki napisanej w języku C, pozwalającą operować na liczby o dowolnej wielkości i dokładności. Jej celem było dostarczenie narzędzia dla arytmetyki na liczbach, które nie są wspierane przez podstawowe typy wbudowane w języku C.
+Mpir jest przykładem biblioteki napisanej w języku C, pozwalającą operować na liczbach o dowolnej wielkości i dokładności. Jej celem było dostarczenie narzędzia dla arytmetyki liczb, która nie jest wspierana przez podstawowe typy, wbudowane w języku C.
 
 Kluczowy jest fakt, że biblioteka ta została zoptymalizowana w taki sposób, by w zależności od potrzeb używać odmiennych algorytmów. Stało się tak dlatego, że algorytm działania na małych liczbach z niewielką precyzją jest prosty i znacznie różni się od wymyślnej metody, używanej w przypadku wielkich liczb, z setkami cyfr po przecinku.
 
-Warto zauważyć, że optymalizacja kodu odbywa się także w zależności od rodzaju procesora, na którym są wykonywane obliczenia. Biblioteka przeznaczona dla procesorów Intel i7 dostarcza inny kod niż dla procesora Pentium 4 lub Athlon. Dzięki temu, z pewnością, działa w sposób bardziej wydajny, kosztem wygody programistów, którzy jej używają. Nie są oni w łatwy sposób zapewnić optymalnego działania programu, niezależnie od sprzętu na którym jest on uruchamiany, co może znacznie utrudnić proces powstawania nowego oprogramowania, bazującego na bibliotece mpir.
+Warto zauważyć, że optymalizacja kodu odbywa się także w zależności od rodzaju procesora, na którym są wykonywane obliczenia. Biblioteka przeznaczona dla procesorów Intel i7 dostarcza inny kod niż dla procesora Pentium 4 lub Athlon. Dzięki temu, z pewnością, działa w sposób bardziej wydajny, kosztem wygody programistów, którzy jej używają. Nie są oni w stanie, w łatwy sposób, zapewnić optymalnego działania programu, niezależnie od sprzętu na którym jest on uruchamiany, co może znacznie utrudnić proces powstawania nowego oprogramowania, bazującego na bibliotece mpir.
 
 \subsubsection{Licencja}
 
@@ -642,14 +641,14 @@ Biblioteka mpir jest przykładem wolnego oprogramowania, charakteryzującego si�
 
 \subsubsection{Nazewnictwo i typy}
 
-Biblioteka mpir posiada odpowiedniki dla wszystkich podstawowych typów liczbowych, które są charakterystyczne dla języka C. Odpowiednikiem typów całkowitych jest typ mpz\_t, zaś odpowiednikiem liczb zmiennoprzecinkowych, typu float, jest mpq\_t. Dla liczb całkowitych możemy łatwo zdecydować, czy interesuje nas liczba ze znakiem, czy bez niego. Oba przypadki posiadają prawie identycznie nazwane funkcje. Jedyną różnicą jest to, że dla zmiennych ze znakiem występuje przyrostek si, od wyrazu angielskiego wyrazu signed, a dla zmiennych bez znaku przyrostek ui, od wyrazu unsigned. Typ mpq\_t daje użytkownikowi możliwość zdefiniowana dowolnej liczby, dającej się przedstawić w postaci ułamka, czyli dowolnej liczby wymiernej. Ograniczenie to spowodowane jest faktem, iż liczba taka składa się z dwóch liczb typu mpz\_t. Pierwsza z nich jest licznikiem, a druga mianownikiem.
+Biblioteka mpir posiada odpowiedniki dla wszystkich podstawowych typów liczbowych, które są charakterystyczne dla języka C. Odpowiednikiem typów całkowitych jest typ mpz\_t, zaś odpowiednikiem liczb zmiennoprzecinkowych, typu float, jest mpq\_t. Dla liczb całkowitych możemy łatwo zdecydować, czy interesuje nas liczba ze znakiem, czy bez niego. Oba przypadki posiadają prawie identycznie nazwane funkcje. Jedyną różnicą jest to, że dla zmiennych ze znakiem występuje przyrostek si, od wyrazu angielskiego wyrazu signed, a dla zmiennych bez znaku przyrostek ui, od wyrazu unsigned. Typ mpq\_t daje użytkownikowi możliwość zdefiniowania dowolnej liczby, dającej się przedstawić w postaci ułamka, czyli dowolnej liczby wymiernej. Ograniczenie to spowodowane jest faktem, iż liczba taka składa się z dwóch liczb typu mpz\_t. Pierwsza z nich jest licznikiem, a druga mianownikiem.
 
 \subsubsection{Funkcje}
-W bibliotece przyjęto konwencję charakterystyczną, dla języka C, polegającą na tym, że zarówno argumenty wejściowe jak i wyjściowe funkcji są przekazywane za pomocą referencji do funkcji, która zazwyczaj jest typu void, czyli nie zwraca żadnej wartości. Warto zauważyć, że argumenty wyjściowe są podawane przed wejściowymi. Stało się tak poprzez zachowanie analogii do operatora przypisania, w którym to zmienna wynikowa znajduje się po lewej stronie.
+W bibliotece przyjęto konwencję charakterystyczną dla języka C, polegającą na tym, że zarówno argumenty wejściowe jak i wyjściowe funkcji są przekazywane za pomocą referencji do funkcji, która zazwyczaj jest typu void, czyli nie zwraca żadnej wartości. Warto zauważyć, że argumenty wyjściowe są podawane przed wejściowymi. Stało się tak poprzez zachowanie analogii do operatora przypisania, w którym to zmienna wynikowa znajduje się po lewej stronie.
 W bibliotece mpir zmienna po zadeklarowaniu nie jest natychmiastowo gotowa do użycia, ponieważ wymaga inicjalizacji, przydzielającej jej miejsce w pamięci. Możemy to zrobić poprzez wywołanie odpowiedniej funkcji init, w argumencie podając odpowiednią zmienną. Analogicznie, aby zwolnić zajmowany, przez zmienną, obszar pamięci należy wywołać funkcję clear. Istnieją także funkcje realokujące, czyli zwiększające lub zmniejszające, zajmowany obszar. Użycie ich jest jednak opcjonalne, gdyż zmiana rozmiaru jest automatycznie wykrywana. Raz zainicjalizowaną zmienną, można używać dowolną liczbę razy. Twórcy biblioteki zalecają unikanie nadmiernego korzystania z funkcji init i clear, ponieważ są to operacje czasochłonne i zbyt duża liczba ich wywołań może mieć negatywny wpływ na wydajność naszego programu.
 
 \subsubsection{Zarządzanie pamięcią}
-Biblioteka mpir, alokując w pamięci nowe obiekty, stara się minimalizować wielkość, zajmowaną przez nie, miejsca. Dodatkowa pamięć jest przyznawana dopiero, kiedy jej aktualna wielkość jest niewystarczająca. W przypadku zmiennych typów mpz\_t i mpq\_t, raz zwiększony rozmiar danej zmiennej nigdy nie zostanie zmniejszony. Zazwyczaj jest to najlepsza praktyka, ponieważ częsta alokacja pamięci ma niekorzystny wpływ na wydajność programu. Jeżeli aplikacja potrzebuje zmniejszyć zajmowane przez daną zmienną miejsce, można dokonać realokacji albo całkowicie zwolnić, zajmowane przez nią miejsce. Dodatkowo kolejne zwiększania rozmiaru przeznaczonego na poszczególne zmienne może powodować zauważalny spadek wydajności lub fragmentację danych. Nie da się uniknąć, jeżeli chcemy zaalokować więcej miejsca dla danej zmiennej, w momencie, gdy w jej sąsiedztwie znajdują się już inne zmienne. Wówczas zależnie od implementacji mamy do czynienia z jednej z dwóch wariantów. W pierwszym przypadku, alokujemy nowe miejsce w pamięci, uzupełniając odpowiednio jego wartość, a następnie zwalniając wcześniej zajmowane miejsce. Alternatywą jest pozostawienie zajmowanej już pamięci i przydzielenie dodatkowej w innym miejscu. W takim przypadku jesteśmy zmuszeni do odpowiedniego zarządzania nieciągłymi fragmentami pamięci, co również może mieć bardzo negatywny wpływ na wydajność aplikacji. Z kolei, zmienne typu mpf\_t mają niezmienny rozmiar, zależny od wybranej precyzji. \\
+Biblioteka mpir, alokując w pamięci nowe obiekty, stara się minimalizować wielkość, zajmowaną przez nie, miejsca. Dodatkowa pamięć jest przyznawana dopiero, kiedy jej aktualna wielkość jest niewystarczająca. W przypadku zmiennych typów mpz\_t i mpq\_t, raz zwiększony rozmiar danej zmiennej nigdy nie zostanie zmniejszony. Zazwyczaj jest to najlepsza praktyka, ponieważ częsta alokacja pamięci ma niekorzystny wpływ na wydajność programu. Jeżeli aplikacja potrzebuje zmniejszyć zajmowane przez daną zmienną miejsce, można dokonać realokacji albo całkowicie zwolnić, zajmowane przez nią miejsce. Dodatkowo kolejne zwiększania rozmiaru przeznaczonego na poszczególne zmienne może powodować zauważalny spadek wydajności lub fragmentację danych. Nie da się uniknąć, jeżeli chcemy zaalokować więcej miejsca dla danej zmiennej, w momencie, gdy w jej sąsiedztwie znajdują się już inne zmienne. Wówczas zależnie od implementacji mamy do czynienia z jednym z dwóch wariantów. W pierwszym przypadku, alokujemy nowe miejsce w pamięci, uzupełniając odpowiednio jego wartość, a następnie zwalniając wcześniej zajmowane miejsce. Alternatywą jest pozostawienie zajmowanej już pamięci i przydzielenie dodatkowej w innym miejscu. W takim przypadku jesteśmy zmuszeni do odpowiedniego zarządzania nieciągłymi fragmentami pamięci, co również może mieć bardzo negatywny wpływ na wydajność aplikacji. Z kolei, zmienne typu mpf\_t mają niezmienny rozmiar, zależny od wybranej precyzji. \\
 Warto zauważyć, że biblioteka standardowo do alokowania pamięci domyślnie używa funkcji malloc, ale możliwe jest także korzystanie z funkcji alloca. Pierwszy alokator zajmuje się tylko przydzieleniem pamięci, a użytkownik musi sam pamiętać, o jego zwolnieniu, w odpowiednim momencie. Z kolei, drugi z nich zdejmuje tę odpowiedzialność ze strony programisty i sam dba o zwolnienie pamięci, gdy jest ona już nie używana.
 
 \subsubsection{Kompatybilność}
@@ -738,7 +737,7 @@ Konstruuje liczbę typu mpz\_t, na podstawie podanego łańcucha znaków, reprez
 void mpz_swap (mpz_t rop1, mpz_t rop2)
 \end{lstlisting}
 
-Używana jest do zamiany wartości pomiędzy dwoma zmiennymi typu mpz\_t. Jej użycie jest rekomendowane, ze względów wydajnościowych. W przypadku braku tej funkcji, potrzebaby zmiennej tymczasowej. W tym celu musiała by ona na początku zostać zaalokowana w pamięci, a na końcu zwolniona. Obie operacje są czasochłonne i zaleca się minimalizować ich użycie, więc użycie zoptymalizowanej funkcji służącej do zamiany wartości dużych liczb wydaje się zdecydowanie najlepszą i najszybszą opcją.
+Używana jest do zamiany wartości pomiędzy dwoma zmiennymi typu mpz\_t. Jej użycie jest rekomendowane, ze względów wydajnościowych. W przypadku braku tej funkcji, potrzeba by zmiennej tymczasowej. W tym celu musiała by ona na początku zostać zaalokowana w pamięci, a na końcu zwolniona. Obie operacje są czasochłonne i zaleca się minimalizować ich użycie, więc użycie zoptymalizowanej funkcji służącej do zamiany wartości dużych liczb wydaje się zdecydowanie najlepszą i najszybszą opcją.
 
 \subsubsection{Funkcje konwersji}
 
@@ -758,7 +757,7 @@ Pozwala zrzutować typ mpz\_t na zmienną typu double. Jeżeli jest to konieczne
 char * mpz_get_str (char *str, int base, mpz_t op)
 \end{lstlisting}
 
-Zwraca ciąg znaków reprezentujących liczbę op., o podstawie danej w paremetrze o nazwie base. Funkcja ta jest analogiczna do mpz\_set\_str. Jeżeli parametrem str jest NULL, to ciąg znaków zostaje zwrócony przez funkcję. W przeciwnym razie funkcja umieszcza go pod adresem, na który wskazuje zmienna str. Należy zadbać o to, by bufor, do zapisania rezultatu funkcji, był wystarczający. Powinien on być 2 bajty dłuższy niż długość zwróconej liczby w danym systemie liczbowym. Pierwszy bajt służy na wpisanie ewentualnego znaków minus, natomiast drugi na znak ‘\\0’ kończący łańcuch znaków. Długość zasadniczej części liczbowej można pobrać używając funkcji mpz\_sizeinbase (op, base), w której podajemy daną liczbę oraz podstawę.
+Zwraca ciąg znaków reprezentujących liczbę op., o podstawie danej w paremetrze o nazwie base. Funkcja ta jest analogiczna do mpz\_set\_str. Jeżeli parametrem str jest NULL, to ciąg znaków zostaje zwrócony przez funkcję. W przeciwnym razie funkcja umieszcza go pod adresem, na który wskazuje zmienna str. Należy zadbać o to, by bufor, do zapisania rezultatu funkcji, był wystarczający. Powinien on być 2 bajty dłuższy niż długość zwróconej liczby w danym systemie liczbowym. Pierwszy bajt służy na wpisanie ewentualnego znaków minus, natomiast drugi na znak $ 0$ kończący łańcuch znaków. Długość zasadniczej części liczbowej można pobrać używając funkcji mpz\_sizeinbase (op, base), w której podajemy daną liczbę oraz podstawę.
 
 \subsubsection{Funkcje arytmetyczne}
 
@@ -802,10 +801,10 @@ Jako rezultat ustawia liczbę przeciwną do danej. Gdy rop i op są tą samą zm
 void mpz_abs (mpz_t rop, mpz_t op)
 \end{lstlisting}
 
-Funkcja w swoim działaniu jest bardzo podobna do funkcji mpz\_neg. Jedyną róznicą jest to, że bit znaku nie zostaje zanegowany, a ustawiony tak, by wskazywał na wartość nieujemną.
+Funkcja w swoim działaniu jest bardzo podobna do funkcji mpz\_neg. Jedyną różnicą jest to, że bit znaku nie zostaje zanegowany, a ustawiony tak, by wskazywał na wartość nieujemną.
 
 \subsubsection{Funkcje dzielenia}
-Uzywając niżej wymienionych funkcji należy pamiętać, ze dzielenie przez 0, zarówno w przypadku obliczania wartości ilorazu, jak i reszty z dzielenia jest nielegalne. W przypadku, gdy wystąpi taka sytuacja, biblioteka zachowa się jak w przypadku dzielenia przez 0, dla liczb typu int, tzn. skończy działanie funkcji, rzucając odpowiedni wyjątek.
+Używając niżej wymienionych funkcji należy pamiętać, że dzielenie przez 0, zarówno w przypadku obliczania wartości ilorazu, jak i reszty z dzielenia jest nielegalne. W przypadku, gdy wystąpi taka sytuacja, biblioteka zachowa się jak w przypadku dzielenia przez 0, dla liczb typu int, tzn. skończy działanie funkcji, rzucając odpowiedni wyjątek.
 
 \begin{lstlisting}
 void mpz_tdiv_q (mpz_t q, mpz_t n, mpz_t d)
@@ -817,7 +816,7 @@ Funkcja oblicza iloraz z liczb n i d. Litera przed ‘div’ w nazwie funkcji m�
 void mpz_tdiv_r (mpz_t r, mpz_t n, mpz_t d)
 \end{lstlisting}
 
-Oblicza wartość rezsty z dzielenia liczb n i d. Podobnie jak w fukcji mpz\_tdiv\_q, mamy do czynienia z przypadkiem obcięcia ewentualnej części ułamkowej ilorazu. Oznacza to, że zwracana reszta zawsze będzie tego samego znaku co zmienna n. Rekomendowana, gdy wartość ilorazu z dzielenia nie jest istotna.
+Oblicza wartość reszty z dzielenia liczb n i d. Podobnie jak w funkcji mpz\_tdiv\_q, mamy do czynienia z przypadkiem obcięcia ewentualnej części ułamkowej ilorazu. Oznacza to, że zwracana reszta zawsze będzie tego samego znaku co zmienna n. Rekomendowana, gdy wartość ilorazu z dzielenia nie jest istotna.
 
 \begin{lstlisting}
 void mpz_tdiv_qr (mpz_t q, mpz_t r, mpz_t n, mpz_t d)
@@ -830,7 +829,7 @@ Oprócz wyżej wymienionych funkcji, istnieją także ich odpowiedniki, o odmien
 int mpz_divisible_p (mpz_t n, mpz_t d)
 \end{lstlisting}
 
-Funkcja sprawdza, czy d dzieli liczbę n. Jeżeli nie, to zwracana 0, w przeciwnym razie zwraca wartość różną od zera.
+Funkcja sprawdza, czy d dzieli liczbę n. Jeżeli nie, to zwracane jest 0, a w przeciwnym wypadku wartość od niego różna.
 
 \begin{lstlisting}
 void mpz_divexact (mpz_t q, mpz_t n, mpz_t d)
@@ -856,7 +855,7 @@ Porównuje wartość bezwzględną dwóch liczb. Zwraca wartość dodatnią, gdy
 int mpz_sgn (mpz_t op)
 \end{lstlisting}
 
-Określa znak danej liczby. Zwraca 1 dla wartości dodatnich, -1 dla ujemnych oraz 0 w przypadku zera. Należy zwrócić uwagę, ze w obecnej implementacji mpz\_sgn jest makrem i rozpatruje dany argument wielokrotnie.
+Określa znak danej liczby. Zwraca 1 dla wartości dodatnich, -1 dla ujemnych oraz 0 w przypadku zera. Należy zwrócić uwagę, że w obecnej implementacji mpz\_sgn jest makrem i rozpatruje dany argument wielokrotnie.
 
 \subsubsection{Pozostałe funkcje}
 
@@ -913,10 +912,7 @@ Tworzy liczbę na podstawie wartości podanej jako łańcuch znaków. Jej warto�
 char * mpq_get_str (char *str, int base, mpq_t op)
 \end{lstlisting}
 
-Funkcja zwracająca liczbę w postaci ułamka, tzn. licznik i mianownik, oddzielony znakiem kreski ułamkowej. Jest analogiczna do funkcji mpz\_get\_str. Bufor wyjściowy, w którym chcemy umieścić rezultat funkcji powinien być, wystarczający i wynosić $mpz\_sizeinbase(mpq\_numref(op), base) + mpz\_sizeinbase (mpq\_denref(op), base) + 3$. Jeden dodatkowy bajt w porównaniu do funkcji mpz\_get\_str, spowodowany jest koniecznością umieszczenia w buforze kreski ułamkowej.
-
-
-
+Funkcja zwracająca liczbę w postaci ułamka, tzn. licznik i mianownik, oddzielony znakiem kreski ułamkowej, jest analogiczna do funkcji mpz\_get\_str. Bufor wyjściowy, w którym chcemy umieścić rezultat funkcji powinien być wystarczający i wynosić $mpz\_sizeinbase(mpq\_numref(op), base) + mpz\_sizeinbase (mpq\_denref(op), base) + 3$. Jeden dodatkowy bajt w porównaniu do funkcji mpz\_get\_str, spowodowany jest koniecznością umieszczenia w buforze kreski ułamkowej.
 
 
 \chapter{Opis rozwiązania}
@@ -926,9 +922,9 @@ Aplikacja została podzielona na trzy główne moduły: statyczna biblioteka, ap
 
 \subsection{Statyczna biblioteka}
 
-Statyczna biblioteka zawiera wszystkie logiczne aspekty projektu, posiada odpowiednie klasy, zdefiniowane funkcje i zaimplementowane algorytmy, gotowe do wykorzystania i przetestowania. To w tej częsci projektu są zaprojektowane klasy pomocniczne - CharsConstants i StringManager oraz klasa Number, pozwalająca na łatwe korzystanie z dużych liczb wymiernych. Ta ostatnia jest warstwą pośrednią pomiędzy biblioteką mpir a pozostałymi częsciami projektu. Klasa ta, jako jedyna zależy w bezpośredni sposób od implementacji wspomnianej biblioteki. Innymi słowy, nawet w przypadku bardzo radykalnych zmian w bibliotece mpir, jest to jedyna klasa, wymagająca zmiany. Jest to bardzo wygodny i bezpieczny sposób, na całkowite uniezależnienie pozostałej części od implementacji innego projektu, na którego kierunek rozwoju programista pozostaje bez wpływu.
+Statyczna biblioteka zawiera wszystkie logiczne aspekty projektu, posiada odpowiednie klasy, zdefiniowane funkcje i zaimplementowane algorytmy, gotowe do wykorzystania i przetestowania. To w tej częsci projektu są zaprojektowane klasy pomocniczne - CharsConstants i StringManager oraz klasa Number, pozwalająca na łatwe korzystanie z dużych liczb wymiernych. Ta ostatnia jest warstwą pośrednią pomiędzy biblioteką mpir, a pozostałymi częściami projektu. Klasa ta, jako jedyna zależy w bezpośredni sposób od implementacji wspomnianej biblioteki. Innymi słowy, nawet w przypadku bardzo radykalnych zmian w bibliotece mpir, jest to jedyna klasa, wymagająca zmiany. Jest to bardzo wygodny i bezpieczny sposób, na całkowite uniezależnienie pozostałej części od implementacji innego projektu, na którego kierunek rozwoju programista pozostaje bez wpływu.
 
-Moduł zawiera także najważniejszą część projektu, czyli klasy umożliwiające wykonanie działań na wielomianach. Istnieją dwie takie klasy - PolynomialMap i PolynomialVector, używajace odpowiednio mapy i tablicy, do przetrzymywania struktury wielomianów. Dla obu takich klas została zdefiniowana klasa abstraktycjna Polynomial, która implementuje wspólne funkcja, a także definiuje interfejs dla klas pochodnych. Działanie obu klas jest analogiczny, ale zostało zaimplementowane w odmienny sposób, co ma zasadniczny wpływ na wydajność rozwiązania, dla konkretnych typów wielomianów.
+Moduł zawiera także najważniejszą część projektu, czyli klasy umożliwiające wykonanie działań na wielomianach. Istnieją dwie takie klasy - PolynomialMap i PolynomialVector, używajace odpowiednio mapy i tablicy, do przetrzymywania struktury wielomianów. Dla obu takich klas została zdefiniowana klasa abstraktycjna Polynomial, która implementuje wspólne funkcja, a także definiuje interfejs dla klas pochodnych. Działanie obu klas jest analogiczne, ale zostało zaimplementowane w odmienny sposób, co ma zasadniczny wpływ na wydajność rozwiązania, dla konkretnych typów wielomianów.
 
 Część ta jest zależna od odpowiednio skompilowanej biblioteki mpir. W przeciwieństwie do aplikacji konsolowej i frameworku testowego, wystarczająca jest jej statycznie dołączana wersja. Warto zaznaczyć, że wersja ta jest inna dla różnych komputerów. Jest ona zależna od rodzaju procesora, ponieważ jej kod asemblerowy został zoptymalizowany, pod jego konkretny typ. Może to powodować różnice w wydajności biblioteki, ale nie powinno mieć żadnego wpływu na jej deterministyczne zachowanie. Dlatego jej działanie zawsze powinno być przewidywalne i takie samo, niezależne od rodzaju platformy, na której jest używana.
 
@@ -941,7 +937,7 @@ Warto zaznaczyć, że użytkownik może wprowadzać wielomiany w dowolny sposób
 Użytkownik może korzystać z aplikacji tak długo, jak będzie sobie tego życzył. Zapytanie o kolejne wielomiany przeprowadzonę są w pętli i trwają, dopóki użytkownik nie wprowadzi ciągu znaków, odpowiedzialnego za wyjście z programu. Szczegółowe informację, o tym jak korzystać z aplikacji są podane w jego instrukcji.
 
 \subsection{Framework testowy}
-Testy jednostkowe umożliwiają użytkownikowi sprawdzenie, czy określona funkcjonalność działa bezblędnie. Zgodnie z ich założeniami, są w nich zdefiniowe podstawowe testy, weryfikujące różne przypadki testowe. W tym przypadku jest nieco inaczej, ponieważ w postaci testów jednostkowych, zostały zawarte również bardziej skomplikowane testy funkcjonalne. Wśród nich znajdują się też takie, które testują główne zadanie projektu, czyli dla wielomianu, tworzonego na podstawie otrzymanego wejścia, w postaci łańcucha znaków, potrafią, z określoną precyzją, znaleźć jego wszystkie pierwiastki rzeczywiste.
+Testy jednostkowe umożliwiają użytkownikowi sprawdzenie, czy określona funkcjonalność działa bezbłędnie. Zgodnie z ich założeniami, są w nich zdefiniowe podstawowe testy, weryfikujące różne przypadki testowe. W tym przypadku jest nieco inaczej, ponieważ w postaci testów jednostkowych, zostały zawarte również bardziej skomplikowane testy funkcjonalne. Wśród nich znajdują się też takie, które testują główne zadanie projektu, czyli dla wielomianu, tworzonego na podstawie otrzymanego wejścia, w postaci łańcucha znaków, potrafią, z określoną precyzją, znaleźć jego wszystkie pierwiastki rzeczywiste.
 
 Jako środowisko testowe wybrany został framework wbudowany w narzędzie Microsoft Visual Studio 2015. Rozważana była też biblioteka o nazwie Google Test. Jej istotną zaletą, była przenośność, pomiędzy platformami, ale ostatecznie koncepcja ta została odrzucona. Spowodowane było to faktem, iż cały projekt pisany był w Visual Studio, a łatwość i wygoda, uruchamiania w nim testów jednostkowych jest bardzo duża. Dzięki temu wyborowi, każda, nawet najmniejsza zmiana, mogła być bardzo szybka przetestowana, bez potrzeby wprowadzania jakichkolwiek dodatkowych zmian, co znacznie przyspieszało proces implementacji i weryfikacji przyjętego rozwiązania.
 
@@ -949,7 +945,7 @@ Jako środowisko testowe wybrany został framework wbudowany w narzędzie Micros
 
 \subsection{CharsConstants}
 
-Klasa CharsConstants została zaimplementowana w celu zapewnienia większej czytelności kodu. Ważnym aspektem było zdefiniowane i łatwe rozpoznawanie wszystkich, mogących występować w łańcuchu wejściowym, legalnych znaków. Takie podejście ogranicza możliwość popełnienia prostych, a trudnych do wykrycia błędów w przetwarzaniu otrzymanego tekstu, np. literówki. W przypadku, gdy są zdefiniowane odpowiednio stałe i funkcji, ewentualna literówka, skończy się zasygnalizowaniem błędu już na etapie kompilacji. Przypadek taki jest sygnalizowany i łatwy do naprawienia, dzięki czemu programista nie musi zastanawiać się dlaczego, poprawny, wydałoby się, kod nie działa. Poniżej przedstawiam strukturę klasy, wraz ze zdefiniowanymi w niej stałymi i statycznymi metodami. 
+Klasa CharsConstants została zaimplementowana w celu zapewnienia większej czytelności kodu. Ważnym aspektem było zdefiniowane i łatwe rozpoznawanie wszystkich, mogących występować w łańcuchu wejściowym, legalnych znaków. Takie podejście ogranicza możliwość popełnienia prostych, a trudnych do wykrycia błędów w przetwarzaniu otrzymanego tekstu, np. literówki. W przypadku, gdy są zdefiniowane odpowiednio stałe i funkcje, ewentualna literówka, skończy się zasygnalizowaniem błędu już na etapie kompilacji. Przypadek taki jest sygnalizowany i łatwy do naprawienia, dzięki czemu programista nie musi zastanawiać się dlaczego, poprawny, wydałoby się, kod nie działa. Poniżej przedstawiam strukturę klasy, wraz ze zdefiniowanymi w niej stałymi i statycznymi metodami. 
 
 \begin{lstlisting}
 class CharsConstants
@@ -1022,7 +1018,7 @@ public:
 
 \subsection{Parser}
 Parser
-Klasa umożliwiająca użytkownikom podanie wielomianów poprzez standardowe wejście. Składa się tylko z dwóch metod. Zadaniem pierwszej z nich jest unifikacja wielomianu podanego na wejściu. Drugą metodą klasy jest tworzenie obiektu, reprezentującego wielomian. Metoda UniformInputString jest wykonywana zawsze na początku funkcji ConvertToPolynomial. Następnie na podstawie otrzymanego wyniku, funkcja ta dokonuje kolejnych obliczeń. Argument type, mówi o tym jakie typu wielomian ma zostać stworzony wewnątrz funkcji. Zwracana referencja wskazuje na obiekt wybranego typu. Dla wartości 0 lub 1, wybierany jest odpowiedni typ - PolynomialMap lub PolynomialVector. Poniżej, krótka definicja klasy Parser oraz jej metod.
+Klasa umożliwiająca użytkownikom podanie wielomianów poprzez standardowe wejście. Składa się tylko z dwóch metod. Zadaniem pierwszej z nich jest unifikacja wielomianu podanego na wejściu. Drugą metodą klasy jest tworzenie obiektu, reprezentującego wielomian. Metoda UniformInputString jest wykonywana zawsze na początku funkcji ConvertToPolynomial. Następnie na podstawie otrzymanego wyniku, funkcja ta dokonuje kolejnych obliczeń. Argument type, mówi o tym jakiego typu wielomian ma zostać stworzony wewnątrz funkcji. Zwracana referencja wskazuje na obiekt wybranego typu. Dla wartości 0 lub 1, wybierany jest odpowiedni typ - PolynomialMap lub PolynomialVector. Poniżej, krótka definicja klasy Parser oraz jej metod.
 
 \begin{lstlisting}
 class Parser
@@ -1034,7 +1030,7 @@ class Parser
 
 
 \subsection{Number}
-Klasa Number stanowi warstwę pośrednia pomiędzy klasą wielomianu, a wykorzystaniem typów liczbowych, z biblioteki mpir. Została ona stworzona, by uniezależnić implementacje wielomianów od wykorzystanego sposobu reprezentacji dużych liczb. Dzięki temu jakakolwiek zmiana w udostępnianych przez bibliotekę mpir, klasach i funkcjach, wymaga zmiany kodu aplikacji, tylko w jednym miejscu. Ma to niebagatelny wpływ na łatwość utrzymania aplikacji. Dodatkowo, wprowadzając metody opakowujące funkcje biblioteczne, możliwe jest automatyczne wykonanie dodatkowych operacji i stworzenie nowych funkcji, ułatwiających tworzenie klas i zwiększających czytelność kodu. Narzut czasowy związany z koniecznością wywoływania funkcji pośrednich został oceniony jako niewielki, a ich wpływ na przeprowadzone testy i otrzymane rezultaty jako pomijalny. Zapoznajmy się teraz z definicją klasy Number.
+Klasa Number stanowi warstwę pośrednią, pomiędzy klasą wielomianu, a wykorzystaniem typów liczbowych, z biblioteki mpir. Została ona stworzona, by uniezależnić implementacje wielomianów od wykorzystanego sposobu reprezentacji dużych liczb. Dzięki temu jakakolwiek zmiana w udostępnianych przez bibliotekę mpir, klasach i funkcjach, wymaga zmiany kodu aplikacji, tylko w jednym miejscu. Ma to niebagatelny wpływ na łatwość utrzymania aplikacji. Dodatkowo, wprowadzając metody opakowujące funkcje biblioteczne, możliwe jest automatyczne wykonanie dodatkowych operacji i stworzenie nowych funkcji, ułatwiających tworzenie klas i zwiększających czytelność kodu. Narzut czasowy związany z koniecznością wywoływania funkcji pośrednich został oceniony jako niewielki, a ich wpływ na przeprowadzone testy i otrzymane rezultaty jako pomijalny. Zapoznajmy się teraz z definicją klasy Number.
 
 \begin{lstlisting}
 class Number
@@ -1094,7 +1090,7 @@ public:
 }
 \end{lstlisting}
 
-Jak widać, przeciązone zostały wszystkie przypadne, w przypadku liczb, operatory, zarówno dla klasy Number jak i dla typu double. W języku C++ wszystkie wbudowane typu liczbowe - int, long oraz float, można łatwo zrzutować na ten zmienną typu double. Wynika, z tego, że przy pomocy powyższych operatorów, jesteśmy w stanie w łatwy sposób, dokonać dowolnego działania na dużych liczbach, niezależnie od typu drugiego operandu. Wyjątkiem jest operator potęgowania, dla którego możliwe jest podniesienie do dowolnej potęgi, pod warunkiem, że jej wartość jest liczbą naturalną.
+Jak widać, przeciążone zostały wszystkie przypadne, w przypadku liczb, operatory, zarówno dla klasy Number jak i dla typu double. W języku C++ wszystkie wbudowane typy liczbowe - int, long oraz float, można łatwo zrzutować na zmienną typu double. Wynika z tego, że przy pomocy powyższych operatorów, jesteśmy w stanie w łatwy sposób, dokonać dowolnego działania na dużych liczbach, niezależnie od typu drugiego operandu. Wyjątkiem jest operator potęgowania, dla którego możliwe jest podniesienie do dowolnej potęgi, pod warunkiem, że jej wartość jest liczbą naturalną.
 
 Klasa posiada tylko jeden element – obiekt typu mpq\_t, reprezentujący właściwą liczbę wymiernę. W klasie zostały zdefiniowane podstawowe funkcje, takie jak obliczenie wartości bezwzględnej oraz liczby przeciwnej. W celu zwiększenia czytelności i łatwiejszej implementacji, zostały przeciążone wszystkie przydatne operatory. Rozpatrzmy dwa przykłady użycia biblioteki mpir – pierwszy z bezpośrednim użyciem dostępnych funkcji i drugi z wykorzystaniem klasy Number.
 
@@ -1137,18 +1133,18 @@ mpq_t simple_function_with_Number(int a, int b)
 }
 \end{lstlisting}
 
-Łatwo zauwazyć, że w drugim przypadku kod jest zdecydowanie czytelniejszych. Poprzez przeciążenie operatorów, operacje na dużych liczbach wymiernych wyglądają identycznie jak działania na wbudowanych typach liczbowych. Dzięki temu, wyeliminowano bezpośrednie wywoływanie funkcji bibliotecznych. Ich użycie, pomimo charakterystycznych nazwa, zawsze wymagało chwili zastanowienia nad kolejno przekazywanymi argumentami. W przypadku nieskomplikowanych funkcji, stosunkowo duży narzut związany jest z koniecznością inicjalizowania referencji i zwalniania miejsca, przez obiekty na które wskazują. Nie stanowi to jednak sporej zmiany, w stosunku do przykładu pierwszego, w którym, na początku funkcji nastąpiły deklaracja i inicjalizacja zmiennych, a na końcu ich zwolnienie z pamięci.
+Łatwo zauważyć, że w drugim przypadku kod jest zdecydowanie czytelniejszy. Poprzez przeciążenie operatorów, operacje na dużych liczbach wymiernych wyglądają identycznie jak działania na wbudowanych typach liczbowych. Dzięki temu, wyeliminowano bezpośrednie wywoływanie funkcji bibliotecznych. Ich użycie, pomimo charakterystycznych nazwa, zawsze wymagało chwili zastanowienia nad kolejno przekazywanymi argumentami. W przypadku nieskomplikowanych funkcji, stosunkowo duży narzut związany jest z koniecznością inicjalizowania referencji i zwalniania miejsca, przez obiekty na które wskazują. Nie stanowi to jednak sporej zmiany, w stosunku do przykładu pierwszego, w którym, na początku funkcji nastąpiły deklaracja i inicjalizacja zmiennych, a na końcu ich zwolnienie z pamięci.
 
 
 \subsection{Polynomial}
 
 Klasa Polynomial to klasa abstrakcyjna, posiadająca zdefiniowane wszystkie funkcje, niezbędne do znalezienia pierwiastków danego wielomianu. Jest ona klasą bazową dla klas PolynomialMap i PolynomialVector, reprezentujących wielomiany, przy pomocy odpowiedniej struktury. Pierwsza z nich bazuje na mapie, czyli strukturze opartej na parach (klucz, wartość). Klucze muszą być różnowartościowe, co umożliwia jednoznaczne znalezienie wartości dla dowolnego z nich. Pozwala to na posiadanie informacji wyłącznie o niezerowych współczynnikach wielomianu. Druga z nich bazuje na wektorze, jako przykładzie tablicy, której kolejne elementy są położone w pamięci operacyjnej obok siebie. Pierwszy element tablicy to współczynnik wielomianu, stojący przy potędze zerowej, a następne wartości to współczynniki, stojące przy kolejnych, coraz to wyższych potęgach. Dzięki temu dostęp do dowolnego wyrazu wielomianu jest bardzo szybki. Jednocześnie jednak, konieczne jest przetrzymywanie informacji o wszystkich współczynnikach wielomianu, stojących przy kolejnych potęgach, od potęgi zerowej, aż do najwyższej potęgi z niezerowym współczynnikiem, równej stopniowi wielomianu.
 
-Klasa Polynomial posiada zarówno już napisane metody, jak i takie, które zostały tylko zaprojektowane i oznaczone jako czysto wirtualne, czyli koniecznie do zaimplementowania w klasie dziedziczącej. Do tego pierwszego zbioru zalicza się część metod, która nie odnosi się do konkretnej struktury wielomianu. Dzięki temu, w klasach podrzędnych nie ma konieczności ponownego ich pisania. Posiadanie jednej implementacji zamiast dwóch pozwalało na łatwiejszą i dużo sprawniejszą konstrukcję obu klas dziedziczących. Spore zmiany projektowe i niewielkie korekty wystarczyło wprowadzić tylko raz, zamiast niepotrzebnie je powielać. Niestety, w przypadku sporej części funkcji, mimo bardzo zbliżonej implementacji, nie było możliwe ich połączenie i umieszczenie w klasie bazowej. Spowodowane to było koniecznością odwołań do konkretnego typu danych, w którym zostały umieszczone wyrazu wielomianu. Uogólnione są natomiast wszystkie pozostałe funkcje, w tym także te, które posiadają wywołania funkcji czysto wirtualnych. W przypadku tym, zastosowany został polimorfizm, czyli jeden z paradygmatów programowania obiektowego. Pozwala on odwoływać się do zdefiniowanej metody, bez znajomości jej implementacji. Wywołana funkcja zadziała różnie, zależnie od typu obiektu, na którym zostanie wykonana. Z punktu widzenia poprawnego działania klasy Polynomial, bez znaczenia jest implementacja operatora przypisania, o ile spełnia on swoją rolę. W ten sposób możliwe jest działanie na obiekcie wielomianu, niezależnie, czy bazuje on na tablicy, czy mapie.
+Klasa Polynomial posiada zarówno już napisane metody, jak i takie, które zostały tylko zaprojektowane i oznaczone jako czysto wirtualne, czyli koniecznie do zaimplementowania w klasie dziedziczącej. Do tego pierwszego zbioru zalicza się część metod, która nie odnosi się do konkretnej struktury wielomianu. Dzięki temu, w klasach podrzędnych nie ma konieczności ponownego ich pisania. Posiadanie jednej implementacji zamiast dwóch pozwalało na łatwiejszą i dużo sprawniejszą konstrukcję obu klas dziedziczących. Spore zmiany projektowe i niewielkie korekty wystarczyło wprowadzić tylko raz, zamiast niepotrzebnie je powielać. Niestety, w przypadku sporej części funkcji, mimo bardzo zbliżonej implementacji, nie było możliwe ich połączenie i umieszczenie w klasie bazowej. Spowodowane to było koniecznością odwołań do konkretnego typu danych, w którym zostały umieszczone wyrazy wielomianu. Uogólnione są natomiast wszystkie pozostałe funkcje, w tym także te, które posiadają wywołania funkcji czysto wirtualnych. W przypadku tym, zastosowany został polimorfizm, czyli jeden z paradygmatów programowania obiektowego. Pozwala on odwoływać się do zdefiniowanej metody, bez znajomości jej implementacji. Wywołana funkcja zadziała różnie, zależnie od typu obiektu, na którym zostanie wykonana. Z punktu widzenia poprawnego działania klasy Polynomial, bez znaczenia jest implementacja operatora przypisania, o ile spełnia on swoją rolę. W ten sposób możliwe jest działanie na obiekcie wielomianu, niezależnie, czy bazuje on na tablicy, czy mapie.
 
-W języku C++, by można zastosować polimorfizm, poszczególne metody muszą operować na wskaźnikach lub referencjach. Nie możliwe jest użycie tego mechanizmu w przypadku przekazywaniu obiektów poprzez wartość. Wytłumaczenie tego jest bardzo proste i opiera się na zmiennym rozmiarze obiektów klas pochodnych. Uniemożliwia to odwołanie się do danego obiektu, póki nie znamy jego dokładne typu. Inaczej jest w przypadku referencji i wskaźników, ponieważ ich rozmiar jest stały, a zmieniać się może jedynie ich wartość, czyli miejsce w pamięci, do którego się odwołują.
+W języku C++, by można zastosować polimorfizm, poszczególne metody muszą operować na wskaźnikach lub referencjach. Nie możliwe jest użycie tego mechanizmu w przypadku przekazywaniu obiektów poprzez wartość. Wytłumaczenie tego jest bardzo proste i opiera się na zmiennym rozmiarze obiektów klas pochodnych. Uniemożliwia to odwołanie się do danego obiektu, póki nie znamy jego dokładnego typu. Inaczej jest w przypadku referencji i wskaźników, ponieważ ich rozmiar jest stały, a zmieniać się może jedynie ich wartość, czyli miejsce w pamięci, do którego się odwołują.
 
-Z uwagi na powyższy fakt, w programie wszystkie obiekty klasy Polynomial są przekazywane poprzez referencję. By referencję, można przekazywać pomiędzy funkcjami, obiekt na który wskazuje, musi zostać stworzony dynamicznie. Można to zrobić poprzez użycie, znanej z języka C, funkcji malloc, alokującej miejsce w pamięci lub typowego dla języka C++, operatora new. W przeciwnym wypadku, zmienna będzie widoczna tylko w miejscu, w którym zostanie stworzona, np. wewnątrz funkcji. Próba odwołania się do takiej wartości, w miejscu, w którym zmienna nie jest widoczna, skończy się błędem czasu wykonania i komunikatem o naruszeniu dostępu. Stanie się tak, ponieważ referencja w takim przypadku będzie dalej istnieć, ale obiekt, na który wskazuje, już nie. Takie błędy często są popełniane przez niedoświadczonych programistów, a próba ich lokalizacji i znalezienia przyczyny, na pierwszy rzut oka, nie jest oczywista. W momencie, gdy skorzystamy z dynamicznego tworzenia obiektu, będzie on istniał tak długo, dopóki nie zostanie jawnie usunięty w kodzie programu lub aplikacja nie skończy swojego działania, zwalniając przy tym całą zajmowaną pamięć. Kiedy nie wszystkie stworzone obiekty zostają usunięte, dochodzi do tzw. wycieków pamięci. W zależności od ich rozmiarów i czasu działania aplikacje, ich konsekwencje mogą być bardzo różne. W skrajnym wypadku, może dojść do wyczerpania całej dostępnej pamięci. Gdy zaczyna jej brakować, system operacyjny zapisuje jej ostatnio nieużywaną część na dysku, by w razie potrzeby móc ją odczytać. Z uwagi na to, że pamięć operacyjna jest wielokrotnie szybsza od dysków twardych, taka operacja powoduje gigantyczne opóźnienia w pracy komputera. Gdy szybkość kolejnych alokacji pamięci jest większa, niż jej zrzucanie na dysk, w pewnym momencie komputer ulegnie całkowitemu zawieszeniu. Wówczas jedynym wyjściem jest, często bardzo niepożądany, restart systemu. Bezpiecznym rozwiązaniem jest ustalenie limitu na wykorzystanie przez pojedynczą aplikację. Może to znacznie ułatwić debugowanie i znalezienie ewentualnego błędu, a także zabezpieczy użytkownika przed uruchomieniem złośliwego oprogramowania, mającego na celu doprowadzenie do wspomnianej wyżej sytuacji.
+Z uwagi na powyższy fakt, w programie wszystkie obiekty klasy Polynomial są przekazywane poprzez referencję. By referencję, można przekazywać pomiędzy funkcjami, obiekt na który wskazuje, musi zostać stworzony dynamicznie. Można to zrobić poprzez użycie, znanej z języka C, funkcji malloc, alokującej miejsce w pamięci lub typowego dla języka C++, operatora new. W przeciwnym wypadku, zmienna będzie widoczna tylko w miejscu, w którym zostanie stworzona, np. wewnątrz funkcji. Próba odwołania się do takiej wartości, w miejscu, w którym zmienna nie jest widoczna, skończy się błędem czasu wykonania i komunikatem o naruszeniu dostępu. Stanie się tak, ponieważ referencja w takim przypadku będzie dalej istnieć, ale obiekt, na który wskazuje, już nie. Takie błędy często są popełniane przez niedoświadczonych programistów, a próba ich lokalizacji i znalezienia przyczyny, na pierwszy rzut oka, nie jest oczywista. W momencie, gdy skorzystamy z dynamicznego tworzenia obiektu, będzie on istniał tak długo, dopóki nie zostanie jawnie usunięty w kodzie programu lub aplikacja nie skończy swojego działania, zwalniając przy tym całą zajmowaną pamięć. Kiedy nie wszystkie stworzone obiekty zostają usunięte, dochodzi do tzw. wycieków pamięci. W zależności od ich rozmiarów i czasu działania aplikacji, ich konsekwencje mogą być bardzo różne. W skrajnym wypadku, może dojść do wyczerpania całej dostępnej pamięci. Gdy zaczyna jej brakować, system operacyjny zapisuje jej ostatnio nieużywaną część na dysku, by w razie potrzeby móc ją odczytać. Z uwagi na to, że pamięć operacyjna jest wielokrotnie szybsza od dysków twardych, taka operacja powoduje gigantyczne opóźnienia w pracy komputera. Gdy szybkość kolejnych alokacji pamięci jest większa, niż jej zrzucanie na dysk, w pewnym momencie komputer ulegnie całkowitemu zawieszeniu. Wówczas jedynym wyjściem jest, często bardzo niepożądany, restart systemu. Bezpiecznym rozwiązaniem jest ustalenie limitu na wykorzystanie przez pojedynczą aplikację. Może to znacznie ułatwić debugowanie i znalezienie ewentualnego błędu, a także zabezpieczy użytkownika przed uruchomieniem złośliwego oprogramowania, mającego na celu doprowadzenie do wspomnianej wyżej sytuacji.
 
 Poniżej przedstawiam definicję klasy abstrakcyjnej Polynomial. Wyróżnić w niej można kolejne sekcje - zmienne klasy, konstruktory, funkcje i operatory. Te ostatnie możemy podzielić pomiędzy te, które posiadają implementacje w klasie abstrakcyjnej Polynomial oraz te, które zostały zdefiniowane jako czysto wirtualne i konieczne jest ich nadpisanie w klasie pochodnej.
 
@@ -1232,12 +1228,11 @@ public:
 	};
 \end{lstlisting}
 
-
 \subsection{PolynomialVector}
 
-Klasy PolynomialMap i PolynomialVector są implementacjami klasy abstrakcyjnej Polynomial. Obie one nadpisują wszystkie czysto wirtualne metody klasy bazowej. Wiele z tych metom wygląda bardzo podobnie, natomiast istotną różnicą jest konieczność odwołania się do konkretnej reprezentacji danych. To właśnie dlatego zostały one oznaczone w klasie bazowej, jako metody abstrakcyjne. Takie zaprojektowanie klasy, wymusza na użytkowniku korzystanie z interfejsu, udostępnionego przez klase bazowe. Jego poprawne zaimplementowanie daje gwarancje, że klasa będzie wykonywać to czego oczekuje bazowa, nie narzucajac sposóbu, w jaki ma to robić.
+Klasy PolynomialMap i PolynomialVector są implementacjami klasy abstrakcyjnej Polynomial. Obie one nadpisują wszystkie czysto wirtualne metody klasy bazowej. Wiele z tych metod wygląda bardzo podobnie, natomiast istotną różnicą jest konieczność odwołania się do konkretnej reprezentacji danych. To właśnie dlatego zostały one oznaczone w klasie bazowej, jako metody abstrakcyjne. Takie zaprojektowanie klasy, wymusza na użytkowniku korzystanie z interfejsu, udostępnionego przez klase bazowe. Jego poprawne zaimplementowanie daje gwarancje, że klasa będzie wykonywać to czego oczekuje bazowa, nie narzucajac sposóbu, w jaki ma to robić.
 
-Jak zostało wspomniane, różnicą obu klas jest podejście do współczynników zerowych. Została ona oparta na typie vector, z biblioteki STL. Tablica zakłada, że kolejne współczynniki bedą zapisywane w jej kolejnych komórkach, przy czym indeks w tablicy, począwszy od zerowego, określa potęgę dla współczynnika, którego wartość jest tam zapisana. Aplikacja musi pamiętać wskaźniki na pierwszy i ostatni element. Na ich podstawie jest ona w stanie stwierdzić, ile elementów zawiera, co w sposób bezpośredni przekłada się na stopień danego wielomianu. Największym mankamentem takie podejścia jest konieczność posiadania informacji, o wszystkich współczynnikach, także zerowych. W przypadku wielomianów rzadkich, o wysokim stopniu, np. $x^{1000}-1$, konieczne jest przechowywanie 999 zer w kolejnych komórkach. Poza negatywnym wpływem na złożoność pamięciową takiego podejścia, istotniejszym wydaje się fakt, że znalezienie wyłącznie niezerowych elementów, wymaga przejrzenia wszystkich komórek tablicy. Zatem, by dodać do siebie dwa wielomiany $x^{1000}$ oraz $2x^{1000}$, konieczne jest wykonanie aż 1001 sumowań lub sprawdzenie dla każdego z nich, czy jest potrzebne.
+Jak zostało wspomniane, różnicą obu klas jest podejście do współczynników zerowych. Została ona oparta na typie vector, z biblioteki STL. Tablica zakłada, że kolejne współczynniki bedą zapisywane w jej kolejnych komórkach, przy czym indeks w tablicy, począwszy od zerowego, określa potęgę dla współczynnika, którego wartość jest tam zapisana. Aplikacja musi pamiętać wskaźniki na pierwszy i ostatni element. Na ich podstawie jest ona w stanie stwierdzić, ile elementów zawiera, co w sposób bezpośredni przekłada się na stopień danego wielomianu. Największym mankamentem takiego podejścia jest konieczność posiadania informacji, o wszystkich współczynnikach, także zerowych. W przypadku wielomianów rzadkich, o wysokim stopniu, np. $x^{1000}-1$, konieczne jest przechowywanie 999 zer w kolejnych komórkach. Poza negatywnym wpływem na złożoność pamięciową takiego podejścia, istotniejszym wydaje się fakt, że znalezienie wyłącznie niezerowych elementów, wymaga przejrzenia wszystkich komórek tablicy. Zatem, by dodać do siebie dwa wielomiany $x^{1000}$ oraz $2x^{1000}$, konieczne jest wykonanie aż 1001 sumowań lub sprawdzenie dla każdego z nich, czy jest potrzebne.
 
 Dodatkowo, w przypadku, gdy w wyniku działania, zmienia się stopień wielomianu, konieczne jest rozszerzenie lub pomniejszenie tablicy, poprzez aktualizacje odpowiednich wskaźników. Jeżeli chodzi o złożoność czasową funkcji, nie ma to jednak wpływu, ponieważ dla wszystkich typów operacji, i tak jesteśmy zmuszeni przejrzeć wszystkie elementy. Wyjątkiem jest stwierdzenie, czy mamy do czynienia, z wielomianem zerowym, którego złożoność jest stała, gdyż wartość ustalana jest na podstawie rozmiaru tablicy.
 
@@ -1246,13 +1241,13 @@ Jeżeli chodzi o zalety korzystania z tablicy, jako struktury do przechowywania 
 \subsection{PolynomialMap}
 
 Klasa PolynomialMap zakłada strukturę wielomianu, reprezentującą wyłącznie niezerowe współczynniki.
-Pozwala to zaoszczędzić miejsce w pamięci, dla przechowywania wartości zerowych i łatwo stwierdzić ile ich jest. Również w tej klasie wykorzystałem typ z bibiolteki STL, jakim jest map. Mój wybór był spowodowany faktem, że jest to rodzaj kontenera danych, w którym mamy łatwy dostęp do żądanej wartości. Nie jest on tak szybki, jak w przypadku vectora, bo w każdym zapytaniu, musimy dowiedzieć się o położenie konkretnej wartości. Mapa, nie gwarantuje nam, że trzymane w niej danę będą znajdować się, w położonej blisko siebie pamięci. Dzięki temu, modyfikacja jej rozmiaru, jest bardzo łatwa, gdyż wystarczy zmienić tylko te wartości, które rzeczywiście się zmieniają. Gdy wielomian $x^{100} + 1$, zamieniamy na $x^{10} + 1$, wystarczy, jedyne co musimy zrobić, to usunąć wartość dla klucza równego 100, a dodać klucz równy 10, z wartością 1.
+Pozwala to zaoszczędzić miejsce w pamięci, dla przechowywania wartości zerowych i łatwo stwierdzić ile ich jest. Również w tej klasie wykorzystałem typ z bibiolteki STL, jakim jest map. Mój wybór był spowodowany faktem, że jest to rodzaj kontenera danych, w którym mamy łatwy dostęp do żądanej wartości. Nie jest on tak szybki, jak w przypadku vectora, bo w każdym zapytaniu, musimy dowiedzieć się o położenie konkretnej wartości. Mapa, nie gwarantuje nam, że trzymane w niej dane będą znajdować się, w położonej blisko siebie pamięci. Dzięki temu, modyfikacja jej rozmiaru, jest bardzo łatwa, gdyż wystarczy zmienić tylko te wartości, które rzeczywiście się zmieniają. Gdy wielomian $x^{100} + 1$, zamieniamy na $x^{10} + 1$, wystarczy, jedyne co musimy zrobić, to usunąć wartość dla klucza równego 100, a dodać klucz równy 10, z wartością 1.
 
-W porównaniu z PolynomialVector, klasa ta wydaje się lepsza dla rzadkich struktur wielomianów, a gorsza dla gęstych. Przeanalizujmy krótko, dlaczego tak podpowiada intuicja. Niepodwarzalne jest, że pojedynczy dostęp do dowolnego elementu, w przypadku tablicy jest szybszy, niż dla jakiejkolwiek innej struktury. Dzieje się tak, ponieważ na podstawie miejsca początku tablicy, dla dowolnego jej elementu, na podstawie indeksu, z góry znamy jego dokładny adres. W przypadku wszystkich kontenerów danych, których kolejne elementy, nie są położone w pamięci obok siebie, najpierw musimy je znaleźć, tj. uzyskać ich adres.
+W porównaniu z PolynomialVector, klasa ta wydaje się lepsza dla rzadkich struktur wielomianów, a gorsza dla gęstych. Przeanalizujmy krótko, dlaczego tak podpowiada intuicja. Niepodważalne jest, że pojedynczy dostęp do dowolnego elementu, w przypadku tablicy jest szybszy, niż dla jakiejkolwiek innej struktury. Dzieje się tak, ponieważ na podstawie miejsca początku tablicy, dla dowolnego jej elementu, na podstawie indeksu, z góry znamy jego dokładny adres. W przypadku wszystkich kontenerów danych, których kolejne elementy, nie są położone w pamięci obok siebie, najpierw musimy je znaleźć, tj. uzyskać ich adres.
 
-Rozważmy strukturę danych, jaką jest drzewo. Jego elementy są posortowane, ale bezpośredni dostęp mamy tylko do korzenia. Do innych elementów, można dostać się w sposób, wyłącznie pośredni. Niezależnie od rodzaju drzewa, jaki wybierzemy, nie jesteśmy przekroczyć pewnych charakterystycznych dla niego wartości. W przypadku drzewa, średnia złożoność, znalezienia wybranej wartości jest logarytmiczna. Mowa tu o najkorzystniejszym wariancie, czyli przypadku, gdy drzewo to jest zrównowazone, tzn. takie, w którym, odległość do jego liści jest różniąca się maksymalnie o jeden i bliska wartości logarytmu z rozmiaru drzewa. Dodatkowo każde dodanie, modyfikacja i usunięcie dowolnego elementu, zaczyna się od jego znalezienia. Oznacza to, że złożoność logarytmiczna jest w takim przypadku, wartością graniczną.
+Rozważmy strukturę danych, jaką jest drzewo. Jego elementy są posortowane, ale bezpośredni dostęp mamy tylko do korzenia. Do innych elementów, można dostać się w sposób, wyłącznie pośredni. Niezależnie od rodzaju drzewa, jaki wybierzemy, nie jesteśmy w stanie przekroczyć pewnych charakterystycznych dla niego wartości. W przypadku drzewa, średnia złożoność, znalezienia wybranej wartości jest logarytmiczna. Mowa tu, o najkorzystniejszym wariancie, czyli przypadku, gdy drzewo to jest zrównoważone, tzn. takie, w którym, odległość do jego liści jest różniąca się maksymalnie o jeden i bliska wartości logarytmu z rozmiaru drzewa. Dodatkowo każde dodanie, modyfikacja i usunięcie dowolnego elementu, zaczyna się od jego znalezienia. Oznacza to, że złożoność logarytmiczna jest w takim przypadku, wartością graniczną.
 
-Wydaje się więc, że aby uzyskać w przypadku takiej struktury, wydajność lepszą niż dla tablicy, liczba ich elementów musi się odpowiednio róznić. Potrzebuje ona mieć odpowiedni zapas liczby operacji, by ich czas, pomimo długości każdej z nich, był łącznie mniejszy.
+Wydaje się więc, że aby uzyskać w przypadku takiej struktury, wydajność lepszą niż dla tablicy, liczba ich elementów musi się odpowiednio różnić. Potrzebuje ona mieć odpowiedni zapas liczby operacji, by ich czas, pomimo długości każdej z nich, był łącznie mniejszy.
 
 
 \section{Główne funkcje}
@@ -1264,7 +1259,7 @@ Wydaje się więc, że aby uzyskać w przypadku takiej struktury, wydajność le
 inline string Parser::UniformInputString(string s)
 \end{lstlisting}
 
-Zadaniem funkcji jest ujednolicenie podanego na wejściu, wtaki sposób, był jednoznaczny i łatwy do dalszego przetworzenia. Jako argument przyjmuje ona pojedynczy obiekt klasy string. Po dokonaniu odpowiednich operacji, jako rezultat, zwraca również typ string. Użycie jej ma na celu ułatwienie przetwarzania w kolejnym etapie, w którym na podstawie podanego ciągu znaków, tworzony będzie obiekt wielomianu. Głównym zadaniem funkcji, jest weryfikacja, czy ciąg znaków podanych na wejściu reprezentuje poprawny składniowo wielomian. Sprawdzana jest liczba nawiasów otwierających i zamykających oraz fakt, czy w każdym miejscu wyrażenia liczba otwartych nawiasów jest nie mniejsza niż liczba nawiasów zamkniętych. Dodatkowo sprawdzane jest, czy na sąsiednich miejscach nie występują dwa operatory. Poprawne wyrażenie nigdy nie kończy się operatorem, a zaczynać może się tylko minusem, literałem, cyfrą lub nawiasem otwierającym. W czasie unifikacji wyrażenia, ignorowane są wszystkie występujące w nim białe znaki. Warto zaznaczyć, że dopuszczalny jest tylko jeden znak, reprezentujący zmienną wielomianu. Nie ma ograniczeń co do wartości tego znaku, może być to znak ‘a’, ‘x’ lub jakikolwiek inny, ale powinniśmy zadbać, by w całym wyrażeniu występował on w tej samej postaci. Sporym ułatwieniem w interfejsie jest brak konieczności wpisywania operatorów mnożenia ('*') i potęgowania ('\^{}') w oczywistych miejscach. Z punktu widzenia aplikacji, wyrażenia 4x oraz 4*x są identyczne. Podobnie jest w przypadku x3 oraz x\^{}3. Funkcja analizuje wyrażenie i zwraca je w odpowiedniej postaci. Dla przykładu wyrażenia x3+2x2+3x+1, x\^{}3 +2x\^{}2 + 3x+1 zostaną zamienione w x\^{}3+2*x\^{}2+3*x+1.
+Zadaniem funkcji jest ujednolicenie wielomianu podanego na wejściu, w taki sposób, by był jednoznaczny i łatwy do dalszego przetworzenia. Jako argument przyjmuje ona pojedynczy obiekt klasy string. Po dokonaniu odpowiednich operacji, jako rezultat, zwraca również typ string. Użycie jej ma na celu ułatwienie przetwarzania w kolejnym etapie, w którym na podstawie podanego ciągu znaków, tworzony będzie obiekt wielomianu. Głównym zadaniem funkcji, jest weryfikacja, czy ciąg znaków podanych na wejściu reprezentuje poprawny składniowo wielomian. Sprawdzana jest liczba nawiasów otwierających i zamykających oraz fakt, czy w każdym miejscu wyrażenia liczba otwartych nawiasów jest nie mniejsza niż liczba nawiasów zamkniętych. Dodatkowo sprawdzane jest, czy na sąsiednich miejscach nie występują dwa operatory. Poprawne wyrażenie nigdy nie kończy się operatorem, a zaczynać może się tylko minusem, literałem, cyfrą lub nawiasem otwierającym. W czasie unifikacji wyrażenia, ignorowane są wszystkie występujące w nim białe znaki. Warto zaznaczyć, że dopuszczalny jest tylko jeden znak, reprezentujący zmienną wielomianu. Nie ma ograniczeń co do wartości tego znaku, może być to znak ‘a’, ‘x’ lub jakikolwiek inny, ale powinniśmy zadbać, by w całym wyrażeniu występował on w tej samej postaci. Sporym ułatwieniem w interfejsie jest brak konieczności wpisywania operatorów mnożenia ('*') i potęgowania ('\^{}') w oczywistych miejscach. Z punktu widzenia aplikacji, wyrażenia 4x oraz 4*x są identyczne. Podobnie jest w przypadku x3 oraz x\^{}3. Funkcja analizuje wyrażenie i zwraca je w odpowiedniej postaci. Dla przykładu wyrażenia x3+2x2+3x+1, x\^{}3 +2x\^{}2 + 3x+1 zostaną zamienione w x\^{}3+2*x\^{}2+3*x+1.
 \\
 
 \subsubsection{Konwersja łańcucha znaków do postaci wielomianu}
@@ -1498,6 +1493,14 @@ Funkcja na postawie ciągu Sturma i metody GetSturm, oblicza liczbę zmian znak�
 
 \section{Testy funkcjonalne}
 
+Przeprowadzone testy są połączeniem testów jednostkowych i funkcjonalnych. Zastosowałem nieco odmiennie podejście od klasycznego, tzn. w moim przypadku najpierw powstał rdzeń aplikacji i dopiero wówczas zaczęły się pojawiać pierwsze testy. Spowodowane było to faktem, że dopiero wraz z rozwojem projektu zdałem sobie sprawę, że są one niezbędne do zapewnienia odpowiedniej jakości aplikacji, poprzez stałą weryfikacje jej działania. Dodatkowo, regularna egzekucja istniejących już testów daje twórcy aplikacji informację o ewentualnej regresji i możliwość szybkiej korekty wprowadzonych zmian.
+
+Testy funkcjonalne często zwane są testami czarnej skrzynki i wykonywane, nie przez twórców aplikacji, a przez zewnętrznych testerów. W tym przypadku jest jednak inaczej i służą one wyłącznie programiście. Do tego celu nie zostało wykorzystane żadne zaawansowane środowisko testowe. Użyłem do tego framework, wbudowany w Microsoft Visual Studio 2015, służący do pisania testów jednostkowych. Okazał on się bardzo intuicyjny i prosty w obsłudze, a do mojego zastosowania całkowicie wystarczający. Do wszystkich testów wykorzystałem możliwość łatwego porównywania wartości typów string. Pozwoliło mi to na łatwe debugowanie testów i wyraźna informację, o tym jaka wartość była oczekiwana, a jaka została zwrócona przez wołaną funkcję. Ważnym aspektem było to, że wszystkie testowane klasy i funkcje aplikacji, w łatwy sposób, mogą być rzutowane na typ znakowy.
+
+Testowane funkcje i powstałe klasy testowe zostały wybrane tak, by w jednoznaczny sposób móc zlokalizować przyczynę błędu. Rzeczywistość szybko zweryfikowała to założenie, nie mniej problemem była bardzo nieoczywista przyczyna, a nie źle dobrane testy. W pozostałych przypadkach wyniki testów zawsze powinny być czytane w ściśle określonej kolejności. Została ona ustalona tak, by funkcje niezależne od innych były wykonywane najpierw, a dopiero w przypadku ich poprawnego działania, następowała analiza tych bardziej złożonych. Tak więc, na początku testowane jest parsowanie łańcucha znaków do postaci wielomianów, następnie poszczególne operatory działań na wielomianach, by na końcu przeprowadzić weryfikację zasadniczej części programu, tzn. znajdowania pierwiastków.
+
+Przeprowadzane testy programu weryfikują poprawne działanie obu struktur jednocześnie. Innymi słowy test daje wynik pozytywny wyłącznie wtedy, kiedy zwrócony wynik w przypadku obu typów PolynomialMap i PolynomialVector jest poprawny. Jest to parametr stosunkowo łatwy do zmienienia w kodzie programu, ale ustaliłem, że taka postać testów będzie najbardziej optymalna. W trakcie dewelopmentu aplikacji i debugowanie testy zostały zmieniane tak, by testować osobną daną funkcjonalność dla konkretnego typu wielomianu. Był to niezbędny krok, by komunikat zwracany przez framework testowy był jasny i czytelny. Dodatkowo warto zauważyć, że informacja o tym, że tylko jedna ze struktur działa, dostarcza wiele danych programiście. Dzięki temu, lista przyczyn usterki jest mocno ograniczona, co zazwyczaj bardzo przyśpiesza jej znalezienie i naprawienie.
+
 \subsection{ParserUniform}
 
 Klasa testowa pozwalająca na weryfikacje metody UniformInputString, mającej na celu unifikację otrzymanej wartości znakowej, przedstawiającej wielomian. Testy dla niej zostały napisane, pomimo, że funkcja nie jest skomplikowana. Jej funkcjonalność została uznana za podstawową, a jej poprawne działanie jest niezbędne, by korzystać z programu. Jest to jedyna funkcja, która jest wołana, niezależnie od innych.
@@ -1527,7 +1530,21 @@ Przetestowanie tej funkcji powinno być możliwie bardzo dokładne i zawierać r
 By przetestować funkcję, napisałem blisko 50 różnych testów. Poniżej przedstawiam wybrane z nich przypadki testowe.
 
 \begin{lstlisting}
--
+"123" -> "123"
+"100a" -> "100a"
+"a^2" -> "a2"
+"-5*a3" -> "-5a3"
+"4*a+2" -> "4a+2"
+"(3*a)^2" -> "9a2"
+"(-2)10" -> "1024"
+"a*2a" -> "2a2"
+"(a+1)(a-1)" -> "a2-1"
+"(a+1)(a+1)" -> "a2+2a+1"
+"(a-1)^3" -> "a3-3a2+3a-1"
+"(a3-1)*0" -> "0"
+"(a-1)^3+4a2-a2+0*(a3-1)" -> "a3+3a-1"
+"5^0" -> "1"
+"(2a-3a+a)^1" -> "0"
 \end{lstlisting}
 
 \subsection{Operatory dodawania, odejmowania i mnożenia}
@@ -1602,7 +1619,7 @@ Jest klasą testową dla operatora modulo, którego obliczanie oparte jest na wy
 "x6-6x4-4x3+9x2+12x+4" % "x5-4x3-2x2+3x+2" = "-2(x4+x3-3x2-5x-2)"
 "x3+x2+x1+11" % "x2+1" = "10"
 "(x+2)^3+1" % "x+2" = "1"
-"x4-4x3+6x2-7x+3" % "(x-1)^2 = "-3x+2"
+"x4-4x3+6x2-7x+3" % "(x-1)^2" = "-3x+2"
 \end{lstlisting}
 
 \subsection{PolynomialDerivative}
@@ -1611,7 +1628,12 @@ Zadaniem tej klasy jest sprawdzenie, czy metoda, pozwalająca na obliczanie poch
 Weryfikacje poprawności wyników następuje poprzez porównanie oczekiwanej wartości pochodnej wielomianu z wartością obliczoną. Poniżej prezentuję wybrane przypadki testowe dla tej funkcjonalności.
 
 \begin{lstlisting}
--
+(5)' = 0
+(2a)' = 2
+(a2)' = 2a
+(7a3)' = 21a2
+(120a130)' = 15600a129
+(-a101+2a17+a4+a)' = -101a100+34a16+4a3+1
 \end{lstlisting}
 
 \subsection{PolynomialAfterElimination}
@@ -1621,7 +1643,15 @@ Jest to klasa weryfikująca, czy wartość wielomianu, po eliminacji pierwiastk�
 Aspektem bardzo ułatwiającym testowanie tej funkcjonalności jest możliwość podawania wielomianu wejściowego w postaci iloczynu wielu czynników. Pozwala to podawać kolejne czynniki, zawierające dane pierwiastki wielomianu, z określonymi krotnościami i spodziewać się dokładnie tych samych, ale jednokrotnych. Dzięki temu jest się niezależnym od innych programów, pozwalających na obliczanie zer wielomianów, ponieważ spodziewane wartości, zawarte są pośrednio w wielomianie wejściowym. Poniżej zamieszczam przykładowe testy, z uwzględnieniem podawania wejścia, w różnej postaci.
 
 \begin{lstlisting}
--
+"20" -> "1"
+"2a" -> "a"
+"(a-1)^2" -> "a-1"
+"(a+3)^4" -> "a+3"
+"(a+1)(a+2)" -> "(a+1)(a+2)"
+"a+3)^2*(a+1)" -> "(a+3)(a+1)"
+"a3*(a+2)^10" -> "a(a+2)"
+"(x-1)^2*(x+1)^2*(x-2)^2" -> "(x-1)(x+1)(x-2)"
+"(x+1)^4*(x2+x+1)" -> "(x+1)(x2+x+1)"
 \end{lstlisting}
 
 \subsection{PolynomialValue}
@@ -1629,7 +1659,15 @@ Aspektem bardzo ułatwiającym testowanie tej funkcjonalności jest możliwość
 Jest klasą weryfikującą, czy wartość wielomianu w danym punkcie jest obliczana poprawnie. Funkcja weryfikująca przyjmuje dwa argumenty wejściowe – wielomian oraz dany punkt. Otrzymany wynik porównuje z trzecim parametrem, którym jest oczekiwane rezultat. Poza sprawdzeniem poprawności działania samego wielomianu, weryfikowane jest także działanie klasy Number. Ważnym aspektem jest tutaj przede wszystkim sprawdzenie zachowania funkcji, w przypadku dużych liczb, które często pojawiają się w momencie obliczania wartości wielomianów wysokich stopni. Należy wziąć pod uwagę, że obliczenie wartości w punkcie $x_0=10$, dla wielomianu stopnia setnego wymaga liczby posiadającej aż 101 cyfr. To właśnie z tego względu w projekcie niezbędna była biblioteka mpir, pozwalająca na posługiwanie się takimi wartościami liczbowymi. Poniżej prezentuję przykładowe testy na obliczanie wartości wielomianu w danym punkcie.
 
 \begin{lstlisting}
--
+W(x) = "20", x0 = 0 -> W(0) = 20
+W(x) = "a", x0 = 13 -> W(13) = 13
+W(x) = "12a2", x0 = 3 -> W(3) = 108
+W(x) = "(a+1)(a+2)", x0 = 3 -> W(3) = 20
+W(x) = "(a+3)^2*(a+1)", x0 = -2 -> W(-2) = -1
+W(x) = "(x+1)^4*(x-2)^2", x0 = 2 -> W(2) = 0
+W(x) = "(x-1)^2*(x+1)^4*(x-2)^2", x0 = 3 -> W(3) = 1024
+W(x) = "(x+1)^4*(x2+x+1)", x0 = 2 -> W(2) = 567
+W(x) = "a39+16a+a8", x0 = 2 -> W(0) = 0x8000010100
 \end{lstlisting}
 
 \subsection{PolynomialNumberOfRoots}
@@ -1637,15 +1675,37 @@ Jest klasą weryfikującą, czy wartość wielomianu w danym punkcie jest oblicz
 Jest to klasa, sprawdzająca ile pierwiastków rzeczywistych znajduje się w podanym przedziale. Pod uwagę brane są wyłącznie rożne pierwiastki, dlatego na początku funkcji weryfikującej wywoływana jest funkcja PolynomialAfterEliminationOfMultipleRoots, a dopiero na jej znormalizowanym rezultacie wykonywana jest właściwa funkcja. Jej rezultat porównywany jest ze spodziewaną wartością, podawaną w postaci zmiennej typu int. Domyślnymi granicami przedziału są wartości niewłaściwe $-\infty$ i $+\infty$, więc gdy interesują nas pierwiastki w całym zbiorze liczb rzeczywistych, nie ma potrzeby ich podawać. W przeciwnym razie nadpisywana jest wartością zmiennych klasy – a i b, oznaczających lewy i prawy kraniec przedziału. Możliwe jest także sprecyzowanie granicy przedziału tylko z jednej strony, np. gdy szukamy liczby pierwiastków dodatnich. Poniżej zamieszczam przykładowe testy dla różnych przedziałów wyszukiwania.
 
 \begin{lstlisting}
--
+W(x) = "20" -> 0
+W(x) = "2a" -> 1
+W(x) = "-a3" -> 1
+W(x) = "(a-1)^2" -> 1
+W(x) = "(a+1)(a+2)" -> 2
+W(x) = "(a+3)^2*(a+1)^3" -> 2
+W(x) = "(x-1)^2*(x+1)^2*(x-2)^2" -> 3
+W(x) = "(x+1)^4*(x2+x+1)" -> 1
+W(x) = "12a2", a = -1 -> 1
+W(x) = "a3*(a+2)^10", a = -1, b = 4 -> 1
+W(x) = "(x+1)^4*(x-2)^2", a = 0, b = 1 -> 0
 \end{lstlisting}
 
 \subsection{PolynomialRoots}
 
-Na początku funkcji weryfikującej dokonywana jest eliminacja pierwiastków wielokrotnych. Otrzymany wielomian poddawany jest normalizacji, a wówczas znajdowane są jego pierwiastki w podanym przedziale. Podobnie jak w przypadku klasy PolynomialNumberOfRoots, domyślnym przedziałem jest zakres od $-\infty$ do $+\infty$. Pierwiastki w wektorze wyjściowym funkcji znajdują się w kolejności ich znalezienia. Także w tym przypadku, konieczne jest więc ich posortowanie. Poniżej zamieszczam większość testów, sprawdzających ostateczną funkcjonalność programu. Lista ta jest bardziej rozbudowana niż poprzednie, ponieważ uznałem, że jest ona zdecydowanie najistotniejszą częścią testów funkcjonalnych mojego programu.
+Na początku funkcji weryfikującej dokonywana jest eliminacja pierwiastków wielokrotnych. Otrzymany wielomian poddawany jest normalizacji, a wówczas znajdowane są jego pierwiastki w podanym przedziale. Podobnie jak w przypadku klasy PolynomialNumberOfRoots, domyślnym przedziałem jest zakres od $-\infty$ do $+\infty$. Pierwiastki w wektorze wyjściowym funkcji znajdują się w kolejności ich znalezienia. Także w tym przypadku, konieczne jest więc ich posortowanie.
+
+Poniżej zamieszczam większość testów, sprawdzających ostateczną funkcjonalność programu. Lista ta jest bardziej rozbudowana niż poprzednie, ponieważ uznałem, że jest ona zdecydowanie najistotniejszą częścią testów funkcjonalnych mojego programu.
 
 \begin{lstlisting}
--
+W(x) = "20" -> {}
+W(x) = "2a" -> {0}
+W(x) = "-a3" -> {0}
+W(x) = "(a-1)^2" -> {0}
+W(x) = "(a+1)(a+2)" -> {-2, -1}
+W(x) = "(a+3)^2*(a+1)^3" -> {-3, -1}
+W(x) = "(x-1)^2*(x+1)^2*(x-2)^2" -> {-1, 1, 2}
+W(x) = "(x+1)^4*(x2+x+1)" -> {-1}
+W(x) = "12a2", a = -1 -> {0}
+W(x) = "a3*(a+2)^10", a = -1, b = 4 -> {0}
+W(x) = "(x+1)^4*(x-2)^2", a = 0, b = 1 -> {}
 \end{lstlisting}
 
 

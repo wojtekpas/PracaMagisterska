@@ -71,17 +71,17 @@
 \contentsline {subsubsection}{Liczba zmian znak\IeC {\'o}w w danym punkcie}{45}
 \contentsline {chapter}{\numberline {3}Przeprowadzone testy}{47}
 \contentsline {section}{\numberline {3.1}Testy funkcjonalne}{47}
-\contentsline {subsection}{\numberline {3.1.1}ParserUniform}{47}
-\contentsline {subsection}{\numberline {3.1.2}ParserConvert}{48}
-\contentsline {subsection}{\numberline {3.1.3}Operatory dodawania, odejmowania i mno\IeC {\.z}enia}{48}
-\contentsline {subsubsection}{PolynomialSumOperator}{48}
-\contentsline {subsubsection}{PolynomialSubOperator}{49}
-\contentsline {subsubsection}{PolynomialMulOperator}{49}
-\contentsline {subsection}{\numberline {3.1.4}Operatory dzielenia i modulo}{49}
-\contentsline {subsubsection}{PolynomialDivOperator}{49}
-\contentsline {subsubsection}{PolynomialModOperator}{50}
-\contentsline {subsection}{\numberline {3.1.5}PolynomialDerivative}{51}
-\contentsline {subsection}{\numberline {3.1.6}PolynomialAfterElimination}{51}
-\contentsline {subsection}{\numberline {3.1.7}PolynomialValue}{51}
-\contentsline {subsection}{\numberline {3.1.8}PolynomialNumberOfRoots}{52}
-\contentsline {subsection}{\numberline {3.1.9}PolynomialRoots}{52}
+\contentsline {subsection}{\numberline {3.1.1}ParserUniform}{48}
+\contentsline {subsection}{\numberline {3.1.2}ParserConvert}{49}
+\contentsline {subsection}{\numberline {3.1.3}Operatory dodawania, odejmowania i mno\IeC {\.z}enia}{49}
+\contentsline {subsubsection}{PolynomialSumOperator}{49}
+\contentsline {subsubsection}{PolynomialSubOperator}{50}
+\contentsline {subsubsection}{PolynomialMulOperator}{50}
+\contentsline {subsection}{\numberline {3.1.4}Operatory dzielenia i modulo}{51}
+\contentsline {subsubsection}{PolynomialDivOperator}{51}
+\contentsline {subsubsection}{PolynomialModOperator}{51}
+\contentsline {subsection}{\numberline {3.1.5}PolynomialDerivative}{52}
+\contentsline {subsection}{\numberline {3.1.6}PolynomialAfterElimination}{52}
+\contentsline {subsection}{\numberline {3.1.7}PolynomialValue}{53}
+\contentsline {subsection}{\numberline {3.1.8}PolynomialNumberOfRoots}{53}
+\contentsline {subsection}{\numberline {3.1.9}PolynomialRoots}{54}
