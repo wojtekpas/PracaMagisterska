@@ -9,11 +9,12 @@
 \contentsline {subsubsection}{Iloczyn wielomian\IeC {\'o}w}{4}
 \contentsline {subsubsection}{Iloraz wielomian\IeC {\'o}w}{5}
 \contentsline {subsubsection}{Pochodna wielomianu}{6}
-\contentsline {subsection}{\numberline {1.1.3}Dodatkowe twierdzenia dotycz\IeC {\k a}ce wielomian\IeC {\'o}w}{7}
-\contentsline {section}{\numberline {1.2}Eliminacja pierwiastk\IeC {\'o}w wielokrotnych}{9}
-\contentsline {section}{\numberline {1.3}Twierdzenie Sturma}{11}
-\contentsline {section}{\numberline {1.4}Biblioteka Mpir}{13}
-\contentsline {subsection}{\numberline {1.4.1}Podstawowe informacje}{13}
+\contentsline {subsection}{\numberline {1.1.3}Najwi\IeC {\k e}kszy wsp\IeC {\'o}lny dzielnik wielomian\IeC {\'o}w - TODO}{7}
+\contentsline {subsection}{\numberline {1.1.4}Dodatkowe twierdzenia dotycz\IeC {\k a}ce wielomian\IeC {\'o}w}{7}
+\contentsline {subsection}{\numberline {1.1.5}Eliminacja pierwiastk\IeC {\'o}w wielokrotnych}{9}
+\contentsline {subsection}{\numberline {1.1.6}Twierdzenie Sturma}{11}
+\contentsline {section}{\numberline {1.2}Biblioteka MPIR}{13}
+\contentsline {subsection}{\numberline {1.2.1}Podstawowe informacje}{13}
 \contentsline {subsubsection}{Wst\IeC {\k e}p}{13}
 \contentsline {subsubsection}{Licencja}{13}
 \contentsline {subsubsection}{Nazewnictwo i typy}{13}
@@ -22,8 +23,8 @@
 \contentsline {subsubsection}{Kompatybilno\IeC {\'s}\IeC {\'c}}{15}
 \contentsline {subsubsection}{Wydajno\IeC {\'s}\IeC {\'c}}{15}
 \contentsline {subsubsection}{Operacje w miejscu}{15}
-\contentsline {subsection}{\numberline {1.4.2}Instalacja}{15}
-\contentsline {subsection}{\numberline {1.4.3}Operacje na liczbach ca\IeC {\l }kowitych}{16}
+\contentsline {subsection}{\numberline {1.2.2}Instalacja}{15}
+\contentsline {subsection}{\numberline {1.2.3}Operacje na liczbach ca\IeC {\l }kowitych}{16}
 \contentsline {subsubsection}{Funkcje inicjalizuj\IeC {\k a}ce}{16}
 \contentsline {subsubsection}{Funkcje przypisania}{16}
 \contentsline {subsubsection}{Funkcje konwersji}{17}
@@ -31,7 +32,7 @@
 \contentsline {subsubsection}{Funkcje dzielenia}{18}
 \contentsline {subsubsection}{Funkcje por\IeC {\'o}wnania}{19}
 \contentsline {subsubsection}{Pozosta\IeC {\l }e funkcje}{20}
-\contentsline {subsection}{\numberline {1.4.4}Operacje na liczbach wymiernych}{20}
+\contentsline {subsection}{\numberline {1.2.4}Operacje na liczbach wymiernych}{20}
 \contentsline {chapter}{\numberline {2}Opis rozwi\IeC {\k a}zania}{23}
 \contentsline {section}{\numberline {2.1}Podzia\IeC {\l } na modu\IeC {\l }y}{23}
 \contentsline {subsection}{\numberline {2.1.1}Statyczna biblioteka}{23}
@@ -69,6 +70,8 @@
 \contentsline {subsubsection}{Obliczanie pochodnej wielomianu}{44}
 \contentsline {subsubsection}{Obliczanie wyraz\IeC {\'o}w ciagu Sturma}{44}
 \contentsline {subsubsection}{Liczba zmian znak\IeC {\'o}w w danym punkcie}{45}
+\contentsline {section}{\numberline {2.4}Instalacja aplikacji}{45}
+\contentsline {section}{\numberline {2.5}Instrukcja obs\IeC {\l }ugi programu}{45}
 \contentsline {chapter}{\numberline {3}Przeprowadzone testy}{47}
 \contentsline {section}{\numberline {3.1}Testy funkcjonalne}{47}
 \contentsline {subsection}{\numberline {3.1.1}ParserUniform}{48}

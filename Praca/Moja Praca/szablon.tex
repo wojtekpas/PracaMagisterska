@@ -205,7 +205,7 @@ W dalszej części, jeżeli nie zaznaczymy inaczej, mówiąc wielomian, będziem
 
 \subsection{Podstawowe działania na wielomianach}
 
-Na wielomianach, tak jak na liczbach możemy wykonywać podstawowe działania. Należą do nich: porównywanie, dodawanie, odejmowanie, mnożenie, dzielenie, a także obliczanie reszty z dzielenia oraz NWD (największego wspólnego dzielnika). Jako, że wielomian zmiennej x możemy traktować jak funkcję jednej zmiennej, możemy także policzyć z niego pochodne.
+Na wielomianach, tak jak na liczbach możemy wykonywać podstawowe działania. Należą do nich: porównywanie, dodawanie, odejmowanie, mnożenie, dzielenie, a także obliczanie reszty z dzielenia. Jako, że wielomian zmiennej x możemy traktować jak funkcję jednej zmiennej, możemy także policzyć z niego pochodną.
 
 \subsubsection{Porównywanie wielomianów}
 
@@ -423,7 +423,7 @@ Widzimy, że powstały wielomian powstał poprzez pomnożenie wartości każdego
 
 Jak widać dla wszystkich wielomianów, nie będących stałą liczbową, stopień ich pochodnej ulega zmniejszeniu o jeden. Czas operacji obliczania pochodnej wielomianu jest porównywalny, z obliczaniem sumy wielomianów, gdyż wystarczy, że dokonamy jednokrotnego obliczania każdego z współczynników.
 
-%\subsubsection{NWD wielomianów}
+\subsection{Największy wspólny dzielnik wielomianów - TODO}
 
 \subsection{Dodatkowe twierdzenia dotyczące wielomianów}
 
@@ -501,7 +501,7 @@ Powyższy czynnik da się rozłożyć na dwa czynniki liniowe, o współczynnika
 
 Oznacza to, że każdy wielomian stopnia nieparzystego jesteśmy w stanie przedstawić jako iloczyn dwóch czynników, z których jeden jest czynnikiem liniowym, a drugi czynnikiem stopnia parzystego, który z kolei być może da się dalej rozłożyć, na wielomiany, o mniejszych stopniach.
 
-\section{Eliminacja pierwiastków wielokrotnych}
+\subsection{Eliminacja pierwiastków wielokrotnych}
 
 Ważnym aspektem obliczanie zer wielomianów jest eliminacja pierwiastków wielokrotnych. Jest ona niezbędna, by móc skorzystać z metody Sturmy. Zapoznajmy się z twierdzeniem dotyczącym krotności pierwiastków pochodnej wielomianu.
 
@@ -572,7 +572,7 @@ Spróbujmy teraz skorzystać z przedstawionego twierdzenia w przykładzie dokonu
 	Kluczowa jest wartość reszty z dzielenia. Gdyby otrzymana reszta z dzielenia była wielomianem zerowym, to pochodna wielomianu było równocześnie NWD(W, W'). W tym przypadku tak jednak nie jest, więc wykonujemy analogiczną operację z tą różnicą, że nową dzielną jest dotychczasowy dzielnik, a reszta z wielomianu jest nowym dzielnikiem. Tę operację wykonujemy tak długo, jak otrzymana reszta jest niezerowego stopnia. W przypadku gdy jest ona jednocześnie wielomianem zerowym, to podobnie jak wyżej, aktualny dzielnik, jest naszym NWD(W, W'). W przypadku, gdy otrzymana reszta jest niezerowym wielomianem stopnia zerowego, to największym wspólnym dzielnikiem wielomianów jest pewna niezerowa stała.
 \end{example}
 
-\section{Twierdzenie Sturma}
+\subsection{Twierdzenie Sturma}
 
 Przeanalizujmy na początek sposób konstruowania ciągu Sturma dla wielomianu W. Pierwszym wyrazem ciagu jest sam wielomian W. Z kolei drugim wyrazem jest pochodna wielomianu W. Kolejne wyrazy ciągu Sturma wyznaczamy obliczając resztę z ilorazu dwóch poprzednich wyrazów. Dzieje się to do uzyskania pierwszej reszty wielomianu, będącą wielomianem stopnia zerowego. Za każdym razem dzieląc wielomian stopnia n, przez wielomian stopnia m, gdzie $m<n$, mamy gwarancję, że wielomian będacy resztą tego ilorazu będzie stopnia mniejszego niż m. Korzystając z tego faktu, wiemy, że liczba wyrazów ciągu Sturma dla wielomianu W jest niewiększa od $\deg(W)+1$.
 
@@ -623,7 +623,7 @@ Jeżeli zależy nam, na obliczeniu wartości wielomianu, dla odpowiednio dużych
 
 Jak widać jesteśmy w stanie ustalić znak, a nawet dokładną wartość, największego współczynnika wielomianu, będącego ilorazem dwóch innych wielomianów, wykonując proste dzielenie dwóch liczb, będących odpowiednio najwyższymi współczynnikami wielomianów - dzielnej i dzielnika.
 
-\section{Biblioteka Mpir}
+\section{Biblioteka MPIR}
 
 \subsection{Podstawowe informacje}
 
@@ -1512,6 +1512,9 @@ inline int PolynomialVector::NumberOfChangesSign(Number a)
 
 Funkcja na postawie ciągu Sturma i metody GetSturm, oblicza liczbę zmian znaków dla podanego punktu. Porównuje ona wartości dwóch kolejnych wyrazów ciagu Sturma. Jeżeli ich iloczyn jest ujemny, następuje zwiększenie licznika o jeden. W przypadku wartości zerowych, element taki jest pomijany, tzn. ciąg jest rozpatrywany, tak jakby go nie zawierał. Warto zauwazyć, że dla odpowiednio dużych wartości absolutnym liczby a, w tym wartości niewłaściwych $-\infty$ i $\infty$, liczba zmian znaków, zależy wyłącznie od współczynników stojących, przy najwyższych potęgach kolejnych wielomianów. Fakt ten powoduje możliwą optymalizację działania funkcji, w zależności od otrzymanego parametru. Najbardziej czasochłonna operacja, jaką jest dzielenie wielomianów, i tak musi zostać wykonana, by znaleźć wszystkie wyrazy ciągu Sturma, ale zysk z takiej optymalizacji, może być zauważalny i znacząco poprawić wydajność funkcji.
 
+\section{Instalacja aplikacji}
+
+\section{Instrukcja obsługi programu}
 
 \chapter{Przeprowadzone testy}
 
