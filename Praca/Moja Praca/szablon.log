@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  8 SEP 2016 21:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  8 SEP 2016 22:42
 entering extended mode
 **./szablon.tex
 (szablon.tex
@@ -1371,7 +1371,10 @@ Rozdzia\l  3.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [49]
-[50] [51] [52] [53] [54] [55] [56] [57] [58
+Underfull \vbox (badness 3503) has occurred while \output is active []
+
+ [50]
+[51] [52] [53] [54] [55] [56] [57] [58
 
 ] (szablon.bbl) [59
 
@@ -1405,7 +1408,7 @@ m Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmr7.pfb><C:/Program Files (x86)
 /fonts/type1/public/lm/lmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type
 1/public/lm/lmsy5.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/
 lmsy7.pfb>
-Output written on szablon.pdf (63 pages, 415893 bytes).
+Output written on szablon.pdf (63 pages, 415873 bytes).
 PDF statistics:
  275 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
