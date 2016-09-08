@@ -178,7 +178,7 @@
 	\end{equation}
 \end{definition}
 
-Liczby $a_0, a_1, a_2, ..., 1_{n-1}, a_n$ nazywamy współczynnikami wielomianu, natomiast n nazywamy stopniem wielomianu.
+Liczby $a_0, a_1, a_2, ..., a_{n-1}, a_n$ nazywamy współczynnikami wielomianu, natomiast n nazywamy stopniem wielomianu.
 	
 Szczególnym przypadkiem wielomianu jest jednomian. 
 
@@ -333,7 +333,7 @@ Jak wynika z przedstawionej definicji poza mnożeniem dwóch liczb, mnożenie wi
 	\begin{equation}
 		\begin{split}
 		W_3(x) = &(a_0b_0)x^{n+m} + (a_0b_1+a_1b_0)x^{n+m-1} + (a_0b_2+a_1b_1+a_2b_0)x^{b+m-1} + ... \\
-		&+ (a_{n-2}b_m+a_{n-1}b_{m-1}+a_nb_m)x^2 + (a_{n-1}b_m + a_nb_{m-1})x + a_nb_m \\
+		&+ (a_{n-2}b_m+a_{n-1}b_{m-1}+a_nb_{m-2})x^2 + (a_{n-1}b_m + a_nb_{m-1})x + a_nb_m \\
 		\end{split}
 	\end{equation}
 \end{example}
@@ -624,7 +624,7 @@ Spróbujmy teraz skorzystać z przedstawionego twierdzenia w przykładzie dokonu
 	&x\\\hline
 	&x^6-6x^4-4x^3+9x^2+12x+4 : (x^5-4x^3-2x^2+3x+2) \\
 	&-x^6+4x^4+2x^3-3x^2-2x \\\hline
-	&-2x^4-2x^3+6x^2+10x \\
+	&-2x^4-2x^3+6x^2+10x+4 \\
 	\end{split}
 	\end{equation}
 	Kluczowa jest wartość reszty z dzielenia. Gdyby otrzymana reszta z dzielenia była wielomianem zerowym, to pochodna wielomianu była równocześnie NWD(W, W'). W tym przypadku tak jednak nie jest, więc wykonujemy analogiczną operację z tą różnicą, że nową dzielną jest dotychczasowy dzielnik, a reszta z wielomianu jest nowym dzielnikiem. Tę operację wykonujemy tak długo, jak otrzymana reszta jest niezerowego stopnia. W przypadku gdy jest ona jednocześnie wielomianem zerowym, to podobnie jak wyżej, aktualny dzielnik, jest naszym NWD(W, W'). W przypadku, gdy otrzymana reszta jest niezerowym wielomianem stopnia zerowego, to największym wspólnym dzielnikiem wielomianów jest pewna niezerowa stała.
