@@ -203,7 +203,16 @@ inline PAIR Polynomial::Div(int power1, Number number1, int power2, Number numbe
 
 inline Polynomial& Polynomial::Nwd(Polynomial& p1, Polynomial& p2)
 {
+	p1.Normalize();
+	p2.Normalize();
+	p1.Print();
+	p2.Print();
 	auto divResult = DividePolynomials(p1, p2);
+	divResult.first.Normalize();
+	divResult.second.Normalize();
+	divResult.first.Print();
+	divResult.second.Print();
+
 	if (divResult.second.IsZero())
 	{
 		Polynomial& result = CreatePolynomial();

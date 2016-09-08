@@ -423,7 +423,65 @@ Widzimy, że powstały wielomian powstał poprzez pomnożenie wartości każdego
 
 Jak widać dla wszystkich wielomianów, nie będących stałą liczbową, stopień ich pochodnej ulega zmniejszeniu o jeden. Czas operacji obliczania pochodnej wielomianu jest porównywalny, z obliczaniem sumy wielomianów, gdyż wystarczy, że dokonamy jednokrotnego obliczania każdego z współczynników.
 
-\subsection{Największy wspólny dzielnik wielomianów - TODO}
+\subsection{Największy wspólny dzielnik wielomianów}
+
+Zacznijmy od zastanowienia się, co znaczy, że dany wielomian dzieli inny wielomian. Zapoznajmy się z poniższą definicją.
+
+\begin{definition}
+	Wspólnym dzielnikiem dwóch wielomianów $W_1$ i $W_2$, nazywy taki wielomian $W_3$, że gdy podzielimy dowolny z tych dwóch wielomianów przez $W_3$ to otrzymamy zerową resztę z dzielenia.
+\end{definition}
+
+Zauważmy, że definicja ta jest analogiczna, jak w przypadku liczb naturalnych.
+A co oznacza największy wspólny dzielnik? W przypadku liczb jest to dowolna liczba naturalna spełniająca powyższy warunek. Podobnie jest dla wielomianów. Spośród wszystkich wielomianów, które spełniają to kryterium, jest to ten, którego stopień jest najwyższy. Potwierdza to poniższa definicja.
+
+\begin{definition}
+	Największym wspólnym dzielnikiem dwóch wielomianów $W_1$ i $W_2$, nazywy ten wspólny dzielnik, którego stopień jest najwyższy.
+\end{definition}
+
+Również ta definicja jest analogiczna, jak w przypadku liczb, gdzie szukamy takiego dzielnika, który jest najwięszy.
+
+Zapoznajmy się teraz z twierdzeniem dotyczącym sposobu, w jaki obliczamy nwd wielomianów.
+
+\begin{theorem}
+Aby obliczyć największy wspólny dzielnik dla wielomianów $W_1$ i $W_2$, musimy dokonać obliczenia kolejnych reszt z dzielenia. Pierwsza z nich jest obliczana dla ilorazu $W_1$ i $W_2$. Kolejne obliczane są dla dotychczasowego dzielnika i otrzymanej reszty. Dzielenia kończą się w momencie, gdy otrzymana reszta jest stopnia zerowego. Jeżeli jest ona wielomianem zerowym, oznacza to, że największym wspólnym dzielnikiem jest ostatni dzielnik. W przeciwnym wypadku, czyli w momencie, gdy wielomian ten jest liczbą różną od zera, nwd nie istnieje, tzn. oba wielomiany nie mają wspólnych pierwiastków. 
+\end{theorem}
+
+Zauważmy, że na podstawie twierdzenie, przedstawionego wcześniej, wiemy, że reszta z dzielenia dwóch wielomianów jest mniejsza od różnicy ich stopni. Oznacza, to że jej stopień będzie maleć w przypadku kolejnych dzieleń. Fakt ten, daje nam gwarancję, że liczba dzieleń, których musimy dokonać jest skończona i nie większa niż stopień wielomianu $W_2$. Przeanalizujmy poniższy przykład.
+
+\begin{example}
+	Mamy dane wielomiany: $W_1(x) = x^2(x-1)(x-2)^2$ oraz $W_2(x) = (x-1)(x-2)(x-3)$. Gdy mamy wielomiany rozłożone na czynniki, wartość $NWD(W_1, W_2)$ jest oczywista i równa iloczynowi wspólnych czynników. Zatem w tym przypadku wynosi ona $(x-1)(x-2)$. Zapisując otrzymany wielomian w innej postaci otrzymamy $x^2-3x+2$. Wymnóżmy teraz kolejne czynniki wielomianów $W_1$ i $W_2$ i udowodnijmy, że twierdzenie o znajdowaniu największego wspólnego współczynnika jest poprawne.
+	\begin{equation}
+	\begin{split}
+	&W_1(x) = x^2(x-1)(x-2) = x^4-6x^3+13x^2-12x+4 \\
+	&W_2(x) = (x-1)(x-2)(x-3) = x^3-6x^2+11x-6 \\
+	\end{split}
+	\end{equation}
+	
+	Podzielny teraz wielomian $W_1$ przez wielomian $W_2$.
+	
+	\begin{equation}
+	\begin{split}
+	&x\\\hline
+	&x^4-6x^3+13x^2-12x+44 : (x^3-6x^2+11x-6) \\
+	&-x^6+4x^4+2x^3-3x^2-2x \\\hline
+	&x^2-3x+2x \\
+	\end{split}
+	\end{equation}
+	Widzimy, że otrzymana reszta wielomianu, nie jest wielomianem stopnia zerowego. Dokonujemy więc kolejnego dzielenia, przy czym nasz dotychczasowy dzielnik staje się nową dzielną, a otrzymana reszta dzielnikiem.
+	
+	\begin{equation}
+	\begin{split}
+	&x-3\\\hline
+	&x^3-6x^2+11x-6 : (x^2-3x+2) \\
+	&-x^3+3x^2-2x \\\hline
+	&-3x^2+9x-6 \\
+	&3x^2-9x+6  \\\hline
+	&0\\
+	\end{split}
+	\end{equation}
+	
+	Otrzymaną resztą z dzielenia jest wielomian zerowy, zatem dzielnik tego działania jest największym wspólnym dzielnikiem dla wielomianów $W_1$ i $W_2$.
+\end{example}
 
 \subsection{Dodatkowe twierdzenia dotyczące wielomianów}
 
@@ -569,7 +627,7 @@ Spróbujmy teraz skorzystać z przedstawionego twierdzenia w przykładzie dokonu
 	&-2x^4-2x^3+6x^2+10x \\
 	\end{split}
 	\end{equation}
-	Kluczowa jest wartość reszty z dzielenia. Gdyby otrzymana reszta z dzielenia była wielomianem zerowym, to pochodna wielomianu było równocześnie NWD(W, W'). W tym przypadku tak jednak nie jest, więc wykonujemy analogiczną operację z tą różnicą, że nową dzielną jest dotychczasowy dzielnik, a reszta z wielomianu jest nowym dzielnikiem. Tę operację wykonujemy tak długo, jak otrzymana reszta jest niezerowego stopnia. W przypadku gdy jest ona jednocześnie wielomianem zerowym, to podobnie jak wyżej, aktualny dzielnik, jest naszym NWD(W, W'). W przypadku, gdy otrzymana reszta jest niezerowym wielomianem stopnia zerowego, to największym wspólnym dzielnikiem wielomianów jest pewna niezerowa stała.
+	Kluczowa jest wartość reszty z dzielenia. Gdyby otrzymana reszta z dzielenia była wielomianem zerowym, to pochodna wielomianu była równocześnie NWD(W, W'). W tym przypadku tak jednak nie jest, więc wykonujemy analogiczną operację z tą różnicą, że nową dzielną jest dotychczasowy dzielnik, a reszta z wielomianu jest nowym dzielnikiem. Tę operację wykonujemy tak długo, jak otrzymana reszta jest niezerowego stopnia. W przypadku gdy jest ona jednocześnie wielomianem zerowym, to podobnie jak wyżej, aktualny dzielnik, jest naszym NWD(W, W'). W przypadku, gdy otrzymana reszta jest niezerowym wielomianem stopnia zerowego, to największym wspólnym dzielnikiem wielomianów jest pewna niezerowa stała.
 \end{example}
 
 \subsection{Twierdzenie Sturma}

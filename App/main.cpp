@@ -39,7 +39,16 @@ int main()
 
 		p.PrintInput();
 		p.Print();
-		p.PrintRoots(a, b);
+
+		p = parser.ConvertToPolynomial(inputS);
+
+		Polynomial& p2 = CreatePolynomial();
+		getline(cin, inputS);
+		p2 = parser.ConvertToPolynomial(inputS);
+		Polynomial& after = p.Nwd(p, p2);
+
+		//after.Normalize();
+		//after.PrintRoots(a, b);
 
 		cout << "-----" << endl;
 		inputS = "";

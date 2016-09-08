@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  7 SEP 2016 00:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  8 SEP 2016 20:08
 entering extended mode
 **./szablon.tex
 (szablon.tex
@@ -1196,29 +1196,29 @@ LaTeX Warning: Command \l invalid in math mode on input line 420.
 
 LaTeX Warning: Command \l invalid in math mode on input line 420.
 
-[7]
+[7] [8] [9]
 
-LaTeX Warning: Command \' invalid in math mode on input line 491.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 491.
-
-[8]
-
-LaTeX Warning: Command \' invalid in math mode on input line 535.
+LaTeX Warning: Command \' invalid in math mode on input line 549.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 535.
+LaTeX Warning: Command \' invalid in math mode on input line 549.
 
-[9] [10]
-Overfull \hbox (1.9686pt too wide) in paragraph at lines 598--599
+[10]
+
+LaTeX Warning: Command \' invalid in math mode on input line 593.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 593.
+
+[11] [12]
+Overfull \hbox (1.9686pt too wide) in paragraph at lines 656--657
 []\T1/lmr/m/it/10 Liczba ró»-nych pier-wiast-ków rze-czy-wi-stych wie-lo-mianu 
 W(x) jest równa $\OML/lmm/m/it/10 Z\OT1/lmr/m/n/10 (\OMS/lmsy/m/n/10  1\OT1/lmr
 /m/n/10 ) \OMS/lmsy/m/n/10  $
  []
 
-[11]
-Overfull \hbox (5.6166pt too wide) in paragraph at lines 621--622
+[13]
+Overfull \hbox (5.6166pt too wide) in paragraph at lines 679--680
 []\T1/lmr/m/it/10 Dany jest wie-lo-mian $\OML/lmm/m/it/10 W[]\OT1/lmr/m/n/10 (\
 OML/lmm/m/it/10 x\OT1/lmr/m/n/10 ) = \OML/lmm/m/it/10 a[]x[] \OT1/lmr/m/n/10 + 
 \OML/lmm/m/it/10 a[]x[] \OT1/lmr/m/n/10 + \OML/lmm/m/it/10 a[]x[] \OT1/lmr/m/n/
@@ -1226,159 +1226,154 @@ OML/lmm/m/it/10 x\OT1/lmr/m/n/10 ) = \OML/lmm/m/it/10 a[]x[] \OT1/lmr/m/n/10 +
 10 + \OML/lmm/m/it/10 a[];  gdzie a[] \OMS/lmsy/m/n/10 6\OT1/lmr/m/n/10 =$
  []
 
-[12] [13]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [14]
-[15] [16]
-LaTeX Font Info:    Try loading font information for TS1+lmr on input line 731.
+[14] [15] [16] [17]
+LaTeX Font Info:    Try loading font information for TS1+lmr on input line 789.
 
  ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\ts1lmr.fd"
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [17]
-[18] [19] [20]
-Overfull \hbox (13.32976pt too wide) in paragraph at lines 939--940
+) [18] [19] [20] [21] [22]
+Overfull \hbox (13.32976pt too wide) in paragraph at lines 997--998
 \T1/lmr/m/n/10 ±ci¢ re-zul-tat funk-cji po-wi-nien by¢ wy-star-cza-j¡cy i wy-no
 -si¢ $\OML/lmm/m/it/10 mpz[]sizeinbase\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 mpq[]nu
 mref\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 op\OT1/lmr/m/n/10 )\OML/lmm/m/it/10 ; bas
 e\OT1/lmr/m/n/10 ) +$
  []
 
-[21] [22
+[23] [24
 
 ]
 Rozdzia\l  2.
-[23] [24] [25] [26] [27]
+[25] [26] [27] [28] [29]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [28]
-[29] [30]
+ [30]
+[31] [32]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [31]
-[32]
-Overfull \hbox (11.2131pt too wide) in paragraph at lines 1228--1229
+ [33]
+[34]
+Overfull \hbox (11.2131pt too wide) in paragraph at lines 1286--1287
 [][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (11.2131pt too wide) in paragraph at lines 1229--1230
+Overfull \hbox (11.2131pt too wide) in paragraph at lines 1287--1288
 [][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-[33]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [34]
-Underfull \hbox (badness 10000) in paragraph at lines 1286--1288
-
  []
 
 [35]
-Underfull \hbox (badness 10000) in paragraph at lines 1300--1302
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [36]
+Underfull \hbox (badness 10000) in paragraph at lines 1344--1346
+
+ []
+
+[37]
+Underfull \hbox (badness 10000) in paragraph at lines 1358--1360
 
  []
 
 
 Underfull \vbox (badness 1394) has occurred while \output is active []
 
- [36]
-Underfull \hbox (badness 10000) in paragraph at lines 1310--1312
+ [38]
+Underfull \hbox (badness 10000) in paragraph at lines 1368--1370
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1318--1320
+Underfull \hbox (badness 10000) in paragraph at lines 1376--1378
 
  []
 
-[37]
-Underfull \hbox (badness 10000) in paragraph at lines 1326--1328
+[39]
+Underfull \hbox (badness 10000) in paragraph at lines 1384--1386
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1334--1336
+Underfull \hbox (badness 10000) in paragraph at lines 1392--1394
 
  []
 
 
 Underfull \vbox (badness 1584) has occurred while \output is active []
 
- [38]
-Underfull \hbox (badness 10000) in paragraph at lines 1344--1346
+ [40]
+Underfull \hbox (badness 10000) in paragraph at lines 1402--1404
 
  []
 
 
-LaTeX Warning: Command \textquoteright invalid in math mode on input line 1353.
+LaTeX Warning: Command \textquoteright invalid in math mode on input line 1411.
 
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1353--1355
-
- []
-
-[39]
-
-LaTeX Warning: Command \l invalid in math mode on input line 1373.
-
-[40]
-Underfull \hbox (badness 10000) in paragraph at lines 1409--1411
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1417--1419
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1425--1429
+Underfull \hbox (badness 10000) in paragraph at lines 1411--1413
 
  []
 
 [41]
-Underfull \hbox (badness 10000) in paragraph at lines 1444--1446
 
- []
+LaTeX Warning: Command \l invalid in math mode on input line 1431.
 
 [42]
-Underfull \hbox (badness 10000) in paragraph at lines 1453--1455
+Underfull \hbox (badness 10000) in paragraph at lines 1467--1469
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1462--1464
+Underfull \hbox (badness 10000) in paragraph at lines 1475--1477
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1473--1475
+Underfull \hbox (badness 10000) in paragraph at lines 1483--1487
 
  []
 
 [43]
-Underfull \hbox (badness 10000) in paragraph at lines 1485--1487
+Underfull \hbox (badness 10000) in paragraph at lines 1502--1504
 
  []
 
 [44]
-Underfull \hbox (badness 10000) in paragraph at lines 1504--1506
+Underfull \hbox (badness 10000) in paragraph at lines 1511--1513
 
  []
 
-[45] [46
+
+Underfull \hbox (badness 10000) in paragraph at lines 1520--1522
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1531--1533
+
+ []
+
+[45]
+Underfull \hbox (badness 10000) in paragraph at lines 1543--1545
+
+ []
+
+[46]
+Underfull \hbox (badness 10000) in paragraph at lines 1562--1564
+
+ []
+
+[47] [48
 
 ]
 Rozdzia\l  3.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [47]
-[48] [49] [50] [51] [52] [53] [54] [55] [56
+ [49]
+[50] [51] [52] [53] [54] [55] [56] [57] [58
 
-] (szablon.bbl) [57
+] (szablon.bbl) [59
 
 ] (szablon.aux)
 
@@ -1388,7 +1383,7 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of TeX's memory you used:
  17355 strings out of 493634
  313856 string characters out of 3141314
- 375750 words of memory out of 3000000
+ 375752 words of memory out of 3000000
  20372 multiletter control sequences out of 15000+200000
  60059 words of font info for 46 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
@@ -1410,9 +1405,9 @@ m Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmr7.pfb><C:/Program Files (x86)
 /fonts/type1/public/lm/lmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type
 1/public/lm/lmsy5.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/
 lmsy7.pfb>
-Output written on szablon.pdf (61 pages, 410341 bytes).
+Output written on szablon.pdf (63 pages, 415876 bytes).
 PDF statistics:
- 269 PDF objects out of 1000 (max. 8388607)
+ 275 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  23 words of extra memory for PDF output out of 10000 (max. 10000000)
 
