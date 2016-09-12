@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  12 SEP 2016 22:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  12 SEP 2016 23:35
 entering extended mode
 **./praca.tex
 (praca.tex
@@ -1211,10 +1211,11 @@ LaTeX Warning: Command \' invalid in math mode on input line 593.
 LaTeX Warning: Command \' invalid in math mode on input line 593.
 
 [11] [12]
-Overfull \hbox (1.9686pt too wide) in paragraph at lines 656--657
+Overfull \hbox (3.48927pt too wide) in paragraph at lines 656--657
 []\T1/lmr/m/it/10 Liczba ró»-nych pier-wiast-ków rze-czy-wi-stych wie-lo-mianu 
-W(x) jest równa $\OML/lmm/m/it/10 Z\OT1/lmr/m/n/10 (\OMS/lmsy/m/n/10  1\OT1/lmr
-/m/n/10 ) \OMS/lmsy/m/n/10  $
+$\OML/lmm/m/it/10 W\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 x\OT1/lmr/m/n/10 )$ \T1/lm
+r/m/it/10 jest równa $\OML/lmm/m/it/10 Z\OT1/lmr/m/n/10 (\OMS/lmsy/m/n/10  1\OT
+1/lmr/m/n/10 ) \OMS/lmsy/m/n/10  $
  []
 
 [13]
@@ -1410,7 +1411,7 @@ m Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmr7.pfb><C:/Program Files (x86)
 /fonts/type1/public/lm/lmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type
 1/public/lm/lmsy5.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/
 lmsy7.pfb>
-Output written on praca.pdf (63 pages, 417287 bytes).
+Output written on praca.pdf (63 pages, 419832 bytes).
 PDF statistics:
  275 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

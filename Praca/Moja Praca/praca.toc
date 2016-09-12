@@ -19,7 +19,7 @@
 \contentsline {subsubsection}{Licencja}{15}
 \contentsline {subsubsection}{Nazewnictwo i typy}{15}
 \contentsline {subsubsection}{Funkcje}{15}
-\contentsline {subsubsection}{Zarz\IeC {\k a}dzanie pami\IeC {\k e}ci\IeC {\k a}}{15}
+\contentsline {subsubsection}{Zarz\IeC {\k a}dzanie pami\IeC {\k e}ci\IeC {\k a}}{16}
 \contentsline {subsubsection}{Kompatybilno\IeC {\'s}\IeC {\'c}}{16}
 \contentsline {subsubsection}{Wydajno\IeC {\'s}\IeC {\'c}}{16}
 \contentsline {subsubsection}{Operacje w miejscu}{16}
