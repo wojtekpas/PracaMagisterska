@@ -46,13 +46,13 @@
 \contentsline {subsection}{\numberline {2.2.5}Polynomial}{32}
 \contentsline {subsection}{\numberline {2.2.6}PolynomialVector}{36}
 \contentsline {subsection}{\numberline {2.2.7}PolynomialMap}{37}
-\contentsline {section}{\numberline {2.3}G\IeC {\l }\IeC {\'o}wne funkcje}{37}
-\contentsline {subsection}{\numberline {2.3.1}Metody klasy Parser}{37}
-\contentsline {subsubsection}{Unifikacja wej\IeC {\'s}ciowego \IeC {\l }a\IeC {\'n}cucha znak\IeC {\'o}w}{37}
+\contentsline {section}{\numberline {2.3}G\IeC {\l }\IeC {\'o}wne funkcje}{38}
+\contentsline {subsection}{\numberline {2.3.1}Metody klasy Parser}{38}
+\contentsline {subsubsection}{Unifikacja wej\IeC {\'s}ciowego \IeC {\l }a\IeC {\'n}cucha znak\IeC {\'o}w}{38}
 \contentsline {subsubsection}{Konwersja \IeC {\l }a\IeC {\'n}cucha znak\IeC {\'o}w do postaci wielomianu}{38}
 \contentsline {subsection}{\numberline {2.3.2}Metody klasy Number}{39}
 \contentsline {subsubsection}{Sortowanie liczb typu mpq\_t}{39}
-\contentsline {subsubsection}{Por\IeC {\'o}wnywanie wektor\IeC {\'o}w liczbowych}{39}
+\contentsline {subsubsection}{Por\IeC {\'o}wnywanie wektor\IeC {\'o}w liczbowych}{40}
 \contentsline {subsubsection}{Wyszukiwanie danej liczby w tablicy}{40}
 \contentsline {subsubsection}{Zwracanie warto\IeC {\'s}ci liczby w postaci \IeC {\l }a\IeC {\'n}cucha znak\IeC {\'o}w}{40}
 \contentsline {subsection}{\numberline {2.3.3}Metody klasy Polynomial}{41}
@@ -68,10 +68,10 @@
 \contentsline {subsubsection}{Zwracanie warto\IeC {\'s}ci wielomianu w postaci \IeC {\l }a\IeC {\'n}cucha znak\IeC {\'o}w}{45}
 \contentsline {subsubsection}{Dzielenie wielomian\IeC {\'o}w}{46}
 \contentsline {subsubsection}{Obliczanie pochodnej wielomianu}{46}
-\contentsline {subsubsection}{Obliczanie wyraz\IeC {\'o}w ciagu Sturma}{46}
+\contentsline {subsubsection}{Obliczanie wyraz\IeC {\'o}w ciagu Sturma}{47}
 \contentsline {subsubsection}{Liczba zmian znak\IeC {\'o}w w danym punkcie}{47}
-\contentsline {section}{\numberline {2.4}Instalacja aplikacji}{47}
-\contentsline {section}{\numberline {2.5}Instrukcja obs\IeC {\l }ugi programu}{47}
+\contentsline {section}{\numberline {2.4}Instalacja aplikacji}{48}
+\contentsline {section}{\numberline {2.5}Instrukcja obs\IeC {\l }ugi programu}{48}
 \contentsline {chapter}{\numberline {3}Przeprowadzone testy}{49}
 \contentsline {section}{\numberline {3.1}Testy funkcjonalne}{49}
 \contentsline {subsection}{\numberline {3.1.1}ParserUniform}{50}

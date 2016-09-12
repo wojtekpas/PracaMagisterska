@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  8 SEP 2016 23:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  12 SEP 2016 22:05
 entering extended mode
-**./szablon.tex
-(szablon.tex
+**./praca.tex
+(praca.tex
 LaTeX2e <2015/10/01> patch level 2
 Babel <3.9n> and hyphenation patterns for 69 languages loaded.
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\book.cls"
@@ -1042,8 +1042,8 @@ Package: `anysize' 1.0 <1994/08/13>
 \@Rightmargin=\dimen182
 \@Topmargin=\dimen183
 \@Bottommargin=\dimen184
-) (szablon.aux)
-\openout1 = `szablon.aux'.
+) (praca.aux)
+\openout1 = `praca.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 155.
 LaTeX Font Info:    ... okay on input line 155.
@@ -1173,9 +1173,9 @@ Overfull \hbox (12.0pt too wide) in alignment at lines 159--159
 {C:/Users/Gruby/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./img/logo_
 pg.png> <./img/logo_eti.png>] [2
 
-] (szablon.toc [3])
+] (praca.toc [3])
 \tf@toc=\write4
-\openout4 = `szablon.toc'.
+\openout4 = `praca.toc'.
 
  [4]
 Rozdzia\l  1.
@@ -1261,33 +1261,34 @@ Overfull \hbox (11.2131pt too wide) in paragraph at lines 1287--1288
 [][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[35]
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
+ [35]
+Underfull \vbox (badness 1067) has occurred while \output is active []
+
  [36]
+[37]
 Underfull \hbox (badness 10000) in paragraph at lines 1344--1346
 
  []
 
-[37]
+[38]
 Underfull \hbox (badness 10000) in paragraph at lines 1358--1360
 
  []
 
 
-Underfull \vbox (badness 1394) has occurred while \output is active []
-
- [38]
 Underfull \hbox (badness 10000) in paragraph at lines 1368--1370
 
  []
 
-
+[39]
 Underfull \hbox (badness 10000) in paragraph at lines 1376--1378
 
  []
 
-[39]
+
 Underfull \hbox (badness 10000) in paragraph at lines 1384--1386
 
  []
@@ -1297,10 +1298,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1392--1394
 
  []
 
-
-Underfull \vbox (badness 1584) has occurred while \output is active []
-
- [40]
+[40]
 Underfull \hbox (badness 10000) in paragraph at lines 1402--1404
 
  []
@@ -1328,69 +1326,73 @@ Underfull \hbox (badness 10000) in paragraph at lines 1475--1477
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 1483--1487
-
- []
-
 [43]
-Underfull \hbox (badness 10000) in paragraph at lines 1502--1504
+Underfull \hbox (badness 10000) in paragraph at lines 1487--1489
 
  []
 
 [44]
-Underfull \hbox (badness 10000) in paragraph at lines 1511--1513
+Underfull \hbox (badness 10000) in paragraph at lines 1504--1506
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1520--1522
+Underfull \hbox (badness 10000) in paragraph at lines 1513--1515
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1531--1533
+Underfull \hbox (badness 10000) in paragraph at lines 1522--1524
 
  []
 
 [45]
-Underfull \hbox (badness 10000) in paragraph at lines 1543--1545
+Underfull \hbox (badness 10000) in paragraph at lines 1533--1535
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1545--1547
 
  []
 
 [46]
-Underfull \hbox (badness 10000) in paragraph at lines 1562--1564
+Underfull \hbox (badness 10000) in paragraph at lines 1564--1566
 
  []
 
-[47] [48
 
-]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [47]
+[48]
 Rozdzia\l  3.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [49]
+ [49
+
+]
 Underfull \vbox (badness 3503) has occurred while \output is active []
 
  [50]
 [51] [52] [53] [54] [55] [56] [57] [58
 
-] (szablon.bbl) [59
+] (praca.bbl) [59
 
-] (szablon.aux)
+] (praca.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
  17363 strings out of 493634
- 313960 string characters out of 3141314
- 375752 words of memory out of 3000000
+ 313932 string characters out of 3141314
+ 376752 words of memory out of 3000000
  20380 multiletter control sequences out of 15000+200000
  60059 words of font info for 46 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 48i,15n,54p,2341b,1748s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 48i,15n,54p,2339b,1748s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathex.enc}{C:/Progr
 am Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ts1.enc}{C:/Program Files (x86)
 /MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program Files (x86)/MiKTeX 2.9/fon
@@ -1408,7 +1410,7 @@ m Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmr7.pfb><C:/Program Files (x86)
 /fonts/type1/public/lm/lmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type
 1/public/lm/lmsy5.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/
 lmsy7.pfb>
-Output written on szablon.pdf (63 pages, 415846 bytes).
+Output written on praca.pdf (63 pages, 417287 bytes).
 PDF statistics:
  275 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
