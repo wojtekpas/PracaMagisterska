@@ -1,5 +1,5 @@
 \select@language {polish}
-\contentsline {chapter}{\numberline {1}Przegl\IeC {\k a}d literatury}{1}
+\contentsline {chapter}{\numberline {1}Wprowadzenie}{1}
 \contentsline {section}{\numberline {1.1}Wielomiany}{1}
 \contentsline {subsection}{\numberline {1.1.1}Definicja}{1}
 \contentsline {subsection}{\numberline {1.1.2}Podstawowe dzia\IeC {\l }ania na wielomianach}{1}
@@ -10,28 +10,28 @@
 \contentsline {subsubsection}{Iloraz wielomian\IeC {\'o}w}{5}
 \contentsline {subsubsection}{Pochodna wielomianu}{6}
 \contentsline {subsection}{\numberline {1.1.3}Najwi\IeC {\k e}kszy wsp\IeC {\'o}lny dzielnik wielomian\IeC {\'o}w}{7}
-\contentsline {subsection}{\numberline {1.1.4}Dodatkowe twierdzenia dotycz\IeC {\k a}ce wielomian\IeC {\'o}w}{8}
-\contentsline {subsection}{\numberline {1.1.5}Eliminacja pierwiastk\IeC {\'o}w wielokrotnych}{10}
-\contentsline {subsection}{\numberline {1.1.6}Twierdzenie Sturma}{12}
-\contentsline {section}{\numberline {1.2}Biblioteka MPIR}{14}
-\contentsline {subsection}{\numberline {1.2.1}Podstawowe informacje}{14}
-\contentsline {subsubsection}{Wst\IeC {\k e}p}{14}
+\contentsline {subsection}{\numberline {1.1.4}Dodatkowe twierdzenia dotycz\IeC {\k a}ce wielomian\IeC {\'o}w}{9}
+\contentsline {subsection}{\numberline {1.1.5}Eliminacja pierwiastk\IeC {\'o}w wielokrotnych}{11}
+\contentsline {subsection}{\numberline {1.1.6}Twierdzenie Sturma}{13}
+\contentsline {section}{\numberline {1.2}Biblioteka MPIR}{15}
+\contentsline {subsection}{\numberline {1.2.1}Podstawowe informacje}{15}
+\contentsline {subsubsection}{Wst\IeC {\k e}p}{15}
 \contentsline {subsubsection}{Licencja}{15}
 \contentsline {subsubsection}{Nazewnictwo i typy}{15}
-\contentsline {subsubsection}{Funkcje}{15}
+\contentsline {subsubsection}{Funkcje}{16}
 \contentsline {subsubsection}{Zarz\IeC {\k a}dzanie pami\IeC {\k e}ci\IeC {\k a}}{16}
-\contentsline {subsubsection}{Kompatybilno\IeC {\'s}\IeC {\'c}}{16}
-\contentsline {subsubsection}{Wydajno\IeC {\'s}\IeC {\'c}}{16}
-\contentsline {subsubsection}{Operacje w miejscu}{16}
+\contentsline {subsubsection}{Kompatybilno\IeC {\'s}\IeC {\'c}}{17}
+\contentsline {subsubsection}{Wydajno\IeC {\'s}\IeC {\'c}}{17}
+\contentsline {subsubsection}{Operacje w miejscu}{17}
 \contentsline {subsection}{\numberline {1.2.2}Instalacja}{17}
-\contentsline {subsection}{\numberline {1.2.3}Operacje na liczbach ca\IeC {\l }kowitych}{17}
-\contentsline {subsubsection}{Funkcje inicjalizuj\IeC {\k a}ce}{17}
+\contentsline {subsection}{\numberline {1.2.3}Operacje na liczbach ca\IeC {\l }kowitych}{18}
+\contentsline {subsubsection}{Funkcje inicjalizuj\IeC {\k a}ce}{18}
 \contentsline {subsubsection}{Funkcje przypisania}{18}
 \contentsline {subsubsection}{Funkcje konwersji}{19}
-\contentsline {subsubsection}{Funkcje arytmetyczne}{19}
+\contentsline {subsubsection}{Funkcje arytmetyczne}{20}
 \contentsline {subsubsection}{Funkcje dzielenia}{20}
 \contentsline {subsubsection}{Funkcje por\IeC {\'o}wnania}{21}
-\contentsline {subsubsection}{Pozosta\IeC {\l }e funkcje}{21}
+\contentsline {subsubsection}{Pozosta\IeC {\l }e funkcje}{22}
 \contentsline {subsection}{\numberline {1.2.4}Operacje na liczbach wymiernych}{22}
 \contentsline {chapter}{\numberline {2}Opis rozwi\IeC {\k a}zania}{25}
 \contentsline {section}{\numberline {2.1}Podzia\IeC {\l } na modu\IeC {\l }y}{25}
