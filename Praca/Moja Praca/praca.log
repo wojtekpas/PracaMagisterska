@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  18 SEP 2016 21:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  18 SEP 2016 23:38
 entering extended mode
 **./praca.tex
 (praca.tex
@@ -1045,26 +1045,26 @@ Package: `anysize' 1.0 <1994/08/13>
 ) (praca.aux)
 \openout1 = `praca.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 155.
-LaTeX Font Info:    ... okay on input line 155.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 155.
-LaTeX Font Info:    ... okay on input line 155.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 155.
-LaTeX Font Info:    ... okay on input line 155.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 155.
-LaTeX Font Info:    ... okay on input line 155.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 155.
-LaTeX Font Info:    ... okay on input line 155.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 155.
-LaTeX Font Info:    ... okay on input line 155.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 155.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 155.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 152.
+LaTeX Font Info:    ... okay on input line 152.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 152.
+LaTeX Font Info:    ... okay on input line 152.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 152.
+LaTeX Font Info:    ... okay on input line 152.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 152.
+LaTeX Font Info:    ... okay on input line 152.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 152.
+LaTeX Font Info:    ... okay on input line 152.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 152.
+LaTeX Font Info:    ... okay on input line 152.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 152.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 152.
 
  ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 155.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 155.
+LaTeX Font Info:    ... okay on input line 152.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 152.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\t1lmr.fd"
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -1092,42 +1092,42 @@ Package caption Info: longtable package is loaded.
 Package: ltcaption 2013/06/09 v1.4-94 longtable captions (AR)
 )
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 159.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 156.
 
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\ot1lmr.fd"
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 159.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 156.
 
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\omllmm.fd"
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 159
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 156
 .
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\omslmsy.fd"
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 159
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 156
 .
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\omxlmex.fd"
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 159.
+(Font)              <10> on input line 156.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 159.
+(Font)              <7> on input line 156.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 159.
-LaTeX Font Info:    Try loading font information for U+msa on input line 159.
+(Font)              <5> on input line 156.
+LaTeX Font Info:    Try loading font information for U+msa on input line 156.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 159.
+LaTeX Font Info:    Try loading font information for U+msb on input line 156.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1135,32 +1135,32 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 <img/logo_pg.png, id=4, 28.908pt x 22.1628pt>
 File: img/logo_pg.png Graphic file (type png)
  <use img/logo_pg.png>
-Package pdftex.def Info: img/logo_pg.png used on input line 159.
+Package pdftex.def Info: img/logo_pg.png used on input line 156.
 (pdftex.def)             Requested size: 92.80782pt x 71.13188pt.
 
-Overfull \vbox (13.41185pt too high) detected at line 159
+Overfull \vbox (13.41185pt too high) detected at line 156
  []
 
 
 LaTeX Font Warning: Font shape `T1/lmr/bx/sc' undefined
-(Font)              using `T1/lmr/bx/n' instead on input line 159.
+(Font)              using `T1/lmr/bx/n' instead on input line 156.
 
 <img/logo_eti.png, id=5, 73.876pt x 73.876pt>
 File: img/logo_eti.png Graphic file (type png)
  <use img/logo_eti.png>
-Package pdftex.def Info: img/logo_eti.png used on input line 159.
+Package pdftex.def Info: img/logo_eti.png used on input line 156.
 (pdftex.def)             Requested size: 71.13206pt x 71.13188pt.
 
-Overfull \vbox (13.41185pt too high) detected at line 159
+Overfull \vbox (13.41185pt too high) detected at line 156
  []
 
 
-Overfull \hbox (24.0pt too wide) in alignment at lines 159--159
+Overfull \hbox (24.0pt too wide) in alignment at lines 156--156
 [][] 
  []
 
 
-Overfull \hbox (12.0pt too wide) in alignment at lines 159--159
+Overfull \hbox (12.0pt too wide) in alignment at lines 156--156
 [] 
  []
 
@@ -1183,46 +1183,30 @@ Rozdzia\l  1.
 
 
 ] [2]
-Underfull \hbox (badness 10000) in paragraph at lines 237--245
+Underfull \hbox (badness 10000) in paragraph at lines 234--242
 
  []
 
 [3] [4] [5] [6] [7]
-Underfull \hbox (badness 10000) in paragraph at lines 414--419
+Underfull \hbox (badness 10000) in paragraph at lines 411--416
 
  []
 
 
-Underfull \vbox (badness 3919) has occurred while \output is active []
+Underfull \vbox (badness 1308) has occurred while \output is active []
 
  [8]
-[9] [10] [11]
-Underfull \vbox (badness 2573) has occurred while \output is active []
-
- [12]
-[13]
-Underfull \vbox (badness 2538) has occurred while \output is active []
+[9] [10] [11] [12] [13]
+Underfull \vbox (badness 5756) has occurred while \output is active []
 
  [14]
-[15]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [16]
-[17] [18]
-LaTeX Font Info:    Try loading font information for TS1+lmr on input line 750.
+[15] [16] [17]
+LaTeX Font Info:    Try loading font information for TS1+lmr on input line 732.
 
  ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\ts1lmr.fd"
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [19]
-[20] [21] [22]
-Overfull \hbox (13.32976pt too wide) in paragraph at lines 953--954
-\T1/lmr/m/n/10 ±ci¢ re-zul-tat funk-cji po-wi-nien by¢ wy-star-cza-j¡cy i wy-no
--si¢ $\OML/lmm/m/it/10 mpz[]sizeinbase\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 mpq[]nu
-mref\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 op\OT1/lmr/m/n/10 )\OML/lmm/m/it/10 ; bas
-e\OT1/lmr/m/n/10 ) +$
- []
-
-[23] [24
+)
+[18] [19] [20] [21] [22] [23] [24
 
 ]
 Rozdzia\l  2.
@@ -1235,12 +1219,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [33]
 [34]
-Overfull \hbox (11.2131pt too wide) in paragraph at lines 1242--1243
+Overfull \hbox (11.2131pt too wide) in paragraph at lines 1223--1224
 [][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (11.2131pt too wide) in paragraph at lines 1243--1244
+Overfull \hbox (11.2131pt too wide) in paragraph at lines 1224--1225
 [][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
@@ -1252,110 +1236,110 @@ Underfull \vbox (badness 1067) has occurred while \output is active []
 
  [36]
 [37]
-Underfull \hbox (badness 10000) in paragraph at lines 1300--1302
+Underfull \hbox (badness 10000) in paragraph at lines 1281--1283
 
  []
 
 [38]
-Underfull \hbox (badness 10000) in paragraph at lines 1314--1316
+Underfull \hbox (badness 10000) in paragraph at lines 1295--1297
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1324--1326
+Underfull \hbox (badness 10000) in paragraph at lines 1305--1307
 
  []
 
 [39]
-Underfull \hbox (badness 10000) in paragraph at lines 1332--1334
+Underfull \hbox (badness 10000) in paragraph at lines 1313--1315
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1340--1342
+Underfull \hbox (badness 10000) in paragraph at lines 1321--1323
 
  []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1329--1331
+
+ []
+
+[40]
+Underfull \hbox (badness 10000) in paragraph at lines 1339--1341
+
+ []
+
+
+LaTeX Warning: Command \textquoteright invalid in math mode on input line 1348.
+
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 1348--1350
 
  []
 
-[40]
-Underfull \hbox (badness 10000) in paragraph at lines 1358--1360
-
- []
-
-
-LaTeX Warning: Command \textquoteright invalid in math mode on input line 1367.
-
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1367--1369
-
- []
-
 [41]
 
-LaTeX Warning: Command \l invalid in math mode on input line 1387.
+LaTeX Warning: Command \l invalid in math mode on input line 1368.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1392--1393
+Underfull \hbox (badness 10000) in paragraph at lines 1373--1374
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1395--1401
+Underfull \hbox (badness 10000) in paragraph at lines 1376--1382
 
  []
 
 [42]
-Underfull \hbox (badness 10000) in paragraph at lines 1406--1414
+Underfull \hbox (badness 10000) in paragraph at lines 1387--1395
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1416--1418
+Underfull \hbox (badness 10000) in paragraph at lines 1397--1399
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1424--1426
+Underfull \hbox (badness 10000) in paragraph at lines 1405--1407
 
  []
 
 [43]
-Underfull \hbox (badness 10000) in paragraph at lines 1436--1438
+Underfull \hbox (badness 10000) in paragraph at lines 1417--1419
 
  []
 
 [44]
-Underfull \hbox (badness 10000) in paragraph at lines 1453--1455
+Underfull \hbox (badness 10000) in paragraph at lines 1434--1436
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1462--1464
+Underfull \hbox (badness 10000) in paragraph at lines 1443--1445
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1471--1473
+Underfull \hbox (badness 10000) in paragraph at lines 1452--1454
 
  []
 
 [45]
-Underfull \hbox (badness 10000) in paragraph at lines 1482--1484
+Underfull \hbox (badness 10000) in paragraph at lines 1463--1465
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1494--1496
+Underfull \hbox (badness 10000) in paragraph at lines 1475--1477
 
  []
 
 [46]
-Underfull \hbox (badness 10000) in paragraph at lines 1513--1515
+Underfull \hbox (badness 10000) in paragraph at lines 1494--1496
 
  []
 
@@ -1384,10 +1368,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 17363 strings out of 493634
- 313932 string characters out of 3141314
- 376752 words of memory out of 3000000
- 20380 multiletter control sequences out of 15000+200000
+ 17362 strings out of 493634
+ 313941 string characters out of 3141314
+ 376700 words of memory out of 3000000
+ 20379 multiletter control sequences out of 15000+200000
  60059 words of font info for 46 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  48i,15n,54p,2339b,1748s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1408,7 +1392,7 @@ m Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmr7.pfb><C:/Program Files (x86)
 /fonts/type1/public/lm/lmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type
 1/public/lm/lmsy5.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/
 lmsy7.pfb>
-Output written on praca.pdf (63 pages, 418603 bytes).
+Output written on praca.pdf (63 pages, 414854 bytes).
 PDF statistics:
  275 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

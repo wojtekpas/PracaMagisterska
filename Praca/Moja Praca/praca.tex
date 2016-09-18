@@ -75,9 +75,6 @@
 \newtheorem{definition}{Definicja}
 \newtheorem{example}{Przykład}
 
-% tworzenie definicji dowodu
-\newenvironment{proof}[1][Dowód]{\begin{trivlist}
-\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
 % \newenvironment{definition}[1][Definicja]{\begin{trivlist}
 % \item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
 % \newenvironment{example}[1][Przykład]{\begin{trivlist}
@@ -320,7 +317,7 @@ Na podstawie powyższego przykładu, możemy także zaobserwować, że stopień 
 
 \begin{theorem}
 $ $\\
-$\deg(W_1 * W_2) = \deg(W_1) + \deg(W_2)$, dla $W_1(x) != 0, W_2(x) != 0$\\
+$\deg(W_1 * W_2) = \deg(W_1) + \deg(W_2)$, dla $W_1(x) \neq 0, W_2(x) \neq 0$\\
 $W_3(x) = W_1(x) * W_2(x) = 0$, w pozostałych przypadkach
 \end{theorem}
 
@@ -339,7 +336,7 @@ Bardzo ważnym aspektem obliczania ilorazu wielomianów jest reszta z dzielenia.
 
 \begin{definition}
 	$ $\\
-	Wielomian $R(x)$ nazywamy resztą z dzielenia wielomianu $W(x)$ przez niezerowy wielomian $P(x)$ wtedy i tylko wtedy, gdy istnieje taki wielomian $Q(x)$, że spełniony jest warunek $W(x) = P(x) * Q(x) + R(x)$.
+	Wielomian $R(x)$ nazywamy resztą z dzielenia wielomianu $W(x)$ przez niezerowy wielomian $P(x)$ wtedy i tylko wtedy, gdy istnieje taki wielomian $Q(x)$, że spełniony jest warunek $W(x) = P(x) * Q(x) + R(x)$ i $\deg R(x) < \deg(P)$.
 \end{definition}
 
 Łatwo zauważyć analogię w wyżej przedstawionych wzorach. Różnią się one właśnie wielomianem $R(x)$, czyli resztą z dzielenia. Gdy jest ona wielomianem zerowym, to znaczy, że mamy do czynienia z dzieleniem bez reszty i mówimy o podzielności dwóch wielomianów. Spórzmy na przykład, w którym zdefiniowane zostały dwa wielomiany, będące ilorazem i resztą z dzielenia dwóch wielomianów.
@@ -349,7 +346,7 @@ Bardzo ważnym aspektem obliczania ilorazu wielomianów jest reszta z dzielenia.
 	Mamy dane wielomian $W$ oraz wielomian $P$.
 	$W(x) = a_0x^n + a_1x^{n-1} + ... + a_{n-1}x + a_n$ \\
 	$P(x) = b_0x^m + b_1x^{m-1} + ... + b_{m-1}x + b_m$ \\
-	Zdefiniujmy wielomian: $Q(x) = \frac{W(x)}{P(x)}$ oraz $Q(x) = W(x)\ \mod\ P(x)$. Wówczas: \\
+	Niech $Q(x)$ jest ilorazem wielomanów $W(x)$ i $P(x)$ oraz $R(x) = W(x)\bmod P(x)$. Wówczas: \\
 	$Q(x) = c_0x^{n-m} + c_1x^{n-m-1} + ... + c_{n-m-1}x + c_{n-m}$, gdzie $c_0\ne 0$ \\
 	$R(x) = d_0x^{n-m-1} + d_1x^{n-m-2} + ... + d_{n-m-2}x + d_{n-m-1}$
 \end{example}
@@ -358,7 +355,7 @@ Zwróćmy uwagę na potęgi stojące przy najwyższych potęgach wielomianów $Q
 
 \begin{theorem}
 $ $\\
-$\deg(W_1 \mod W_2) < \deg(W_1 / W_2) = \deg(W_1) - \deg(W_2)$
+$\deg(W_1 \bmod W_2) < \deg(W_1 / W_2) = \deg(W_1) - \deg(W_2)$
 \end{theorem}
 
 Jak widać, twierdzenie potwierdza nasze obserwacje i wnioski dotyczące stopni obu wielomianów.
@@ -400,13 +397,13 @@ Co oznacza największy wspólny dzielnik? W przypadku liczb jest to dowolna licz
 	Największym wspólnym dzielnikiem dwóch wielomianów $W_1$ i $W_2$, nazywy ten wspólny dzielnik, którego stopień jest najwyższy.
 \end{definition}
 
-Również ta definicja jest analogiczna, jak w przypadku liczb, gdzie szukamy takiego dzielnika, który jest najwięszy.
+Również ta definicja jest analogiczna, jak w przypadku liczb, gdzie szukamy tego dzielnika, który jest największy.
 
-Zapoznajmy się teraz z twierdzeniem dotyczącym sposobu, w jaki obliczamy nwd dwóch wielomianów.
+Zapoznajmy się teraz z twierdzeniem dotyczącym sposobu, w jaki obliczamy nwd dwóch wielomianów. Metoda ta jest również znana pod pojęciem algorytmu Euklidesa.
 
 \begin{theorem}
 $ $\\
-Aby obliczyć największy wspólny dzielnik dla wielomianów $W_1$ i $W_2$, musimy dokonać obliczenia kolejnych reszt z dzielenia. Pierwsza z nich jest obliczana dla ilorazu $W_1$ i $W_2$. Kolejne obliczane są dla dotychczasowego dzielnika i otrzymanej reszty. Dzielenia kończą się w momencie, gdy otrzymana reszta jest stopnia zerowego. Jeżeli jest ona wielomianem zerowym, oznacza to, że największym wspólnym dzielnikiem jest ostatni dzielnik. W przeciwnym wypadku, czyli w momencie, gdy wielomian ten jest liczbą różną od zera, nwd nie istnieje, tzn. oba wielomiany nie mają wspólnych pierwiastków. 
+Aby obliczyć największy wspólny dzielnik dla wielomianów $W_1$ i $W_2$, musimy dokonać obliczenia kolejnych reszt z dzielenia. Pierwsza z nich jest obliczana dla ilorazu $W_1$ i $W_2$. Kolejne obliczane są dla dotychczasowego dzielnika i otrzymanej reszty. Dzielenia kończą się w momencie, gdy otrzymana reszta jest stopnia zerowego. Jeżeli jest ona wielomianem zerowym, oznacza to, że największym wspólnym dzielnikiem jest ostatni dzielnik. W przeciwnym wypadku, czyli w momencie, gdy wielomian ten jest liczbą różną od zera, najwiekszy wspólny dzielnik jest wielomianem stopnia zerowego, a oba wielomiany nie mają wspólnych pierwiastków. 
 \end{theorem}
 
 Zauważmy, że na podstawie twierdzenia, przedstawionego wcześniej, wiemy, że reszta z dzielenia dwóch wielomianów jest mniejsza od różnicy ich stopni. Oznacza, to że jej stopień będzie maleć w przypadku kolejnych dzieleń. Fakt te, daje nam gwarancję, że liczba dzieleń, których musimy dokonać jest skończona i nie większa niż stopień wielomianu $W_2$. Przeanalizujmy poniższy przykład.
@@ -464,13 +461,6 @@ W szczególnym przypadku reszta ta może być równa zero. Oznacza to, że liczb
 	Liczba $x_0$ jest pierwiastkiem wielomianu $W(x)$ wtedy i tylko wtedy, gdy wielomian jest podzielny przez dwumian $x - x_0$.
 \end{theorem}
 
-Dodatkowo zapoznajmy się jeszcze z krótkim dowodem poprawności powyższego twierdzenia.
-
-\begin{proof}
-	$ $\\
-	Jeżeli liczba $x_0$ jest pierwiastkiem wielomianu $W$, to wielomian ten możemy wyrazić jako iloczyn dwumianu $x - x_0$ oraz pewnego wielomianu $Q$: $W(x) = (x-x_0) * Q(x)$. Wyznaczając z tego wyrażenia wielomian $Q$, otrzymujemy $Q(x) = \frac{W(x)}{x-x_0}$. Widzimy zatem, że dzieląc wielomian $W(x)$ przez dwumian $x-x_0$, otrzymujemy bez reszty, wielomian $Q(x)$.
-\end{proof}
-
 Przejdźmy teraz do twierdzenia mówiącego o pierwiastkach wielokrotnych, bazującego na twierdzeniu Bezout.
 
 \begin{theorem}
@@ -478,7 +468,7 @@ Przejdźmy teraz do twierdzenia mówiącego o pierwiastkach wielokrotnych, bazuj
 	Liczba $x_0$ jest pierwiastkiem k-krotnym wielomianu $W(x)$ wtedy i tylko wtedy, gdy wielomian jest podzielny przez $(x - x_0)^k$ i nie jest podzielny przez $(x - x_0)^{k+1}$.
 \end{theorem}
 
-Dowód poprawności jest analogiczny, jak dla twierdzenia Bezout. Jedyną różnicą jest to, że wielomian $W$ przedstawiamy jako: $W(x) = (x-x_0)^k * Q(x)$. Zapoznajmy się z twierdzeniem, mówiących o możliwej wartości pierwiastków, o ile są one całkowite.
+Jedyną różnicą powyższego twierdzenia, w porównaniu do twierdzenia Bezout, jest to, że wielomian $W$ przedstawiamy jako: $W(x) = (x-x_0)^k * Q(x)$. Zapoznajmy się z twierdzeniem, mówiących o możliwej wartości pierwiastków, o ile są one całkowite.
 
 \begin{theorem}
 	$ $\\
@@ -489,14 +479,14 @@ Przejdźmy teraz do twierdzeń mówiących o możliwości rozłożenia wielomian
 
 \begin{theorem}
 	$ $\\
-	Każdy wielomian $W(x)$ nie będący wielomianem zerowym jest iloczynem czynników stopnia co najwyżej drugiego.
+	Każdy wielomian $W(x)$ jest iloczynem czynników stopnia co najwyżej drugiego.
 \end{theorem}
 
 Oznacza to, że każdy wielomian stopnia co najmniej trzeciego jest rozkładalny na czynniki. Z powyższego twierdzenia wynika kolejne, mówiące, że rozkład ten jest zawsze jednoznaczny.
 
 \begin{theorem}
 	$ $\\
-	Niezerowy wielomian, o współczynnikach rzeczywistych, jest jednoznacznie rozkładalny na czynniki liniowe lub nierozkładalne czynniki kwadratowe, o współczynnikach rzeczywistych.
+	Niezerowy wielomian, o współczynnikach rzeczywistych, jest jednoznacznie rozkładalny na czynniki liniowe lub nierozkładalne czynniki kwadratowe, o współczynnikach rzeczywistych zakładając, że wartość współczynnika stojącego przy najwyższej potędze jest równa $1$.
 \end{theorem}
 
 Oznacza to, że nie da się rozłożyć jednego wielomianu na czynniki, na dwa różne sposoby, tzn. tak, by istniał chociaż jeden czynnik (lub jego proporcjonalny odpowiednik), nie występujący w drugim rozkładzie. Ważnym aspektem, wynikającym z powyższego twierdzenia jest mowa, o tym że nie wszystkie wielomiany da się rozłożyć na czynniki liniowe, o współczynnikach całkowitych. Spójrzmy na pokazujący to przykład.
@@ -506,12 +496,12 @@ Oznacza to, że nie da się rozłożyć jednego wielomianu na czynniki, na dwa r
 	Mamy dany wielomian $W(x)=x^3-1$. Rózłóżmy go na czynniki.
 	Wiemy, że pierwiastkiem tego wielomianu jest $x_0 = 1$, zatem możemy przedstawić wielomian $W$ jako iloczyn wielomianu $x-1$ oraz drugiego wielomianu. \\
 	$W(x)=x^3-1=x^3-x^2+x^2-x+x-1=(x-1)x^2+(x-1)x+x-1 = \\
-	=(x-1)(x2+x+1)$ \\
-	$\Delta = 1^2 - 4*1*1 = 1 - 4 = -3 < 0$ - brak\ pierwiastków\ rzeczywistych\\
+	=(x-1)(x^2+x+1)$ \\
+	$\Delta = 1^2 - 4*1*1 = 1 - 4 = -3 < 0$ -- brak\ pierwiastków\ rzeczywistych\\
 	Jak widać drugi z czynników jest właśnie przykładem nierozkładalnego czynnika kwadratowego, o współczynnikach rzeczywistych.
 \end{example}
 
-Powyższy czynnik da się rozłożyć na dwa czynniki liniowe, o współczynnikach zespolonych. W pracy tej będziemy jednak mówić wyłącznie o współczynnikach rzeczywistych, najczęściej zawężając jeszcze zbiór potencjalnych współczynników, do liczb wymiernych. Przejdźmy do kolejnego twierdzenia, wynikającego bezpośrednio z dwóch poprzednich.
+Powyższy czynnik da się rozłożyć na dwa czynniki liniowe, o współczynnikach zespolonych. W pracy tej będziemy jednak mówić wyłącznie o współczynnikach rzeczywistych, najczęściej zawężając jeszcze zbiór potencjalnych współczynników do liczb wymiernych. Przejdźmy do kolejnego twierdzenia, wynikającego bezpośrednio z dwóch poprzednich.
 
 \begin{theorem}
 	$ $\\
@@ -522,11 +512,11 @@ Oznacza to, że każdy wielomian stopnia nieparzystego jesteśmy w stanie przeds
 
 \subsection{Eliminacja pierwiastków wielokrotnych}
 
-Ważnym aspektem obliczanie zer wielomianów jest eliminacja pierwiastków wielokrotnych. Jest ona niezbędna, by móc skorzystać z metody Sturmy. Zapoznajmy się z twierdzeniem dotyczącym krotności pierwiastków pochodnej wielomianu.
+Ważnym aspektem obliczanie zer wielomianów jest eliminacja pierwiastków wielokrotnych. Jest ona niezbędna, by móc skorzystać z metody ciągu Sturma. Zapoznajmy się z twierdzeniem dotyczącym krotności pierwiastków pochodnej wielomianu.
 
 \begin{theorem}
 	$ $\\
-	Jeżeli liczba jest pierwiastkiem k-krotnym wielomianu $W$, to jest pierwiastkiem (k-1)-krotnym pochodnej tego wielomianu.
+	Jeżeli liczba jest pierwiastkiem k-krotnym wielomianu $W$, to jest pierwiastkiem $(k-1)$-krotnym pochodnej tego wielomianu.
 \end{theorem}
 
 By lepiej zrozumieć twierdzenie, spójrzmy na poniższy przykład.
@@ -546,7 +536,7 @@ By lepiej zrozumieć twierdzenie, spójrzmy na poniższy przykład.
 	$x_1 = \frac{-4-2}{2*3} = \frac{-6}{6} = -1,\ k_1 = 1,$\ $_2 = \frac{-4+2}{2*3} = \frac{-2}{6} = -\frac{1}{3},\ k_2 = 1$ \\
 	$W^{(2)}(x) = 6x + 4 = 6 (x + \frac{2}{3})$ \\
 	$x_1 = -\frac{2}{3},\ k_1 = 1$ \\
-	$W^{(3)}(x) = 6$ - brak pierwiastków
+	$W^{(3)}(x) = 6$ -- brak pierwiastków
 \end{example}
 
 Jak widać powyższy przykład potwierdza zastosowanie przedstawionego twierdzenia. Widzimy, że krotność wszystkich pierwiastków ulega zmniejszeniu o jeden, w kolejnej pochodnej. Dodatkowo możemy zauważyć, że pochodna może zawierać także pierwiastki, których nie miał dany wielomian. Ma to miejsce w przypadku, gdy wielomian, posiada przynajmniej dwa różne pierwiastki. Potwierdza to poniższe twierdzenie.
@@ -555,14 +545,6 @@ Jak widać powyższy przykład potwierdza zastosowanie przedstawionego twierdzen
 	$ $
 	Liczba nowych pierwiastków pochodnej wielomianu $W'$ (takich których nie posiadał wielomian $W$) jest równa liczbie różnych pierwiastków wielomianu pomniejszonej o jeden.
 \end{theorem}
-
-By dowieść powyższego twierdzenia przeprowadźmy rozumowanie dowodzące jego poprawności.
-
-\begin{proof}
-	$ $ \\
-	Zdefiniujmy wielomian: $W(x)=(x-x_1)^{k_1}*(x-x_2)^{k_2}*...*(x-x_{m-1})^{k_{m-1}}*(x-x_m)^{k_m}$. Przyjmijmy, że wielomian W jest stopnia $n$ i posiada $m$ różnych pierwiastków, gdzie $1\le m\le n,\ k_1+k_2+...+k_{m-1}+k_m=n$. Zdefiniujmy wielomian $P(x)=(x-x_1)*(x-x_2)*...*(x-x_{m-1})*(x-x_m)$, w którym każdy z pierwiastków wielomianu $W$ występuję dokładnie jeden raz. Pierwiastków jest $m$, zatem wielomian $P$ jest stopnia $m$. Dzieląc wielomian W przez wielomian $P$, otrzymujemy bez reszty wielomian $Q(x)=(x-x_1)^{k_1-1}*(x-x_2)^{k_2-1}*...*(x-x_{m-1})^{k_{m-1}-1}*(x-x_m)^{k_m-1}$, który posiada każdy z pierwiastków wielomianu $W$, krotności pomniejszonej o jeden. Skoro krotność każdego z $m$ pierwiastków uległa zmniejszeniu o jeden, to stopień wielomianu $Q$ w stosunku do wielomianu $W$ zmniejszył się o $m$. Stopień wielomianu $Q$ jest wieć równy $n-m$.
-	Na mocy twierdzenia wiemy także, że wielomian $Q(x)$ jest podzielny również przez wielomian $W'$, stopnia $n-1$. Zatem wielomian $W'$ możemy przedstawić jako iloczyn wielomianu $Q$ oraz innego wielomianu: $W'(x)=Q(x)*V(x)$. Wielomian $V$, zawiera wszystkie pierwiastki $W'$, których nie posiadał wielomian $W$. Łatwo policzyć, że stopień wielomianu $V$ jest równy: $\deg(V)=\deg(W')-\deg(Q)=(n-1)-(n-m)=n-1-n+m=m-1$. Jak widać, właśnie udowodniliśmy, że stopień ten jest równy liczbie różnych pierwiastków wielomianu $W$ pomniejszonej o jeden.
-\end{proof}
 
 Spróbujmy teraz skorzystać z przedstawionego twierdzenia w przykładzie dokonującym eliminacji pierwiastków wielokrotnych.
 
@@ -586,7 +568,7 @@ Spróbujmy teraz skorzystać z przedstawionego twierdzenia w przykładzie dokonu
 
 \subsection{Twierdzenie Sturma}
 
-Przeanalizujmy na początek sposób konstruowania ciągu Sturma dla wielomianu $W$. Pierwszym wyrazem ciagu jest sam wielomian W. Z kolei drugim wyrazem jest pochodna wielomianu $W$. Kolejne wyrazy ciągu Sturma wyznaczamy obliczając resztę z ilorazu dwóch poprzednich wyrazów. Dzieje się to do uzyskania pierwszej reszty wielomianu, będącą wielomianem stopnia zerowego. Za każdym razem dzieląc wielomian stopnia $n$, przez wielomian stopnia $m$, gdzie $m<n$, mamy gwarancję, że wielomian będacy resztą tego ilorazu będzie stopnia mniejszego niż $m$. Korzystając z tego faktu, wiemy, że liczba wyrazów ciągu Sturma dla wielomianu $W$ jest niewiększa od $\deg(W)+1$.
+Przeanalizujmy na początek sposób konstruowania ciągu Sturma dla wielomianu $W$. Pierwszym wyrazem ciagu jest sam wielomian $W$. Z kolei drugim wyrazem jest pochodna wielomianu $W$. Kolejne wyrazy ciągu Sturma wyznaczamy obliczając resztę z dzielenia dwóch poprzednich wyrazów. Dzieje się to do uzyskania pierwszej reszty wielomianu, będącą wielomianem stopnia zerowego. Za każdym razem dzieląc wielomian stopnia $n$, przez wielomian stopnia $m$, gdzie $m<n$, mamy gwarancję, że wielomian będacy resztą tego dzielenia będzie stopnia mniejszego niż $m$. Korzystając z tego faktu, wiemy, że liczba wyrazów ciągu Sturma dla wielomianu $W$ jest niewiększa od $\deg(W)+1$.
 
 \begin{definition}
 	$ $ \\
@@ -597,14 +579,14 @@ Wiemy już jak definiować ciąg Sturma. Przeanalizujmy teraz jaki wpływ ma uzy
 
 \begin{definition}
 	$ $ \\
-	Liczbą zmian znaków ciągu Sturma dla wielomianu $W(x)$ w punkcie $x$, obliczamy zliczając liczbę zmian pomiędzy kolejnymi wyrazami, pomijac te o wartości równej zero w punkcie $x$. Liczbę zmian znaku w punkcie $x=x0$ definiujemy jako wartość funkcji $Z(x_0)$.
+	Liczbą zmian znaków ciągu Sturma dla wielomianu $W(x)$ w punkcie $x$, obliczamy zliczając liczbę zmian pomiędzy kolejnymi wyrazami, pomijac te o wartości równej zero w punkcie $x$. Liczbę zmian znaku w punkcie $x=x_0$ definiujemy jako wartość funkcji $Z(x_0)$.
 \end{definition}
 
 Wiemy już jak obliczać liczbę zmian ciagu Sturma. Sprawdźmy zatem, jak przekłada się ona na liczbę pierwiastków w danym przedziale.
 
 \begin{theorem}
 	$ $ \\
-	Jeżeli wielomian W(x) nie ma pierwiastków wielokrotnych, to liczba pierwiastków rzeczywistych w przedziale $a<x\le y)$, jest równa $Z(a) - Z(b)$.
+	Jeżeli wielomian W(x) nie ma pierwiastków wielokrotnych, to liczba pierwiastków rzeczywistych w przedziale $a<x\le y)$ jest równa $Z(a) - Z(b)$.
 \end{theorem}
 
 W ogólności twierdzenie Sturma można zastosować dla przedziału $(-\infty,+\infty)$, dopuszczając w ciągu Sturma wartości niewłaściwe $+\infty$ oraz $-\infty$. Wówczas $Z(-\infty)$ będzie oznaczać liczbę zmian znaków w ciągu $W(-\infty), W_1(-\infty), W_2(-\infty),..., W_m(-\infty)$, zaś $Z(+\infty)$ liczbę zmian w ciągu $W(+\infty), W_1(+\infty), W_2(+\infty),..., W_m(+\infty)$.
@@ -614,8 +596,8 @@ W ogólności twierdzenie Sturma można zastosować dla przedziału $(-\infty,+\
 	Liczba różnych pierwiastków rzeczywistych wielomianu $W(x)$ jest równa $Z(-\infty)-Z(+\infty)$.
 \end{theorem}
 
-Stosując twierdzenie Sturma dla coraz mniejszych przedziałów możliwe jest wyznaczenie pierwiastków wielomianu z dowolną dokładnością. Sposób ten określony jest mianem metody Sturma.
-Twierdzenie Sturma jest bardzo mocnym środkiem, używanym do znajdowania pierwiastków w określonym przedziale. Może być używane nie tylko dla wielomianów, ale dowolnej różniczkowalnej funkcji ciągłej. Zapoznajmy się z twierdzeniem, mówiącym o ograniczeniach dotyczących maksymalnej liczby zmian znaków dla ciągu Sturma.
+Stosując twierdzenie Sturma dla coraz mniejszych przedziałów możliwe jest wyznaczenie pierwiastków wielomianu z dowolną dokładnością. Sposób ten określony jest mianem metody ciągu Sturma.
+Twierdzenie Sturma jest bardzo mocnym środkiem, używanym do znajdowania pierwiastków w określonym przedziale. Zapoznajmy się z twierdzeniem, mówiącym o ograniczeniach dotyczących maksymalnej liczby zmian znaków dla ciągu Sturma.
 
 \begin{theorem}
 	$ $ \\
@@ -637,10 +619,10 @@ Jeżeli zależy nam, na obliczeniu wartości wielomianu, dla odpowiednio dużych
 
 \begin{theorem}
 	$ $ \\
-	Dany jest wielomian $W_1(x) = a_0x^n + a_1x^{n-1} + a_2x^{n-2} + ... + a_{n-1}x + a_n,\ gdzie \ a_0 \ne 0$, stopnia $n$ oraz wielomian $W_2(x) = b_0x^{n-1} + b_1x^{n-2} + b_2x^{n-3} + ... + b_{n-2}x + b_{n-1},\ gdzie\ b_0 \ne 0$, stopnia $n-1$. Wówczas $\lim_{x \to +\infty}\frac{W_1(x)}{W_2(x)} = \frac{a_0}{b_0}$ oraz $\lim_{x \to -\infty}\frac{W_1(x)}{W_2(x)} = -\frac{a_0}{b_0}.$
+	Dany jest wielomian $W_1(x) = a_0x^n + a_1x^{n-1} + a_2x^{n-2} + ... + a_{n-1}x + a_n,\ gdzie \ a_0 \ne 0$, stopnia $n$ oraz wielomian $W_2(x) = b_0x^{n-1} + b_1x^{n-2} + b_2x^{n-3} + ... + b_{n-2}x + b_{n-1},\ gdzie\ b_0 \ne 0$, stopnia $n-1$. Wówczas $\lim_{x \to +\infty}\frac{W_1(x)}{W_2(x)} = \frac{a_0}{b_0}$ oraz $\lim_{x \to -\infty}\frac{W_1(x)}{W_2(x)} = \frac{a_0}{b_0}.$
 \end{theorem}
 
-Jak widać jesteśmy w stanie ustalić znak, a nawet dokładną wartość, największego współczynnika wielomianu, będącego ilorazem dwóch innych wielomianów, wykonując proste dzielenie dwóch liczb, będących odpowiednio najwyższymi współczynnikami wielomianów - dzielnej i dzielnika.
+Jak widać jesteśmy w stanie ustalić znak, a nawet dokładną wartość, największego współczynnika wielomianu, będącego ilorazem dwóch innych wielomianów, wykonując proste dzielenie dwóch liczb, będących odpowiednio najwyższymi współczynnikami wielomianów -- dzielnej i dzielnika.
 
 \section{Biblioteka MPIR}
 
@@ -664,11 +646,11 @@ Biblioteka mpir posiada odpowiedniki dla wszystkich podstawowych typów liczbowy
 
 \subsubsection{Funkcje}
 W bibliotece przyjęto konwencję charakterystyczną dla języka C, polegającą na tym, że zarówno argumenty wejściowe jak i wyjściowe funkcji są przekazywane za pomocą referencji do funkcji, która zazwyczaj jest typu void, czyli nie zwraca żadnej wartości. Warto zauważyć, że argumenty wyjściowe są podawane przed wejściowymi. Stało się tak poprzez zachowanie analogii do operatora przypisania, w którym to zmienna wynikowa znajduje się po lewej stronie.
-W bibliotece mpir zmienna po zadeklarowaniu nie jest natychmiastowo gotowa do użycia, ponieważ wymaga inicjalizacji, przydzielającej jej miejsce w pamięci. Możemy to zrobić poprzez wywołanie odpowiedniej funkcji init, w argumencie podając odpowiednią zmienną. Analogicznie, aby zwolnić zajmowany, przez zmienną, obszar pamięci należy wywołać funkcję clear. Istnieją także funkcje realokujące, czyli zwiększające lub zmniejszające, zajmowany obszar. Użycie ich jest jednak opcjonalne, gdyż zmiana rozmiaru jest automatycznie wykrywana. Raz zainicjalizowaną zmienną, można używać dowolną liczbę razy. Twórcy biblioteki zalecają unikanie nadmiernego korzystania z funkcji init i clear, ponieważ są to operacje czasochłonne i zbyt duża liczba ich wywołań może mieć negatywny wpływ na wydajność naszego programu.
+W bibliotece mpir zmienna po zadeklarowaniu nie jest natychmiastowo gotowa do użycia, ponieważ wymaga inicjalizacji, przydzielającej jej miejsce w pamięci. Możemy to zrobić poprzez wywołanie odpowiedniej funkcji init, w argumencie podając odpowiednią zmienną. Analogicznie, aby zwolnić zajmowany przez zmienną, obszar pamięci należy wywołać funkcję clear. Istnieją także funkcje realokujące, czyli zwiększające lub zmniejszające, zajmowany obszar. Użycie ich jest jednak opcjonalne, gdyż zmiana rozmiaru jest automatycznie wykrywana. Raz zainicjalizowaną zmienną, można używać dowolną liczbę razy. Twórcy biblioteki zalecają unikanie nadmiernego korzystania z funkcji init i clear, ponieważ są to operacje czasochłonne i zbyt duża liczba ich wywołań może mieć negatywny wpływ na wydajność naszego programu.
 
 \subsubsection{Zarządzanie pamięcią}
-Biblioteka mpir, alokując w pamięci nowe obiekty, stara się minimalizować wielkość, zajmowaną przez nie, miejsca. Dodatkowa pamięć jest przyznawana dopiero, kiedy jej aktualna wielkość jest niewystarczająca. W przypadku zmiennych typów mpz\_t i mpq\_t, raz zwiększony rozmiar danej zmiennej nigdy nie zostanie zmniejszony. Zazwyczaj jest to najlepsza praktyka, ponieważ częsta alokacja pamięci ma niekorzystny wpływ na wydajność programu. Jeżeli aplikacja potrzebuje zmniejszyć zajmowane przez daną zmienną miejsce, można dokonać realokacji albo całkowicie zwolnić, zajmowane przez nią miejsce. Dodatkowo kolejne zwiększania rozmiaru przeznaczonego na poszczególne zmienne może powodować zauważalny spadek wydajności lub fragmentację danych. Nie da się uniknąć, jeżeli chcemy zaalokować więcej miejsca dla danej zmiennej, w momencie, gdy w jej sąsiedztwie znajdują się już inne zmienne. Wówczas zależnie od implementacji mamy do czynienia z jednym z dwóch wariantów. W pierwszym przypadku, alokujemy nowe miejsce w pamięci, uzupełniając odpowiednio jego wartość, a następnie zwalniając wcześniej zajmowane miejsce. Alternatywą jest pozostawienie zajmowanej już pamięci i przydzielenie dodatkowej w innym miejscu. W takim przypadku jesteśmy zmuszeni do odpowiedniego zarządzania nieciągłymi fragmentami pamięci, co również może mieć bardzo negatywny wpływ na wydajność aplikacji. Z kolei, zmienne typu mpf\_t mają niezmienny rozmiar, zależny od wybranej precyzji. \\
-Warto zauważyć, że biblioteka standardowo do alokowania pamięci domyślnie używa funkcji malloc, ale możliwe jest także korzystanie z funkcji alloca. Pierwszy alokator zajmuje się tylko przydzieleniem pamięci, a użytkownik musi sam pamiętać, o jego zwolnieniu, w odpowiednim momencie. Z kolei, drugi z nich zdejmuje tę odpowiedzialność ze strony programisty i sam dba o zwolnienie pamięci, gdy jest ona już nie używana.
+Biblioteka mpir, alokując w pamięci nowe obiekty, stara się minimalizować wielkość zajmowanego przez nie miejsca. Dodatkowa pamięć jest przyznawana dopiero, kiedy jej aktualna wielkość jest niewystarczająca. W przypadku zmiennych typów mpz\_t i mpq\_t, raz zwiększony rozmiar danej zmiennej nigdy nie zostanie zmniejszony. Zazwyczaj jest to najlepsza praktyka, ponieważ częsta alokacja pamięci ma niekorzystny wpływ na wydajność programu. Jeżeli aplikacja potrzebuje zmniejszyć zajmowane przez daną zmienną miejsce, można dokonać realokacji albo całkowicie zwolnić zajmowane przez nią miejsce. Dodatkowo kolejne zwiększania rozmiaru przeznaczonego na poszczególne zmienne może powodować zauważalny spadek wydajności lub fragmentację danych. Nie da się tego uniknąć, jeżeli chcemy zaalokować więcej miejsca dla danej zmiennej, w momencie, gdy w jej sąsiedztwie znajdują się już inne zmienne. Wówczas zależnie od implementacji mamy do czynienia z jednym z dwóch wariantów. W pierwszym przypadku, alokujemy nowe miejsce w pamięci, uzupełniając odpowiednio jego wartość, a następnie zwalniając wcześniej zajmowane miejsce. Alternatywą jest pozostawienie zajmowanej już pamięci i przydzielenie dodatkowej w innym miejscu. W takim przypadku jesteśmy zmuszeni do odpowiedniego zarządzania nieciągłymi fragmentami pamięci, co również może mieć bardzo negatywny wpływ na wydajność aplikacji. Z kolei, zmienne typu mpf\_t mają niezmienny rozmiar, zależny od wybranej precyzji. \\
+Warto zauważyć, że biblioteka standardowo do alokowania pamięci używa funkcji malloc, ale możliwe jest także korzystanie z funkcji alloca. Pierwszy alokator zajmuje się tylko przydzieleniem pamięci, a użytkownik musi sam pamiętać, o jego zwolnieniu, w odpowiednim momencie. Z kolei, drugi z nich zdejmuje tę odpowiedzialność ze strony programisty i sam dba o zwolnienie pamięci, gdy jest ona już nie używana.
 
 \subsubsection{Kompatybilność}
 Poza kilkoma wyjątkami, biblioteka mpir jest kompatybilna z odpowiednimi wersjami biblioteki gmp. Dodatkowo, jej twórcy starają się nie usuwać istniejących już funkcji. W przypadku, gdy któraś przestanie być rekomendowana, zostaje po prostu zaznaczona jako przestarzawała, ale jej implementacja nie przestaje istnieć w kolejnych wydaniach biblioteki. Dzięki temu program, bazujący na starszej wersji biblioteki, zadziała też na nowszej edycji.
@@ -677,11 +659,11 @@ Poza kilkoma wyjątkami, biblioteka mpir jest kompatybilna z odpowiednimi wersja
 Dla małych liczb, narzut na korzystanie z biblioteki może być znaczący w porównaniu do typów prostych. Jest to nieuniknione, ale celem biblioteki jest próba znalezienia złotego środka pomiędzy wysoką wydajność, zarówno dla małych, jak i dużych liczb. 
 
 \subsubsection{Operacje w miejscu}
-Operacje obliczania wartości bezwzględnej i negacji danej liczby są bardzo szybkie, gdy obliczane są w miejscu, tzn. wtedy, gdy zmienna wejściowa jest również zmienną wyjściową. Wówczas nie ma potrzeby alokacji i zwalnia pamięci, a cała funkcja sprowadza się do ustawienia odpowiedniego bitu, mówiącego o znaku liczby. Według specyfikacji biblioteki mpir, zauważalny powinien być także zysk, w przypadku operacji dodawania, odejmowania i mnożenie w miejscu. W momencie, gdy drugim argumentem jest nieduża liczba całkowite operację te są nieskomplikowane i bardzo szybkie.
+Operacje obliczania wartości bezwzględnej i negacji danej liczby są bardzo szybkie, gdy obliczane są w miejscu, tzn. wtedy, gdy zmienna wejściowa jest również zmienną wyjściową. Wówczas nie ma potrzeby alokacji i zwalnia pamięci, a cała funkcja sprowadza się do ustawienia odpowiedniego bitu, mówiącego o znaku liczby. Według specyfikacji biblioteki mpir, zauważalny powinien być także zysk, w przypadku operacji dodawania, odejmowania i mnożenie w miejscu. W momencie, gdy drugim argumentem jest nieduża liczba całkowita, operacje te są nieskomplikowane i bardzo szybkie.
 
 \subsection{Instalacja}
 
-Instalacja biblioteki mpir jest różna w zależności od systemu operacyjnego. W systemach unixowych instalacja polega na zbudowaniu i instalacji, korzystając ze źródeł. Pod windowsem jest ona równie łatwa i przebiega analogicznie, o ile używamy cygwina lub mingw. Są to narzędzia, które zapewniają, programom działającym pod systemem Windows, funkcjonalność przypominającą system Linux. Bardziej skomplikowane będzie użycie biblioteki bez wyżej wymienionych narzędzi, ale warto zaznaczyć, że biblioteka ta może być budowana z użyciem Microsoft Visual Studio, począwszy od wersji 2010, korzystając z programu o nazwie yasm asembler. Dodatkowo korzystanie z biblioteki różni się w zależności od tego czy potrzebujemy jej statyczną (mpir/lib) czy dynamiczną (mpir/dll) wersję.
+Instalacja biblioteki mpir jest różna w zależności od systemu operacyjnego. W systemach unixowych instalacja polega na zbudowaniu i instalacji, korzystając ze źródeł. Pod Windowsem jest ona równie łatwa i przebiega analogicznie, o ile używamy cygwina lub mingw. Są to narzędzia, które zapewniają, programom działającym pod systemem Windows, funkcjonalność przypominającą system Linux. Bardziej skomplikowane będzie użycie biblioteki bez wyżej wymienionych narzędzi, ale warto zaznaczyć, że biblioteka ta może być budowana z użyciem Microsoft Visual Studio, począwszy od wersji 2010, korzystając z programu o nazwie yasm asembler. Dodatkowo korzystanie z biblioteki różni się w zależności od tego czy potrzebujemy jej statyczną (mpir/lib) czy dynamiczną (mpir/dll) wersję.
 
 Aby używać biblioteki mpir w naszym programie musimy do naszego programu dodać następującą linię:
 \begin{lstlisting}
@@ -699,7 +681,7 @@ g++ myprogram.cc -lmpirxx -lmpir
 \end{lstlisting}
 
 \subsection{Operacje na liczbach całkowitych}
-W niniejszym podrozdziale, omówię podstawowe funkcje liczbowe, które mają zastosowanie, zarówno dla liczb całkowitych typu mpz\_t, jak i rzeczywistych typu mpq\_t.
+W niniejszym podrozdziale omówię podstawowe funkcje liczbowe, które mają zastosowanie zarówno dla liczb całkowitych typu mpz\_t, jak i rzeczywistych typu mpq\_t.
 
 \subsubsection{Funkcje inicjalizujące}
 \begin{lstlisting}
@@ -726,7 +708,7 @@ Zmienia rozmiar zajmowanego przez zmienną miejsca. Funkcja jest używana z wart
 void mpz_set (mpz_t rop, mpz_t op)
 \end{lstlisting}
 
-Pozwala na przypisanie wartości tych samów typów. Wartość zmiennej op jest ustawiana jako rop. Jest to równoważnik operatora przypisania.
+Pozwala na przypisanie wartości tych samów typów. Wartość zmiennej op jest ustawiana jako rop. Jest to odpowiednik operatora przypisania.
 
 \begin{lstlisting}
 void mpz_set_sx (mpz_t rop, intmax_t op)
@@ -744,19 +726,19 @@ Zapisuje wartość typu double do zmiennej typu mpz\_t.
 void mpz_set_q (mpz_t rop, mpq_t op)
 \end{lstlisting}
 
-Pozwala na zrzutowanie liczby rzeczywistej, typu mpq\_t do zmiennej mpz\_t. Gdy wartość mpq\_t nie jest liczbą całkowitą, zostaje ona zaokrąglona w dół, poprzez obcięcie jej części ułamkowej.
+Pozwala na zrzutowanie liczby rzeczywistej typu mpq\_t do zmiennej mpz\_t. Gdy wartość mpq\_t nie jest liczbą całkowitą, zostaje ona zaokrąglona w dół, poprzez obcięcie jej części ułamkowej.
 
 \begin{lstlisting}
 int mpz_set_str (mpz_t rop, char *str, int base)
 \end{lstlisting}
 
-Konstruuje liczbę typu mpz\_t, na podstawie podanego łańcucha znaków, reprezentującego daną wartość. Zmienna base mówi o podstawie podanej liczby. Dopuszcza się występowanie białych znaków, które są ignorowane. Z kolei zmienna base dopuszcza $0$ oraz wartości z zakresu $(2;61)$. Gdy jest ona równa $0$, podstawowa zostaje ustalona, bazując na początkowych znakach. Dla prefixów $0x$ oraz $0X$, reprezentacja liczby zostaje ustalona jako szesnastkowa. Gdy jest ona równa $0b$ lub $0B$, to liczba ta jest binarna, a gdy rozpoczyna się od zera, a drugi znak jest inny od wymienionych, to zostaje uznana za liczbę oktalną. W pozostałych wypadkach jest to liczba dziesiętna. Kolejne wartości dziesiętne od $10$ do $35$ są reprezentowane jako litery od a do z, przy czym nie ma rozróżnienia ze względu na wielkość liter. W przypadku wyższych wartości podstawy, wielkość liter ma znaczenia, przy czym liczby od $10$ do $35$ reprezentowane są przez duże litery, a liczby od 36 do 61 przez małe. Funkcja dokonuje weryfikacji, czy podany ciąg znaków w całości reprezentuje poprawną liczbę. Jeżeli tak, to zwraca ona wartość $0$. W przeciwnym wypadku jest to $1$.
+Konstruuje liczbę typu mpz\_t, na podstawie podanego łańcucha znaków, reprezentującego daną wartość. Zmienna base mówi o podstawie podanej liczby. Dopuszcza się występowanie białych znaków, które są ignorowane. Z kolei zmienna base dopuszcza $0$ oraz wartości z zakresu $(2;61)$. Gdy jest ona równa $0$, podstawowa zostaje ustalona, bazując na początkowych znakach. Dla prefixów $0x$ oraz $0X$, reprezentacja liczby zostaje ustalona jako szesnastkowa. Gdy jest ona równa $0b$ lub $0B$, to liczba ta jest binarna, a gdy rozpoczyna się od zera, a drugi znak jest inny od wymienionych, to zostaje uznana za liczbę oktalną. W pozostałych wypadkach jest to liczba dziesiętna. Kolejne wartości dziesiętne od $10$ do $35$ są reprezentowane jako litery od a do z, przy czym nie ma rozróżnienia ze względu na wielkość liter. W przypadku wyższych wartości podstawy, wielkość liter ma znaczenie, przy czym liczby od $10$ do $35$ reprezentowane są przez duże litery, a liczby od 36 do 61 przez małe. Funkcja dokonuje weryfikacji, czy podany ciąg znaków w całości reprezentuje poprawną liczbę. Jeżeli tak, to zwraca ona wartość $0$. W przeciwnym wypadku jest to $1$.
 
 \begin{lstlisting}
 void mpz_swap (mpz_t rop1, mpz_t rop2)
 \end{lstlisting}
 
-Używana jest do zamiany wartości pomiędzy dwoma zmiennymi typu mpz\_t. Jej użycie jest rekomendowane, ze względów wydajnościowych. W przypadku braku tej funkcji, potrzeba by zmiennej tymczasowej. W tym celu musiała by ona na początku zostać zaalokowana w pamięci, a na końcu zwolniona. Obie operacje są czasochłonne i zaleca się minimalizować ich użycie, więc użycie zoptymalizowanej funkcji służącej do zamiany wartości dużych liczb wydaje się zdecydowanie najlepszą i najszybszą opcją.
+Używana jest do zamiany wartości pomiędzy dwoma zmiennymi typu mpz\_t. Jej użycie jest rekomendowane, ze względów wydajnościowych. W przypadku braku tej funkcji, potrzeba by zmiennej tymczasowej. W tym celu musiałaby ona na początku zostać zaalokowana w pamięci, a na końcu zwolniona. Obie operacje są czasochłonne i zaleca się minimalizować ich użycie, więc użycie zoptymalizowanej funkcji służącej do zamiany wartości dużych liczb wydaje się zdecydowanie najlepszą i najszybszą opcją.
 
 \subsubsection{Funkcje konwersji}
 
@@ -764,7 +746,7 @@ Używana jest do zamiany wartości pomiędzy dwoma zmiennymi typu mpz\_t. Jej u�
 intmax_t mpz_get_sx (mpz_t op)
 \end{lstlisting}
 
-Zwraca zmienną typu int, a znak liczby zostaje przepisany. Jeżeli wartość jest poza zakresem liczb typu int, to rzutowanie następuje poprzez pozostawienie najmniej znaczącej części. Powoduje to, że funkcja w wielu przypadkach może okazać się bezużyteczna.
+Rzutuje zmienną typu mpz\_t na int. Jeżeli wartość jest poza zakresem liczb typu int, to rzutowanie następuje poprzez pozostawienie najmniej znaczącej części. Powoduje to, że funkcja w wielu przypadkach może okazać się bezużyteczna.
 
 \begin{lstlisting}
 double mpz_get_d (mpz_t op)
@@ -776,7 +758,7 @@ Pozwala zrzutować typ mpz\_t na zmienną typu double. Jeżeli jest to konieczne
 char* mpz_get_str (char *str, int base, mpz_t op)
 \end{lstlisting}
 
-Zwraca ciąg znaków reprezentujących liczbę op., o podstawie danej w paremetrze o nazwie base. Funkcja ta jest analogiczna do mpz\_set\_str. Jeżeli parametrem str jest NULL, to ciąg znaków zostaje zwrócony przez funkcję. W przeciwnym razie funkcja umieszcza go pod adresem, na który wskazuje zmienna str. Należy zadbać o to, by bufor, do zapisania rezultatu funkcji, był wystarczający. Powinien on być $2$ bajty dłuższy niż długość zwróconej liczby w danym systemie liczbowym. Pierwszy bajt służy na wpisanie ewentualnego znaków minus, natomiast drugi na znak '\textbackslash$0$' kończący łańcuch znaków. Długość zasadniczej części liczbowej można pobrać używając funkcji mpz\_sizeinbase (op, base), w której podajemy daną liczbę oraz podstawę.
+Zwraca ciąg znaków reprezentujących liczbę op, o podstawie danej w paremetrze o nazwie base. Funkcja ta jest analogiczna do mpz\_set\_str. Jeżeli parametrem str jest NULL, to ciąg znaków zostaje zwrócony przez funkcję. W przeciwnym razie funkcja umieszcza go pod adresem, na który wskazuje zmienna str. Należy zadbać o to, by bufor do zapisania rezultatu funkcji był wystarczająco wielki. Powinien on być $2$ bajty dłuższy niż długość zwróconej liczby w danym systemie liczbowym. Pierwszy bajt służy na wpisanie ewentualnego znaków minus, natomiast drugi na znak '\textbackslash$0$' kończący łańcuch znaków. Długość zasadniczej części liczbowej można pobrać używając funkcji mpz\_sizeinbase (op, base), w której podajemy daną liczbę oraz podstawę.
 
 \subsubsection{Funkcje arytmetyczne}
 
@@ -823,13 +805,13 @@ void mpz_abs (mpz_t rop, mpz_t op)
 Funkcja w swoim działaniu jest bardzo podobna do funkcji mpz\_neg. Jedyną różnicą jest to, że bit znaku nie zostaje zanegowany, a ustawiony tak, by wskazywał na wartość nieujemną.
 
 \subsubsection{Funkcje dzielenia}
-Używając niżej wymienionych funkcji należy pamiętać, że dzielenie przez $0$, zarówno w przypadku obliczania wartości ilorazu, jak i reszty z dzielenia jest nielegalne. W przypadku, gdy wystąpi taka sytuacja, biblioteka zachowa się jak w przypadku dzielenia przez $0$, dla liczb typu int, tzn. skończy działanie funkcji, rzucając odpowiedni wyjątek.
+Używając niżej wymienionych funkcji należy pamiętać, że dzielenie przez $0$, zarówno w przypadku obliczania wartości ilorazu, jak i reszty z dzielenia jest nielegalne. W przypadku, gdy wystąpi taka sytuacja, biblioteka zachowa się jak w przypadku dzielenia przez $0$, dla liczb typu int, tzn. skończy działanie funkcji komunikatem o błędzie.
 
 \begin{lstlisting}
 void mpz_tdiv_q (mpz_t q, mpz_t n, mpz_t d)
 \end{lstlisting}
 
-Funkcja oblicza iloraz z liczb $n$ i $d$. Litera przed 'div' w nazwie funkcji mówi, o jej zachowaniu w przypadku, gdy rezultat nie jest liczbą całkowitą. Symbol 't' ('truncate'), oznacza obcięcie części ułamkowej. Zalecanym użyciem jest przypadek, gdy nie ma znaczenia wartość reszty z dzielenia.
+Funkcja oblicza iloraz z liczb $n$ i $d$. Litera przed 'div' w nazwie funkcji mówi, o jej zachowaniu w przypadku, gdy rezultat nie jest liczbą całkowitą. Symbol 't' ('truncate'), oznacza obcięcie części ułamkowej.
 
 \begin{lstlisting}
 void mpz_tdiv_r (mpz_t r, mpz_t n, mpz_t d)
@@ -901,7 +883,7 @@ Zauważmy, że jeżeli $rop_2=0$, to $rop_1$ jest pierwiastkiem kwadratotowym z 
 
 \subsection{Operacje na liczbach wymiernych}
 
-W tym podrozdziale, rozpatrzę funkcje dla zmiennych typu mpq\_t. Skupię się w nim na funkcjach, które nie występują dla liczb całkowitych typu mpz\_t, opisanych w poprzednim podrozdziale lub ich implementacja znacząco się różni, od już przedstawionej.
+W tym podrozdziale rozpatrzę funkcje dla zmiennych typu mpq\_t. Skupię się w nim na funkcjach, które nie występują dla liczb całkowitych typu mpz\_t, opisanych w poprzednim podrozdziale lub ich implementacja znacząco się różni, od już przedstawionej.
 Na początku warto zaznaczyć, że zmienne mpq\_t reprezentują wyłącznie liczby wymierne. Jest to spowodowane ich implementacją. Każda liczba typu mpq\_t składa się z dwóch liczb całkowitych typu mpz\_t, reprezentujących licznik i mianownik.
 
 \begin{lstlisting}
@@ -939,18 +921,17 @@ void mpq_set_den (mpq t rational, mpz t denominator)
 \end{lstlisting}
 Funkcja ustawia mianownik danego ułamka na podaną liczbę całkowitą. Jej działanie jest analogczne jak w przypadku mpq\_set\_num.
 
-
 \begin{lstlisting}
 int mpq_set_str (mpq_t rop, char *str, int base)
 \end{lstlisting}
 
-Tworzy liczbę na podstawie wartości podanej jako łańcuch znaków. Jej wartość podawana jest w postaci najpierw licznik, a następnie mianownik, na zasadach podobnym jak w funkcji mpz\_set\_str. Obie liczby oddziela znak operatora dzielenia '/'. Funkcja zwraca wartość $0$, w przypadku, gdy cały łańcuch wejściowy jest poprawny oraz -1 w innym przypadku. Jeżeli argument base jest równy $0$, to format liczbowy, dla licznika i mianownika, jest ustalany osobno. Oznacza to, że możemy podać liczby w dwóch różnych formatach, np. „$0xFF/256$” . Warto zauważyć, że funkcja mpq\_canonicalize nie jest wołana automatycznie, więc jeżeli podaliśmy ułamek, który chcemy skrócić, to musimy pamiętać o jej wywołaniu.
+Tworzy liczbę na podstawie wartości podanej jako łańcuch znaków. Jej wartość podawana jest w postaci najpierw licznik, a następnie mianownik, na zasadach podobnym jak w funkcji mpz\_set\_str. Obie liczby oddziela znak operatora dzielenia '/'. Funkcja zwraca wartość $0$, w przypadku, gdy cały łańcuch wejściowy jest poprawny oraz -1 w innym przypadku. Jeżeli argument base jest równy $0$, to format liczbowy, dla licznika i mianownika, jest ustalany osobno. Oznacza to, że możemy podać liczby w dwóch różnych formatach, np.\ "$0xFF/256$". Warto zauważyć, że funkcja mpq\_canonicalize nie jest wołana automatycznie, więc jeżeli podaliśmy ułamek, który chcemy skrócić, to musimy pamiętać o jej wywołaniu.
 
 \begin{lstlisting}
 char * mpq_get_str (char *str, int base, mpq_t op)
 \end{lstlisting}
 
-Funkcja zwracająca liczbę w postaci ułamka, tzn. licznik i mianownik, oddzielony znakiem kreski ułamkowej, jest analogiczna do funkcji mpz\_get\_str. Bufor wyjściowy, w którym chcemy umieścić rezultat funkcji powinien być wystarczający i wynosić $mpz\_sizeinbase(mpq\_numref(op), base) + mpz\_sizeinbase (mpq\_denref(op), base) + 3$. Jeden dodatkowy bajt w porównaniu do funkcji mpz\_get\_str, spowodowany jest koniecznością umieszczenia w buforze kreski ułamkowej.
+Funkcja zwracająca liczbę w postaci ułamka, tzn. licznik i mianownik, oddzielony znakiem kreski ułamkowej, jest analogiczna do funkcji mpz\_get\_str. Bufor wyjściowy, w którym chcemy umieścić rezultat funkcji powinien być wystarczający i wynosić $mpz\_sizeinbase(mpq\_numref(op), \allowbreak base) + mpz\_sizeinbase (mpq\_denref(op), base) + 3$. Jeden dodatkowy bajt w porównaniu do funkcji mpz\_get\_str, spowodowany jest koniecznością umieszczenia w buforze kreski ułamkowej.
 
 
 \chapter{Opis rozwiązania}
@@ -1345,7 +1326,7 @@ Metoda stwierdza, czy obiekt, na którym będzie wykonywana, jest elementem wekt
 inline string Number::ToString()
 \end{lstlisting}
 
-Funkcja ma celu przekształcenie danej liczby, standardowo podawanej jako ułamek, w postaci - licznik i mianownik, na liczbę, zapisaną w postaci dziesiętnej. By to osiągnąć, potrzebna jest informacjea, o wymaganej precyzji obliczeń. Na początku liczba zostaje przyrównana do zera, gdy jest mniejsza, jako pierwszy znak wyniku, zostaje ustawiony minus, a dalej liczba jest zawsze rozpatrywana jako nieujemna. Na początku zostaje obliczony iloczyn licznika i liczby równej $10^x$, gdzie $x$ -- precyzja, wyrażona w ważnych cyfrach po przecinku. Następnie obliczany jest całkowitoliczbowy wynik dzielenia. Do otrzymanego w ten sposób rezultatu, wystarczy już tylko dodać separator, oddzielający część całkowitą i ułamkową w odpowiednim miejscu. Przypada ono w takim miejscu, by po stronie ułamkowej znajdowała się dokładnie żądana liczba cyfr. Na koniec, należy jeszcze zadbać, by otrzymany wynik był dobrze sformatowany, trzeba więc usunąć, nieznaczące zera w części ułamkowej. Dodatko potrzeba pamiętać, że po wykonaniu takiej operacji, może zdarzyć się, że część ułamkowa nie zawiera już żadnych cyfr. Wówczas należy nie zapomnieć, o usunięciu znaku separatora, tak by dla powstałej liczby całkowitej ostatnim w kolejności znakiem była cyfra jedności.
+Funkcja ma celu przekształcenie danej liczby, standardowo podawanej jako ułamek, w postaci -- licznik i mianownik, na liczbę, zapisaną w postaci dziesiętnej. By to osiągnąć, potrzebna jest informacjea, o wymaganej precyzji obliczeń. Na początku liczba zostaje przyrównana do zera, gdy jest mniejsza, jako pierwszy znak wyniku, zostaje ustawiony minus, a dalej liczba jest zawsze rozpatrywana jako nieujemna. Na początku zostaje obliczony iloczyn licznika i liczby równej $10^x$, gdzie $x$ -- precyzja, wyrażona w ważnych cyfrach po przecinku. Następnie obliczany jest całkowitoliczbowy wynik dzielenia. Do otrzymanego w ten sposób rezultatu, wystarczy już tylko dodać separator, oddzielający część całkowitą i ułamkową w odpowiednim miejscu. Przypada ono w takim miejscu, by po stronie ułamkowej znajdowała się dokładnie żądana liczba cyfr. Na koniec, należy jeszcze zadbać, by otrzymany wynik był dobrze sformatowany, trzeba więc usunąć, nieznaczące zera w części ułamkowej. Dodatko potrzeba pamiętać, że po wykonaniu takiej operacji, może zdarzyć się, że część ułamkowa nie zawiera już żadnych cyfr. Wówczas należy nie zapomnieć, o usunięciu znaku separatora, tak by dla powstałej liczby całkowitej ostatnim w kolejności znakiem była cyfra jedności.
 \\
 
 \subsection{Metody klasy Polynomial}
