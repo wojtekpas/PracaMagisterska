@@ -1,90 +1,98 @@
 \select@language {polish}
-\contentsline {chapter}{\numberline {1}Wprowadzenie}{1}
-\contentsline {section}{\numberline {1.1}Wielomiany}{1}
-\contentsline {subsection}{\numberline {1.1.1}Definicja}{1}
-\contentsline {subsection}{\numberline {1.1.2}Podstawowe dzia\IeC {\l }ania na wielomianach}{1}
-\contentsline {subsubsection}{Por\IeC {\'o}wnywanie wielomian\IeC {\'o}w}{2}
-\contentsline {subsubsection}{Suma wielomian\IeC {\'o}w}{2}
-\contentsline {subsubsection}{R\IeC {\'o}\IeC {\.z}nica wielomian\IeC {\'o}w}{3}
-\contentsline {subsubsection}{Iloczyn wielomian\IeC {\'o}w}{4}
-\contentsline {subsubsection}{Iloraz wielomian\IeC {\'o}w}{5}
-\contentsline {subsubsection}{Pochodna wielomianu}{6}
-\contentsline {subsection}{\numberline {1.1.3}Najwi\IeC {\k e}kszy wsp\IeC {\'o}lny dzielnik wielomian\IeC {\'o}w}{7}
-\contentsline {subsection}{\numberline {1.1.4}Dodatkowe twierdzenia dotycz\IeC {\k a}ce wielomian\IeC {\'o}w}{9}
-\contentsline {subsection}{\numberline {1.1.5}Eliminacja pierwiastk\IeC {\'o}w wielokrotnych}{10}
-\contentsline {subsection}{\numberline {1.1.6}Twierdzenie Sturma}{12}
-\contentsline {section}{\numberline {1.2}Biblioteka MPIR}{14}
-\contentsline {subsection}{\numberline {1.2.1}Podstawowe informacje}{14}
-\contentsline {subsubsection}{Wst\IeC {\k e}p}{14}
-\contentsline {subsubsection}{Licencja}{14}
-\contentsline {subsubsection}{Nazewnictwo i typy}{15}
-\contentsline {subsubsection}{Funkcje}{15}
-\contentsline {subsubsection}{Zarz\IeC {\k a}dzanie pami\IeC {\k e}ci\IeC {\k a}}{15}
-\contentsline {subsubsection}{Kompatybilno\IeC {\'s}\IeC {\'c}}{16}
-\contentsline {subsubsection}{Wydajno\IeC {\'s}\IeC {\'c}}{16}
-\contentsline {subsubsection}{Operacje w miejscu}{16}
-\contentsline {subsection}{\numberline {1.2.2}Instalacja}{16}
-\contentsline {subsection}{\numberline {1.2.3}Operacje na liczbach ca\IeC {\l }kowitych}{17}
-\contentsline {subsubsection}{Funkcje inicjalizuj\IeC {\k a}ce}{17}
-\contentsline {subsubsection}{Funkcje przypisania}{18}
-\contentsline {subsubsection}{Funkcje konwersji}{18}
-\contentsline {subsubsection}{Funkcje arytmetyczne}{19}
-\contentsline {subsubsection}{Funkcje dzielenia}{20}
-\contentsline {subsubsection}{Funkcje por\IeC {\'o}wnania}{21}
-\contentsline {subsubsection}{Pozosta\IeC {\l }e funkcje}{21}
-\contentsline {subsection}{\numberline {1.2.4}Operacje na liczbach wymiernych}{21}
-\contentsline {chapter}{\numberline {2}Opis rozwi\IeC {\k a}zania}{25}
-\contentsline {section}{\numberline {2.1}Podzia\IeC {\l } na modu\IeC {\l }y}{25}
-\contentsline {subsection}{\numberline {2.1.1}Statyczna biblioteka}{25}
-\contentsline {subsection}{\numberline {2.1.2}Aplikacja konsolowa}{26}
-\contentsline {subsection}{\numberline {2.1.3}Framework testowy}{26}
-\contentsline {section}{\numberline {2.2}G\IeC {\l }\IeC {\'o}wne klasy}{27}
-\contentsline {subsection}{\numberline {2.2.1}CharsConstants}{27}
-\contentsline {subsection}{\numberline {2.2.2}StringManager}{28}
-\contentsline {subsection}{\numberline {2.2.3}Parser}{29}
-\contentsline {subsection}{\numberline {2.2.4}Number}{29}
-\contentsline {subsection}{\numberline {2.2.5}Polynomial}{32}
-\contentsline {subsection}{\numberline {2.2.6}PolynomialVector}{36}
-\contentsline {subsection}{\numberline {2.2.7}PolynomialMap}{37}
-\contentsline {section}{\numberline {2.3}G\IeC {\l }\IeC {\'o}wne funkcje}{38}
-\contentsline {subsection}{\numberline {2.3.1}Metody klasy Parser}{38}
-\contentsline {subsubsection}{Unifikacja wej\IeC {\'s}ciowego \IeC {\l }a\IeC {\'n}cucha znak\IeC {\'o}w}{38}
-\contentsline {subsubsection}{Konwersja \IeC {\l }a\IeC {\'n}cucha znak\IeC {\'o}w do postaci wielomianu}{38}
-\contentsline {subsection}{\numberline {2.3.2}Metody klasy Number}{39}
-\contentsline {subsubsection}{Sortowanie liczb typu mpq\_t}{39}
-\contentsline {subsubsection}{Por\IeC {\'o}wnywanie wektor\IeC {\'o}w liczbowych}{40}
-\contentsline {subsubsection}{Wyszukiwanie danej liczby w tablicy}{40}
-\contentsline {subsubsection}{Zwracanie warto\IeC {\'s}ci liczby w postaci \IeC {\l }a\IeC {\'n}cucha znak\IeC {\'o}w}{40}
-\contentsline {subsection}{\numberline {2.3.3}Metody klasy Polynomial}{41}
-\contentsline {subsubsection}{Najwi\IeC {\k e}kszy wsp\IeC {\'o}lny dzielnik wielomian\IeC {\'o}w}{41}
-\contentsline {subsubsection}{Eliminacja pierwiastk\IeC {\'o}w wielokrotnych wielomianu}{41}
-\contentsline {subsubsection}{Algorytm wyznaczania kolejnych przedzia\IeC {\l }\IeC {\'o}w wyszukiwania}{41}
-\contentsline {subsubsection}{Liczba pierwiastk\IeC {\'o}w wielomianu w badanym przedziale}{43}
-\contentsline {subsubsection}{Znajdowanie pierwiastk\IeC {\'o}w wielomianu w badanym przedziale}{43}
-\contentsline {subsection}{\numberline {2.3.4}Metody czysto wirtualne klasy Polynonial \IeC {\textendash } por\IeC {\'o}wnanie dzia\IeC {\l }ania metod klas PolynomialMap i PolynomialVector}{44}
-\contentsline {subsubsection}{Ustawianie warto\IeC {\'s}ci wyrazu wielomianu}{44}
-\contentsline {subsubsection}{Stwierdzanie czy wielomian jest wielomianem zerowym}{45}
-\contentsline {subsubsection}{Obliczanie stopnia wielomianu}{45}
-\contentsline {subsubsection}{Zwracanie warto\IeC {\'s}ci wielomianu w postaci \IeC {\l }a\IeC {\'n}cucha znak\IeC {\'o}w}{45}
-\contentsline {subsubsection}{Dzielenie wielomian\IeC {\'o}w}{46}
-\contentsline {subsubsection}{Obliczanie pochodnej wielomianu}{46}
-\contentsline {subsubsection}{Obliczanie wyraz\IeC {\'o}w ciagu Sturma}{47}
-\contentsline {subsubsection}{Liczba zmian znak\IeC {\'o}w w danym punkcie}{47}
-\contentsline {section}{\numberline {2.4}Instalacja aplikacji}{48}
-\contentsline {section}{\numberline {2.5}Instrukcja obs\IeC {\l }ugi programu}{48}
-\contentsline {chapter}{\numberline {3}Przeprowadzone testy}{49}
-\contentsline {section}{\numberline {3.1}Testy funkcjonalne}{49}
-\contentsline {subsection}{\numberline {3.1.1}ParserUniform}{50}
-\contentsline {subsection}{\numberline {3.1.2}ParserConvert}{51}
-\contentsline {subsection}{\numberline {3.1.3}Operatory dodawania, odejmowania i mno\IeC {\.z}enia}{51}
-\contentsline {subsubsection}{PolynomialSumOperator}{51}
-\contentsline {subsubsection}{PolynomialSubOperator}{52}
-\contentsline {subsubsection}{PolynomialMulOperator}{52}
-\contentsline {subsection}{\numberline {3.1.4}Operatory dzielenia i modulo}{53}
-\contentsline {subsubsection}{PolynomialDivOperator}{53}
-\contentsline {subsubsection}{PolynomialModOperator}{53}
-\contentsline {subsection}{\numberline {3.1.5}PolynomialDerivative}{54}
-\contentsline {subsection}{\numberline {3.1.6}PolynomialAfterElimination}{54}
-\contentsline {subsection}{\numberline {3.1.7}PolynomialValue}{55}
-\contentsline {subsection}{\numberline {3.1.8}PolynomialNumberOfRoots}{55}
-\contentsline {subsection}{\numberline {3.1.9}PolynomialRoots}{56}
+\contentsline {chapter}{\numberline {1}Wst\IeC {\k e}p}{1}
+\contentsline {chapter}{\numberline {2}Wprowadzenie}{5}
+\contentsline {section}{\numberline {2.1}Wielomiany}{5}
+\contentsline {subsection}{\numberline {2.1.1}Definicja}{5}
+\contentsline {subsection}{\numberline {2.1.2}Podstawowe dzia\IeC {\l }ania na wielomianach}{5}
+\contentsline {subsubsection}{Por\IeC {\'o}wnywanie wielomian\IeC {\'o}w}{6}
+\contentsline {subsubsection}{Suma wielomian\IeC {\'o}w}{6}
+\contentsline {subsubsection}{R\IeC {\'o}\IeC {\.z}nica wielomian\IeC {\'o}w}{7}
+\contentsline {subsubsection}{Iloczyn wielomian\IeC {\'o}w}{8}
+\contentsline {subsubsection}{Iloraz wielomian\IeC {\'o}w}{9}
+\contentsline {subsubsection}{Pochodna wielomianu}{10}
+\contentsline {subsection}{\numberline {2.1.3}Najwi\IeC {\k e}kszy wsp\IeC {\'o}lny dzielnik wielomian\IeC {\'o}w}{11}
+\contentsline {subsection}{\numberline {2.1.4}Dodatkowe twierdzenia dotycz\IeC {\k a}ce wielomian\IeC {\'o}w}{13}
+\contentsline {subsection}{\numberline {2.1.5}Eliminacja pierwiastk\IeC {\'o}w wielokrotnych}{14}
+\contentsline {subsection}{\numberline {2.1.6}Twierdzenie Sturma}{16}
+\contentsline {section}{\numberline {2.2}Biblioteka MPIR}{18}
+\contentsline {subsection}{\numberline {2.2.1}Podstawowe informacje}{18}
+\contentsline {subsubsection}{Wst\IeC {\k e}p}{18}
+\contentsline {subsubsection}{Licencja}{18}
+\contentsline {subsubsection}{Nazewnictwo i typy}{19}
+\contentsline {subsubsection}{Funkcje}{19}
+\contentsline {subsubsection}{Zarz\IeC {\k a}dzanie pami\IeC {\k e}ci\IeC {\k a}}{19}
+\contentsline {subsubsection}{Kompatybilno\IeC {\'s}\IeC {\'c}}{20}
+\contentsline {subsubsection}{Wydajno\IeC {\'s}\IeC {\'c}}{20}
+\contentsline {subsubsection}{Operacje w miejscu}{20}
+\contentsline {subsection}{\numberline {2.2.2}Instalacja}{20}
+\contentsline {subsection}{\numberline {2.2.3}Operacje na liczbach ca\IeC {\l }kowitych}{21}
+\contentsline {subsubsection}{Funkcje inicjalizuj\IeC {\k a}ce}{21}
+\contentsline {subsubsection}{Funkcje przypisania}{22}
+\contentsline {subsubsection}{Funkcje konwersji}{22}
+\contentsline {subsubsection}{Funkcje arytmetyczne}{23}
+\contentsline {subsubsection}{Funkcje dzielenia}{24}
+\contentsline {subsubsection}{Funkcje por\IeC {\'o}wnania}{25}
+\contentsline {subsubsection}{Pozosta\IeC {\l }e funkcje}{25}
+\contentsline {subsection}{\numberline {2.2.4}Operacje na liczbach wymiernych}{25}
+\contentsline {chapter}{\numberline {3}Opis rozwi\IeC {\k a}zania}{29}
+\contentsline {section}{\numberline {3.1}Podzia\IeC {\l } na modu\IeC {\l }y}{29}
+\contentsline {subsection}{\numberline {3.1.1}Statyczna biblioteka}{29}
+\contentsline {subsection}{\numberline {3.1.2}Aplikacja konsolowa}{30}
+\contentsline {subsection}{\numberline {3.1.3}Framework testowy}{30}
+\contentsline {section}{\numberline {3.2}G\IeC {\l }\IeC {\'o}wne klasy}{31}
+\contentsline {subsection}{\numberline {3.2.1}CharsConstants}{31}
+\contentsline {subsection}{\numberline {3.2.2}StringManager}{32}
+\contentsline {subsection}{\numberline {3.2.3}Parser}{33}
+\contentsline {subsection}{\numberline {3.2.4}Number}{33}
+\contentsline {subsection}{\numberline {3.2.5}Polynomial}{36}
+\contentsline {subsection}{\numberline {3.2.6}PolynomialVector}{40}
+\contentsline {subsection}{\numberline {3.2.7}PolynomialMap}{41}
+\contentsline {section}{\numberline {3.3}G\IeC {\l }\IeC {\'o}wne funkcje}{42}
+\contentsline {subsection}{\numberline {3.3.1}Metody klasy Parser}{42}
+\contentsline {subsubsection}{Unifikacja wej\IeC {\'s}ciowego \IeC {\l }a\IeC {\'n}cucha znak\IeC {\'o}w}{42}
+\contentsline {subsubsection}{Konwersja \IeC {\l }a\IeC {\'n}cucha znak\IeC {\'o}w do postaci wielomianu}{42}
+\contentsline {subsection}{\numberline {3.3.2}Metody klasy Number}{43}
+\contentsline {subsubsection}{Sortowanie liczb typu mpq\_t}{43}
+\contentsline {subsubsection}{Por\IeC {\'o}wnywanie wektor\IeC {\'o}w liczbowych}{44}
+\contentsline {subsubsection}{Wyszukiwanie danej liczby w tablicy}{44}
+\contentsline {subsubsection}{Zwracanie warto\IeC {\'s}ci liczby w postaci \IeC {\l }a\IeC {\'n}cucha znak\IeC {\'o}w}{44}
+\contentsline {subsection}{\numberline {3.3.3}Metody klasy Polynomial}{45}
+\contentsline {subsubsection}{Najwi\IeC {\k e}kszy wsp\IeC {\'o}lny dzielnik wielomian\IeC {\'o}w}{45}
+\contentsline {subsubsection}{Eliminacja pierwiastk\IeC {\'o}w wielokrotnych wielomianu}{45}
+\contentsline {subsubsection}{Algorytm wyznaczania kolejnych przedzia\IeC {\l }\IeC {\'o}w wyszukiwania}{45}
+\contentsline {subsubsection}{Liczba pierwiastk\IeC {\'o}w wielomianu w badanym przedziale}{47}
+\contentsline {subsubsection}{Znajdowanie pierwiastk\IeC {\'o}w wielomianu w badanym przedziale}{47}
+\contentsline {subsection}{\numberline {3.3.4}Metody czysto wirtualne klasy Polynonial \IeC {\textendash } por\IeC {\'o}wnanie dzia\IeC {\l }ania metod klas PolynomialMap i PolynomialVector}{48}
+\contentsline {subsubsection}{Ustawianie warto\IeC {\'s}ci wyrazu wielomianu}{48}
+\contentsline {subsubsection}{Stwierdzanie czy wielomian jest wielomianem zerowym}{49}
+\contentsline {subsubsection}{Obliczanie stopnia wielomianu}{49}
+\contentsline {subsubsection}{Zwracanie warto\IeC {\'s}ci wielomianu w postaci \IeC {\l }a\IeC {\'n}cucha znak\IeC {\'o}w}{49}
+\contentsline {subsubsection}{Dzielenie wielomian\IeC {\'o}w}{50}
+\contentsline {subsubsection}{Obliczanie pochodnej wielomianu}{50}
+\contentsline {subsubsection}{Obliczanie wyraz\IeC {\'o}w ciagu Sturma}{51}
+\contentsline {subsubsection}{Liczba zmian znak\IeC {\'o}w w danym punkcie}{51}
+\contentsline {section}{\numberline {3.4}Instalacja aplikacji}{52}
+\contentsline {subsection}{\numberline {3.4.1}Szybka instalacja}{52}
+\contentsline {subsection}{\numberline {3.4.2}Kompilacja biblioteki mpir}{52}
+\contentsline {subsection}{\numberline {3.4.3}Kompilacja solucji}{52}
+\contentsline {section}{\numberline {3.5}Instrukcja obs\IeC {\l }ugi programu}{53}
+\contentsline {chapter}{\numberline {4}Przeprowadzone testy}{55}
+\contentsline {section}{\numberline {4.1}Testy funkcjonalne}{55}
+\contentsline {subsection}{\numberline {4.1.1}ParserUniform}{56}
+\contentsline {subsection}{\numberline {4.1.2}ParserConvert}{57}
+\contentsline {subsection}{\numberline {4.1.3}Operatory dodawania, odejmowania i mno\IeC {\.z}enia}{57}
+\contentsline {subsubsection}{PolynomialSumOperator}{57}
+\contentsline {subsubsection}{PolynomialSubOperator}{58}
+\contentsline {subsubsection}{PolynomialMulOperator}{58}
+\contentsline {subsection}{\numberline {4.1.4}Operatory dzielenia i modulo}{59}
+\contentsline {subsubsection}{PolynomialDivOperator}{59}
+\contentsline {subsubsection}{PolynomialModOperator}{59}
+\contentsline {subsection}{\numberline {4.1.5}PolynomialDerivative}{60}
+\contentsline {subsection}{\numberline {4.1.6}PolynomialAfterElimination}{60}
+\contentsline {subsection}{\numberline {4.1.7}PolynomialValue}{61}
+\contentsline {subsection}{\numberline {4.1.8}PolynomialNumberOfRoots}{61}
+\contentsline {subsection}{\numberline {4.1.9}PolynomialRoots}{62}
+\contentsline {section}{\numberline {4.2}Testy wydajno\IeC {\'s}ciowe}{63}
+\contentsline {subsection}{\numberline {4.2.1}Test 1}{63}
+\contentsline {subsection}{\numberline {4.2.2}Test 2}{63}
+\contentsline {subsection}{\numberline {4.2.3}Test 3}{64}

@@ -114,6 +114,8 @@
 
 \usepackage{slantsc}
 
+\usepackage{titling}
+
 % nazwa pliku ze stroną tytułową
 % \include{phd_titlepage}
 \include{mgr_titlepage}
@@ -154,13 +156,48 @@
 \frontmatter
 % generacja strony tytułowej załączonej wcześniej
 \maketitle
+	
+Niniejsza praca ma na celu przedstawienie i omówienie sposobu pozwalającego na znajdowanie pierwiastków rzeczywistych wielomianu w określonym przedziale. Najważniejszym aspektem był dobór odpowiedniej metody tak, by była skuteczna w każdym przypadku, a nie tylko w określonych warunkach. Przykładem takiego sposobu jest wykorzystanie twierdzenia Sturma. Przed jego zastosowaniem należy dokonać eliminacji pierwiastków wielokrotnych wielomianu, by móc następnie zdefiniować ciąg Sturma. Na jego podstawie jesteśmy w stanie określić liczbę różnych pierwiastków w dowolnym przedziale.  Na mocy twierdzenia jest ona równa różnicy liczby zmian znaku na obu jego krańcach. Badany przedział możemy więc dowolnie zmniejszać, by z wymaganą precyzją wskazać wartość szukanych pierwiastków.
+
+Ważnym aspektem pracy jest aplikacja konsolowa w języku C++, pozwalająca na znajdowanie pierwiastków wprowadzonego przez użytkownika wielomianu. Do jej wykonania niezbędna jest implementacja działań na wielomianach oraz obsługa dużych wartości liczbowych o wysokiej precyzji. W tym celu program korzysta z biblioteki MPIR. By zapewnić odpowiednią jakość, powstał osobny moduł aplikacji, w którym zostały zdefiniowane odpowiednie testy funkcjonalne programu.
+
+Ciekawym zagadnieniem pracy jest porównanie różnych typów struktur, pozwalających na reprezentację wielomianu. Pierwszą z nich jest tablica, w której trzymane są wszystkie współczynniki wielomianu. Drugą zaś jest mapa, jako przykład struktury, o braku bezpośredniego dostępu do wszystkich jej elementów, co pozwala na posiadanie informacji wyłącznie o niezerowych współczynnikach. Przeprowadzone zostały testy porównujące wydajność działania obu struktur. Wyniki obu z nich zostały porównane zarówno z wartościami teoretycznymi, jak i ze sobą. Dodatkowo została przeprowadzona analiza, która ze strukturach jest lepsza dla różnych typów wielomianów. \\
+
+Słowa kluczowe: wielomian, pierwiastki wielomianu, twierdzenie Sturma, biblioteka mpir
+
+The purpose of this thesis is presentation and discussion about the way allowing finding real roots of the polynomial in examined range. The most important aspect was a choice of the appropriate method to be effective in each case and not only under certain conditions. An example of such way is the use of Sturm’s theorem. Before using it, it is necessary to eliminate of multiple roots of the polynomial, then be able to define the Sturm’s sequence. Based on it, we are able to determine the number of distinct real roots located in an interval. By theorem it is equal to the difference changes sign at both ends. The test interval can be so arbitrarily reduce to indicate the value of searched roots with the required precision. \\
+
+The important aspect of this thesis is a console application, made in C++, allowing finding roots of the polynomial, which is entered by a user. For its implementation it is necessary to implement actions on polynomials and handling large numbers of high-value precision. For this purpose, the program uses the MPIR library. To ensure the quality of the program, was created a separate application module, which includes the relevant functional tests. \\
+
+An interesting issue is to compare the different types of structures, allowing a polynomial representation. The first of them is the array, which are kept all the coefficients of the polynomial. Another one is a map, as an example of structure with a lack of direct access to all of its elements, which allows you to have information only about the non-zero coefficients. They were performed tests comparing the operating efficiency of both structures. The results of both of them are compared with both the theoretical values as well as with each other. In addition, the analysis was conducted, which of the structures is better for different types of polynomials. \\
+
+Key words: polynomial, roots of polynomial, Sturm’s theorem, mpir library
+
 % spis treści
 \tableofcontents
 
 % właściwa część książki, numerowana arabskimi od 1
 \mainmatter
 
-%\chapter{Wstęp}
+\chapter{Wstęp}
+
+Celem niniejszej pracy jest implementacja algorytmu, pozwalającego na obliczanie pierwiastków rzeczywistych dowolnego wielomianu. Jednym z najlepszych sposobów na zrobienie tego jest skorzystanie z twierdzenia Sturma. Planuję zbadać, jaki sposób reprezentacji wielomianu jest najbardziej wydajny. Dodatkowo zamierzam także porównać możliwości stworzonej przeze mnie aplikacji z innymi programami korzystającymi z tej samej metody.
+
+Zacznę od przedstawienia tego, czym są wielomiany. Zapoznanie się bowiem z podstawowymi definicjami i twierdzenia jest moim zdaniem niezbędne, by dobrze zrozumieć badany problem i móc wypracować jego skuteczne rozwiązanie. Warte dość szczegółowego opisu są działania charakterystyczne dla wielomianów. Są one analogiczne jak w przypadku liczb. Należą do nich dodawanie, odejmowanie, mnożenie, dzielenie, obliczanie reszty z dzielenia. Dwa ostatnie są operacjami najbardziej skomplikowanymi i tym samym najbardziej złożonymi pod względem czasowym. Dodatkowo warto zaznaczyć, że w przypadków wielomianu możliwe jest obliczanie pochodnej, największego wspólnego dzielnika oraz najmniejszej wspólnej wielokrotności.
+
+Jak wspomniałem na początku, w pracy wykorzystam metodę Sturma. Pozwala ona znaleźć wszystkie pierwiastki rzeczywiste danego wielomianu, występujące w podanym przedziale. Zakłada ona zbudowanie ciągu wielomianów, coraz niższych stopni, a następnie porównywanie ze sobą ich wartości w danym punkcie. Na tej podstawie zostaje obliczona liczba zmian znaku w ciągu Sturma. Różnica tych wartości w obu krańcach badanego przedziału jest liczbą pierwiastków rzeczywistych, które w nim występują. W przeciwieństwie do wielu innym metod, twierdzenie Sturma jest skuteczne dla każdego wielomianu. Jedynym ograniczeniem jest konieczność dokonania eliminacji pierwiastków wielokrotnych danego wielomianu. By to uczynić, wystarczy podzielić go przez największy wspólny dzielnik tego wielomianu oraz jego pochodną.
+
+W przypadku obliczeń na wielomianach ważnym aspektem są obliczenia na bardzo dużych liczbach z dowolną precyzją. Konieczne jest to zwłaszcza, gdy mamy do czynienia z wielomianami wysokich stopni. Wówczas każda liczba, której wartość bezwzględna jest większa od jedynki, po podniesieniu do wysokiej potęgi, jest bardzo duża. Dla przykładu wielomian $x^{100}$ w punkcie $x_1=10$ ma wartość $10^{100}$. Z kolei w przypadku pozostałych liczb, wartość ta bardzo szybka zbliża się do zera – dla $x_2=0,1$ wartość dla tego samego wielomianu będzie wynosić zaledwie $(0,1)^{100}$. Aplikacja jest implementowana w języku C++, a żaden z wbudowanych w niego typów nie posiada możliwości przechowywania, aż tak dokładnych i na tyle dużych wartości. Rozwiązaniem jest tutaj skorzystanie z biblioteki dużych liczb, z dowolną precyzji – mpir. Posiada ona swoją implementacje dla wielu języków programowania, w tym C i C++.  Warto zaznaczyć, że rozwiązanie to jest bardzo wydajne, ponieważ najbardziej krytyczne funkcje zostały zaimplementowane w asemblerze, a cała biblioteka jest optymalizowana pod kątem użycia na konkretnym procesorze.
+Projekt zakłada istnienie trzech głównych modułów. Pierwszym z nich jest biblioteka statyczna, w której zawarte będą wszystkie niezbędne klasy i funkcje. Drugim jest aplikacja konsolowa, która pozwoli na interakcję użytkownika programu z biblioteką i wykonywaniem jej metod dla konkretnych wielomianów. Zaś ostatnim są testy funkcjonalne, pozwalające na przetestowanie funkcjonalności programu, w celu zapewniania mu odpowiedniej jakości i łatwego monitorowania jego poprawności.
+Przewiduję implementację wielomianów, bazującą na dwóch odmiennych strukturach. Pierwszą z nich jest tablica, która wymusza reprezentację wszystkich jego współczynników, także zerowych. Druga koncepcja zakłada przechowywanie informacji wyłącznie o niezerowych wartościach  współczynników wielomianów. Opierać się ona będzie na drzewiastej strukturze, w której brak jest bezpośredniego dostępu do dowolnego elementu. Do reprezentacji powyższych struktur planuję wykorzystać typy z biblioteki SDL, jakimi są wektor oraz mapa.
+
+W dalszej części pracy zawarty będzie opis wszystkich stworzonych funkcji i klas, w tym dokładna analiza porównawcza obu typów wielomianów. Planowane jest stworzenie abstrakcyjnej klasy, posiadającej metody, które będą całkowicie niezależne od reprezentującej dany wielomian struktury. Wszystkie pozostałe metody będą w niej zadeklarowane i oznaczone jako czysto wirtualne. Zgodnie z paradygmatami programowania obiektowego wymagane będzie przeciążenie każdej z nich by móc stworzyć instancję klasy danego wielomianu. Poprzez zdefiniowanie odpowiedniego interfejsu, łatwiejsza będzie także potencjalna rozbudowana aplikacji o ewentualne zdefiniowanie kolejnych typów wielomianów, bazujących na innych niż wymienione wyżej struktury.
+
+Do programu zostanie dołączona dokładna instrukcja programu oraz niezbędne informację o wymaganym środowisku. Warto zaznaczyć, że celem projektu jest stworzenie aplikacji działającej pod systemem Windows. Nie jest natomiast planowane jej uruchomienie pod Linuksem. Należy także zaznaczyć, że wykorzystywana biblioteka mpir będzie skompilowana dla procesorów Intel i7 i wykorzystanie aplikacji używając innego sprzętu może być niemożliwe lub wymagać wykonania dodatkowych czynności.
+Jak zostało wspomniane wcześniej, projekt będzie posiadał moduł pozwalający na zdefiniowanie i wykonywanie testów funkcjonalnych. Rozwiązaniem, które to umożliwia, jest framework testów jednostkowych, wbudowany w narzędzie deweloperskie Microsoft Visual Studio 2015. Napisane testy będą dotyczyć zarówno krytycznych funkcji programu, jak i weryfikować poprawne działanie całego projektu.
+
+Zostaną przeprowadzone testy wydajnościowe, które porównają działanie czasowe obu typów wielomianów. Rozpatrzone będą specyficzne przypadki testowe, faworyzujące poszczególne reprezentacje oraz testy dla losowo dobranych współczynników wielomianów. Nastąpi analiza, na podstawie której, zostaną wyciągnięte wnioski, w jakich przypadkach każda z testowanych struktur jest bardziej wydajna. Otrzymane wyniki zostaną porównane z wartościami teoretycznymi dla poszczególnych typów wielomianów. Dodatkowo możliwości programu zostaną porównane z inną aplikacją, pozwalającą znajdować pierwiastki rzeczywiste wielomianów.
+
 \chapter{Wprowadzenie}
 \section{Wielomiany}
 \subsection{Definicja}
@@ -343,7 +380,7 @@ Bardzo ważnym aspektem obliczania ilorazu wielomianów jest reszta z dzielenia.
 
 \begin{example}
 	$ $\\
-	Mamy dane wielomian $W$ oraz wielomian $P$.
+	Mamy dane wielomian $W$ oraz wielomian $P$. \\
 	$W(x) = a_0x^n + a_1x^{n-1} + ... + a_{n-1}x + a_n$ \\
 	$P(x) = b_0x^m + b_1x^{m-1} + ... + b_{m-1}x + b_m$ \\
 	Niech $Q(x)$ jest ilorazem wielomanów $W(x)$ i $P(x)$ oraz $R(x) = W(x)\bmod P(x)$. Wówczas: \\
@@ -1504,7 +1541,38 @@ Funkcja na postawie ciągu Sturma i metody GetSturm, oblicza liczbę zmian znak�
 
 \section{Instalacja aplikacji}
 
+Stopień trudności instalacji aplikacji zależny jest od typu procesora, na którym będzie uruchomiony nasz program oraz od tego, w jaki sposób chcemy jej używać. Należy mieć świadomość, że cały poniższy opis instalacji dotyczy przypadku 64-bitowego systemu Windows, jako platformy pod którą wymagane jest działanie aplikacji.
+
+\subsection{Szybka instalacja}
+
+Pliki binarne aplikacji zostały skompilowane przy użyciu kompilatora wbudowanego w Microsoft Visual Studio 2015. Sprawia to, że aplikacja korzysta z dodatkowych bibliotek dynamicznych, które musimy posiadać na komputerze, na którym uruchamiamy aplikacje. Gdy tego nie zrobimy w trakcie uruchomienia dostaniemy komunikat o braku wymaganego pliku.
+Możemy dodać go, nie istalując powyższego srodowiska, ale musimy być świadomi, że przy kolejnej próbie uruchomienia dostaniemy bliźniaczy komunikat dla innego pliku, Tak, więc rekomendowanym sposobem jest instalacja Microsoft Vistual Studio 2015, który zainstaluje wszystkie potrzebne biblioteki.
+
+Drugą rzeczą, którą należy zapewnić jest dynamiczna biblioteka biblioteki mpir -- w postaci pliku "mpir.dll". Jeżeli instalujemy aplikację na komputerze z procesorem Intel i7 plik ten znajduje się w folderze z aplikacją. W przeciwnym razie jesteśmy zmuszenie skompilować źrodła biblioteki mpir, a powstały plik "mpir.dll" dodać do folderu z aplikacją lub pod ogólną lokalizacją dla wszystkich bibliotek systemu Windows.
+
+\subsection{Kompilacja biblioteki mpir}
+
+Gdy chcemy uruchomić program na innym procesorze niż Intel i7 potrzebujemy dołączyć do niego dynamiczną bibliotekę mpir. Aby to zrobić, musimy dokonać kompilacji jej źrodeł dla wybranego procesora, a następnie skopiować uzyskany plik typu dll do odpowiedniego folderu.
+
+Zaczynamy od uzyskania źrodeł biblioteki ze strony "http://mpir.org/". Następnie otwieramy pobraną solucję w programie Miscrosoft Visual Studio 2015. Ważne jest to, by w ustawieniach zmienić opcję kompilacji "Debug" na "Release" i wybieramy system 64-bitowy. Następnie wybieramy projekt przeznaczony na interesującą nas platformę i budujemy go.
+
+Jeżeli proces budowania zakończył się powodzeniem, dysponujemy już potrzebnym plikiem. Znajduje się on w podfolderze projektu, który budowaliśmy, w katalogu "x64/Release".
+
+\subsection{Kompilacja solucji}
+
+Jeżeli interesuje nas zmiana plików źródłowych aplikacji, musimy mieć dostęp zarówno do plików źródłowych biblioteki mpir, jak i tych, które powstały w procesie budowania. Dlatego pierwszym krokiem powinno być w tym przypadku, wykonanie instrukcji, o których mowa w poprzednim podroździale. Następnie kopiujemy podane niżej pliki do odpowiednich lokalizacji.
+
+\begin{itemize}
+	\item Pliki "mpir.lib"\ i "mpir.dll"\ z "x64/Release" do "Microsoft Visual Studio 14.0/VC/lib"
+	\item Plik "mpir.h"\ z "x64/Release" do "Microsoft Visual Studio 14.0/VC/include"
+\end{itemize}
+
+W tym momencie możliwe jest już zbudowanie naszej biblioteki. 
+
+
 \section{Instrukcja obsługi programu}
+
+
 
 \chapter{Przeprowadzone testy}
 
@@ -1725,15 +1793,41 @@ W(x) = "a3*(a+2)^10", a = -1, b = 4 -> {0}
 W(x) = "(x+1)^4*(x-2)^2", a = 0, b = 1 -> {}
 \end{lstlisting}
 
+\section{Testy wydajnościowe}
 
-%\section{Zewnętrze biblioteki}
-%\section{Instrukcja programu}
 
-%\chapter{Przeprowadzone testy}
-%\section{Testy jednostkowe}
-%\section{Testy interfejsu użytkownika}
-%\section{Testy wydajności czasowej}
-%\section{Testy wydajności pamięciowej}
+\subsection{Test 1}
+
+Kolejnym przypadkiem jest zbadanie rzadkich wielomianów, nieposiadających pierwiastków całkowitych. By zapewnić ten ostatni element, najłatwiejszym sposobem jest konstrukcja wielomianu postaci $ax^{2k}+b$, gdzie $a \in R_+, b \in R, k \in Z_+$. Dzięki temu, mamy pewność, że wielomian nie posiada pierwiastków całkowitych, a dodatkowo ma najmniejszą możliwą liczbę niezerowych współczynników.
+
+Teoretycznie, wielomiany rzadkie powinny się charakteryzować największą dysproporcją w wydajności pomiędzy typami PolynomialMap i PolynomialVector, na korzyść tego pierwszego. Jest to spowodowane faktem, że to właśnie w tym przypadku, odsetek zerowych współczynników jest największy. Czynnik ten powinien bardzo negatywnie wpływać na czas znajdowania pierwiastków, a w tym przypadku na stwierdzenie, o ich braku. Zapoznajmy się z wynikami testów, by zweryfikować postawioną powyżej tezę.
+
+\subsection{Test 2}
+
+Teraz rozpatrzmy sytuację, w której ponownie mamy do czynienia z wielomianem rzadkim, o którym wiemy, że posiada przynajmniej jeden pierwiastkiem rzeczywisty. By to zapewnić, wystarczy skonstruować wielomian w postaci $ax^{2k+1}+b$, gdzie $a \in R\setminus\{0\}, b \in R, k \in Z_+$. Jak wiemy, na podstawie przedstawionego w drugim rozdziale twierdzenia, każdy wielomian stopnia nieparzystego posiada przynajmniej jeden pierwiastek rzeczywisty. 
+
+Wydaje się, że podobnie jak w przypadku wielomianów nieposiadających pierwiastków, również w tym, czas znajdowania pierwiastków dla typu PolynomialMap powinien być znacznie krótszy niż dla PolynomialVector. Natomiast, czy aby na pewno, tak jest? Rozważmy poniższy przykład.
+Postarajmy się zbudować ciąg Sturma dla wielomianu $x^{101}+1$. Zacznijmy od obliczenia pochodnej.
+$(x^{101}+1)’=101x^{100}$
+Obliczona wartość jest drugim elementem ciągu Sturma. Obliczmy resztę z dzielenia dwóch pierwszych wielomianów tego ciągu.
+$\frac{1/101}x$
+$x^{101}+1 : (x^{100})$
+$-x^{101}$
+$1$
+Trzecim i jednocześnie ostatnim wyrazem ciągu Sturma jest więc $-1$, czyli wartość przeciwna do otrzymanej reszty. Dysponujemy zatem trzy elementowym ciągiem Sturma o elementach ${x^{101}+1, 101x^{100}, -1}$. Obliczmy teraz liczbę zmian znaków dla $-\infty$ i $+\infty$. W prawym krańcu przedziału będą to wartości $+,+,-,$ zaś w lewym $-,+,-.$ Otrzymaliśmy jedną zmianę znaku dla $-\infty$ i dwie zmiany dla $+\infty$. Oznacza to, że liczba pierwiastków rzeczywistych jest równa różnicy tych zmian w lewym i prawym krańcu, czyli w tym przypadku wynosi $1$.
+
+Jak widać, dwa z trzech elementów ciągu Sturma to rzadkie wielomiany wysokich stopni. Na takiej podstawie, wydaje się, że powyższa teza została potwierdzona. Jednocześnie jednak, warto zauwazyć, że udowodniliśmy, że dla tego rodzaju wielomianów liczba koniecznych operacji jest niewielka, z uwagi na znikomą liczbę elementów ciągu Sturma. Wydaje się zatem, że to właśnie ich liczba bezpośrednio wpływa na czas znajdowania pierwiastków, a ich charakterystyka, czyli liczba niezerowych współczynników ma największe znaczenie dla wydajności obu typów wielomianów. Sprawdźmy, czy wyniki testów potwierdzają powyższą teorię.
+
+\subsection{Test 3}
+
+Na początku zastanówmy się, jak sprawić, by liczba elementów ciągu Sturma była jak największa. Pozwoli to nam, na zmaksymalizowanie liczby operacji na wielomianach danego stopnia. Aby to zrobić, najłatwiej jest zapewnić, by wielomian miał liczbę pierwiastków rzeczywistych równą lub zbliżoną w stosunku do jego stopnia. Jak wiemy, liczba ta jest równa różnicy liczby zmian ciągu Sturma w obu przedziałach, a jej wartość jest ograniczona przez liczbę wyrazów tego ciagu. Wynika z tego, że liczba elementów ciagu Sturma jest zawsze większa od liczby pierwiastków.
+
+Teraz zastanówmy się, jak skonstruować wielomian, który zawiera liczbę różnych pierwiastków równą jego stopniowi. Intuicyjne utworzenie wielomianu, podając jego kolejne współczynniki jest niemożliwe dla wysokich stopni.
+
+Rozwiązaniem jest więc przedstawienie go w postaci czynników, wskazując jego kolejne pierwiastki. Przykładowo wielomian W, o stopniu $k$, możemy przypisać pierwiastki, będące kolejnymi dodatnimi liczbami całkowitymi, ustalając jego wartość jako $W(x)=(x-1)*(x-2)*(x-3)*…*(x-(k-2))*(x-(k-1))*(x-k)$, gdzie $k$ jest stopniem wielomianu.
+
+Przetestujemy więc wielomiany powyższej postaci. Z powodu ograniczeń czasowych zdecydowałem się w tym teście na badaniu wielomianów niższych stopni, niż w pozostałych przypadkach. Zapoznajmy się z rezultatami opisanego eksperymentu.
+
 %\chapter{Podsumowanie}
 
 
