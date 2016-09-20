@@ -165,6 +165,7 @@ inline string PolynomialMap::ToString()
 	string tmpResult;
 	for (auto pair1 : m)
 	{
+		//cout << pair1.first << " " << pair1.second.ToString() << endl;
 		if (pair1.second.IsZero() == false)
 		{
 			tmp = "";
@@ -292,15 +293,30 @@ inline int PolynomialMap::NumberOfChangesSign(Number a)
 		lastValue = 1;
 	else if (number < 0)
 		lastValue = -1;
-//	cout << "a = " << a.ToString() << endl;
+	//cout << "\na = " << a.ToString() << endl;
+
+	if (a > 2)
+		return counter;
 //	cout << "size = " << sturm.size() << endl;
 //	cout << "sturm" << 0 << ": ";
-//	sturm.at(0).Print();
+//	if (number > 0)
+//		printf("+");
+//	if (number < 0)
+//		printf("-");
+//	if (number == 0)
+//		printf("0");
+	//sturm.at(0).Print();
 	for (int i = 1; i < sturm.size(); i++)
 	{
 //		cout << "sturm" << i << ": ";
-//		sturm.at(i).Print();
 		number = sturm.at(i).PolynomialValue(a);
+//		if (number > 0)
+//			printf("+");
+//		if (number < 0)
+//			printf("-");
+//		if (number == 0)
+//			printf("0");
+		//sturm.at(i).Print();
 		if (number > 0)
 			curValue = 1;
 		else if (number < 0)
@@ -313,6 +329,7 @@ inline int PolynomialMap::NumberOfChangesSign(Number a)
 		if (curValue)
 			lastValue = curValue;
 	}
+	//cout << " " << counter;
 	return counter;
 }
 
@@ -340,6 +357,7 @@ inline vector<PolynomialMap> PolynomialMap::GetSturm()
 		r = *tmp;
 		DeletePolynomial(tmp);
 		sturm.push_back(ConvertToPolynomialMapFromPolynomialRef(r));
+		r.Print();
 		w = q;
 		q = r;
 		tmp = &(w % q);

@@ -2,9 +2,8 @@
 #include "definitions.h"
 #include <mpir.h>
 
-#define SMALL_NUMBER 0.000000000001
-#define MAX_VALUE 1000
-#define MAX_NEGATIVE_VALUE -1000
+#define MAX_VALUE 100000000
+#define MAX_NEGATIVE_VALUE -1000000000
 
 static int countNumbers = 0;
 static int countNumbers2 = 0;
@@ -68,6 +67,13 @@ public:
 	void Print();
 };
 
+Number SMALL_VALUE;
+
+bool IsSmallValue(Number value)
+{
+	return value <= SMALL_VALUE;
+}
+
 inline void DeleteNumber(Number* number)
 {
 	countNumbersDeleted++;
@@ -101,7 +107,7 @@ inline int VectorsAreEqual(vector<Number>v1, vector<Number>v2)
 	{
 		Number diff;
 		diff = v1[i] - v2[i];
-		if (diff.Abs() > SMALL_NUMBER)
+		if (IsSmallValue(diff.Abs()) == false)
 			return 0;
 	}
 	return 1;
@@ -183,12 +189,12 @@ inline bool Number::IsInfinity()
 
 inline bool Number::IsVerySmallValue()
 {
-	return Abs() < SMALL_NUMBER * 200;
+	return IsSmallValue(Abs());
 }
 
 inline bool Number::IsZero()
 {
-	return Abs() < SMALL_NUMBER;
+	return IsSmallValue(Abs());
 }
 
 inline int Number::IsInVector(vector<Number> v)
@@ -204,12 +210,12 @@ inline int Number::IsInVector(vector<Number> v)
 
 inline bool Number::operator==(Number bigNumber)
 {
-	return mpq_cmp(value, bigNumber.value) == 0;
+	return mpq_equal(value, bigNumber.value) != 0;
 }
 
 inline bool Number::operator!=(Number bigNumber)
 {
-	return mpq_cmp(value, bigNumber.value) != 0;
+	return mpq_equal(value, bigNumber.value) == 0;
 }
 
 inline bool Number::operator>(Number bigNumber)
@@ -405,7 +411,13 @@ inline Number Number::operator/=(double value)
 
 inline string Number::ToString()
 {
-	char* charArray = new char[100];
+	char* charArray = new char[100000];
+	int neededSize = mpz_sizeinbase(mpq_numref(value), 10) + mpz_sizeinbase(mpq_denref(value), 10) + 3;
+	if (neededSize > 100000)
+	{
+		printf("To small buffer - needed size = %d", neededSize);
+		return " ";
+	}
 	mpq_get_str(charArray, 10, value);
 	string result(charArray);
 	int isSlash = StringManager::FindFirst(result, CharsConstants::Div);

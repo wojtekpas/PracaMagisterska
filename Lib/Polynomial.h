@@ -62,7 +62,7 @@ public:
 	PAIR ValueOfPolynomialDegree();
 
 	bool ValueEquals(int power, Polynomial& p2);
-	void SetValue(int power, int value);
+	void SetValue(int power, double value);
 	void Add(int power, Number number);
 	void Sub(int power, Number number);
 	PAIR Mul(int power1, Number number1, int power2, Number number2);
@@ -175,7 +175,7 @@ inline bool Polynomial::ValueEquals(int power, Polynomial& p2)
 	return Value(power) == p2.Value(power);
 }
 
-inline void Polynomial::SetValue(int power, int value)
+inline void Polynomial::SetValue(int power, double value)
 {
 	Number number(value);
 	SetNumberValue(power, number);
@@ -205,13 +205,13 @@ inline Polynomial& Polynomial::Nwd(Polynomial& p1, Polynomial& p2)
 {
 	p1.Normalize();
 	p2.Normalize();
-	p1.Print();
-	p2.Print();
+	//p1.Print();
+	//p2.Print();
 	auto divResult = DividePolynomials(p1, p2);
 	divResult.first.Normalize();
 	divResult.second.Normalize();
-	divResult.first.Print();
-	divResult.second.Print();
+	//divResult.first.Print();
+	//divResult.second.Print();
 
 	if (divResult.second.IsZero())
 	{

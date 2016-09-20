@@ -116,6 +116,8 @@
 
 \usepackage{titling}
 
+\usepackage{tikz,pgfplots}
+
 % nazwa pliku ze stroną tytułową
 % \include{phd_titlepage}
 \include{mgr_titlepage}
@@ -1827,6 +1829,32 @@ Teraz zastanówmy się, jak skonstruować wielomian, który zawiera liczbę ró�
 Rozwiązaniem jest więc przedstawienie go w postaci czynników, wskazując jego kolejne pierwiastki. Przykładowo wielomian W, o stopniu $k$, możemy przypisać pierwiastki, będące kolejnymi dodatnimi liczbami całkowitymi, ustalając jego wartość jako $W(x)=(x-1)*(x-2)*(x-3)*…*(x-(k-2))*(x-(k-1))*(x-k)$, gdzie $k$ jest stopniem wielomianu.
 
 Przetestujemy więc wielomiany powyższej postaci. Z powodu ograniczeń czasowych zdecydowałem się w tym teście na badaniu wielomianów niższych stopni, niż w pozostałych przypadkach. Zapoznajmy się z rezultatami opisanego eksperymentu.
+
+\begin{tikzpicture}
+\begin{axis}[
+axis lines = left,
+xlabel = $x$,
+ylabel = {$f(x)$},
+]
+%Below the red parabola is defined
+\addplot [
+domain=-10:10, 
+samples=100, 
+color=red,
+]
+{x^2 - 2*x - 1};
+%Here the blue parabloa is defined
+\addplot [
+domain=-10:10, 
+samples=100, 
+color=blue,
+]
+{x^2 + 2*x + 1};
+
+\end{axis}
+\end{tikzpicture}
+
+
 
 %\chapter{Podsumowanie}
 
