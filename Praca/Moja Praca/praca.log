@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  20 SEP 2016 09:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  21 SEP 2016 00:21
 entering extended mode
 **./praca.tex
 (praca.tex
@@ -1410,6 +1410,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 1320--1322
 
  []
 
+
+Overfull \hbox (47.21347pt too wide) in paragraph at lines 1325--1326
+[][][][][][][][][][][][][][][][][][][][][] 
+ []
+
 [42]
 Underfull \hbox (badness 10000) in paragraph at lines 1334--1336
 
@@ -1436,6 +1441,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 1368--1370
  []
 
 [44]
+Overfull \hbox (17.21317pt too wide) in paragraph at lines 1375--1376
+[][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 1378--1380
 
  []
@@ -1447,6 +1457,11 @@ LaTeX Warning: Command \textquoteright invalid in math mode on input line 1387.
 
 Underfull \hbox (badness 10000) in paragraph at lines 1387--1389
 
+ []
+
+
+Overfull \hbox (11.2131pt too wide) in paragraph at lines 1392--1393
+[][][][][][][][][][][][][][][][][][][][] 
  []
 
 [45]
@@ -1483,6 +1498,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 1456--1458
 
  []
 
+
+Overfull \hbox (23.21323pt too wide) in paragraph at lines 1463--1464
+[][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (41.21341pt too wide) in paragraph at lines 1464--1465
+[][][][][][][][][][][][][][][][][][][][] 
+ []
+
 [48]
 Underfull \hbox (badness 10000) in paragraph at lines 1473--1475
 
@@ -1501,6 +1526,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 1491--1493
 [49]
 Underfull \hbox (badness 10000) in paragraph at lines 1502--1504
 
+ []
+
+
+Overfull \hbox (5.21304pt too wide) in paragraph at lines 1508--1510
+[][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (23.21323pt too wide) in paragraph at lines 1511--1512
+[][][][][][][][][][][][][][][][][][] 
  []
 
 
@@ -1528,7 +1563,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 3503) has occurred while \output is active []
 
  [56]
-[57] [58] [59] [60] [61] [62]
+[57] [58] [59]
+Overfull \hbox (11.2131pt too wide) in paragraph at lines 1706--1707
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[60] [61] [62]
 
 LaTeX Warning: Command \textquoteright invalid in math mode on input line 1813.
 
@@ -1538,42 +1578,36 @@ LaTeX Warning: Command \textquoteright invalid in math mode on input line 1813.
 LaTeX Warning: Command \textellipsis invalid in math mode on input line 1829.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1862--1862
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [64]
+Underfull \hbox (badness 10000) in paragraph at lines 1866--1866
 []|\T1/lmr/m/n/10 Moja
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1862--1863
-[]|\T1/lmr/m/n/10 Wolffram
+Underfull \hbox (badness 10000) in paragraph at lines 1866--1867
+[]|\T1/lmr/m/n/10 Wolfram
  []
 
 
-Overfull \hbox (14.99945pt too wide) in paragraph at lines 1864--1864
-[]|\T1/lmr/m/n/10 Znajdowanie 
+Underfull \hbox (badness 2573) in paragraph at lines 1877--1877
+[]|\T1/lmr/m/n/10 Osobne szu-ka-nie pier-wiast-ków
+ []
+
+[65] [66]
+Underfull \hbox (badness 10000) in paragraph at lines 1946--1946
+[]|\T1/lmr/m/n/10 Moja
  []
 
 
-Overfull \hbox (16.74988pt too wide) in paragraph at lines 1864--1864
-\T1/lmr/m/n/10 pierwiasktów|  
+Underfull \hbox (badness 10000) in paragraph at lines 1946--1947
+[]|\T1/lmr/m/n/10 Wolfram
  []
 
+[67] [68
 
-Overfull \hbox (23.361pt too wide) in paragraph at lines 1868--1868
-[]|\T1/lmr/m/n/10 Wprowadzanie 
- []
-
-
-Overfull \hbox (23.0557pt too wide) in paragraph at lines 1872--1872
-[]|\T1/lmr/m/n/10 Optymalizacja|  
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [64]
-[65] [66
-
-] (praca.bbl) [67
+] (praca.bbl) [69
 
 ] (praca.aux)
 
@@ -1583,11 +1617,11 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of TeX's memory you used:
  27534 strings out of 493634
  654293 string characters out of 3141314
- 863493 words of memory out of 3000000
+ 863491 words of memory out of 3000000
  30410 multiletter control sequences out of 15000+200000
  60059 words of font info for 46 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 69i,15n,96p,2339b,1830s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 69i,15n,96p,2340b,1830s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathex.enc}{C:/Progr
 am Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ts1.enc}{C:/Program Files (x86)
 /MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program Files (x86)/MiKTeX 2.9/fon
@@ -1605,9 +1639,9 @@ m Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmr7.pfb><C:/Program Files (x86)
 /fonts/type1/public/lm/lmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type
 1/public/lm/lmsy5.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/
 lmsy7.pfb>
-Output written on praca.pdf (73 pages, 442466 bytes).
+Output written on praca.pdf (75 pages, 449123 bytes).
 PDF statistics:
- 308 PDF objects out of 1000 (max. 8388607)
+ 314 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  23 words of extra memory for PDF output out of 10000 (max. 10000000)
 
