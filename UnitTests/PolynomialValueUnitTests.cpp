@@ -22,6 +22,11 @@ namespace UnitTests
 			}
 		}
 
+		TEST_METHOD_INITIALIZE(Init)
+		{
+			InitConstants();
+		}
+
 		TEST_METHOD(PolynomialValue01)
 		{
 			Verify("20", 0, 20);

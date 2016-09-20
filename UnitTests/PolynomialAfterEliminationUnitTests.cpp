@@ -24,6 +24,11 @@ namespace UnitTests
 			}
 		}
 
+		TEST_METHOD_INITIALIZE(Init)
+		{
+			InitConstants();
+		}
+
 		TEST_METHOD(PolynomialAfterElimination01)
 		{
 			Verify("20", "1");

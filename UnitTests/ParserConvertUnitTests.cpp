@@ -43,6 +43,7 @@ namespace UnitTests
 		TEST_METHOD_INITIALIZE(Init)
 		{
 			result.Clear();
+			InitConstants();
 		}
 		
 		TEST_METHOD(ParserConvert01)

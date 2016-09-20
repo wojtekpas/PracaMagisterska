@@ -295,8 +295,6 @@ inline int PolynomialMap::NumberOfChangesSign(Number a)
 		lastValue = -1;
 	//cout << "\na = " << a.ToString() << endl;
 
-	if (a > 2)
-		return counter;
 //	cout << "size = " << sturm.size() << endl;
 //	cout << "sturm" << 0 << ": ";
 //	if (number > 0)
@@ -357,7 +355,7 @@ inline vector<PolynomialMap> PolynomialMap::GetSturm()
 		r = *tmp;
 		DeletePolynomial(tmp);
 		sturm.push_back(ConvertToPolynomialMapFromPolynomialRef(r));
-		r.Print();
+		//r.Print();
 		w = q;
 		q = r;
 		tmp = &(w % q);
@@ -368,6 +366,13 @@ inline vector<PolynomialMap> PolynomialMap::GetSturm()
 	DeletePolynomial(&q);
 	DeletePolynomial(&r);
 	DeletePolynomial(&derivative);
+
+//	printf("Sturm:\n");
+//	for(auto p: sturm)
+//	{
+//		p.Print();
+//	}
+
 	return sturm;
 }
 

@@ -19,6 +19,11 @@ namespace UnitTests
 			Assert::AreEqual(expectedOutput, result);
 		}
 
+		TEST_METHOD_INITIALIZE(Init)
+		{
+			InitConstants();
+		}
+
 		TEST_METHOD(ParserUniform01)
 		{
 			Verify(StringManager::EmptyString());

@@ -28,8 +28,9 @@ namespace UnitTests
 
 		TEST_METHOD_INITIALIZE(Init)
 		{
-			a.SetMaxNegativeValue();
-			b.SetMaxValue();
+			InitConstants();
+			a = -1000000;
+			b = 1000000;
 		}
 
 		TEST_METHOD(PolynomialNumberOfRoots01)

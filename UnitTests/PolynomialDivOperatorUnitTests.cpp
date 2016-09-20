@@ -29,6 +29,7 @@ namespace UnitTests
 
 		TEST_METHOD_INITIALIZE(Init)
 		{
+			InitConstants();
 			result.Clear();
 		}
 

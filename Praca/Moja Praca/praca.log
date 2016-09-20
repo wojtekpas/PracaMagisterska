@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  19 SEP 2016 23:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  20 SEP 2016 09:19
 entering extended mode
 **./praca.tex
 (praca.tex
@@ -1537,8 +1537,43 @@ LaTeX Warning: Command \textquoteright invalid in math mode on input line 1813.
 
 LaTeX Warning: Command \textellipsis invalid in math mode on input line 1829.
 
-[64] (praca.bbl) [65
 
+Underfull \hbox (badness 10000) in paragraph at lines 1862--1862
+[]|\T1/lmr/m/n/10 Moja
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1862--1863
+[]|\T1/lmr/m/n/10 Wolffram
+ []
+
+
+Overfull \hbox (14.99945pt too wide) in paragraph at lines 1864--1864
+[]|\T1/lmr/m/n/10 Znajdowanie 
+ []
+
+
+Overfull \hbox (16.74988pt too wide) in paragraph at lines 1864--1864
+\T1/lmr/m/n/10 pierwiasktów|  
+ []
+
+
+Overfull \hbox (23.361pt too wide) in paragraph at lines 1868--1868
+[]|\T1/lmr/m/n/10 Wprowadzanie 
+ []
+
+
+Overfull \hbox (23.0557pt too wide) in paragraph at lines 1872--1872
+[]|\T1/lmr/m/n/10 Optymalizacja|  
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [64]
+[65] [66
+
+] (praca.bbl) [67
 
 ] (praca.aux)
 
@@ -1570,9 +1605,9 @@ m Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmr7.pfb><C:/Program Files (x86)
 /fonts/type1/public/lm/lmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type
 1/public/lm/lmsy5.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/
 lmsy7.pfb>
-Output written on praca.pdf (71 pages, 440275 bytes).
+Output written on praca.pdf (73 pages, 442466 bytes).
 PDF statistics:
- 300 PDF objects out of 1000 (max. 8388607)
+ 308 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  23 words of extra memory for PDF output out of 10000 (max. 10000000)
 

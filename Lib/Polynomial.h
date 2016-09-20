@@ -75,7 +75,7 @@ public:
 	int NumberOfRoots(Number a, Number b);
 	int AddNextRoot(Number x);
 	vector<Number> FindRoots(Number a, Number b);
-	void PrintRoots(double a, double b);
+	void PrintRoots(Number a, Number b);
 
 	bool operator!=(Polynomial& p2);
 	Polynomial& operator / (Polynomial& p2);
@@ -333,8 +333,9 @@ inline vector<Number> Polynomial::FindRoots(Number a, Number b)
 		SturmClear();
 	}
 	int numberOfRoots = NumberOfRoots(a, b);
-	//	cout << numberOfRoots << " in " << "("
-	//		<< a.ToString() << "," << b.ToString() << ")" << endl;
+//	cout << numberOfRoots << " in " << "("
+//		<< a.ToString() << "," << b.ToString() << ")" << endl;
+//	Print();
 	if (numberOfRoots == 0)
 		return roots;
 	Number aValue;
@@ -405,11 +406,11 @@ inline vector<Number> Polynomial::FindRoots(Number a, Number b)
 	return roots;
 }
 
-inline void Polynomial::PrintRoots(double a, double b)
+inline void Polynomial::PrintRoots(Number a, Number b)
 {
 	if(a > b)
 	{
-		cout << "Niepoprawny przedzial: <" << a << ", " << b << ">" << endl;
+		cout << "Niepoprawny przedzial: <" << a.ToString() << ", " << b.ToString() << ">" << endl;
 		return;
 	}
 	if (IsZero())
@@ -417,14 +418,14 @@ inline void Polynomial::PrintRoots(double a, double b)
 		cout << "Wielomian zerowy - brak pierwiastkow" << endl;
 		return;
 	}
-	cout << "Pierwiastki w przedziale: <" << a << ", " << b << ">" << endl;
-	Number numberA = Number(a);
-	Number numberB = Number(b);
+	cout << "Pierwiastki w przedziale: <" << a.ToString() << ", " << b.ToString() << ">" << endl;
+	Number numberA = a;
+	Number numberB = b;
 	vector<Number> roots = FindRoots(numberA, numberB);
 	roots = SortNumbers(roots);
 	for (int i = 0; i < roots.size(); i++)
 	{
-		cout << "x" << i << " = ";
+		cout << "x" << i+1 << " = ";
 		roots[i].Print();
 	}
 	if (roots.size() == 0)

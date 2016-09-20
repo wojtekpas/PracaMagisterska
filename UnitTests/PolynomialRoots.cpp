@@ -40,9 +40,12 @@ namespace UnitTests
 
 		TEST_METHOD_INITIALIZE(Init)
 		{
-			a.SetMaxNegativeValue();
-			b.SetMaxValue();
 			polynomialRoots.clear();
+			InitConstants();
+			MAX_NEGATIVE_VALUE = -1000000;
+			MAX_VALUE = 1000000;
+			a = MAX_NEGATIVE_VALUE;
+			b = MAX_VALUE;
 		}
 
 		TEST_METHOD(PolynomialRoots01)

@@ -2,9 +2,6 @@
 #include "definitions.h"
 #include <mpir.h>
 
-#define MAX_VALUE 100000000
-#define MAX_NEGATIVE_VALUE -1000000000
-
 static int countNumbers = 0;
 static int countNumbers2 = 0;
 static int countNumbers3 = 0;
@@ -64,12 +61,17 @@ public:
 	Number operator *= (double value);
 	Number operator /= (double value);
 	string ToString();
+	string MakeNice(string result);
+	string RoundNine(string result);
+	string TruncateZero(string result);
 	void Print();
 };
 
-Number SMALL_VALUE;
+static Number SMALL_VALUE;
+static Number MAX_VALUE;
+static Number MAX_NEGATIVE_VALUE;
 
-bool IsSmallValue(Number value)
+inline bool IsSmallValue(Number value)
 {
 	return value <= SMALL_VALUE;
 }
@@ -480,7 +482,86 @@ inline string Number::ToString()
 	mpz_clear(precision);
 	mpz_clear(res);
 	mpz_clear(fract);
+
+	return MakeNice(result);
+}
+
+inline string Number::MakeNice(string result)
+{
+	string unsignedValue = result;
+	int isNegative = 0;
+	if (result[0] == '-')
+	{
+		isNegative = 1;
+		unsignedValue = StringManager::Substr(result, 1, result.size() - 1);
+	}
+
+	string rounded = RoundNine(unsignedValue);
+	string truncated = TruncateZero(rounded);
+
+	if (isNegative)
+		return "-" + truncated;
+	return truncated;
+}
+
+inline string Number::RoundNine(string result)
+{
+	int i = result.length() - 1;
+
+	if (StringManager::FindFirst(result, '.') != result.length() - 6)
+	{
+		return result;
+	}
+
+	if (result[i] != '9')
+	{
+		if (result[i] == '1')
+			result[i] = '0';
+		return result;
+	}
+
+	for (; i >= 0; i--)
+	{
+		if (result[i] == '9')
+			result[i] = '0';
+		else
+			break;
+		if (i == 0)
+			return "1" + result;
+	}
+
+	if (result[i] == '.')
+		i--;
+
+	for (; i > 0; i--)
+	{
+		if (result[i] == '9')
+			result[i] = '0';
+		else
+			break;
+		if (i == 0)
+			return "1" + result;
+	}
+
+	result[i] += 1;
+
 	return result;
+}
+
+inline string Number::TruncateZero(string result)
+{
+	int i = result.length() - 1;
+	int last = i;
+	for (; i >= 0; i--)
+	{
+		if (result[i] == '0')
+			last = i-1;
+		else
+			break;
+	}
+	if (result[i] == '.')
+		last = i-1;
+	return StringManager::Substr(result, 0, last);
 }
 
 inline void Number::Print()
@@ -493,4 +574,27 @@ static Number one(1);
 static Number two(2);
 static Number oneNeg(-1);
 static Number twoNeg(-2);
+
+inline void InitConstants()
+{
+	mpz_t a, b;
+	mpq_t c;
+	mpz_init(a);
+	mpz_init(b);
+	mpq_init(c);
+	mpz_set_d(a, 1);
+	mpq_set_d(c, -1);
+	mpz_set_d(b, 1000000);
+	mpq_set_num(MAX_VALUE.value, b);
+	mpq_set_den(MAX_VALUE.value, a);
+	mpq_mul(MAX_NEGATIVE_VALUE.value, MAX_VALUE.value, c);
+
+	mpz_pow_ui(b, b, 10);
+	mpq_set_num(SMALL_VALUE.value, a);
+	mpq_set_den(SMALL_VALUE.value, b);
+
+	SMALL_VALUE.Print();
+	MAX_VALUE.Print();
+	MAX_NEGATIVE_VALUE.Print();
+};
 

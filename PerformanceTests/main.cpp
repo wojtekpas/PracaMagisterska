@@ -45,9 +45,11 @@ void MeasureTime(Polynomial& p)
 	auto begin = chrono::high_resolution_clock::now();
 	p = p.PolynomialAfterEliminationOfMultipleRoots();
 	p.Print();
-	cout << "changes in a = " << p.NumberOfChangesSign(Number(-100)) << endl;
-	cout << "changes in b = " << p.NumberOfChangesSign(Number(100)) << endl;
-	p.PrintRoots(-100, 100);
+	Number a = MAX_NEGATIVE_VALUE;
+	Number b = MAX_VALUE;
+	cout << "changes in a = " << p.NumberOfChangesSign(a) << endl;
+	cout << "changes in b = " << p.NumberOfChangesSign(b) << endl;
+	p.PrintRoots(Number(a), Number(b));
 	//p.FindRoots(Number(-100), Number(100));
 	auto end = chrono::high_resolution_clock::now();
 	auto durationInNs = chrono::duration_cast<chrono::nanoseconds>(end - begin).count();
@@ -127,7 +129,7 @@ void TestWithRoots(int type, vector<double>roots)
 	for(auto r: roots)
 	{
 		p2.SetValue(1, 1);
-		p2.SetValue(0, -r);
+		p2.SetValue(0, r);
 		p *= p2;
 		//p.Print();
 	}
@@ -150,7 +152,23 @@ vector<double> CreateVectorWithDoubleValues(int size)
 	vector<double> values;
 	for (int i = 1; i <= size; i++)
 	{
-		double tmp = 1 + ((double)i) / 100;
+		double tmp = 0.998 + ((double)i) / 1000;
+		//cout << tmp << endl;
+		values.push_back(tmp);
+	}
+	return values;
+}
+
+vector<double> CreateVectorWithBigValues(int size)
+{
+	vector<double> values;
+	for (int i = 1; i <= size; i++)
+	{
+		double tmp = 10;
+		for (int j = 1; j < i; j++)
+		{
+			tmp *= 10;
+		}
 		//cout << tmp << endl;
 		values.push_back(tmp);
 	}
@@ -190,23 +208,25 @@ void TestCase_4()
 	}
 }
 
+void TestCase_5()
+{
+	degrees = { 1, 2, 4, 8, 16, 32, 64 };
+	for (auto deg : degrees)
+	{
+		cout << "deg = " << deg << endl;
+		TestWithRoots(0, CreateVectorWithBigValues(deg));
+		//TestWithRoots(1, CreateVectorWithBigValues(deg));
+	}
+}
+
 int main()
 {
-	mpz_t a,b;
-	mpz_init(a);
-	mpz_init(b);
-	mpz_set_d(a, 1);
-	mpz_set_d(b, 1000000);
-	mpz_pow_ui(b, b, 10);
-
-	mpq_set_num(SMALL_VALUE.value, a);
-	mpq_set_den(SMALL_VALUE.value, b);
-
-	int value = 1;
+	InitConstants();
 	//TestCase_1();
 	//TestCase_2();
 	//TestCase_3();
 	TestCase_4();
+	//TestCase_5();
 
 //	Test1(10, value);
 //	Test1(-2, value);
