@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  21 SEP 2016 12:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  21 SEP 2016 14:47
 entering extended mode
 **./praca.tex
 (praca.tex
@@ -907,6 +907,14 @@ Package: truncate 2001/08/20  ver 3.6
 \f@ncyO@olf=\skip64
 \f@ncyO@orf=\skip65
 )
+
+Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
+less on input line 37.
+
+
+Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
+less on input line 42.
+
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\pgf\frontendlayer\tikz.sty"
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\pgf\utilities\pgffor.sty"
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\pgf\utilities\pgfkeys.sty"
@@ -1159,60 +1167,99 @@ File: tikzlibraryplotmarks.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1)
 ks.code.tex"
 File: pgflibraryplotmarks.code.tex 2015/08/03 v3.0.1a (rcs-revision 1.14)
 )))
-\@input{mgr_titlepage.aux}
-\openout2 = `mgr_titlepage.aux'.
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\pdfpages\pdfpages.sty"
+Package: pdfpages 2016/04/19 v0.5f Insert pages of external PDF documents (AM)
 
-(mgr_titlepage.tex)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\calc.sty"
+Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count160
+\calc@Bcount=\count161
+\calc@Adimen=\dimen195
+\calc@Bdimen=\dimen196
+\calc@Askip=\skip73
+\calc@Bskip=\skip74
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count162
+\calc@Cskip=\skip75
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\eso-pic\eso-pic.sty"
+Package: eso-pic 2015/07/21 v2.0g eso-pic (RN)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\atbegshi.sty"
+Package: atbegshi 2011/10/05 v1.16 At begin shipout hook (HO)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)))
+\AM@pagewidth=\dimen197
+\AM@pageheight=\dimen198
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\pdfpages\pppdftex.def"
+File: pppdftex.def 2016/04/19 v0.5f Pdfpages driver for pdfTeX (AM)
+)
+\AM@pagebox=\box48
+\AM@global@opts=\toks45
+\AM@toc@title=\toks46
+\c@AM@survey=\count163
+\AM@templatesizebox=\box49
+)
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ltxmisc\anysize.sty"
 Package: anysize 1994/08/13 1.0 Contributed LaTeX2e package
 
 Package: `anysize' 1.0 <1994/08/13>
-\@Leftmargin=\dimen195
-\@Rightmargin=\dimen196
-\@Topmargin=\dimen197
-\@Bottommargin=\dimen198
-) (praca.aux)
+\@Leftmargin=\dimen199
+\@Rightmargin=\dimen256
+\@Topmargin=\dimen257
+\@Bottommargin=\dimen258
+)
+
+Package Fancyhdr Warning: \fancyhfoffset's `E' option without twoside option is
+ useless on input line 135.
+
+(praca.aux)
 \openout1 = `praca.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 156.
-LaTeX Font Info:    ... okay on input line 156.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 156.
-LaTeX Font Info:    ... okay on input line 156.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 156.
-LaTeX Font Info:    ... okay on input line 156.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 156.
-LaTeX Font Info:    ... okay on input line 156.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 156.
-LaTeX Font Info:    ... okay on input line 156.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 156.
-LaTeX Font Info:    ... okay on input line 156.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 156.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 156.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 137.
+LaTeX Font Info:    ... okay on input line 137.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 137.
+LaTeX Font Info:    ... okay on input line 137.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 137.
+LaTeX Font Info:    ... okay on input line 137.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 137.
+LaTeX Font Info:    ... okay on input line 137.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 137.
+LaTeX Font Info:    ... okay on input line 137.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 137.
+LaTeX Font Info:    ... okay on input line 137.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 137.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 137.
 
  ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 156.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 156.
+LaTeX Font Info:    ... okay on input line 137.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 137.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\t1lmr.fd"
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count160
-\scratchdimen=\dimen199
-\scratchbox=\box48
-\nofMPsegments=\count161
-\nofMParguments=\count162
-\everyMPshowfont=\toks45
-\MPscratchCnt=\count163
-\MPscratchDim=\dimen256
-\MPnumerator=\count164
-\makeMPintoPDFobject=\count165
-\everyMPtoPDFconversion=\toks46
+\scratchcounter=\count164
+\scratchdimen=\dimen259
+\scratchbox=\box50
+\nofMPsegments=\count165
+\nofMParguments=\count166
+\everyMPshowfont=\toks47
+\MPscratchCnt=\count167
+\MPscratchDim=\dimen260
+\MPnumerator=\count168
+\makeMPintoPDFobject=\count169
+\everyMPtoPDFconversion=\toks48
 ) ABD: EveryShipout initializing macros
-\c@lstlisting=\count166
+\c@lstlisting=\count170
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: longtable package is loaded.
@@ -1226,387 +1273,376 @@ Package caption Info: End \AtBeginDocument code.
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
 ick labels; missing features). Consider writing \pgfplotsset{compat=1.14} into 
 your preamble.
- on input line 156.
+ on input line 137.
 
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 160.
+\AtBeginShipoutBox=\box51
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\pdflscape.sty"
+Package: pdflscape 2008/08/11 v0.10 Display of landscape pages in PDF (HO)
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\ot1lmr.fd"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\lscape.sty"
+Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 80.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+))
+<StronaTytulowa.pdf, id=4, 597.432pt x 845.07718pt>
+File: StronaTytulowa.pdf Graphic file (type pdf)
+ <use StronaTytulowa.pdf>
+Package pdftex.def Info: StronaTytulowa.pdf used on input line 139.
+(pdftex.def)             Requested size: 597.43054pt x 845.07512pt.
+File: StronaTytulowa.pdf Graphic file (type pdf)
+
+<use StronaTytulowa.pdf>
+Package pdftex.def Info: StronaTytulowa.pdf used on input line 139.
+(pdftex.def)             Requested size: 597.43054pt x 845.07512pt.
+
+<StronaTytulowa.pdf, id=7, page=1, 597.432pt x 845.07718pt>
+File: StronaTytulowa.pdf Graphic file (type pdf)
+
+<use StronaTytulowa.pdf, page 1>
+Package pdftex.def Info: StronaTytulowa.pdf, page1 used on input line 139.
+(pdftex.def)             Requested size: 597.43054pt x 845.07512pt.
+File: StronaTytulowa.pdf Graphic file (type pdf)
+ <use StronaTytulowa.pdf, page 1>
+Package pdftex.def Info: StronaTytulowa.pdf, page1 used on input line 139.
+(pdftex.def)             Requested size: 597.45789pt x 845.1138pt.
+File: StronaTytulowa.pdf Graphic file (type pdf)
+
+<use StronaTytulowa.pdf, page 1>
+Package pdftex.def Info: StronaTytulowa.pdf, page1 used on input line 139.
+(pdftex.def)             Requested size: 597.45789pt x 845.1138pt.
+File: StronaTytulowa.pdf Graphic file (type pdf)
+ <use StronaTytulowa.pdf, page 1>
+Package pdftex.def Info: StronaTytulowa.pdf, page1 used on input line 139.
+(pdftex.def)             Requested size: 597.45789pt x 845.1138pt.
+File: StronaTytulowa.pdf Graphic file (type pdf)
+
+<use StronaTytulowa.pdf, page 1>
+Package pdftex.def Info: StronaTytulowa.pdf, page1 used on input line 139.
+(pdftex.def)             Requested size: 597.45789pt x 845.1138pt.
+ [1
+
+ <./StronaTytulowa.pdf>]
+<Oswiadczenie.pdf, id=36, 597.432pt x 845.07718pt>
+File: Oswiadczenie.pdf Graphic file (type pdf)
+ <use Oswiadczenie.pdf>
+Package pdftex.def Info: Oswiadczenie.pdf used on input line 140.
+(pdftex.def)             Requested size: 597.43054pt x 845.07512pt.
+File: Oswiadczenie.pdf Graphic file (type pdf)
+
+<use Oswiadczenie.pdf>
+Package pdftex.def Info: Oswiadczenie.pdf used on input line 140.
+(pdftex.def)             Requested size: 597.43054pt x 845.07512pt.
+
+<Oswiadczenie.pdf, id=39, page=1, 597.432pt x 845.07718pt>
+File: Oswiadczenie.pdf Graphic file (type pdf)
+
+<use Oswiadczenie.pdf, page 1>
+Package pdftex.def Info: Oswiadczenie.pdf, page1 used on input line 140.
+(pdftex.def)             Requested size: 597.43054pt x 845.07512pt.
+File: Oswiadczenie.pdf Graphic file (type pdf)
+ <use Oswiadczenie.pdf, page 1>
+Package pdftex.def Info: Oswiadczenie.pdf, page1 used on input line 140.
+(pdftex.def)             Requested size: 597.45789pt x 845.1138pt.
+File: Oswiadczenie.pdf Graphic file (type pdf)
+
+<use Oswiadczenie.pdf, page 1>
+Package pdftex.def Info: Oswiadczenie.pdf, page1 used on input line 140.
+(pdftex.def)             Requested size: 597.45789pt x 845.1138pt.
+File: Oswiadczenie.pdf Graphic file (type pdf)
+ <use Oswiadczenie.pdf, page 1>
+Package pdftex.def Info: Oswiadczenie.pdf, page1 used on input line 140.
+(pdftex.def)             Requested size: 597.45789pt x 845.1138pt.
+File: Oswiadczenie.pdf Graphic file (type pdf)
+
+<use Oswiadczenie.pdf, page 1>
+Package pdftex.def Info: Oswiadczenie.pdf, page1 used on input line 140.
+(pdftex.def)             Requested size: 597.45789pt x 845.1138pt.
+ [2 <./Oswiadczenie.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 154--155
+
+ []
+
+[3
+
+{C:/Users/Gruby/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+Underfull \hbox (badness 10000) in paragraph at lines 169--170
+
+ []
+
+[4
+
+] (praca.toc
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 4.
+ ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\ot1lmr.fd"
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 160.
-
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 4.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\omllmm.fd"
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 160
-.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 4.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\omslmsy.fd"
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 160
-.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 4.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\omxlmex.fd"
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 160.
+(Font)              <10> on input line 4.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 160.
+(Font)              <7> on input line 4.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 160.
-LaTeX Font Info:    Try loading font information for U+msa on input line 160.
+(Font)              <5> on input line 4.
+LaTeX Font Info:    Try loading font information for U+msa on input line 4.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 160.
+LaTeX Font Info:    Try loading font information for U+msb on input line 4.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-<img/logo_pg.png, id=4, 28.908pt x 22.1628pt>
-File: img/logo_pg.png Graphic file (type png)
- <use img/logo_pg.png>
-Package pdftex.def Info: img/logo_pg.png used on input line 160.
-(pdftex.def)             Requested size: 92.80782pt x 71.13188pt.
+) [5
 
-Overfull \vbox (13.41185pt too high) detected at line 160
- []
-
-
-LaTeX Font Warning: Font shape `T1/lmr/bx/sc' undefined
-(Font)              using `T1/lmr/bx/n' instead on input line 160.
-
-<img/logo_eti.png, id=5, 73.876pt x 73.876pt>
-File: img/logo_eti.png Graphic file (type png)
- <use img/logo_eti.png>
-Package pdftex.def Info: img/logo_eti.png used on input line 160.
-(pdftex.def)             Requested size: 71.13206pt x 71.13188pt.
-
-Overfull \vbox (13.41185pt too high) detected at line 160
- []
-
-
-Overfull \hbox (24.0pt too wide) in alignment at lines 160--160
-[][] 
- []
-
-
-Overfull \hbox (12.0pt too wide) in alignment at lines 160--160
-[] 
- []
-
-[1
-
-
-
-
-
-{C:/Users/Gruby/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./img/logo_
-pg.png> <./img/logo_eti.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 166--167
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 170--171
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 172--173
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 174--175
-
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [2]
-[3] [4
-
-] (praca.toc [5])
+])
 \tf@toc=\write4
 \openout4 = `praca.toc'.
 
  [6]
 Rozdzia\l  1.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [7
+[7
 
 
-]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [8]
-[9] [10
-
-]
+] [8] [9]
 Rozdzia\l  2.
-[11] [12]
-Underfull \hbox (badness 10000) in paragraph at lines 274--282
+[10
+
+] [11]
+Underfull \hbox (badness 10000) in paragraph at lines 267--275
 
  []
 
-[13] [14] [15] [16] [17]
-Underfull \hbox (badness 10000) in paragraph at lines 451--456
+[12] [13] [14] [15] [16]
+Underfull \hbox (badness 10000) in paragraph at lines 444--449
 
  []
 
+[17] [18] [19] [20] [21] [22] [23] [24] [25] [26]
+LaTeX Font Info:    Try loading font information for TS1+lmr on input line 765.
 
-Underfull \vbox (badness 1308) has occurred while \output is active []
 
- [18]
-[19] [20] [21] [22] [23]
-Underfull \vbox (badness 5756) has occurred while \output is active []
-
- [24]
-[25] [26] [27]
-LaTeX Font Info:    Try loading font information for TS1+lmr on input line 772.
-
- ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\ts1lmr.fd"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\ts1lmr.fd"
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-[28] [29] [30] [31] [32] [33] [34
-
-]
+) [27] [28] [29]
+[30] [31] [32]
 Rozdzia\l  3.
-[35] [36] [37] [38] [39]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+[33
 
- [40]
-[41] [42]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [43]
-[44]
-Overfull \hbox (11.2131pt too wide) in paragraph at lines 1263--1264
+] [34] [35] [36] [37] [38] [39] [40] [41] [42]
+Overfull \hbox (11.2131pt too wide) in paragraph at lines 1256--1257
 [][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (11.2131pt too wide) in paragraph at lines 1264--1265
+Overfull \hbox (11.2131pt too wide) in paragraph at lines 1257--1258
 [][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [45]
-Underfull \vbox (badness 1067) has occurred while \output is active []
-
- [46]
-[47]
-Underfull \hbox (badness 10000) in paragraph at lines 1321--1323
+[43] [44] [45]
+Underfull \hbox (badness 10000) in paragraph at lines 1314--1316
 
  []
 
 
-Overfull \hbox (47.21347pt too wide) in paragraph at lines 1326--1327
+Overfull \hbox (47.21347pt too wide) in paragraph at lines 1319--1320
 [][][][][][][][][][][][][][][][][][][][][] 
  []
 
+[46]
+Underfull \hbox (badness 10000) in paragraph at lines 1328--1330
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1338--1340
+
+ []
+
+[47]
+Underfull \hbox (badness 10000) in paragraph at lines 1346--1348
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1354--1356
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1362--1364
+
+ []
+
 [48]
-Underfull \hbox (badness 10000) in paragraph at lines 1335--1337
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1345--1347
-
- []
-
-[49]
-Underfull \hbox (badness 10000) in paragraph at lines 1353--1355
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1361--1363
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1369--1371
-
- []
-
-[50]
-Overfull \hbox (17.21317pt too wide) in paragraph at lines 1376--1377
+Overfull \hbox (17.21317pt too wide) in paragraph at lines 1369--1370
 [][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1379--1381
+Underfull \hbox (badness 10000) in paragraph at lines 1372--1374
 
  []
 
 
-LaTeX Warning: Command \textquoteright invalid in math mode on input line 1388.
+LaTeX Warning: Command \textquoteright invalid in math mode on input line 1381.
 
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1388--1390
+Underfull \hbox (badness 10000) in paragraph at lines 1381--1383
 
  []
 
 
-Overfull \hbox (11.2131pt too wide) in paragraph at lines 1393--1394
+Overfull \hbox (11.2131pt too wide) in paragraph at lines 1386--1387
 [][][][][][][][][][][][][][][][][][][][] 
  []
 
-[51]
+[49]
 
-LaTeX Warning: Command \l invalid in math mode on input line 1408.
+LaTeX Warning: Command \l invalid in math mode on input line 1401.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1413--1414
+Underfull \hbox (badness 10000) in paragraph at lines 1406--1407
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1416--1422
+Underfull \hbox (badness 10000) in paragraph at lines 1409--1415
 
+ []
+
+[50]
+Underfull \hbox (badness 10000) in paragraph at lines 1420--1428
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1430--1432
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1438--1440
+
+ []
+
+[51]
+Underfull \hbox (badness 10000) in paragraph at lines 1450--1452
+
+ []
+
+
+Overfull \hbox (23.21323pt too wide) in paragraph at lines 1457--1458
+[][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (41.21341pt too wide) in paragraph at lines 1458--1459
+[][][][][][][][][][][][][][][][][][][][] 
  []
 
 [52]
-Underfull \hbox (badness 10000) in paragraph at lines 1427--1435
+Underfull \hbox (badness 10000) in paragraph at lines 1467--1469
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1437--1439
+Underfull \hbox (badness 10000) in paragraph at lines 1476--1478
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1445--1447
+Underfull \hbox (badness 10000) in paragraph at lines 1485--1487
 
  []
 
 [53]
-Underfull \hbox (badness 10000) in paragraph at lines 1457--1459
+Underfull \hbox (badness 10000) in paragraph at lines 1496--1498
 
  []
 
 
-Overfull \hbox (23.21323pt too wide) in paragraph at lines 1464--1465
-[][][][][][][][][][][][][][][][][][][][] 
+Overfull \hbox (5.21304pt too wide) in paragraph at lines 1502--1504
+[][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (41.21341pt too wide) in paragraph at lines 1465--1466
-[][][][][][][][][][][][][][][][][][][][] 
+Overfull \hbox (23.21323pt too wide) in paragraph at lines 1505--1506
+[][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1508--1510
+
  []
 
 [54]
-Underfull \hbox (badness 10000) in paragraph at lines 1474--1476
+Underfull \hbox (badness 10000) in paragraph at lines 1527--1529
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 1483--1485
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1492--1494
-
- []
-
-[55]
-Underfull \hbox (badness 10000) in paragraph at lines 1503--1505
-
- []
-
-
-Overfull \hbox (5.21304pt too wide) in paragraph at lines 1509--1511
-[][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (23.21323pt too wide) in paragraph at lines 1512--1513
-[][][][][][][][][][][][][][][][][][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1515--1517
-
- []
-
-[56]
-Underfull \hbox (badness 10000) in paragraph at lines 1534--1536
-
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [57]
-[58] [59] [60
-
-]
+[55] [56] [57]
 Rozdzia\l  4.
+[58
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [61]
-Underfull \vbox (badness 3503) has occurred while \output is active []
-
- [62]
-[63] [64] [65]
-Overfull \hbox (11.2131pt too wide) in paragraph at lines 1707--1708
+] [59] [60] [61] [62]
+Overfull \hbox (11.2131pt too wide) in paragraph at lines 1700--1701
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[66] [67] [68]
+[63] [64] [65]
 
-LaTeX Warning: Command \textquoteright invalid in math mode on input line 1814.
-
-
-[69]
-
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 1830.
+LaTeX Warning: Command \textquoteright invalid in math mode on input line 1807.
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+[66]
 
- [70]
-Underfull \hbox (badness 10000) in paragraph at lines 1867--1867
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 1823.
+
+[67]
+Underfull \hbox (badness 10000) in paragraph at lines 1860--1860
 []|\T1/lmr/m/n/10 Moja
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1867--1868
+Underfull \hbox (badness 10000) in paragraph at lines 1860--1861
 []|\T1/lmr/m/n/10 Wolfram
  []
 
 
-Underfull \hbox (badness 2573) in paragraph at lines 1878--1878
+Underfull \hbox (badness 2573) in paragraph at lines 1871--1871
 []|\T1/lmr/m/n/10 Osobne szu-ka-nie pier-wiast-ków
  []
 
-[71] [72]
-Underfull \hbox (badness 10000) in paragraph at lines 1947--1947
+[68] [69]
+Underfull \hbox (badness 10000) in paragraph at lines 1940--1940
 []|\T1/lmr/m/n/10 Moja
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1947--1948
+Underfull \hbox (badness 10000) in paragraph at lines 1940--1941
 []|\T1/lmr/m/n/10 Wolfram
  []
 
-[73] [74]
-Overfull \hbox (11.87782pt too wide) in paragraph at lines 2030--2031
+[70] [71]
+Overfull \hbox (11.87782pt too wide) in paragraph at lines 2023--2024
 []$\OMS/lmsy/m/n/10 f\OT1/lmr/m/n/10 1\OML/lmm/m/it/10 :\OT1/lmr/m/n/10 10922\O
 ML/lmm/m/it/10 ; \OT1/lmr/m/n/10 1\OML/lmm/m/it/10 :\OT1/lmr/m/n/10 18099\OMS/l
 msy/m/n/10 g\OML/lmm/m/it/10 ; \OMS/lmsy/m/n/10 f\OT1/lmr/m/n/10 1\OML/lmm/m/it
@@ -1619,7 +1655,7 @@ n/10   \OT1/lmr/m/n/10 0\OML/lmm/m/it/10 :\OT1/lmr/m/n/10 0113488\OML/lmm/m/it/
  []
 
 
-Overfull \hbox (6.87782pt too wide) in paragraph at lines 2036--2037
+Overfull \hbox (6.87782pt too wide) in paragraph at lines 2029--2030
 []$\OMS/lmsy/m/n/10 f\OT1/lmr/m/n/10 1\OML/lmm/m/it/10 :\OT1/lmr/m/n/10 10875\O
 ML/lmm/m/it/10 ; \OT1/lmr/m/n/10 1\OML/lmm/m/it/10 :\OT1/lmr/m/n/10 11827\OMS/l
 msy/m/n/10 g\OML/lmm/m/it/10 ; \OMS/lmsy/m/n/10 f\OT1/lmr/m/n/10 1\OML/lmm/m/it
@@ -1632,7 +1668,7 @@ t/10 i; \OT1/lmr/m/n/10 1\OML/lmm/m/it/10 :\OT1/lmr/m/n/10 11587 \OMS/lmsy/m/n/
  []
 
 
-Overfull \hbox (13.10075pt too wide) in paragraph at lines 2037--2038
+Overfull \hbox (13.10075pt too wide) in paragraph at lines 2030--2031
 []$\OMS/lmsy/m/n/10 fg\OML/lmm/m/it/10 ; \OMS/lmsy/m/n/10 f\OT1/lmr/m/n/10 1\OM
 L/lmm/m/it/10 :\OT1/lmr/m/n/10 09738 \OMS/lmsy/m/n/10   \OT1/lmr/m/n/10 0\OML/l
 mm/m/it/10 :\OT1/lmr/m/n/10 0069297\OML/lmm/m/it/10 i; \OT1/lmr/m/n/10 1\OML/lm
@@ -1645,55 +1681,47 @@ mm/m/it/10 :\OT1/lmr/m/n/10 016855\OML/lmm/m/it/10 i; \OT1/lmr/m/n/10 1\OML/lmm
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2045--2045
+Underfull \hbox (badness 10000) in paragraph at lines 2038--2038
 []|\T1/lmr/m/n/10 Moja
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2045--2046
+Underfull \hbox (badness 10000) in paragraph at lines 2038--2039
 []|\T1/lmr/m/n/10 Wolfram
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [75]
-[76] (praca.bbl) [77
+[72] [73] (praca.bbl) [74
 
 
-] (praca.aux)
-
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
- ) 
+] (praca.aux) ) 
 Here is how much of TeX's memory you used:
- 27534 strings out of 493634
- 654293 string characters out of 3141314
- 863493 words of memory out of 3000000
- 30410 multiletter control sequences out of 15000+200000
- 60059 words of font info for 46 fonts, out of 3000000 for 9000
+ 28309 strings out of 493634
+ 667533 string characters out of 3141314
+ 864470 words of memory out of 3000000
+ 31157 multiletter control sequences out of 15000+200000
+ 57264 words of font info for 45 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 69i,15n,96p,2340b,1830s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathex.enc}{C:/Progr
-am Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ts1.enc}{C:/Program Files (x86)
-/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program Files (x86)/MiKTeX 2.9/fon
-ts/enc/dvips/lm/lm-mathsy.enc}{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvip
-s/lm/lm-mathit.enc}{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.
-enc}<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmbx10.pfb><C:/Pro
-gram Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmbx12.pfb><C:/Program Files 
-(x86)/MiKTeX 2.9/fonts/type1/public/lm/lmex10.pfb><C:/Program Files (x86)/MiKTe
-X 2.9/fonts/type1/public/lm/lmmi10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts
-/type1/public/lm/lmmi5.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/publi
-c/lm/lmmi7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmr10.p
-fb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmr5.pfb><C:/Progra
-m Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmr7.pfb><C:/Program Files (x86)
-/MiKTeX 2.9/fonts/type1/public/lm/lmri10.pfb><C:/Program Files (x86)/MiKTeX 2.9
-/fonts/type1/public/lm/lmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type
-1/public/lm/lmsy5.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/
-lmsy7.pfb>
-Output written on praca.pdf (77 pages, 456226 bytes).
+ 69i,18n,96p,2340b,1830s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathex.
+enc}{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ts1.enc}{C:/Progra
+m Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program Files (x86)/M
+iKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Program Files (x86)/MiKTeX 2.9/f
+onts/enc/dvips/lm/lm-mathit.enc}{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dv
+ips/lm/lm-ec.enc}<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmbx1
+0.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmbx12.pfb><C:/P
+rogram Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmex10.pfb><C:/Program File
+s (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmmi10.pfb><C:/Program Files (x86)/MiK
+TeX 2.9/fonts/type1/public/lm/lmmi5.pfb><C:/Program Files (x86)/MiKTeX 2.9/font
+s/type1/public/lm/lmmi7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/publ
+ic/lm/lmr10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmr5.p
+fb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmr7.pfb><C:/Progra
+m Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmri10.pfb><C:/Program Files (x8
+6)/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Program Files (x86)/MiKTeX 2
+.9/fonts/type1/public/lm/lmsy5.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/typ
+e1/public/lm/lmsy7.pfb>
+Output written on praca.pdf (74 pages, 679222 bytes).
 PDF statistics:
- 320 PDF objects out of 1000 (max. 8388607)
+ 369 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 23 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 53 words of extra memory for PDF output out of 10000 (max. 10000000)
 

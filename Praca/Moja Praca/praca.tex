@@ -1,4 +1,4 @@
-\documentclass[twoside,a4paper]{book}
+\documentclass[oneside,a4paper]{book}
 
 \usepackage[pdftex]{graphicx}
 \usepackage{amsmath}
@@ -118,9 +118,7 @@
 
 \usepackage{tikz,pgfplots}
 
-% nazwa pliku ze stroną tytułową
-% \include{phd_titlepage}
-\include{mgr_titlepage}
+\usepackage{pdfpages}
 
 % parametry strony tytułowej, zdefiniowane są w plikach z poszczególnymi stronami
 % tytuł pracy
@@ -129,23 +127,6 @@
 \author{Wojciech Pasternak}
 % rok wydania
 \date{2016}
-% miasto, gdzie napisano pracę
-\miasto{Gdańsk}
-% promotor
-\promotor{dr hab. inż. Robert Janczewski}
-% wydział promotora, tylko dla phd_titlepage
-% \promotordpt{Wydział Elektroniki, Telekomunikacji i~Informatyki}
-% uczelnia promotora, tylko dla phd_titlepage
-% \promotoruniv{Politechnika Gdańska}
-
-% rodzaj studiów, tylko dla mgr_titlepage
-\studies{Stacjonarne jednolite studia magisterskie}
-% opis pracy, tylko dla mgr_titlepage
-\descr{Obliczanie pierwiastków wielomianów i porównanie służących do tego struktur}
-% nr indeksu, tylko dla mgr_titlepage
-\indeks{137361}
-% katedra, tylko dla mgr_titlepage
-\dept{Architektury Systemów Komputerowych}
 
 % korekta marginesów - domyślnie latex ma jakieś kosmiczne
 \usepackage{anysize}
@@ -154,26 +135,38 @@
 \fancyhfoffset[E,O]{0pt}
 
 \begin{document}
-	% sekcja wstępna książki, numerowana rzymskimi
-	\frontmatter
 	% generacja strony tytułowej załączonej wcześniej
-	\maketitle
+	\includepdf{StronaTytulowa.pdf}
+	\includepdf{Oswiadczenie.pdf}
 	
+	\chapter*{Streszczenie}
+	\indent
 	Niniejsza praca ma na celu przedstawienie i omówienie sposobu pozwalającego na znajdowanie pierwiastków rzeczywistych wielomianu w określonym przedziale. Najważniejszym aspektem był dobór odpowiedniej metody tak, by była skuteczna w każdym przypadku, a nie tylko w określonych warunkach. Przykładem takiego sposobu jest wykorzystanie twierdzenia Sturma. Przed jego zastosowaniem należy dokonać eliminacji pierwiastków wielokrotnych wielomianu, by móc następnie zdefiniować ciąg Sturma. Na jego podstawie jesteśmy w stanie określić liczbę różnych pierwiastków w dowolnym przedziale.  Na mocy twierdzenia jest ona równa różnicy liczby zmian znaku na obu jego krańcach. Badany przedział możemy więc dowolnie zmniejszać, by z wymaganą precyzją wskazać wartość szukanych pierwiastków.
 	
 	Ważnym aspektem pracy jest aplikacja konsolowa w języku C++, pozwalająca na znajdowanie pierwiastków wprowadzonego przez użytkownika wielomianu. Do jej wykonania niezbędna jest implementacja działań na wielomianach oraz obsługa dużych wartości liczbowych o wysokiej precyzji. W tym celu program korzysta z biblioteki MPIR. By zapewnić odpowiednią jakość, powstał osobny moduł aplikacji, w którym zostały zdefiniowane odpowiednie testy funkcjonalne programu.
 	
-	Ciekawym zagadnieniem pracy jest porównanie różnych typów struktur, pozwalających na reprezentację wielomianu. Pierwszą z nich jest tablica, w której trzymane są wszystkie współczynniki wielomianu. Drugą zaś jest mapa, jako przykład struktury, o braku bezpośredniego dostępu do wszystkich jej elementów, co pozwala na posiadanie informacji wyłącznie o niezerowych współczynnikach. Przeprowadzone zostały testy porównujące wydajność działania obu struktur. Wyniki obu z nich zostały porównane zarówno z wartościami teoretycznymi, jak i ze sobą. Dodatkowo została przeprowadzona analiza, która ze strukturach jest lepsza dla różnych typów wielomianów. \\
+	Ciekawym zagadnieniem pracy jest porównanie różnych typów struktur, pozwalających na reprezentację wielomianu. Pierwszą z nich jest tablica, w której trzymane są wszystkie współczynniki wielomianu. Drugą zaś jest mapa, jako przykład struktury, o braku bezpośredniego dostępu do wszystkich jej elementów, co pozwala na posiadanie informacji wyłącznie o niezerowych współczynnikach. Przeprowadzone zostały testy porównujące wydajność działania obu struktur. Wyniki obu z nich zostały porównane zarówno z wartościami teoretycznymi, jak i ze sobą. Dodatkowo została przeprowadzona analiza, która ze strukturach jest lepsza dla różnych typów wielomianów.
 	
-	Słowa kluczowe: wielomian, pierwiastki wielomianu, twierdzenie Sturma, biblioteka mpir
+	\vspace{12pt}
+	\noindent\textbf{Słowa kluczowe:}\\ wielomian, pierwiastki wielomianu, twierdzenie Sturma, biblioteka mpir
 	
-	The purpose of this thesis is presentation and discussion about the way allowing finding real roots of the polynomial in examined range. The most important aspect was a choice of the appropriate method to be effective in each case and not only under certain conditions. An example of such way is the use of Sturm’s theorem. Before using it, it is necessary to eliminate of multiple roots of the polynomial, then be able to define the Sturm’s sequence. Based on it, we are able to determine the number of distinct real roots located in an interval. By theorem it is equal to the difference changes sign at both ends. The test interval can be so arbitrarily reduce to indicate the value of searched roots with the required precision. \\
+	\vspace{12pt}
+	\noindent\textbf{Dziedzina nauki i techniki, zgodnie z wymogami OECD:}\\
 	
-	The important aspect of this thesis is a console application, made in C++, allowing finding roots of the polynomial, which is entered by a user. For its implementation it is necessary to implement actions on polynomials and handling large numbers of high-value precision. For this purpose, the program uses the MPIR library. To ensure the quality of the program, was created a separate application module, which includes the relevant functional tests. \\
+	\chapter*{Abstract}
 	
-	An interesting issue is to compare the different types of structures, allowing a polynomial representation. The first of them is the array, which are kept all the coefficients of the polynomial. Another one is a map, as an example of structure with a lack of direct access to all of its elements, which allows you to have information only about the non-zero coefficients. They were performed tests comparing the operating efficiency of both structures. The results of both of them are compared with both the theoretical values as well as with each other. In addition, the analysis was conducted, which of the structures is better for different types of polynomials. \\
+	The purpose of this thesis is presentation and discussion about the way allowing finding real roots of the polynomial in examined range. The most important aspect was a choice of the appropriate method to be effective in each case and not only under certain conditions. An example of such way is the use of Sturm’s theorem. Before using it, it is necessary to eliminate of multiple roots of the polynomial, then be able to define the Sturm’s sequence. Based on it, we are able to determine the number of distinct real roots located in an interval. By theorem it is equal to the difference changes sign at both ends. The test interval can be so arbitrarily reduce to indicate the value of searched roots with the required precision.
 	
-	Key words: polynomial, roots of polynomial, Sturm’s theorem, mpir library
+	The important aspect of this thesis is a console application, made in C++, allowing finding roots of the polynomial, which is entered by a user. For its implementation it is necessary to implement actions on polynomials and handling large numbers of high-value precision. For this purpose, the program uses the MPIR library. To ensure the quality of the program, was created a separate application module, which includes the relevant functional tests.
+	
+	An interesting issue is to compare the different types of structures, allowing a polynomial representation. The first of them is the array, which are kept all the coefficients of the polynomial. Another one is a map, as an example of structure with a lack of direct access to all of its elements, which allows you to have information only about the non-zero coefficients. They were performed tests comparing the operating efficiency of both structures. The results of both of them are compared with both the theoretical values as well as with each other. In addition, the analysis was conducted, which of the structures is better for different types of polynomials.
+
+	\vspace{12pt}
+	\noindent\textbf{Keywords: }\\
+	polynomial, roots of polynomial, Sturm’s theorem, mpir library
+
+	\vspace{12pt}
+	\noindent\textbf{Field of science and technology in accordance with OECD requirements:}\\ 	
 	
 	% spis treści
 	\tableofcontents
