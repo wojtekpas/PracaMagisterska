@@ -6,7 +6,7 @@
 \usepackage{amssymb}
 \usepackage{textcomp}
 \usepackage[utf8]{inputenc}
-\usepackage[polish]{babel}
+%\usepackage[polish]{babel}
 \usepackage[T1]{fontenc}
 \usepackage{array}
 % pakiet stosowany do url'i w bibliografii, zamienia odnośniki na ładnie sformatowane
@@ -120,6 +120,8 @@
 
 \usepackage{pdfpages}
 
+\renewcommand*{\tablename}{Tabela}
+
 % parametry strony tytułowej, zdefiniowane są w plikach z poszczególnymi stronami
 % tytuł pracy
 \title{Obliczanie zer wielomianów}
@@ -176,8 +178,8 @@
 	\setcounter{page}{7}
 	
 	\chapter{Wstęp}
-	
-	Celem niniejszej pracy jest implementacja algorytmu, pozwalającego na obliczanie pierwiastków rzeczywistych dowolnego wielomianu. Jednym z najlepszych sposobów na zrobienie tego jest skorzystanie z twierdzenia Sturma. Planuję zbadać, jaki sposób reprezentacji wielomianu jest najbardziej wydajny. Dodatkowo zamierzam także porównać możliwości stworzonej przeze mnie aplikacji z innymi programami korzystającymi z tej samej metody.
+
+	Celem niniejszej pracy jest implementacja algorytmu, pozwalającego na obliczanie pierwiastków rzeczywistych dowolnego wielomianu. Jednym z najlepszych sposobów na zrobienie tego jest skorzystanie z twierdzenia Sturma. Planuję zbadać, jaki sposób reprezentacji wielomianu jest najbardziej wydajny. Dodatkowo zamierzam także porównać możliwości stworzonej przeze mnie aplikacji z innymi programami.
 	
 	Zacznę od przedstawienia tego, czym są wielomiany. Zapoznanie się bowiem z podstawowymi definicjami i twierdzenia jest moim zdaniem niezbędne, by dobrze zrozumieć badany problem i móc wypracować jego skuteczne rozwiązanie. Warte dość szczegółowego opisu są działania charakterystyczne dla wielomianów. Są one analogiczne jak w przypadku liczb. Należą do nich dodawanie, odejmowanie, mnożenie, dzielenie, obliczanie reszty z dzielenia. Dwa ostatnie są operacjami najbardziej skomplikowanymi i tym samym najbardziej złożonymi pod względem czasowym. Dodatkowo warto zaznaczyć, że w przypadków wielomianu możliwe jest obliczanie pochodnej, największego wspólnego dzielnika oraz najmniejszej wspólnej wielokrotności.
 	
@@ -1541,10 +1543,11 @@
 	
 	\subsection{Szybka instalacja}
 	
-	Pliki binarne aplikacji zostały skompilowane przy użyciu kompilatora wbudowanego w Microsoft Visual Studio 2015. Sprawia to, że aplikacja korzysta z dodatkowych bibliotek dynamicznych, które musimy posiadać na komputerze, na którym uruchamiamy aplikacje. Gdy tego nie zrobimy w trakcie uruchomienia dostaniemy komunikat o braku wymaganego pliku.
-	Możemy dodać go, nie istalując powyższego srodowiska, ale musimy być świadomi, że przy kolejnej próbie uruchomienia dostaniemy bliźniaczy komunikat dla innego pliku, Tak, więc rekomendowanym sposobem jest instalacja Microsoft Vistual Studio 2015, który zainstaluje wszystkie potrzebne biblioteki.
+	Pliki binarne aplikacji zostały skompilowane przy użyciu kompilatora wbudowanego w Microsoft Visual Studio 2015. Sprawia to, że aplikacja korzysta z dodatkowych bibliotek dynamicznych, które musimy posiadać na komputerze, na którym uruchamiamy aplikacje. Gdy tego nie zrobimy w trakcie uruchomienia dostaniemy komunikat o braku wymaganego plikum, taki jak poniżej.
 	
-	Drugą rzeczą, którą należy zapewnić jest dynamiczna biblioteka biblioteki mpir -- w postaci pliku "mpir.dll". Jeżeli instalujemy aplikację na komputerze z procesorem Intel i7 plik ten znajduje się w folderze z aplikacją. W przeciwnym razie jesteśmy zmuszenie skompilować źrodła biblioteki mpir, a powstały plik "mpir.dll" dodać do folderu z aplikacją lub pod ogólną lokalizacją dla wszystkich bibliotek systemu Windows.
+	Możemy dodać go, nie istalując powyższego srodowiska, ale musimy być świadomi, że przy kolejnej próbie uruchomienia dostaniemy bliźniaczy komunikat dla innego pliku. Tak, więc rekomendowanym sposobem jest instalacja Microsoft Vistual Studio 2015, który zainstaluje wszystkie potrzebne biblioteki.
+	
+	Drugą rzeczą, którą należy zapewnić jest dynamiczna biblioteka mpir -- w postaci pliku "mpir.dll". Jeżeli instalujemy aplikację na komputerze z procesorem Intel i7 plik ten znajduje się w folderze z aplikacją. W przeciwnym razie jesteśmy zmuszenie skompilować źrodła biblioteki mpir, a powstały plik "mpir.dll"\ dodać do folderu z aplikacją lub pod ogólną lokalizacją dla wszystkich bibliotek systemu Windows.
 	
 	\subsection{Kompilacja biblioteki mpir}
 	
@@ -1563,12 +1566,11 @@
 		\item Plik "mpir.h"\ z "x64/Release" do "Microsoft Visual Studio 14.0/VC/include"
 	\end{itemize}
 	
-	W tym momencie możliwe jest już zbudowanie naszej biblioteki. 
+	W tym momencie możliwe jest już zbudowanie naszej biblioteki. Warto nadmienić, że jeżeli planujemy uruchomić testy jednostkowe, to musimy zmienić ich środowisko na 64-bitowe, w przeciwnym razie operacja ta zakończy się poniższym błędem. Możemy to zrobić to przestawiając opcję, jak zostało to przedstawione na rysunku.
 	
+	TODO obrazek	
 	
 	\section{Instrukcja obsługi programu}
-	
-	
 	
 	\chapter{Przeprowadzone testy}
 	
@@ -1850,12 +1852,23 @@
 	
 	\section {Porównanie aplikacji z innym programem}
 	
-	W niniejszym podroździale dokonam porównania stworzonej przeze mnie aplikacji z innym programem. Wybrany przeze mnie został Wolfram Alpha, jako przykład serwisu, który oprócz wielu innych rzeczy, umożliwia także znajdowanie pierwiastków wielomianów.
+	W niniejszym podroździale dokonam porównania stworzonej przeze mnie aplikacji z innym programem. Wybrany przeze mnie został Wolfram Alpha jako przykład serwisu, który oprócz wielu innych funkcjonalności, umożliwia także znajdowanie pierwiastków wielomianów. Porównanie wykonałem w dwóch dziedzinach. Pierwszą z nich jest ocena interfejsu i możliwości jakie dają nam obie aplikację. Drugą z nich jest wykonanie szeregu testów, mające na celu sprawdzenie specyficznych przypadków wielomianu, by przekonać się, czy są one wystarczająco precyzje.
 	
-	\subsection {Porównanie możliwości i interfejsu}
+	\subsection {Porównanie możliwości aplikacji i interfejsu użytkownika}
 	
-	\begin{center}
-		\begin{tabular}{ |p{5cm}|p{5cm}|p{1.5cm}|p{1.5cm}| } 
+	Dokonałem porównania obu aplikacji w trzech kategoriach. Pierwszą z nich była możliwość znajdowania pierwiastków. Obie aplikacje umożliwiają lokalizację pierwiastków rzeczywistych, jednak tylko serwis Wolfram Alpha informuje także o wartościach pierwiastków zespolonych. Tę informację można traktować jednak bardziej jako ciekawostkę, gdyż element ten nie był przedmiotem niniejszej pracy.
+	
+	Drugą kategoria była ocena interejsu pod kątem wprowadzania wielomianów wejściowych w dowolny sposób. Obie aplikacje umożliwiają podawania zarówno kolejnych wyrazów wielomianu w postaci sumy, jak i jego reprezentację w postaci iloczynu. Druga funkcjonalność jest niezwykle przydatna w celach testowych. Umożliwia ona bowiem jawną specyfikę występujących w wielomianie pierwiastków i sprawdzenie, czy rzeczywiście zostaną one zwrócone przez daną aplikację.
+	
+	Ostatnia ze sprawdzanych kategorii nawiązywałą do udogodnień i optymalizacji danej aplikacji. Nauprzypomnienie zasługuje wspomnainy wcześniej fakt, że każdy wielomian można przedstawić w postaci iloczynu wielomianów. Jeżeli szukamy w takim przypadku pierwiastków wystarczy uruchomić algorytm ich znajdowania osobno dla wszystkich wielomianów, a następnie scalić otrzymane rezultaty. Takie działanie z pewnością spowodowałoby znaczny wzrost wydajności działania aplikacji, ponieważ ograniczyłoby to stopień badanych wielomianów, który w wielu przypadkach ma kluczowych wpływ na jej wydajonść.
+	
+	Aplikacja Wolfram Alpha daje możliwość przedstawienia znalezionych pierwiastków w formie graficznej przy pomocy wykresu. Dodatkowo należy podkreślić fakt, że serwis ten wykorzystuje moc obliczeniową innych komputerów. Wszystkie działanie wykonują się poza sprzętem użytkownika, który na końcu dostaje odpowiedź na zapytanie, które zdefiniował. Na korzyść drugiego programu przemawia także fakt, że jest to serwis internetowy, dzięki czemu użytkownik nie musi przejmować się koniecznością pobierania i instalowania aplikacji, a może z niej skorzystać na dowolnym urządzaniu. Tej wygody nie daje moja aplikacja, który wymusza na użytkowniku instalację aplikacji i ściśle definiuje system operacyjny, którym jest 64-bitowy system Windows.
+	
+	Poniżej zamieszczam podsumowanie porównania obu aplikacji w formie tabeli.
+	
+	\begin{table}
+	\caption{Porównanie możliwości i interefejsu użytkownika aplikacji}
+		\begin{tabular}{ |p{4.5cm}|p{5.5cm}|p{1.5cm}|p{1.5cm}| } 
 			\hline
 			Kategoria & Kryterium & Moja aplikacja & Wolfram Alpha \\
 			\hline
@@ -1867,12 +1880,14 @@
 			&W postaci sumy kolejnych wyrazów & + & + \\
 			&W postaci iloczynu wielomianów & + & + \\
 			\hline
-			\multirow{2}{*}{Udogodnienia i optymalizacja}
+			\multirow{4}{*}{Udogodnienia i optymalizacja}
 			&Osobne szukanie pierwiastków dla każdego z czynników & -- & -- \\
 			&Rysowanie wykresu & -- & + \\
+			&Wykorzystanie mocy obliczeniowej innych komputerów & -- & + \\
+			&Przenośność i brak konieczności instalacji aplikacji & -- & + \\
 			\hline
 		\end{tabular}
-	\end{center}
+	\end{table}
 	
 	\subsection {Porównanie poprawności i precyzji obliczeń}
 	
@@ -1934,7 +1949,8 @@
 	
 	Poniżej przedstawiam tabelę, w której umieściłem otrzymane wyniki testów.
 	
-	\begin{center}
+	\begin{table}
+		\caption{Porównanie precyzji aplikacji w przypadku odległych od siebie pierwiastków}
 		\begin{tabular}{ |p{5cm}|p{5cm}|p{1.5cm}|p{1.5cm}| } 
 			\hline
 			Kategoria & Kryterium & Moja aplikacja & Wolfram Alpha \\
@@ -1965,7 +1981,7 @@
 			& Wielomian 8 stopnia & + & + \\
 			\hline
 		\end{tabular}
-	\end{center}
+	\end{table}
 	
 	\subsubsection {Pierwiastki znajdujące się blisko siebie}
 	
@@ -2020,19 +2036,26 @@
 	Dla drugiej kategorii mój program także znalazł wszystkie rozwiązania. Z kolei Wolfram Alpha zachował się poprawnie dla wielomianów stopni czwartego i szóstego. Wynik znajdowania pierwiastków dla ostatniego wielomianu, stopnia ósmego był niepoprawny. Znalezione zostały tylko dwa pierwiastki rzeczywiste, przy czym w oby przypadkach widoczna była pewna niedokładność. Pozostałe sześć pierwiastków rzeczywistych nie zostały znalezionych, a wszystkie one zostały potraktowane jako pierwiastki zespolone. Poniżej zamieszczam zwrócone przez serwis Wolfram Alpha wartości pierwiastków.
 	
 	\begin{itemize}
-		\item $\{1.10922, 1.18099\}, \{1.12238-0.00620719i, 1.12238+0.00620719i, 1.14483-0.0113488i, 1.14483+0.0113488i, 1.16769-0.00684386 i, 1.16769+0.00684386i\}$
+		\item $\{1.10922, 1.18099\}, \{1.12238-0.00620719i, 1.12238+0.00620719i,
+		1.14483-0.0113488i, 1.14483+0.0113488i, 1.16769-0.00684386 i, 1.16769+0.00684386i\}$
 	\end{itemize}
 	
 	Także dla trzeciej kategorii, wymagającej najwyzszej precyzji, moja aplikacja zachowała się w pełni poprawnie. Z kolei porównywana program tylko dla wielomianu stopnia czwartego zwrócił poprawny wynik. W drugim przypadku wielomian Wolfram Alpha znalazł 2 pierwiastki rzeczywiste. Oba cechowały się zauważalnym brakiem precyzji. W ostatnim przypadku, dla wielomianu stopnia ósmego Wolfram Alpha nie znalazł żadnego pierwiastka rzeczywistego. Oto wartości pierwiastków zwrócone przez porównywany serwis dla drugiego i trzeciego wielomianu tej kategorii.
 	
 	\begin{itemize}
 		\item $\{1.10875, 1.11827\}, \{1.11113-0.0035388i,1.11113+0.0035388i,1.11587-0.00355076i, 1.11587+0.00355076i\}$
-		\item $\{\}, \{1.09738-0.0069297i,1.09738+0.0069297i, 1.10729-0.016855i, 1.10729+0.016855i, 1.12154-0.0170316i, 1.12154+0.0170316i, 1.13179-0.00710625i, 1.13179+0.00710625i\}$
+		\item $\{\}, \{1.09738-0.0069297i,1.09738+0.0069297i, 1.10729-0.016855i, \\
+		1.10729+0.016855i, 1.12154-0.0170316i, 1.12154+0.0170316i, 1.13179-0.00710625i, 1.13179+0.00710625i\}$
 	\end{itemize}	
 	
-	Poniżej znajduje się table z podsumowaniem przeprowadzonych testów.
+	Reasumując przeprowadzone testy należy zauwazyć, ze moja aplikacja zachowała się poprawnie w przypadku wszystkich przeprowadzonych testów. Kluczowe były dla tego dwa aspekty. Pierwszym z nim była dowolna precyzja obliczeń, którą zapewniała biblioteka mpir. Drugim zaś było zastosowanie twierdzenia Sturma, umożliwiającego znalezienie wszystkich pierwiastków rzeczywistych.
 	
-	\begin{center}
+	Z kolei aplikacja Wolfram Alpha miała spore problemy ze znalezieniem pierwiastków, w momencie, gdy znajdowały się one blisko siebie. Spowodowane było to najprawdopodobniej zaokrągleniami, które zostały wykonywane w trakcie obliczeń. Sprawiało to, że czasem wartości pierwiastków były zauważalnie niedokładne, co momentami przekładało się na traktowanie różnych pierwiastków jako jeden pierwiastek wielokrotnych. Dodatkowo zwłaszcza przy wzroście wymaganej precyzji obliczeń i stopnia badanych wielomianów dało się zauwazyć, że aplikacja Wolfram Alpha nie potrafi zlokalizować pierwiastków danego wielomianu.
+	
+	Poniżej znajduje się tabela z podsumowaniem przeprowadzonych testów.
+	
+	\begin{table}
+		\caption{Porównanie precyzji aplikacji w przypadku położonych blisko siebie pierwiastków}
 		\begin{tabular}{ |p{5cm}|p{5cm}|p{1.5cm}|p{1.5cm}| } 
 			\hline
 			Kategoria & Kryterium & Moja aplikacja & Wolfram Alpha \\
@@ -2063,10 +2086,21 @@
 			& Wielomian 8 stopnia & + & -- \\
 			\hline
 		\end{tabular}
-	\end{center}
+	\end{table}
 
-	%\chapter{Podsumowanie}
+	\chapter{Podsumowanie}
 	
+	Celem pracy była implementacja algorytmu, pozwalającego na obliczanie pierwiastków rzeczywistych dowolnego wielomianu. Dokonałem tego, korzystając z twierdzenia Sturma. Przeprowadziłem analizę, jaka repzentacja wielomanu jest bardziej wydajna. Dodatkowo, porównałem także możliwości stwrzonej przez mnie aplikacji z serwisem Wolfram Alpha, który umożliwia m.\ in.\ obliczanie pierwiastków rzeczywistych wielomianów.
+	
+	Stworzona przeze mnie aplikacja została podzielona na trzym moduły. Są to biblioteka statyczna, framework testowy oraz aplikacja konsola. Pierwsza z nich zawiera całą logikę aplikacji, pozwala wykonywać działania na wielomianach, korzystając z biblioteki mpir. Ta ostatnia umożliwia działania na dużych liczbach o wysokiej precyzji, przy pomocy zoptymalizowanego kodu asemblerowego, co sprawia, że przeprowadzone operacja są maksymalnie wydajne. Drugą częśc stanowi framework testowy, którzy w narzedziu Microsoft Visual Studio 2015 pozwala na definiowane i egzekucję testów jednostkowych. W moim przypadku poza prostymi testami zostały w nich zdefinionowane także bardziej skomplikowane testy funkcjonalne. Trzecim modułem jest aplikacja konsolowa, dzięki której użytkownik może wprowadzać wielomiany oraz przedział, w którym chcemy znaleźć wszystkie pierwiastki rzeczywiste z podaną precyzją.
+	
+	Implementacja wielomianu została oparta na klasie abstrakcyjnej Polynomial. Na jej podstawie zostały wykonane dwie klasy, różniące się reprezentacją wielomianu na której bazują. Pierwszą z nich została klasa oparta na mapie, co pozwalało na posiadanie informacji wyłącznie o niezerowych współczynnikach. Z kolei drugą z nich jest tablica, wymuszająca reprezentację także zerowych współczynników wielomianów.
+	
+	Przeprowadziłem testy wydajnościowe porównujące czas działania algorytmu dla obu klas. TODO
+	
+	Dokonałem porównania możliwości wytworzonej przeze mnie aplikacji, z innym programem, który umozliwia znajdowanie pierwiastków wielomianów. Wybrałem serwis Wolfram Alpha. Porównałem interfejsy i możliwości obu aplikacji. Z przedstawionego zestawienia wynikało, że różnice są niewielkie, ale serwis Wolfram Alpha posiada kilka dodatkowych funkcji takich jak rysowanie wykresu, czy znajdowanie pierwiastków zespolonych, których nie posiada moja aplikacja.
+	
+	Po dogłębnej analizie okazało się, że dla pewnych wielomianów Wolfram Alpha dokonuje zaokrągleń, które powodują pewne niedokładności w wartości znalezionych pierwiastków lub zupełnie umożliwiają ich znalezienie. Dzieje się tak, gdyż wartości współczynników wielomianów są w pewnych okolicznościach zaokrąglane. Fakt ten pokazuje, jak ważnym aspektem pracy było znalezienie sposóbu na reprezentację wartości liczbowych, dowolnej precyzji. Bez tego elementu skuteczne znajdowanie pierwiastków wielomianów jest zazwyczaj niemożliwe i działa tylko dla bardzo prostych przypadków.
 	
 	\backmatter
 	
@@ -2088,7 +2122,5 @@
 	\nocite{sierpinski1951zasady}
 	\nocite{Warmus_Mieczyslaw_(1918-2007)_Metody}
 	\bibliography{bibliografia}
-	
-	
 	
 \end{document}
