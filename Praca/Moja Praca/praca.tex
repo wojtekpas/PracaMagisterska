@@ -34,12 +34,17 @@
 \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
 \renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
 \fancyhf{}
-\fancyhead[LE,RO]{\bfseries\thepage}
+
+% korekta marginesów - domyślnie latex ma jakieś kosmiczne
+\usepackage{anysize}
+\marginsize{3.5cm}{2.5cm}{2.5cm}{2.5cm}
+
+%\fancyhead[LE,RO]{\bfseries\thepage}
 % tutaj ograniczamy szerokość pola w nagłówku zawierającego nazwę rozdziału/podrozdziału do 95% szerokości strony
 % redefinicja sposobu prezentacji nazw domyślnie wypisywanych wielkimi literami (np. domyślnie w nagłówku Spis treści będzie miał postać SPIS TREŚCI)
 % Uwaga! to może popsuć wielkie litery w ogóle! Jak coś nie działa należy usunąć \nouppercase{} z poniższych definicji
 \fancyhead[LO]{\nouppercase{\bfseries{\truncate{.95\headwidth}{\rightmark}}}}
-\fancyhead[RE]{\nouppercase{\bfseries{\truncate{.95\headwidth}{\leftmark}}}}
+%\fancyhead[RE]{\nouppercase{\bfseries{\truncate{.95\headwidth}{\leftmark}}}}
 \renewcommand{\headrulewidth}{0.5pt}
 \renewcommand{\footrulewidth}{0pt}
 
@@ -116,11 +121,15 @@
 
 \usepackage{titling}
 
-\usepackage{tikz,pgfplots}
+%\usepackage{tikz,pgfplots}
 
 \usepackage{pdfpages}
 
 \renewcommand*{\tablename}{Tabela}
+
+%dzielenie wyrazów
+
+\hyphenation{zwy-kłe-go po-wyż-sze-go wów-czas twie-r-dze-niu u-ła-m-ko-wej wy-mie-rną u-ni-k-so-wych o-b-li-cza-nie spra-w-nie-j-szą współ-czyn-ni-ki a-na-lo-gi-czne re-pre-zen-ta-cje po-mi-mo po-czą-tku no-we-go zna-le-zie-nia od-po-wie-d-niej zwra-ca-ny po-ró-w-na-łem ca-ł-ko-wi-tych pie-r-wia-st-ków}
 
 % parametry strony tytułowej, zdefiniowane są w plikach z poszczególnymi stronami
 % tytuł pracy
@@ -130,11 +139,8 @@
 % rok wydania
 \date{2016}
 
-% korekta marginesów - domyślnie latex ma jakieś kosmiczne
-\usepackage{anysize}
-\marginsize{3.5cm}{2.5cm}{2.5cm}{2.5cm}
 % po zmianie marginesów konieczne jest wymuszenie przeliczenia nagłówków
-\fancyhfoffset[E,O]{0pt}
+%\fancyhfoffset[E,O]{0pt}
 
 \begin{document}
 	% generacja strony tytułowej załączonej wcześniej
@@ -153,7 +159,8 @@
 	\noindent\textbf{Słowa kluczowe:}\\ wielomian, pierwiastki wielomianu, twierdzenie Sturma, biblioteka mpir
 	
 	\vspace{12pt}
-	\noindent\textbf{Dziedzina nauki i techniki, zgodnie z wymogami OECD:}\\
+	\noindent\textbf{Dziedzina nauki i techniki, zgodnie z wymogami OECD:} \\
+	TODO
 	
 	\chapter*{Abstract}
 	
@@ -168,7 +175,8 @@
 	polynomial, roots of polynomial, Sturm’s theorem, mpir library
 
 	\vspace{12pt}
-	\noindent\textbf{Field of science and technology in accordance with OECD requirements:}\\ 	
+	\noindent\textbf{Field of science and technology in accordance with OECD requirements:}\\ 
+	TODO	
 	
 	% spis treści
 	\tableofcontents
@@ -183,7 +191,7 @@
 	
 	Zacznę od przedstawienia tego, czym są wielomiany. Zapoznanie się bowiem z podstawowymi definicjami i twierdzenia jest moim zdaniem niezbędne, by dobrze zrozumieć badany problem i móc wypracować jego skuteczne rozwiązanie. Warte dość szczegółowego opisu są działania charakterystyczne dla wielomianów. Są one analogiczne jak w przypadku liczb. Należą do nich dodawanie, odejmowanie, mnożenie, dzielenie, obliczanie reszty z dzielenia. Dwa ostatnie są operacjami najbardziej skomplikowanymi i tym samym najbardziej złożonymi pod względem czasowym. Dodatkowo warto zaznaczyć, że w przypadków wielomianu możliwe jest obliczanie pochodnej, największego wspólnego dzielnika oraz najmniejszej wspólnej wielokrotności.
 	
-	Jak wspomniałem na początku, w pracy wykorzystam metodę Sturma. Pozwala ona znaleźć wszystkie pierwiastki rzeczywiste danego wielomianu, występujące w podanym przedziale. Zakłada ona zbudowanie ciągu wielomianów, coraz niższych stopni, a następnie porównywanie ze sobą ich wartości w danym punkcie. Na tej podstawie zostaje obliczona liczba zmian znaku w ciągu Sturma. Różnica tych wartości w obu krańcach badanego przedziału jest liczbą pierwiastków rzeczywistych, które w nim występują. W przeciwieństwie do wielu innym metod, twierdzenie Sturma jest skuteczne dla każdego wielomianu. Jedynym ograniczeniem jest konieczność dokonania eliminacji pierwiastków wielokrotnych danego wielomianu. By to uczynić, wystarczy podzielić go przez największy wspólny dzielnik tego wielomianu oraz jego pochodną.
+	Jak wspomniałem na początku, w pracy wykorzystam metodę ciągu Sturma. Pozwala ona znaleźć wszystkie pierwiastki rzeczywiste danego wielomianu, występujące w podanym przedziale. Zakłada ona zbudowanie ciągu wielomianów, coraz niższych stopni, a następnie porównywanie ze sobą ich wartości w danym punkcie. Na tej podstawie zostaje obliczona liczba zmian znaku w ciągu Sturma. Różnica tych wartości w obu krańcach badanego przedziału jest liczbą pierwiastków rzeczywistych, które w nim występują. W przeciwieństwie do wielu innym metod, twierdzenie Sturma jest skuteczne dla każdego wielomianu. Jedynym ograniczeniem jest konieczność dokonania eliminacji pierwiastków wielokrotnych danego wielomianu. By to uczynić, wystarczy podzielić go przez największy wspólny dzielnik tego wielomianu oraz jego pochodną.
 	
 	W przypadku obliczeń na wielomianach ważnym aspektem są obliczenia na bardzo dużych liczbach z dowolną precyzją. Konieczne jest to zwłaszcza, gdy mamy do czynienia z wielomianami wysokich stopni. Wówczas każda liczba, której wartość bezwzględna jest większa od jedynki, po podniesieniu do wysokiej potęgi, jest bardzo duża. Dla przykładu wielomian $x^{100}$ w punkcie $x_1=10$ ma wartość $10^{100}$. Z kolei w przypadku pozostałych liczb, wartość ta bardzo szybka zbliża się do zera – dla $x_2=0,1$ wartość dla tego samego wielomianu będzie wynosić zaledwie $(0,1)^{100}$. Aplikacja jest implementowana w języku C++, a żaden z wbudowanych w niego typów nie posiada możliwości przechowywania, aż tak dokładnych i na tyle dużych wartości. Rozwiązaniem jest tutaj skorzystanie z biblioteki dużych liczb, z dowolną precyzji – mpir. Posiada ona swoją implementacje dla wielu języków programowania, w tym C i C++.  Warto zaznaczyć, że rozwiązanie to jest bardzo wydajne, ponieważ najbardziej krytyczne funkcje zostały zaimplementowane w asemblerze, a cała biblioteka jest optymalizowana pod kątem użycia na konkretnym procesorze.
 	Projekt zakłada istnienie trzech głównych modułów. Pierwszym z nich jest biblioteka statyczna, w której zawarte będą wszystkie niezbędne klasy i funkcje. Drugim jest aplikacja konsolowa, która pozwoli na interakcję użytkownika programu z biblioteką i wykonywaniem jej metod dla konkretnych wielomianów. Zaś ostatnim są testy funkcjonalne, pozwalające na przetestowanie funkcjonalności programu, w celu zapewniania mu odpowiedniej jakości i łatwego monitorowania jego poprawności.
@@ -231,7 +239,6 @@
 	Na wielomianach, tak jak na liczbach, możemy wykonywać podstawowe działania. Należą do nich: porównywanie, dodawanie, odejmowanie, mnożenie, dzielenie, a także obliczanie reszty z dzielenia. Jako, że wielomian zmiennej $x$ możemy traktować jak funkcję jednej zmiennej, możemy także policzyć z niego pochodną.
 	
 	\subsubsection{Porównywanie wielomianów}
-	
 	Porównywanie należy do najbardziej elementarnych działań na wielomianach. Wymaga ono zwykłego porównania kolejnych współczynników, a jego długość trwania, zależy od ich liczby. Zapoznajmy się z twierdzeniem dotyczącym operacji porównywania wielomianów.
 	
 	\begin{theorem}
@@ -262,9 +269,9 @@
 		$ $\\
 		Aby dodać dwa wielomiany, należy dodać ich współczynniki, znajdujące się przy tych samych potęgach.
 	\end{theorem}
-	
+
 	Podobnie jak w przypadku porównywania czas dodawania wielomianów jest liniowy, a ich reprezentacja ma zasadniczy wpływ na liczbę operacji dodawania. Pokażmy zastosowanie powyższego twierdzenia na przykładzie.
-	
+
 	\begin{example}
 		$ $\\
 		Mamy dane wielomian $W_1$ oraz wielomian $W_2$. \\
@@ -273,7 +280,7 @@
 		Zdefiniujmy trzeci wielomian: \\
 		$W_3(x) = W_1(x) + W_2(x)$. \\
 		Wówczas: \\
-		$W_3(x) = (a_0+b_0)x^n + (a_1+b_1)x^{n-1} + ... + (a_{n-1} + b_{n-1})x + (a_n + b_n)$ \\
+		$W_3(x) = (a_0+b_0)x^n + (a_1+b_1)x^{n-1} + ... + (a_{n-1} + b_{n-1})x + (a_n + b_n)$
 	\end{example}
 	
 	Na powyższym przykładzie łatwo zaobserwować, że stopień sumy dwóch wielomianów nie może być większy od większego ze stopni dodawanych wielomianów. Znajduje to potwierdzenie w twierdzeniu, dotyczącym stopnia sumy wielomianów.
@@ -442,12 +449,13 @@
 	\end{theorem}
 	
 	Zauważmy, że na podstawie twierdzenia, przedstawionego wcześniej, wiemy, że reszta z dzielenia dwóch wielomianów jest mniejsza od różnicy ich stopni. Oznacza, to że jej stopień będzie maleć w przypadku kolejnych dzieleń. Fakt te, daje nam gwarancję, że liczba dzieleń, których musimy dokonać jest skończona i nie większa niż stopień wielomianu $W_2$. Przeanalizujmy poniższy przykład.
+
 	\begin{example}
 		$ $\\
 		Mamy dane wielomiany: $W_1(x) = x^2(x-1)(x-2)^2$ oraz $W_2(x) = (x-1)(x-2)(x-3)$. Gdy mamy wielomiany rozłożone na czynniki, wartość $NWD(W_1, W_2)$ jest oczywista i równa iloczynowi wspólnych czynników. Zatem w tym przypadku wynosi ona $(x-1)(x-2)$. Zapisując otrzymany wielomian w innej postaci otrzymamy $x^2-3x+2$. Wymnóżmy teraz kolejne czynniki wielomianów $W_1$ i $W_2$ i udowodnijmy, że twierdzenie o znajdowaniu największego wspólnego współczynnika jest poprawne. \\
 		$W_1(x) = x^2(x-1)(x-2) = x^4-6x^3+13x^2-12x+4$ \\
 		$W_2(x) = (x-1)(x-2)(x-3) = x^3-6x^2+11x-6$ \\
-		Podzielny teraz wielomian $W_1$ przez wielomian $W_2$. \\
+		Podzielny teraz wielomian $W_1$ przez wielomian $W_2$.
 		\begin{equation}
 		\begin{split}
 		&x\\\hline
@@ -698,14 +706,14 @@
 	
 	\subsection{Instalacja}
 	
-	Instalacja biblioteki mpir jest różna w zależności od systemu operacyjnego. W systemach unixowych instalacja polega na zbudowaniu i instalacji, korzystając ze źródeł. Pod Windowsem jest ona równie łatwa i przebiega analogicznie, o ile używamy cygwina lub mingw. Są to narzędzia, które zapewniają, programom działającym pod systemem Windows, funkcjonalność przypominającą system Linux. Bardziej skomplikowane będzie użycie biblioteki bez wyżej wymienionych narzędzi, ale warto zaznaczyć, że biblioteka ta może być budowana z użyciem Microsoft Visual Studio, począwszy od wersji 2010, korzystając z programu o nazwie yasm asembler. Dodatkowo korzystanie z biblioteki różni się w zależności od tego czy potrzebujemy jej statyczną (mpir/lib) czy dynamiczną (mpir/dll) wersję.
+	Instalacja biblioteki mpir jest różna w zależności od systemu operacyjnego. W systemach uniksowych instalacja polega na zbudowaniu i instalacji, korzystając ze źródeł. Pod Windowsem jest ona równie łatwa i przebiega analogicznie, o ile używamy cygwina lub mingw. Są to narzędzia, które zapewniają, programom działającym pod systemem Windows, funkcjonalność przypominającą system Linux. Bardziej skomplikowane będzie użycie biblioteki bez wyżej wymienionych narzędzi, ale warto zaznaczyć, że biblioteka ta może być budowana z użyciem Microsoft Visual Studio, począwszy od wersji 2010, korzystając z programu o nazwie yasm asembler. Dodatkowo korzystanie z biblioteki różni się w zależności od tego czy potrzebujemy jej statyczną (mpir/lib) czy dynamiczną (mpir/dll) wersję.
 	
 	Aby używać biblioteki mpir w naszym programie musimy do naszego programu dodać następującą linię:
 	\begin{lstlisting}
 	#include <mpir.h>
 	\end{lstlisting}
 	
-	Pozwoli ona nam na używanie wszystkich funkcji i typów, które udostępnia dla nas biblioteka. Dodatkowo wymagana jest kompilacja z dołączeniem naszej biblioteki, poprzez dodanie opcji -lmpir, np.:
+	Pozwoli ona nam na używanie wszystkich funkcji i typów, które udostępnia dla nas biblioteka. Dodatkowo wymagana jest kompilacja z dołączeniem naszej biblioteki, poprzez dodanie opcji \text{-lmpir}, np.:
 	\begin{lstlisting}
 	gcc myprogram.c -lmpir
 	\end{lstlisting}
@@ -954,7 +962,7 @@
 	\begin{lstlisting}
 	void mpq_set_den (mpq t rational, mpz t denominator)
 	\end{lstlisting}
-	Funkcja ustawia mianownik danego ułamka na podaną liczbę całkowitą. Jej działanie jest analogczne jak w przypadku mpq\_set\_num.
+	Funkcja ustawia mianownik danego ułamka na podaną liczbę całkowitą. Jej działanie jest analogiczne jak w przypadku mpq\_set\_num.
 	
 	\begin{lstlisting}
 	int mpq_set_str (mpq_t rop, char *str, int base)
@@ -966,7 +974,7 @@
 	char * mpq_get_str (char *str, int base, mpq_t op)
 	\end{lstlisting}
 	
-	Funkcja zwracająca liczbę w postaci ułamka, tzn. licznik i mianownik, oddzielony znakiem kreski ułamkowej, jest analogiczna do funkcji mpz\_get\_str. Bufor wyjściowy, w którym chcemy umieścić rezultat funkcji powinien być wystarczający i wynosić $mpz\_sizeinbase(mpq\_numref(op), \allowbreak base) + mpz\_sizeinbase (mpq\_denref(op), base) + 3$. Jeden dodatkowy bajt w porównaniu do funkcji mpz\_get\_str, spowodowany jest koniecznością umieszczenia w buforze kreski ułamkowej.
+	Funkcja zwracająca liczbę w postaci ułamka, tzn. licznik i mianownik, oddzielony znakiem kreski ułamkowej, jest analogiczna do funkcji mpz\_get\_str. Bufor wyjściowy, w którym chcemy umieścić rezultat funkcji powinien być wystarczający -- równy $mpz\_sizeinbase(mpq\_numref(op), \allowbreak base) + mpz\_sizeinbase (mpq\_denref(op), base) + 3$. Jeden dodatkowy bajt w porównaniu do funkcji mpz\_get\_str, spowodowany jest koniecznością umieszczenia w buforze kreski ułamkowej.
 	
 	
 	\chapter{Opis rozwiązania}
@@ -999,7 +1007,7 @@
 	
 	\subsection{CharsConstants}
 	
-	Klasa CharsConstants została zaimplementowana w celu zapewnienia większej czytelności kodu. Ważnym aspektem było zdefiniowane i łatwe rozpoznawanie wszystkich, mogących występować w łańcuchu wejściowym, legalnych znaków. Takie podejście ogranicza możliwość popełnienia prostych, a trudnych do wykrycia błędów w przetwarzaniu otrzymanego tekstu, np. literówki. W przypadku, gdy są zdefiniowane odpowiednio stałe i funkcje, ewentualna literówka, skończy się zasygnalizowaniem błędu już na etapie kompilacji. Przypadek taki jest sygnalizowany i łatwy do naprawienia, dzięki czemu programista nie musi zastanawiać się dlaczego, poprawny, wydałoby się, kod nie działa. Poniżej przedstawiam strukturę klasy, wraz ze zdefiniowanymi w niej stałymi i statycznymi metodami. 
+	Klasa CharsConstants została zaimplementowana w celu zapewnienia większej czytelności kodu. Ważnym aspektem było zdefiniowane i łatwe rozpoznawanie wszystkich, mogących występować w łańcuchu wejściowym, legalnych znaków. Takie podejście ogranicza możliwość popełnienia prostych, a trudnych do wykrycia błędów w przetwarzaniu otrzymanego tekstu, np.\ literówki. W przypadku, gdy są zdefiniowane odpowiednio stałe i funkcje, ewentualna literówka, skończy się zasygnalizowaniem błędu już na etapie kompilacji. Przypadek taki jest sygnalizowany i łatwy do naprawienia, dzięki czemu programista nie musi zastanawiać się dlaczego, poprawny, wydałoby się, kod nie działa. Poniżej przedstawiam strukturę klasy, wraz ze zdefiniowanymi w niej stałymi i statycznymi metodami. 
 	
 	\begin{lstlisting}
 	class CharsConstants
@@ -1145,7 +1153,7 @@
 	
 	Jak widać, przeciążone zostały wszystkie przydatne dla liczb operatory, zarówno dla klasy Number jak i dla typu double. W języku C++ wszystkie wbudowane typy liczbowe -- int, long oraz float, można łatwo zrzutować na zmienną typu double. Wynika z tego, że przy pomocy powyższych operatorów, jesteśmy w stanie w łatwy sposób, dokonać dowolnego działania na dużych liczbach, niezależnie od typu drugiego operandu. Wyjątkiem jest operator potęgowania, dla którego możliwe jest podniesienie do dowolnej potęgi, pod warunkiem, że jej wartość jest liczbą naturalną.
 	
-	Klasa posiada tylko jeden element – obiekt typu mpq\_t, reprezentujący właściwą liczbę wymiernę. W klasie zostały zdefiniowane podstawowe funkcje, takie jak obliczenie wartości bezwzględnej oraz liczby przeciwnej. W celu zwiększenia czytelności i łatwiejszej implementacji, zostały przeciążone wszystkie przydatne operatory. Rozpatrzmy dwa przykłady użycia biblioteki mpir – pierwszy z bezpośrednim użyciem dostępnych funkcji i drugi z wykorzystaniem klasy Number.
+	Klasa posiada tylko jeden element – obiekt typu mpq\_t, reprezentujący właściwą liczbę wymierną. W klasie zostały zdefiniowane podstawowe funkcje, takie jak obliczenie wartości bezwzględnej oraz liczby przeciwnej. W celu zwiększenia czytelności i łatwiejszej implementacji, zostały przeciążone wszystkie przydatne operatory. Rozpatrzmy dwa przykłady użycia biblioteki mpir – pierwszy z bezpośrednim użyciem dostępnych funkcji i drugi z wykorzystaniem klasy Number.
 	
 	\begin{lstlisting}
 	mpq_t simple_function(int a, int b)
@@ -1198,7 +1206,7 @@
 	
 	W języku C++, by można zastosować polimorfizm, poszczególne metody muszą operować na wskaźnikach lub referencjach. Nie możliwe jest użycie tego mechanizmu w przypadku przekazywaniu obiektów poprzez wartość. Wytłumaczenie tego jest bardzo proste i opiera się na zmiennym rozmiarze obiektów klas pochodnych. Uniemożliwia to odwołanie się do danego obiektu, póki nie znamy jego dokładnego typu. Inaczej jest w przypadku referencji i wskaźników, ponieważ ich rozmiar jest stały, a zmieniać się może jedynie ich wartość, czyli miejsce w pamięci, do którego się odwołują.
 	
-	Z uwagi na powyższy fakt, w programie wszystkie obiekty klasy Polynomial są przekazywane poprzez referencję. By referencję, można przekazywać pomiędzy funkcjami, obiekt na który wskazuje, musi zostać stworzony dynamicznie. Można to zrobić poprzez użycie, znanej z języka C, funkcji malloc, alokującej miejsce w pamięci lub typowego dla języka C++, operatora new. W przeciwnym wypadku, zmienna będzie widoczna tylko w miejscu, w którym zostanie stworzona, np. wewnątrz funkcji. Próba odwołania się do takiej wartości, w miejscu, w którym zmienna nie jest widoczna, skończy się błędem czasu wykonania i komunikatem o naruszeniu dostępu. Stanie się tak, ponieważ referencja w takim przypadku będzie dalej istnieć, ale obiekt, na który wskazuje, już nie. Takie błędy często są popełniane przez niedoświadczonych programistów, a próba ich lokalizacji i znalezienia przyczyny, na pierwszy rzut oka, nie jest oczywista. W momencie, gdy skorzystamy z dynamicznego tworzenia obiektu, będzie on istniał tak długo, dopóki nie zostanie jawnie usunięty w kodzie programu lub aplikacja nie skończy swojego działania, zwalniając przy tym całą zajmowaną pamięć. Kiedy nie wszystkie stworzone obiekty zostają usunięte, dochodzi do tzw. wycieków pamięci. W zależności od ich rozmiarów i czasu działania aplikacji, ich konsekwencje mogą być bardzo różne. W skrajnym wypadku, może dojść do wyczerpania całej dostępnej pamięci. Gdy zaczyna jej brakować, system operacyjny zapisuje jej ostatnio nieużywaną część na dysku, by w razie potrzeby móc ją odczytać. Z uwagi na to, że pamięć operacyjna jest wielokrotnie szybsza od dysków twardych, taka operacja powoduje gigantyczne opóźnienia w pracy komputera. Gdy szybkość kolejnych alokacji pamięci jest większa, niż jej zrzucanie na dysk, w pewnym momencie komputer ulegnie całkowitemu zawieszeniu. Wówczas jedynym wyjściem jest, często bardzo niepożądany, restart systemu. Bezpiecznym rozwiązaniem jest ustalenie limitu na wykorzystanie przez pojedynczą aplikację. Może to znacznie ułatwić debugowanie i znalezienie ewentualnego błędu, a także zabezpieczy użytkownika przed uruchomieniem złośliwego oprogramowania, mającego na celu doprowadzenie do wspomnianej wyżej sytuacji.
+	Z uwagi na powyższy fakt, w programie wszystkie obiekty klasy Polynomial są przekazywane poprzez referencję. By referencję, można przekazywać pomiędzy funkcjami, obiekt na który wskazuje, musi zostać stworzony dynamicznie. Można to zrobić poprzez użycie, znanej z języka C, funkcji malloc, alokującej miejsce w pamięci lub typowego dla języka C++, operatora new. W przeciwnym wypadku, zmienna będzie widoczna tylko w miejscu, w którym zostanie stworzona, np.\ wewnątrz funkcji. Próba odwołania się do takiej wartości, w miejscu, w którym zmienna nie jest widoczna, skończy się błędem czasu wykonania i komunikatem o naruszeniu dostępu. Stanie się tak, ponieważ referencja w takim przypadku będzie dalej istnieć, ale obiekt, na który wskazuje, już nie. Takie błędy często są popełniane przez niedoświadczonych programistów, a próba ich lokalizacji i znalezienia przyczyny, na pierwszy rzut oka, nie jest oczywista. W momencie, gdy skorzystamy z dynamicznego tworzenia obiektu, będzie on istniał tak długo, dopóki nie zostanie jawnie usunięty w kodzie programu lub aplikacja nie skończy swojego działania, zwalniając przy tym całą zajmowaną pamięć. Kiedy nie wszystkie stworzone obiekty zostają usunięte, dochodzi do tzw. wycieków pamięci. W zależności od ich rozmiarów i czasu działania aplikacji, ich konsekwencje mogą być bardzo różne. W skrajnym wypadku, może dojść do wyczerpania całej dostępnej pamięci. Gdy zaczyna jej brakować, system operacyjny zapisuje jej ostatnio nieużywaną część na dysku, by w razie potrzeby móc ją odczytać. Z uwagi na to, że pamięć operacyjna jest wielokrotnie szybsza od dysków twardych, taka operacja powoduje gigantyczne opóźnienia w pracy komputera. Gdy szybkość kolejnych alokacji pamięci jest większa, niż jej zrzucanie na dysk, w pewnym momencie komputer ulegnie całkowitemu zawieszeniu. Wówczas jedynym wyjściem jest, często bardzo niepożądany, restart systemu. Bezpiecznym rozwiązaniem jest ustalenie limitu na wykorzystanie przez pojedynczą aplikację. Może to znacznie ułatwić debugowanie i znalezienie ewentualnego błędu, a także zabezpieczy użytkownika przed uruchomieniem złośliwego oprogramowania, mającego na celu doprowadzenie do wspomnianej wyżej sytuacji.
 	
 	Poniżej przedstawiam definicję klasy abstrakcyjnej Polynomial. Wyróżnić w niej można kolejne sekcje -- zmienne klasy, konstruktory, funkcje i operatory. Te ostatnie możemy podzielić pomiędzy te, które posiadają implementacje w klasie abstrakcyjnej Polynomial oraz te, które zostały zdefiniowane jako czysto wirtualne i konieczne jest ich nadpisanie w klasie pochodnej.
 	
@@ -1255,8 +1263,10 @@
 	void SetValue(int power, int value);
 	void Add(int power, Number number);
 	void Sub(int power, Number number);
-	PAIR Mul(int power1, Number number1, int power2, Number number2);
-	PAIR Div(int power1, Number number1, int power2, Number number2);
+	PAIR Mul(int power1, Number number1, 
+	         int power2, Number number2);
+	PAIR Div(int power1, Number number1,
+	         int power2, Number number2);
 	Polynomial& Nwd(Polynomial& p1, Polynomial& p2);
 	Polynomial& PolynomialAfterEliminationOfMultipleRoots();
 	void Normalize();
@@ -1286,7 +1296,7 @@
 	
 	Klasy PolynomialMap i PolynomialVector są implementacjami klasy abstrakcyjnej Polynomial. Obie one nadpisują wszystkie czysto wirtualne metody klasy bazowej. Wiele z tych metod wygląda bardzo podobnie, natomiast istotną różnicą jest konieczność odwołania się do konkretnej reprezentacji danych. To właśnie dlatego zostały one oznaczone w klasie bazowej, jako metody abstrakcyjne. Takie zaprojektowanie klasy, wymusza na użytkowniku korzystanie z interfejsu, udostępnionego przez klase bazowe. Jego poprawne zaimplementowanie daje gwarancje, że klasa będzie wykonywać to czego oczekuje bazowa, nie narzucajac sposóbu, w jaki ma to robić.
 	
-	Jak zostało wspomniane, różnicą obu klas jest podejście do współczynników zerowych. Koncepcja reprezentacji wszystkich z nich została oparta na typie vector, z biblioteki STL. Tablica zakłada, że kolejne współczynniki bedą zapisywane w jej kolejnych komórkach, przy czym indeks w tablicy, począwszy od zerowego, określa potęgę dla współczynnika, którego wartość jest tam zapisana. Aplikacja musi pamiętać wskaźniki na pierwszy i ostatni element. Na ich podstawie jest ona w stanie stwierdzić, ile elementów zawiera, co w sposób bezpośredni przekłada się na stopień danego wielomianu. Największym mankamentem takiego podejścia jest konieczność posiadania informacji, o wszystkich współczynnikach, także zerowych. W przypadku wielomianów rzadkich, o wysokim stopniu, np. $x^{1000}-1$, konieczne jest przechowywanie 999 zer w kolejnych komórkach. Poza negatywnym wpływem na złożoność pamięciową takiego podejścia, istotniejszym wydaje się fakt, że znalezienie wyłącznie niezerowych elementów, wymaga przejrzenia wszystkich komórek tablicy. Zatem, by dodać do siebie dwa wielomiany $x^{1000}$ oraz $2x^{1000}$, konieczne jest wykonanie aż $1001$ sumowań lub sprawdzenie dla każdego z nich, czy jest potrzebne.
+	Jak zostało wspomniane, różnicą obu klas jest podejście do współczynników zerowych. Koncepcja reprezentacji wszystkich z nich została oparta na typie vector, z biblioteki STL. Tablica zakłada, że kolejne współczynniki bedą zapisywane w jej kolejnych komórkach, przy czym indeks w tablicy, począwszy od zerowego, określa potęgę dla współczynnika, którego wartość jest tam zapisana. Aplikacja musi pamiętać wskaźniki na pierwszy i ostatni element. Na ich podstawie jest ona w stanie stwierdzić, ile elementów zawiera, co w sposób bezpośredni przekłada się na stopień danego wielomianu. Największym mankamentem takiego podejścia jest konieczność posiadania informacji, o wszystkich współczynnikach, także zerowych. W przypadku wielomianów rzadkich, o wysokim stopniu, np.\ $x^{1000}-1$, konieczne jest przechowywanie 999 zer w kolejnych komórkach. Poza negatywnym wpływem na złożoność pamięciową takiego podejścia, istotniejszym wydaje się fakt, że znalezienie wyłącznie niezerowych elementów, wymaga przejrzenia wszystkich komórek tablicy. Zatem, by dodać do siebie dwa wielomiany $x^{1000}$ oraz $2x^{1000}$, konieczne jest wykonanie aż $1001$ sumowań lub sprawdzenie dla każdego z nich, czy jest potrzebne.
 	
 	Dodatkowo, w przypadku, gdy w wyniku działania, zmienia się stopień wielomianu, konieczne jest rozszerzenie lub pomniejszenie tablicy, poprzez aktualizacje odpowiednich wskaźników. Jeżeli chodzi o złożoność czasową funkcji, nie ma to jednak wpływu, ponieważ dla wszystkich typów operacji, i tak jesteśmy zmuszeni przejrzeć wszystkie elementy. Wyjątkiem jest stwierdzenie, czy mamy do czynienia z wielomianem zerowym, którego złożoność jest stała, gdyż wartość ustalana jest na podstawie rozmiaru tablicy.
 	
@@ -1314,11 +1324,11 @@
 	\end{lstlisting}
 	
 	Zadaniem funkcji jest ujednolicenie wielomianu podanego na wejściu, w taki sposób, by był jednoznaczny i łatwy do dalszego przetworzenia. Jako argument przyjmuje ona pojedynczy obiekt klasy string. Po dokonaniu odpowiednich operacji, jako rezultat, zwraca również typ string. Użycie jej ma na celu ułatwienie przetwarzania w kolejnym etapie, w którym na podstawie podanego ciągu znaków, tworzony będzie obiekt wielomianu. Głównym zadaniem funkcji, jest weryfikacja, czy ciąg znaków podanych na wejściu reprezentuje poprawny składniowo wielomian. Sprawdzana jest liczba nawiasów otwierających i zamykających oraz fakt, czy w każdym miejscu wyrażenia liczba otwartych nawiasów jest nie mniejsza niż liczba nawiasów zamkniętych. Dodatkowo sprawdzane jest, czy na sąsiednich miejscach nie występują dwa operatory. Poprawne wyrażenie nigdy nie kończy się operatorem, a zaczynać może się tylko minusem, literałem, cyfrą lub nawiasem otwierającym. W czasie unifikacji wyrażenia, ignorowane są wszystkie występujące w nim białe znaki. Warto zaznaczyć, że dopuszczalny jest tylko jeden znak, reprezentujący zmienną wielomianu. Nie ma ograniczeń co do wartości tego znaku, może być to znak 'a', 'x' lub jakikolwiek inny, ale powinniśmy zadbać, by w całym wyrażeniu występował on w tej samej postaci. Sporym ułatwieniem w interfejsie jest brak konieczności wpisywania operatorów mnożenia ('*') i potęgowania ('\^{}') w oczywistych miejscach. Z punktu widzenia aplikacji, wyrażenia 4x oraz 4*x są identyczne. Podobnie jest w przypadku x3 oraz x\^{}3. Funkcja analizuje wyrażenie i zwraca je w odpowiedniej postaci. Dla przykładu wyrażenia x3+2x2+3x+1, x\^{}3 +2x\^{}2 + 3x+1 zostaną zamienione w x\^{}3+2*x\^{}2+3*x+1.
-	\\
 	
 	\subsubsection{Konwersja łańcucha znaków do postaci wielomianu}
 	\begin{lstlisting}
-	inline Polynomial& Parser::ConvertToPolynomial(string inputS, int type)
+	inline Polynomial&
+	    Parser::ConvertToPolynomial(string inputS, int type)
 	\end{lstlisting}
 	
 	Funkcja ma na celu stworzenie wielomianu na podstawie wartości znakowej i zwrócenie odpowiedniej referencji. W zależności od parametru type, wielomian reprezentowany jest przez jeden z dwóch rodzajów struktur. Pierwszą z nich jest wektor -- począwszy od wyrazu stojącego przy najwyższej potędze, reprezentowane są wszystkie współczynniki, także zerowe. Drugim jest mapa -- która posiada informacje tylko o niezerowych współczynnikach.
@@ -1327,8 +1337,7 @@
 	
 	W przypadku, gdy mamy do czynienia ze znakiem nawiasu otwierającego, zostaje wyszukany odpowiedni nawias zamykający, a na wewnętrznym zakresie jest wywoływana rekurencyjnie ta sama funkcja. Zwracana wartość zapisywana jest jako aktualny element, a wskaźnik zostaje przesunięty na kolejny. Gdy aktualnie przetwarzanym znakiem jest potęgowanie, zachowanie funkcji jest analogiczne. Wielomian zostaje podniesiony do odpowiedniej potęgi, otrzymana wartość zapisana, a wskaźnik ustawiony na kolejny element, występujący po wykładniku.
 	
-	W przypadku pozostałych operatorów działanie funkcji jest nieco odmienne. Spowodowane jest to faktem, że trafiając na dany operator, nie znamy jeszcze jego obu argumentów, a jedynie pierwszy z nich. Drugi jest nieznany, a dodatkowo sam w sobie może zawierać operatory z wyższym priorytetem, np. w przypadku wielomianu $x+3*2$ potrzebujemy najpierw obliczyć wartość wyrażenia $3*2$ i dopiero wówczas uzyskany wynik zsumować z pierwszym operandem, równym $x$. Fakt ten, dopiero w momencie natrafienia na dany operator, narzuca wykonywanie poprzedniego działania. Uwaga ta tyczy się jednak tylko natrafienia na znaki dodawania, odejmowania, mnożenia i dzielenia, ponieważ, jak zostało wspomniane wcześniej, operator potęgowania i nawiasy posługują się osobnym algorytmem. Zachowanie to, można porównać do działania stosu, na którym mogą leżeć tylko dwa argumenty. Pierwszym z nich jest operacja dodawania, a drugim mnożenia. Za pomocą nich można przedstawić także odejmowanie i dzielenie, zatem funkcje te nie będą przeze mnie rozpatrywane osobno. Operator mnożenia jest traktowany jako działanie z wyższym priorytetem, a dodawania z niższym. Oznacza to, że aby wykonać sumowanie, należy zadbać o to by ewentualna operacja mnożenia została wykonana wcześniej. Tak więc, w momencie natrafienia na znak mnożenia lub dzielenia, wystarczy przemnożyć lub podzielić przez siebie dwa operandy. W momencie dodawania, sytuacja jest bardziej skomplikowana. Zostaje wykonane sprawdzenie, czy odłożony został operator mnożenia. Jeżeli tak, to wartość aktualnego elementu zostaje przemnożona przez zapisany argument, w przeciwnym razie pozostaje bez zmian. Następnie, wynik operacji zostaje dodany lub odjęty od zapisanego argumentu. W momencie, gdy zakończymy iterowanie po całym łańcuchu wejściowym, należy zadbać o ewentualne wykonanie mnożenia oraz dzielenia, czyniąc to analogicznie jak w momencie rozpatrywania znaku dodawania lub odejmowania.
-	\\
+	W przypadku pozostałych operatorów działanie funkcji jest nieco odmienne. Spowodowane jest to faktem, że trafiając na dany operator, nie znamy jeszcze jego obu argumentów, a jedynie pierwszy z nich. Drugi jest nieznany, a dodatkowo sam w sobie może zawierać operatory z wyższym priorytetem, np.\ w przypadku wielomianu $x+3*2$ potrzebujemy najpierw obliczyć wartość wyrażenia $3*2$ i dopiero wówczas uzyskany wynik zsumować z pierwszym operandem, równym $x$. Fakt ten, dopiero w momencie natrafienia na dany operator, narzuca wykonywanie poprzedniego działania. Uwaga ta tyczy się jednak tylko natrafienia na znaki dodawania, odejmowania, mnożenia i dzielenia, ponieważ, jak zostało wspomniane wcześniej, operator potęgowania i nawiasy posługują się osobnym algorytmem. Zachowanie to, można porównać do działania stosu, na którym mogą leżeć tylko dwa argumenty. Pierwszym z nich jest operacja dodawania, a drugim mnożenia. Za pomocą nich można przedstawić także odejmowanie i dzielenie, zatem funkcje te nie będą przeze mnie rozpatrywane osobno. Operator mnożenia jest traktowany jako działanie z wyższym priorytetem, a dodawania z niższym. Oznacza to, że aby wykonać sumowanie, należy zadbać o to by ewentualna operacja mnożenia została wykonana wcześniej. Tak więc, w momencie natrafienia na znak mnożenia lub dzielenia, wystarczy przemnożyć lub podzielić przez siebie dwa operandy. W momencie dodawania, sytuacja jest bardziej skomplikowana. Zostaje wykonane sprawdzenie, czy odłożony został operator mnożenia. Jeżeli tak, to wartość aktualnego elementu zostaje przemnożona przez zapisany argument, w przeciwnym razie pozostaje bez zmian. Następnie, wynik operacji zostaje dodany lub odjęty od zapisanego argumentu. W momencie, gdy zakończymy iterowanie po całym łańcuchu wejściowym, należy zadbać o ewentualne wykonanie mnożenia oraz dzielenia, czyniąc to analogicznie jak w momencie rozpatrywania znaku dodawania lub odejmowania.
 	
 	\subsection{Metody klasy Number}
 	
@@ -1337,8 +1346,7 @@
 	inline vector<Number> SortNumbers(vector<Number>v)
 	\end{lstlisting}
 	
-	Zadaniem tej metody jest posortowanie liczb, z biblioteki mpir, w kolejności niemalejącej. Zarówno wejściem, jak i wyjściem funkcji jest wektor obiektów klasy Number. Metoda ta jest używana w celu sortowania tablicy, o niewielkiej liczbie elementów. Oznacza to, że w takim przypadku, bardzo dobrze sprawdzi się nieskomplikowany algorytm sortujący, np. sortowanie bąbelkowe. Z uwagi na mały zestaw danych, rzędu kilkudziesięciu elementów, kwadratowa złożoność czasowa, będzie akceptowalna, gdy weźmiemy pod uwagę bardzo niewielką liczbę koniecznych operacji, w jednym obiegu pętli. Metoda skorzysta z operatora porównania i metody zamiany elementów klasy Number, bazujących na funkcjach mpq\_cmp oraz mpq\_swap, z biblioteki mpir.
-	\\
+	Zadaniem tej metody jest posortowanie liczb, z biblioteki mpir, w kolejności niemalejącej. Zarówno wejściem, jak i wyjściem funkcji jest wektor obiektów klasy Number. Metoda ta jest używana w celu sortowania tablicy, o niewielkiej liczbie elementów. Oznacza to, że w takim przypadku, bardzo dobrze sprawdzi się nieskomplikowany algorytm sortujący, np.\ sortowanie bąbelkowe. Z uwagi na mały zestaw danych, rzędu kilkudziesięciu elementów, kwadratowa złożoność czasowa, będzie akceptowalna, gdy weźmiemy pod uwagę bardzo niewielką liczbę koniecznych operacji, w jednym obiegu pętli. Metoda skorzysta z operatora porównania i metody zamiany elementów klasy Number, bazujących na funkcjach mpq\_cmp oraz mpq\_swap, z biblioteki mpir.
 	
 	\subsubsection{Porównywanie wektorów liczbowych}
 	\begin{lstlisting}
@@ -1346,15 +1354,13 @@
 	\end{lstlisting}
 	
 	Głównym celem metody jest sprawdzenie, czy dwa wektory liczbowe są sobie równe, tzn. czy zawierają wszystkie te same elementy, w dowolnej kolejności. Funkcja przyjmuje, jako argumenty, dwa wektory, a zwraca liczbę typu int. Jest ona równa $0$, gdy wektory są różne oraz $1$, gdy są równe. W pierwszej kolejności porównywana jest liczba elementów obu wektorów. Gdy jest ona różna, wówczas mamy pewność, że wektory są różne. Gdy liczba elementów jest równa, elementy w obu tablicach zostają posortowane, przy pomocy funkcji SortNumbers. Następnie porównywane są kolejne elementy wektorów. Wektory uznajemy za inne, gdy chociaż jedna para jest różna.
-	\\
 	
 	\subsubsection{Wyszukiwanie danej liczby w tablicy}
 	\begin{lstlisting}
 	inline int Number::IsInVector(vector<Number> v)
 	\end{lstlisting}
 	
-	Metoda stwierdza, czy obiekt, na którym będzie wykonywana, jest elementem wektora podanego jako argument funkcji. Zwraca ona $-1$, gdy tablica nie zawiera danej wartości liczbowej. W przeciwnym wypadku, rezultatem funkcji jest indeks w podanej tablicy, przy czym pierwszy jej element ma indeks równy $0$. Z uwagi, na to, że dany wektor nie zawsze jest posortowany, nie możemy skorzystać z algorytmu wyszukiwania binarnego, posiadającego logarytmiczną złożoność, ze względu na liczbę jego elementów. By z niego skorzystać, musielibyśmy wykonać sortowanie, a także zapamiętywać informację o indeksie danej liczby, w wektorze inicjalnym. Najszybszy algorytm sortowania, wykonywany na jednym wątku, ma złożoność liniową. Jego użycie jest wiec zupełnie nieopłacalne, jeżeli weźmiemy pod uwagę, że przejrzenie wszystkich liczb tablicy, ma dokładnie taką samą złożoność. Dodatkowo zastosowany algorytm ma własność stopu, tzn. gdy natrafi na element, którego szukamy, kończy swoje działania, zwracając odpowiedni indeks.
-	\\
+	Metoda stwierdza, czy obiekt, na którym będzie wykonywana, jest elementem wektora podanego jako argument funkcji. Zwraca ona $-1$, gdy tablica nie zawiera danej wartości liczbowej. W przeciwnym wypadku, rezultatem funkcji jest indeks w podanej tablicy, przy czym pierwszy jej element ma indeks równy $0$. Z uwagi, na to, że dany wektor nie zawsze jest posortowany, nie możemy skorzystać z algorytmu wyszukiwania binarnego, posiadającego logarytmiczną złożoność, ze względu na liczbę jego elementów. By z niego skorzystać, musielibyśmy wykonać sortowanie, a także zapamiętywać informację o indeksie danej liczby, w wektorze inicjalnym. Najszybszy algorytm sortowania, wykonywany na jednym wątku, ma złożoność liniowo-logarytmiczną. Jego użycie jest wiec zupełnie nieopłacalne, jeżeli weźmiemy pod uwagę, że przejrzenie wszystkich liczb tablicy, ma dokładnie taką samą złożoność. Dodatkowo zastosowany algorytm ma własność stopu, tzn. gdy natrafi na element, którego szukamy, kończy swoje działania, zwracając odpowiedni indeks.
 	
 	\subsubsection{Zwracanie wartości liczby w postaci łańcucha znaków}
 	\begin{lstlisting}
@@ -1362,17 +1368,16 @@
 	\end{lstlisting}
 	
 	Funkcja ma celu przekształcenie danej liczby, standardowo podawanej jako ułamek, w postaci -- licznik i mianownik, na liczbę, zapisaną w postaci dziesiętnej. By to osiągnąć, potrzebna jest informacjea, o wymaganej precyzji obliczeń. Na początku liczba zostaje przyrównana do zera, gdy jest mniejsza, jako pierwszy znak wyniku, zostaje ustawiony minus, a dalej liczba jest zawsze rozpatrywana jako nieujemna. Na początku zostaje obliczony iloczyn licznika i liczby równej $10^x$, gdzie $x$ -- precyzja, wyrażona w ważnych cyfrach po przecinku. Następnie obliczany jest całkowitoliczbowy wynik dzielenia. Do otrzymanego w ten sposób rezultatu, wystarczy już tylko dodać separator, oddzielający część całkowitą i ułamkową w odpowiednim miejscu. Przypada ono w takim miejscu, by po stronie ułamkowej znajdowała się dokładnie żądana liczba cyfr. Na koniec, należy jeszcze zadbać, by otrzymany wynik był dobrze sformatowany, trzeba więc usunąć, nieznaczące zera w części ułamkowej. Dodatko potrzeba pamiętać, że po wykonaniu takiej operacji, może zdarzyć się, że część ułamkowa nie zawiera już żadnych cyfr. Wówczas należy nie zapomnieć, o usunięciu znaku separatora, tak by dla powstałej liczby całkowitej ostatnim w kolejności znakiem była cyfra jedności.
-	\\
 	
 	\subsection{Metody klasy Polynomial}
 	
 	\subsubsection{Największy wspólny dzielnik wielomianów}
 	\begin{lstlisting}
-	inline Polynomial& Polynomial::Nwd(Polynomial& p1, Polynomial& p2)
+	inline Polynomial&
+	    Polynomial::Nwd(Polynomial& p1, Polynomial& p2)
 	\end{lstlisting}
 	
 	Jest to funkcja obliczająca największy wspólny dzielnik dwóch wielomianów. Wynik jest zwracany przy pomocy referencji do uzyskanego wielomianu. Na początku obliczana jest wartość reszty z dzielenia ilorazu podanych wielomianów. Funkcja wołana jest w sposób rekurencyjny. Kolejnymi argumentami funkcji dla wielomianów $p_1$ i $p_2$ są wielomian $p_2$ oraz reszta z dzielenia wielomianu $p_1$ przez wielomian $p_2$. Funkcja wołana jest rekurencyjnie, pod warunkiem, że otrzymana reszta, nie jest wielomianem stopnia zerowego. W takim przypadku zwracana jest wartość $p_2$, jeżeli dzieli ona bez reszty wielomian $p_1$ lub wielomian $W(x)=1$, w przeciwnym wypadku. Warto zauważyć, że z każdym wywołaniem funkcji, stopień wielomianów, które są jej argumentami, maleje. Oznacza to, że dla wielomianów stopnia $n$ i $m$, maksymalna liczba rekurencyjnych wywołań funkcji jest równa $\min(n,m)+1$.
-	\\
 	
 	\subsubsection{Eliminacja pierwiastków wielokrotnych wielomianu}
 	\begin{lstlisting}
@@ -1380,12 +1385,12 @@
 	Polynomial::PolynomialAfterEliminationOfMultipleRoots()
 	\end{lstlisting}
 	
-	Funkcja dla danego wielomianu, dokonuje eliminacji pierwiastków wielokrotnych i zwraca otrzymany w ten sposób wielomian. Na początku funkcji, obliczana jest pochodna wielomianu, a następnie dla tych wielomianów, znajdowany jest największy wspólny dzielnik. Na otrzymywanych wielomianach dokonywana jest operacja normalizacji, tzn. podzielenie wszystkich jej współczynników, przez wartość, równą współczynnikowi, stojącemu przy najwyższej potędze. W ten sposób otrzymamy wielomian, o tych samych pierwiastkach, ze współczynnikiem, przy najwyższej potędze równym $1$. Pozwala to na dokonanie łatwiejszych, dzięki czemu często szybszych, obliczeń, na danych wielomianach. W drugiej części funkcji, dokonywana jest eliminacja pierwiastków wielokrotnych, poprzez podzielenie wielomianu $W$, przez wielomian równy $NWD(W, W’)$. Otrzymany wynik jest rezultatem funkcji. Zarówno dzielna, jak i dzielnik, są wielomianami, dla których dokonaliśmy już normalizacji, wiadomo więc, że wynikowa wartość, jest już znormalizowana.
-	\\
+	Funkcja dla danego wielomianu, dokonuje eliminacji pierwiastków wielokrotnych i zwraca otrzymany w ten sposób wielomian. Na początku funkcji, obliczana jest pochodna wielomianu, a następnie dla tych wielomianów, znajdowany jest największy wspólny dzielnik. Na otrzymywanych wielomianach dokonywana jest operacja normalizacji, tzn. podzielenie wszystkich jej współczynników, przez wartość, równą współczynnikowi, stojącemu przy najwyższej potędze. W ten sposób otrzymamy wielomian, o tych samych pierwiastkach, ze współczynnikiem, przy najwyższej potędze równym $1$. Pozwala to na dokonanie łatwiejszych, dzięki czemu często szybszych, obliczeń, na danych wielomianach. W drugiej części funkcji, dokonywana jest eliminacja pierwiastków wielokrotnych, poprzez podzielenie wielomianu $W$, przez wielomian równy $NWD(W, W')$. Otrzymany wynik jest rezultatem funkcji. Zarówno dzielna, jak i dzielnik, są wielomianami, dla których dokonaliśmy już normalizacji, wiadomo więc, że wynikowa wartość, jest już znormalizowana.
 	
 	\subsubsection{Algorytm wyznaczania kolejnych przedziałów wyszukiwania}
 	\begin{lstlisting}
-	inline Number Polynomial::NextNumberFromRange(Number a, Number b)
+	inline Number
+	    Polynomial::NextNumberFromRange(Number a, Number b)
 	\end{lstlisting}
 	
 	Funkcja zwraca wybraną liczbę z przedziału $(a,b)$. Algorytm funkcji działa tak, by zoptymalizować wybieranie przedziałów, w których sprawdzane będzie istnienie pierwiastków. Ma to na celu jak najszybsze zawężenie przedziału, w którym znajduje się szukany pierwiastek. Zakładamy, że długośc przedziału jest niezerowa, a liczby $a$ i $b$ reprezentują odpowiednio -- lewy i prawy kraniec przedziału. Z tego założenia wynika, że $a<b$ i takich parametrów spodziewa się funkcja. W celu optymalizacji, wewnątrz funkcji nie jest sprawdzane, czy przedstawiony warunek jest spełniony. Poniżej przedstawiona została wartość zwracana przez funkcję, w zależności od otrzymanych na wejściu parametrów.
@@ -1400,12 +1405,12 @@
 	2,\ dla\ a=1 \wedge b=+\infty\\
 	a*|a|,\ dla\ a \in (0,1) \cap (1,+\infty) \cap \{-1\} \wedge b=-\infty\ \\
 	b*|b|,\ dla\ a=-\infty\ \wedge \ b \in (-\infty,-1) \cap (-1,0) \cap \{1\}\\
-	\frac{a+b}{2},\ w\ pozostałych\ przypadkach
+	\frac{a+b}{2},\text{w pozostałych przypadkach}
 	\end{array}
 	\right.
 	\]
 	
-	Jak widać, funkcja w pierwszej kolejności stara się dokonać takiego podziału, by w obu podprzedziałach znajdowały się wartości tego samego znaku. Kolejnymi wartościami, o których należy wspomnieć są liczby $-1$ oraz $1$. Dzieje się tak z uwagi na to, żeby zoptymalizować znajdowanie pierwiastków, zarówno takich, o niewielkiej wartości bezwzględnej, bliskich zeru, jak i, bardzo dużych. Wówczas poprzez obliczanie kwadratu aktualnej wartości, z zachowaniem jej dotychczasowego znaku, jesteśmy w stanie, w niewielkiej liczbie iteracji, maksymalnie zawęzić szukany przedział. Warto zauważyć, że dla liczb mniejszych od $1$, posiadających, jako drugi kraniec przedziału $0$, w tempie wykładniczym zbliżamy się do $0$. Natomiast dla liczb większych od $1$, gdy drugim krańcem przedziału jest $+\infty$, w tym samym tempie się od niego oddalamy. Przeanalizujmy jak powstają kolejne podziały w dwóch przypadkach, gdy przedział jest równy $(-\infty,\infty)$, a szukany pierwiastek to $-0.1$ oraz gdy przedziałem jest $(-1,30)$, a pierwiastkiem $5$. W celu wygody i przejrzystości prezentowanych obliczeń, w przykładzie przyjmijmy, że szukamy pierwiastka z dokładnością $0.1$. Oznacza to, że w momencie, gdy mamy przedział długości nie większej niż $0.2$, o którym wiemy, że znajduje się w nim pierwiastek, to jesteśmy w stanie podać jego wartość z żądaną precyzją, wskazując dokładnie środek danego przedziału. \\
+	Jak widać, funkcja w pierwszej kolejności stara się dokonać takiego podziału, by w obu podprzedziałach znajdowały się wartości tego samego znaku. Kolejnymi wartościami, o których należy wspomnieć są liczby $-1$ oraz $1$. Dzieje się tak z uwagi na to, żeby zoptymalizować znajdowanie pierwiastków, zarówno takich, o niewielkiej wartości bezwzględnej, bliskich zeru, jak i, bardzo dużych. Wówczas poprzez obliczanie kwadratu aktualnej wartości, z zachowaniem jej dotychczasowego znaku, jesteśmy w stanie, w niewielkiej liczbie iteracji, maksymalnie zawęzić szukany przedział. Warto zauważyć, że dla liczb mniejszych od $1$, posiadających, jako drugi kraniec przedziału $0$, w tempie wykładniczym zbliżamy się do $0$. Natomiast dla liczb większych od $1$, gdy drugim krańcem przedziału jest $+\infty$, w tym samym tempie się od niego oddalamy. Przeanalizujmy jak powstają kolejne podziały w dwóch przypadkach, gdy przedział jest równy $(-\infty,\infty)$, a szukany pierwiastek to $-0.1$ oraz gdy przedziałem jest $(-1,30)$, a pierwiastkiem $5$. W celu wygody i przejrzystości prezentowanych obliczeń, w przykładzie przyjmijmy, że szukamy pierwiastka z dokładnością $0.1$. Oznacza to, że w momencie, gdy mamy przedział długości nie większej niż $0.2$, o którym wiemy, że znajduje się w nim pierwiastek, to jesteśmy w stanie podać jego wartość z żądaną precyzją, wskazując dokładnie środek danego przedziału.
 	
 	\begin{example}
 		$ $ \\
@@ -1413,7 +1418,7 @@
 		$a = -\infty,\ b = 0\ =>\ c=-1$ \\
 		$a = -1,\ b = 0\ =>\ c=-0.5$ \\
 		$a = -0.5,\ b = 0\ =>\ c=-0.25$ \\
-		$a = -0.25,\ b = 0\ =>\ c=-0.0625$ \\
+		$a = -0.25,\ b = 0\ =>\ c=-0.0625$
 	\end{example}
 	
 	Jak widać dla tego specyficznego przypadku, algorytm już w 5 krokach ustalił wartość poszukiwanej liczby. Długość przedziału jest równa $-0.0625-(-0.25)=0.1875<0.2$, zatem podając środek otrzymanego przedziału, równy $\frac{-0.0625+(-0.25)}{2}=\frac{-0.3125}{2}=0.15625$, mamy pewność, że będzie wskazywał on badany pierwiastek, z wymaganą precyzją. Teraz spójrzmy na drugi scenariusz.
@@ -1426,11 +1431,10 @@
 		$a = 3.75,\ b = 7.5\ =>\ c=5.625$ \\
 		$a = 3.75,\ b = 5.625\ =>\ c=4,6875$ \\
 		$a = 4.6875,\ b = 5.625\ =>\ c=5,15625$ \\
-		$a = 4.6875,\ b = 5.15625\ =>\ c=4.921875$ \\
+		$a = 4.6875,\ b = 5.15625\ =>\ c=4.921875$
 	\end{example}
 	
-	W drugim przypadku, funkcja zakończyła działanie po 8 iteracjach. Możemy zauważyć, że liczba kroków, jest zależna bezpośrednio od żądanej precyzji. Podając jako rozwiązanie, kolejne środki przedziału, jesteśmy w czasie logarytmicznym dla badanego przedzialu, znaleźć leżący w nim pierwiastek. Należy zwrócić uwagę, że w niekorzystnym przypadku, kolejne przybliżenia niekoniecznie muszą być coraz bliższe szukanemu rozwiązaniu. Tak byłoby, gdy pierwiastkiem w powyższym przykładzie była liczba 5.15. Wówczas pomimo bycia w bliskim jego otoczeniu, kontynuowalibyśmy pracę algorytmu, a ten znalazłby szukane rozwiązanie, dopiero kilka iteracji później. Jest to niewątpliwy minus zastosowanego algorytmu, jednak ciężki do wyeliminowania.
-	\\
+	W drugim przypadku, funkcja zakończyła działanie po 8 iteracjach. Możemy zauważyć, że liczba kroków jest zależna bezpośrednio od żądanej precyzji. Podając jako rozwiązanie, kolejne środki przedziału, jesteśmy w czasie logarytmicznym dla badanego przedzialu, znaleźć leżący w nim pierwiastek. Należy zwrócić uwagę, że w niekorzystnym przypadku, kolejne przybliżenia niekoniecznie muszą być coraz bliższe szukanemu rozwiązaniu. Tak byłoby, gdy pierwiastkiem w powyższym przykładzie była liczba 5.15. Wówczas pomimo bycia w bliskim jego otoczeniu, kontynuowalibyśmy pracę algorytmu, a ten znalazłby szukane rozwiązanie, dopiero kilka iteracji później. Jest to niewątpliwy minus zastosowanego algorytmu, jednak ciężki do wyeliminowania.
 	
 	\subsubsection{Liczba pierwiastków wielomianu w badanym przedziale}
 	\begin{lstlisting}
@@ -1438,7 +1442,6 @@
 	\end{lstlisting}
 	
 	Funkcja zwraca liczbę pierwiastków w zadanym przedziale. Jest ona obliczana na podstawie liczby zmian znaku na krańcach przedziałów i równa liczbie takich zmian na prawym z nich, pomniejszona o ich wartość na lewym.
-	\\
 	
 	\subsubsection{Znajdowanie pierwiastków wielomianu w badanym przedziale}
 	\begin{lstlisting}
@@ -1450,14 +1453,15 @@
 	Zgodnie z twierdzeniem, liczba pierwiastków w przedziale, wlicza także ewentualny pierwiastek na prawym krańcu przedziału. Gdy funkcja stwierdzi istnienie tego pierwiastka, zostaje on dodany do wektora wyjściowego. Jeżeli liczba pierwiastków w przedziale była równa $1$, wiemy już, że był to jedyny pierwiastek w danym przedziale i możemy zwrócić jednoelementowy wektor, z wartościami pierwiastków.
 	
 	Następnie, na podstawie funkcji NextNumberFromRange, przedział zostaje podzielony na dwa mniejsze. W otrzymanych przedziałach zostaje obliczona liczba pierwiastków. Jeżeli jest ona dodatnia, to następuje rekurencyjne wywołanie funkcji, z argumentami, będącymi granicami danego podprzedziału. Wywołana rekurencyjnie metoda, po wykonaniu, zwróci wynik, który zostanie przetworzony przez funkcje wywołującą. 
-	\\
 	
 	\subsection{Metody czysto wirtualne klasy Polynonial – porównanie działania metod klas PolynomialMap i PolynomialVector}
 	
 	\subsubsection{Ustawianie wartości wyrazu wielomianu}
 	\begin{lstlisting}
-	inline void PolynomialMap::SetNumberValue(int power, Number number)
-	inline void PolynomialVector::SetNumberValue(int power, Number number)
+	inline void
+	    PolynomialMap::SetNumberValue(int power, Number number)
+	inline void
+	    PolynomialVector::SetNumberValue(int power, Number number)
 	\end{lstlisting}
 	
 	Głównym zadaniem funkcji jest ustawienie wartości podanego współczynnika na daną wartość liczbową. W przypadku mapy, konieczna jest wyryfikacja, czy liczba jest równa zero. Jeżeli tak, to następuje sprawdzenie, czy w mapie występuje już klucz, równy podanej potędzę. W takim przypadku następuje jego usunięcie, a gdy klucz nie istnieje, jej opuszczenie, bez jakichkolwiek dodatkowych działań. Jeżeli wartość liczbowa jest niezerowa, to sprawdzenie jest analogiczne. W pierwszym przypadku następuje wówczas nadpisanie wartości o danym kluczu, a w drugim wstawienie do mapy pary – klucz (potęga), wartość (liczba).
@@ -1467,7 +1471,6 @@
 	Gdy podana w argumencie funkcji potęga, jest niewiększa od stopnia wielomianu, następuje uaktualnienie wartości na odpowiedniej pozycji w tablicy. Konieczne jest wówczas dodatkowe sprawdzenie. Jeżeli podana para (potęga, wartość) współczynika wskazują na zerowy współczynnik dla potęgi, równej stopniowi danego wielomianu, niezbędne jest przesunięcie końca tablicy o jedno miejsce. Następnie wykonywane są sprawdzenia kolejnych elementów funkcji, począwszy od końca. W przypadku, gdy mamy do czynienia z zerami, następują kolejne korekty granicy tablicy. Podana operacja trwa tak, dopóki nie zostaną przeanalizowane wszystkie elementy lub nie natrafimy na dowolną wartość różną od zera.
 	
 	Warto zauważyć, że w przypadku obu klas, funkcja ma wpływ na stopień wielomianu. Dodatkowo, operacja dokładania i zdejmowania kolejnych argumentów, w przypadku wektora nie została zoptymalizowana. Możliwe, że w sytucji konieczności, wielokrotnej zmiany jej rozmiarów, korzystniejsza byłaby pojedyncza operacja, zwłaszcza w przypadku konieczności usuwania kolejnych zerowych współczynników. Należałoby wówczas, najpierw przeanalizować kolejne ich wartości i zliczyć wszystkie zera znaczące, a następnie pojedynczą operacją, odpowiednio zmanipulować wskaźnik na ostatni element.
-	\\
 	
 	\subsubsection{Stwierdzanie czy wielomian jest wielomianem zerowym}
 	\begin{lstlisting}
@@ -1476,7 +1479,6 @@
 	\end{lstlisting}
 	
 	Funkcja ma na celu przeanalizowanie struktury wielomianu i stwierdzenie, czy dany wielomian jest wielomianem zerowym. Implementacja metody w obu klasach jest analogiczna. Następuje sprawdzenie, czy wielomian posiada wyłącznie zerowe współczynniki. Zgodnie z założeniami, w mapie przetrzymywane są tylko niezerowe wartości wyrazów wielomianu, a w wektorze, przechowywane są wszystkie współczynnik, aż do ostatniego niezerowego współczynnika, stojacego przy najwyższej potędze. Na tej podstawie jesteśmy w stanie stwierdzić, że funkcja zwraca prawdę, tylko, jeżeli mapa, bądź wektor są puste.
-	\\
 	
 	\subsubsection{Obliczanie stopnia wielomianu}
 	\begin{lstlisting}
@@ -1485,7 +1487,6 @@
 	\end{lstlisting}
 	
 	Zadaniem tej metody jest obliczenie stopnia danego wielomianu. Złożoność funkcji jest zależna od wybranej klasy. W przypadku PolynomialMap konieczna jest analiza jej kolejnych elementów i stwierdzenie, jaka jest największa, występująca w niej potęga. W przypadku PolynomialVector złożonośc funkcji jest stała, gdyż stopień wielomianu jest równy rozmiarowi tablicy, pomniejszonego o jeden. Dla obu klas, gdy mamy do czynienia z wielomianem zerowym, zwracaną wartością jest $-1$.
-	\\
 	
 	\subsubsection{Zwracanie wartości wielomianu w postaci łańcucha znaków}
 	\begin{lstlisting}
@@ -1495,20 +1496,20 @@
 	
 	Celem funkcji jest zwrócenie wartości wielomianu w postaci zmiennej znakowej. Jej rezultat wygląda analogicznie, jak wynik metody UniformInputString w klasie Parser. Na podstawie odpowiednich par – potęgi i wartości współczynnika, zostaje stworzony obiekt typu string. Na podstawie kolejnych liczb, przed kolejnymi wyrazami, zostają dostawione odpowiednio znaki plus, dla wartości większych od $0$ oraz minus, dla wartości mniejszych. Wyjątkiem jest pierwszy wyraz, w przypadku którego ewentualny znak minus, jest ignorowany. Pomijane są także zbędne elementy, takie jak "1*" dla współczynników, stojących przy potęgach dodatnich oraz "*x\^{}0" "\^{}1" dla odpowiednio – zerowej i pierwszej potęgi.
 	
-	Chociaż struktury różnią się reprezentacją w pamięci, to obie zwracają identycznie sformatowany rezultat. Uznałem bowiem, że w przypadku tablicy, przy przyjętym formatowaniu, wypisywanie zerowych współczynników jest zupełnie zbędne i tylko uczyniłoby wynik mniej czytelnym. Opcja wypisywania tablicy z kolejnymi współczynnikami została także odrzucona z podobnych powodów. Sytuacja taka byłaby bardzo niekorzystna dla użytkownika. Zwłaszcza dla rzadkich wielomianów wysokich stopni, ich reprezentacja uległaby znacznej zmianie, a ręczne znalezienie niezerowych współczyników okazałoby się praktycznie niewykonalne. 
-	\\
+	Chociaż struktury różnią się reprezentacją w pamięci, to obie zwracają identycznie sformatowany rezultat. Uznałem bowiem, że w przypadku tablicy, przy przyjętym formatowaniu, wypisywanie zerowych współczynników jest zupełnie zbędne i tylko uczyniłoby wynik mniej czytelnym. Opcja wypisywania tablicy z kolejnymi współczynnikami została także odrzucona z podobnych powodów. Sytuacja taka byłaby bardzo niekorzystna dla użytkownika. Zwłaszcza dla rzadkich wielomianów wysokich stopni, ich reprezentacja uległaby znacznej zmianie, a ręczne znalezienie niezerowych współczyników okazałoby się praktycznie niewykonalne.
 	
 	\subsubsection{Dzielenie wielomianów}
 	\begin{lstlisting}
 	inline pair<Polynomial&, Polynomial&>
-	PolynomialMap::DividePolynomials(Polynomial& p1, Polynomial& p2)
+	    PolynomialMap::DividePolynomials(Polynomial& p1,
+	    Polynomial& p2)
 	
 	inline pair<Polynomial&, Polynomial&>
-	PolynomialVector::DividePolynomials(Polynomial& p1, Polynomial& p2)
+	    PolynomialVector::DividePolynomials(Polynomial& p1,
+	    Polynomial& p2)
 	\end{lstlisting}
 	
 	Metoda dla podanych wielomianów oblicza ich iloraz oraz resztę z dzielenia i zwraca je jako parę obiektów. Na początku, funkcja oblicza wartość pierwszego wyrazu wielomianu, który zostanie zwrócony, jako iloraz. Jest on równy wynikowi dzielenia wyrazów stojących przy najwyższych potęgach wielomianów – dzielnej i dzielnika. Kolejne wyrazy drugiego z nich są mnożone przez otrzymaną wartość, a wynik jest odejmowany od dzielnej. W rezultacie tego działania, współczynnik przy najwyższej potędze staje się równy zero i zostaje zredukowany. Daje to gwarancję, że nowy stopień wielomianu, będzie przynajmniej o jeden mniejszy, niż stopień danego wielomianu. Funkcja kończy swoje działanie, gdy dokona powyższej operacji dla wszystkich wyrazów dzielnej. Wówczas aktualnie przetwarzany wielomian jest zwracany jako obliczona reszta. Warto zauważyć, że stopień tego wielomianu jest mniejszy od stopnia dzielnika i co najmniej o 2 mniejszy od stopnia dzielnej.
-	\\
 	
 	\subsubsection{Obliczanie pochodnej wielomianu}
 	\begin{lstlisting}
@@ -1527,7 +1528,6 @@
 	Funkcja ma na celu zwrócenie wektora wielomianów, w którym wartościami będą kolejne wyrazy ciągu Sturma. Na początku, przy pomocy funkcji Derivative obliczana jest pochodna wielomianu. Gdy jest ona wielomianem zerowym, zostaje zwrócony ciąg Sturma, zawierający tylko jeden element – wielomian, dla którego ciąg ten jest obliczany. Wiadomo wówczas, że liczba zmian znaków dla takie ciagu, niezależnie od wybranego punktu, będzie równa zero, co oznacza, że dany wielomian nie zawiera pierwiastków rzeczywistych.
 	
 	Kolejnym krokiem jest obliczenie reszty z dzielenia wielomianu, przez jego pochodną. Jeżeli jest ona wielomianem zerowym, to zwracany jest dwuelementowy ciąg Sturma – wielomian i jego pochodna. W przeciwnym razie, wartość do niej przeciwna stanowi kolejny element ciągu Sturma. Podobnie jak w przypadku pierwszej reszty z dzielenia, także kolejne wyrazy są obliczane jako iloraz dwóch poprzednich wyrazów ciągu Sturma. Dzieje się to tak długo, dopóki otrzymany wielomian jest wielomianem zerowym. Warto zauważyć, że maksymalna liczba wyrazów ciągu Sturma jest równa stopniowi wielomianu, powiększonemu o jeden. Wówczas stopnie kolejnych wyrazów ciągu Sturma są równe kolejnym potęgom, od stopnia wielomianu, do zera.
-	\\
 	
 	\subsubsection{Liczba zmian znaków w danym punkcie}
 	\begin{lstlisting}
@@ -1547,7 +1547,7 @@
 	
 	Możemy dodać go, nie istalując powyższego srodowiska, ale musimy być świadomi, że przy kolejnej próbie uruchomienia dostaniemy bliźniaczy komunikat dla innego pliku. Tak, więc rekomendowanym sposobem jest instalacja Microsoft Vistual Studio 2015, który zainstaluje wszystkie potrzebne biblioteki.
 	
-	Drugą rzeczą, którą należy zapewnić jest dynamiczna biblioteka mpir -- w postaci pliku "mpir.dll". Jeżeli instalujemy aplikację na komputerze z procesorem Intel i7 plik ten znajduje się w folderze z aplikacją. W przeciwnym razie jesteśmy zmuszenie skompilować źrodła biblioteki mpir, a powstały plik "mpir.dll"\ dodać do folderu z aplikacją lub pod ogólną lokalizacją dla wszystkich bibliotek systemu Windows.
+	Drugą rzeczą, którą należy zapewnić jest dynamiczna biblioteka mpir -- w postaci pliku mpir.dll. Jeżeli instalujemy aplikację na komputerze z procesorem Intel i7 plik ten znajduje się w folderze z aplikacją. W przeciwnym razie jesteśmy zmuszenie skompilować źrodła biblioteki mpir, a powstały plik "mpir.dll"\ dodać do folderu z aplikacją lub pod ogólną lokalizacją dla wszystkich bibliotek systemu Windows.
 	
 	\subsection{Kompilacja biblioteki mpir}
 	
@@ -1586,7 +1586,7 @@
 	
 	\subsection{ParserUniform}
 	
-	Klasa testowa pozwalająca na weryfikację metody UniformInputString, mającej na celu unifikację otrzymanej wartości znakowej, przedstawiającej wielomian. Testy dla niej zostały napisane, pomimo, że funkcja nie jest skomplikowana. Jej funkcjonalność została uznana za podstawową, a jej poprawne działanie jest niezbędne, by korzystać z programu. Jest to jedyna funkcja, która jest wołana niezależnie od innych.
+	Klasa testowa pozwalająca na weryfikację metody UniformInputString, mającej na celu unifikację otrzymanej wartości znakowej, przedstawiającej wielomian. Testy dla niej zostały napisane, pomimo że funkcja nie jest skomplikowana. Jej funkcjonalność została uznana za podstawową, a jej poprawne działanie jest niezbędne, by korzystać z programu. Jest to jedyna funkcja, która jest wołana niezależnie od innych.
 	
 	Jej zadaniem jest nie tylko ujednolicić wprowadzaną postać wielomianu, ale przede wszystkim dokonać walidacji jej poprawności. Musi być ona odporna na różnego rodzaju błędy, wprowadzane przez użytkownika, zarówno przypadkiem, jak i celowo. Jej celem jest przeanalizować i zwrócić pusty obiekt typu string, w momencie, gdy nie uda się jej zrozumieć i w pełni przeanalizować otrzymanego wejścia. Funkcja ConvertToPolynomial wywołuje ją na początku, a następnie bazując na otrzymanym rezultacie, tworzy wybrany obiekt typu PolynomialMap lub PolynomialVector.
 	
@@ -1608,7 +1608,7 @@
 	
 	Jest to klasa pozwalająca na testowanie metody ConvertToPolynomial. Wywołuje ona funkcję UniformInputString i analizuje jej wartość. Gdy jest to pusta wartość, tworzy wielomian zerowy. W przeciwnym wypadku, analizuje ona uzyskany rezultat i na jego podstawie tworzy wybrany obiekt typu PolynomialMap lub PolynomialVector. Rodzaj stworzonego wielomianu jest podawany jako parametr funkcji. W zależności od niego, także wszystkie pośrednie wielomiany, przybierają żądaną formę.
 	
-	Przetestowanie tej funkcji powinno być możliwie bardzo dokładne i zawierać różne przypadki graniczne. Bez poprawnego działania tej funkcji, użytkownik w żaden sposób nie może przewidzieć jaką wartośc będzie miał dany wielomian. Ewentualny błąd w tej funkcji może powodować nieprzewidziane zachowanie pozostałych. W zachowaniu funkcji uwzględnione przypadki niedopuszczalnych wielomianów, które jednak przeszły weryfikację poprawności funkcji UniformInputData. Są nimi między innymi: ujemna lub niecałkowita potęga wielomianu, czy dzielenie przez wielomian zerowy. Wejścia takie nie zostaną odrzucone, ponieważ zawierają one wielomiany poprawne składniowo, a nielegalne wartości zostaną wykryte dopiero w momencie dokonania obliczeń, wykonanywanych jako pierwsze, np. z powodu nawiasu.
+	Przetestowanie tej funkcji powinno być możliwie bardzo dokładne i zawierać różne przypadki graniczne. Bez poprawnego działania tej funkcji, użytkownik w żaden sposób nie może przewidzieć jaką wartośc będzie miał dany wielomian. Ewentualny błąd w tej funkcji może powodować nieprzewidziane zachowanie pozostałych. W zachowaniu funkcji uwzględnione przypadki niedopuszczalnych wielomianów, które jednak przeszły weryfikację poprawności funkcji UniformInputData. Są nimi między innymi: ujemna lub niecałkowita potęga wielomianu, czy dzielenie przez wielomian zerowy. Wejścia takie nie zostaną odrzucone, ponieważ zawierają one wielomiany poprawne składniowo, a nielegalne wartości zostaną wykryte dopiero w momencie dokonania obliczeń, wykonanywanych jako pierwsze, np.\ z powodu nawiasu.
 	
 	By przetestować funkcję, napisałem blisko $50$ różnych testów. Poniżej przedstawiam wybrane z nich przypadki testowe.
 	
@@ -1699,7 +1699,8 @@
 	"-12x2" % "-6x" = "0"
 	"x3+x2+x" % "x" = "0"
 	"-30x3-15x" % "-5x2" = "-15x"
-	"x6-6x4-4x3+9x2+12x+4" % "x5-4x3-2x2+3x+2" = "-2(x4+x3-3x2-5x-2)"
+	"x6-6x4-4x3+9x2+12x+4" % "x5-4x3-2x2+3x+2" =
+	    = "-2(x4+x3-3x2-5x-2)"
 	"x3+x2+x1+11" % "x2+1" = "10"
 	"(x+2)^3+1" % "x+2" = "1"
 	"x4-4x3+6x2-7x+3" % "(x-1)^2" = "-3x+2"
@@ -1755,7 +1756,7 @@
 	
 	\subsection{PolynomialNumberOfRoots}
 	
-	Jest to klasa, sprawdzająca ile pierwiastków rzeczywistych znajduje się w podanym przedziale. Pod uwagę brane są wyłącznie rożne pierwiastki, dlatego na początku funkcji weryfikującej wywoływana jest funkcja PolynomialAfterEliminationOfMultipleRoots, a dopiero na jej znormalizowanym rezultacie wykonywana jest właściwa funkcja. Jej rezultat porównywany jest ze spodziewaną wartością, podawaną w postaci zmiennej typu int. Domyślnymi granicami przedziału są wartości niewłaściwe $-\infty$ i $+\infty$, więc gdy interesują nas pierwiastki w całym zbiorze liczb rzeczywistych, nie ma potrzeby ich podawać. W przeciwnym razie są one nadpisywane wartościami pól klasy – $a$ i $b$, oznaczających lewy i prawy kraniec przedziału. Możliwe jest także sprecyzowanie granicy przedziału tylko z jednej strony, np. gdy szukamy liczby pierwiastków dodatnich. Poniżej zamieszczam przykładowe testy dla różnych przedziałów wyszukiwania.
+	Jest to klasa, sprawdzająca ile pierwiastków rzeczywistych znajduje się w podanym przedziale. Pod uwagę brane są wyłącznie rożne pierwiastki, dlatego na początku funkcji weryfikującej wywoływana jest funkcja PolynomialAfterEliminationOfMultipleRoots, a dopiero na jej znormalizowanym rezultacie wykonywana jest właściwa funkcja. Jej rezultat porównywany jest ze spodziewaną wartością, podawaną w postaci zmiennej typu int. Domyślnymi granicami przedziału są wartości niewłaściwe $-\infty$ i $+\infty$, więc gdy interesują nas pierwiastki w całym zbiorze liczb rzeczywistych, nie ma potrzeby ich podawać. W przeciwnym razie są one nadpisywane wartościami pól klasy – $a$ i $b$, oznaczających lewy i prawy kraniec przedziału. Możliwe jest także sprecyzowanie granicy przedziału tylko z jednej strony, np.\ gdy szukamy liczby pierwiastków dodatnich. Poniżej zamieszczam przykładowe testy dla różnych przedziałów wyszukiwania.
 	
 	\begin{lstlisting}
 	W(x) = "20" -> 0
@@ -1806,7 +1807,7 @@
 	
 	Wydaje się, że podobnie jak w przypadku wielomianów nieposiadających pierwiastków, również w tym, czas znajdowania pierwiastków dla typu PolynomialMap powinien być znacznie krótszy niż dla PolynomialVector. Natomiast, czy aby na pewno, tak jest? Rozważmy poniższy przykład.
 	Postarajmy się zbudować ciąg Sturma dla wielomianu $x^{101}+1$. Zacznijmy od obliczenia pochodnej.
-	$(x^{101}+1)’=101x^{100}$
+	$(x^{101}+1)'=101x^{100}$
 	Obliczona wartość jest drugim elementem ciągu Sturma. Obliczmy resztę z dzielenia dwóch pierwszych wielomianów tego ciągu.
 	$\frac{1/101}x$
 	$x^{101}+1 : (x^{100})$
@@ -1822,33 +1823,9 @@
 	
 	Teraz zastanówmy się, jak skonstruować wielomian, który zawiera liczbę różnych pierwiastków równą jego stopniowi. Intuicyjne utworzenie wielomianu, podając jego kolejne współczynniki jest niemożliwe dla wysokich stopni.
 	
-	Rozwiązaniem jest więc przedstawienie go w postaci czynników, wskazując jego kolejne pierwiastki. Przykładowo wielomian W, o stopniu $k$, możemy przypisać pierwiastki, będące kolejnymi dodatnimi liczbami całkowitymi, ustalając jego wartość jako $W(x)=(x-1)*(x-2)*(x-3)*…*(x-(k-2))*(x-(k-1))*(x-k)$, gdzie $k$ jest stopniem wielomianu.
+	Rozwiązaniem jest więc przedstawienie go w postaci czynników, wskazując jego kolejne pierwiastki. Przykładowo wielomian W, o stopniu $k$, możemy przypisać pierwiastki, będące kolejnymi dodatnimi liczbami całkowitymi, ustalając jego wartość jako $W(x)=(x-1)*(x-2)*(x-3)*...*(x-(k-2))*(x-(k-1))*(x-k)$, gdzie $k$ jest stopniem wielomianu.
 	
 	Przetestujemy więc wielomiany powyższej postaci. Z powodu ograniczeń czasowych zdecydowałem się w tym teście na badaniu wielomianów niższych stopni, niż w pozostałych przypadkach. Zapoznajmy się z rezultatami opisanego eksperymentu.
-	
-	\begin{tikzpicture}
-	\begin{axis}[
-	axis lines = left,
-	xlabel = $x$,
-	ylabel = {$f(x)$},
-	]
-	%Below the red parabola is defined
-	\addplot [
-	domain=-10:10, 
-	samples=100, 
-	color=red,
-	]
-	{x^2 - 2*x - 1};
-	%Here the blue parabloa is defined
-	\addplot [
-	domain=-10:10, 
-	samples=100, 
-	color=blue,
-	]
-	{x^2 + 2*x + 1};
-	
-	\end{axis}
-	\end{tikzpicture}
 	
 	\section {Porównanie aplikacji z innym programem}
 	
@@ -1868,7 +1845,7 @@
 	
 	\begin{table}
 	\caption{Porównanie możliwości i interefejsu użytkownika aplikacji}
-		\begin{tabular}{ |p{4.5cm}|p{5.5cm}|p{1.5cm}|p{1.5cm}| } 
+		\begin{tabular}{ |p{4.7cm}|p{5.5cm}|p{1.5cm}|p{1.5cm}| } 
 			\hline
 			Kategoria & Kryterium & Moja aplikacja & Wolfram Alpha \\
 			\hline
@@ -2036,16 +2013,17 @@
 	Dla drugiej kategorii mój program także znalazł wszystkie rozwiązania. Z kolei Wolfram Alpha zachował się poprawnie dla wielomianów stopni czwartego i szóstego. Wynik znajdowania pierwiastków dla ostatniego wielomianu, stopnia ósmego był niepoprawny. Znalezione zostały tylko dwa pierwiastki rzeczywiste, przy czym w oby przypadkach widoczna była pewna niedokładność. Pozostałe sześć pierwiastków rzeczywistych nie zostały znalezionych, a wszystkie one zostały potraktowane jako pierwiastki zespolone. Poniżej zamieszczam zwrócone przez serwis Wolfram Alpha wartości pierwiastków.
 	
 	\begin{itemize}
-		\item $\{1.10922, 1.18099\}, \{1.12238-0.00620719i, 1.12238+0.00620719i,
+		\item $\{1.10922, 1.18099\}, \{1.12238-0.00620719i, 1.12238+0.00620719i, \\
 		1.14483-0.0113488i, 1.14483+0.0113488i, 1.16769-0.00684386 i, 1.16769+0.00684386i\}$
 	\end{itemize}
 	
 	Także dla trzeciej kategorii, wymagającej najwyzszej precyzji, moja aplikacja zachowała się w pełni poprawnie. Z kolei porównywana program tylko dla wielomianu stopnia czwartego zwrócił poprawny wynik. W drugim przypadku wielomian Wolfram Alpha znalazł 2 pierwiastki rzeczywiste. Oba cechowały się zauważalnym brakiem precyzji. W ostatnim przypadku, dla wielomianu stopnia ósmego Wolfram Alpha nie znalazł żadnego pierwiastka rzeczywistego. Oto wartości pierwiastków zwrócone przez porównywany serwis dla drugiego i trzeciego wielomianu tej kategorii.
 	
 	\begin{itemize}
-		\item $\{1.10875, 1.11827\}, \{1.11113-0.0035388i,1.11113+0.0035388i,1.11587-0.00355076i, 1.11587+0.00355076i\}$
+		\item $\{1.10875, 1.11827\}, \{1.11113-0.0035388i,1.11113+0.0035388i, \\
+		1.11587-0.00355076i, 1.11587+0.00355076i\}$
 		\item $\{\}, \{1.09738-0.0069297i,1.09738+0.0069297i, 1.10729-0.016855i, \\
-		1.10729+0.016855i, 1.12154-0.0170316i, 1.12154+0.0170316i, 1.13179-0.00710625i, 1.13179+0.00710625i\}$
+		1.10729+0.016855i, 1.12154-0.0170316i, 1.12154+0.0170316i, 1.13179-0.00710625i, \\ 1.13179+0.00710625i\}$
 	\end{itemize}	
 	
 	Reasumując przeprowadzone testy należy zauwazyć, ze moja aplikacja zachowała się poprawnie w przypadku wszystkich przeprowadzonych testów. Kluczowe były dla tego dwa aspekty. Pierwszym z nim była dowolna precyzja obliczeń, którą zapewniała biblioteka mpir. Drugim zaś było zastosowanie twierdzenia Sturma, umożliwiającego znalezienie wszystkich pierwiastków rzeczywistych.
@@ -2112,6 +2090,7 @@
 	\nocite{buell2004algorithmic}
 	\nocite{burden2015numerical}
 	\nocite{childs2012concrete}
+	\nocite{cormen2004wprowadzenie}
 	\nocite{granlund2015gnu}
 	\nocite{kryszewski2014wyklad}
 	\nocite{malik2009data}

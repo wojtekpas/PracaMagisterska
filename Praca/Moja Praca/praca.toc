@@ -58,7 +58,7 @@
 \contentsline {subsection}{\numberline {3.3.3}Metody klasy Polynomial}{48}
 \contentsline {subsubsection}{Najwi\IeC {\k e}kszy wsp\IeC {\'o}lny dzielnik wielomian\IeC {\'o}w}{48}
 \contentsline {subsubsection}{Eliminacja pierwiastk\IeC {\'o}w wielokrotnych wielomianu}{48}
-\contentsline {subsubsection}{Algorytm wyznaczania kolejnych przedzia\IeC {\l }\IeC {\'o}w wyszukiwania}{49}
+\contentsline {subsubsection}{Algorytm wyznaczania kolejnych przedzia\IeC {\l }\IeC {\'o}w wyszukiwania}{48}
 \contentsline {subsubsection}{Liczba pierwiastk\IeC {\'o}w wielomianu w badanym przedziale}{50}
 \contentsline {subsubsection}{Znajdowanie pierwiastk\IeC {\'o}w wielomianu w badanym przedziale}{50}
 \contentsline {subsection}{\numberline {3.3.4}Metody czysto wirtualne klasy Polynonial \IeC {\textendash } por\IeC {\'o}wnanie dzia\IeC {\l }ania metod klas PolynomialMap i PolynomialVector}{51}
@@ -68,36 +68,36 @@
 \contentsline {subsubsection}{Zwracanie warto\IeC {\'s}ci wielomianu w postaci \IeC {\l }a\IeC {\'n}cucha znak\IeC {\'o}w}{52}
 \contentsline {subsubsection}{Dzielenie wielomian\IeC {\'o}w}{53}
 \contentsline {subsubsection}{Obliczanie pochodnej wielomianu}{53}
-\contentsline {subsubsection}{Obliczanie wyraz\IeC {\'o}w ciagu Sturma}{54}
+\contentsline {subsubsection}{Obliczanie wyraz\IeC {\'o}w ciagu Sturma}{53}
 \contentsline {subsubsection}{Liczba zmian znak\IeC {\'o}w w danym punkcie}{54}
-\contentsline {section}{\numberline {3.4}Instalacja aplikacji}{55}
-\contentsline {subsection}{\numberline {3.4.1}Szybka instalacja}{55}
+\contentsline {section}{\numberline {3.4}Instalacja aplikacji}{54}
+\contentsline {subsection}{\numberline {3.4.1}Szybka instalacja}{54}
 \contentsline {subsection}{\numberline {3.4.2}Kompilacja biblioteki mpir}{55}
 \contentsline {subsection}{\numberline {3.4.3}Kompilacja solucji}{55}
-\contentsline {section}{\numberline {3.5}Instrukcja obs\IeC {\l }ugi programu}{56}
-\contentsline {chapter}{\numberline {4}Przeprowadzone testy}{57}
-\contentsline {section}{\numberline {4.1}Testy funkcjonalne}{57}
-\contentsline {subsection}{\numberline {4.1.1}ParserUniform}{58}
-\contentsline {subsection}{\numberline {4.1.2}ParserConvert}{59}
-\contentsline {subsection}{\numberline {4.1.3}Operatory dodawania, odejmowania i mno\IeC {\.z}enia}{59}
-\contentsline {subsubsection}{PolynomialSumOperator}{59}
-\contentsline {subsubsection}{PolynomialSubOperator}{60}
-\contentsline {subsubsection}{PolynomialMulOperator}{60}
-\contentsline {subsection}{\numberline {4.1.4}Operatory dzielenia i modulo}{61}
-\contentsline {subsubsection}{PolynomialDivOperator}{61}
-\contentsline {subsubsection}{PolynomialModOperator}{61}
-\contentsline {subsection}{\numberline {4.1.5}PolynomialDerivative}{62}
-\contentsline {subsection}{\numberline {4.1.6}PolynomialAfterElimination}{62}
-\contentsline {subsection}{\numberline {4.1.7}PolynomialValue}{63}
-\contentsline {subsection}{\numberline {4.1.8}PolynomialNumberOfRoots}{63}
-\contentsline {subsection}{\numberline {4.1.9}PolynomialRoots}{64}
-\contentsline {section}{\numberline {4.2}Testy wydajno\IeC {\'s}ciowe}{65}
-\contentsline {subsection}{\numberline {4.2.1}Test 1}{65}
-\contentsline {subsection}{\numberline {4.2.2}Test 2}{65}
-\contentsline {subsection}{\numberline {4.2.3}Test 3}{66}
-\contentsline {section}{\numberline {4.3}Por\IeC {\'o}wnanie aplikacji z innym programem}{67}
-\contentsline {subsection}{\numberline {4.3.1}Por\IeC {\'o}wnanie mo\IeC {\.z}liwo\IeC {\'s}ci aplikacji i interfejsu u\IeC {\.z}ytkownika}{67}
-\contentsline {subsection}{\numberline {4.3.2}Por\IeC {\'o}wnanie poprawno\IeC {\'s}ci i precyzji oblicze\IeC {\'n}}{68}
-\contentsline {subsubsection}{Pierwiastki odleg\IeC {\l }e od siebie}{68}
-\contentsline {subsubsection}{Pierwiastki znajduj\IeC {\k a}ce si\IeC {\k e} blisko siebie}{70}
-\contentsline {chapter}{\numberline {5}Podsumowanie}{74}
+\contentsline {section}{\numberline {3.5}Instrukcja obs\IeC {\l }ugi programu}{55}
+\contentsline {chapter}{\numberline {4}Przeprowadzone testy}{56}
+\contentsline {section}{\numberline {4.1}Testy funkcjonalne}{56}
+\contentsline {subsection}{\numberline {4.1.1}ParserUniform}{57}
+\contentsline {subsection}{\numberline {4.1.2}ParserConvert}{58}
+\contentsline {subsection}{\numberline {4.1.3}Operatory dodawania, odejmowania i mno\IeC {\.z}enia}{58}
+\contentsline {subsubsection}{PolynomialSumOperator}{58}
+\contentsline {subsubsection}{PolynomialSubOperator}{59}
+\contentsline {subsubsection}{PolynomialMulOperator}{59}
+\contentsline {subsection}{\numberline {4.1.4}Operatory dzielenia i modulo}{60}
+\contentsline {subsubsection}{PolynomialDivOperator}{60}
+\contentsline {subsubsection}{PolynomialModOperator}{60}
+\contentsline {subsection}{\numberline {4.1.5}PolynomialDerivative}{61}
+\contentsline {subsection}{\numberline {4.1.6}PolynomialAfterElimination}{61}
+\contentsline {subsection}{\numberline {4.1.7}PolynomialValue}{62}
+\contentsline {subsection}{\numberline {4.1.8}PolynomialNumberOfRoots}{62}
+\contentsline {subsection}{\numberline {4.1.9}PolynomialRoots}{63}
+\contentsline {section}{\numberline {4.2}Testy wydajno\IeC {\'s}ciowe}{64}
+\contentsline {subsection}{\numberline {4.2.1}Test 1}{64}
+\contentsline {subsection}{\numberline {4.2.2}Test 2}{64}
+\contentsline {subsection}{\numberline {4.2.3}Test 3}{65}
+\contentsline {section}{\numberline {4.3}Por\IeC {\'o}wnanie aplikacji z innym programem}{65}
+\contentsline {subsection}{\numberline {4.3.1}Por\IeC {\'o}wnanie mo\IeC {\.z}liwo\IeC {\'s}ci aplikacji i interfejsu u\IeC {\.z}ytkownika}{65}
+\contentsline {subsection}{\numberline {4.3.2}Por\IeC {\'o}wnanie poprawno\IeC {\'s}ci i precyzji oblicze\IeC {\'n}}{67}
+\contentsline {subsubsection}{Pierwiastki odleg\IeC {\l }e od siebie}{67}
+\contentsline {subsubsection}{Pierwiastki znajduj\IeC {\k a}ce si\IeC {\k e} blisko siebie}{68}
+\contentsline {chapter}{\numberline {5}Podsumowanie}{73}

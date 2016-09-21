@@ -21,6 +21,11 @@ L.N. Childs.
 \newblock {\em A Concrete Introduction to Higher Algebra}.
 \newblock Undergraduate Texts in Mathematics. Springer New York, 2012.
 
+\bibitem{cormen2004wprowadzenie}
+T.H. Cormen and K.~Diks.
+\newblock {\em Wprowadzenie do algorytm{\'o}w}.
+\newblock Klasyka Informatyki. Wydawnictwa Naukowo-Techniczne, 2004.
+
 \bibitem{granlund2015gnu}
 T.~Granlund and G.D. Team.
 \newblock {\em Gnu MP 6.0 Multiple Precision Arithmetic Library}.
