@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  22 SEP 2016 00:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  22 SEP 2016 00:23
 entering extended mode
 **./praca.tex
 (praca.tex
@@ -1347,28 +1347,28 @@ Underfull \hbox (badness 10000) in paragraph at lines 1936--1937
 []|\T1/lmr/m/n/10 Wolfram
  []
 
-[68] [69] [70]
-Underfull \hbox (badness 10000) in paragraph at lines 2042--2042
+[68] [69] [70] [71]
+Underfull \hbox (badness 10000) in paragraph at lines 2045--2045
 []|\T1/lmr/m/n/10 Moja
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2042--2043
+Underfull \hbox (badness 10000) in paragraph at lines 2045--2046
 []|\T1/lmr/m/n/10 Wolfram
  []
 
-[71]
+[72]
 Rozdzia\PlPrIeC {\l } 5.
-[72
+[73
 
-] [73] (praca.lot)
+] [74] (praca.lot)
 \tf@lot=\write5
 \openout5 = `praca.lot'.
 
- (praca.bbl [74
+ (praca.bbl [75
 
 
-]) [75
+]) [76
 
 ] (praca.aux) ) 
 Here is how much of TeX's memory you used:
@@ -1396,9 +1396,9 @@ m Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmri10.pfb><C:/Program Files (x8
 6)/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Program Files (x86)/MiKTeX 2
 .9/fonts/type1/public/lm/lmsy5.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/typ
 e1/public/lm/lmsy7.pfb>
-Output written on praca.pdf (75 pages, 679668 bytes).
+Output written on praca.pdf (76 pages, 680407 bytes).
 PDF statistics:
- 372 PDF objects out of 1000 (max. 8388607)
+ 375 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  53 words of extra memory for PDF output out of 10000 (max. 10000000)
 

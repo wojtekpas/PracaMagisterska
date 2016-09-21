@@ -1556,7 +1556,7 @@
 	
 	\subsection{Kompilacja solucji}
 	
-	Jeżeli interesuje nas zmiana plików źródłowych aplikacji, musimy mieć dostęp zarówno do plików źródłowych biblioteki mpir, jak i tych, które powstały w procesie budowania. Dlatego pierwszym krokiem powinno być w tym przypadku, wykonanie instrukcji, o których mowa w poprzednim podroździale. Następnie kopiujemy podane niżej pliki do odpowiednich lokalizacji.
+	Jeżeli interesuje nas zmiana plików źródłowych aplikacji, musimy mieć dostęp zarówno do plików źródłowych biblioteki mpir, jak i tych, które powstały w procesie budowania. Dlatego pierwszym krokiem powinno być w tym przypadku, wykonanie instrukcji, o których mowa w poprzednim podrozdziale. Następnie kopiujemy podane niżej pliki do odpowiednich lokalizacji.
 	
 	\begin{itemize}
 		\item Pliki "mpir.lib"\ i "mpir.dll"\ z "x64/Release" do "Microsoft Visual Studio 14.0/VC/lib"
@@ -1832,7 +1832,7 @@
 	
 	\section {Porównanie aplikacji z innym programem}
 	
-	W niniejszym podroździale dokonam porównania stworzonej przeze mnie aplikacji z innym programem. Wybrany przeze mnie został Wolfram Alpha jako przykład serwisu, który oprócz wielu innych funkcjonalności, umożliwia także znajdowanie pierwiastków wielomianów. Porównanie wykonałem w dwóch dziedzinach. Pierwszą z nich jest ocena interfejsu i możliwości jakie dają nam obie aplikację. Drugą z nich jest wykonanie szeregu testów, mające na celu sprawdzenie specyficznych przypadków wielomianu, by przekonać się, czy są one wystarczająco precyzje.
+	W niniejszym podrozdziale dokonam porównania stworzonej przeze mnie aplikacji z innym programem. Wybrany przeze mnie został Wolfram Alpha jako przykład serwisu, który oprócz wielu innych funkcjonalności, umożliwia także znajdowanie pierwiastków wielomianów. Porównanie wykonałem w dwóch dziedzinach. Pierwszą z nich jest ocena interfejsu i możliwości jakie dają nam obie aplikację. Drugą z nich jest wykonanie szeregu testów, mające na celu sprawdzenie specyficznych przypadków wielomianu, by przekonać się, czy są one wystarczająco precyzje.
 	
 	\subsection {Porównanie możliwości aplikacji i interfejsu użytkownika}
 	
@@ -2034,6 +2034,9 @@
 	Z kolei aplikacja Wolfram Alpha miała spore problemy ze znalezieniem pierwiastków, w momencie, gdy znajdowały się one blisko siebie. Spowodowane było to najprawdopodobniej zaokrągleniami, które zostały wykonywane w trakcie obliczeń. Sprawiało to, że czasem wartości pierwiastków były zauważalnie niedokładne, co momentami przekładało się na traktowanie różnych pierwiastków jako jeden pierwiastek wielokrotnych. Dodatkowo zwłaszcza przy wzroście wymaganej precyzji obliczeń i stopnia badanych wielomianów dało się zauwazyć, że aplikacja Wolfram Alpha nie potrafi zlokalizować pierwiastków danego wielomianu.
 	
 	Poniżej znajduje się tabela z podsumowaniem przeprowadzonych testów.
+	
+	\newpage
+	TODO zrobić tak, by tabela nie uciekała w doł lub nie wyprzedzała tekstu, który jest wyżej
 	
 	\begin{table}
 		\caption{Porównanie precyzji aplikacji w przypadku położonych blisko siebie pierwiastków}

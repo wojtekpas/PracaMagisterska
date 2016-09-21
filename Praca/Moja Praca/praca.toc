@@ -100,4 +100,4 @@
 \contentsline {subsection}{\numberline {4.3.2}Por\IeC {\'o}wnanie poprawno\IeC {\'s}ci i precyzji oblicze\IeC {\'n}}{67}
 \contentsline {subsubsection}{Pierwiastki odleg\IeC {\l }e od siebie}{67}
 \contentsline {subsubsection}{Pierwiastki znajduj\IeC {\k a}ce si\IeC {\k e} blisko siebie}{68}
-\contentsline {chapter}{\numberline {5}Podsumowanie}{72}
+\contentsline {chapter}{\numberline {5}Podsumowanie}{73}
