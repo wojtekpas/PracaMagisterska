@@ -6,7 +6,8 @@
 \usepackage{amssymb}
 \usepackage{textcomp}
 \usepackage[utf8]{inputenc}
-%\usepackage[polish]{babel}
+%\usepackage{polski}
+
 \usepackage[T1]{fontenc}
 \usepackage{array}
 % pakiet stosowany do url'i w bibliografii, zamienia odnośniki na ładnie sformatowane
@@ -39,12 +40,12 @@
 \usepackage{anysize}
 \marginsize{3.5cm}{2.5cm}{2.5cm}{2.5cm}
 
-%\fancyhead[LE,RO]{\bfseries\thepage}
+\fancyhead[LE,RO]{\bfseries\thepage}
 % tutaj ograniczamy szerokość pola w nagłówku zawierającego nazwę rozdziału/podrozdziału do 95% szerokości strony
 % redefinicja sposobu prezentacji nazw domyślnie wypisywanych wielkimi literami (np. domyślnie w nagłówku Spis treści będzie miał postać SPIS TREŚCI)
 % Uwaga! to może popsuć wielkie litery w ogóle! Jak coś nie działa należy usunąć \nouppercase{} z poniższych definicji
 \fancyhead[LO]{\nouppercase{\bfseries{\truncate{.95\headwidth}{\rightmark}}}}
-%\fancyhead[RE]{\nouppercase{\bfseries{\truncate{.95\headwidth}{\leftmark}}}}
+\fancyhead[RE]{\nouppercase{\bfseries{\truncate{.95\headwidth}{\leftmark}}}}
 \renewcommand{\headrulewidth}{0.5pt}
 \renewcommand{\footrulewidth}{0pt}
 
@@ -93,7 +94,7 @@
 	\hskip1.5em plus0em minus0.5em \fi \nobreak
 	\vrule height0.75em width0.5em depth0.25em\fi}
 
-% poniższymi instrukcjami można sterować co ma być numerowane a co nie i co ma być wyświetlane w spisie treści
+% poniższymi instrukcjami można sterować co ma być owane a co nie i co ma być wyświetlane w spisie treści
 % \setcounter{secnumdepth}{3}
 % \setcounter{tocdepth}{5}
 
@@ -121,7 +122,7 @@
 
 \usepackage{titling}
 
-%\usepackage{tikz,pgfplots}
+\usepackage{tikz,pgfplots}
 
 \usepackage{pdfpages}
 
@@ -146,6 +147,10 @@
 	% generacja strony tytułowej załączonej wcześniej
 	\includepdf{StronaTytulowa.pdf}
 	\includepdf{Oswiadczenie.pdf}
+	
+	% właściwa część książki, numerowana arabskimi od 1
+	\mainmatter
+	\setcounter{page}{3}
 	
 	\chapter*{Streszczenie}
 	\indent
@@ -180,10 +185,6 @@
 	
 	% spis treści
 	\tableofcontents
-	
-	% właściwa część książki, numerowana arabskimi od 1
-	\mainmatter
-	\setcounter{page}{7}
 	
 	\chapter{Wstęp}
 
