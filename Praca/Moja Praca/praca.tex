@@ -6,8 +6,7 @@
 \usepackage{amssymb}
 \usepackage{textcomp}
 \usepackage[utf8]{inputenc}
-%\usepackage{polski}
-\usepackage[polish]{babel}
+\usepackage{polski}
 \usepackage[T1]{fontenc}
 \usepackage{array}
 % pakiet stosowany do url'i w bibliografii, zamienia odnośniki na ładnie sformatowane
@@ -35,17 +34,11 @@
 \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
 \renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
 \fancyhf{}
-
-% korekta marginesów - domyślnie latex ma jakieś kosmiczne
-\usepackage{anysize}
-\marginsize{3.5cm}{2.5cm}{2.5cm}{2.5cm}
-
-\fancyhead[LE,RO]{\bfseries\thepage}
+\fancyhead[RO]{\bfseries\thepage}
 % tutaj ograniczamy szerokość pola w nagłówku zawierającego nazwę rozdziału/podrozdziału do 95% szerokości strony
 % redefinicja sposobu prezentacji nazw domyślnie wypisywanych wielkimi literami (np. domyślnie w nagłówku Spis treści będzie miał postać SPIS TREŚCI)
 % Uwaga! to może popsuć wielkie litery w ogóle! Jak coś nie działa należy usunąć \nouppercase{} z poniższych definicji
 \fancyhead[LO]{\nouppercase{\bfseries{\truncate{.95\headwidth}{\rightmark}}}}
-\fancyhead[RE]{\nouppercase{\bfseries{\truncate{.95\headwidth}{\leftmark}}}}
 \renewcommand{\headrulewidth}{0.5pt}
 \renewcommand{\footrulewidth}{0pt}
 
@@ -94,7 +87,7 @@
 	\hskip1.5em plus0em minus0.5em \fi \nobreak
 	\vrule height0.75em width0.5em depth0.25em\fi}
 
-% poniższymi instrukcjami można sterować co ma być owane a co nie i co ma być wyświetlane w spisie treści
+% poniższymi instrukcjami można sterować co ma być numerowane a co nie i co ma być wyświetlane w spisie treści
 % \setcounter{secnumdepth}{3}
 % \setcounter{tocdepth}{5}
 
@@ -122,15 +115,11 @@
 
 \usepackage{titling}
 
-\usepackage{tikz,pgfplots}
+%\usepackage{tikz,pgfplots}
 
 \usepackage{pdfpages}
 
 \renewcommand*{\tablename}{Tabela}
-
-%dzielenie wyrazów
-
-\hyphenation{zwy-kłe-go po-wyż-sze-go wów-czas twie-r-dze-niu u-ła-m-ko-wej wy-mie-rną u-ni-k-so-wych o-b-li-cza-nie spra-w-nie-j-szą współ-czyn-ni-ki a-na-lo-gi-czne re-pre-zen-ta-cje po-mi-mo po-czą-tku no-we-go zna-le-zie-nia od-po-wie-d-niej zwra-ca-ny po-ró-w-na-łem ca-ł-ko-wi-tych pie-r-wia-st-ków}
 
 % parametry strony tytułowej, zdefiniowane są w plikach z poszczególnymi stronami
 % tytuł pracy
@@ -140,8 +129,13 @@
 % rok wydania
 \date{2016}
 
+% korekta marginesów - domyślnie latex ma jakieś kosmiczne
+\usepackage{anysize}
+\marginsize{3.5cm}{2.5cm}{2.5cm}{2.5cm}
 % po zmianie marginesów konieczne jest wymuszenie przeliczenia nagłówków
-%\fancyhfoffset[E,O]{0pt}
+\fancyhfoffset[E,O]{0pt}
+
+\hyphenation{zwy-kłe-go po-wyż-sze-go wów-czas twie-r-dze-niu u-ła-m-ko-wej wy-mie-rną u-ni-k-so-wych o-b-li-cza-nie spra-w-nie-j-szą współ-czyn-ni-ki a-na-lo-gi-czne re-pre-zen-ta-cje po-mi-mo po-czą-tku no-we-go zna-le-zie-nia od-po-wie-d-niej zwra-ca-ny po-ró-w-na-łem ca-ł-ko-wi-tych pie-r-wia-st-ków}
 
 \begin{document}
 	% generacja strony tytułowej załączonej wcześniej
@@ -1853,7 +1847,7 @@
 	Poniżej zamieszczam podsumowanie porównania obu aplikacji w formie tabeli.
 	
 	\begin{table}
-	\caption{Porównanie możliwości i interefejsu użytkownika aplikacji}
+	\caption{Porównanie możliwości aplikacji i interefejsu użytkownika}
 		\begin{tabular}{ |p{4.7cm}|p{5.5cm}|p{1.5cm}|p{1.5cm}| } 
 			\hline
 			Kategoria & Kryterium & Moja aplikacja & Wolfram Alpha \\
@@ -2091,6 +2085,8 @@
 	
 	\backmatter
 	
+	% lista tabel
+	\listoftables
 	
 	% rodzaj bibliografii
 	\bibliographystyle{plain}
