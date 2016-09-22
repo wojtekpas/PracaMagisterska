@@ -204,7 +204,7 @@ Wielomiany jako przykład funkcji ciągłej, pozwalają na obliczanie pochodnych
 
 \begin{definition}
 	$ $\\
-	Dany jest wielomian $W$, określony wzorem $W(x) = a_0x^n + a_1x^{n-1} + ... + a_{n-1}x + a_n$. Pochodną wielomianu $W$ nazywamy wielomian $W'$ i wyrażamy wzorem:
+	Dany jest wielomian $W$, określony wzorem $W(x) = a_0x^n + a_1x^{n-1} + ... + a_{n-1}x + a_n$, gdzie $n\ge1$. Pochodną wielomianu $W$ nazywamy wielomian $W'$ i wyrażamy wzorem:
 	$W'(x) = na_0x^{n-1} + (n-1)a_1x^{n-2} + ... + 2a_{n-2}x + a_{n-1}$
 \end{definition}
 
@@ -227,7 +227,7 @@ Zacznijmy od zastanowienia się, co znaczy, że dany wielomian dzieli inny wielo
 	Wspólnym dzielnikiem dwóch wielomianów $W_1$ i $W_2$, nazywy taki wielomian $W_3$, że gdy podzielimy dowolny z tych dwóch wielomianów przez $W_3$ to otrzymamy zerową resztę z dzielenia.
 \end{definition}
 
-Zauważmy, że definicja ta jest analogiczna, jak w przypadku liczb naturalnych.
+By zapewnić jednoznaczność wielomianów, w dalszej części mówiąc o NWD dwóch wielomianów zawsze będziemy mieli na myśli taki wielomian, którego współczynnik stojący przy najwyższej potędze jest równy $1$. Zauważmy, że powyższa definicja jest analogiczna, jak w przypadku liczb naturalnych.
 Co oznacza największy wspólny dzielnik? W przypadku liczb jest to dowolna liczba naturalna spełniająca powyższy warunek. Podobnie jest dla wielomianów. Spośród wszystkich wielomianów, które spełniają to kryterium, jest to ten, którego stopień jest najwyższy. Potwierdza to poniższa definicja.
 
 \begin{definition}
@@ -275,6 +275,21 @@ Zauważmy, że na podstawie twierdzenia, przedstawionego wcześniej, wiemy, że 
 	
 	Otrzymaną resztą z dzielenia jest wielomian zerowy, zatem dzielnik tego działania jest największym wspólnym dzielnikiem dla wielomianów $W_1$ i $W_2$.
 \end{example}
+
+W tym miejscu warto wspomnieć o istnieniu $NWW$ wielomianów, czyli ich najmniejszej wspólnej wielokrotności. Zapoznajmy się z jego definicją.
+
+\begin{definition}
+	$ $\\
+	Najmniejszą wspólną wielokrotnością dwóch wielomianów $W_1$ i $W_2$ nazywamy taki wielomian $W_3$, który jest wielokrotnością wielomianów $W_1$ i $W_2$ o możliwie najmniejszym stopniu.
+\end{definition}
+
+Należy zauwazyć, że istnieje tylko jeden taki wielomian, jeżeli założymy, że współczynnik stojący przy najwyższej potędze jest równy $1$. Jest to termin ścisle związany z NWD. Potwierdza związane z nim twierdzenie.
+
+\begin{theorem}
+	Aby obliczyć najmniejszą wspólną wielokrotność dwóch wielomianów $W_1$ i $W_2$, należy obliczyć wartość ilorazu z ich iloczynu i ich najmniejszej wspólnej wielokrotności.
+\end{theorem}
+
+Dodatkowo należy podkreślić, że $NWW$ dwóch wielomianów posiada wszystkie pierwiastki, które posiadał dowolny z nich. Krotność jej dowolnego pierwiastka jest równa jego maksymalnej krotności dla wielomianów, dla których została obliczona.
 
 \subsection{Dodatkowe twierdzenia dotyczące wielomianów}
 
@@ -396,12 +411,13 @@ Spróbujmy teraz skorzystać z przedstawionego twierdzenia w przykładzie dokonu
 	Obliczmy teraz resztę z dzielenia wielomianu $W$ przez wielomian $W'$.
 	\begin{equation}
 	\begin{split}
-	&x\\\hline
-	&x^6-6x^4-4x^3+9x^2+12x+4 : (x^5-4x^3-2x^2+3x+2) \\
-	&-x^6+4x^4+2x^3-3x^2-2x \\\hline
-	&-2x^4-2x^3+6x^2+10x+4 \\
+		x\\\hline
+		x^6-6x^4-4x^3+9x^2+12x+4 : (x^5-4x^3-2x^2+3x+2) \\
+		-x^6+4x^4+2x^3-3x^2-2x \\\hline
+		-2x^4-2x^3+6x^2+10x+4 \\
 	\end{split}
 	\end{equation}
+	
 	Kluczowa jest wartość reszty z dzielenia. Gdyby otrzymana reszta z dzielenia była wielomianem zerowym, to pochodna wielomianu była równocześnie $NWD(W, W')$. W tym przypadku tak jednak nie jest, więc wykonujemy analogiczną operację z tą różnicą, że nową dzielną jest dotychczasowy dzielnik, a reszta z wielomianu jest nowym dzielnikiem. Tę operację wykonujemy tak długo, jak otrzymana reszta jest niezerowego stopnia. W przypadku gdy jest ona jednocześnie wielomianem zerowym, to podobnie jak wyżej, aktualny dzielnik, jest naszym $NWD(W, W')$. W przypadku, gdy otrzymana reszta jest niezerowym wielomianem stopnia zerowego, to największym wspólnym dzielnikiem wielomianów jest pewna niezerowa stała.
 \end{example}
 
