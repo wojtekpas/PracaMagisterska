@@ -21,17 +21,17 @@
 \contentsline {subsubsection}{Funkcje}{24}
 \contentsline {subsubsection}{Zarz\IeC {\k a}dzanie pami\IeC {\k e}ci\IeC {\k a}}{25}
 \contentsline {subsubsection}{Kompatybilno\IeC {\'s}\IeC {\'c}}{25}
-\contentsline {subsubsection}{Wydajno\IeC {\'s}\IeC {\'c}}{25}
+\contentsline {subsubsection}{Wydajno\IeC {\'s}\IeC {\'c}}{26}
 \contentsline {subsubsection}{Operacje w miejscu}{26}
 \contentsline {subsection}{\numberline {2.2.2}Instalacja}{26}
-\contentsline {subsection}{\numberline {2.2.3}Operacje na liczbach ca\IeC {\l }kowitych}{26}
-\contentsline {subsubsection}{Funkcje inicjalizuj\IeC {\k a}ce}{26}
+\contentsline {subsection}{\numberline {2.2.3}Operacje na liczbach ca\IeC {\l }kowitych}{27}
+\contentsline {subsubsection}{Funkcje inicjalizuj\IeC {\k a}ce}{27}
 \contentsline {subsubsection}{Funkcje przypisania}{27}
 \contentsline {subsubsection}{Funkcje konwersji}{28}
-\contentsline {subsubsection}{Funkcje arytmetyczne}{28}
+\contentsline {subsubsection}{Funkcje arytmetyczne}{29}
 \contentsline {subsubsection}{Funkcje dzielenia}{29}
 \contentsline {subsubsection}{Funkcje por\IeC {\'o}wnania}{30}
-\contentsline {subsubsection}{Pozosta\IeC {\l }e funkcje}{30}
+\contentsline {subsubsection}{Pozosta\IeC {\l }e funkcje}{31}
 \contentsline {subsection}{\numberline {2.2.4}Operacje na liczbach wymiernych}{31}
 \contentsline {chapter}{\numberline {3}Opis rozwi\IeC {\k a}zania}{33}
 \contentsline {section}{\numberline {3.1}Podzia\IeC {\l } na modu\IeC {\l }y}{33}

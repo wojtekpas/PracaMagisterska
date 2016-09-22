@@ -252,26 +252,28 @@ Zauważmy, że na podstawie twierdzenia, przedstawionego wcześniej, wiemy, że 
 	$W_1(x) = x^2(x-1)(x-2) = x^4-6x^3+13x^2-12x+4$ \\
 	$W_2(x) = (x-1)(x-2)(x-3) = x^3-6x^2+11x-6$ \\
 	Podzielny teraz wielomian $W_1$ przez wielomian $W_2$.
-	\begin{equation}
+	
+	\begin{equation*}
 	\begin{split}
-	&x\\\hline
-	&x^4-6x^3+13x^2-12x+44 : (x^3-6x^2+11x-6) \\
-	&-x^6+4x^4+2x^3-3x^2-2x \\\hline
-	&x^2-3x+2x \\
+&x\\\hline
+&x^4-6x^3+13x^2-12x+44 : (x^3-6x^2+11x-6) \\
+&-x^6+4x^4+2x^3-3x^2-2x \\\hline
+&x^2-3x+2x
 	\end{split}
-	\end{equation}
+	\end{equation*}
+	
 	Widzimy, że otrzymana reszta wielomianu, nie jest wielomianem stopnia zerowego. Dokonujemy więc kolejnego dzielenia, przy czym nasz dotychczasowy dzielnik staje się nową dzielną, a otrzymana reszta dzielnikiem.
 	
-	\begin{equation}
+	\begin{equation*}
 	\begin{split}
 	&x-3\\\hline
 	&x^3-6x^2+11x-6 : (x^2-3x+2) \\
 	&-x^3+3x^2-2x \\\hline
 	&-3x^2+9x-6 \\
 	&3x^2-9x+6  \\\hline
-	&0\\
+	&0
 	\end{split}
-	\end{equation}
+	\end{equation*}
 	
 	Otrzymaną resztą z dzielenia jest wielomian zerowy, zatem dzielnik tego działania jest największym wspólnym dzielnikiem dla wielomianów $W_1$ i $W_2$.
 \end{example}
@@ -378,9 +380,13 @@ By lepiej zrozumieć twierdzenie, spójrzmy na poniższy przykład.
 \begin{example}
 	$ $\\
 	Mamy dany wielomian $W(x) = x^3 + 2x^2 + x$. Obliczmy teraz kolejne pochodne wielomianu $W$. \\
-	$W'(x) = 3x^2 + 2*2x + 1 = 3x^2 + 4x + 1 $ \\
-	$W^{(2)}(x) = 2*3x + 4 = 6x + 4 $ \\
-	$W^{(3)}(x) = 6$ \\
+	\begin{equation*}
+	\begin{split}
+		W^{(1)}(x) &= 3x^2 + 2*2x + 1 = 3x^2 + 4x + 1 \\
+		W^{(2)}(x) &= 2*3x + 4 = 6x + 4 \\
+		W^{(3)}(x) &= 6 \\
+	\end{split}
+	\end{equation*}
 	Obliczmy teraz pierwiastki wielomianu $W$ i jego kolejnych pochodnych. \\
 	$W(x) = x^3 + 2x^2 + x = x(x^2 + 2x +1) = x(x + 1)^2$ \\
 	$x_1 = 0,\ k_1 = 1,\ x_2 = -1,\ k_2 = 2$ \\
@@ -409,14 +415,14 @@ Spróbujmy teraz skorzystać z przedstawionego twierdzenia w przykładzie dokonu
 	$W'(x)=6*x^5-4*6x^3-3*4x^2+2*9x+12=$ \\
 	$=6x^5-24x^3-12x^2+18x+12=6(x^5-4x^3-2x^2+3x+2)$ \\
 	Obliczmy teraz resztę z dzielenia wielomianu $W$ przez wielomian $W'$.
-	\begin{equation}
+	\begin{equation*}
 	\begin{split}
-		x\\\hline
-		x^6-6x^4-4x^3+9x^2+12x+4 : (x^5-4x^3-2x^2+3x+2) \\
-		-x^6+4x^4+2x^3-3x^2-2x \\\hline
-		-2x^4-2x^3+6x^2+10x+4 \\
+		&x\\\hline
+		&x^6-6x^4-4x^3+9x^2+12x+4 : (x^5-4x^3-2x^2+3x+2) \\
+		&-x^6+4x^4+2x^3-3x^2-2x \\\hline
+		&-2x^4-2x^3+6x^2+10x+4
 	\end{split}
-	\end{equation}
+	\end{equation*}
 	
 	Kluczowa jest wartość reszty z dzielenia. Gdyby otrzymana reszta z dzielenia była wielomianem zerowym, to pochodna wielomianu była równocześnie $NWD(W, W')$. W tym przypadku tak jednak nie jest, więc wykonujemy analogiczną operację z tą różnicą, że nową dzielną jest dotychczasowy dzielnik, a reszta z wielomianu jest nowym dzielnikiem. Tę operację wykonujemy tak długo, jak otrzymana reszta jest niezerowego stopnia. W przypadku gdy jest ona jednocześnie wielomianem zerowym, to podobnie jak wyżej, aktualny dzielnik, jest naszym $NWD(W, W')$. W przypadku, gdy otrzymana reszta jest niezerowym wielomianem stopnia zerowego, to największym wspólnym dzielnikiem wielomianów jest pewna niezerowa stała.
 \end{example}
