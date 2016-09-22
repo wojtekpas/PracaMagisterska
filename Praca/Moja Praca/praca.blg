@@ -1,23 +1,6 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: praca.aux
 The style file: plain.bst
-I couldn't open database file bibliografia.bib.bib
----line 133 of file praca.aux
- : \bibdata{bibliografia.bib
- :                          }
-I'm skipping whatever remains of this command
-I found no database files---while reading file praca.aux
-Warning--I didn't find a database entry for "barbeau2003polynomials"
-Warning--I didn't find a database entry for "buell2004algorithmic"
-Warning--I didn't find a database entry for "burden2015numerical"
-Warning--I didn't find a database entry for "childs2012concrete"
-Warning--I didn't find a database entry for "cormen2004wprowadzenie"
-Warning--I didn't find a database entry for "granlund2015gnu"
-Warning--I didn't find a database entry for "kryszewski2014wyklad"
-Warning--I didn't find a database entry for "malik2009data"
-Warning--I didn't find a database entry for "mcnamee2007numerical"
-Warning--I didn't find a database entry for "mora2003solving"
-Warning--I didn't find a database entry for "pan2012structured"
-Warning--I didn't find a database entry for "polskie1968wiadomosci"
-Warning--I didn't find a database entry for "sierpinski1951zasady"
-Warning--I didn't find a database entry for "Warmus_Mieczyslaw_(1918-2007)_Metody"
-(There were 2 error messages)
+Database file #1: bibliografia.bib
+Warning--there's a number but no series in kryszewski2014wyklad
+Warning--there's a number but no series in polskie1968wiadomosci
+(There were 2 warnings)

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  23 SEP 2016 00:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  23 SEP 2016 00:42
 entering extended mode
 **./praca.tex
 (praca.tex
@@ -1389,78 +1389,17 @@ Rozdzia\PlPrIeC {\l } 5.
 \tf@lot=\write5
 \openout5 = `praca.lot'.
 
-) (pliki_latex/6_3_bibliografia.tex
+) (pliki_latex/6_3_bibliografia.tex (praca.bbl [76
 
-Package natbib Warning: Citation `barbeau2003polynomials' undefined on input li
-ne 4.
-
-
-Package natbib Warning: Citation `buell2004algorithmic' undefined on input line
- 5.
-
-
-Package natbib Warning: Citation `burden2015numerical' undefined on input line 
-6.
-
-
-Package natbib Warning: Citation `childs2012concrete' undefined on input line 7
-.
-
-
-Package natbib Warning: Citation `cormen2004wprowadzenie' undefined on input li
-ne 8.
-
-
-Package natbib Warning: Citation `granlund2015gnu' undefined on input line 9.
-
-
-Package natbib Warning: Citation `kryszewski2014wyklad' undefined on input line
- 10.
-
-
-Package natbib Warning: Citation `malik2009data' undefined on input line 11.
-
-
-Package natbib Warning: Citation `mcnamee2007numerical' undefined on input line
- 12.
-
-
-Package natbib Warning: Citation `mora2003solving' undefined on input line 13.
-
-
-Package natbib Warning: Citation `pan2012structured' undefined on input line 14
-.
-
-
-Package natbib Warning: Citation `polskie1968wiadomosci' undefined on input lin
-e 15.
-
-
-Package natbib Warning: Citation `sierpinski1951zasady' undefined on input line
- 16.
-
-
-Package natbib Warning: Citation `Warmus_Mieczyslaw_(1918-2007)_Metody' undefin
-ed on input line 17.
-
-(praca.bbl [76
+])) [77
 
 ]
-
-Package natbib Warning: Empty `thebibliography' environment on input line 3.
-
-)) [77
-
-]
-
-Package natbib Warning: There were undefined citations.
-
 (praca.aux) ) 
 Here is how much of TeX's memory you used:
- 17956 strings out of 493634
- 325490 string characters out of 3141314
- 378661 words of memory out of 3000000
- 20867 multiletter control sequences out of 15000+200000
+ 17984 strings out of 493634
+ 326354 string characters out of 3141314
+ 378876 words of memory out of 3000000
+ 20895 multiletter control sequences out of 15000+200000
  57760 words of font info for 46 fonts, out of 3000000 for 9000
  1046 hyphenation exceptions out of 8191
  48i,18n,54p,2384b,1709s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1481,7 +1420,7 @@ Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmri10.pfb><C:/Program Files (x86)
 /MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9
 /fonts/type1/public/lm/lmsy5.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1
 /public/lm/lmsy7.pfb>
-Output written on praca.pdf (77 pages, 676411 bytes).
+Output written on praca.pdf (77 pages, 683004 bytes).
 PDF statistics:
  378 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
