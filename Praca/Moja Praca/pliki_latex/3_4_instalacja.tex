@@ -29,6 +29,16 @@ Jeżeli interesuje nas zmiana plików źródłowych aplikacji, musimy mieć dost
 	\item Plik "mpir.h"\ z "x64/Release" do "Microsoft Visual Studio 14.0/VC/include"
 \end{itemize}
 
-W tym momencie możliwe jest już zbudowanie naszej biblioteki. Warto nadmienić, że jeżeli planujemy uruchomić testy jednostkowe, to musimy zmienić ich środowisko na 64-bitowe, w przeciwnym razie operacja ta zakończy się poniższym błędem. Możemy to zrobić to przestawiając opcję, jak zostało to przedstawione na rysunku.
+W tym momencie możliwe jest już zbudowanie naszej biblioteki. Warto nadmienić, że jeżeli planujemy uruchomić testy jednostkowe, to musimy zmienić ich środowisko na 64-bitowe, w przeciwnym razie operacja ta zakończy się poniższym błędem.
 
-TODO obrazek
+\begin{figure}[h]
+	\includegraphics[width=15cm]{img/UnitTests_wrong_architecture.png}
+	\caption{Uruchamienie testów jednostkowych na złej architekturze}
+\end{figure}
+
+By zmienić architekturę na 64-bit, należy przestawić jej wartość domyślną dla śodowiska testowego w sposób, w jaki zostało to przedstawione na rysunku niżej.
+
+\begin{figure}[h]
+	\includegraphics[width=15cm]{img/UnitTests_x64_architecture.png}
+	\caption{Ustawienie domyślnej architektury środowiska testowego}
+\end{figure}

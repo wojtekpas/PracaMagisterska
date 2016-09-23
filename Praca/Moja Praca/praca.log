@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  23 SEP 2016 00:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  24 SEP 2016 00:13
 entering extended mode
 **./praca.tex
 (praca.tex
@@ -1342,15 +1342,40 @@ Rozdzia\PlPrIeC {\l } 3.
 
 ]) (pliki_latex/3_2_glowne_klasy.tex [34] [35] [36] [37] [38] [39] [40]
 [41] [42] [43] [44]) (pliki_latex/3_3_glowne_funkcje.tex [45] [46] [47]
-[48] [49] [50] [51] [52] [53] [54]) (pliki_latex/3_4_instalacja.tex [55])
-(pliki_latex/3_5_instrukcja_programu.tex)
-(pliki_latex/4_1_testy_funkcjonalne.tex [56]
-Rozdzia\PlPrIeC {\l } 4.
-[57
+[48] [49] [50] [51] [52] [53] [54]) (pliki_latex/3_4_instalacja.tex [55]
+<img/UnitTests_wrong_architecture.png, id=257, 633.86812pt x 465.23813pt>
+File: img/UnitTests_wrong_architecture.png Graphic file (type png)
 
-] [58] [59] [60] [61] [62] [63] [64])
-(pliki_latex/4_2_testy_wydajnosciowe.tex [65])
-(pliki_latex/4_3_porownanie_aplikacji.tex [66]
+<use img/UnitTests_wrong_architecture.png>
+Package pdftex.def Info: img/UnitTests_wrong_architecture.png used on input lin
+e 35.
+(pdftex.def)             Requested size: 426.79134pt x 313.2555pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<img/UnitTests_x64_architecture.png, id=258, 609.02531pt x 138.5175pt>
+File: img/UnitTests_x64_architecture.png Graphic file (type png)
+
+<use img/UnitTests_x64_architecture.png>
+Package pdftex.def Info: img/UnitTests_x64_architecture.png used on input line 
+43.
+(pdftex.def)             Requested size: 426.79134pt x 97.0736pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+) (pliki_latex/3_5_instrukcja_programu.tex [56] [57 <./img/UnitTests_wrong_arch
+itecture.png> <./img/UnitTests_x64_architecture.png>])
+(pliki_latex/4_1_testy_funkcjonalne.tex [58
+
+]
+Rozdzia\PlPrIeC {\l } 4.
+[59
+
+] [60] [61] [62] [63] [64] [65] [66])
+(pliki_latex/4_2_testy_wydajnosciowe.tex [67])
+(pliki_latex/4_3_porownanie_aplikacji.tex [68]
 Underfull \hbox (badness 10000) in paragraph at lines 21--21
 []|\T1/lmr/m/n/10 Moja
  []
@@ -1360,7 +1385,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 21--22
 []|\T1/lmr/m/n/10 Wolfram
  []
 
-[67] [68]
+[69] [70]
 Underfull \hbox (badness 10000) in paragraph at lines 104--104
 []|\T1/lmr/m/n/10 Moja
  []
@@ -1370,7 +1395,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 104--105
 []|\T1/lmr/m/n/10 Wolfram
  []
 
-[69] [70] [71] [72]
+[71] [72] [73] [74]
 Underfull \hbox (badness 10000) in paragraph at lines 213--213
 []|\T1/lmr/m/n/10 Moja
  []
@@ -1380,49 +1405,55 @@ Underfull \hbox (badness 10000) in paragraph at lines 213--214
 []|\T1/lmr/m/n/10 Wolfram
  []
 
-) (pliki_latex/5_podsumowanie.tex [73]
+) (pliki_latex/5_podsumowanie.tex [75]
 Rozdzia\PlPrIeC {\l } 5.
-) [74
+) [76
 
-] (pliki_latex/6_1_lista_rysunkow.tex) (pliki_latex/6_2_lista_tabel.tex
-[75] (praca.lot)
-\tf@lot=\write5
-\openout5 = `praca.lot'.
+] (pliki_latex/6_1_lista_rysunkow.tex [77] (praca.lof)
+\tf@lof=\write5
+\openout5 = `praca.lof'.
 
-) (pliki_latex/6_3_bibliografia.tex (praca.bbl [76
+)
+(pliki_latex/6_2_lista_tabel.tex [78
 
-])) [77
+] (praca.lot)
+\tf@lot=\write6
+\openout6 = `praca.lot'.
 
-]
-(praca.aux) ) 
+)
+(pliki_latex/6_3_bibliografia.tex (praca.bbl [79
+
+])) [80
+
+] (praca.aux) ) 
 Here is how much of TeX's memory you used:
- 17984 strings out of 493634
- 326354 string characters out of 3141314
+ 18000 strings out of 493634
+ 326782 string characters out of 3141314
  378876 words of memory out of 3000000
- 20895 multiletter control sequences out of 15000+200000
+ 20904 multiletter control sequences out of 15000+200000
  57760 words of font info for 46 fonts, out of 3000000 for 9000
  1046 hyphenation exceptions out of 8191
  48i,18n,54p,2384b,1709s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathex.en
-c}{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ts1.enc}{C:/Program 
-Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program Files (x86)/MiK
-TeX 2.9/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Program Files (x86)/MiKTeX 2.9/fon
-ts/enc/dvips/lm/lm-mathit.enc}{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvip
-s/lm/lm-ec.enc}<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmbx10.
-pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmbx12.pfb><C:/Pro
-gram Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmex10.pfb><C:/Program Files 
-(x86)/MiKTeX 2.9/fonts/type1/public/lm/lmmi10.pfb><C:/Program Files (x86)/MiKTe
-X 2.9/fonts/type1/public/lm/lmmi5.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/
-type1/public/lm/lmmi7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public
-/lm/lmr10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmr5.pfb
-><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmr7.pfb><C:/Program 
-Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmri10.pfb><C:/Program Files (x86)
-/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9
-/fonts/type1/public/lm/lmsy5.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1
-/public/lm/lmsy7.pfb>
-Output written on praca.pdf (77 pages, 683004 bytes).
+{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathex.
+enc}{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ts1.enc}{C:/Progra
+m Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program Files (x86)/M
+iKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Program Files (x86)/MiKTeX 2.9/f
+onts/enc/dvips/lm/lm-mathit.enc}{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dv
+ips/lm/lm-ec.enc}<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmbx1
+0.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmbx12.pfb><C:/P
+rogram Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmex10.pfb><C:/Program File
+s (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmmi10.pfb><C:/Program Files (x86)/MiK
+TeX 2.9/fonts/type1/public/lm/lmmi5.pfb><C:/Program Files (x86)/MiKTeX 2.9/font
+s/type1/public/lm/lmmi7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/publ
+ic/lm/lmr10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmr5.p
+fb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmr7.pfb><C:/Progra
+m Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmri10.pfb><C:/Program Files (x8
+6)/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Program Files (x86)/MiKTeX 2
+.9/fonts/type1/public/lm/lmsy5.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/typ
+e1/public/lm/lmsy7.pfb>
+Output written on praca.pdf (80 pages, 784676 bytes).
 PDF statistics:
- 378 PDF objects out of 1000 (max. 8388607)
+ 390 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 53 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 63 words of extra memory for PDF output out of 10000 (max. 10000000)
 
