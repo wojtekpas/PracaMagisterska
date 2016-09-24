@@ -7,7 +7,6 @@ Kolejnym przypadkiem jest zbadanie rzadkich wielomianów, nieposiadających pier
 Teoretycznie, wielomiany rzadkie powinny się charakteryzować największą dysproporcją w wydajności pomiędzy typami PolynomialMap i PolynomialVector, na korzyść tego pierwszego. Jest to spowodowane faktem, że to właśnie w tym przypadku, odsetek zerowych współczynników jest największy. Czynnik ten powinien bardzo negatywnie wpływać na czas znajdowania pierwiastków, a w tym przypadku na stwierdzenie, o ich braku. Zapoznajmy się z wynikami testów, by zweryfikować postawioną powyżej tezę.
 
 \begin{table}
-	\caption{Porównanie czasów obu typów wielomianów dla rzadkich wielomianów parzystego stopnia}
 	\begin{tabular}{ |p{3.5cm}|p{3cm}|p{3cm}|p{3.5cm}|} 
 		\hline
 		Testowany wielomian & Czas dla PolynomialMap [s] & Czas dla PolynomialVector [s] & Współczynnik czasów \\
@@ -20,6 +19,7 @@ Teoretycznie, wielomiany rzadkie powinny się charakteryzować największą dysp
 		$W(x) = x^{3200} + 1$ & 0.058 & 67.311 & 1160.53 \\
 		\hline
 	\end{tabular}
+	\caption{Porównanie czasów znajdowania pierwiastków dla rzadkich wielomianów parzystego stopnia}
 \end{table}
 
 
@@ -44,7 +44,7 @@ Teoretycznie, wielomiany rzadkie powinny się charakteryzować największą dysp
 	};
 	\end{axis}
 	\end{tikzpicture}
-	\caption{Czasy działania dla rzadkich wielomianów nieparzystego stopnia dla PolynomialMap}
+	\caption{Czasy znajdowania pierwiastków przez PolynomialMap dla rzadkich wielomianów parzystego stopnia}
 \end{figure}
 
 \begin{figure}[h]
@@ -67,7 +67,7 @@ Teoretycznie, wielomiany rzadkie powinny się charakteryzować największą dysp
 	};
 	\end{axis}
 	\end{tikzpicture}
-	\caption{Czasy działania dla rzadkich wielomianów nieparzystego stopnia dla PolynomialVector}
+	\caption{Czasy znajdowania pierwiastków przez PolynomialVector dla rzadkich wielomianów parzystego stopnia}
 \end{figure}
 
 \subsubsection{Test b}
@@ -105,6 +105,7 @@ Jak widać, dwa z trzech elementów ciągu Sturma to rzadkie wielomiany wysokich
 		$W(x) = x^{3201} + 1$ & 4.153 & 5125.106 & 1234.07 \\
 		\hline
 	\end{tabular}
+	\caption{Porównanie czasów znajdowania pierwiastków dla rzadkich wielomianów nieparzystego stopnia}
 \end{table}
 
 \begin{figure}[h]
@@ -128,7 +129,7 @@ Jak widać, dwa z trzech elementów ciągu Sturma to rzadkie wielomiany wysokich
 	};
 	\end{axis}
 	\end{tikzpicture}
-	\caption{Czasy działania dla rzadkich wielomianów nieparzystego stopnia dla PolynomialMap}
+	\caption{Czasy znajdowania pierwiastków przez PolynomialMap dla rzadkich wielomianów nieparzystego stopnia}
 \end{figure}
 
 \begin{figure}[h]
@@ -152,68 +153,5 @@ Jak widać, dwa z trzech elementów ciągu Sturma to rzadkie wielomiany wysokich
 	};
 	\end{axis}
 	\end{tikzpicture}
-	\caption{Czasy działania dla rzadkich wielomianów nieparzystego stopnia dla PolynomialVector}
-\end{figure}
-
-\begin{table}
-	\begin{tabular}{ |p{3.5cm}|p{3cm}|p{3cm}|p{3.5cm}|} 
-		\hline
-		Testowany wielomian & Czas dla PolynomialMap [s] & Czas dla PolynomialVector [s] & Współczynnik czasów \\
-		\hline
-		$W(x) = x^{101} + 1$ & 0.003 & 0.003 & 1 \\
-		$W(x) = x^{201} + 1$ & 0.007 & 0.008 & 1.143 \\
-		$W(x) = x^{401} + 1$ & 0.032 & 0.032 & 1 \\
-		$W(x) = x^{801} + 1$ & 0.229 & 0.228 & 0.996 \\
-		$W(x) = x^{1601} + 1$ & 2.404 & 2.2391 & 0.995 \\
-		$W(x) = x^{3201} + 1$ & 29.822 & 29.725 & 0.997 \\
-		\hline
-	\end{tabular}
-\end{table}
-
-\begin{figure}[h]
-	\begin{tikzpicture}[scale=1.5]
-	\begin{axis}[
-	xlabel={Stopień wielomianu},
-	ylabel={Czas działania [s]},
-	xmin=0,xmax=35,
-	ymin=0,ymax=30,
-	ymajorgrids=true,grid style=dashed
-	]
-	
-	\addplot[color=red,mark=*]
-	coordinates {
-		(1, 0.003)
-		(2, 0.007)
-		(4, 0.032)
-		(8, 0.229)
-		(16, 2.404)
-		(32, 29.822)
-	};
-	\end{axis}
-	\end{tikzpicture}
-	\caption{Czasy działania dla rzadkich wielomianów nieparzystego stopnia dla PolynomialMap}
-\end{figure}
-
-\begin{figure}[h]
-	\begin{tikzpicture}[scale=1.5]
-	\begin{axis}[
-	xlabel={Stopień wielomianu},
-	ylabel={Czas działania [s]},
-	xmin=0,xmax=35,
-	ymin=0,ymax=30,
-	ymajorgrids=true,grid style=dashed
-	]
-	
-	\addplot[color=blue,mark=*]
-	coordinates {
-		(1, 0.003)
-		(2, 0.008)
-		(4, 0.032)
-		(8, 0.228)
-		(16, 2.391)
-		(32, 29.725)	
-	};
-	\end{axis}
-	\end{tikzpicture}
-	\caption{Czasy działania dla rzadkich wielomianów nieparzystego stopnia dla PolynomialVector}
+	\caption{Czasy znajdowania pierwiastków przez PolynomialVector dla rzadkich wielomianów nieparzystego stopnia}
 \end{figure}

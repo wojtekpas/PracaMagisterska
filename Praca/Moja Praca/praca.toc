@@ -95,13 +95,13 @@
 \contentsline {subsection}{\numberline {4.2.1}Test 1}{68}
 \contentsline {subsection}{\numberline {4.2.2}Test 1}{68}
 \contentsline {subsubsection}{Test a}{68}
-\contentsline {subsubsection}{Test b}{68}
-\contentsline {section}{\numberline {4.3}Badanie wielomian\IeC {\'o}w posiadaj\IeC {\k a}cych wy\IeC {\l }\IeC {\k a}cznie pierwiastki rzeczywiste}{75}
-\contentsline {subsection}{\numberline {4.3.1}Wielomian o pierwiastkach ca\IeC {\l }kowitych}{75}
-\contentsline {subsection}{\numberline {4.3.2}Wielomiany o pierwiastkach wymiernych}{75}
-\contentsline {section}{\numberline {4.4}Por\IeC {\'o}wnanie aplikacji z innym programem}{76}
-\contentsline {subsection}{\numberline {4.4.1}Por\IeC {\'o}wnanie mo\IeC {\.z}liwo\IeC {\'s}ci aplikacji i interfejsu u\IeC {\.z}ytkownika}{76}
-\contentsline {subsection}{\numberline {4.4.2}Por\IeC {\'o}wnanie poprawno\IeC {\'s}ci i precyzji oblicze\IeC {\'n}}{77}
-\contentsline {subsubsection}{Pierwiastki odleg\IeC {\l }e od siebie}{77}
-\contentsline {subsubsection}{Pierwiastki znajduj\IeC {\k a}ce si\IeC {\k e} blisko siebie}{79}
-\contentsline {chapter}{\numberline {5}Podsumowanie}{83}
+\contentsline {subsubsection}{Test b}{69}
+\contentsline {section}{\numberline {4.3}Badanie wielomian\IeC {\'o}w posiadaj\IeC {\k a}cych wy\IeC {\l }\IeC {\k a}cznie pierwiastki rzeczywiste}{73}
+\contentsline {subsection}{\numberline {4.3.1}Wielomian o pierwiastkach ca\IeC {\l }kowitych}{73}
+\contentsline {subsection}{\numberline {4.3.2}Wielomiany o pierwiastkach wymiernych}{73}
+\contentsline {section}{\numberline {4.4}Por\IeC {\'o}wnanie aplikacji z innym programem}{77}
+\contentsline {subsection}{\numberline {4.4.1}Por\IeC {\'o}wnanie mo\IeC {\.z}liwo\IeC {\'s}ci aplikacji i interfejsu u\IeC {\.z}ytkownika}{77}
+\contentsline {subsection}{\numberline {4.4.2}Por\IeC {\'o}wnanie poprawno\IeC {\'s}ci i precyzji oblicze\IeC {\'n}}{78}
+\contentsline {subsubsection}{Pierwiastki odleg\IeC {\l }e od siebie}{78}
+\contentsline {subsubsection}{Pierwiastki znajduj\IeC {\k a}ce si\IeC {\k e} blisko siebie}{80}
+\contentsline {chapter}{\numberline {5}Podsumowanie}{84}

@@ -1,3 +1,25 @@
 \section{Testy wydajnościowe}
 
+
+
 \subsection{Test 1}
+
+Pierwszym przypadkiem testowym będzie sprawdzenie czasów znajdowania pierwiastków dla takich wielomianów, których wszystkie współczynniki są równe $1$. W tym miejscu warto wspomnieć, że wielomiany, których większość współczynników jest niezerowa nazywami gęstymi.
+
+Testowane wielomiany można przedstawić wzorem: \\
+$W(x) = x^k + x^{k-1} + x^{k-2} + ... + x^2 + x + 1$, gdzie $k$ jest stopniem wielomianu $W$.
+
+\subsubsection{Wielomiany stopnia parzystego}
+
+W przypadku, gdy stopień wielomianu jest liczbą parzystą, a jego wszystkie współczynniki są równe $1$, wielomian nie posiada pierwiastków rzeczywistych. Sprawdźmy ile czasu zajmie każdej ze struktur stwierdzenie o braku pierwiastków rzeczywistych dla wielomianów powyższej postaci.
+
+\subsubsection{Wielomiany stopnia nieparzystego}
+
+To analogiczny test w porównaniu z poprzednim, jednak w tym przypadku stopień wielomianu jest nieparzysty. Wpływa to na liczbę pierwiastków rzeczywistych wielomianu, zwiększając ją o $1$. Sprawdźmy, czy wyniki będą podobne do tych uzyskanych dla wielomianów stopnia parzystego.
+
+\subsection{Wielomiany o losowych współczynnikach}
+
+Test zakłada, że wszystkie współczynniki wielomianu danego stopnia zostaną dobre w sposób losowy. Jako możliwe wartości kolejnych współczynników ustaliłem wszystkie liczby całkowite z przedziału $(-100, 100)$. Oba typy wielomianów zostały przetestowane dla dokładnie tych samych wartości współczynników.
+
+Aby zapewnić reprezentatywność wyników dla danego stopnia wielomianu dla każdego stopnia zostaną stworzony trzy wielomiany. Dla uzyskanych rezultatów zostanie policzona średnia ważona. Zabieg taki pozwoli na uniezależnienie się od skrajnych wyników w generowanie współczynników wielomianu i zwiększy szanse na zaobserwowanie w nich ewentualnej prawidłowości.
+

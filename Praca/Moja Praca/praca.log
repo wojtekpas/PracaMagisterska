@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  24 SEP 2016 22:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  24 SEP 2016 23:49
 entering extended mode
 **./praca.tex
 (praca.tex
@@ -1572,12 +1572,12 @@ Rozdzia\PlPrIeC {\l } 4.
 ] [61] [62] [63] [64] [65] [66] [67])
 (pliki_latex/4_2_1_testy_wydajnosciowe_wielomiany_geste.tex)
 (pliki_latex/4_2_2_testy_wydajnosciowe_wielomiany_rzadkie.tex
-Underfull \hbox (badness 3861) in paragraph at lines 13--13
+Underfull \hbox (badness 3861) in paragraph at lines 12--12
 []|\T1/lmr/m/n/10 Czas dla Po-ly-no-
  []
 
 
-Underfull \hbox (badness 3861) in paragraph at lines 13--13
+Underfull \hbox (badness 3861) in paragraph at lines 12--12
 []|\T1/lmr/m/n/10 Czas dla Po-ly-no-
  []
 
@@ -1587,34 +1587,18 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-
+[68]
 Underfull \hbox (badness 10000) in paragraph at lines 77--81
 
  []
 
-[68] [69]
+[69]
 Underfull \hbox (badness 3861) in paragraph at lines 98--98
 []|\T1/lmr/m/n/10 Czas dla Po-ly-no-
  []
 
 
 Underfull \hbox (badness 3861) in paragraph at lines 98--98
-[]|\T1/lmr/m/n/10 Czas dla Po-ly-no-
- []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \hbox (badness 3861) in paragraph at lines 161--161
-[]|\T1/lmr/m/n/10 Czas dla Po-ly-no-
- []
-
-
-Underfull \hbox (badness 3861) in paragraph at lines 161--161
 []|\T1/lmr/m/n/10 Czas dla Po-ly-no-
  []
 
@@ -1625,15 +1609,21 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 ) (pliki_latex/4_2_3_testy_wydajnosciowe_same_pierwiastki.tex [70] [71]
-[72] [73] [74]
+[72]
 Overfull \hbox (8.58412pt too wide) in paragraph at lines 1--1
 []\T1/lmr/bx/n/14.4 Badanie wie-lo-mia-nów po-sia-da-j¡-cych wy-ª¡cz-nie pier-w
 iast-
  []
 
-) (pliki_latex/4_3_porownanie_aplikacji.tex [75
 
-]
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+) (pliki_latex/4_3_porownanie_aplikacji.tex [73
+
+] [74] [75] [76]
 Underfull \hbox (badness 10000) in paragraph at lines 21--21
 []|\T1/lmr/m/n/10 Moja
  []
@@ -1643,7 +1633,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 21--22
 []|\T1/lmr/m/n/10 Wolfram
  []
 
-[76] [77]
+[77
+
+] [78]
 Underfull \hbox (badness 10000) in paragraph at lines 104--104
 []|\T1/lmr/m/n/10 Moja
  []
@@ -1653,7 +1645,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 104--105
 []|\T1/lmr/m/n/10 Wolfram
  []
 
-[78] [79] [80] [81]
+[79] [80] [81] [82]
 Underfull \hbox (badness 10000) in paragraph at lines 213--213
 []|\T1/lmr/m/n/10 Moja
  []
@@ -1663,31 +1655,31 @@ Underfull \hbox (badness 10000) in paragraph at lines 213--214
 []|\T1/lmr/m/n/10 Wolfram
  []
 
-) (pliki_latex/5_podsumowanie.tex [82]
+) (pliki_latex/5_podsumowanie.tex [83]
 Rozdzia\PlPrIeC {\l } 5.
-) [83
+) [84
 
-] (pliki_latex/6_1_lista_rysunkow.tex [84] (praca.lof)
+] (pliki_latex/6_1_lista_rysunkow.tex [85] (praca.lof)
 \tf@lof=\write6
 \openout6 = `praca.lof'.
 
 )
-(pliki_latex/6_2_lista_tabel.tex [85
+(pliki_latex/6_2_lista_tabel.tex [86
 
 ] (praca.lot)
 \tf@lot=\write7
 \openout7 = `praca.lot'.
 
 )
-(pliki_latex/6_3_bibliografia.tex (praca.bbl [86
+(pliki_latex/6_3_bibliografia.tex (praca.bbl [87
 
-])) [87
+])) [88
 
 ] (praca.aux) ) 
 Here is how much of TeX's memory you used:
  29369 strings out of 493634
  682573 string characters out of 3141314
- 895696 words of memory out of 3000000
+ 894696 words of memory out of 3000000
  32083 multiletter control sequences out of 15000+200000
  57760 words of font info for 46 fonts, out of 3000000 for 9000
  1046 hyphenation exceptions out of 8191
@@ -1709,9 +1701,9 @@ m Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmri10.pfb><C:/Program Files (x8
 6)/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Program Files (x86)/MiKTeX 2
 .9/fonts/type1/public/lm/lmsy5.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/typ
 e1/public/lm/lmsy7.pfb>
-Output written on praca.pdf (87 pages, 803403 bytes).
+Output written on praca.pdf (88 pages, 806653 bytes).
 PDF statistics:
- 412 PDF objects out of 1000 (max. 8388607)
+ 415 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  63 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -10,6 +10,56 @@ Rozwiązaniem jest więc przedstawienie go w postaci czynników, wskazując jego
 
 Przetestujemy więc wielomiany powyższej postaci. Z powodu ograniczeń czasowych zdecydowałem się w tym teście na badanie wielomianów niższych stopni, niż w pozostałych przypadkach. Zapoznajmy się z rezultatami opisanego eksperymentu.
 
+\begin{table}
+	\begin{tabular}{ |p{4cm}|p{2.75cm}|p{2.75cm}|p{3.5cm}|} 
+		\hline
+		Testowany wielomian & Czas dla PolynomialMap [s] & Czas dla PolynomialVector [s] & Współczynnik czasów \\
+		\hline
+		$W(x) = x-1$ & 0.003 & 0.003 & 1 \\
+		$W(x) = (x-1)(x-2)$ & 0.007 & 0.008 & 1.143 \\
+		$W(x) = (x-1)(x-2)(x-3)(x-4)$ & 0.032 & 0.032 & 1 \\
+		$W(x) = (x-1)(x-2)*...*(x-7)(x-8)$ & 0.229 & 0.228 & 0.996 \\
+		$W(x) = (x-1)(x-2)*...*(x-15)(x-16)$ & 2.404 & 2.391 & 0.995 \\
+		$W(x) = (x-1)(x-2)*...*(x-31)(x-32)$ & 29.822 & 29.725 & 0.997 \\
+		\hline
+	\end{tabular}
+	\caption{Porównanie czasów znajdowania pierwiastków dla wielomianów zawierających kolejne pierwiastki całkowite}
+\end{table}
+
+\begin{figure}[h]
+	\begin{tikzpicture}[scale=1.5]
+	\begin{axis}[
+	xlabel={Stopień wielomianu},
+	ylabel={Czas działania [s]},
+	xmin=0,xmax=35,
+	ymin=0,ymax=30,
+	ymajorgrids=true,grid style=dashed
+	]
+	
+	\addplot[color=red,mark=*]
+	coordinates {
+		(1, 0.003)
+		(2, 0.007)
+		(4, 0.032)
+		(8, 0.229)
+		(16, 2.404)
+		(32, 29.822)
+	};
+	
+	\addplot[color=blue,mark=triangle*]
+	coordinates {
+		(1, 0.003)
+		(2, 0.008)
+		(4, 0.032)
+		(8, 0.228)
+		(16, 2.391)
+		(32, 29.725)	
+	};
+	\end{axis}
+	\end{tikzpicture}
+	\caption{Czas znajdowania pierwiastków dla wielomianów zawierających kolejne pierwiastki całkowite}
+\end{figure}
+
 \subsection{Wielomiany o pierwiastkach wymiernych}
 
 Zachowanie wielomianów może być inne, jeżeli pierwiastki będą się znajdować blisko siebie. By zapewnić im dostatecznie bliskie sąsiedztwo, nie wystarczy by było one liczbami całkowitymi, ale potrzeby by były to liczby wymierne. Podobnie jak w poprzednim przypadku przeprowadzone testy będą zakładały maksymalny stopień wielomianu równy $32$. Dobierzmy odległość pomiedzy pierwiastkami tak, by zapewnić, że odległość między dowolnymi z nich była mniejsza od $1$. Ustalmy, więc ostęp pomiędzy kolejnymi z nich na wartość $0.01.$
@@ -17,3 +67,53 @@ Zachowanie wielomianów może być inne, jeżeli pierwiastki będą się znajdow
 Według powyższych założeń testowany wielomian przyjmie następującą wartość: \\ $W(x)=(x-1.01)*(x-1.02)*(x-1.03)*...*(x-(1+\frac{k-2}{100}))*(x-(1+\frac{k-1}{100}))*(x-(1+\frac{k}{100}))$, gdzie $k$ jest stopniem wielomianu.
 
 Zapoznajmy się z wynikami, by sprawdzić, jak uzyskane wyniki różnią się od wcześniejszego przypadku, w którym pierwiastkami były kolejne liczby naturalne.
+
+\begin{table}
+	\begin{tabular}{ |p{4cm}|p{2.75cm}|p{2.75cm}|p{3.5cm}|} 
+		\hline
+		Testowany wielomian & Czas dla PolynomialMap [s] & Czas dla PolynomialVector [s] & Współczynnik czasów \\
+		\hline
+		$W(x) = x-0.01$ & 0.003 & 0.003 & 1 \\
+		$W(x) = (x-0.01)(x-0.02)$ & 0.008 & 0.008 & 1 \\
+		$W(x) = (x-0.01)(x-0.02)(x-0.03)(x-0.04)$ & 0.033 & 0.033 & 1 \\
+		$W(x) = (x-0.01)(x-0.02)*...*(x-0.07)(x-0.08)$ & 0.229 & 0.228 & 1 \\
+		$W(x) = (x-0.01)(x-0.02)*...*(x-0.15)(x-0.16)$ & 9.275 & 9.291 & 1.002 \\
+		$W(x) = (x-0.01)(x-0.02)*...*(x-0.31)(x-0.32)$ & 1226.351 & 1226.333 & 1 \\
+		\hline
+	\end{tabular}
+	\caption{Porównanie czasów znajdowania pierwiastków dla wielomianów zawierających pierwiastki wymierne różniące się o $0.01$}
+\end{table}
+
+\begin{figure}[h]
+	\begin{tikzpicture}[scale=1.5]
+	\begin{axis}[
+	xlabel={Stopień wielomianu},
+	ylabel={Czas działania [s]},
+	xmin=0,xmax=35,
+	ymin=0,ymax=30,
+	ymajorgrids=true,grid style=dashed
+	]
+	
+	\addplot[color=red,mark=*]
+	coordinates {
+		(1, 0.003)
+		(2, 0.007)
+		(4, 0.032)
+		(8, 0.229)
+		(16, 2.404)
+		(32, 29.822)
+	};
+	
+	\addplot[color=blue,mark=triangle*]
+	coordinates {
+		(1, 0.003)
+		(2, 0.008)
+		(4, 0.032)
+		(8, 0.228)
+		(16, 2.391)
+		(32, 29.725)	
+	};
+	\end{axis}
+	\end{tikzpicture}
+	\caption{Czas znajdowania pierwiastków dla wielomianów zawierających pierwiastki wymierne różniące się o $0.01$}
+\end{figure}
