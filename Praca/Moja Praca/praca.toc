@@ -93,11 +93,12 @@
 \contentsline {subsection}{\numberline {4.1.9}PolynomialRoots}{66}
 \contentsline {section}{\numberline {4.2}Testy wydajno\IeC {\'s}ciowe}{67}
 \contentsline {subsection}{\numberline {4.2.1}Test 1}{67}
-\contentsline {subsection}{\numberline {4.2.2}Test 2}{67}
-\contentsline {subsection}{\numberline {4.2.3}Test 3}{68}
-\contentsline {section}{\numberline {4.3}Por\IeC {\'o}wnanie aplikacji z innym programem}{68}
-\contentsline {subsection}{\numberline {4.3.1}Por\IeC {\'o}wnanie mo\IeC {\.z}liwo\IeC {\'s}ci aplikacji i interfejsu u\IeC {\.z}ytkownika}{68}
-\contentsline {subsection}{\numberline {4.3.2}Por\IeC {\'o}wnanie poprawno\IeC {\'s}ci i precyzji oblicze\IeC {\'n}}{70}
-\contentsline {subsubsection}{Pierwiastki odleg\IeC {\l }e od siebie}{70}
-\contentsline {subsubsection}{Pierwiastki znajduj\IeC {\k a}ce si\IeC {\k e} blisko siebie}{71}
-\contentsline {chapter}{\numberline {5}Podsumowanie}{76}
+\contentsline {subsubsection}{Test a}{67}
+\contentsline {subsubsection}{Test b}{67}
+\contentsline {subsection}{\numberline {4.2.2}Test 3}{68}
+\contentsline {section}{\numberline {4.3}Por\IeC {\'o}wnanie aplikacji z innym programem}{70}
+\contentsline {subsection}{\numberline {4.3.1}Por\IeC {\'o}wnanie mo\IeC {\.z}liwo\IeC {\'s}ci aplikacji i interfejsu u\IeC {\.z}ytkownika}{70}
+\contentsline {subsection}{\numberline {4.3.2}Por\IeC {\'o}wnanie poprawno\IeC {\'s}ci i precyzji oblicze\IeC {\'n}}{71}
+\contentsline {subsubsection}{Pierwiastki odleg\IeC {\l }e od siebie}{71}
+\contentsline {subsubsection}{Pierwiastki znajduj\IeC {\k a}ce si\IeC {\k e} blisko siebie}{73}
+\contentsline {chapter}{\numberline {5}Podsumowanie}{77}

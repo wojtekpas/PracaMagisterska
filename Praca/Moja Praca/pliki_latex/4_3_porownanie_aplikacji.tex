@@ -1,16 +1,16 @@
 \section {Porównanie aplikacji z innym programem}
 
-W niniejszym podrozdziale dokonam porównania stworzonej przeze mnie aplikacji z innym programem. Wybrany przeze mnie został Wolfram Alpha jako przykład serwisu, który oprócz wielu innych funkcjonalności, umożliwia także znajdowanie pierwiastków wielomianów. Porównanie wykonałem w dwóch dziedzinach. Pierwszą z nich jest ocena interfejsu i możliwości jakie dają nam obie aplikację. Drugą z nich jest wykonanie szeregu testów, mające na celu sprawdzenie specyficznych przypadków wielomianu, by przekonać się, czy są one wystarczająco precyzje.
+W niniejszym podrozdziale dokonam porównania stworzonej przeze mnie aplikacji z innym programem. Wybrany przeze mnie został Wolfram Alpha jako przykład serwisu, który oprócz wielu innych funkcjonalności, umożliwia także znajdowanie pierwiastków wielomianów. Porównanie wykonałem w dwóch dziedzinach. Pierwszą z nich jest ocena interfejsu i możliwości jakie dają nam obie aplikacje. Drugą z nich jest wykonanie szeregu testów, mające na celu sprawdzenie specyficznych przypadków wielomianów, by przekonać się, czy są one wystarczająco precyzyjne.
 
 \subsection {Porównanie możliwości aplikacji i interfejsu użytkownika}
 
 Dokonałem porównania obu aplikacji w trzech kategoriach. Pierwszą z nich była możliwość znajdowania pierwiastków. Obie aplikacje umożliwiają lokalizację pierwiastków rzeczywistych, jednak tylko serwis Wolfram Alpha informuje także o wartościach pierwiastków zespolonych. Tę informację można traktować jednak bardziej jako ciekawostkę, gdyż element ten nie był przedmiotem niniejszej pracy.
 
-Drugą kategoria była ocena interejsu pod kątem wprowadzania wielomianów wejściowych w dowolny sposób. Obie aplikacje umożliwiają podawania zarówno kolejnych wyrazów wielomianu w postaci sumy, jak i jego reprezentację w postaci iloczynu. Druga funkcjonalność jest niezwykle przydatna w celach testowych. Umożliwia ona bowiem jawną specyfikę występujących w wielomianie pierwiastków i sprawdzenie, czy rzeczywiście zostaną one zwrócone przez daną aplikację.
+Drugą kategorią była ocena interejsu pod kątem wprowadzania wielomianów wejściowych w dowolny sposób. Obie aplikacje umożliwiają podawania zarówno kolejnych wyrazów wielomianu w postaci sumy, jak i jego reprezentację w postaci iloczynu. Druga funkcjonalność jest niezwykle przydatna w celach testowych. Umożliwia ona bowiem jawną specyfikę występujących w wielomianie pierwiastków i sprawdzenie, czy rzeczywiście zostaną one zwrócone przez daną aplikację.
 
-Ostatnia ze sprawdzanych kategorii nawiązywałą do udogodnień i optymalizacji danej aplikacji. Nauprzypomnienie zasługuje wspomnainy wcześniej fakt, że każdy wielomian można przedstawić w postaci iloczynu wielomianów. Jeżeli szukamy w takim przypadku pierwiastków wystarczy uruchomić algorytm ich znajdowania osobno dla wszystkich wielomianów, a następnie scalić otrzymane rezultaty. Takie działanie z pewnością spowodowałoby znaczny wzrost wydajności działania aplikacji, ponieważ ograniczyłoby to stopień badanych wielomianów, który w wielu przypadkach ma kluczowych wpływ na jej wydajonść.
+Ostatnia ze sprawdzanych kategorii nawiązywała do udogodnień i optymalizacji danej aplikacji. Na przypomnienie zasługuje wspomniany wcześniej fakt, że każdy wielomian można przedstawić w postaci iloczynu wielomianów. Jeżeli szukamy w takim przypadku pierwiastków wystarczy uruchomić algorytm ich znajdowania osobno dla wszystkich wielomianów, a następnie scalić otrzymane rezultaty. Takie działanie z pewnością spowodowałoby znaczny wzrost wydajności działania aplikacji, ponieważ ograniczyłoby to stopień badanych wielomianów, który w wielu przypadkach ma kluczowych wpływ na jej wydajonść.
 
-Aplikacja Wolfram Alpha daje możliwość przedstawienia znalezionych pierwiastków w formie graficznej przy pomocy wykresu. Dodatkowo należy podkreślić fakt, że serwis ten wykorzystuje moc obliczeniową innych komputerów. Wszystkie działanie wykonują się poza sprzętem użytkownika, który na końcu dostaje odpowiedź na zapytanie, które zdefiniował. Na korzyść drugiego programu przemawia także fakt, że jest to serwis internetowy, dzięki czemu użytkownik nie musi przejmować się koniecznością pobierania i instalowania aplikacji, a może z niej skorzystać na dowolnym urządzaniu. Tej wygody nie daje moja aplikacja, który wymusza na użytkowniku instalację aplikacji i ściśle definiuje system operacyjny, którym jest 64-bitowy system Windows.
+Aplikacja Wolfram Alpha daje możliwość przedstawienia znalezionych pierwiastków w formie graficznej przy pomocy wykresu. Dodatkowo należy podkreślić fakt, że serwis ten wykorzystuje moc obliczeniową innych komputerów. Wszystkie działania wykonują się poza sprzętem użytkownika, który na końcu dostaje odpowiedź na zapytanie, które zdefiniował. Na korzyść drugiego programu przemawia także fakt, że jest to serwis internetowy, dzięki czemu użytkownik nie musi przejmować się koniecznością pobierania i instalowania aplikacji, a może z niej skorzystać na dowolnym urządzaniu. Tej wygody nie daje mój program, który wymusza na użytkowniku instalację aplikacji i ściśle definiuje system operacyjny, którym jest 64-bitowy system Windows.
 
 Poniżej zamieszczam podsumowanie porównania obu aplikacji w formie tabeli.
 
@@ -39,7 +39,7 @@ Poniżej zamieszczam podsumowanie porównania obu aplikacji w formie tabeli.
 
 \subsection {Porównanie poprawności i precyzji obliczeń}
 
-W ramach sprawdzania poprawności działania obu aplikacji, postanowiłem przeprowadzić różnorakie testy. Na podstawie przeprowadzonych badań i obserwacji zauważyłem, że kluczowe dla poprawnego działania aplikacji jest to, czy pierwiastki danego wielomianu znajdują się blisko siebie. Jak zostało wspomniane wcześniej, algorytm ciągu Sturma pozwala na znalezienie wszystkich pierwiastków, niezależnie od tego, w jakim położeniu od siebie się znajdują. Aspekt ten daje przekonanie, że stworzona przeze mnie aplikacja, powinna zachowywać się poprawnie. Tezę tę jednak trzeba było zweryfkować, a dodatkowo zbadać działanie programu Wolfram Alpha. Postanowiłem podzielić przeprowadzone testy na dwie grupy. Pierwsza z nich zakłada, że pierwiastki wielomianów znacząco się od siebie różnią. Z kolei druga, sprawda odporność dla analogicznych testów, ale gdy pierwiastki znajdują się w niewielkiej odległości od siebie.
+W ramach sprawdzania poprawności działania obu aplikacji, postanowiłem przeprowadzić różnorodne testy. Na podstawie przeprowadzonych badań i obserwacji zauważyłem, że kluczowe dla poprawnego działania aplikacji jest to, czy pierwiastki danego wielomianu znajdują się blisko siebie. Jak zostało wspomniane wcześniej, algorytm ciągu Sturma pozwala na znalezienie wszystkich pierwiastków, niezależnie od tego, w jakim położeniu od siebie się znajdują. Aspekt ten daje przekonanie, że stworzona przeze mnie aplikacja, powinna zachowywać się poprawnie. Tezę tę jednak trzeba było zweryfkować, a dodatkowo zbadać działanie programu Wolfram Alpha. Postanowiłem podzielić przeprowadzone testy na dwie grupy. Pierwsza z nich zakłada, że pierwiastki wielomianów znacząco się od siebie różnią. Z kolei druga, sprawdza odporność dla analogicznych testów, ale gdy pierwiastki znajdują się w niewielkiej odległości od siebie.
 
 \subsubsection {Pierwiastki odległe od siebie}
 
@@ -52,7 +52,7 @@ Dla wartości całkowitych przeprowadzono trzy testy:
 
 W przypadku mojego programu wszystkie testy zakończyły się powodzeniem. Dla aplikacji Wolfram Alpha wykonały się poprawnie tylko pierwsze dwa. Ostatni zwrócił komunikat o przekroczeniu limitu czasu w wersji darmowej.
 
-Kolejna kategoria to testowanie wysokich wartości liczbowych dla wielomianów bardzo niskich stopni, tj.\ odpowiednio -- pierwszego, drugiego i trzeciego. Został skonstrowane następujące wielomiany testowe.
+Kolejna kategoria to testowanie wysokich wartości liczbowych dla wielomianów bardzo niskich stopni, tj.\ odpowiednio -- pierwszego, drugiego i trzeciego. Zostały skonstruowane następujące wielomiany testowe.
 \begin{itemize}
 	\item $W(x)=(x-10^{20}-0.1)$
 	\item $W(x)=(x-10^{20}-0.1)(x-10^{30}-0.1)$
@@ -68,7 +68,7 @@ Moja aplikacja skutecznie poradziła sobie z każdym przypadkiem. Z kolei drugi 
 
 Można zauważyć, że program nie znalazł dokładnej wartości żadnego z pierwiastków. Dla najmniejszej liczby, równej $10^{20}+0.1$, wynik nie zawierał części ułamkowej. W pozostałych przypadkach dało się zauważyć duży błąd bezwględny, tzn. różnicę pomiędzy wartością uzyskaną a dokładną, przy jednocześnie bliskiej zeru wartości błędu względnego, obliczanego jako wartość bezwzględną z ilorazu błędu względnego i wartości dokładnej.
 
-Następnymi trzema kategoriami jest testowanie niewielkich pierwiastków rzeczywistych, występujących w wielomianach stopni: czwartego, szóstego i ósmego. Kategorię te są analogiczne. Jedyną różnicą jest to, że ułamkowa część liczby, jest coraz bardziej dokładna.
+Następnymi trzema kategoriami jest testowanie niewielkich pierwiastków rzeczywistych, występujących w wielomianach stopni: czwartego, szóstego i ósmego. Kategorie te są analogiczne. Jedyną różnicą jest to, że ułamkowa część liczby, jest coraz bardziej dokładna.
 
 Oto wartości wielomianów testowane w kolejnych kategoriach.
 
@@ -103,7 +103,7 @@ Poniżej przedstawiam tabelę, w której umieściłem otrzymane wyniki testów.
 		\hline
 		Kategoria & Kryterium & Moja aplikacja & Wolfram Alpha \\
 		\hline
-		\multirow{2}{*}{Wartości całkowite}
+		\multirow{3}{*}{Wartości całkowite}
 		& Wielomian 3 stopnia o dużych wartościach pierwiastków & + & + \\
 		& Wielomian 10 stopnia & + & + \\
 		& Wielomian 20 stopnia & + & --* \\
@@ -181,14 +181,14 @@ Ostatnie trzy kategorie wyglądają podobnie jak w przypadku testów dla pierwia
 
 W pierwszej z powyższych kategorii obie aplikacji znalazły wszystkie pierwiastki rzeczywiste z wymaganą dokładnością.
 
-Dla drugiej kategorii mój program także znalazł wszystkie rozwiązania. Z kolei Wolfram Alpha zachował się poprawnie dla wielomianów stopni czwartego i szóstego. Wynik znajdowania pierwiastków dla ostatniego wielomianu, stopnia ósmego był niepoprawny. Znalezione zostały tylko dwa pierwiastki rzeczywiste, przy czym w oby przypadkach widoczna była pewna niedokładność. Pozostałe sześć pierwiastków rzeczywistych nie zostały znalezionych, a wszystkie one zostały potraktowane jako pierwiastki zespolone. Poniżej zamieszczam zwrócone przez serwis Wolfram Alpha wartości pierwiastków.
+Dla drugiej kategorii mój program także znalazł wszystkie rozwiązania. Z kolei Wolfram Alpha zachował się poprawnie dla wielomianów stopni czwartego i szóstego. Wynik znajdowania pierwiastków dla ostatniego wielomianu, stopnia ósmego był niepoprawny. Znalezione zostały tylko dwa pierwiastki rzeczywiste, przy czym w obu przypadkach widoczna była pewna niedokładność. Pozostałe sześć pierwiastków rzeczywistych nie zostało znalezionych, a wszystkie one zostały potraktowane jako pierwiastki zespolone. Poniżej zamieszczam zwrócone przez serwis Wolfram Alpha wartości pierwiastków.
 
 \begin{itemize}
 	\item $\{1.10922, 1.18099\}, \{1.12238-0.00620719i, 1.12238+0.00620719i, \\
 	1.14483-0.0113488i, 1.14483+0.0113488i, 1.16769-0.00684386 i, 1.16769+0.00684386i\}$
 \end{itemize}
 
-Także dla trzeciej kategorii, wymagającej najwyzszej precyzji, moja aplikacja zachowała się w pełni poprawnie. Z kolei porównywana program tylko dla wielomianu stopnia czwartego zwrócił poprawny wynik. W drugim przypadku wielomian Wolfram Alpha znalazł 2 pierwiastki rzeczywiste. Oba cechowały się zauważalnym brakiem precyzji. W ostatnim przypadku, dla wielomianu stopnia ósmego Wolfram Alpha nie znalazł żadnego pierwiastka rzeczywistego. Oto wartości pierwiastków zwrócone przez porównywany serwis dla drugiego i trzeciego wielomianu tej kategorii.
+Także dla trzeciej kategorii, wymagającej najwyższej precyzji, moja aplikacja zachowała się w pełni poprawnie. Z kolei porównywany program tylko dla wielomianu stopnia czwartego zwrócił poprawny wynik. W drugim przypadku wielomian Wolfram Alpha znalazł 2 pierwiastki rzeczywiste. Oba cechowały się zauważalnym brakiem precyzji. W ostatnim przypadku, dla wielomianu stopnia ósmego Wolfram Alpha nie znalazł żadnego pierwiastka rzeczywistego. Oto wartości pierwiastków zwrócone przez porównywany serwis dla drugiego i trzeciego wielomianu tej kategorii.
 
 \begin{itemize}
 	\item $\{1.10875, 1.11827\}, \{1.11113-0.0035388i,1.11113+0.0035388i, \\
@@ -197,9 +197,9 @@ Także dla trzeciej kategorii, wymagającej najwyzszej precyzji, moja aplikacja 
 	1.10729+0.016855i, 1.12154-0.0170316i, 1.12154+0.0170316i, 1.13179-0.00710625i, \\ 1.13179+0.00710625i\}$
 \end{itemize}	
 
-Reasumując przeprowadzone testy należy zauwazyć, ze moja aplikacja zachowała się poprawnie w przypadku wszystkich przeprowadzonych testów. Kluczowe były dla tego dwa aspekty. Pierwszym z nim była dowolna precyzja obliczeń, którą zapewniała biblioteka mpir. Drugim zaś było zastosowanie twierdzenia Sturma, umożliwiającego znalezienie wszystkich pierwiastków rzeczywistych.
+Reasumując przeprowadzone testy należy zauważyć, że moja aplikacja zachowała się poprawnie w przypadku wszystkich przeprowadzonych testów. Kluczowe były dla tego dwa aspekty. Pierwszym z nim była dowolna precyzja obliczeń, którą zapewniała biblioteka mpir. Drugim zaś było zastosowanie twierdzenia Sturma, umożliwiającego znalezienie wszystkich pierwiastków rzeczywistych.
 
-Z kolei aplikacja Wolfram Alpha miała spore problemy ze znalezieniem pierwiastków, w momencie, gdy znajdowały się one blisko siebie. Spowodowane było to najprawdopodobniej zaokrągleniami, które zostały wykonywane w trakcie obliczeń. Sprawiało to, że czasem wartości pierwiastków były zauważalnie niedokładne, co momentami przekładało się na traktowanie różnych pierwiastków jako jeden pierwiastek wielokrotnych. Dodatkowo zwłaszcza przy wzroście wymaganej precyzji obliczeń i stopnia badanych wielomianów dało się zauwazyć, że aplikacja Wolfram Alpha nie potrafi zlokalizować pierwiastków danego wielomianu.
+Z kolei aplikacja Wolfram Alpha miała spore problemy ze znalezieniem pierwiastków, w momencie, gdy znajdowały się one blisko siebie. Spowodowane było to najprawdopodobniej zaokrągleniami, które zostały wykonywane w trakcie obliczeń. Sprawiało to, że czasem wartości pierwiastków były zauważalnie niedokładne, co momentami przekładało się na traktowanie różnych pierwiastków jako jeden pierwiastek wielokrotny. Dodatkowo, zwłaszcza przy wzroście wymaganej precyzji obliczeń i stopnia badanych wielomianów, dało się zauważyć, że aplikacja Wolfram Alpha nie potrafi zlokalizować pierwiastków danego wielomianu.
 
 Poniżej znajduje się tabela z podsumowaniem przeprowadzonych testów.
 
@@ -212,7 +212,7 @@ TODO zrobić tak, by tabela nie uciekała w doł lub nie wyprzedzała tekstu, kt
 		\hline
 		Kategoria & Kryterium & Moja aplikacja & Wolfram Alpha \\
 		\hline
-		\multirow{2}{*}{Wartości całkowite}
+		\multirow{3}{*}{Wartości całkowite}
 		& Wielomian 3 stopnia o dużych wartościach pierwiastków & + & + \\
 		& Wielomian 10 stopnia & + & + \\
 		& Wielomian 20 stopnia & + & --* \\
