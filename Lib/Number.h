@@ -1,6 +1,7 @@
 #pragma once
 #include "definitions.h"
 #include <mpir.h>
+#include <chrono>
 
 static int countNumbers = 0;
 static int countNumbers2 = 0;
@@ -26,6 +27,7 @@ public:
 	bool IsInfinity();
 	bool IsVerySmallValue();
 	bool IsZero();
+	bool IsWithRequiredPrecision();
 	int IsInVector(vector<Number> v);
 
 	bool operator == (Number bigNumber);
@@ -67,6 +69,7 @@ public:
 	void Print();
 };
 
+static Number PRECISION_VALUE;
 static Number SMALL_VALUE;
 static Number MAX_VALUE;
 static Number MAX_NEGATIVE_VALUE;
@@ -84,6 +87,8 @@ inline void DeleteNumber(Number* number)
 
 inline vector<Number> SortNumbers(vector<Number>v)
 {
+	if (v.size() == 0)
+		return v;
 	vector<Number> result = v;
 	for (int i = 0; i < result.size() - 1; i++)
 	{
@@ -197,6 +202,11 @@ inline bool Number::IsVerySmallValue()
 inline bool Number::IsZero()
 {
 	return IsSmallValue(Abs());
+}
+
+inline bool Number::IsWithRequiredPrecision()
+{
+	return *this <= PRECISION_VALUE;
 }
 
 inline int Number::IsInVector(vector<Number> v)
@@ -550,6 +560,8 @@ inline string Number::RoundNine(string result)
 
 inline string Number::TruncateZero(string result)
 {
+	if (StringManager::FindFirst(result, '.') < 0)
+		return result;
 	int i = result.length() - 1;
 	int last = i;
 	for (; i >= 0; i--)
@@ -561,6 +573,8 @@ inline string Number::TruncateZero(string result)
 	}
 	if (result[i] == '.')
 		last = i-1;
+	if (last == 0)
+		return "0";
 	return StringManager::Substr(result, 0, last);
 }
 
@@ -588,13 +602,19 @@ inline void InitConstants()
 	mpq_set_num(MAX_VALUE.value, b);
 	mpq_set_den(MAX_VALUE.value, a);
 	mpq_mul(MAX_NEGATIVE_VALUE.value, MAX_VALUE.value, c);
+	mpz_set_d(b, 1000);
 
-	mpz_pow_ui(b, b, 10);
+	mpz_pow_ui(b, b, 100);
 	mpq_set_num(SMALL_VALUE.value, a);
 	mpq_set_den(SMALL_VALUE.value, b);
 
+	mpz_set_d(b, 1000000);
+	mpq_set_num(PRECISION_VALUE.value, a);
+	mpq_set_den(PRECISION_VALUE.value, b);
+
 	SMALL_VALUE.Print();
-	MAX_VALUE.Print();
+	PRECISION_VALUE.Print();
 	MAX_NEGATIVE_VALUE.Print();
+	MAX_VALUE.Print();
 };
 

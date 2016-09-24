@@ -372,7 +372,7 @@ inline vector<Number> Polynomial::FindRoots(Number a, Number b)
 	}
 
 	Number interval = b - a;
-	if (interval.IsZero())
+	if (interval.IsWithRequiredPrecision())
 	{
 		//cout << "interval" << endl;
 		AddNextRoot(b);

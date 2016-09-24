@@ -40,16 +40,16 @@ Polynomial& CreateTestPolynomial2(int type, int degree, int interval, int value 
 
 void MeasureTime(Polynomial& p)
 {
-	p.Print();
+	//p.Print();
 	//cout << p.NumberOfRoots(Number(-100), Number(100)) << endl;
 	auto begin = chrono::high_resolution_clock::now();
 	p = p.PolynomialAfterEliminationOfMultipleRoots();
-	p.Print();
+	//p.Print();
 	Number a = MAX_NEGATIVE_VALUE;
 	Number b = MAX_VALUE;
 	cout << "changes in a = " << p.NumberOfChangesSign(a) << endl;
 	cout << "changes in b = " << p.NumberOfChangesSign(b) << endl;
-	p.PrintRoots(Number(a), Number(b));
+	p.PrintRoots(Number(-100), Number(100));
 	//p.FindRoots(Number(-100), Number(100));
 	auto end = chrono::high_resolution_clock::now();
 	auto durationInNs = chrono::duration_cast<chrono::nanoseconds>(end - begin).count();
@@ -72,7 +72,7 @@ void Test1(int countWord = 0, int value = 0)
 			interval = -countWord;
 		else
 			interval = degrees[i] / countWord;
-		//cout << "map degree = " << degrees[i] << ": ";
+		cout << "degree = " << degrees[i] << endl;
 		MeasureTime(CreateTestPolynomial1(0, degrees[i], interval, value));
 	}
 	for (int i = 0; i < size; i++)
@@ -84,7 +84,7 @@ void Test1(int countWord = 0, int value = 0)
 			interval = -countWord;
 		else
 			interval = degrees[i] / countWord;
-		//cout << "vector degree = " << degrees[i] << ": ";
+		cout << "degree = " << degrees[i] << endl;
 		MeasureTime(CreateTestPolynomial1(1, degrees[i], interval, value));
 	}
 	cout << "----" << endl;
@@ -129,7 +129,7 @@ void TestWithRoots(int type, vector<double>roots)
 	for(auto r: roots)
 	{
 		p2.SetValue(1, 1);
-		p2.SetValue(0, r);
+		p2.SetValue(0, -r);
 		p *= p2;
 		//p.Print();
 	}
@@ -152,7 +152,7 @@ vector<double> CreateVectorWithDoubleValues(int size)
 	vector<double> values;
 	for (int i = 1; i <= size; i++)
 	{
-		double tmp = 0.998 + ((double)i) / 1000;
+		double tmp = 1 + ((double)i) / 100;
 		//cout << tmp << endl;
 		values.push_back(tmp);
 	}
@@ -177,13 +177,13 @@ vector<double> CreateVectorWithBigValues(int size)
 
 void TestCase_1()
 {
-	degrees = { 100, 200, 400, 800 };
+	degrees = { 100, 200, 400, 800, 1600, 3200 };
 	Test1(1, 1);
 }
 
 void TestCase_2()
 {
-	degrees = { 101, 201, 401, 801 };
+	degrees = { 101, 201, 401, 801, 1601, 3201 };
 	Test1(1, 1);
 }
 
@@ -192,6 +192,7 @@ void TestCase_3()
 	degrees = { 1, 2, 4, 8, 16, 32 };
 	for(auto deg: degrees)
 	{
+		cout << "deg = " << deg << endl;
 		TestWithRoots(0, CreateVectorWithNextValues(deg));
 		TestWithRoots(1, CreateVectorWithNextValues(deg));
 	}
@@ -199,7 +200,7 @@ void TestCase_3()
 
 void TestCase_4()
 {
-	degrees = { 1, 2, 4, 8, 16, 32, 64 };
+	degrees = { 1, 2, 4, 8, 16, 32 };
 	for (auto deg : degrees)
 	{
 		cout << "deg = " << deg << endl;
@@ -210,22 +211,27 @@ void TestCase_4()
 
 void TestCase_5()
 {
-	degrees = { 1, 2, 4, 8, 16, 32, 64 };
+	degrees = { 1, 2, 4, 8, 16, 32 };
 	for (auto deg : degrees)
 	{
 		cout << "deg = " << deg << endl;
 		TestWithRoots(0, CreateVectorWithBigValues(deg));
-		//TestWithRoots(1, CreateVectorWithBigValues(deg));
+		TestWithRoots(1, CreateVectorWithBigValues(deg));
 	}
 }
 
 int main()
 {
 	InitConstants();
+	printf("tc_1\n");
 	//TestCase_1();
+	printf("tc_2\n");
 	//TestCase_2();
-	//TestCase_3();
-	TestCase_4();
+	printf("tc_3\n");
+	TestCase_3();
+	printf("tc_4\n");
+	//TestCase_4();
+	printf("tc_5\n");
 	//TestCase_5();
 
 //	Test1(10, value);
@@ -239,5 +245,6 @@ int main()
 
 	getchar();
 	getchar();
+	while (1);
 	return 0;
 }
