@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  24 SEP 2016 13:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  24 SEP 2016 22:36
 entering extended mode
 **./praca.tex
 (praca.tex
@@ -1502,44 +1502,44 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [3
 
 
-{C:/Users/Gruby/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}])
+{C:/Users/Gruby/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [4])
 \tf@toc=\write5
 \openout5 = `praca.toc'.
 
 
-(pliki_latex/0_1_streszczenie.tex [4]) (pliki_latex/0_2_abstract.tex [5
+(pliki_latex/0_1_streszczenie.tex [5]) (pliki_latex/0_2_abstract.tex [6
 
 ])
-(pliki_latex/1_wstep.tex [6
+(pliki_latex/1_wstep.tex [7
 
 ]
 Rozdzia\PlPrIeC {\l } 1.
-[7
+[8
 
-]) [8] (pliki_latex/2_1_wielomiany.tex [9]
+]) [9] (pliki_latex/2_1_wielomiany.tex [10]
 Rozdzia\PlPrIeC {\l } 2.
-[10
+[11
 
-] [11] [12] [13] [14] [15] [16] [17] [18] [19]
+] [12] [13] [14] [15] [16] [17] [18] [19] [20]
 Underfull \hbox (badness 10000) in paragraph at lines 382--384
 
  []
 
-[20] [21] [22]) (pliki_latex/2_2_biblioteka_mpir.tex [23] [24] [25] [26]
-[27]
+[21] [22] [23]) (pliki_latex/2_2_biblioteka_mpir.tex [24] [25] [26] [27]
+[28]
 LaTeX Font Info:    Try loading font information for TS1+lmr on input line 106.
 
  ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\ts1lmr.fd"
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [28] [29]
-[30] [31]) (pliki_latex/3_1_opis_rozwiazania.tex [32]
+) [29] [30]
+[31] [32]) (pliki_latex/3_1_opis_rozwiazania.tex [33]
 Rozdzia\PlPrIeC {\l } 3.
-[33
+[34
 
-]) (pliki_latex/3_2_glowne_klasy.tex [34] [35] [36] [37] [38] [39] [40]
-[41] [42] [43] [44]) (pliki_latex/3_3_glowne_funkcje.tex [45] [46] [47]
-[48] [49] [50] [51] [52] [53] [54]) (pliki_latex/3_4_instalacja.tex [55]
-<img/UnitTests_wrong_architecture.png, id=257, 633.86812pt x 465.23813pt>
+]) (pliki_latex/3_2_glowne_klasy.tex [35] [36] [37] [38] [39] [40] [41]
+[42] [43] [44] [45]) (pliki_latex/3_3_glowne_funkcje.tex [46] [47] [48]
+[49] [50] [51] [52] [53] [54] [55]) (pliki_latex/3_4_instalacja.tex [56]
+<img/UnitTests_wrong_architecture.png, id=260, 633.86812pt x 465.23813pt>
 File: img/UnitTests_wrong_architecture.png Graphic file (type png)
 
 <use img/UnitTests_wrong_architecture.png>
@@ -1550,7 +1550,7 @@ e 35.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<img/UnitTests_x64_architecture.png, id=258, 609.02531pt x 138.5175pt>
+<img/UnitTests_x64_architecture.png, id=261, 609.02531pt x 138.5175pt>
 File: img/UnitTests_x64_architecture.png Graphic file (type png)
 
 <use img/UnitTests_x64_architecture.png>
@@ -1561,44 +1561,79 @@ Package pdftex.def Info: img/UnitTests_x64_architecture.png used on input line
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) (pliki_latex/3_5_instrukcja_programu.tex [56] [57 <./img/UnitTests_wrong_arch
+) (pliki_latex/3_5_instrukcja_programu.tex [57] [58 <./img/UnitTests_wrong_arch
 itecture.png> <./img/UnitTests_x64_architecture.png>])
-(pliki_latex/4_1_testy_funkcjonalne.tex [58
+(pliki_latex/4_1_testy_funkcjonalne.tex [59
 
 ]
 Rozdzia\PlPrIeC {\l } 4.
-[59
+[60
 
-] [60] [61] [62] [63] [64] [65] [66])
-(pliki_latex/4_2_testy_wydajnosciowe.tex
-Underfull \hbox (badness 3861) in paragraph at lines 15--15
+] [61] [62] [63] [64] [65] [66] [67])
+(pliki_latex/4_2_1_testy_wydajnosciowe_wielomiany_geste.tex)
+(pliki_latex/4_2_2_testy_wydajnosciowe_wielomiany_rzadkie.tex
+Underfull \hbox (badness 3861) in paragraph at lines 13--13
 []|\T1/lmr/m/n/10 Czas dla Po-ly-no-
  []
 
 
-Underfull \hbox (badness 3861) in paragraph at lines 15--15
-[]|\T1/lmr/m/n/10 Czas dla Po-ly-no-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 31--35
-
- []
-
-[67]
-Underfull \hbox (badness 3861) in paragraph at lines 52--52
-[]|\T1/lmr/m/n/10 Czas dla Po-ly-no-
- []
-
-
-Underfull \hbox (badness 3861) in paragraph at lines 52--52
+Underfull \hbox (badness 3861) in paragraph at lines 13--13
 []|\T1/lmr/m/n/10 Czas dla Po-ly-no-
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[68]) (pliki_latex/4_3_porownanie_aplikacji.tex [69]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 77--81
+
+ []
+
+[68] [69]
+Underfull \hbox (badness 3861) in paragraph at lines 98--98
+[]|\T1/lmr/m/n/10 Czas dla Po-ly-no-
+ []
+
+
+Underfull \hbox (badness 3861) in paragraph at lines 98--98
+[]|\T1/lmr/m/n/10 Czas dla Po-ly-no-
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 3861) in paragraph at lines 161--161
+[]|\T1/lmr/m/n/10 Czas dla Po-ly-no-
+ []
+
+
+Underfull \hbox (badness 3861) in paragraph at lines 161--161
+[]|\T1/lmr/m/n/10 Czas dla Po-ly-no-
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+) (pliki_latex/4_2_3_testy_wydajnosciowe_same_pierwiastki.tex [70] [71]
+[72] [73] [74]
+Overfull \hbox (8.58412pt too wide) in paragraph at lines 1--1
+[]\T1/lmr/bx/n/14.4 Badanie wie-lo-mia-nów po-sia-da-j¡-cych wy-ª¡cz-nie pier-w
+iast-
+ []
+
+) (pliki_latex/4_3_porownanie_aplikacji.tex [75
+
+]
 Underfull \hbox (badness 10000) in paragraph at lines 21--21
 []|\T1/lmr/m/n/10 Moja
  []
@@ -1608,7 +1643,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 21--22
 []|\T1/lmr/m/n/10 Wolfram
  []
 
-[70] [71]
+[76] [77]
 Underfull \hbox (badness 10000) in paragraph at lines 104--104
 []|\T1/lmr/m/n/10 Moja
  []
@@ -1618,7 +1653,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 104--105
 []|\T1/lmr/m/n/10 Wolfram
  []
 
-[72] [73] [74] [75]
+[78] [79] [80] [81]
 Underfull \hbox (badness 10000) in paragraph at lines 213--213
 []|\T1/lmr/m/n/10 Moja
  []
@@ -1628,35 +1663,35 @@ Underfull \hbox (badness 10000) in paragraph at lines 213--214
 []|\T1/lmr/m/n/10 Wolfram
  []
 
-) (pliki_latex/5_podsumowanie.tex [76]
+) (pliki_latex/5_podsumowanie.tex [82]
 Rozdzia\PlPrIeC {\l } 5.
-) [77
+) [83
 
-] (pliki_latex/6_1_lista_rysunkow.tex [78] (praca.lof)
+] (pliki_latex/6_1_lista_rysunkow.tex [84] (praca.lof)
 \tf@lof=\write6
 \openout6 = `praca.lof'.
 
 )
-(pliki_latex/6_2_lista_tabel.tex [79
+(pliki_latex/6_2_lista_tabel.tex [85
 
 ] (praca.lot)
 \tf@lot=\write7
 \openout7 = `praca.lot'.
 
 )
-(pliki_latex/6_3_bibliografia.tex (praca.bbl [80
+(pliki_latex/6_3_bibliografia.tex (praca.bbl [86
 
-])) [81
+])) [87
 
 ] (praca.aux) ) 
 Here is how much of TeX's memory you used:
- 29301 strings out of 493634
- 681071 string characters out of 3141314
- 894696 words of memory out of 3000000
- 32021 multiletter control sequences out of 15000+200000
+ 29369 strings out of 493634
+ 682573 string characters out of 3141314
+ 895696 words of memory out of 3000000
+ 32083 multiletter control sequences out of 15000+200000
  57760 words of font info for 46 fonts, out of 3000000 for 9000
  1046 hyphenation exceptions out of 8191
- 62i,18n,96p,2384b,1913s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 62i,18n,96p,2384b,1905s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathex.
 enc}{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ts1.enc}{C:/Progra
 m Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program Files (x86)/M
@@ -1674,9 +1709,9 @@ m Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmri10.pfb><C:/Program Files (x8
 6)/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Program Files (x86)/MiKTeX 2
 .9/fonts/type1/public/lm/lmsy5.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/typ
 e1/public/lm/lmsy7.pfb>
-Output written on praca.pdf (81 pages, 789003 bytes).
+Output written on praca.pdf (87 pages, 803403 bytes).
 PDF statistics:
- 393 PDF objects out of 1000 (max. 8388607)
+ 412 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  63 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,9 +1,13 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Uruchamienie test\IeC {\'o}w jednostkowych na z\IeC {\l }ej architekturze\relax }}{57}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Ustawienie domy\IeC {\'s}lnej architektury \IeC {\'s}rodowiska testowego\relax }}{57}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Uruchamienie test\IeC {\'o}w jednostkowych na z\IeC {\l }ej architekturze\relax }}{58}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Ustawienie domy\IeC {\'s}lnej architektury \IeC {\'s}rodowiska testowego\relax }}{58}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Czasy dzia\IeC {\l }ania dla rzadkich wielomian\IeC {\'o}w nieparzystego stopnia dla PolynomialMap\relax }}{69}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Por\IeC {\'o}wnanie czas\IeC {\'o}w obu typ\IeC {\'o}w wielomian\IeC {\'o}w dla rzadkich wielomian\IeC {\'o}w nieparzystego stopnia\relax }}{69}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Czasy dzia\IeC {\l }ania dla rzadkich wielomian\IeC {\'o}w nieparzystego stopnia dla PolynomialVector\relax }}{70}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Czasy dzia\IeC {\l }ania dla rzadkich wielomian\IeC {\'o}w nieparzystego stopnia dla PolynomialMap\relax }}{71}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Czasy dzia\IeC {\l }ania dla rzadkich wielomian\IeC {\'o}w nieparzystego stopnia dla PolynomialVector\relax }}{72}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Czasy dzia\IeC {\l }ania dla rzadkich wielomian\IeC {\'o}w nieparzystego stopnia dla PolynomialMap\relax }}{73}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Czasy dzia\IeC {\l }ania dla rzadkich wielomian\IeC {\'o}w nieparzystego stopnia dla PolynomialVector\relax }}{74}
 \addvspace {10\p@ }

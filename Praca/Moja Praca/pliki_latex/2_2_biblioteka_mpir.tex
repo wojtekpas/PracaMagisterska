@@ -27,13 +27,13 @@ Biblioteka mpir, alokując w pamięci nowe obiekty, stara się minimalizować wi
 Warto zauważyć, że biblioteka standardowo do alokowania pamięci używa funkcji malloc, ale możliwe jest także korzystanie z funkcji alloca. Pierwszy alokator zajmuje się tylko przydzieleniem pamięci, a użytkownik musi sam pamiętać, o jego zwolnieniu, w odpowiednim momencie. Z kolei, drugi z nich zdejmuje tę odpowiedzialność ze strony programisty i sam dba o zwolnienie pamięci, gdy jest ona już nie używana.
 
 \subsubsection{Kompatybilność}
-Poza kilkoma wyjątkami, biblioteka mpir jest kompatybilna z odpowiednimi wersjami biblioteki gmp. Dodatkowo, jej twórcy starają się nie usuwać istniejących już funkcji. W przypadku, gdy któraś przestanie być rekomendowana, zostaje po prostu zaznaczona jako przestarzawała, ale jej implementacja nie przestaje istnieć w kolejnych wydaniach biblioteki. Dzięki temu program, bazujący na starszej wersji biblioteki, zadziała też na nowszej edycji.
+Poza kilkoma wyjątkami, biblioteka mpir jest kompatybilna z odpowiednimi wersjami biblioteki gmp. Dodatkowo, jej twórcy starają się nie usuwać istniejących już funkcji. W przypadku, gdy któraś przestanie być rekomendowana, zostaje po prostu zaznaczona jako przestarzała, ale jej implementacja nie przestaje istnieć w kolejnych wydaniach biblioteki. Dzięki temu program, bazujący na starszej wersji biblioteki, zadziała też na nowszej edycji.
 
 \subsubsection{Wydajność}
 Dla małych liczb, narzut na korzystanie z biblioteki może być znaczący w porównaniu do typów prostych. Jest to nieuniknione, ale celem biblioteki jest próba znalezienia złotego środka pomiędzy wysoką wydajność, zarówno dla małych, jak i dużych liczb. 
 
 \subsubsection{Operacje w miejscu}
-Operacje obliczania wartości bezwzględnej i negacji danej liczby są bardzo szybkie, gdy obliczane są w miejscu, tzn. wtedy, gdy zmienna wejściowa jest również zmienną wyjściową. Wówczas nie ma potrzeby alokacji i zwalnia pamięci, a cała funkcja sprowadza się do ustawienia odpowiedniego bitu, mówiącego o znaku liczby. Według specyfikacji biblioteki mpir, zauważalny powinien być także zysk, w przypadku operacji dodawania, odejmowania i mnożenie w miejscu. W momencie, gdy drugim argumentem jest nieduża liczba całkowita, operacje te są nieskomplikowane i bardzo szybkie.
+Operacje obliczania wartości bezwzględnej i negacji danej liczby są bardzo szybkie, gdy obliczane są w miejscu, tzn. wtedy, gdy zmienna wejściowa jest również zmienną wyjściową. Wówczas nie ma potrzeby alokacji i zwalniania pamięci, a cała funkcja sprowadza się do ustawienia odpowiedniego bitu, mówiącego o znaku liczby. Według specyfikacji biblioteki mpir, zauważalny powinien być także zysk, w przypadku operacji dodawania, odejmowania i mnożenie w miejscu. W momencie, gdy drugim argumentem jest nieduża liczba całkowita, operacje te są nieskomplikowane i bardzo szybkie.
 
 \subsection{Instalacja}
 
@@ -132,7 +132,7 @@ Pozwala zrzutować typ mpz\_t na zmienną typu double. Jeżeli jest to konieczne
 char* mpz_get_str (char *str, int base, mpz_t op)
 \end{lstlisting}
 
-Zwraca ciąg znaków reprezentujących liczbę op, o podstawie danej w paremetrze o nazwie base. Funkcja ta jest analogiczna do mpz\_set\_str. Jeżeli parametrem str jest NULL, to ciąg znaków zostaje zwrócony przez funkcję. W przeciwnym razie funkcja umieszcza go pod adresem, na który wskazuje zmienna str. Należy zadbać o to, by bufor do zapisania rezultatu funkcji był wystarczająco wielki. Powinien on być $2$ bajty dłuższy niż długość zwróconej liczby w danym systemie liczbowym. Pierwszy bajt służy na wpisanie ewentualnego znaków minus, natomiast drugi na znak '\textbackslash$0$' kończący łańcuch znaków. Długość zasadniczej części liczbowej można pobrać używając funkcji mpz\_sizeinbase (op, base), w której podajemy daną liczbę oraz podstawę.
+Zwraca ciąg znaków reprezentujących liczbę op, o podstawie danej w parametrze o nazwie base. Funkcja ta jest analogiczna do mpz\_set\_str. Jeżeli parametrem str jest NULL, to ciąg znaków zostaje zwrócony przez funkcję. W przeciwnym razie funkcja umieszcza go pod adresem, na który wskazuje zmienna str. Należy zadbać o to, by bufor do zapisania rezultatu funkcji był wystarczająco wielki. Powinien on być $2$ bajty dłuższy niż długość zwróconej liczby w danym systemie liczbowym. Pierwszy bajt jest przeznaczony na wpisanie ewentualnego znaku minus, natomiast drugi na znak '\textbackslash$0$' kończący łańcuch. Długość zasadniczej części liczbowej można pobrać używając funkcji mpz\_sizeinbase (op, base), w której podajemy daną liczbę oraz podstawę.
 
 \subsubsection{Funkcje arytmetyczne}
 
@@ -197,7 +197,8 @@ Oblicza wartość reszty z dzielenia liczb $n$ i $d$. Podobnie jak w funkcji mpz
 void mpz_tdiv_qr (mpz_t q, mpz_t r, mpz_t n, mpz_t d)
 \end{lstlisting}
 
-Łączy w sumie dwie powyższe funkcje. Ze względów wygody i wydajności, zaleca się jej użycie wówczas, gdy potrzebujemy obliczyć zarówno iloraz, jak i resztę z dzielenia. Ważne jest by pamiętać, że przekazane argumenty q i r, muszą być referencjami do różnych zmiennych. W przeciwnym razie, działanie funkcji będzie nie poprawne, a wynik najprawdopodobniej błędny.\\
+Łączy dwie powyższe funkcje. Ze względów wygody i wydajności, zaleca się jej użycie wówczas, gdy potrzebujemy obliczyć zarówno iloraz, jak i resztę z dzielenia. Ważne jest by pamiętać, że przekazane argumenty q i r, muszą być referencjami do różnych zmiennych. W przeciwnym razie, działanie funkcji będzie niepoprawne, a wynik najprawdopodobniej błędny.
+
 Oprócz wyżej wymienionych funkcji, istnieją także ich odpowiedniki, o odmiennym zachowaniu w kwestii zaokrąglania części ułamkowej ilorazu. Pierwszym z nich jest grupa funkcji, posiadająca w nazwie 'cdiv', gdzie litera 'c' ('ceil') oznacza sufit. Powoduje to, że w razie potrzeby, iloraz zostanie zaokrąglony w górę. Wówczas otrzymana reszta r będzie przeciwnego znaku do liczby $d$. Funkcjami z tej grupy są: mpz\_cdiv\_q, mpz\_cdiv\_r oraz mpz\_cdiv\_qr. Drugim odpowiednik jest grupa funkcji, posiadająca w nazwie 'fdiv', gdzie 'f' ('floor') oznacza podłogę. W tym przypadku, w razie potrzeby wynik zostanie zaokrąglony w dół. Reszta r będzie w tym przypadku tego samegu znaku co liczba $d$. Przykładami funkcji z tej grupy są: mpz\_fdiv\_q, mpz\_fdiv\_r oraz mpz\_fdiv\_qr. Zauważmy, że we wszystkich trzech przypadkach zostaje spełnione równanie: $n = q*d+r,\ gdzie\ 0 \le |r| < |d|.$
 
 \begin{lstlisting}
@@ -210,7 +211,7 @@ Funkcja sprawdza, czy $d$ dzieli liczbę $n$. Jeżeli nie, to zwracane jest $0$,
 void mpz_divexact (mpz_t q, mpz_t n, mpz_t d)
 \end{lstlisting}
 
-Oblicza iloraz z dzielenia liczb $n$ przez $d$. Działa poprawnie tylko w przypadku, gdy $n$ jest podzielna przez $d$. By to sprawdzić można uzyć funkcji mpz\_divisable\_p. Jest znacznie szybsza niż pozostałe funkcje, umożliwiające obliczanie ilorazu z dzielenia. Dlatego zawsze, gdy wiemy, że spełniony jest powyższy warunek, użycie tej funkcji jest wysoko rekomendowane.
+Oblicza iloraz z dzielenia liczb $n$ przez $d$. Działa poprawnie tylko w przypadku, gdy $n$ jest podzielna przez $d$. By to sprawdzić można użyć funkcji mpz\_divisable\_p. Jest znacznie szybsza niż pozostałe funkcje, umożliwiające obliczanie ilorazu z dzielenia. Dlatego zawsze, gdy wiemy, że spełniony jest powyższy warunek, użycie tej funkcji jest wysoko rekomendowane.
 
 \subsubsection{Funkcje porównania}
 

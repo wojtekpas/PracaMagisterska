@@ -4,11 +4,11 @@ Stopień trudności instalacji aplikacji zależny jest od typu procesora, na kt�
 
 \subsection{Szybka instalacja}
 
-Pliki binarne aplikacji zostały skompilowane przy użyciu kompilatora wbudowanego w Microsoft Visual Studio 2015. Sprawia to, że aplikacja korzysta z dodatkowych bibliotek dynamicznych, które musimy posiadać na komputerze, na którym uruchamiamy aplikacje. Gdy tego nie zrobimy w trakcie uruchomienia dostaniemy komunikat o braku wymaganego plikum, taki jak poniżej.
+Pliki binarne aplikacji zostały skompilowane przy użyciu kompilatora wbudowanego w Microsoft Visual Studio 2015. Sprawia to, że aplikacja korzysta z dodatkowych bibliotek dynamicznych, które musimy posiadać na komputerze, na którym uruchamiamy aplikacje. Gdy tego nie zrobimy, w trakcie uruchomienia dostaniemy komunikat o braku wymaganego pliku, taki jak poniżej.
 
 TODO obrazek
 
-Możemy dodać go, nie istalując powyższego srodowiska, ale musimy być świadomi, że przy kolejnej próbie uruchomienia dostaniemy bliźniaczy komunikat dla innego pliku. Tak, więc rekomendowanym sposobem jest instalacja Microsoft Vistual Studio 2015, który zainstaluje wszystkie potrzebne biblioteki.
+Możemy dodać go, nie istalując powyższego środowiska, ale musimy być świadomi, że przy kolejnej próbie uruchomienia dostaniemy bliźniaczy komunikat dla innego pliku. Tak, więc rekomendowanym sposobem jest instalacja Microsoft Vistual Studio 2015, który zainstaluje wszystkie potrzebne biblioteki.
 
 Drugą rzeczą, którą należy zapewnić jest dynamiczna biblioteka mpir -- w postaci pliku mpir.dll. Jeżeli instalujemy aplikację na komputerze z procesorem Intel i7 plik ten znajduje się w folderze z aplikacją. W przeciwnym razie jesteśmy zmuszenie skompilować źrodła biblioteki mpir, a powstały plik "mpir.dll"\ dodać do folderu z aplikacją lub pod ogólną lokalizacją dla wszystkich bibliotek systemu Windows.
 

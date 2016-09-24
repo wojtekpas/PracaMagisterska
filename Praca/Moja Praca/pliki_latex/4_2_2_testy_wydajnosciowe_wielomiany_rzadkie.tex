@@ -1,5 +1,3 @@
-\section{Testy wydajnościowe}
-
 \subsection{Test 1}
 
 \subsubsection{Test a}
@@ -156,16 +154,6 @@ Jak widać, dwa z trzech elementów ciągu Sturma to rzadkie wielomiany wysokich
 	\end{tikzpicture}
 	\caption{Czasy działania dla rzadkich wielomianów nieparzystego stopnia dla PolynomialVector}
 \end{figure}
-
-\subsection{Test 3}
-
-Na początku zastanówmy się, jak sprawić, by liczba elementów ciągu Sturma była jak największa. Pozwoli to nam, na zmaksymalizowanie liczby operacji na wielomianach danego stopnia. Aby to zrobić, najłatwiej jest zapewnić, by wielomian miał liczbę pierwiastków rzeczywistych równą lub zbliżoną w stosunku do jego stopnia. Jak wiemy, liczba ta jest równa różnicy liczby zmian ciągu Sturma w obu przedziałach, a jej wartość jest ograniczona przez liczbę wyrazów tego ciagu. Wynika z tego, że liczba elementów ciagu Sturma jest zawsze większa od liczby pierwiastków.
-
-Teraz zastanówmy się, jak skonstruować wielomian, który zawiera liczbę różnych pierwiastków równą jego stopniowi. Intuicyjne utworzenie wielomianu, podając jego kolejne współczynniki jest niemożliwe dla wysokich stopni.
-
-Rozwiązaniem jest więc przedstawienie go w postaci czynników, wskazując jego kolejne pierwiastki. Przykładowo wielomian W, o stopniu $k$, możemy przypisać pierwiastki, będące kolejnymi dodatnimi liczbami całkowitymi, ustalając jego wartość jako $W(x)=(x-1)*(x-2)*(x-3)*...*(x-(k-2))*(x-(k-1))*(x-k)$, gdzie $k$ jest stopniem wielomianu.
-
-Przetestujemy więc wielomiany powyższej postaci. Z powodu ograniczeń czasowych zdecydowałem się w tym teście na badanie wielomianów niższych stopni, niż w pozostałych przypadkach. Zapoznajmy się z rezultatami opisanego eksperymentu.
 
 \begin{table}
 	\begin{tabular}{ |p{3.5cm}|p{3cm}|p{3cm}|p{3.5cm}|} 
