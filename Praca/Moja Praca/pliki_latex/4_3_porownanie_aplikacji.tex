@@ -66,7 +66,7 @@ Moja aplikacja skutecznie poradziła sobie z~każdym przypadkiem. Z kolei drugi 
 	\item $\{10^{20}, 999999999999999879147136483328, 10000000000000000303786028427003666890752\}$
 \end{itemize}
 
-Można zauważyć, że program nie znalazł dokładnej wartości żadnego z~pierwiastków. Dla najmniejszej liczby, równej $10^{20}+0.1$, wynik nie zawierał części ułamkowej. W pozostałych przypadkach dało się zauważyć duży błąd bezwględny, tzn. różnicę pomiędzy wartością uzyskaną a~dokładną, przy jednocześnie bliskiej zeru wartości błędu względnego, obliczanego jako wartość bezwzględną z~ilorazu błędu względnego i~wartości dokładnej.
+Można zauważyć, że program nie znalazł dokładnej wartości żadnego z~pierwiastków. Dla najmniejszej liczby, równej $10^{20}+0.1$, wynik nie zawierał części ułamkowej. W~pozostałych przypadkach dało się zauważyć duży błąd bezwględny, tzn. różnicę pomiędzy wartością uzyskaną a~dokładną, przy jednocześnie bliskiej zeru wartości błędu względnego, obliczanego jako wartość bezwzględną z~ilorazu błędu względnego i~wartości dokładnej.
 
 Następnymi trzema kategoriami jest testowanie niewielkich pierwiastków rzeczywistych, występujących w~wielomianach stopni: czwartego, szóstego i~ósmego. Kategorie te są analogiczne. Jedyną różnicą jest to, że ułamkowa część liczby, jest coraz bardziej dokładna.
 
@@ -140,7 +140,7 @@ Dla wartości całkowitych przeprowadzono trzy testy:
 	\item $(x-1)(x-2)(x-3)*...*(x-18)(x-19)(x-20)$
 \end{itemize}
 
-Poprawność otrzymanych wyników jest taka sama jak w~przypadku poprzednich testów dla analogicznej kategorii. Moja aplikacja uzyskała poprawne wyniki dla wszystkich testów, a~Wolfram Alpha tylko dla dwóch pierwszych. W trzecim teście zwrócił on komunikat o~przekroczeniu limitu czasu i~informację o~konieczności kupna wersji płatnej, jeżeli chcę uzyskać wynik dla tego przypadku.
+Poprawność otrzymanych wyników jest taka sama jak w~przypadku poprzednich testów dla analogicznej kategorii. Moja aplikacja uzyskała poprawne wyniki dla wszystkich testów, a~Wolfram Alpha tylko dla dwóch pierwszych. W~trzecim teście zwrócił on komunikat o~przekroczeniu limitu czasu i~informację o~konieczności kupna wersji płatnej, jeżeli chcę uzyskać wynik dla tego przypadku.
 
 Poniżej zamieszczam stworzone testy dla drugiej kategorii. Przedstawione zostały wielomiany stopnii -- pierwszego, drugiego i~trzeciego, przy czym kolejne pierwiastki różnią się od siebie o~$0.1$.
 \begin{itemize}
@@ -149,14 +149,14 @@ Poniżej zamieszczam stworzone testy dla drugiej kategorii. Przedstawione zosta�
 	\item $W(x)=(x-10^{20}-0.1)(x-10^{20}-0.2)(x-10^{20}-0.3)$
 \end{itemize}
 
-Mój program także dla powyższych testów zachował się bezbłędnie. Odmienne zachowanie można zaobserwować dla serwisu Wolfram Alpha. W pierwszym przypadku znalazł on jeden pierwiastek, ale jego wartość zaokrąglił do najbliższej liczby całkowitej. W drugim przypadku program znalazł także tylko jeden pierwiastek. Prawdopodobnie spowodowane zostało to zaokrągleniami, po których wartości pierwiastków były takie same, więc zostały potraktowane przez program jako pierwiastek wielokrotny. W ostatnim przypadku serwis Wolfram Alpha zwrócił zupełnie niepoprawny rezultat. Znalazł tylko jeden pierwiastek rzeczywisty, ale jego wartość była zauważalnie różniąca się od wartości dokładnej, przy stosunkowo niewielkim błędzie bezwzględnym. Pozostałych dwóch pierwiastków rzeczywistych Wolfram Alpha nie znalazł. Mamy taką pewność, dzięki temu, że informuje on też użytkownika o~ewentualnych pierwiastkach zespolonych. Oba z~nich zostały potraktowane jako pierwiastki zespolone, o~przeciwnych współczynnikach przy jednostce urojonej $i$. Oto wartości zwrócone przez aplikację.
+Mój program także dla powyższych testów zachował się bezbłędnie. Odmienne zachowanie można zaobserwować dla serwisu Wolfram Alpha. W~pierwszym przypadku znalazł on jeden pierwiastek, ale jego wartość zaokrąglił do najbliższej liczby całkowitej. W~drugim przypadku program znalazł także tylko jeden pierwiastek. Prawdopodobnie spowodowane zostało to zaokrągleniami, po których wartości pierwiastków były takie same, więc zostały potraktowane przez program jako pierwiastek wielokrotny. W~ostatnim przypadku serwis Wolfram Alpha zwrócił zupełnie niepoprawny rezultat. Znalazł tylko jeden pierwiastek rzeczywisty, ale jego wartość była zauważalnie różniąca się od wartości dokładnej, przy stosunkowo niewielkim błędzie bezwzględnym. Pozostałych dwóch pierwiastków rzeczywistych Wolfram Alpha nie znalazł. Mamy taką pewność, dzięki temu, że informuje on też użytkownika o~ewentualnych pierwiastkach zespolonych. Oba z~nich zostały potraktowane jako pierwiastki zespolone, o~przeciwnych współczynnikach przy jednostce urojonej $i$. Oto wartości zwrócone przez aplikację.
 \begin{itemize}
 	\item $\{10^{20}\}$
 	\item $\{10^{20}\}$
 	\item $\{x = 99999359596691898368\}, \{10^{20}-5.54607*10^{14}i, 10^{20}+5.54607*10^{14}i\}$
 \end{itemize}
 
-Ostatnie trzy kategorie wyglądają podobnie jak w~przypadku testów dla pierwiastków znacznie od siebie odległych. Podobnie jak tam, zostały przeprowadzone testy dla wielomianów stopni: czwartego, szóstego i~ósmego. W kolejnych kategoriach wartości pierwiastków są sobie coraz bliższe i~różnią się odpowiednio o~$0.1$, $0.01$ i~$0.001$. Oto jak wyglądają poszczególne wielomiany w~przedstawionych wyżej kategoriach.
+Ostatnie trzy kategorie wyglądają podobnie jak w~przypadku testów dla pierwiastków znacznie od siebie odległych. Podobnie jak tam, zostały przeprowadzone testy dla wielomianów stopni: czwartego, szóstego i~ósmego. W~kolejnych kategoriach wartości pierwiastków są sobie coraz bliższe i~różnią się odpowiednio o~$0.1$, $0.01$ i~$0.001$. Oto jak wyglądają poszczególne wielomiany w~przedstawionych wyżej kategoriach.
 
 \begin{enumerate}
 	\item Niewielkie wartości rzeczywiste, 1 cyfra po przecinku
@@ -188,7 +188,7 @@ Dla drugiej kategorii mój program także znalazł wszystkie rozwiązania. Z kol
 	1.14483-0.0113488i, 1.14483+0.0113488i, 1.16769-0.00684386 i, 1.16769+0.00684386i\}$
 \end{itemize}
 
-Także dla trzeciej kategorii, wymagającej najwyższej precyzji, moja aplikacja zachowała się w~pełni poprawnie. Z kolei porównywany program tylko dla wielomianu stopnia czwartego zwrócił poprawny wynik. W drugim przypadku wielomian Wolfram Alpha znalazł 2 pierwiastki rzeczywiste. Oba cechowały się zauważalnym brakiem precyzji. W ostatnim przypadku, dla wielomianu stopnia ósmego Wolfram Alpha nie znalazł żadnego pierwiastka rzeczywistego. Oto wartości pierwiastków zwrócone przez porównywany serwis dla drugiego i~trzeciego wielomianu tej kategorii.
+Także dla trzeciej kategorii, wymagającej najwyższej precyzji, moja aplikacja zachowała się w~pełni poprawnie. Z kolei porównywany program tylko dla wielomianu stopnia czwartego zwrócił poprawny wynik. W~drugim przypadku wielomian Wolfram Alpha znalazł 2 pierwiastki rzeczywiste. Oba cechowały się zauważalnym brakiem precyzji. W~ostatnim przypadku, dla wielomianu stopnia ósmego Wolfram Alpha nie znalazł żadnego pierwiastka rzeczywistego. Oto wartości pierwiastków zwrócone przez porównywany serwis dla drugiego i~trzeciego wielomianu tej kategorii.
 
 \begin{itemize}
 	\item $\{1.10875, 1.11827\}, \{1.11113-0.0035388i,1.11113+0.0035388i, \\

@@ -24,7 +24,7 @@ Teoretycznie, wielomiany rzadkie powinny się charakteryzować największą dysp
 
 Jak widać na podstawie uzyskanych czasów dla obu wielomianów dysproporcja pomiędzy ich wydajnością dla wielomianów rzadkich jest ogromna. Można zauważyć, że wraz ze wzrostem wielomianów staje się ona coraz większa. Dodatkowo, widać, że w~przypadku PolynomialVector uzyskane czasy rosną około pięciokrotnie, przy dwukrotnym wzroście stopnia wielomianu, co oznacza przekraczającą nawet kwadratową zależność.
 
-Poniżej przedstawiam wykresy dla obu typów wielomianów. Zdecydowałem się na rozdzielenie ich na dwa osobne wykresy ze względu na wspomnianą wcześniej ogromną dysproporcję. W przeciwnym razie na wykresie o~liniowej skali wartości czasów dla PolynomialMap byłyby tak małe, że pokrywałyby się z~osią poziomą.
+Poniżej przedstawiam wykresy dla obu typów wielomianów. Zdecydowałem się na rozdzielenie ich na dwa osobne wykresy ze względu na wspomnianą wcześniej ogromną dysproporcję. W~przeciwnym razie na wykresie o~liniowej skali wartości czasów dla PolynomialMap byłyby tak małe, że pokrywałyby się z~osią poziomą.
 
 \begin{figure}[H]
 	\begin{tikzpicture}[scale=1.15]
@@ -95,7 +95,7 @@ Obliczona wartość jest drugim elementem ciągu Sturma. Obliczmy resztę z~dzie
 \end{split}
 \end{equation*}
 
-Trzecim i~jednocześnie ostatnim wyrazem ciągu Sturma jest więc $-1$, czyli wartość przeciwna do otrzymanej reszty. Dysponujemy zatem trzyelementowym ciągiem Sturma o~elementach ${x^{101}+1, 101x^{100}, -1}$. Obliczmy teraz liczbę zmian znaków dla bardzo dużych wartości bezwzględnych, dążących odpowiednio do $-\infty$ i~$+\infty$. W prawym krańcu przedziału będą to wartości $+,+,-,$ zaś w~lewym $-,+,-.$ Otrzymaliśmy jedną zmianę znaku dla wartości bliskiej $-\infty$ i~dwie zmiany dla wartości bliskiej $+\infty$. Oznacza to, że liczba pierwiastków rzeczywistych jest równa różnicy tych zmian w~lewym i~prawym krańcu, czyli w~tym przypadku wynosi $1$.
+Trzecim i~jednocześnie ostatnim wyrazem ciągu Sturma jest więc $-1$, czyli wartość przeciwna do otrzymanej reszty. Dysponujemy zatem trzyelementowym ciągiem Sturma o~elementach ${x^{101}+1, 101x^{100}, -1}$. Obliczmy teraz liczbę zmian znaków dla bardzo dużych wartości bezwzględnych, dążących odpowiednio do $-\infty$ i~$+\infty$. W~prawym krańcu przedziału będą to wartości $+,+,-,$ zaś w~lewym $-,+,-.$ Otrzymaliśmy jedną zmianę znaku dla wartości bliskiej $-\infty$ i~dwie zmiany dla wartości bliskiej $+\infty$. Oznacza to, że liczba pierwiastków rzeczywistych jest równa różnicy tych zmian w~lewym i~prawym krańcu, czyli w~tym przypadku wynosi $1$.
 
 Jak widać, dwa z~trzech elementów ciągu Sturma to rzadkie wielomiany wysokich stopni. Na takiej podstawie, wydaje się, że powyższa teza została potwierdzona. Jednocześnie jednak, warto zauważyć, że dla tego rodzaju wielomianów liczba koniecznych operacji jest niewielka, z~uwagi na znikomą liczbę elementów ciągu Sturma. Wydaje się zatem, że to właśnie ich liczba bezpośrednio wpływa na czas znajdowania pierwiastków, a~ich charakterystyka, czyli liczba niezerowych współczynników ma największe znaczenie dla wydajności obu typów wielomianów. Sprawdźmy, czy wyniki testów potwierdzają powyższą teorię.
 
