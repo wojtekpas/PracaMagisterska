@@ -467,22 +467,24 @@ Twierdzenie Sturma jest bardzo mocnym środkiem, używanym do znajdowania pierwi
 	Liczba zmian znaków ciągu Sturma dla wielomianu $W(x)$ jest mniejsza od liczby wyrazów tego ciągu i~nie większa od stopnia wielomianu $W(x)$.
 \end{theorem}
 
-Można więc zauważyć, że warunkiem wystarczającym i~jednocześnie koniecznym do tego by wielomian $W(x)$ stopnia $n$, posiadający wyłącznie pierwiastki jednokrotne, posiadał $n$ pierwiastków rzeczywistych jest to, by wartość ciągu Sturma wynosiła $n$ dla $x=-\infty$ oraz $0$ dla $x=+\infty$. 
+Można więc zauważyć, że warunkiem wystarczającym i~jednocześnie koniecznym do tego by wielomian $W(x)$ stopnia $n$, posiadający wyłącznie pierwiastki jednokrotne, posiadał $n$ pierwiastków rzeczywistych jest to, by wartość ciągu Sturma wynosiła $n$ dla $\lim_{x \to -\infty}$ oraz $0$ dla $\lim_{x \to +\infty}$. 
 
-Warto zauważyć, że dla liczb dostatecznie dużych, co do wartości bezwzględnej, z~uwzględnieniem wartości niewłaściwych $+\infty$ oraz $-\infty$ liczba zmian znaków zależy wyłącznie od współczynnika stojącego przy najwyżej potędze wielomianu. Znajduje to potwierdzenie w~poniższym twierdzeniu.
+Warto zauważyć, że dla liczb dostatecznie dużych, co do wartości bezwzględnej, z~uwzględnieniem wartości dążących do wartości niewłaściwych $+\infty$ oraz $-\infty$ liczba zmian znaków zależy wyłącznie od współczynnika stojącego przy najwyżej potędze wielomianu. Znajduje to potwierdzenie w~poniższym twierdzeniu.
 
 \begin{theorem}
 	$ $ \\
-	Jeżeli współczynnik stojący przy najwyższej potędze wielomianu jest większy od $0$, to wartość tego wielomianu jest większa od $0$ w~punkcie $x=+\infty$ oraz mniejsza od $0$ w~punkcie $x=-\infty$.
-	Z kolei, gdy współczynnik stojący przy najwyższej potędze wielomianu jest mniejszy od $0$, to wartość tego wielomianu jest mniejsza od $0$ w~punkcie $x=+\infty$ oraz większa od $0$ w~punkcie $x=-\infty$.
+	Jeżeli współczynnik stojący przy najwyższej potędze wielomianu jest większy od $0$, to wartość tego wielomianu jest większa od $0$ w~punkcie $\lim_{x \to +\infty}$ oraz mniejsza od $0$ w~punkcie $\lim_{x \to -\infty}$.
+	Z kolei, gdy współczynnik stojący przy najwyższej potędze wielomianu jest mniejszy od $0$, to wartość tego wielomianu jest mniejsza od $0$ w~punkcie $x_0$ dążacym do $+\infty$ oraz większa od $0$ w~punkcie $x_0$ dążacym do $-\infty$.
 \end{theorem}
 
-Na podstawie powyższego twierdzenia można zauważyć, że nie ma potrzeby wyliczania wartości wyrazów ciągu sturma dla wartości niewłaściwych, tzn. $x=-\infty$ oraz $x=+\infty.$ Dzieje się tak dlatego, że wartość wielomianu nie jest ważna, a~istotny jest jedynie znak. Fakt ten ma duży wpływ na optymalizacje obliczeń, gdyż dla wielomianów wysokich stopni ograniczamy się jedynie do sprawdzenia znaku przy najwyższej potędze, pomijąc wykonywanie potęgowania, mnożenia i~sumowania kolejnych wyrazów wielomianu.
-Jeżeli zależy nam, na obliczeniu wartości wielomianu, dla odpowiednio dużych $x$, będącego ilorazem dwóch wielomianów, możemy skorzystać z~poniższego twierdzenia.
+Na podstawie powyższego twierdzenia można zauważyć, że nie ma potrzeby wyliczania wartości wyrazów ciągu sturma dla wartości $x_0$ zbliżonych do $-\infty$ lub $+\infty.$ Dzieje się tak dlatego, że przy odpowiednio dużej wartości bezwzględnej $x_0$, znak wielomianu $W(x)$ w punkcie $x_0$ zależy wyłącznie od współczynnika stojącego przy najwyższyej potędze. Fakt ten ma duży wpływ na optymalizacje obliczeń, gdyż dla niektórych wielomianów możemy ograniczyć się jedynie do sprawdzenia znaku przy najwyższej potędze, pomijąc dzięki temu wiele niepotrzebnych obliczeń
+
+Jeżeli zależy nam na obliczeniu wartości wielomianu, dla odpowiednio dużych $x$, będącego ilorazem dwóch wielomianów, możemy skorzystać z~poniższego twierdzenia.
 
 \begin{theorem}
 	$ $ \\
-	Dany jest wielomian $W_1(x) = a_0x^n + a_1x^{n-1} + a_2x^{n-2} + ... + a_{n-1}x + a_n$, gdzie $a_0 \ne 0$, stopnia $n$ oraz wielomian $W_2(x) = b_0x^{n-1} + b_1x^{n-2} + b_2x^{n-3} + ... + b_{n-2}x + b_{n-1},\ gdzie\ b_0 \ne 0$, stopnia $n-1$. Wówczas $\lim_{x \to +\infty}\frac{W_1(x)}{W_2(x)} = \frac{a_0}{b_0}$ oraz $\lim_{x \to -\infty}\frac{W_1(x)}{W_2(x)} = \frac{a_0}{b_0}.$
+	Dany jest wielomian $W_1(x) = a_0x^n + a_1x^{n-1} + a_2x^{n-2} + ... + a_{n-1}x + a_n$, gdzie $a_0 \ne 0$, stopnia $n$ oraz wielomian $W_2(x) = b_0x^{n-1} + b_1x^{n-2} + b_2x^{n-3} + ... + b_{n-2}x + b_{n-1},\ gdzie\ b_0 \ne 0$, stopnia $n-1$. Wówczas
+	wartość z ilorazu $W_1(x)$ przez wielomian $W_2(x)$ przy $x$ dążącym do $+\infty$ lub $x$ dążącym do $-\infty$ jest równa $\frac{a_0}{b_0}$.
 \end{theorem}
 
 Jak widać jesteśmy w~stanie ustalić znak, a~nawet dokładną wartość, największego współczynnika wielomianu, będącego ilorazem dwóch innych wielomianów, wykonując proste dzielenie dwóch liczb, będących odpowiednio najwyższymi współczynnikami wielomianów -- dzielnej i~dzielnika.

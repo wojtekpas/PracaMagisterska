@@ -1,15 +1,15 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Uruchamienie test\IeC {\'o}w jednostkowych na z\IeC {\l }ej architekturze\relax }}{57}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Ustawienie domy\IeC {\'s}lnej architektury \IeC {\'s}rodowiska testowego\relax }}{57}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Komunikat o b\IeC {\l }\IeC {\k e}dzie w przypadku pr\IeC {\'o}by uruchomienia test\IeC {\'o}w jednostkowych na niew\IeC {\l }a\IeC {\'s}ciwej architekturze\relax }}{57}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Ustawienie odpowiedniej architektury \IeC {\'s}rodowiska testowego\relax }}{57}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Czasy znajdowania pierwiastk\IeC {\'o}w dla g\IeC {\k e}stych wielomian\IeC {\'o}w parzystego stopnia\relax }}{67}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Czas znajdowania pierwiastk\IeC {\'o}w dla wielomian\IeC {\'o}w zawieraj\IeC {\k a}cych kolejne pierwiastki ca\IeC {\l }kowite\relax }}{68}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Czasy znajdowania pierwiastk\IeC {\'o}w przez PolynomialMap dla rzadkich wielomian\IeC {\'o}w parzystego stopnia\relax }}{70}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Czasy znajdowania pierwiastk\IeC {\'o}w przez PolynomialVector dla rzadkich wielomian\IeC {\'o}w parzystego stopnia\relax }}{70}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Czasy znajdowania pierwiastk\IeC {\'o}w przez PolynomialMap dla rzadkich wielomian\IeC {\'o}w nieparzystego stopnia\relax }}{72}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Czasy znajdowania pierwiastk\IeC {\'o}w przez PolynomialVector dla rzadkich wielomian\IeC {\'o}w nieparzystego stopnia\relax }}{73}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Czas znajdowania pierwiastk\IeC {\'o}w dla wielomian\IeC {\'o}w zawieraj\IeC {\k a}cych kolejne pierwiastki ca\IeC {\l }kowite\relax }}{75}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Czas znajdowania pierwiastk\IeC {\'o}w dla wielomian\IeC {\'o}w zawieraj\IeC {\k a}cych pierwiastki wymierne r\IeC {\'o}\IeC {\.z}ni\IeC {\k a}ce si\IeC {\k e} o\nobreakspace {}$0.01$\relax }}{76}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Czasy znajdowania pierwiastk\IeC {\'o}w dla g\IeC {\k e}stych wielomian\IeC {\'o}w parzystego stopnia\relax }}{69}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Czas znajdowania pierwiastk\IeC {\'o}w dla wielomian\IeC {\'o}w zawieraj\IeC {\k a}cych kolejne pierwiastki ca\IeC {\l }kowite\relax }}{70}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Czasy znajdowania pierwiastk\IeC {\'o}w przez PolynomialMap dla rzadkich wielomian\IeC {\'o}w parzystego stopnia\relax }}{72}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Czasy znajdowania pierwiastk\IeC {\'o}w przez PolynomialVector dla rzadkich wielomian\IeC {\'o}w parzystego stopnia\relax }}{72}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Czasy znajdowania pierwiastk\IeC {\'o}w przez PolynomialMap dla rzadkich wielomian\IeC {\'o}w nieparzystego stopnia\relax }}{74}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Czasy znajdowania pierwiastk\IeC {\'o}w przez PolynomialVector dla rzadkich wielomian\IeC {\'o}w nieparzystego stopnia\relax }}{75}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Czas znajdowania pierwiastk\IeC {\'o}w dla wielomian\IeC {\'o}w zawieraj\IeC {\k a}cych kolejne pierwiastki ca\IeC {\l }kowite\relax }}{77}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Czas znajdowania pierwiastk\IeC {\'o}w dla wielomian\IeC {\'o}w zawieraj\IeC {\k a}cych pierwiastki wymierne r\IeC {\'o}\IeC {\.z}ni\IeC {\k a}ce si\IeC {\k e} o\nobreakspace {}$0.01$\relax }}{78}
 \addvspace {10\p@ }
