@@ -309,5 +309,25 @@ namespace UnitTests
 		{
 			Verify("-(2a-3a+a)^0", 0);
 		}
+
+		TEST_METHOD(ParserConvert46)
+		{
+			result.SetValue(1, 7.5);
+			Verify("5x/2*3", result);
+		}
+
+		TEST_METHOD(ParserConvert47)
+		{
+			result.SetValue(1, 2.5);
+			Verify("5x/2", result);
+		}
+
+
+		TEST_METHOD(ParserConvert48)
+		{
+			result.SetValue(1, 3.5);
+			result.SetValue(0, 2.5);
+			Verify("(7x+5)/2", result);
+		}
 	};
 }

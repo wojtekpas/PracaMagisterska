@@ -103,5 +103,16 @@ namespace UnitTests
 		{
 			Verify("(x+1)^4*(x2+x+1)", "(x+1)(x2+x+1)");
 		}
+
+		TEST_METHOD(PolynomialAfterElimination16)
+		{
+			Verify("(2x+5)^2*(x2+x+1)", "(2x+5)(x2+x+1)/2");
+		}
+
+		TEST_METHOD(PolynomialAfterElimination17)
+		{
+			Verify("(2x+3)^4*(x2+2x+1)", "(2x+3)(x+1)/2");
+		}
+
 	};
 }

@@ -372,7 +372,7 @@ inline vector<PolynomialMap> PolynomialMap::GetSturm()
 //	{
 //		p.Print();
 //	}
-
+	cout << "Sturm = " << sturm.size() << endl;
 	return sturm;
 }
 

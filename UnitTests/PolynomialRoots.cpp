@@ -205,7 +205,25 @@ namespace UnitTests
 			a = Number(-10);
 			b = Number(10);
 			polynomialRoots.push_back(Number(1));
-			Verify("a-1");
+			Verify("x-1");
+		}
+
+		TEST_METHOD(PolynomialRoots24)
+		{
+			a = Number(-10);
+			b = Number(10);
+			polynomialRoots.push_back(Number(5.0/4));
+			Verify("(4x-5)");
+		}
+
+		TEST_METHOD(PolynomialRoots25)
+		{
+			a = Number(-10);
+			b = Number(10);
+			polynomialRoots.push_back(Number(1));
+			polynomialRoots.push_back(Number(7.0/5));
+			polynomialRoots.push_back(Number(3.0/2));
+			Verify("(x-1)*(5x-7)^2*(2x-3)");
 		}
 	};
 }

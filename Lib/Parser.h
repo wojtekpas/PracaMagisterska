@@ -158,7 +158,11 @@ inline Polynomial& Parser::ConvertToPolynomial(string inputS, int type)
 
 	if (mulElement.IsNew() == false)
 	{
-		curElement *= mulElement;
+		if (mulOp)
+			mulElement *= curElement;
+		else
+			mulElement /= curElement;
+		curElement = mulElement;
 		mulElement.Clear();
 	}
 	if (sumOp)

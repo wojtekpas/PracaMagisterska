@@ -12,7 +12,7 @@ namespace UnitTests
 		Parser parser;
 	public:
 
-		void Verify(string input, int a, int expectedValue)
+		void Verify(string input, double a, int expectedValue)
 		{
 			for (int type = 0; type < NUMBER_OF_TYPES; type++)
 			{
@@ -100,6 +100,18 @@ namespace UnitTests
 		TEST_METHOD(PolynomialValue15)
 		{
 			Verify("(x+1)^4*(x2+x+1)", 2, 567);
+		}
+
+
+		TEST_METHOD(PolynomialValue16)
+		{
+			Verify("(2x+3)^4*(4x+1)", -0.5, -16);
+		}
+
+
+		TEST_METHOD(PolynomialValue17)
+		{
+			Verify("(4x+2)^2*(6x+1)", 1.5, 640);
 		}
 	};
 }

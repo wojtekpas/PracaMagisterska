@@ -146,5 +146,16 @@ namespace UnitTests
 			b = 2;
 			Verify("(x-1)^2*(x+1)^2*(x-3)^2", 2);
 		}
+
+		TEST_METHOD(PolynomialNumberOfRoots22)
+		{
+			Verify("(x-3)^2*(2x+1)^2*(2x-3)^2", 3);
+		}
+
+		TEST_METHOD(PolynomialNumberOfRoots23)
+		{
+			a = 2;
+			Verify("(2x-3)^2*(2x+1)^2*(2x-7)^2", 1);
+		}
 	};
 }

@@ -100,5 +100,11 @@ namespace UnitTests
 			Polynomial& answer = parser.ConvertToPolynomial("x");
 			Verify("x6-6x4-4x3+9x2+12x+4", "x5-4x3-2x2+3x+2", answer);
 		}
+
+		TEST_METHOD(PolynomialDivOperator12)
+		{
+			Polynomial& answer = parser.ConvertToPolynomial("3x/2");
+			Verify("3x2+4", "2x", answer);
+		}
 	};
 }

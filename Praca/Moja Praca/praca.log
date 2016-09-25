@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  25 SEP 2016 15:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  25 SEP 2016 19:28
 entering extended mode
 **./praca.tex
 (praca.tex
@@ -1584,7 +1584,7 @@ Underfull \hbox (badness 3861) in paragraph at lines 106--106
  []
 
 [74] [75]) (pliki_latex/4_2_3_testy_wydajnosciowe_same_pierwiastki.tex [76]
-[77] [78]) (pliki_latex/4_3_porownanie_aplikacji.tex [79] [80]
+[77] [78] [79]) (pliki_latex/4_3_porownanie_aplikacji.tex [80]
 Underfull \hbox (badness 10000) in paragraph at lines 20--20
 []|\T1/lmr/m/n/10 Moja
  []
@@ -1660,7 +1660,7 @@ m Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmri10.pfb><C:/Program Files (x8
 6)/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Program Files (x86)/MiKTeX 2
 .9/fonts/type1/public/lm/lmsy5.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/typ
 e1/public/lm/lmsy7.pfb>
-Output written on praca.pdf (92 pages, 822342 bytes).
+Output written on praca.pdf (92 pages, 823613 bytes).
 PDF statistics:
  428 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

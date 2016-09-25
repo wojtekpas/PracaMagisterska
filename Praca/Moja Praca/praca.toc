@@ -95,16 +95,15 @@
 \contentsline {subsection}{\numberline {4.2.1}Testowanie wielomian\IeC {\'o}w g\IeC {\k e}stych}{66}
 \contentsline {subsubsection}{Wielomiany stopnia parzystego}{66}
 \contentsline {subsubsection}{Wielomiany stopnia nieparzystego}{68}
-\contentsline {subsubsection}{Wielomiany o losowych wsp\IeC {\'o}\IeC {\l }czynnikach}{70}
-\contentsline {subsection}{\numberline {4.2.2}Testowanie wielomian\IeC {\'o}w rzadkich}{71}
-\contentsline {subsubsection}{Wielomiany stopnia parzystego}{71}
+\contentsline {subsection}{\numberline {4.2.2}Testowanie wielomian\IeC {\'o}w rzadkich}{70}
+\contentsline {subsubsection}{Wielomiany stopnia parzystego}{70}
 \contentsline {subsubsection}{Wielomiany stopnia nieparzystego}{73}
 \contentsline {subsection}{\numberline {4.2.3}Badanie wielomian\IeC {\'o}w posiadaj\IeC {\k a}cych wy\IeC {\l }\IeC {\k a}cznie pierwiastki rzeczywiste}{76}
 \contentsline {subsubsection}{Wielomian o pierwiastkach ca\IeC {\l }kowitych}{76}
 \contentsline {subsubsection}{Wielomiany o pierwiastkach wymiernych}{78}
 \contentsline {section}{\numberline {4.3}Por\IeC {\'o}wnanie aplikacji z innym programem}{80}
-\contentsline {subsection}{\numberline {4.3.1}Por\IeC {\'o}wnanie mo\IeC {\.z}liwo\IeC {\'s}ci aplikacji i interfejsu u\IeC {\.z}ytkownika}{80}
-\contentsline {subsection}{\numberline {4.3.2}Por\IeC {\'o}wnanie poprawno\IeC {\'s}ci i precyzji oblicze\IeC {\'n}}{81}
+\contentsline {subsection}{\numberline {4.3.1}Por\IeC {\'o}wnanie mo\IeC {\.z}liwo\IeC {\'s}ci aplikacji i interfejsu u\IeC {\.z}ytkownika}{81}
+\contentsline {subsection}{\numberline {4.3.2}Por\IeC {\'o}wnanie poprawno\IeC {\'s}ci i precyzji oblicze\IeC {\'n}}{82}
 \contentsline {subsubsection}{Pierwiastki odleg\IeC {\l }e od siebie}{82}
 \contentsline {subsubsection}{Pierwiastki znajduj\IeC {\k a}ce si\IeC {\k e} blisko siebie}{84}
 \contentsline {chapter}{\numberline {5}Podsumowanie}{88}

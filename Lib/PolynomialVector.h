@@ -395,6 +395,7 @@ inline vector<PolynomialVector> PolynomialVector::GetSturm()
 	DeletePolynomial(&q);
 	DeletePolynomial(&r);
 	DeletePolynomial(&derivative);
+	cout << "Sturm = " << sturm.size() << endl;
 	return sturm;
 }
 

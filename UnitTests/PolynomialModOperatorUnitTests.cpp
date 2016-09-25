@@ -123,26 +123,10 @@ namespace UnitTests
 			Verify("x6-6x4-4x3+9x2+12x+4", "x5-4x3-2x2+3x+2", answer);
 		}
 
-		TEST_METHOD(PolynomialModOperator17)
+		TEST_METHOD(PolynomialDivOperator17)
 		{
-			string input_p1 = "x6-6x4-4x3+9x2+12x+4";
-			string input_derivative = "x5-4x3-2x2+3x+2";
-			Polynomial& p1 = parser.ConvertToPolynomial(input_p1);
-			Polynomial& derivative = p1.Derivative();
-			derivative.Normalize();
-			Polynomial& nwd = p1.Nwd(p1, derivative);
-			nwd.Normalize();
-			Polynomial& p1AfterEliminationOfMultipleRoots = p1 / nwd;
-			Polynomial& tmp1 = derivative % nwd;
-			Polynomial& answerDerivative = parser.ConvertToPolynomial(input_derivative);
-			Polynomial& answerNwd = parser.ConvertToPolynomial("x4+x3-3x2-5x-2");
-			Polynomial& answerP1After = parser.ConvertToPolynomial("x2-x-2");
-			Polynomial& answerTmp1 = parser.ConvertToPolynomial("Is Zero");
-
-			Assert::AreEqual(answerDerivative.ToString(), derivative.ToString());
-			Assert::AreEqual(answerNwd.ToString(), nwd.ToString());
-			Assert::AreEqual(answerP1After.ToString(), p1AfterEliminationOfMultipleRoots.ToString());
-			Assert::AreEqual(answerTmp1.ToString(), tmp1.ToString());
+			Polynomial& answer = parser.ConvertToPolynomial("4");
+			Verify("3x2+4", "2x", answer);
 		}
 	};
 }

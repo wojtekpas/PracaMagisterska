@@ -567,13 +567,13 @@ inline string Number::TruncateZero(string result)
 	for (; i >= 0; i--)
 	{
 		if (result[i] == '0')
-			last = i-1;
+			last = i - 1;
 		else
 			break;
 	}
 	if (result[i] == '.')
-		last = i-1;
-	if (last == 0)
+		last = i - 1;
+	if (last < 0)
 		return "0";
 	return StringManager::Substr(result, 0, last);
 }
@@ -617,4 +617,3 @@ inline void InitConstants()
 	MAX_NEGATIVE_VALUE.Print();
 	MAX_VALUE.Print();
 };
-
