@@ -10,11 +10,11 @@ TODO obrazek
 
 Możemy dodać go, nie istalując powyższego środowiska, ale musimy być świadomi, że przy kolejnej próbie uruchomienia dostaniemy bliźniaczy komunikat dla innego pliku. Tak, więc rekomendowanym sposobem jest instalacja Microsoft Vistual Studio 2015, który zainstaluje wszystkie potrzebne biblioteki.
 
-Drugą rzeczą, którą należy zapewnić jest dynamiczna biblioteka mpir -- w postaci pliku mpir.dll. Jeżeli instalujemy aplikację na komputerze z procesorem Intel i7 plik ten znajduje się w folderze z aplikacją. W przeciwnym razie jesteśmy zmuszenie skompilować źrodła biblioteki mpir, a powstały plik "mpir.dll"\ dodać do folderu z aplikacją lub pod ogólną lokalizacją dla wszystkich bibliotek systemu Windows.
+Drugą rzeczą, którą należy zapewnić jest dynamiczna biblioteka mpir -- w postaci pliku mpir.dll. Jeżeli instalujemy aplikację na komputerze z procesorem Intel i7 plik ten znajduje się w folderze z aplikacją. W przeciwnym razie jesteśmy zmuszenie skompilować źrodła biblioteki mpir, a~powstały plik "mpir.dll"\ dodać do folderu z aplikacją lub pod ogólną lokalizacją dla wszystkich bibliotek systemu Windows.
 
 \subsection{Kompilacja biblioteki mpir}
 
-Gdy chcemy uruchomić program na innym procesorze niż Intel i7 potrzebujemy dołączyć do niego dynamiczną bibliotekę mpir. Aby to zrobić, musimy dokonać kompilacji jej źrodeł dla wybranego procesora, a następnie skopiować uzyskany plik typu dll do odpowiedniego folderu.
+Gdy chcemy uruchomić program na innym procesorze niż Intel i7 potrzebujemy dołączyć do niego dynamiczną bibliotekę mpir. Aby to zrobić, musimy dokonać kompilacji jej źrodeł dla wybranego procesora, a~następnie skopiować uzyskany plik typu dll do odpowiedniego folderu.
 
 Zaczynamy od uzyskania źrodeł biblioteki ze strony "http://mpir.org/". Następnie otwieramy pobraną solucję w programie Miscrosoft Visual Studio 2015. Ważne jest to, by w ustawieniach zmienić opcję kompilacji "Debug" na "Release" i wybieramy system 64-bitowy. Następnie wybieramy projekt przeznaczony na interesującą nas platformę i budujemy go.
 
