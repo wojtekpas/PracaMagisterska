@@ -1,10 +1,10 @@
 \section{Testy wydajnościowe}
 
-Celem niniejszego podrozdziału jest przeprowadzenie testów wydajnościowych dla obu typów wielomianów. PolynomialMap i PolynomialVector to bardzo podobne klasy, których struktura została jednak oparta na odmiennych podejściach. PolynomialMap opiera się na przechowywaniu wyłącznie niezerowych współczynników wielomianu. Z kolei PolynomialVector jako kontenera danych używa wektora, co wymusza przechowywanie wszystkich współczynników, także zerowych.
+Celem niniejszego podrozdziału jest przeprowadzenie testów wydajnościowych dla obu typów wielomianów. PolynomialMap i~PolynomialVector to bardzo podobne klasy, których struktura została jednak oparta na odmiennych podejściach. PolynomialMap opiera się na przechowywaniu wyłącznie niezerowych współczynników wielomianu. Z kolei PolynomialVector jako kontenera danych używa wektora, co wymusza przechowywanie wszystkich współczynników, także zerowych.
 
-Zestaw przeprowadzonych testów dobrałem tak, by pozwoliły one na zbadanie zupełnie różnych przypadków. Teoretycznie bowiem obiekty typu PolynomialMap powinny być dużo wydajniejsze dla wielomianów rzadkich. Z drugiej strony, w przypadku wielomianów gęstych różnica pomiędzy obiema klasami powinna być zdecydowanie mniejsza. Wydaje się, że w takiej sytuacji niewielką przewagę powinna mieć klasa wielomianu oparta o użycie tablicy. W tym miejscu warto przypomnieć, że wielomiany nazywami gęstymi, jeżeli większość współczynników jest niezerowa, zaś wielomiany, których większość współczynników stanowią zera to wielomiany rzadkie.
+Zestaw przeprowadzonych testów dobrałem tak, by pozwoliły one na zbadanie zupełnie różnych przypadków. Teoretycznie bowiem obiekty typu PolynomialMap powinny być dużo wydajniejsze dla wielomianów rzadkich. Z drugiej strony, w~przypadku wielomianów gęstych różnica pomiędzy obiema klasami powinna być zdecydowanie mniejsza. Wydaje się, że w~takiej sytuacji niewielką przewagę powinna mieć klasa wielomianu oparta o~użycie tablicy. W tym miejscu warto przypomnieć, że wielomiany nazywami gęstymi, jeżeli większość współczynników jest niezerowa, zaś wielomiany, których większość współczynników stanowią zera to wielomiany rzadkie.
 
-Zapoznajmy się więc z poniższymi testami, by zweryfikowac przedstawioną wyżej tezę.
+Zapoznajmy się więc z~poniższymi testami, by zweryfikowac przedstawioną wyżej tezę.
 
 \subsection{Testowanie wielomianów gęstych}
 
@@ -31,7 +31,7 @@ W przypadku, gdy stopień wielomianu jest liczbą parzystą, a~jego wszystkie ws
 	\caption{Porównanie czasów znajdowania pierwiastków dla gęstych wielomianów parzystego stopnia}
 \end{table}
 
-W tabeli dla każdego przeprowadzonego testu została dodana wartość współczynnika czasów, zdefiniowa jako iloraz czasu działania typu PolynomialVector i PolynomialMap. Ich wartość dla wszystkich testów jest bliska lub równa $1$. Na tej podstawie łatwo zauważyć, że czasy znajdowania pierwiastków wielomianów dla obu struktrur jest praktycznie identyczny. Z tego powodu poniższy wykres pokazuje dwie praktycznie w całości pokrywające się linie, oznaczające czas działania obu typoów wielomianów w zależności od testowanego stopnia.
+W tabeli dla każdego przeprowadzonego testu została dodana wartość współczynnika czasów, zdefiniowa jako iloraz czasu działania typu PolynomialVector i~PolynomialMap. Ich wartość dla wszystkich testów jest bliska lub równa $1$. Na tej podstawie łatwo zauważyć, że czasy znajdowania pierwiastków wielomianów dla obu struktrur jest praktycznie identyczny. Z tego powodu poniższy wykres pokazuje dwie praktycznie w~całości pokrywające się linie, oznaczające czas działania obu typoów wielomianów w~zależności od testowanego stopnia.
 
 \begin{figure}[H]
 	\begin{tikzpicture}[scale=1.12]
@@ -72,7 +72,7 @@ W tabeli dla każdego przeprowadzonego testu została dodana wartość współcz
 
 \subsubsection{Wielomiany stopnia nieparzystego}
 
-To analogiczny test w porównaniu z poprzednim, jednak w tym przypadku stopień wielomianu jest nieparzysty. Wpływa to na liczbę pierwiastków rzeczywistych wielomianu, zwiększając ją o $1$. Sprawdźmy, czy wyniki będą podobne do tych uzyskanych dla wielomianów stopnia parzystego.
+To analogiczny test w~porównaniu z~poprzednim, jednak w~tym przypadku stopień wielomianu jest nieparzysty. Wpływa to na liczbę pierwiastków rzeczywistych wielomianu, zwiększając ją o~$1$. Sprawdźmy, czy wyniki będą podobne do tych uzyskanych dla wielomianów stopnia parzystego.
 
 \begin{table}[H]
 	\begin{tabular}{ |p{4cm}|p{2.75cm}|p{2.75cm}|p{3.5cm}|} 
@@ -90,7 +90,7 @@ To analogiczny test w porównaniu z poprzednim, jednak w tym przypadku stopień 
 	\caption{Porównanie czasów znajdowania pierwiastków dla gęstych wielomianów nieparzystego stopnia}
 \end{table}
 
-Także i w tym przypadku porównywane czasy działania są prawie identyczne. Ich wartości w zależności od stopnia testowanego wielomianu zostały przedstawione na poniższym wykresie.
+Także i~w~tym przypadku porównywane czasy działania są prawie identyczne. Ich wartości w~zależności od stopnia testowanego wielomianu zostały przedstawione na poniższym wykresie.
 
 \begin{figure}[H]
 	\begin{tikzpicture}[scale=1]
@@ -129,4 +129,4 @@ Także i w tym przypadku porównywane czasy działania są prawie identyczne. Ic
 	\caption{Czas znajdowania pierwiastków dla wielomianów zawierających kolejne pierwiastki całkowite}
 \end{figure}
 
-Porównując wartości uzyskane dla wielomianów stopnia parzystego i nieparzystego uwagę zwraca fakt, że uzyskane czasy dla wielomianów stopnia nieparzystego, czyli takich posiadających przynajmniej jeden pierwiastek rzeczywistych są kilkadziesiąt razy większe niż dla wielomianów stopnia parzystego. Oznacza to, że liczba pierwiastków rzeczywistych ma ogromny wpływ na czas działania algorytmu ich znajdowania. Testy potwierdzają, że sytuacja taka jest obserwowana niezależnie od typu użytej struktury wielomianu.
+Porównując wartości uzyskane dla wielomianów stopnia parzystego i~nieparzystego uwagę zwraca fakt, że uzyskane czasy dla wielomianów stopnia nieparzystego, czyli takich posiadających przynajmniej jeden pierwiastek rzeczywistych są kilkadziesiąt razy większe niż dla wielomianów stopnia parzystego. Oznacza to, że liczba pierwiastków rzeczywistych ma ogromny wpływ na czas działania algorytmu ich znajdowania. Testy potwierdzają, że sytuacja taka jest obserwowana niezależnie od typu użytej struktury wielomianu.
