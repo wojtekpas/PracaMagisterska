@@ -6,7 +6,7 @@ Kolejnym przypadkiem jest zbadanie rzadkich wielomianów, nieposiadających pier
 
 Teoretycznie, wielomiany rzadkie powinny się charakteryzować największą dysproporcją w wydajności pomiędzy typami PolynomialMap i PolynomialVector, na korzyść tego pierwszego. Jest to spowodowane faktem, że to właśnie w tym przypadku, odsetek zerowych współczynników jest największy. Czynnik ten powinien bardzo negatywnie wpływać na czas znajdowania pierwiastków, a w tym przypadku na stwierdzenie, o ich braku. Zapoznajmy się z wynikami testów, by zweryfikować postawioną powyżej tezę.
 
-\begin{table}
+\begin{table}[H]
 	\begin{tabular}{ |p{3.5cm}|p{3cm}|p{3cm}|p{3.5cm}|} 
 		\hline
 		Testowany wielomian & Czas dla PolynomialMap [s] & Czas dla PolynomialVector [s] & Współczynnik czasów \\
@@ -23,7 +23,7 @@ Teoretycznie, wielomiany rzadkie powinny się charakteryzować największą dysp
 \end{table}
 
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\begin{tikzpicture}[scale=1.5]
 	\begin{axis}[
 	xlabel={Stopień wielomianu},
@@ -47,7 +47,7 @@ Teoretycznie, wielomiany rzadkie powinny się charakteryzować największą dysp
 	\caption{Czasy znajdowania pierwiastków przez PolynomialMap dla rzadkich wielomianów parzystego stopnia}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\begin{tikzpicture}[scale=1.5]
 	\begin{axis}[
 	xlabel={Stopień wielomianu},
@@ -92,7 +92,7 @@ Trzecim i jednocześnie ostatnim wyrazem ciągu Sturma jest więc $-1$, czyli wa
 
 Jak widać, dwa z trzech elementów ciągu Sturma to rzadkie wielomiany wysokich stopni. Na takiej podstawie, wydaje się, że powyższa teza została potwierdzona. Jednocześnie jednak, warto zauważyć, że dla tego rodzaju wielomianów liczba koniecznych operacji jest niewielka, z uwagi na znikomą liczbę elementów ciągu Sturma. Wydaje się zatem, że to właśnie ich liczba bezpośrednio wpływa na czas znajdowania pierwiastków, a ich charakterystyka, czyli liczba niezerowych współczynników ma największe znaczenie dla wydajności obu typów wielomianów. Sprawdźmy, czy wyniki testów potwierdzają powyższą teorię.
 
-\begin{table}
+\begin{table}[H]
 	\begin{tabular}{ |p{3.5cm}|p{3cm}|p{3cm}|p{3.5cm}|} 
 		\hline
 		Testowany wielomian & Czas dla PolynomialMap [s] & Czas dla PolynomialVector [s] & Współczynnik czasów \\
@@ -108,7 +108,7 @@ Jak widać, dwa z trzech elementów ciągu Sturma to rzadkie wielomiany wysokich
 	\caption{Porównanie czasów znajdowania pierwiastków dla rzadkich wielomianów nieparzystego stopnia}
 \end{table}
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\begin{tikzpicture}[scale=1.5]
 	\begin{axis}[
 	xlabel={Stopień wielomianu},
@@ -132,7 +132,7 @@ Jak widać, dwa z trzech elementów ciągu Sturma to rzadkie wielomiany wysokich
 	\caption{Czasy znajdowania pierwiastków przez PolynomialMap dla rzadkich wielomianów nieparzystego stopnia}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\begin{tikzpicture}[scale=1.5]
 	\begin{axis}[
 	xlabel={Stopień wielomianu},

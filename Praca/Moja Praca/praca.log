@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  24 SEP 2016 23:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  25 SEP 2016 13:09
 entering extended mode
 **./praca.tex
 (praca.tex
@@ -1546,31 +1546,23 @@ File: img/UnitTests_wrong_architecture.png Graphic file (type png)
 Package pdftex.def Info: img/UnitTests_wrong_architecture.png used on input lin
 e 35.
 (pdftex.def)             Requested size: 426.79134pt x 313.2555pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<img/UnitTests_x64_architecture.png, id=261, 609.02531pt x 138.5175pt>
+ [57]
+<img/UnitTests_x64_architecture.png, id=264, 609.02531pt x 138.5175pt>
 File: img/UnitTests_x64_architecture.png Graphic file (type png)
 
 <use img/UnitTests_x64_architecture.png>
 Package pdftex.def Info: img/UnitTests_x64_architecture.png used on input line 
 42.
 (pdftex.def)             Requested size: 426.79134pt x 97.0736pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-) (pliki_latex/3_5_instrukcja_programu.tex [57] [58 <./img/UnitTests_wrong_arch
-itecture.png> <./img/UnitTests_x64_architecture.png>])
-(pliki_latex/4_1_testy_funkcjonalne.tex [59
-
-]
+)
+(pliki_latex/3_5_instrukcja_programu.tex)
+(pliki_latex/4_1_testy_funkcjonalne.tex [58 <./img/UnitTests_wrong_architecture
+.png> <./img/UnitTests_x64_architecture.png>]
 Rozdzia\PlPrIeC {\l } 4.
-[60
+[59
 
-] [61] [62] [63] [64] [65] [66] [67])
-(pliki_latex/4_2_1_testy_wydajnosciowe_wielomiany_geste.tex)
+] [60] [61] [62] [63] [64] [65] [66])
+(pliki_latex/4_2_1_testy_wydajnosciowe_wielomiany_geste.tex [67] [68] [69])
 (pliki_latex/4_2_2_testy_wydajnosciowe_wielomiany_rzadkie.tex
 Underfull \hbox (badness 3861) in paragraph at lines 12--12
 []|\T1/lmr/m/n/10 Czas dla Po-ly-no-
@@ -1581,109 +1573,81 @@ Underfull \hbox (badness 3861) in paragraph at lines 12--12
 []|\T1/lmr/m/n/10 Czas dla Po-ly-no-
  []
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[68]
+[70] [71]
 Underfull \hbox (badness 10000) in paragraph at lines 77--81
 
  []
 
-[69]
-Underfull \hbox (badness 3861) in paragraph at lines 98--98
-[]|\T1/lmr/m/n/10 Czas dla Po-ly-no-
- []
-
-
-Underfull \hbox (badness 3861) in paragraph at lines 98--98
-[]|\T1/lmr/m/n/10 Czas dla Po-ly-no-
- []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-) (pliki_latex/4_2_3_testy_wydajnosciowe_same_pierwiastki.tex [70] [71]
 [72]
-Overfull \hbox (8.58412pt too wide) in paragraph at lines 1--1
-[]\T1/lmr/bx/n/14.4 Badanie wie-lo-mia-nów po-sia-da-j¡-cych wy-ª¡cz-nie pier-w
-iast-
+Underfull \hbox (badness 3861) in paragraph at lines 98--98
+[]|\T1/lmr/m/n/10 Czas dla Po-ly-no-
  []
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+Underfull \hbox (badness 3861) in paragraph at lines 98--98
+[]|\T1/lmr/m/n/10 Czas dla Po-ly-no-
+ []
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-) (pliki_latex/4_3_porownanie_aplikacji.tex [73
-
-] [74] [75] [76]
-Underfull \hbox (badness 10000) in paragraph at lines 21--21
+[73]) (pliki_latex/4_2_3_testy_wydajnosciowe_same_pierwiastki.tex [74] [75]
+[76] [77]) (pliki_latex/4_3_porownanie_aplikacji.tex [78] [79]
+Underfull \hbox (badness 10000) in paragraph at lines 20--20
 []|\T1/lmr/m/n/10 Moja
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 21--22
+Underfull \hbox (badness 10000) in paragraph at lines 20--21
 []|\T1/lmr/m/n/10 Wolfram
  []
 
-[77
-
-] [78]
-Underfull \hbox (badness 10000) in paragraph at lines 104--104
+[80] [81]
+Underfull \hbox (badness 10000) in paragraph at lines 103--103
 []|\T1/lmr/m/n/10 Moja
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 104--105
+Underfull \hbox (badness 10000) in paragraph at lines 103--104
 []|\T1/lmr/m/n/10 Wolfram
  []
 
-[79] [80] [81] [82]
-Underfull \hbox (badness 10000) in paragraph at lines 213--213
+[82] [83] [84]
+Underfull \hbox (badness 10000) in paragraph at lines 209--209
 []|\T1/lmr/m/n/10 Moja
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 213--214
+Underfull \hbox (badness 10000) in paragraph at lines 209--210
 []|\T1/lmr/m/n/10 Wolfram
  []
 
-) (pliki_latex/5_podsumowanie.tex [83]
+) [85] (pliki_latex/5_podsumowanie.tex [86]
 Rozdzia\PlPrIeC {\l } 5.
-) [84
+) [87
 
-] (pliki_latex/6_1_lista_rysunkow.tex [85] (praca.lof)
+] (pliki_latex/6_1_lista_rysunkow.tex [88] (praca.lof)
 \tf@lof=\write6
 \openout6 = `praca.lof'.
 
 )
-(pliki_latex/6_2_lista_tabel.tex [86
+(pliki_latex/6_2_lista_tabel.tex [89
 
 ] (praca.lot)
 \tf@lot=\write7
 \openout7 = `praca.lot'.
 
 )
-(pliki_latex/6_3_bibliografia.tex (praca.bbl [87
+(pliki_latex/6_3_bibliografia.tex (praca.bbl [90
 
-])) [88
+])) [91
 
 ] (praca.aux) ) 
 Here is how much of TeX's memory you used:
- 29369 strings out of 493634
- 682573 string characters out of 3141314
+ 29408 strings out of 493634
+ 683321 string characters out of 3141314
  894696 words of memory out of 3000000
- 32083 multiletter control sequences out of 15000+200000
+ 32122 multiletter control sequences out of 15000+200000
  57760 words of font info for 46 fonts, out of 3000000 for 9000
  1046 hyphenation exceptions out of 8191
- 62i,18n,96p,2384b,1905s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 62i,18n,96p,2384b,1901s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathex.
 enc}{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ts1.enc}{C:/Progra
 m Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program Files (x86)/M
@@ -1701,9 +1665,9 @@ m Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmri10.pfb><C:/Program Files (x8
 6)/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Program Files (x86)/MiKTeX 2
 .9/fonts/type1/public/lm/lmsy5.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/typ
 e1/public/lm/lmsy7.pfb>
-Output written on praca.pdf (88 pages, 806653 bytes).
+Output written on praca.pdf (91 pages, 816928 bytes).
 PDF statistics:
- 415 PDF objects out of 1000 (max. 8388607)
+ 425 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  63 words of extra memory for PDF output out of 10000 (max. 10000000)
 
