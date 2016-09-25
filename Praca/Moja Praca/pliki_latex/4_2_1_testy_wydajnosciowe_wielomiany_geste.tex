@@ -13,7 +13,7 @@ Zapoznajmy się więc z poniższymi testami, by zweryfikowac przedstawioną wyż
 Pierwszym przypadkiem testowym będzie sprawdzenie czasów znajdowania pierwiastków dla takich wielomianów, których wszystkie współczynniki są równe $1$. Testowane wielomiany można przedstawić wzorem: \\
 $W(x) = x^k + x^{k-1} + x^{k-2} + ... + x^2 + x + 1$, gdzie $k$ jest stopniem wielomianu $W$.
 
-W przypadku, gdy stopień wielomianu jest liczbą parzystą, a jego wszystkie współczynniki są równe $1$, wielomian nie posiada pierwiastków rzeczywistych. Sprawdźmy ile czasu zajmie każdej ze struktur stwierdzenie o braku pierwiastków rzeczywistych dla wielomianów powyższej postaci.
+W przypadku, gdy stopień wielomianu jest liczbą parzystą, a jego wszystkie współczynniki są równe $1$, wielomian nie posiada pierwiastków rzeczywistych. Sprawdźmy ile czasu zajmie każdej ze struktur stwierdzenie braku pierwiastków rzeczywistych dla wielomianów powyższej postaci.
 
 \begin{table}[H]
 	\begin{tabular}{ |p{4cm}|p{2.75cm}|p{2.75cm}|p{3.5cm}|} 
@@ -31,7 +31,7 @@ W przypadku, gdy stopień wielomianu jest liczbą parzystą, a jego wszystkie ws
 	\caption{Porównanie czasów znajdowania pierwiastków dla gęstych wielomianów parzystego stopnia}
 \end{table}
 
-W tabeli dla każdego przeprowadzonego testu została dodana wartość współczynnika czasów, zdefiniowa jako iloraz czasu działania typu PolynomialVector i PolynomialMap. Ich wartość dla wszystkich testów jest bliska lub równa $1$. Na tej podstawie łatwo zauwazyć, że czasy znajdowania pierwiastków wielomianów dla obu struktrów jest praktycznie identyczny. Z tego powodu poniższy wykres pokazuje dwie praktycznie w całości pokrywające się linie, oznaczające czas działania obu typoów wielomianów w zależności od testowanego stopnia.
+W tabeli dla każdego przeprowadzonego testu została dodana wartość współczynnika czasów, zdefiniowa jako iloraz czasu działania typu PolynomialVector i PolynomialMap. Ich wartość dla wszystkich testów jest bliska lub równa $1$. Na tej podstawie łatwo zauważyć, że czasy znajdowania pierwiastków wielomianów dla obu struktrur jest praktycznie identyczny. Z tego powodu poniższy wykres pokazuje dwie praktycznie w całości pokrywające się linie, oznaczające czas działania obu typoów wielomianów w zależności od testowanego stopnia.
 
 \begin{figure}[H]
 	\begin{tikzpicture}[scale=1.12]
@@ -90,7 +90,7 @@ To analogiczny test w porównaniu z poprzednim, jednak w tym przypadku stopień 
 	\caption{Porównanie czasów znajdowania pierwiastków dla gęstych wielomianów nieparzystego stopnia}
 \end{table}
 
-Także i w tym przypadku porónwywane czasy działania są prawie identyczne. Ich wartości w zależności od stopnia tesstowanego wielomianu zostały przedstawione na poniższym wykresie.
+Także i w tym przypadku porównywane czasy działania są prawie identyczne. Ich wartości w zależności od stopnia testowanego wielomianu zostały przedstawione na poniższym wykresie.
 
 \begin{figure}[H]
 	\begin{tikzpicture}[scale=1]
@@ -129,5 +129,4 @@ Także i w tym przypadku porónwywane czasy działania są prawie identyczne. Ic
 	\caption{Czas znajdowania pierwiastków dla wielomianów zawierających kolejne pierwiastki całkowite}
 \end{figure}
 
-Porównując wartości uzyskane dla wielomianów stopnia parzystego i nieparzystego uwagę zwraca fakt, że uzyskane czasy dla wielomianów stopnia nieparzystego, czyli takich posiadających przynajmniej jeden pierwiastek rzeczywistych są kilkadziesiąt razy większy niż dla wielomianów stopnia parzystego. Oznacza to, że liczba pierwiastków rzeczywistych ma ogromny wpływ na czas działania algorytmu ich znajdowania. Testy potwierdzają, że sytuacja taka jest obserwowana niezależnie od typu użytej struktury wielomiany.
-
+Porównując wartości uzyskane dla wielomianów stopnia parzystego i nieparzystego uwagę zwraca fakt, że uzyskane czasy dla wielomianów stopnia nieparzystego, czyli takich posiadających przynajmniej jeden pierwiastek rzeczywistych są kilkadziesiąt razy większe niż dla wielomianów stopnia parzystego. Oznacza to, że liczba pierwiastków rzeczywistych ma ogromny wpływ na czas działania algorytmu ich znajdowania. Testy potwierdzają, że sytuacja taka jest obserwowana niezależnie od typu użytej struktury wielomianu.

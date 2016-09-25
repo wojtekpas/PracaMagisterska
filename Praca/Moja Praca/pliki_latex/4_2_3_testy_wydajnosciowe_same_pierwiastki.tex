@@ -26,7 +26,7 @@ Przetestujemy więc wielomiany powyższej postaci. Z powodu ograniczeń czasowyc
 	\caption{Porównanie czasów znajdowania pierwiastków dla wielomianów zawierających kolejne pierwiastki całkowite}
 \end{table}
 
-Widzimy, że podobnie jak w przypadku wielomianów gęstych zmierzone czasy działania są niemal identyczne dla obu struktur. Jednocześnie trzeba zauwazyć, że duża liczba pierwiastków rzeczywistych wpływa na liczbę elementów ciągu Sturma. Powoduje to mnogość koniecznych do przeprowadzenia operacji na wielomianach, co bezpośrednio przekłada się czas znajdowania pierwiastków w tym przypadku.
+Widzimy, że podobnie jak w przypadku wielomianów gęstych zmierzone czasy działania są niemal identyczne dla obu struktur. Jednocześnie trzeba zauważyć, że duża liczba pierwiastków rzeczywistych wpływa na liczbę elementów ciągu Sturma. Powoduje to mnogość koniecznych do przeprowadzenia operacji na wielomianach, co bezpośrednio przekłada się czas znajdowania pierwiastków w tym przypadku.
 
 \begin{figure}[H]
 	\begin{tikzpicture}[scale=1.25]
@@ -55,14 +55,14 @@ Widzimy, że podobnie jak w przypadku wielomianów gęstych zmierzone czasy dzia
 		(4, 0.032)
 		(8, 0.228)
 		(16, 2.391)
-		(32, 29.725)	
+		(32, 29.725)
 	};
 	\end{axis}
 	\end{tikzpicture}
 	\caption{Czas znajdowania pierwiastków dla wielomianów zawierających kolejne pierwiastki całkowite}
 \end{figure}
 
-Obserwując powyższy wykres trzeba zauwazyć wielkie przełożenie stopnia wielomianu na czas działania algorytmu. Wraz z podwojeniem się stopnia testowanego wielomianu widzimy ponad dziesięciokrotny wzrost czasu działania. Tempo wzrostu powyższej funkcji przekracza wzrost sześcienny. Oznacza to, że w przypadku tej klasy wielomianów, której pierwiastkami są kolejne liczby całkowite, mówimy o złożoności wielomianowej.
+Obserwując powyższy wykres trzeba zauważyć wielkie przełożenie stopnia wielomianu na czas działania algorytmu. Wraz z podwojeniem się stopnia testowanego wielomianu widzimy ponad dziesięciokrotny wzrost czasu działania. Tempo wzrostu powyższej funkcji przekracza wzrost sześcienny. Oznacza to, że w przypadku tej klasy wielomianów, której pierwiastkami są kolejne liczby całkowite, mówimy o złożoności wielomianowej.
 
 Niewątpliwy wpływ na wysokie tempo wzrostu ma także wartość kolejnych pierwiastków, która wzrasta wraz ze stopniem wielomianu. Powoduje to, że jesteśmy zmuszeni wykonywać działania na coraz większy liczbach całkowitych. Niektóre z nich posiadają znacznie więcej niż $100$ cyfr, co pomimo użycia biblioteki mpir musi mieć znaczący wpływ na czas wykonywania operacji na liczbach.
 
