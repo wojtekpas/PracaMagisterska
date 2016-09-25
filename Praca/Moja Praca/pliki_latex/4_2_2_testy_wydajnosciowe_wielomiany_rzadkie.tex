@@ -1,8 +1,8 @@
-\subsection{Test 1}
+\subsection{Testowanie wielomianów rzadkich}
 
-\subsubsection{Test a}
+\subsubsection{Wielomiany stopnia parzystego}
 
-Kolejnym przypadkiem jest zbadanie rzadkich wielomianów, nieposiadających pierwiastków całkowitych. By zapewnić ten ostatni element, najłatwiejszym sposobem jest konstrukcja wielomianu postaci $ax^{2k}+b$, gdzie $a \in R_+, b \in R, k \in Z_+$. Dzięki temu, mamy pewność, że wielomian nie posiada pierwiastków całkowitych, a dodatkowo ma najmniejszą możliwą liczbę niezerowych współczynników.
+Kolejnym przypadkiem jest zbadanie rzadkich wielomianów, nieposiadających pierwiastków całkowitych. By zapewnić ten element, najłatwiejszym sposobem jest konstrukcja wielomianu postaci $ax^{2k}+b$, gdzie $a \in R_+, b \in R, k \in Z_+$. Dzięki temu, mamy pewność, że wielomian nie posiada pierwiastków całkowitych, a dodatkowo ma najmniejszą możliwą liczbę niezerowych współczynników.
 
 Teoretycznie, wielomiany rzadkie powinny się charakteryzować największą dysproporcją w wydajności pomiędzy typami PolynomialMap i PolynomialVector, na korzyść tego pierwszego. Jest to spowodowane faktem, że to właśnie w tym przypadku, odsetek zerowych współczynników jest największy. Czynnik ten powinien bardzo negatywnie wpływać na czas znajdowania pierwiastków, a w tym przypadku na stwierdzenie, o ich braku. Zapoznajmy się z wynikami testów, by zweryfikować postawioną powyżej tezę.
 
@@ -22,6 +22,9 @@ Teoretycznie, wielomiany rzadkie powinny się charakteryzować największą dysp
 	\caption{Porównanie czasów znajdowania pierwiastków dla rzadkich wielomianów parzystego stopnia}
 \end{table}
 
+Jak widać nad podstawie uzyskanych czasów dla obu wielomianów dysproporcja pomiędzy ich wydajnością dla wielomianów rzadkich jest ogromna. Można zauwazyć, że wraz ze wzrostem wielomianów staje się ona coraz większa. Dodatkowo, widać, że w przypadku PolynomialVector uzyskane czasy rosną około pięciokrotnie, przy dwukrotnym wzroście stopnia wielomianu, co oznacza przekraczającą nawet kwadratową zależność.
+
+Poniżej przedstawiam wykresy dla obu typów wielomianów. Zdecydowałem się na rozdzielenie ich na dwa osobne wykresy ze względu na wspomnianą wcześniej ogromną dysproporcję. W przeciwnym razie na wykresie o liniowej skali wartości czasów dla PolynomialMap byłyby tak małe, że pokrywałyby się z osią poziomą.
 
 \begin{figure}[H]
 	\begin{tikzpicture}[scale=1.5]
@@ -47,6 +50,8 @@ Teoretycznie, wielomiany rzadkie powinny się charakteryzować największą dysp
 	\caption{Czasy znajdowania pierwiastków przez PolynomialMap dla rzadkich wielomianów parzystego stopnia}
 \end{figure}
 
+Warto zauwazyć, że wszystkie czasy przedstawione na powyższym wykresie zostały wyrażone w milisekundach. Dodatkowo na uwagę zasługuje fakt, że również czas działania dla wielomianów bardzo wysokich stopni jest bardzo mały. Wartości te rosną w tempie nieco wyższym niż liniowe. Oznacza to bardzo dobrą skalowalność działania algorytmu dla struktury PolynomialMap.  
+
 \begin{figure}[H]
 	\begin{tikzpicture}[scale=1.5]
 	\begin{axis}[
@@ -70,14 +75,16 @@ Teoretycznie, wielomiany rzadkie powinny się charakteryzować największą dysp
 	\caption{Czasy znajdowania pierwiastków przez PolynomialVector dla rzadkich wielomianów parzystego stopnia}
 \end{figure}
 
-\subsubsection{Test b}
+\subsubsection{Wielomiany stopnia nieparzystego}
 
-Teraz rozpatrzmy sytuację, w której ponownie mamy do czynienia z wielomianem rzadkim, o którym wiemy, że posiada przynajmniej jeden pierwiastkek rzeczywisty. By to zapewnić, wystarczy skonstruować wielomian w postaci $ax^{2k+1}+b$, gdzie $a \in R\setminus\{0\}, b \in R, k \in Z_+$. Jak wiemy, na podstawie przedstawionego w drugim rozdziale twierdzenia, każdy wielomian stopnia nieparzystego posiada przynajmniej jeden pierwiastek rzeczywisty. 
+Teraz rozpatrzmy sytuację, w której ponownie mamy do czynienia z wielomianem rzadkim, o którym wiemy, że posiada przynajmniej jeden pierwiastkek rzeczywisty. By to zapewnić, wystarczy skonstruować wielomian w postaci $ax^{2k+1}+b$, gdzie $a \in R\setminus\{0\}, b \in R, k \in Z_+$. Jak wiemy na podstawie przedstawionego w drugim rozdziale twierdzenia, każdy wielomian stopnia nieparzystego posiada przynajmniej jeden pierwiastek rzeczywisty. 
 
 Wydaje się, że podobnie jak w przypadku wielomianów nieposiadających pierwiastków, również w tym, czas znajdowania pierwiastków dla typu PolynomialMap powinien być znacznie krótszy niż dla PolynomialVector. Natomiast, czy aby na pewno, tak jest? Rozważmy poniższy przykład.
+
 Postarajmy się zbudować ciąg Sturma dla wielomianu $x^{101}+1$. Zacznijmy od obliczenia pochodnej.
 $(x^{101}+1)'=101x^{100}$
-Obliczona wartość jest drugim elementem ciągu Sturma. Obliczmy resztę z dzielenia dwóch pierwszych wielomianów tego ciągu: \\
+Obliczona wartość jest drugim elementem ciągu Sturma. Obliczmy resztę z dzielenia dwóch pierwszych wielomianów tego ciągu:
+
 \begin{equation*}
 \begin{split}
 &\frac{1}{101}x \\
@@ -88,7 +95,8 @@ Obliczona wartość jest drugim elementem ciągu Sturma. Obliczmy resztę z dzie
 &1
 \end{split}
 \end{equation*}
-Trzecim i jednocześnie ostatnim wyrazem ciągu Sturma jest więc $-1$, czyli wartość przeciwna do otrzymanej reszty. Dysponujemy zatem trzy elementowym ciągiem Sturma o elementach ${x^{101}+1, 101x^{100}, -1}$. Obliczmy teraz liczbę zmian znaków dla $-\infty$ i $+\infty$. W prawym krańcu przedziału będą to wartości $+,+,-,$ zaś w lewym $-,+,-.$ Otrzymaliśmy jedną zmianę znaku dla $-\infty$ i dwie zmiany dla $+\infty$. Oznacza to, że liczba pierwiastków rzeczywistych jest równa różnicy tych zmian w lewym i prawym krańcu, czyli w tym przypadku wynosi $1$.
+
+Trzecim i jednocześnie ostatnim wyrazem ciągu Sturma jest więc $-1$, czyli wartość przeciwna do otrzymanej reszty. Dysponujemy zatem trzy elementowym ciągiem Sturma o elementach ${x^{101}+1, 101x^{100}, -1}$. Obliczmy teraz liczbę zmian znaków dla bardzo dużych wartości bezwzględnych, dążących odpowiednio do $-\infty$ i $+\infty$. W prawym krańcu przedziału będą to wartości $+,+,-,$ zaś w lewym $-,+,-.$ Otrzymaliśmy jedną zmianę znaku dla wartości bliskiej $-\infty$ i dwie zmiany dla wartości bliskiej $+\infty$. Oznacza to, że liczba pierwiastków rzeczywistych jest równa różnicy tych zmian w lewym i prawym krańcu, czyli w tym przypadku wynosi $1$.
 
 Jak widać, dwa z trzech elementów ciągu Sturma to rzadkie wielomiany wysokich stopni. Na takiej podstawie, wydaje się, że powyższa teza została potwierdzona. Jednocześnie jednak, warto zauważyć, że dla tego rodzaju wielomianów liczba koniecznych operacji jest niewielka, z uwagi na znikomą liczbę elementów ciągu Sturma. Wydaje się zatem, że to właśnie ich liczba bezpośrednio wpływa na czas znajdowania pierwiastków, a ich charakterystyka, czyli liczba niezerowych współczynników ma największe znaczenie dla wydajności obu typów wielomianów. Sprawdźmy, czy wyniki testów potwierdzają powyższą teorię.
 
@@ -107,6 +115,10 @@ Jak widać, dwa z trzech elementów ciągu Sturma to rzadkie wielomiany wysokich
 	\end{tabular}
 	\caption{Porównanie czasów znajdowania pierwiastków dla rzadkich wielomianów nieparzystego stopnia}
 \end{table}
+
+Jak widać również w tym przypadku zauważalna jest niesamowita różnicą między wydajnością działania obu struktur. Dodatkowo również ten test potwierdza, że nieparzysty stopień wielomianu powoduje wielokrotne wydłużenie czasu trwania algorytmu.
+
+Poniżej przedstawiam wykresy z czasami działania obu struktur.
 
 \begin{figure}[H]
 	\begin{tikzpicture}[scale=1.5]
@@ -155,3 +167,7 @@ Jak widać, dwa z trzech elementów ciągu Sturma to rzadkie wielomiany wysokich
 	\end{tikzpicture}
 	\caption{Czasy znajdowania pierwiastków przez PolynomialVector dla rzadkich wielomianów nieparzystego stopnia}
 \end{figure}
+
+Można zauwazyć, że czasy działania w przypadku obu struktur są zdecydowanie krótsze niż dla wielomianów gęstych. Mniejszą różnicę obserwujemy dla typu PolynomialVector. Jej istnienie jest spowodowane faktem, że w obu przypadkach musimy przejrzeć kolejne współczynniki, ale większość reakcji wymaga dodatkowego działania wyłącznie wtedy, gdy są one niezerowe.
+
+Zdecydowanie większa dysproporcja jest w przypadku klasy PolynomialMap. Wynika ona z konieczności dodatkowych obliczeń dla kolejnych współczynników, a oprócz tego wymusza przetrzymywanie informacji o ich wartości.

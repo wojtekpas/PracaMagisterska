@@ -1,15 +1,17 @@
 \section{Testy wydajnościowe}
 
+Celem niniejszego podrozdziału jest przeprowadzenie testów wydajnościowych dla obu typów wielomianów. PolynomialMap i PolynomialVector to bardzo podobne klasy, których struktura została jednak oparta na odmiennych podejściach. PolynomialMap opiera się na przechowywaniu wyłącznie niezerowych współczynników wielomianu. Z kolei PolynomialVector jako kontenera danych używa wektora, co wymusza przechowywanie wszystkich współczynników, także zerowych.
 
+Zestaw przeprowadzonych testów dobrałem tak, by pozwoliły one na zbadanie zupełnie różnych przypadków. Teoretycznie bowiem obiekty typu PolynomialMap powinny być dużo wydajniejsze dla wielomianów rzadkich. Z drugiej strony, w przypadku wielomianów gęstych różnica pomiędzy obiema klasami powinna być zdecydowanie mniejsza. Wydaje się, że w takiej sytuacji niewielką przewagę powinna mieć klasa wielomianu oparta o użycie tablicy. W tym miejscu warto przypomnieć, że wielomiany nazywami gęstymi, jeżeli większość współczynników jest niezerowa, zaś wielomiany, których większość współczynników stanowią zera to wielomiany rzadkie.
 
-\subsection{Test 1}
+Zapoznajmy się więc z poniższymi testami, by zweryfikowac przedstawioną wyżej tezę.
 
-Pierwszym przypadkiem testowym będzie sprawdzenie czasów znajdowania pierwiastków dla takich wielomianów, których wszystkie współczynniki są równe $1$. W tym miejscu warto wspomnieć, że wielomiany, których większość współczynników jest niezerowa nazywami gęstymi.
-
-Testowane wielomiany można przedstawić wzorem: \\
-$W(x) = x^k + x^{k-1} + x^{k-2} + ... + x^2 + x + 1$, gdzie $k$ jest stopniem wielomianu $W$.
+\subsection{Testowanie wielomianów gęstych}
 
 \subsubsection{Wielomiany stopnia parzystego}
+
+Pierwszym przypadkiem testowym będzie sprawdzenie czasów znajdowania pierwiastków dla takich wielomianów, których wszystkie współczynniki są równe $1$. Testowane wielomiany można przedstawić wzorem: \\
+$W(x) = x^k + x^{k-1} + x^{k-2} + ... + x^2 + x + 1$, gdzie $k$ jest stopniem wielomianu $W$.
 
 W przypadku, gdy stopień wielomianu jest liczbą parzystą, a jego wszystkie współczynniki są równe $1$, wielomian nie posiada pierwiastków rzeczywistych. Sprawdźmy ile czasu zajmie każdej ze struktur stwierdzenie o braku pierwiastków rzeczywistych dla wielomianów powyższej postaci.
 
@@ -29,6 +31,8 @@ W przypadku, gdy stopień wielomianu jest liczbą parzystą, a jego wszystkie ws
 	\caption{Porównanie czasów znajdowania pierwiastków dla gęstych wielomianów parzystego stopnia}
 \end{table}
 
+W tabeli dla każdego przeprowadzonego testu została dodana wartość współczynnika czasów, zdefiniowa jako iloraz czasu działania typu PolynomialVector i PolynomialMap. Ich wartość dla wszystkich testów jest bliska lub równa $1$. Na tej podstawie łatwo zauwazyć, że czasy znajdowania pierwiastków wielomianów dla obu struktrów jest praktycznie identyczny. Z tego powodu poniższy wykres pokazuje dwie praktycznie w całości pokrywające się linie, oznaczające czas działania obu typoów wielomianów w zależności od testowanego stopnia.
+
 \begin{figure}[H]
 	\begin{tikzpicture}[scale=1.5]
 	\begin{axis}[
@@ -36,7 +40,8 @@ W przypadku, gdy stopień wielomianu jest liczbą parzystą, a jego wszystkie ws
 	ylabel={Czas działania [s]},
 	xmin=0,xmax=350,
 	ymin=0,ymax=120,
-	ymajorgrids=true,grid style=dashed
+	ymajorgrids=true,grid style=dashed,
+	legend pos=north west
 	]
 	
 	\addplot[color=red,mark=*]
@@ -59,6 +64,7 @@ W przypadku, gdy stopień wielomianu jest liczbą parzystą, a jego wszystkie ws
 		(320, 114.382)	
 	};
 	
+	\legend{PolynomialMap, PolynomialVector}
 	\end{axis}
 	\end{tikzpicture}
 	\caption{Czasy znajdowania pierwiastków dla gęstych wielomianów parzystego stopnia}
@@ -73,16 +79,18 @@ To analogiczny test w porównaniu z poprzednim, jednak w tym przypadku stopień 
 		\hline
 		Testowany wielomian & Czas dla PolynomialMap [s] & Czas dla PolynomialVector [s] & Współczynnik czasów \\
 		\hline
-		$W(x) = x^{11} + x^{10} + ... + x + 1$ & 3.224 & 3.269 & 1 \\
-		$W(x) = x^{21} + x^{20} + ... + x + 1$ & 13.384 & 13.548 & 1 \\
-		$W(x) = x^{41} + x^{40} + ... + x + 1$ & 57.336 & 57.336 & 0 \\
-		$W(x) = x^{81} + x^{80} + ... + x + 1$ & 260.175 & 261.915 & 1 \\
-		$W(x) = x^{161} + x^{160} + ... + x + 1$  & 1286.409 & 1286.261 & 1.002 \\
-		$W(x) = x^{321} + x^{320} + ... + x + 1$  & 7190.234 & 7205.386 & 1 \\
+		$W(x) = x^{11} + x^{10} + ... + x + 1$ & 3.224 & 3.269 & 1.014 \\
+		$W(x) = x^{21} + x^{20} + ... + x + 1$ & 13.384 & 13.548 & 1.012 \\
+		$W(x) = x^{41} + x^{40} + ... + x + 1$ & 57.336 & 57.336 & 1 \\
+		$W(x) = x^{81} + x^{80} + ... + x + 1$ & 260.175 & 261.915 & 1.007 \\
+		$W(x) = x^{161} + x^{160} + ... + x + 1$  & 1286.409 & 1286.261 & 1 \\
+		$W(x) = x^{321} + x^{320} + ... + x + 1$  & 7190.234 & 7205.386 & 1.002 \\
 		\hline
 	\end{tabular}
 	\caption{Porównanie czasów znajdowania pierwiastków dla gęstych wielomianów nieparzystego stopnia}
 \end{table}
+
+Także i w tym przypadku porónwywane czasy działania są prawie identyczne. Ich wartości w zależności od stopnia tesstowanego wielomianu zostały przedstawione na poniższym wykresie.
 
 \begin{figure}[H]
 	\begin{tikzpicture}[scale=1.5]
@@ -91,7 +99,8 @@ To analogiczny test w porównaniu z poprzednim, jednak w tym przypadku stopień 
 	ylabel={Czas działania [s]},
 	xmin=0,xmax=350,
 	ymin=0,ymax=8000,
-	ymajorgrids=true,grid style=dashed
+	ymajorgrids=true,grid style=dashed,
+	legend pos=north west
 	]
 	
 	\addplot[color=red,mark=*]
@@ -113,13 +122,16 @@ To analogiczny test w porównaniu z poprzednim, jednak w tym przypadku stopień 
 		(160, 1286.261)
 		(320, 7205.386)	
 	};
-	
+
+	\legend{PolynomialMap, PolynomialVector}
 	\end{axis}
 	\end{tikzpicture}
 	\caption{Czas znajdowania pierwiastków dla wielomianów zawierających kolejne pierwiastki całkowite}
 \end{figure}
 
-\subsection{Wielomiany o losowych współczynnikach}
+Porównując wartości uzyskane dla wielomianów stopnia parzystego i nieparzystego uwagę zwraca fakt, że uzyskane czasy dla wielomianów stopnia nieparzystego, czyli takich posiadających przynajmniej jeden pierwiastek rzeczywistych są kilkadziesiąt razy większy niż dla wielomianów stopnia parzystego. Oznacza to, że liczba pierwiastków rzeczywistych ma ogromny wpływ na czas działania algorytmu ich znajdowania. Testy potwierdzają, że sytuacja taka jest obserwowana niezależnie od typu użytej struktury wielomiany.
+
+\subsubsection{Wielomiany o losowych współczynnikach}
 
 Test zakłada, że wszystkie współczynniki wielomianu danego stopnia zostaną dobre w sposób losowy. Jako możliwe wartości kolejnych współczynników ustaliłem wszystkie liczby całkowite z przedziału $(-100, 100)$. Oba typy wielomianów zostały przetestowane dla dokładnie tych samych wartości współczynników.
 
