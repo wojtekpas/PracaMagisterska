@@ -33,6 +33,7 @@ public:
 	
 	MAP MapValuesExceptValueOfPolynomialDegree(int degree) override;
 	vector<PolynomialMap> GetSturm();
+	void PrintSturm();
 };
 
 inline PolynomialMap ConvertToPolynomialMapFromPolynomialRef(Polynomial& ref)
@@ -165,7 +166,6 @@ inline string PolynomialMap::ToString()
 	string tmpResult;
 	for (auto pair1 : m)
 	{
-		//cout << pair1.first << " " << pair1.second.ToString() << endl;
 		if (pair1.second.IsZero() == false)
 		{
 			tmp = "";
@@ -186,8 +186,6 @@ inline string PolynomialMap::ToString()
 					tmp = tmp + "^" + fir;
 				}
 			}
-			//cout << tmp << endl;
-			//cout << result << endl;
 			if (tmp[0] != '-')
 				tmp = "+" + tmp;
 			
@@ -293,28 +291,9 @@ inline int PolynomialMap::NumberOfChangesSign(Number a)
 		lastValue = 1;
 	else if (number < 0)
 		lastValue = -1;
-	//cout << "\na = " << a.ToString() << endl;
-
-//	cout << "size = " << sturm.size() << endl;
-//	cout << "sturm" << 0 << ": ";
-//	if (number > 0)
-//		printf("+");
-//	if (number < 0)
-//		printf("-");
-//	if (number == 0)
-//		printf("0");
-	//sturm.at(0).Print();
 	for (int i = 1; i < sturm.size(); i++)
 	{
-//		cout << "sturm" << i << ": ";
 		number = sturm.at(i).PolynomialValue(a);
-//		if (number > 0)
-//			printf("+");
-//		if (number < 0)
-//			printf("-");
-//		if (number == 0)
-//			printf("0");
-		//sturm.at(i).Print();
 		if (number > 0)
 			curValue = 1;
 		else if (number < 0)
@@ -327,7 +306,6 @@ inline int PolynomialMap::NumberOfChangesSign(Number a)
 		if (curValue)
 			lastValue = curValue;
 	}
-	//cout << " " << counter;
 	return counter;
 }
 
@@ -340,6 +318,7 @@ inline vector<PolynomialMap> PolynomialMap::GetSturm()
 	if (derivative.IsZero())
 	{
 		DeletePolynomial(&derivative);
+		PrintSturm();
 		return sturm;
 	}
 	sturm.push_back(ConvertToPolynomialMapFromPolynomialRef(derivative));
@@ -355,7 +334,6 @@ inline vector<PolynomialMap> PolynomialMap::GetSturm()
 		r = *tmp;
 		DeletePolynomial(tmp);
 		sturm.push_back(ConvertToPolynomialMapFromPolynomialRef(r));
-		//r.Print();
 		w = q;
 		q = r;
 		tmp = &(w % q);
@@ -367,13 +345,20 @@ inline vector<PolynomialMap> PolynomialMap::GetSturm()
 	DeletePolynomial(&r);
 	DeletePolynomial(&derivative);
 
-//	printf("Sturm:\n");
-//	for(auto p: sturm)
-//	{
-//		p.Print();
-//	}
-	cout << "Sturm = " << sturm.size() << endl;
+	PrintSturm();
 	return sturm;
+}
+
+inline void PolynomialMap::PrintSturm()
+{
+	if (DISPLAYING_STURM == 0)
+		return;
+
+	printf("Wyrazy ciagu Sturma:\n");
+	for (int i = 0; i < sturm.size(); i++)
+	{
+		sturm[i].Print(1);
+	}
 }
 
 inline Polynomial& PolynomialMap::NegativePolynomial()

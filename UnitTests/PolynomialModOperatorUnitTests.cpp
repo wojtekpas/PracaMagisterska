@@ -123,7 +123,7 @@ namespace UnitTests
 			Verify("x6-6x4-4x3+9x2+12x+4", "x5-4x3-2x2+3x+2", answer);
 		}
 
-		TEST_METHOD(PolynomialDivOperator17)
+		TEST_METHOD(PolynomialModOperator17)
 		{
 			Polynomial& answer = parser.ConvertToPolynomial("4");
 			Verify("3x2+4", "2x", answer);

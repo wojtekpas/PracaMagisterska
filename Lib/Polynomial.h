@@ -76,7 +76,7 @@ public:
 	int AddNextRoot(Number x);
 	vector<Number> FindRoots(Number a, Number b);
 	void PrintRoots(Number a, Number b);
-
+	void Execute(Number a, Number b);
 	bool operator!=(Polynomial& p2);
 	Polynomial& operator / (Polynomial& p2);
 	Polynomial& operator % (Polynomial& p2);
@@ -87,7 +87,7 @@ public:
 	Polynomial& operator /= (Polynomial& p2);
 	Polynomial& operator %= (Polynomial& p2);
 	Polynomial& operator ^= (int power);
-	void Print();
+	void Print(int tabs = 0);
 	void PrintInput();
 };
 
@@ -244,6 +244,11 @@ inline Polynomial& Polynomial::PolynomialAfterEliminationOfMultipleRoots()
 	DeletePolynomial(&nwd);
 	DeletePolynomial(&derivative);
 	DeletePolynomial(&divResult.second);
+	if (DISPLAYING_AFTER_ELIMINATION)
+	{
+		printf("Znormalizowany wielomian po eliminacji pierwiastkow wielokrotnych:\n\t");
+		divResult.first.Print();
+	}
 	return divResult.first;
 }
 
@@ -252,7 +257,6 @@ inline void Polynomial::Normalize()
 	Number coefficient = ValueOfPolynomialDegree().second;
 	Polynomial& divider = CreatePolynomial(coefficient);
 	*this /= divider;
-	//DeletePolynomial(&divider);
 }
 
 inline Number Polynomial::CoefficientValue(PAIR pair1, Number a)
@@ -297,13 +301,6 @@ inline int Polynomial::NumberOfRoots(Number a, Number b)
 {
 	int count1 = NumberOfChangesSign(a);
 	int count2 = NumberOfChangesSign(b);
-	if (count1 - count2 < 0)
-	{
-//		cout << " count1 = " << count1 << endl;
-//		cout << " count2 = " << count2 << endl;
-//		cout << "dupa" << endl;
-		int count2 = NumberOfChangesSign(b);
-	}
 	return count1 - count2;
 }
 
@@ -315,8 +312,6 @@ inline int Polynomial::AddNextRoot(Number x)
 		roots.push_back(x);
 		return 1;
 	}
-//	if (x > roots[posInVector])
-//		roots[posInVector] = x;
 	return 0;
 }
 
@@ -333,14 +328,10 @@ inline vector<Number> Polynomial::FindRoots(Number a, Number b)
 		SturmClear();
 	}
 	int numberOfRoots = NumberOfRoots(a, b);
-//	cout << numberOfRoots << " in " << "("
-//		<< a.ToString() << "," << b.ToString() << ")" << endl;
-//	Print();
 	if (numberOfRoots == 0)
 		return roots;
 	Number aValue;
 	aValue = PolynomialValue(a);
-	//cout << "aValue = " << aValue.ToString() << endl;
 	if (aValue.IsZero())
 	{
 		int aIsRoot = AddNextRoot(a);
@@ -349,7 +340,6 @@ inline vector<Number> Polynomial::FindRoots(Number a, Number b)
 	}
 	Number bValue;
 	bValue = PolynomialValue(b);
-	//cout << "bValue = " << bValue.ToString() << endl;
 	if (bValue.IsZero())
 	{
 		AddNextRoot(b);
@@ -363,7 +353,6 @@ inline vector<Number> Polynomial::FindRoots(Number a, Number b)
 	Number c = NextNumberFromRange(a, b);
 	Number cValue;
 	cValue = PolynomialValue(c);
-	//cout << "cValue = " << cValue.ToString() << endl;
 	if (cValue.IsZero())
 	{
 		int cIsRoot = AddNextRoot(c);
@@ -374,7 +363,6 @@ inline vector<Number> Polynomial::FindRoots(Number a, Number b)
 	Number interval = b - a;
 	if (interval.IsWithRequiredPrecision())
 	{
-		//cout << "interval" << endl;
 		AddNextRoot(b);
 		return roots;
 	}
@@ -418,18 +406,55 @@ inline void Polynomial::PrintRoots(Number a, Number b)
 		cout << "Wielomian zerowy - brak pierwiastkow" << endl;
 		return;
 	}
-	cout << "Pierwiastki w przedziale: <" << a.ToString() << ", " << b.ToString() << ">" << endl;
 	Number numberA = a;
 	Number numberB = b;
+
 	vector<Number> roots = FindRoots(numberA, numberB);
-	roots = SortNumbers(roots);
-	for (int i = 0; i < roots.size(); i++)
+	if (DISPLAYING_SIGNS)
 	{
-		cout << "x" << i+1 << " = ";
-		roots[i].Print();
+		int signsA = NumberOfChangesSign(numberA);
+		int signsB = NumberOfChangesSign(numberB);
+		printf("Liczba zmian znakow:\n");
+		printf("\t%d ", signsA);
+		printf("dla a = ");
+		numberA.Print(0);
+		printf("\n\t%d ", signsB);
+		printf("dla b = ");
+		numberB.Print(0);
+		printf("\n");
 	}
-	if (roots.size() == 0)
-		cout << "Brak pierwiastkow rzeczywistych" << endl;
+	if (DISPLAYING_ROOTS)
+	{
+		if (roots.size() == 0) {
+			cout << "Brak pierwiastkow rzeczywistych" << endl;
+			return;
+		}
+		roots = SortNumbers(roots);
+		printf("Znalezione pierwiastki rzeczywiste:\n");
+		for (int i = 0; i < roots.size(); i++)
+		{
+			cout << "\tx" << i + 1 << " = ";
+			roots[i].Print(1);
+		}
+	}
+}
+
+inline void Polynomial::Execute(Number a, Number b)
+{
+	auto begin = chrono::high_resolution_clock::now();
+
+	Polynomial& after = PolynomialAfterEliminationOfMultipleRoots();
+
+	after.Normalize();
+	after.PrintRoots(a, b);
+
+	if (MEASURING_TIME)
+	{
+		auto end = chrono::high_resolution_clock::now();
+		auto durationInMs = chrono::duration_cast<chrono::nanoseconds>(end - begin).count();
+		printf("Czas trwania:\n\t");
+		cout << durationInMs / 1000000 << " ms" << endl;
+	}
 }
 
 inline bool Polynomial::operator != (Polynomial& p2)
@@ -527,9 +552,13 @@ inline Polynomial& Polynomial::operator ^= (int power)
 	return *this;
 }
 
-inline void Polynomial::Print()
+inline void Polynomial::Print(int tabs)
 {
-	cout << "Polynomial: '" << ToString() << "'" << endl;
+	for (int i = 0; i < tabs; i++)
+	{
+		printf("\t");
+	}
+	cout << "'" << ToString() << "'" << endl;
 }
 
 inline void Polynomial::PrintInput()

@@ -33,6 +33,7 @@ public:
 	
 	VECTOR VectorValuesExceptValueOfPolynomialDegree(int degree) override;
 	vector<PolynomialVector> GetSturm();
+	void PrintSturm();
 };
 
 inline PolynomialVector ConvertToPolynomialVectorFromPolynomialRef(Polynomial& ref)
@@ -359,7 +360,6 @@ inline int PolynomialVector::NumberOfChangesSign(Number a)
 		if (curValue)
 			lastValue = curValue;
 	}
-	//sturm.clear();
 	return counter;
 }
 
@@ -370,7 +370,11 @@ inline vector<PolynomialVector> PolynomialVector::GetSturm()
 	sturm.push_back(*this);
 	Polynomial& derivative = Derivative();
 	if (derivative.IsZero())
+	{
+		DeletePolynomial(&derivative);
+		PrintSturm();
 		return sturm;
+	}
 	sturm.push_back(ConvertToPolynomialVectorFromPolynomialRef(derivative));
 	Polynomial& w = CreatePolynomial();
 	Polynomial& q = CreatePolynomial();
@@ -395,9 +399,22 @@ inline vector<PolynomialVector> PolynomialVector::GetSturm()
 	DeletePolynomial(&q);
 	DeletePolynomial(&r);
 	DeletePolynomial(&derivative);
-	//cout << "Sturm = " << sturm.size() << endl;
+	PrintSturm();
 	return sturm;
 }
+
+inline void PolynomialVector::PrintSturm()
+{
+	if (DISPLAYING_STURM == 0)
+		return;
+
+	printf("Wyrazy ciagu Sturma:\n");
+	for (int i = 0; i < sturm.size(); i++)
+	{
+		sturm[i].Print(1);
+	}
+}
+
 
 inline Polynomial& PolynomialVector::NegativePolynomial()
 {

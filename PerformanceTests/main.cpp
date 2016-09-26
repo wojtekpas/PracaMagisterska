@@ -52,8 +52,8 @@ void MeasureTime(Polynomial& p)
 	p.PrintRoots(Number(-100), Number(100));
 	//p.FindRoots(Number(-100), Number(100));
 	auto end = chrono::high_resolution_clock::now();
-	auto durationInNs = chrono::duration_cast<chrono::nanoseconds>(end - begin).count();
-	cout << durationInNs / 1000000 << endl;
+	auto durationInMs = chrono::duration_cast<chrono::nanoseconds>(end - begin).count();
+	cout << durationInMs / 1000000 << endl;
 	//cout << durationInNs / 1000000000 << "s ~= " << durationInNs/1000000 << "ms " << endl;
 }
 

@@ -38,16 +38,16 @@ inline Parser::Parser(string s)
 
 inline Polynomial& Parser::ConvertToPolynomial(string inputS, int type)
 {
-	Polynomial& emptyPolynomial = CreatePolynomial(type); // = polynomialMap.CreatePolynomial();
+	Polynomial& emptyPolynomial = CreatePolynomial(type);
 
 	string s = UniformInputString(inputS);
 
 	if (StringManager::IsEmptyString(s))
 		emptyPolynomial;
 
-	Polynomial& sumElement = CreatePolynomial(type);// = polynomialMap.CreatePolynomial();
-	Polynomial& mulElement = CreatePolynomial(type);// = polynomialMap.CreatePolynomial();
-	Polynomial& curElement = CreatePolynomial(type);// = polynomialMap.CreatePolynomial();
+	Polynomial& sumElement = CreatePolynomial(type);
+	Polynomial& mulElement = CreatePolynomial(type);
+	Polynomial& curElement = CreatePolynomial(type);
 
 	bool sumOp = true;
 	bool mulOp = true;
@@ -183,21 +183,26 @@ inline string Parser::UniformInputString(string s)
 	int countParenthesis = 0;
 
 	if (s.length() == 0)
+	{
+		printf("WARNING: zerowa dlugosc wielomianu\n");
 		return StringManager::EmptyString();
+	}
 
-	if (CharsConstants::IsLegalValue(s[0]) == false)
+	if (CharsConstants::IsLegalValue(s[0]) == false || (CharsConstants::IsOperator(s[0]) && CharsConstants::IsLegalOpeningOperator(s[0]) == false))
+	{
+		printf("WARNING: nielegalny znak '%c'\n", s[0]);
 		return StringManager::EmptyString();
-
-	if (CharsConstants::IsOperator(s[0])
-		&& CharsConstants::IsLegalOpeningOperator(s[0]) == false)
-		return StringManager::EmptyString();
+	}
 
 	for (int i = 0; i < s.length(); i++)
 	{
 		if (CharsConstants::IsWhitespace(s[i]) == false)
 		{
 			if (CharsConstants::IsLegalValue(s[i]) == false)
+			{
+				printf("WARNING: nielegalny znak '%c'\n", s[i]);
 				return StringManager::EmptyString();
+			}
 
 			if (CharsConstants::IsDigit(s[i]))
 			{
@@ -220,6 +225,7 @@ inline string Parser::UniformInputString(string s)
 			}
 			else if(CharsConstants::IsOpeningParenthesis(s[i]))
 			{
+				countParenthesis++;
 				if (StringManager::LastCharIsADigitOrALetter(result)
 					|| CharsConstants::IsClosingParenthesis(StringManager::ReturnLastChar(result)))
 					result += CharsConstants::Mul;
@@ -235,6 +241,10 @@ inline string Parser::UniformInputString(string s)
 			}
 			else if (CharsConstants::IsOperator(s[i]))
 			{
+				if (CharsConstants::IsClosingParenthesis(s[i]))
+				{
+					countParenthesis--;
+				}
 				if (StringManager::LastCharIsAdigitOrALetterOrAParenthesis(result))
 					result += s[i];
 				else
@@ -246,7 +256,10 @@ inline string Parser::UniformInputString(string s)
 	}
 
 	if (countParenthesis != 0)
+	{
+		printf("WARNING: Niesparowane nawiasy\n");
 		return StringManager::EmptyString();
+	}
 
 	return result;
 }

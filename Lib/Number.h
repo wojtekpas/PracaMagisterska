@@ -66,7 +66,7 @@ public:
 	string MakeNice(string result);
 	string RoundNine(string result);
 	string TruncateZero(string result);
-	void Print();
+	void Print(int newLine = 1);
 };
 
 static Number PRECISION_VALUE;
@@ -578,9 +578,11 @@ inline string Number::TruncateZero(string result)
 	return StringManager::Substr(result, 0, last);
 }
 
-inline void Number::Print()
+inline void Number::Print(int newLine)
 {
-	cout << ToString() << endl;
+	cout << ToString();
+	if (newLine)
+		cout << endl;
 }
 
 static Number zero(0);
