@@ -56,19 +56,19 @@ Klasa StringManager oferuje przydatne funkcje, na łańcuchach znaków. Wykorzys
 class StringManager
 {
 public:
-static string EmptyString();
-static bool IsEmptyString(string s);
-static char ReturnLastChar(string s);
-static bool LastCharIsADigit(string s);
-static bool LastCharIsALetter(string s);
-static bool LastCharIsADigitOrALetter(string s);
-static bool LastCharIsAdigitOrALetterOrAParenthesis(string s);
-static int FindFirst(string s, char c);
-static int FindLast(string s, char c);
-static string Substr(string s, int first, int last);
-static vector<string> Split(string s, string operators);
-static int FindClosingParenthesis(string s);
-static string ParenthesisContent(string s);
+	static string EmptyString();
+	static bool IsEmptyString(string s);
+	static char ReturnLastChar(string s);
+	static bool LastCharIsADigit(string s);
+	static bool LastCharIsALetter(string s);
+	static bool LastCharIsADigitOrALetter(string s);
+	static bool LastCharIsAdigitOrALetterOrAParenthesis(string s);
+	static int FindFirst(string s, char c);
+	static int FindLast(string s, char c);
+	static string Substr(string s, int first, int last);
+	static vector<string> Split(string s, string operators);
+	static int FindClosingParenthesis(string s);
+	static string ParenthesisContent(string s);
 };
 \end{lstlisting}
 
@@ -79,8 +79,9 @@ Parser to klasa umożliwiająca użytkownikom podanie wielomianów poprzez stand
 \begin{lstlisting}
 class Parser
 {
-string UniformInputString(string s);
-Polynomial& ConvertToPolynomial(string inputS, int type = 0);
+public:
+	string UniformInputString(string s);
+	Polynomial& ConvertToPolynomial(string inputS, int type = 0);
 };
 \end{lstlisting}
 
@@ -92,57 +93,61 @@ Klasa Number stanowi warstwę pośrednią, pomiędzy klasą wielomianu, a~wykorz
 class Number
 {
 public:
-mpq_t value;
-explicit Number();
-explicit Number(double value);
-Number(const Number &bigNumber);
-~Number();
-Number Neg();
-Number Abs();
-Number Copy();
-void SetMaxNegativeValue();
-void SetMaxValue();
-bool IsPlusInfinity();
-bool IsMinusInfinity();
-bool IsInfinity();
-bool IsVerySmallValue();
-bool IsZero();
-int IsInVector(vector<Number> v);
-
-bool operator == (Number bigNumber);
-bool operator != (Number bigNumber);
-bool operator > (Number bigNumber);
-bool operator < (Number bigNumber);
-bool operator >= (Number bigNumber);
-bool operator <= (Number bigNumber);
-Number operator = (Number bigNumber);
-Number operator + (Number bigNumber);
-Number operator - (Number bigNumber);
-Number operator * (Number bigNumber);
-Number operator / (Number bigNumber);
-Number operator ^ (int power);
-Number operator += (Number bigNumber);
-Number operator -= (Number bigNumber);
-Number operator *= (Number bigNumber);
-Number operator /= (Number bigNumber);
-Number operator ^= (int power);
-bool operator == (double value);
-bool operator != (double value);
-bool operator > (double value);
-bool operator < (double value);
-bool operator >= (double value);
-bool operator <= (double value);
-Number operator = (double value);
-Number operator + (double value);
-Number operator - (double value);
-Number operator * (double value);
-Number operator / (double value);
-Number operator += (double value);
-Number operator -= (double value);
-Number operator *= (double value);
-Number operator /= (double value);
-string ToString();
-void Print();
+	mpq_t value;
+	explicit Number();
+	explicit Number(double value);
+	Number(const Number &bigNumber);
+	~Number();
+	Number Neg();
+	Number Abs();
+	Number Copy();
+	void SetMaxNegativeValue();
+	void SetMaxValue();
+	bool IsPlusInfinity();
+	bool IsMinusInfinity();
+	bool IsInfinity();
+	bool IsVerySmallValue();
+	bool IsZero();
+	bool IsWithRequiredPrecision();
+	int IsInVector(vector<Number> v);
+	
+	bool operator == (Number bigNumber);
+	bool operator != (Number bigNumber);
+	bool operator > (Number bigNumber);
+	bool operator < (Number bigNumber);
+	bool operator >= (Number bigNumber);
+	bool operator <= (Number bigNumber);
+	Number operator = (Number bigNumber);
+	Number operator + (Number bigNumber);
+	Number operator - (Number bigNumber);
+	Number operator * (Number bigNumber);
+	Number operator / (Number bigNumber);
+	Number operator ^ (int power);
+	Number operator += (Number bigNumber);
+	Number operator -= (Number bigNumber);
+	Number operator *= (Number bigNumber);
+	Number operator /= (Number bigNumber);
+	Number operator ^= (int power);
+	bool operator == (double value);
+	bool operator != (double value);
+	bool operator > (double value);
+	bool operator < (double value);
+	bool operator >= (double value);
+	bool operator <= (double value);
+	Number operator = (double value);
+	Number operator + (double value);
+	Number operator - (double value);
+	Number operator * (double value);
+	Number operator / (double value);
+	Number operator += (double value);
+	Number operator -= (double value);
+	Number operator *= (double value);
+	Number operator /= (double value);
+	string ToString();
+	string MakeNice(string result);
+	string RoundNine(string result);
+	string TruncateZero(string result);
+	void Print();
 }
 \end{lstlisting}
 
@@ -153,39 +158,39 @@ Klasa posiada tylko jeden element – obiekt typu mpq\_t, reprezentujący właś
 \begin{lstlisting}
 mpq_t simple_function(int a, int b)
 {
-mpq_t value1, value2, value3, value4;
-mpq_inits(value1, value2, value3, value4);
-mpq_set_d(value1, (double) a);
-mpq_set_d(value2, (double) b);
-
-mpq_mul(value3, value1, value2);
-if (mpq_cmp(value1, value2) > 0)
-mpq_add(value4, value1, value3);
-else
-mpq_add(value4, value2, value3);
-
-mpq_clears(value1, value2, value3);
-return value4;
+	mpq_t value1, value2, value3, value4;
+	mpq_inits(value1, value2, value3, value4);
+	mpq_set_d(value1, (double) a);
+	mpq_set_d(value2, (double) b);
+	
+	mpq_mul(value3, value1, value2);
+	if (mpq_cmp(value1, value2) > 0)
+	mpq_add(value4, value1, value3);
+	else
+	mpq_add(value4, value2, value3);
+	
+	mpq_clears(value1, value2, value3);
+	return value4;
 }
 \end{lstlisting}
 
 \begin{lstlisting}
 mpq_t simple_function_with_Number(int a, int b)
 {
-Number& number1 = new Number(a);
-Number& number2 = new Number(b);
-Number& number3 = new Number(a*b)
-Number& number4 = new Number();
-
-if (number1 > number2)
-number4 = number1 + number3;
-else
-number4 = number2 + number3;
-
-delete(number1);
-delete(number2);
-delete(number3);
-return number4;
+	Number& number1 = new Number(a);
+	Number& number2 = new Number(b);
+	Number& number3 = new Number(a*b)
+	Number& number4 = new Number();
+	
+	if (number1 > number2)
+	number4 = number1 + number3;
+	else
+	number4 = number2 + number3;
+	
+	delete(number1);
+	delete(number2);
+	delete(number3);
+	return number4;
 }
 \end{lstlisting}
 
@@ -209,81 +214,81 @@ Poniżej przedstawiam definicję klasy abstrakcyjnej Polynomial. Wyróżnić w~n
 class Polynomial
 {
 public:
-MAP m;
-VECTOR v;
-bool isNew = true;
-int type = 0;
-string inputS = "";
-vector<Number> roots;
-int id = 0;
-
-explicit Polynomial();
-explicit Polynomial(Number number);
-~Polynomial();
-
-virtual Polynomial& CreatePolynomial() = 0;
-virtual Polynomial& CreatePolynomial(Number number) = 0;
-virtual void Clear() = 0;
-virtual bool IsZero() = 0;
-virtual int Size() = 0;
-virtual int PolynomialDegree() = 0;
-virtual Number Value(int power) = 0;
-virtual pair<Polynomial&, Polynomial&> \
-DividePolynomials(Polynomial& p1, Polynomial& p2) = 0;
-virtual void SetNumberValue(int power, Number number) = 0;
-virtual int NumberOfChangesSign(Number a) = 0;
-virtual Polynomial& NegativePolynomial() = 0;
-virtual Polynomial& Derivative() = 0;
-virtual Number PolynomialValue(Number a) = 0;
-virtual string ToString() = 0;
-virtual void SturmClear() = 0;
-virtual int TheLowestNonZeroValue() = 0;
-
-virtual bool operator==(Polynomial& p2) = 0;
-virtual Polynomial& operator = (Polynomial& p2) = 0;
-virtual Polynomial& operator + (Polynomial& p2) = 0;
-virtual Polynomial& operator - (Polynomial& p2) = 0;
-virtual Polynomial& operator * (Polynomial& p2) = 0;
-
-virtual VECTOR VectorValuesExceptValueOfPolynomialDegree \
-(int degree) { return{}; };
-virtual MAP MapValuesExceptValueOfPolynomialDegree \
-(int degree) { return{}; };
-
-bool Set(string s);
-bool IsNew();
-PAIR ValueOfPolynomialDegree();
-
-bool ValueEquals(int power, Polynomial& p2);
-void SetValue(int power, int value);
-void Add(int power, Number number);
-void Sub(int power, Number number);
-PAIR Mul(int power1, Number number1, 
-      int power2, Number number2);
-PAIR Div(int power1, Number number1,
-      int power2, Number number2);
-Polynomial& Nwd(Polynomial& p1, Polynomial& p2);
-Polynomial& PolynomialAfterEliminationOfMultipleRoots();
-void Normalize();
-Number CoefficientValue(PAIR pair1, Number a);
-Number NextNumberFromRange(Number a, Number b);
-int NumberOfRoots(Number a, Number b);
-int AddNextRoot(Number x);
-vector<Number> FindRoots(Number a, Number b);
-void PrintRoots(double a, double b);
-
-bool operator!=(Polynomial& p2);
-Polynomial& operator / (Polynomial& p2);
-Polynomial& operator % (Polynomial& p2);
-Polynomial& operator ^ (int power);
-Polynomial& operator += (Polynomial& p2);
-Polynomial& operator -= (Polynomial& p2);
-Polynomial& operator *= (Polynomial& p2);
-Polynomial& operator /= (Polynomial& p2);
-Polynomial& operator %= (Polynomial& p2);
-Polynomial& operator ^= (int power);
-void Print();
-void PrintInput();
+	MAP m;
+	VECTOR v;
+	bool isNew = true;
+	int type = 0;
+	string inputS = "";
+	vector<Number> roots;
+	int id = 0;
+	
+	explicit Polynomial();
+	explicit Polynomial(Number number);
+	~Polynomial();
+	
+	virtual Polynomial& CreatePolynomial() = 0;
+	virtual Polynomial& CreatePolynomial(Number number) = 0;
+	virtual void Clear() = 0;
+	virtual bool IsZero() = 0;
+	virtual int Size() = 0;
+	virtual int PolynomialDegree() = 0;
+	virtual Number Value(int power) = 0;
+	virtual pair<Polynomial&, Polynomial&> \
+	DividePolynomials(Polynomial& p1, Polynomial& p2) = 0;
+	virtual void SetNumberValue(int power, Number number) = 0;
+	virtual int NumberOfChangesSign(Number a) = 0;
+	virtual Polynomial& NegativePolynomial() = 0;
+	virtual Polynomial& Derivative() = 0;
+	virtual Number PolynomialValue(Number a) = 0;
+	virtual string ToString() = 0;
+	virtual void SturmClear() = 0;
+	virtual int TheLowestNonZeroValue() = 0;
+	
+	virtual bool operator==(Polynomial& p2) = 0;
+	virtual Polynomial& operator = (Polynomial& p2) = 0;
+	virtual Polynomial& operator + (Polynomial& p2) = 0;
+	virtual Polynomial& operator - (Polynomial& p2) = 0;
+	virtual Polynomial& operator * (Polynomial& p2) = 0;
+	
+	virtual VECTOR VectorValuesExceptValueOfPolynomialDegree
+	    (int degree) { return{}; };
+	virtual MAP MapValuesExceptValueOfPolynomialDegree
+	    (int degree) { return{}; };
+	
+	bool Set(string s);
+	bool IsNew();
+	PAIR ValueOfPolynomialDegree();
+	
+	bool ValueEquals(int power, Polynomial& p2);
+	void SetValue(int power, double value);
+	void Add(int power, Number number);
+	void Sub(int power, Number number);
+	PAIR Mul(int power1, Number number1, 
+	      int power2, Number number2);
+	PAIR Div(int power1, Number number1,
+	      int power2, Number number2);
+	Polynomial& Nwd(Polynomial& p1, Polynomial& p2);
+	Polynomial& PolynomialAfterEliminationOfMultipleRoots();
+	void Normalize();
+	Number CoefficientValue(PAIR pair1, Number a);
+	Number NextNumberFromRange(Number a, Number b);
+	int NumberOfRoots(Number a, Number b);
+	int AddNextRoot(Number x);
+	vector<Number> FindRoots(Number a, Number b);
+	void PrintRoots(Number a, Number b);
+	
+	bool operator!=(Polynomial& p2);
+	Polynomial& operator / (Polynomial& p2);
+	Polynomial& operator % (Polynomial& p2);
+	Polynomial& operator ^ (int power);
+	Polynomial& operator += (Polynomial& p2);
+	Polynomial& operator -= (Polynomial& p2);
+	Polynomial& operator *= (Polynomial& p2);
+	Polynomial& operator /= (Polynomial& p2);
+	Polynomial& operator %= (Polynomial& p2);
+	Polynomial& operator ^= (int power);
+	void Print();
+	void PrintInput();
 };
 \end{lstlisting}
 

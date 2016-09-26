@@ -84,11 +84,11 @@ f(a,b)=\left\{
 \begin{array}{ll}
 -2,\ dla\ a=-\infty \wedge b=-1\\
 -1,\ dla\ a=-\infty \wedge b=0\\
-0,\ dla\ a*b<0\\
+0,\ dla\ a \cdot b<0\\
 1,\ dla\ a=0 \wedge b=+\infty\\
 2,\ dla\ a=1 \wedge b=+\infty\\
-a*|a|,\ dla\ a~\in (0,1) \cap (1,+\infty) \cap \{-1\} \wedge b=-\infty\ \\
-b*|b|,\ dla\ a=-\infty\ \wedge \ b \in (-\infty,-1) \cap (-1,0) \cap \{1\}\\
+a \cdot |a|,\ dla\ a~\in (0,1) \cap (1,+\infty) \cap \{-1\} \wedge b=-\infty\ \\
+b \cdot |b|,\ dla\ a=-\infty\ \wedge \ b \in (-\infty,-1) \cap (-1,0) \cap \{1\}\\
 \frac{a+b}{2},\text{w pozostałych przypadkach}
 \end{array}
 \right.
@@ -143,9 +143,9 @@ Następnie, na podstawie funkcji NextNumberFromRange, przedział zostaje podziel
 \subsubsection{Ustawianie wartości wyrazu wielomianu}
 \begin{lstlisting}
 inline void
- PolynomialMap::SetNumberValue(int power, Number number)
+    PolynomialMap::SetNumberValue(int power, Number number)
 inline void
- PolynomialVector::SetNumberValue(int power, Number number)
+    PolynomialVector::SetNumberValue(int power, Number number)
 \end{lstlisting}
 
 Głównym zadaniem funkcji jest ustawienie wartości podanego współczynnika na daną wartość liczbową. W~przypadku mapy, konieczna jest weryfikacja, czy liczba jest równa zero. Jeżeli tak, to następuje sprawdzenie, czy w~mapie występuje już klucz, równy podanej potędzę. W~takim przypadku następuje jego usunięcie, a~gdy klucz nie istnieje, jej opuszczenie, bez jakichkolwiek dodatkowych działań. Jeżeli wartość liczbowa jest niezerowa, to sprawdzenie jest analogiczne. W~pierwszym przypadku następuje wówczas nadpisanie wartości o~danym kluczu, a~w drugim wstawienie do mapy pary – klucz (potęga), wartość (liczba).
@@ -185,12 +185,9 @@ Chociaż struktury różnią się reprezentacją w~pamięci, to obie zwracają i
 \subsubsection{Dzielenie wielomianów}
 \begin{lstlisting}
 inline pair<Polynomial&, Polynomial&>
- PolynomialMap::DividePolynomials(Polynomial& p1,
- Polynomial& p2)
-
+    PolynomialMap::DividePolynomials(Polynomial& p1, Polynomial& p2)
 inline pair<Polynomial&, Polynomial&>
- PolynomialVector::DividePolynomials(Polynomial& p1,
- Polynomial& p2)
+    PolynomialVector::DividePolynomials(Polynomial& p1, Polynomial& p2)
 \end{lstlisting}
 
 Metoda dla podanych wielomianów oblicza ich iloraz oraz resztę z~dzielenia i~zwraca je jako parę obiektów. Na początku, funkcja oblicza wartość pierwszego wyrazu wielomianu, który zostanie zwrócony, jako iloraz. Jest on równy wynikowi dzielenia wyrazów stojących przy najwyższych potęgach wielomianów – dzielnej i~dzielnika. Kolejne wyrazy drugiego z~nich są mnożone przez otrzymaną wartość, a~wynik jest odejmowany od dzielnej. W~rezultacie tego działania, współczynnik przy najwyższej potędze staje się równy zero i~zostaje zredukowany. Daje to gwarancję, że nowy stopień wielomianu, będzie przynajmniej o~jeden mniejszy, niż stopień danego wielomianu. Funkcja kończy swoje działanie, gdy dokona powyższej operacji dla wszystkich wyrazów dzielnej. Wówczas aktualnie przetwarzany wielomian jest zwracany jako obliczona reszta. Warto zauważyć, że stopień tego wielomianu jest mniejszy od stopnia dzielnika i~co najmniej o~2 mniejszy od stopnia dzielnej.

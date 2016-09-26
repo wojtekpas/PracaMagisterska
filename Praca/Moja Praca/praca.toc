@@ -58,7 +58,7 @@
 \contentsline {subsection}{\numberline {3.3.3}Metody klasy Polynomial}{49}
 \contentsline {subsubsection}{Najwi\IeC {\k e}kszy wsp\IeC {\'o}lny dzielnik wielomian\IeC {\'o}w}{49}
 \contentsline {subsubsection}{Eliminacja pierwiastk\IeC {\'o}w wielokrotnych wielomianu}{49}
-\contentsline {subsubsection}{Algorytm wyznaczania kolejnych przedzia\IeC {\l }\IeC {\'o}w wyszukiwania}{49}
+\contentsline {subsubsection}{Algorytm wyznaczania kolejnych przedzia\IeC {\l }\IeC {\'o}w wyszukiwania}{50}
 \contentsline {subsubsection}{Liczba pierwiastk\IeC {\'o}w wielomianu w\nobreakspace {}badanym przedziale}{51}
 \contentsline {subsubsection}{Znajdowanie pierwiastk\IeC {\'o}w wielomianu w\nobreakspace {}badanym przedziale}{51}
 \contentsline {subsection}{\numberline {3.3.4}Metody czysto wirtualne klasy Polynonial \IeC {\textendash } por\IeC {\'o}wnanie dzia\IeC {\l }ania metod klas PolynomialMap i\nobreakspace {}PolynomialVector}{52}
@@ -99,7 +99,7 @@
 \contentsline {subsubsection}{Wielomiany stopnia parzystego}{71}
 \contentsline {subsubsection}{Wielomiany stopnia nieparzystego}{73}
 \contentsline {subsection}{\numberline {4.2.3}Badanie wielomian\IeC {\'o}w posiadaj\IeC {\k a}cych wy\IeC {\l }\IeC {\k a}cznie pierwiastki rzeczywiste}{75}
-\contentsline {subsubsection}{Wielomian o\nobreakspace {}pierwiastkach ca\IeC {\l }kowitych}{75}
+\contentsline {subsubsection}{Wielomiany o\nobreakspace {}pierwiastkach ca\IeC {\l }kowitych}{75}
 \contentsline {subsubsection}{Wielomiany o\nobreakspace {}pierwiastkach wymiernych}{77}
 \contentsline {section}{\numberline {4.3}Por\IeC {\'o}wnanie aplikacji z\nobreakspace {}innym programem}{79}
 \contentsline {subsection}{\numberline {4.3.1}Por\IeC {\'o}wnanie mo\IeC {\.z}liwo\IeC {\'s}ci aplikacji i\nobreakspace {}interfejsu u\IeC {\.z}ytkownika}{79}

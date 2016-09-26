@@ -143,8 +143,8 @@ Jak wynika z~przedstawionej definicji poza mnożeniem dwóch liczb, mnożenie wi
 	Mamy dane wielomian $W_1$ oraz wielomian $W_2$. \\
 	$W_1(x) = a_0x^n + a_1x^{n-1} + ... + a_{n-1}x + a_n$ \\
 	$W_2(x) = b_0x^m + b_1x^{m-1} + ... + b_{m-1}x + b_m$ \\
-	Zdefiniujmy trzeci wielomian: $W_3(x) = W_1(x) * W_2(x)$. Wówczas: \\
-	$W_3(x) = (a_0b_0)x^{n+m} + (a_0b_1+a_1b_0)x^{n+m-1} + (a_0b_2+a_1b_1+a_2b_0)x^{b+m-1} + ... + (a_{n-2}b_m+a_{n-1}b_{m-1}+a_nb_{m-2})x^2 + (a_{n-1}b_m + a_nb_{m-1})x + a_nb_m$
+	Zdefiniujmy trzeci wielomian: $W_3(x) = W_1(x) \cdot W_2(x)$. Wówczas: \\
+	$W_3(x) = (a_0b_0)x^{n+m} + (a_0b_1+a_1b_0)x^{n+m-1} + (a_0b_2+a_1b_1+a_2b_0)x^{n+m-1} + ... + (a_{n-2}b_m+a_{n-1}b_{m-1}+a_nb_{m-2})x^2 + (a_{n-1}b_m + a_nb_{m-1})x + a_nb_m$
 \end{example}
 
 Można zauważyć, że po wymnożeniu wszystkich współczynników wielomianu liczba wyrazów iloczynu wynosi $(n+1)(m+1)$. Po dokonaniu redukcji wyrazów podobnych, liczba ta ulega zmniejszeniu do wartości $n+m+1$. Oznacza to zmianę liczby wyrazów z~wartości kwadratowej, do wartości liniowej względem stopni wielomianów. Liczba wyrazów podobnych, po przemnożeniu dwóch wielomianów jest symetryczna względem wykładników potęg poszczególnych współczynników. Można zauważyć, że skrajne wyrazy posiadają tylko po jednym wyrazie potęgi, a~zbliżając się do współczynników o~środkowych indeksach, liczba ta wzrasta, aż do wartości równej połowie stopnia otrzymanego wielomianu.
@@ -155,8 +155,8 @@ Na podstawie powyższego przykładu, możemy także zaobserwować, że stopień 
 
 \begin{theorem}
 	$ $\\
-	$\deg(W_1 * W_2) = \deg(W_1) + \deg(W_2)$, dla $W_1(x) \neq 0, W_2(x) \neq 0$\\
-	$W_3(x) = W_1(x) * W_2(x) = 0$, w~pozostałych przypadkach
+	$\deg(W_1 \cdot W_2) = \deg(W_1) + \deg(W_2)$, dla $W_1(x) \neq 0, W_2(x) \neq 0$\\
+	$W_3(x) = W_1(x) \cdot W_2(x) = 0$, w~pozostałych przypadkach
 \end{theorem}
 
 Z powyższego twierdzenia można zauważyć, że stopień otrzymanego wielomianu nigdy nie będzie wyższy od dwukrotności większego ze stopni mnożonych wielomianów.
@@ -167,14 +167,14 @@ Dzielenie to zdecydowanie najtrudniejsza z~elementarnych operacji na wielomianac
 
 \begin{definition}
 	$ $\\
-	Wielomian $W(x)$ nazywamy podzielnym przez niezerowy wielomian $P(x)$ wtedy i~tylko wtedy, gdy istnieje taki wielomian Q(x), że spełniony jest warunek $W(x) = P(x) * Q(x)$. Wówczas: wielomian $Q(x)$ nazywamy ilorazem wielomianu $W(x)$ przez $P(x)$, zaś wielomian $P(x)$ nazywamy dzielnikiem wielomianu $W(x)$.
+	Wielomian $W(x)$ nazywamy podzielnym przez niezerowy wielomian $P(x)$ wtedy i~tylko wtedy, gdy istnieje taki wielomian Q(x), że spełniony jest warunek $W(x) = P(x) \cdot Q(x)$. Wówczas: wielomian $Q(x)$ nazywamy ilorazem wielomianu $W(x)$ przez $P(x)$, zaś wielomian $P(x)$ nazywamy dzielnikiem wielomianu $W(x)$.
 \end{definition}
 
 Bardzo ważnym aspektem obliczania ilorazu wielomianów jest reszta z~dzielenia. Spójrzmy na poniższą definicję.
 
 \begin{definition}
 	$ $\\
-	Wielomian $R(x)$ nazywamy resztą z~dzielenia wielomianu $W(x)$ przez niezerowy wielomian $P(x)$ wtedy i~tylko wtedy, gdy istnieje taki wielomian $Q(x)$, że spełniony jest warunek $W(x) = P(x) * Q(x) + R(x)$ i~$\deg R(x) < \deg(P)$.
+	Wielomian $R(x)$ nazywamy resztą z~dzielenia wielomianu $W(x)$ przez niezerowy wielomian $P(x)$ wtedy i~tylko wtedy, gdy istnieje taki wielomian $Q(x)$, że spełniony jest warunek $W(x) = P(x) \cdot Q(x) + R(x)$ i~$\deg R(x) < \deg(P)$.
 \end{definition}
 
 Łatwo zauważyć analogię w~wyżej przedstawionych wzorach. Różnią się one właśnie wielomianem $R(x)$, czyli resztą z~dzielenia. Gdy jest ona wielomianem zerowym, to znaczy, że mamy do czynienia z~dzieleniem bez reszty i~mówimy o~podzielności dwóch wielomianów. Spórzmy na przykład, w~którym zdefiniowane zostały dwa wielomiany, będące ilorazem i~resztą z~dzielenia dwóch wielomianów.
@@ -299,8 +299,8 @@ Istnieje mnóstwo twierdzień dotyczących wielomianów. Zapoznajmy się z~tymi,
 
 \begin{theorem}
 	$ $\\
-	Dowolny wielomian $W_1(x) = \frac{a_n}{b_n}x^n + \frac{a_{n-1}}{b_{n-1}}x^{n-1} + ... + \frac{a_1}{b_1}x + \frac{a_0}{b_0}$, o~współczynnikach wymiernych, można przekształcić w~wielomian $W_2(x) = k * W_1(x)$, o~współczynnikach całkowitych i~tych samych pierwiastkach, co wielomian W. Wówczas: \\
-	$k = m * NWW(b_0, b_1, ..., b_{n-1}, b_n)$, gdzie $m\in Z$
+	Dowolny wielomian $W_1(x) = \frac{a_n}{b_n}x^n + \frac{a_{n-1}}{b_{n-1}}x^{n-1} + ... + \frac{a_1}{b_1}x + \frac{a_0}{b_0}$, o~współczynnikach wymiernych, można przekształcić w~wielomian $W_2(x) = k \cdot W_1(x)$, o~współczynnikach całkowitych i~tych samych pierwiastkach, co wielomian W. Wówczas: \\
+	$k = m \cdot NWW(b_0, b_1, ..., b_{n-1}, b_n)$, gdzie $m\in Z$
 \end{theorem}
 
 Twierdzenie to oznacza, że dysponując wyłącznie współczynnikami, będącymi liczbami całkowitymi, jesteśmy w~stanie przedstawić dowolny wielomian o~współczynnikach wymiernych. Przejdźmy teraz do twierdzenia, mówiącego o~wartości wielomianu w~danym punkcie.
@@ -324,7 +324,7 @@ Przejdźmy teraz do twierdzenia mówiącego o~pierwiastkach wielokrotnych, bazuj
 	Liczba $x_0$ jest pierwiastkiem k-krotnym wielomianu $W(x)$ wtedy i~tylko wtedy, gdy wielomian jest podzielny przez $(x - x_0)^k$ i~nie jest podzielny przez $(x - x_0)^{k+1}$.
 \end{theorem}
 
-Jedyną różnicą powyższego twierdzenia, w~porównaniu do twierdzenia Bezout, jest to, że wielomian $W$ przedstawiamy jako: $W(x) = (x-x_0)^k * Q(x)$. Zapoznajmy się z~twierdzeniem, mówiących o~możliwej wartości pierwiastków, o~ile są one całkowite.
+Jedyną różnicą powyższego twierdzenia, w~porównaniu do twierdzenia Bezout, jest to, że wielomian $W$ przedstawiamy jako: $W(x) = (x-x_0)^k \cdot Q(x)$. Zapoznajmy się z~twierdzeniem, mówiących o~możliwej wartości pierwiastków, o~ile są one całkowite.
 
 \begin{theorem}
 	$ $\\
@@ -354,7 +354,7 @@ Oznacza to, że nie da się rozłożyć jednego wielomianu na czynniki, na dwa r
 	$W(x)=x^3-1=x^3-x^2+x^2-x+x-1=(x-1)x^2+(x-1)x+x-1 = \\
 	=(x-1)(x^2+x+1)$ \\
 	Jest to równanie kwadratowe, więc najłatwiejszym sposobem na znalezienie jego pierwiastków jest obliczenie jego wyróżnika, zwanego też deltą. Jest on oznaczany jako $\Delta$ i~dla funkcji kwadratowej postaci $ax^2+bx+c$ jest równy $b^2-4ac$. \\
-	$\Delta = 1^2 - 4*1*1 = 1 - 4 = -3 < 0$ -- brak pierwiastków rzeczywistych\\
+	$\Delta = 1^2 - 4 \cdot 1 \cdot 1 = 1 - 4 = -3 < 0$ -- brak pierwiastków rzeczywistych\\
 	Jak widać drugi z~czynników jest właśnie przykładem nierozkładalnego czynnika kwadratowego, o~współczynnikach rzeczywistych.
 \end{example}
 
@@ -383,8 +383,8 @@ By lepiej zrozumieć twierdzenie, spójrzmy na poniższy przykład.
 	Mamy dany wielomian $W(x) = x^3 + 2x^2 + x$. Obliczmy teraz kolejne pochodne wielomianu $W$. \\
 	\begin{equation*}
 	\begin{split}
-		W^{(1)}(x) &= 3x^2 + 2*2x + 1 = 3x^2 + 4x + 1 \\
-		W^{(2)}(x) &= 2*3x + 4 = 6x + 4 \\
+		W^{(1)}(x) &= 3x^2 + 2 \cdot 2x + 1 = 3x^2 + 4x + 1 \\
+		W^{(2)}(x) &= 2 \cdot 3x + 4 = 6x + 4 \\
 		W^{(3)}(x) &= 6 \\
 	\end{split}
 	\end{equation*}
@@ -393,9 +393,9 @@ By lepiej zrozumieć twierdzenie, spójrzmy na poniższy przykład.
 	$x_1 = 0,\ k_1 = 1,\ x_2 = -1,\ k_2 = 2$ \\
 	$W{(1)}(x) = 3x^2 + 4x + 1$ \\
 	By przedstawić rozłożyć powyższy wielomian na czynniki, obliczmy wyróżnik równania kwadratowego.\\
-	$\Delta = 4^2 - 4*3*1 = 16 - 12 = 4$ \\
+	$\Delta = 4^2 - 4 \cdot 3 \cdot 1 = 16 - 12 = 4$ \\
 	$\sqrt{\Delta} = 2$ \\
-	$x_1 = \frac{-4-2}{2*3} = \frac{-6}{6} = -1,\ k_1 = 1,$\ $_2 = \frac{-4+2}{2*3} = \frac{-2}{6} = -\frac{1}{3},\ k_2 = 1$ \\
+	$x_1 = \frac{-4-2}{2 \cdot 3} = \frac{-6}{6} = -1,\ k_1 = 1,$\ $_2 = \frac{-4+2}{2 \cdot 3} = \frac{-2}{6} = -\frac{1}{3},\ k_2 = 1$ \\
 	$W^{(2)}(x) = 6x + 4 = 6 (x + \frac{2}{3})$ \\
 	$x_1 = -\frac{2}{3},\ k_1 = 1$ \\
 	$W^{(3)}(x) = 6$ -- brak pierwiastków
@@ -414,7 +414,7 @@ Spróbujmy teraz skorzystać z~przedstawionego twierdzenia w~przykładzie dokonu
 	$ $ \\
 	Dany jest wielomian W, określony wzorem: $W(x)=x^6-6x^4-4x^3+9x^2+12x+4$. Dokonajmy eliminacji pierwiastków wielokrotnych dla wielomianu $W$. \\
 	Obliczamy pochodną wielomianu. \\
-	$W'(x)=6*x^5-4*6x^3-3*4x^2+2*9x+12=$ \\
+	$W'(x)=6 \cdot x^5-4 \cdot 6x^3-3 \cdot 4x^2+2 \cdot 9x+12=$ \\
 	$=6x^5-24x^3-12x^2+18x+12=6(x^5-4x^3-2x^2+3x+2)$ \\
 	Obliczmy teraz resztę z~dzielenia wielomianu $W$ przez wielomian $W'$.
 	\begin{equation*}
