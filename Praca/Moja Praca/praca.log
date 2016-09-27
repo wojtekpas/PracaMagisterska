@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  27 SEP 2016 09:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  28 SEP 2016 01:16
 entering extended mode
 **./praca.tex
 (praca.tex
@@ -1374,8 +1374,97 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 80.
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 ))
-(pliki_latex/0_1_streszczenie.tex) (pliki_latex/0_2_abstract.tex [3
+<./pliki_pdf/StronaTytulowa.pdf, id=4, 597.432pt x 845.07718pt>
+File: ./pliki_pdf/StronaTytulowa.pdf Graphic file (type pdf)
 
+<use ./pliki_pdf/StronaTytulowa.pdf>
+Package pdftex.def Info: ./pliki_pdf/StronaTytulowa.pdf used on input line 146.
+
+(pdftex.def)             Requested size: 597.43054pt x 845.07512pt.
+File: ./pliki_pdf/StronaTytulowa.pdf Graphic file (type pdf)
+ <use ./pliki_pdf/StronaTytulowa.pdf>
+Package pdftex.def Info: ./pliki_pdf/StronaTytulowa.pdf used on input line 146.
+
+(pdftex.def)             Requested size: 597.43054pt x 845.07512pt.
+
+<./pliki_pdf/StronaTytulowa.pdf, id=7, page=1, 597.432pt x 845.07718pt>
+File: ./pliki_pdf/StronaTytulowa.pdf Graphic file (type pdf)
+
+<use ./pliki_pdf/StronaTytulowa.pdf, page 1>
+Package pdftex.def Info: ./pliki_pdf/StronaTytulowa.pdf, page1 used on input li
+ne 146.
+(pdftex.def)             Requested size: 597.43054pt x 845.07512pt.
+File: ./pliki_pdf/StronaTytulowa.pdf Graphic file (type pdf)
+
+<use ./pliki_pdf/StronaTytulowa.pdf, page 1>
+Package pdftex.def Info: ./pliki_pdf/StronaTytulowa.pdf, page1 used on input li
+ne 146.
+(pdftex.def)             Requested size: 597.45789pt x 845.1138pt.
+File: ./pliki_pdf/StronaTytulowa.pdf Graphic file (type pdf)
+
+<use ./pliki_pdf/StronaTytulowa.pdf, page 1>
+Package pdftex.def Info: ./pliki_pdf/StronaTytulowa.pdf, page1 used on input li
+ne 146.
+(pdftex.def)             Requested size: 597.45789pt x 845.1138pt.
+File: ./pliki_pdf/StronaTytulowa.pdf Graphic file (type pdf)
+
+<use ./pliki_pdf/StronaTytulowa.pdf, page 1>
+Package pdftex.def Info: ./pliki_pdf/StronaTytulowa.pdf, page1 used on input li
+ne 146.
+(pdftex.def)             Requested size: 597.45789pt x 845.1138pt.
+File: ./pliki_pdf/StronaTytulowa.pdf Graphic file (type pdf)
+
+<use ./pliki_pdf/StronaTytulowa.pdf, page 1>
+Package pdftex.def Info: ./pliki_pdf/StronaTytulowa.pdf, page1 used on input li
+ne 146.
+(pdftex.def)             Requested size: 597.45789pt x 845.1138pt.
+ [1
+
+ <./pliki_pdf/StronaTytulowa.pdf>] <./pliki_pdf/Oswiadczenie.pdf, id=36, 597.43
+2pt x 845.07718pt>
+File: ./pliki_pdf/Oswiadczenie.pdf Graphic file (type pdf)
+
+<use ./pliki_pdf/Oswiadczenie.pdf>
+Package pdftex.def Info: ./pliki_pdf/Oswiadczenie.pdf used on input line 147.
+(pdftex.def)             Requested size: 597.43054pt x 845.07512pt.
+File: ./pliki_pdf/Oswiadczenie.pdf Graphic file (type pdf)
+ <use ./pliki_pdf/Oswiadczenie.pdf>
+Package pdftex.def Info: ./pliki_pdf/Oswiadczenie.pdf used on input line 147.
+(pdftex.def)             Requested size: 597.43054pt x 845.07512pt.
+
+<./pliki_pdf/Oswiadczenie.pdf, id=39, page=1, 597.432pt x 845.07718pt>
+File: ./pliki_pdf/Oswiadczenie.pdf Graphic file (type pdf)
+
+<use ./pliki_pdf/Oswiadczenie.pdf, page 1>
+Package pdftex.def Info: ./pliki_pdf/Oswiadczenie.pdf, page1 used on input line
+ 147.
+(pdftex.def)             Requested size: 597.43054pt x 845.07512pt.
+File: ./pliki_pdf/Oswiadczenie.pdf Graphic file (type pdf)
+
+<use ./pliki_pdf/Oswiadczenie.pdf, page 1>
+Package pdftex.def Info: ./pliki_pdf/Oswiadczenie.pdf, page1 used on input line
+ 147.
+(pdftex.def)             Requested size: 597.45789pt x 845.1138pt.
+File: ./pliki_pdf/Oswiadczenie.pdf Graphic file (type pdf)
+
+<use ./pliki_pdf/Oswiadczenie.pdf, page 1>
+Package pdftex.def Info: ./pliki_pdf/Oswiadczenie.pdf, page1 used on input line
+ 147.
+(pdftex.def)             Requested size: 597.45789pt x 845.1138pt.
+File: ./pliki_pdf/Oswiadczenie.pdf Graphic file (type pdf)
+
+<use ./pliki_pdf/Oswiadczenie.pdf, page 1>
+Package pdftex.def Info: ./pliki_pdf/Oswiadczenie.pdf, page1 used on input line
+ 147.
+(pdftex.def)             Requested size: 597.45789pt x 845.1138pt.
+File: ./pliki_pdf/Oswiadczenie.pdf Graphic file (type pdf)
+
+<use ./pliki_pdf/Oswiadczenie.pdf, page 1>
+Package pdftex.def Info: ./pliki_pdf/Oswiadczenie.pdf, page1 used on input line
+ 147.
+(pdftex.def)             Requested size: 597.45789pt x 845.1138pt.
+ [2 <./pliki_pdf/Oswiadczenie.pdf>]
+(pliki_latex/0_1_streszczenie.tex) (pliki_latex/0_2_abstract.tex [3
 
 
 {C:/Users/Gruby/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]) [4
@@ -1450,7 +1539,7 @@ Rozdzia\PlPrIeC {\l } 3.
 ]) (pliki_latex/3_2_glowne_klasy.tex [34] [35] [36] [37] [38] [39] [40]
 [41] [42] [43] [44] [45]) (pliki_latex/3_3_glowne_funkcje.tex [46] [47]
 [48] [49] [50] [51] [52] [53] [54]) (pliki_latex/3_4_instalacja.tex [55]
-<img/UnitTests_wrong_architecture.png, id=187, 633.86812pt x 465.23813pt>
+<img/UnitTests_wrong_architecture.png, id=257, 633.86812pt x 465.23813pt>
 File: img/UnitTests_wrong_architecture.png Graphic file (type png)
 
 <use img/UnitTests_wrong_architecture.png>
@@ -1458,7 +1547,7 @@ Package pdftex.def Info: img/UnitTests_wrong_architecture.png used on input lin
 e 32.
 (pdftex.def)             Requested size: 426.79134pt x 313.2555pt.
  [56]
-<img/UnitTests_x64_architecture.png, id=191, 609.02531pt x 138.5175pt>
+<img/UnitTests_x64_architecture.png, id=261, 609.02531pt x 138.5175pt>
 File: img/UnitTests_x64_architecture.png Graphic file (type png)
 
 <use img/UnitTests_x64_architecture.png>
@@ -1547,10 +1636,10 @@ Rozdzia\PlPrIeC {\l } 5.
 
 ] (praca.aux) ) 
 Here is how much of TeX's memory you used:
- 29412 strings out of 493634
- 683166 string characters out of 3141314
- 895696 words of memory out of 3000000
- 32131 multiletter control sequences out of 15000+200000
+ 29431 strings out of 493634
+ 683746 string characters out of 3141314
+ 895695 words of memory out of 3000000
+ 32145 multiletter control sequences out of 15000+200000
  57760 words of font info for 46 fonts, out of 3000000 for 9000
  1046 hyphenation exceptions out of 8191
  62i,19n,96p,2384b,2238s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1571,9 +1660,9 @@ m Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmri10.pfb><C:/Program Files (x8
 6)/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Program Files (x86)/MiKTeX 2
 .9/fonts/type1/public/lm/lmsy5.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/typ
 e1/public/lm/lmsy7.pfb>
-Output written on praca.pdf (88 pages, 581094 bytes).
+Output written on praca.pdf (90 pages, 824438 bytes).
 PDF statistics:
- 352 PDF objects out of 1000 (max. 8388607)
+ 421 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 23 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 63 words of extra memory for PDF output out of 10000 (max. 10000000)
 

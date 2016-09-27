@@ -406,31 +406,33 @@ inline void Polynomial::PrintRoots(Number a, Number b)
 		cout << "Wielomian zerowy - brak pierwiastkow" << endl;
 		return;
 	}
-	Number numberA = a;
-	Number numberB = b;
 
-	vector<Number> roots = FindRoots(numberA, numberB);
+	vector<Number> roots = FindRoots(a, b);
 	if (DISPLAYING_SIGNS)
 	{
-		int signsA = NumberOfChangesSign(numberA);
-		int signsB = NumberOfChangesSign(numberB);
+		int signsA = NumberOfChangesSign(a);
+		int signsB = NumberOfChangesSign(b);
 		printf("Liczba zmian znakow:\n");
 		printf("\t%d ", signsA);
 		printf("dla a = ");
-		numberA.Print(0);
+		a.Print(0);
 		printf("\n\t%d ", signsB);
 		printf("dla b = ");
-		numberB.Print(0);
+		b.Print(0);
 		printf("\n");
 	}
 	if (DISPLAYING_ROOTS)
 	{
 		if (roots.size() == 0) {
-			cout << "Brak pierwiastkow rzeczywistych" << endl;
+			cout << "Brak pierwiastkow rzeczywistych w zadanym przedziale" << endl;
 			return;
 		}
 		roots = SortNumbers(roots);
-		printf("Znalezione pierwiastki rzeczywiste:\n");
+		printf("Znalezione pierwiastki rzeczywiste w przedziale (");
+		a.Print(0);
+		printf(", ");
+		b.Print(0);
+		printf("):\n");
 		for (int i = 0; i < roots.size(); i++)
 		{
 			cout << "\tx" << i + 1 << " = ";

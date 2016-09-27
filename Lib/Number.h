@@ -73,6 +73,7 @@ static Number PRECISION_VALUE;
 static Number SMALL_VALUE;
 static Number MAX_VALUE;
 static Number MAX_NEGATIVE_VALUE;
+static int PRECISION_INT;
 
 inline bool IsSmallValue(Number value)
 {
@@ -600,76 +601,95 @@ inline void InitConstants()
 	mpq_init(c);
 	mpz_set_d(a, 1);
 	mpq_set_d(c, -1);
-	mpz_set_d(b, 1000000);
+	mpz_set_d(b, 100000);
+	mpq_set_num(PRECISION_VALUE.value, a);
+	mpq_set_den(PRECISION_VALUE.value, b);
+	mpz_pow_ui(b, b, 100);
 	mpq_set_num(MAX_VALUE.value, b);
 	mpq_set_den(MAX_VALUE.value, a);
 	mpq_mul(MAX_NEGATIVE_VALUE.value, MAX_VALUE.value, c);
-	mpz_set_d(b, 1000);
 
-	mpz_pow_ui(b, b, 100);
 	mpq_set_num(SMALL_VALUE.value, a);
 	mpq_set_den(SMALL_VALUE.value, b);
 
-	mpz_set_d(b, 1000000);
-	mpq_set_num(PRECISION_VALUE.value, a);
-	mpq_set_den(PRECISION_VALUE.value, b);
-
-	SMALL_VALUE.Print();
-	PRECISION_VALUE.Print();
-	MAX_NEGATIVE_VALUE.Print();
-	MAX_VALUE.Print();
+//	SMALL_VALUE.Print();
+//	PRECISION_VALUE.Print();
+//	MAX_NEGATIVE_VALUE.Print();
+//	MAX_VALUE.Print();
 };
 
-inline int SetNumber(Number number, string s)
+Number numberA;
+Number numberB;
+
+inline void SetNumberA(string s)
 {
-	const int max_length = 2 << 15;
-	char* tab = new char[3];
-	if (s.length() > max_length)
+	numberA = CharsConstants::CharToInt(s[0]);
+
+	for (int i = 1; i < s.length(); i++)
 	{
-		printf("Warning: Input number is too long\n");
-		return -1;
+		numberA *= 10;
+		numberA = numberA + CharsConstants::CharToInt(s[i]);
 	}
-
-	strcpy_s(tab, 3, "1234");
-
-	return mpq_set_str(number.value, tab, 10);
 }
 
-inline int SetMaxNumber(string s)
+inline void SetNumberB(string s)
 {
-	return SetNumber(MAX_VALUE, s);
+	numberB = CharsConstants::CharToInt(s[0]);
+
+	for (int i = 1; i < s.length(); i++)
+	{
+		numberB *= 10;
+		numberB = numberB + CharsConstants::CharToInt(s[i]);
+	}
 }
 
-inline int SetMaxNegativeNumber(string s)
+inline void SetPrecision(int value)
 {
-	return SetNumber(MAX_NEGATIVE_VALUE, s);
-}
-
-inline int SetPrecision(int value)
-{
+	PRECISION_INT = value;
 	PRECISION_VALUE = 1;
 	for (int i = 0; i < value; i++)
 	{
 		PRECISION_VALUE /= 10;
 	}
-	return 0;
 }
 
 inline int SetValueFromString(string inputS)
 {
 	if (StringManager::BeginStarts(inputS, "set precision "))
 	{
-		return SetPrecision(atoi(StringManager::Substr(inputS, 14, inputS.length() - 1).c_str()));
+		string value = StringManager::Substr(inputS, 14, inputS.length() - 1);
+		if (StringManager::ContainsOnlyDigits(value) == false)
+			return 0;
+		SetPrecision(atoi(value.c_str()));
+		return 0;
 	}
 
 	if (StringManager::BeginStarts(inputS, "set a "))
 	{
-		return SetMaxNumber(StringManager::Substr(inputS, 6, inputS.length() - 1));
+		string value = StringManager::Substr(inputS, 6, inputS.length() - 1);
+		if (StringManager::ContainsOnlyDigits(value) == false)
+			return 0;
+		Number copy = numberA;
+		SetNumberA(value);
+		if (numberA >= numberB)
+		{
+			numberA = copy;
+		}
+		return 0;
 	}
 
 	if (StringManager::BeginStarts(inputS, "set b "))
 	{
-		return SetMaxNumber(StringManager::Substr(inputS, 6, inputS.length() - 1));
+		string value = StringManager::Substr(inputS, 6, inputS.length() - 1);
+		if (StringManager::ContainsOnlyDigits(value) == false)
+			return 0;
+		Number copy = numberB;
+		SetNumberB(value);
+		if (numberB <= numberA)
+		{
+			numberB = copy;
+		}
+		return 0;
 	}
 
 	return -1;

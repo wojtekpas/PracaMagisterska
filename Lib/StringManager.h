@@ -19,6 +19,7 @@ public:
 	static int FindClosingParenthesis(string s);
 	static string ParenthesisContent(string s);
 	static bool BeginStarts(string s1, string s2);
+	static bool ContainsOnlyDigits(string s);
 };
 
 inline string StringManager::EmptyString()
@@ -150,6 +151,20 @@ inline bool StringManager::BeginStarts(string s1, string s2)
 	{
 		if (s1[i] != s2[i])
 			return false;
+	}
+
+	return true;
+}
+
+inline bool StringManager::ContainsOnlyDigits(string s)
+{
+	for (int i = 0; i < s.length(); i++)
+	{
+		if (CharsConstants::IsDigit(s[i]) == false)
+		{
+			printf("WARNING: '%c' nie jest cyfra.\n", s[i]);
+			return false;
+		}
 	}
 
 	return true;

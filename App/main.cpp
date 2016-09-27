@@ -9,16 +9,13 @@ int main()
 
 	Parser parser;
 	string inputS;
-	Number a;
-	Number b;
 	const int max_retry = 100;
 	int retry;
-	cout << "-----" << endl;
+	numberA = -1000000;
+	numberB = 1000000;
 	while (true)
 	{
 		retry = 0;
-		a = -1000000;
-		b = 1000000;
 		getline(cin, inputS);
 		while (inputS == "")
 		{
@@ -40,18 +37,15 @@ int main()
 
 				if (p.IsZero() == 0)
 				{
-					p.Execute(a, b);
+					p.Execute(numberA, numberB);
 				}
 				else
 					printf("Polecenie nierozpoznane lub wielomian oznaczony jako zerowy - nie posiada pierwiastkow.\n");
 			}
 		}
-
+		numberA.Print();
+		numberB.Print();
 		cout << "-----" << endl;
-		SMALL_VALUE.Print();
-		PRECISION_VALUE.Print();
-		MAX_NEGATIVE_VALUE.Print();
-		MAX_VALUE.Print();
 		inputS = "";
 	}	
 }
