@@ -33,18 +33,25 @@ int main()
 
 		if (SetOption(inputS))
 		{
-			Polynomial& p = CreatePolynomial(TYPE);
-			p = parser.ConvertToPolynomial(inputS, TYPE);
-
-			if (p.IsZero() == 0)
+			if (SetValueFromString(inputS))
 			{
-				p.Execute(a, b);
+				Polynomial& p = CreatePolynomial(TYPE);
+				p = parser.ConvertToPolynomial(inputS, TYPE);
+
+				if (p.IsZero() == 0)
+				{
+					p.Execute(a, b);
+				}
+				else
+					printf("Polecenie nierozpoznane lub wielomian oznaczony jako zerowy - nie posiada pierwiastkow.\n");
 			}
-			else
-				printf("Polecenie nierozpoznane lub wielomian oznaczony jako zerowy - nie posiada pierwiastkow.\n");
 		}
 
 		cout << "-----" << endl;
+		SMALL_VALUE.Print();
+		PRECISION_VALUE.Print();
+		MAX_NEGATIVE_VALUE.Print();
+		MAX_VALUE.Print();
 		inputS = "";
 	}	
 }

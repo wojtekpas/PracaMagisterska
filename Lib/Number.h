@@ -619,3 +619,58 @@ inline void InitConstants()
 	MAX_NEGATIVE_VALUE.Print();
 	MAX_VALUE.Print();
 };
+
+inline int SetNumber(Number number, string s)
+{
+	const int max_length = 2 << 15;
+	char* tab = new char[3];
+	if (s.length() > max_length)
+	{
+		printf("Warning: Input number is too long\n");
+		return -1;
+	}
+
+	strcpy_s(tab, 3, "1234");
+
+	return mpq_set_str(number.value, tab, 10);
+}
+
+inline int SetMaxNumber(string s)
+{
+	return SetNumber(MAX_VALUE, s);
+}
+
+inline int SetMaxNegativeNumber(string s)
+{
+	return SetNumber(MAX_NEGATIVE_VALUE, s);
+}
+
+inline int SetPrecision(int value)
+{
+	PRECISION_VALUE = 1;
+	for (int i = 0; i < value; i++)
+	{
+		PRECISION_VALUE /= 10;
+	}
+	return 0;
+}
+
+inline int SetValueFromString(string inputS)
+{
+	if (StringManager::BeginStarts(inputS, "set precision "))
+	{
+		return SetPrecision(atoi(StringManager::Substr(inputS, 14, inputS.length() - 1).c_str()));
+	}
+
+	if (StringManager::BeginStarts(inputS, "set a "))
+	{
+		return SetMaxNumber(StringManager::Substr(inputS, 6, inputS.length() - 1));
+	}
+
+	if (StringManager::BeginStarts(inputS, "set b "))
+	{
+		return SetMaxNumber(StringManager::Substr(inputS, 6, inputS.length() - 1));
+	}
+
+	return -1;
+}

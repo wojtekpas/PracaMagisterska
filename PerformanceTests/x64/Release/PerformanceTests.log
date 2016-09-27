@@ -1,33 +1,5 @@
-﻿Build started 2016-09-27 01:43:15.
-     1>Project "C:\Users\Gruby\Documents\Visual Studio 2015\Projects\PracaMagisterska\PerformanceTests\PerformanceTests.vcxproj" on node 3 (Build target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /GL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Release\\" /Fd"x64\Release\vc140.pdb" /Gd /TP /errorReport:prompt main.cpp
-         main.cpp
-     1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\StringManager.h(65): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-     1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\StringManager.h(70): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-     1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\StringManager.h(97): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-     1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\Number.h(427): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-     1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\Number.h(486): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-     1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\Number.h(506): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-     1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\Number.h(519): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-     1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\Number.h(565): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-     1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\PolynomialMap.h(88): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-     1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\PolynomialMap.h(197): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-     1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\PolynomialVector.h(90): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-     1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\PolynomialVector.h(248): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-     1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\performancetests\../Lib/Parser.h(144): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-     1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\performancetests\../Lib/Parser.h(157): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-     1>main.cpp(65): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-     1>main.cpp(96): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Gruby\Documents\Visual Studio 2015\Projects\PracaMagisterska\x64\Release\PerformanceTests.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\Gruby\Documents\Visual Studio 2015\Projects\PracaMagisterska\x64\Release\PerformanceTests.pdb" /OPT:REF /OPT:ICF /LTCG:incremental /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Gruby\Documents\Visual Studio 2015\Projects\PracaMagisterska\x64\Release\PerformanceTests.lib" /MACHINE:X64 x64\Release\main.obj
-         "C:\Program Files (x86)\Microsoft Visual Studio 14.0\mpir-2.7.2\build.vc14\dll_mpir_nehalem\x64\Release\mpir.lib"
-         Generating code
-         All 1164 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
-         Finished generating code
-         PerformanceTests.vcxproj -> C:\Users\Gruby\Documents\Visual Studio 2015\Projects\PracaMagisterska\x64\Release\PerformanceTests.exe
-     1>Done Building Project "C:\Users\Gruby\Documents\Visual Studio 2015\Projects\PracaMagisterska\PerformanceTests\PerformanceTests.vcxproj" (Build target(s)).
+﻿Build started 2016-09-27 23:13:09.
 
 Build succeeded.
 
-Time Elapsed 00:00:03.33
+Time Elapsed 00:00:00.03
