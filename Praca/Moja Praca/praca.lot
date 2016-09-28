@@ -2,13 +2,13 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Por\IeC {\'o}wnanie czas\IeC {\'o}w znajdowania pierwiastk\IeC {\'o}w dla g\IeC {\k e}stych wielomian\IeC {\'o}w parzystego stopnia\relax }}{69}
-\contentsline {table}{\numberline {4.2}{\ignorespaces Por\IeC {\'o}wnanie czas\IeC {\'o}w znajdowania pierwiastk\IeC {\'o}w dla g\IeC {\k e}stych wielomian\IeC {\'o}w nieparzystego stopnia\relax }}{70}
-\contentsline {table}{\numberline {4.3}{\ignorespaces Por\IeC {\'o}wnanie czas\IeC {\'o}w znajdowania pierwiastk\IeC {\'o}w dla rzadkich wielomian\IeC {\'o}w parzystego stopnia\relax }}{71}
-\contentsline {table}{\numberline {4.4}{\ignorespaces Por\IeC {\'o}wnanie czas\IeC {\'o}w znajdowania pierwiastk\IeC {\'o}w dla rzadkich wielomian\IeC {\'o}w nieparzystego stopnia\relax }}{74}
-\contentsline {table}{\numberline {4.5}{\ignorespaces Por\IeC {\'o}wnanie czas\IeC {\'o}w znajdowania pierwiastk\IeC {\'o}w dla wielomian\IeC {\'o}w zawieraj\IeC {\k a}cych kolejne pierwiastki ca\IeC {\l }kowite\relax }}{76}
-\contentsline {table}{\numberline {4.6}{\ignorespaces Por\IeC {\'o}wnanie czas\IeC {\'o}w znajdowania pierwiastk\IeC {\'o}w dla wielomian\IeC {\'o}w zawieraj\IeC {\k a}cych pierwiastki wymierne r\IeC {\'o}\IeC {\.z}ni\IeC {\k a}ce si\IeC {\k e} o\nobreakspace {}$0.01$\relax }}{78}
-\contentsline {table}{\numberline {4.7}{\ignorespaces Por\IeC {\'o}wnanie mo\IeC {\.z}liwo\IeC {\'s}ci aplikacji i\nobreakspace {}interefejsu u\IeC {\.z}ytkownika\relax }}{80}
-\contentsline {table}{\numberline {4.8}{\ignorespaces Por\IeC {\'o}wnanie precyzji aplikacji w\nobreakspace {}przypadku odleg\IeC {\l }ych od siebie pierwiastk\IeC {\'o}w\relax }}{82}
-\contentsline {table}{\numberline {4.9}{\ignorespaces Por\IeC {\'o}wnanie precyzji aplikacji w\nobreakspace {}przypadku po\IeC {\l }o\IeC {\.z}onych blisko siebie pierwiastk\IeC {\'o}w\relax }}{85}
+\contentsline {table}{\numberline {4.1}{\ignorespaces Por\IeC {\'o}wnanie czas\IeC {\'o}w znajdowania pierwiastk\IeC {\'o}w dla g\IeC {\k e}stych wielomian\IeC {\'o}w parzystego stopnia. \IeC {\'Z}r\IeC {\'o}d\IeC {\l }o: opracowanie w\IeC {\l }asne.\relax }}{69}
+\contentsline {table}{\numberline {4.2}{\ignorespaces Por\IeC {\'o}wnanie czas\IeC {\'o}w znajdowania pierwiastk\IeC {\'o}w dla g\IeC {\k e}stych wielomian\IeC {\'o}w nieparzystego stopnia. \IeC {\'Z}r\IeC {\'o}d\IeC {\l }o: opracowanie w\IeC {\l }asne.\relax }}{70}
+\contentsline {table}{\numberline {4.3}{\ignorespaces Por\IeC {\'o}wnanie czas\IeC {\'o}w znajdowania pierwiastk\IeC {\'o}w dla rzadkich wielomian\IeC {\'o}w parzystego stopnia. \IeC {\'Z}r\IeC {\'o}d\IeC {\l }o: opracowanie w\IeC {\l }asne.\relax }}{71}
+\contentsline {table}{\numberline {4.4}{\ignorespaces Por\IeC {\'o}wnanie czas\IeC {\'o}w znajdowania pierwiastk\IeC {\'o}w dla rzadkich wielomian\IeC {\'o}w nieparzystego stopnia. \IeC {\'Z}r\IeC {\'o}d\IeC {\l }o: opracowanie w\IeC {\l }asne.\relax }}{74}
+\contentsline {table}{\numberline {4.5}{\ignorespaces Por\IeC {\'o}wnanie czas\IeC {\'o}w znajdowania pierwiastk\IeC {\'o}w dla wielomian\IeC {\'o}w zawieraj\IeC {\k a}cych kolejne pierwiastki ca\IeC {\l }kowite. \IeC {\'Z}r\IeC {\'o}d\IeC {\l }o: opracowanie w\IeC {\l }asne.\relax }}{76}
+\contentsline {table}{\numberline {4.6}{\ignorespaces Por\IeC {\'o}wnanie czas\IeC {\'o}w znajdowania pierwiastk\IeC {\'o}w dla wielomian\IeC {\'o}w zawieraj\IeC {\k a}cych pierwiastki wymierne r\IeC {\'o}\IeC {\.z}ni\IeC {\k a}ce si\IeC {\k e} o\nobreakspace {}$0.01$. \IeC {\'Z}r\IeC {\'o}d\IeC {\l }o: opracowanie w\IeC {\l }asne.\relax }}{78}
+\contentsline {table}{\numberline {4.7}{\ignorespaces Por\IeC {\'o}wnanie mo\IeC {\.z}liwo\IeC {\'s}ci aplikacji i\nobreakspace {}interefejsu u\IeC {\.z}ytkownika. \IeC {\'Z}r\IeC {\'o}d\IeC {\l }o: opracowanie w\IeC {\l }asne.\relax }}{80}
+\contentsline {table}{\numberline {4.8}{\ignorespaces Por\IeC {\'o}wnanie precyzji aplikacji w\nobreakspace {}przypadku odleg\IeC {\l }ych od siebie pierwiastk\IeC {\'o}w. \IeC {\'Z}r\IeC {\'o}d\IeC {\l }o: opracowanie w\IeC {\l }asne.\relax }}{82}
+\contentsline {table}{\numberline {4.9}{\ignorespaces Por\IeC {\'o}wnanie precyzji aplikacji w\nobreakspace {}przypadku po\IeC {\l }o\IeC {\.z}onych blisko siebie pierwiastk\IeC {\'o}w. \IeC {\'Z}r\IeC {\'o}d\IeC {\l }o: opracowanie w\IeC {\l }asne.\relax }}{85}
 \addvspace {10\p@ }

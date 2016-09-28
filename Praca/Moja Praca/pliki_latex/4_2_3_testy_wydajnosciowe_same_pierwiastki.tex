@@ -23,7 +23,7 @@ Przetestujemy więc wielomiany powyższej postaci. Z powodu ograniczeń czasowyc
 		$W(x) = (x-1)(x-2)*...*(x-31)(x-32)$ & 29.822 & 29.725 & 0.997 \\
 		\hline
 	\end{tabular}
-	\caption{Porównanie czasów znajdowania pierwiastków dla wielomianów zawierających kolejne pierwiastki całkowite}
+	\caption{Porównanie czasów znajdowania pierwiastków dla wielomianów zawierających kolejne pierwiastki całkowite. Źródło: opracowanie własne.}
 \end{table}
 
 Widzimy, że podobnie jak w~przypadku wielomianów gęstych zmierzone czasy działania są niemal identyczne dla obu struktur. Jednocześnie trzeba zauważyć, że duża liczba pierwiastków rzeczywistych wpływa na liczbę elementów ciągu Sturma. Powoduje to mnogość koniecznych do przeprowadzenia operacji na wielomianach, co bezpośrednio przekłada się czas znajdowania pierwiastków w~tym przypadku.
@@ -59,7 +59,7 @@ Widzimy, że podobnie jak w~przypadku wielomianów gęstych zmierzone czasy dzia
 	};
 	\end{axis}
 	\end{tikzpicture}
-	\caption{Czas znajdowania pierwiastków dla wielomianów zawierających kolejne pierwiastki całkowite}
+	\caption{Czas znajdowania pierwiastków dla wielomianów zawierających kolejne pierwiastki całkowite. Źródło: opracowanie własne.}
 \end{figure}
 
 Obserwując powyższy wykres trzeba zauważyć wielkie przełożenie stopnia wielomianu na czas działania algorytmu. Wraz z~podwojeniem się stopnia testowanego wielomianu widzimy ponad dziesięciokrotny wzrost czasu działania. Tempo wzrostu powyższej funkcji przekracza wzrost sześcienny. Oznacza to, że w~przypadku tej klasy wielomianów, której pierwiastkami są kolejne liczby całkowite, mówimy o~złożoności wielomianowej.
@@ -87,7 +87,7 @@ Zapoznajmy się z~wynikami, by sprawdzić, jak uzyskane wyniki różnią się od
 		$W(x) = (x-0.01)(x-0.02)*...*(x-0.31)(x-0.32)$ & 1226.351 & 1226.333 & 1 \\
 		\hline
 	\end{tabular}
-	\caption{Porównanie czasów znajdowania pierwiastków dla wielomianów zawierających pierwiastki wymierne różniące się o~$0.01$}
+	\caption{Porównanie czasów znajdowania pierwiastków dla wielomianów zawierających pierwiastki wymierne różniące się o~$0.01$. Źródło: opracowanie własne.}
 \end{table}
 
 \begin{figure}[H]
@@ -121,7 +121,7 @@ Zapoznajmy się z~wynikami, by sprawdzić, jak uzyskane wyniki różnią się od
 	};
 	\end{axis}
 	\end{tikzpicture}
-	\caption{Czas znajdowania pierwiastków dla wielomianów zawierających pierwiastki wymierne różniące się o~$0.01$}
+	\caption{Czas znajdowania pierwiastków dla wielomianów zawierających pierwiastki wymierne różniące się o~$0.01$. Źródło: opracowanie własne.}
 \end{figure}
 
 Podobnie jak dla wszystkich innych wielomianów gęstych także w~tym przypadku w~wyniku porównania struktur otrzymujemy bliźniacze rezultaty. Jednocześnie należy zwrócić uwagę, że wartość pierwiastków wielomianu ma bardzo duże przełożenie na czas ich znajdowania. Widzimy, że w~przypadku blisko siebie położonych pierwiastków o~niewielkich wartościach zmiennoprzecinkowych czas działania algorytmu jest kilkadziesiąt razy większy niż dla kolejnych liczb naturalnych. Kluczowe wydają się w~tym przypadku dwa aspekty. Pierwszym z~nich jest konieczność pracy na liczbach niecałkowitych, co powoduje znaczną komplikację działań. Drugim z~nich może być wspomniana wcześniej bliskość kolejnych pierwiastków, która powoduje, że pomimo znacznego zawężania przedziału wyszukiwań, w~danym zakresie wciąż może znajdować się w~nim więcej niż jeden pierwiastek.

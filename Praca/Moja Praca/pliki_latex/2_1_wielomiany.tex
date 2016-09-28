@@ -6,8 +6,10 @@
 
 \begin{definition}
 	$ $\\
-	Wielomianem zmiennej rzeczywistej $x$ nazywamy wyrażenie: \\
-	$W(x) = a_0x^n + a_1x^{n-1} + a_2x^{n-2}+ ... + a_{n-1}x + a_n$, \\
+	Wielomianem zmiennej rzeczywistej $x$ nazywamy wyrażenie:
+	\begin{equation*}
+	W(x) = a_0x^n + a_1x^{n-1} + a_2x^{n-2}+ ... + a_{n-1}x + a_n
+	\end{equation*}
 	gdzie $a_0, a_1, a_2, ..., a_{n-1}, a_n\in R$ i~$n \in N$
 \end{definition}
 
@@ -44,9 +46,13 @@ Powyższe twierdzenie nie jest złożone, niemniej w~celu pełnego zrozumienia, 
 
 \begin{example}
 	$ $\\
-	Mamy dane wielomian $W_1$ oraz wielomian $W_2$. \\
-	$W_1(x) = a_0x^n + a_1x^{n-1} + ... + a_{n-1}x + a_n$ \\
-	$W_2(x) = b_0x^n + b_1x^{n-1} + ... + b_{n-1}x + b_n$ \\
+	Mamy dane wielomian $W_1$ oraz wielomian $W_2$.
+	\begin{equation*}
+	\begin{split}
+	W_1(x) &= a_0x^n + a_1x^{n-1} + ... + a_{n-1}x + a_n \\
+	W_2(x) &= b_0x^n + b_1x^{n-1} + ... + b_{n-1}x + b_n \\
+	\end{split}
+	\end{equation*}
 	Wielomiany $W_1$ oraz $W_2 $ są równe wtedy i~tylko wtedy gdy
 	$\forall{i\in N}\ a_i = b_i$.
 \end{example}
@@ -68,13 +74,14 @@ Podobnie jak w~przypadku porównywania czas dodawania wielomianów jest liniowy,
 
 \begin{example}
 	$ $\\
-	Mamy dane wielomian $W_1$ oraz wielomian $W_2$. \\
-	$W_1(x) = a_0x^n + a_1x^{n-1} + ... + a_{n-1}x + a_n$ \\
-	$W_2(x) = b_0x^n + b_1x^{n-1} + ... + b_{n-1}x + b_n$ \\
-	Zdefiniujmy trzeci wielomian: \\
-	$W_3(x) = W_1(x) + W_2(x)$. \\
-	Wówczas: \\
-	$W_3(x) = (a_0+b_0)x^n + (a_1+b_1)x^{n-1} + ... + (a_{n-1} + b_{n-1})x + (a_n + b_n)$
+	Mamy dane wielomian $W_1$ oraz wielomian $W_2$.
+	\begin{equation*}
+	\begin{split}
+	W_1(x) &= a_0x^n + a_1x^{n-1} + ... + a_{n-1}x + a_n \\
+	W_2(x) &= b_0x^n + b_1x^{n-1} + ... + b_{n-1}x + b_n \\
+	\end{split}
+	\end{equation*}
+	Zdefiniujmy trzeci wielomian $W_3(x) = W_1(x) + W_2(x)$. Wówczas $W_3(x) = (a_0+b_0)x^n + (a_1+b_1)x^{n-1} + ... + (a_{n-1} + b_{n-1})x + (a_n + b_n)$
 \end{example}
 
 Na powyższym przykładzie łatwo zaobserwować, że stopień sumy dwóch wielomianów nie może być większy od większego ze stopni dodawanych wielomianów. Znajduje to potwierdzenie w~twierdzeniu, dotyczącym stopnia sumy wielomianów.
@@ -99,10 +106,14 @@ Spójrzmy na poniższy przykład, pokazujący, że dla każdego wielomianu możn
 
 \begin{example}
 	$ $\\
-	Mamy dany wielomian $W_1$. \\
-	$W_1(x) = a_0x^n + a_1x^{n-1} + ... + a_{n-1}x + a_n$ \\
-	Zdefiniujmy drugi wielomian: $W_2(x) = -W_1(x)$. Wówczas: \\
-	$W_1(x) = -a_0x^n + (-a_1)x^{n-1} + ... + (-a_{n-1})x + (-a_n)$
+	Mamy dany wielomian $W_1$.
+	\begin{equation*}
+	W_1(x) = a_0x^n + a_1x^{n-1} + ... + a_{n-1}x + a_n
+	\end{equation*}
+	Zdefiniujmy drugi wielomian: $W_2(x) = -W_1(x)$. Wówczas:
+	\begin{equation*}
+	W_1(x) = -a_0x^n + (-a_1)x^{n-1} + ... + (-a_{n-1})x + (-a_n)
+	\end{equation*}
 \end{example}
 
 Wiemy już, czym jest wielomian przeciwny. Przedstawmy teraz twierdzenie mówiące jak odejmować od siebie wielomiany.
@@ -134,11 +145,20 @@ Jak wynika z~przedstawionej definicji poza mnożeniem dwóch liczb, mnożenie wi
 
 \begin{example}
 	$ $\\
-	Mamy dane wielomian $W_1$ oraz wielomian $W_2$. \\
-	$W_1(x) = a_0x^n + a_1x^{n-1} + ... + a_{n-1}x + a_n$ \\
-	$W_2(x) = b_0x^m + b_1x^{m-1} + ... + b_{m-1}x + b_m$ \\
-	Zdefiniujmy trzeci wielomian: $W_3(x) = W_1(x) \cdot W_2(x)$. Wówczas: \\
-	$W_3(x) = (a_0b_0)x^{n+m} + (a_0b_1+a_1b_0)x^{n+m-1} + (a_0b_2+a_1b_1+a_2b_0)x^{n+m-1} + ... + (a_{n-2}b_m+a_{n-1}b_{m-1}+a_nb_{m-2})x^2 + (a_{n-1}b_m + a_nb_{m-1})x + a_nb_m$
+	Mamy dane wielomian $W_1$ oraz wielomian $W_2$.
+	\begin{equation*}
+	\begin{split}
+	W_1(x) &= a_0x^n + a_1x^{n-1} + ... + a_{n-1}x + a_n \\
+	W_2(x) &= b_0x^m + b_1x^{m-1} + ... + b_{m-1}x + b_m \\
+	\end{split}
+	\end{equation*}
+	Zdefiniujmy trzeci wielomian: $W_3(x) = W_1(x) \cdot W_2(x)$. Wówczas:
+	\begin{equation*}
+	\begin{split}
+	W_3(x) &= (a_0b_0)x^{n+m} + (a_0b_1+a_1b_0)x^{n+m-1} + (a_0b_2+a_1b_1+a_2b_0)x^{n+m-1} + ... + \\
+	&(a_{n-2}b_m + a_{n-1}b_{m-1}+a_nb_{m-2})x^2 + (a_{n-1}b_m + a_nb_{m-1})x + a_nb_m
+	\end{split}
+	\end{equation*}
 \end{example}
 
 Można zauważyć, że po wymnożeniu wszystkich współczynników wielomianu liczba wyrazów iloczynu wynosi $(n+1)(m+1)$. Po dokonaniu redukcji wyrazów podobnych, liczba ta ulega zmniejszeniu do wartości $n+m+1$. Oznacza to zmianę liczby wyrazów z~wartości kwadratowej, do wartości liniowej względem stopni wielomianów. Liczba wyrazów podobnych, po przemnożeniu dwóch wielomianów jest symetryczna względem wykładników potęg poszczególnych współczynników. Można zauważyć, że skrajne wyrazy posiadają tylko po jednym wyrazie potęgi, a~zbliżając się do współczynników o~środkowych indeksach, liczba ta wzrasta, aż do wartości równej połowie stopnia otrzymanego wielomianu.
@@ -149,7 +169,7 @@ Na podstawie powyższego przykładu, możemy także zaobserwować, że stopień 
 
 \begin{theorem}
 	$ $\\
-	$\deg(W_1 \cdot W_2) = \deg(W_1) + \deg(W_2)$, dla $W_1(x) \neq 0, W_2(x) \neq 0$, $W_1(x) \cdot W_2(x) = 0$, w~pozostałych przypadkach
+	$\deg(W_1 \cdot W_2) = \deg(W_1) + \deg(W_2)$, dla $W_1(x) \neq 0, W_2(x) \neq 0$. $W_1(x) \cdot W_2(x) = 0$, w~pozostałych przypadkach
 \end{theorem}
 
 Z powyższego twierdzenia można zauważyć, że stopień otrzymanego wielomianu nigdy nie będzie wyższy od dwukrotności większego ze stopni mnożonych wielomianów.
@@ -175,11 +195,19 @@ Bardzo ważnym aspektem obliczania ilorazu wielomianów jest reszta z~dzielenia.
 \begin{example}
 	$ $\\
 	wielomian $W$ oraz wielomian $P$. \\
-	$W(x) = a_0x^n + a_1x^{n-1} + ... + a_{n-1}x + a_n$ \\
-	$P(x) = b_0x^m + b_1x^{m-1} + ... + b_{m-1}x + b_m$ \\
+	\begin{equation*}
+		\begin{split}
+		W(x) &= a_0x^n + a_1x^{n-1} + ... + a_{n-1}x + a_n \\
+		P(x) &= b_0x^m + b_1x^{m-1} + ... + b_{m-1}x + b_m \\
+		\end{split}
+	\end{equation*}
 	Niech $Q(x)$ jest ilorazem wielomanów $W(x)$ i~$P(x)$ oraz $R(x) = W(x)\bmod P(x)$. Wówczas: \\
-	$Q(x) = c_0x^{n-m} + c_1x^{n-m-1} + ... + c_{n-m-1}x + c_{n-m}$, gdzie $c_0\ne 0$ \\
-	$R(x) = d_0x^{n-m-1} + d_1x^{n-m-2} + ... + d_{n-m-2}x + d_{n-m-1}$
+	\begin{equation*}
+		\begin{split}
+		Q(x) &= c_0x^{n-m} + c_1x^{n-m-1} + ... + c_{n-m-1}x + c_{n-m},\text{ gdzie }c_0\ne 0 \\
+		R(x) &= d_0x^{n-m-1} + d_1x^{n-m-2} + ... + d_{n-m-2}x + d_{n-m-1} \\
+		\end{split}
+	\end{equation*}
 \end{example}
 
 Zwróćmy uwagę na potęgi stojące przy najwyższych potęgach wielomianów $Q(x)$ oraz $R(x)$. Widzimy, że stopień ilorazu wielomianów jest zawsze równy różnicy stopni wielomianów, będących dzielną i~dzielnikiem. Najważniejszym aspektem jest jednak fakt, że stopień reszty z~dzielenia wielomianów jest zawsze mniejszy od stopnia ilorazu. Nie można natomiast ustalić jego wartości, bez dokładnej znajomości wielomianów $W$ i~$P$. W~przykładzie podkreślony został fakt, że współczynnik stojący przy $x$, o~potędze $n-m-1$ może być zerem. To samo tyczy się także kolejnych współczynników. Gdy wszystkie one są zerami, to znaczy, że mamy do czynienia z~resztą, będącą wielomianem zerowym. Oznacza to wówczas, że wielomian W jest podzielny przez wielomian $P$. Poniżej znajduje się twierdzenie, o~stopniach wielomianów, będących ilorazem i~resztą z~dzielenia.
@@ -205,7 +233,7 @@ Widzimy, że powstały wielomian powstał poprzez pomnożenie wartości każdego
 
 \begin{theorem}
 	$ $\\
-	$\deg(W') = \deg(W) - 1$, dla $\deg(W) > 0$, $W(x) = 0$, w~pozostałych przypadkach
+	$\deg(W') = \deg(W) - 1$, dla $\deg(W) > 0$. $W(x) = 0$, w~pozostałych przypadkach
 \end{theorem}
 
 Jak widać dla wszystkich wielomianów, nie będących stałą liczbową, stopień ich pochodnej ulega zmniejszeniu o~jeden. Czas operacji obliczania pochodnej wielomianu jest porównywalny, z~obliczaniem sumy wielomianów, gdyż wystarczy, że dokonamy jednokrotnego obliczania każdego z~współczynników.
@@ -238,17 +266,21 @@ Zauważmy, że na podstawie twierdzenia, przedstawionego wcześniej, wiemy, że 
 
 \begin{example}
 	$ $\\
-	Mamy dane wielomiany: $W_1(x) = x^2(x-1)(x-2)^2$ oraz $W_2(x) = (x-1)(x-2)(x-3)$. Gdy mamy wielomiany rozłożone na czynniki, wartość $NWD(W_1, W_2)$ jest oczywista i~równa iloczynowi wspólnych czynników. Zatem w~tym przypadku wynosi ona $(x-1)(x-2)$. Zapisując otrzymany wielomian w~innej postaci otrzymamy $x^2-3x+2$. Wymnóżmy teraz kolejne czynniki wielomianów $W_1$ i~$W_2$ i~udowodnijmy, że twierdzenie o~znajdowaniu największego wspólnego współczynnika jest poprawne. \\
-	$W_1(x) = x^2(x-1)(x-2) = x^4-6x^3+13x^2-12x+4$ \\
-	$W_2(x) = (x-1)(x-2)(x-3) = x^3-6x^2+11x-6$ \\
+	Mamy dane wielomiany: $W_1(x) = x^2(x-1)(x-2)^2$ oraz $W_2(x) = (x-1)(x-2)(x-3)$. Gdy mamy wielomiany rozłożone na czynniki, wartość $NWD(W_1, W_2)$ jest oczywista i~równa iloczynowi wspólnych czynników. Zatem w~tym przypadku wynosi ona $(x-1)(x-2)$. Zapisując otrzymany wielomian w~innej postaci otrzymamy $x^2-3x+2$. Wymnóżmy teraz kolejne czynniki wielomianów $W_1$ i~$W_2$ i~udowodnijmy, że twierdzenie o~znajdowaniu największego wspólnego współczynnika jest poprawne.
+	\begin{equation*}
+		\begin{split}
+			W_1(x) &= x^2(x-1)(x-2) = x^4-6x^3+13x^2-12x+4 \\
+			W_2(x) &= (x-1)(x-2)(x-3) = x^3-6x^2+11x-6 \\
+		\end{split}
+	\end{equation*}
 	Podzielmy teraz wielomian $W_1$ przez wielomian $W_2$.
 	
 	\begin{equation*}
 	\begin{split}
-&x\\\hline
-&x^4-6x^3+13x^2-12x+44 : (x^3-6x^2+11x-6) \\
-&-x^6+4x^4+2x^3-3x^2-2x \\\hline
-&x^2-3x+2x
+	&x\\\hline
+	&x^4-6x^3+13x^2-12x+44 : (x^3-6x^2+11x-6) \\
+	&-x^6+4x^4+2x^3-3x^2-2x \\\hline
+	&x^2-3x+2x
 	\end{split}
 	\end{equation*}
 	
@@ -289,8 +321,10 @@ Istnieje mnóstwo twierdzień dotyczących wielomianów. Zapoznajmy się z~tymi,
 
 \begin{theorem}
 	$ $\\
-	Dowolny wielomian $W_1(x) = \frac{a_n}{b_n}x^n + \frac{a_{n-1}}{b_{n-1}}x^{n-1} + ... + \frac{a_1}{b_1}x + \frac{a_0}{b_0}$, o~współczynnikach wymiernych, można przekształcić w~wielomian $W_2(x) = k \cdot W_1(x)$, o~współczynnikach całkowitych i~tych samych pierwiastkach, co wielomian W. Wówczas: \\
-	$k = m \cdot NWW(b_0, b_1, ..., b_{n-1}, b_n)$, gdzie $m\in Z$
+	Dowolny wielomian $W_1(x) = \frac{a_n}{b_n}x^n + \frac{a_{n-1}}{b_{n-1}}x^{n-1} + ... + \frac{a_1}{b_1}x + \frac{a_0}{b_0}$, o~współczynnikach wymiernych, można przekształcić w~wielomian $W_2(x) = k \cdot W_1(x)$, o~współczynnikach całkowitych i~tych samych pierwiastkach, co wielomian W. Wówczas:
+	\begin{equation*}
+	k = m \cdot NWW(b_0, b_1, ..., b_{n-1}, b_n)\text{, gdzie }m\in Z
+	\end{equation*}
 \end{theorem}
 
 Twierdzenie to oznacza, że dysponując wyłącznie współczynnikami, będącymi liczbami całkowitymi, jesteśmy w~stanie przedstawić dowolny wielomian o~współczynnikach wymiernych. Przejdźmy teraz do twierdzenia, mówiącego o~wartości wielomianu w~danym punkcie.
@@ -340,8 +374,10 @@ Oznacza to, że nie da się rozłożyć jednego wielomianu na czynniki, na dwa r
 \begin{example}
 	$ $\\
 	Mamy dany wielomian $W(x)=x^3-1$. Rozłóżmy go na czynniki.
-	Wiemy, że pierwiastkiem tego wielomianu jest $x_0 = 1$, zatem możemy przedstawić wielomian $W$ jako iloczyn wielomianu $x-1$ oraz drugiego wielomianu. \\
-	$W(x)=x^3-1=x^3-x^2+x^2-x+x-1=(x-1)x^2+(x-1)x+x-1 = (x-1)(x^2+x+1)$ \\
+	Wiemy, że pierwiastkiem tego wielomianu jest $x_0 = 1$, zatem możemy przedstawić wielomian $W$ jako iloczyn wielomianu $x-1$ oraz drugiego wielomianu.
+	\begin{equation*}
+	W(x)=x^3-1=x^3-x^2+x^2-x+x-1=(x-1)x^2+(x-1)x+x-1 = (x-1)(x^2+x+1)
+	\end{equation*}
 	Jest to równanie kwadratowe, więc najłatwiejszym sposobem na znalezienie jego pierwiastków jest obliczenie jego wyróżnika, zwanego też deltą. Jest on oznaczany jako $\Delta$ i~dla funkcji kwadratowej postaci $ax^2+bx+c$ jest równy $b^2-4ac$. \\
 	$\Delta = 1^2 - 4 \cdot 1 \cdot 1 = 1 - 4 = -3 < 0$ -- brak pierwiastków rzeczywistych\\
 	Jak widać drugi z~czynników jest właśnie przykładem nierozkładalnego czynnika kwadratowego, o~współczynnikach rzeczywistych.

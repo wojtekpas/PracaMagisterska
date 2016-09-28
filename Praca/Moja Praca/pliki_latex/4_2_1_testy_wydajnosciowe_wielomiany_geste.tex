@@ -10,8 +10,11 @@ Zapoznajmy się więc z~poniższymi testami, by zweryfikowac przedstawioną wyż
 
 \subsubsection{Wielomiany stopnia parzystego}
 
-Pierwszym przypadkiem testowym będzie sprawdzenie czasów znajdowania pierwiastków dla takich wielomianów, których wszystkie współczynniki są równe $1$. Testowane wielomiany można przedstawić wzorem: \\
-$W(x) = x^k + x^{k-1} + x^{k-2} + ... + x^2 + x + 1$, gdzie $k$ jest stopniem wielomianu $W$.
+Pierwszym przypadkiem testowym będzie sprawdzenie czasów znajdowania pierwiastków dla takich wielomianów, których wszystkie współczynniki są równe $1$. Testowane wielomiany można przedstawić wzorem:
+\begin{equation*}
+W(x) = x^k + x^{k-1} + x^{k-2} + ... + x^2 + x + 1\text{, gdzie } k \text{ jest stopniem wielomianu } W \text {.}
+\end{equation*}
+
 
 W przypadku, gdy stopień wielomianu jest liczbą parzystą, a~jego wszystkie współczynniki są równe $1$, wielomian nie posiada pierwiastków rzeczywistych. Sprawdźmy ile czasu zajmie każdej ze struktur stwierdzenie braku pierwiastków rzeczywistych dla wielomianów powyższej postaci.
 
@@ -28,7 +31,7 @@ W przypadku, gdy stopień wielomianu jest liczbą parzystą, a~jego wszystkie ws
 		$W(x) = x^{320} + x^{319} + ... + x + 1$  & 114.311 & 114.382 & 1.001 \\
 		\hline
 	\end{tabular}
-	\caption{Porównanie czasów znajdowania pierwiastków dla gęstych wielomianów parzystego stopnia}
+	\caption{Porównanie czasów znajdowania pierwiastków dla gęstych wielomianów parzystego stopnia. Źródło: opracowanie własne.}
 \end{table}
 
 W tabeli dla każdego przeprowadzonego testu została dodana wartość współczynnika czasów, zdefiniowa jako iloraz czasu działania typu PolynomialVector i~PolynomialMap. Ich wartość dla wszystkich testów jest bliska lub równa $1$. Na tej podstawie łatwo zauważyć, że czasy znajdowania pierwiastków wielomianów dla obu struktur jest praktycznie identyczny. Z tego powodu poniższy wykres pokazuje dwie praktycznie w~całości pokrywające się linie, oznaczające czas działania obu typoów wielomianów w~zależności od testowanego stopnia.
@@ -67,7 +70,7 @@ W tabeli dla każdego przeprowadzonego testu została dodana wartość współcz
 	\legend{PolynomialMap, PolynomialVector}
 	\end{axis}
 	\end{tikzpicture}
-	\caption{Czasy znajdowania pierwiastków dla gęstych wielomianów parzystego stopnia}
+	\caption{Czasy znajdowania pierwiastków dla gęstych wielomianów parzystego stopnia. Źródło: opracowanie własne.}
 \end{figure}
 
 \subsubsection{Wielomiany stopnia nieparzystego}
@@ -87,7 +90,7 @@ To analogiczny test w~porównaniu z~poprzednim, jednak w~tym przypadku stopień 
 		$W(x) = x^{321} + x^{320} + ... + x + 1$  & 7190.234 & 7205.386 & 1.002 \\
 		\hline
 	\end{tabular}
-	\caption{Porównanie czasów znajdowania pierwiastków dla gęstych wielomianów nieparzystego stopnia}
+	\caption{Porównanie czasów znajdowania pierwiastków dla gęstych wielomianów nieparzystego stopnia. Źródło: opracowanie własne.}
 \end{table}
 
 Także i~w~tym przypadku porównywane czasy działania są prawie identyczne. Ich wartości w~zależności od stopnia testowanego wielomianu zostały przedstawione na poniższym wykresie.
@@ -126,7 +129,7 @@ Także i~w~tym przypadku porównywane czasy działania są prawie identyczne. Ic
 	\legend{PolynomialMap, PolynomialVector}
 	\end{axis}
 	\end{tikzpicture}
-	\caption{Czas znajdowania pierwiastków dla wielomianów zawierających kolejne pierwiastki całkowite}
+	\caption{Czas znajdowania pierwiastków dla wielomianów zawierających kolejne pierwiastki całkowite. Źródło: opracowanie własne.}
 \end{figure}
 
 Porównując wartości uzyskane dla wielomianów stopnia parzystego i~nieparzystego uwagę zwraca fakt, że uzyskane czasy dla wielomianów stopnia nieparzystego, czyli takich posiadających przynajmniej jeden pierwiastek rzeczywistych są kilkadziesiąt razy większe niż dla wielomianów stopnia parzystego. Oznacza to, że liczba pierwiastków rzeczywistych ma ogromny wpływ na czas działania algorytmu ich znajdowania. Testy potwierdzają, że sytuacja taka jest obserwowana niezależnie od typu użytej struktury wielomianu.

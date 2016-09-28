@@ -19,7 +19,7 @@ Teoretycznie, wielomiany rzadkie powinny się charakteryzować największą dysp
 		$W(x) = x^{3200} + 1$ & 0.058 & 67.311 & 1160.53 \\
 		\hline
 	\end{tabular}
-	\caption{Porównanie czasów znajdowania pierwiastków dla rzadkich wielomianów parzystego stopnia}
+	\caption{Porównanie czasów znajdowania pierwiastków dla rzadkich wielomianów parzystego stopnia. Źródło: opracowanie własne.}
 \end{table}
 
 Jak widać na podstawie uzyskanych czasów dla obu wielomianów dysproporcja pomiędzy ich wydajnością dla wielomianów rzadkich jest ogromna. Można zauważyć, że wraz ze wzrostem wielomianów staje się ona coraz większa. Dodatkowo, widać, że w~przypadku PolynomialVector uzyskane czasy rosną około pięciokrotnie, przy dwukrotnym wzroście stopnia wielomianu, co oznacza przekraczającą nawet kwadratową zależność.
@@ -47,7 +47,7 @@ Poniżej przedstawiam wykresy dla obu typów wielomianów. Zdecydowałem się na
 	};
 	\end{axis}
 	\end{tikzpicture}
-	\caption{Czasy znajdowania pierwiastków przez PolynomialMap dla rzadkich wielomianów parzystego stopnia}
+	\caption{Czasy znajdowania pierwiastków przez PolynomialMap dla rzadkich wielomianów parzystego stopnia. Źródło: opracowanie własne.}
 \end{figure}
 
 Warto zauważyć, że wszystkie czasy przedstawione na powyższym wykresie zostały wyrażone w~milisekundach. Dodatkowo na uwagę zasługuje fakt, że również czas działania dla wielomianów bardzo wysokich stopni jest bardzo mały. Wartości te rosną w~tempie nieco wyższym niż liniowe. Oznacza to bardzo dobrą skalowalność działania algorytmu dla struktury PolynomialMap.  
@@ -72,7 +72,7 @@ Warto zauważyć, że wszystkie czasy przedstawione na powyższym wykresie zosta
 	};
 	\end{axis}
 	\end{tikzpicture}
-	\caption{Czasy znajdowania pierwiastków przez PolynomialVector dla rzadkich wielomianów parzystego stopnia}
+	\caption{Czasy znajdowania pierwiastków przez PolynomialVector dla rzadkich wielomianów parzystego stopnia. Źródło: opracowanie własne.}
 \end{figure}
 
 \subsubsection{Wielomiany stopnia nieparzystego}
@@ -82,7 +82,7 @@ Teraz rozpatrzmy sytuację, w~której ponownie mamy do czynienia z~wielomianem r
 Wydaje się, że podobnie jak w~przypadku wielomianów nieposiadających pierwiastków, również w~tym, czas znajdowania pierwiastków dla typu PolynomialMap powinien być znacznie krótszy niż dla PolynomialVector. Natomiast, czy aby na pewno tak jest? Rozważmy poniższy przykład.
 
 Postarajmy się zbudować ciąg Sturma dla wielomianu $x^{101}+1$. Zacznijmy od obliczenia pochodnej. $(x^{101}+1)'=101x^{100}$.
-Obliczona wartość jest drugim elementem ciągu Sturma. Obliczmy resztę z~dzielenia dwóch pierwszych wielomianów tego ciągu:
+Obliczona wartość jest drugim elementem ciągu Sturma. Obliczmy resztę z~dzielenia dwóch pierwszych wielomianów tego ciągu.
 
 \begin{equation*}
 \begin{split}
@@ -112,7 +112,7 @@ Jak widać, dwa z~trzech elementów ciągu Sturma to rzadkie wielomiany wysokich
 		$W(x) = x^{3201} + 1$ & 4.153 & 5125.106 & 1234.07 \\
 		\hline
 	\end{tabular}
-	\caption{Porównanie czasów znajdowania pierwiastków dla rzadkich wielomianów nieparzystego stopnia}
+	\caption{Porównanie czasów znajdowania pierwiastków dla rzadkich wielomianów nieparzystego stopnia. Źródło: opracowanie własne.}
 \end{table}
 
 Jak widać również w~tym przypadku zauważalna jest niesamowita różnicą między wydajnością działania obu struktur. Dodatkowo również ten test potwierdza, że nieparzysty stopień wielomianu powoduje wielokrotne wydłużenie czasu trwania algorytmu.
@@ -140,7 +140,7 @@ Poniżej przedstawiam wykresy z~czasami działania obu struktur.
 	};
 	\end{axis}
 	\end{tikzpicture}
-	\caption{Czasy znajdowania pierwiastków przez PolynomialMap dla rzadkich wielomianów nieparzystego stopnia}
+	\caption{Czasy znajdowania pierwiastków przez PolynomialMap dla rzadkich wielomianów nieparzystego stopnia. Źródło: opracowanie własne.}
 \end{figure}
 
 \begin{figure}[H]
@@ -164,7 +164,7 @@ Poniżej przedstawiam wykresy z~czasami działania obu struktur.
 	};
 	\end{axis}
 	\end{tikzpicture}
-	\caption{Czasy znajdowania pierwiastków przez PolynomialVector dla rzadkich wielomianów nieparzystego stopnia}
+	\caption{Czasy znajdowania pierwiastków przez PolynomialVector dla rzadkich wielomianów nieparzystego stopnia. Źródło: opracowanie własne.}
 \end{figure}
 
 Można zauważyć, że czasy działania w~przypadku obu struktur są zdecydowanie krótsze niż dla wielomianów gęstych. Mniejszą różnicę obserwujemy dla typu PolynomialVector. Jej istnienie jest spowodowane faktem, że w~obu przypadkach musimy przejrzeć kolejne współczynniki, ale większość reakcji wymaga dodatkowego działania wyłącznie wtedy, gdy są one niezerowe.

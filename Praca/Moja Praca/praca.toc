@@ -12,15 +12,15 @@
 \contentsline {subsection}{\numberline {2.1.3}Najwi\IeC {\k e}kszy wsp\IeC {\'o}lny dzielnik wielomian\IeC {\'o}w}{16}
 \contentsline {subsection}{\numberline {2.1.4}Dodatkowe twierdzenia dotycz\IeC {\k a}ce wielomian\IeC {\'o}w}{18}
 \contentsline {subsection}{\numberline {2.1.5}Eliminacja pierwiastk\IeC {\'o}w wielokrotnych}{20}
-\contentsline {subsection}{\numberline {2.1.6}Twierdzenie Sturma}{21}
-\contentsline {section}{\numberline {2.2}Biblioteka MPIR}{23}
-\contentsline {subsection}{\numberline {2.2.1}Podstawowe informacje}{23}
-\contentsline {subsubsection}{Wst\IeC {\k e}p}{23}
+\contentsline {subsection}{\numberline {2.1.6}Twierdzenie Sturma}{22}
+\contentsline {section}{\numberline {2.2}Biblioteka MPIR}{24}
+\contentsline {subsection}{\numberline {2.2.1}Podstawowe informacje}{24}
+\contentsline {subsubsection}{Wst\IeC {\k e}p}{24}
 \contentsline {subsubsection}{Licencja}{24}
 \contentsline {subsubsection}{Nazewnictwo i\nobreakspace {}typy}{24}
-\contentsline {subsubsection}{Funkcje}{24}
+\contentsline {subsubsection}{Funkcje}{25}
 \contentsline {subsubsection}{Zarz\IeC {\k a}dzanie pami\IeC {\k e}ci\IeC {\k a}}{25}
-\contentsline {subsubsection}{Kompatybilno\IeC {\'s}\IeC {\'c}}{25}
+\contentsline {subsubsection}{Kompatybilno\IeC {\'s}\IeC {\'c}}{26}
 \contentsline {subsubsection}{Wydajno\IeC {\'s}\IeC {\'c}}{26}
 \contentsline {subsubsection}{Operacje w\nobreakspace {}miejscu}{26}
 \contentsline {subsection}{\numberline {2.2.2}Instalacja}{26}
