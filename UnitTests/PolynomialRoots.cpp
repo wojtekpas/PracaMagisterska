@@ -221,9 +221,9 @@ namespace UnitTests
 			a = Number(-10);
 			b = Number(10);
 			polynomialRoots.push_back(Number(1));
-			polynomialRoots.push_back(Number(7.0/5));
+			polynomialRoots.push_back(Number(25.0/5));
 			polynomialRoots.push_back(Number(3.0/2));
-			Verify("(x-1)*(5x-7)^2*(2x-3)");
+			Verify("(x-1)*(5x-25)^2*(2x-3)");
 		}
 	};
 }

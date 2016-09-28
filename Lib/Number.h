@@ -74,6 +74,7 @@ static Number SMALL_VALUE;
 static Number MAX_VALUE;
 static Number MAX_NEGATIVE_VALUE;
 static int PRECISION_INT;
+static Number DEC_PRECISION;
 
 inline bool IsSmallValue(Number value)
 {
@@ -143,9 +144,6 @@ inline Number::Number(const Number& bigNumber)
 inline Number::~Number()
 {
 	countNumbersDeleted2++;
-	//mpq_init(value);
-	//cout << value << endl;
-	//cout << "ptr = " << &value << endl;
 	mpq_clear(value);
 }
 
@@ -439,14 +437,15 @@ inline string Number::ToString()
 
 	mpz_t counter;
 	mpz_t denominator;
+	mpz_t ten;
 	mpz_init(counter);
 	mpz_init(denominator);
+	mpz_init(ten);
 	mpq_get_num(counter, value);
 	mpq_get_den(denominator, value);
 	mpz_t precision;
 	mpz_init(precision);
-	int dec_precision = 100000000;
-	mpz_set_d(precision, dec_precision);
+	mpq_get_num(precision, DEC_PRECISION.value);
 	mpz_t res;
 	mpz_t fract;
 	mpz_init(res);
@@ -454,6 +453,8 @@ inline string Number::ToString()
 
 	mpz_mul(res, counter, precision);
 	mpz_div(res, res, denominator);
+
+	mpz_set_d(ten, 10);
 
 	result = "";
 	if (mpz_cmp_d(res, 0) < 0)
@@ -467,14 +468,18 @@ inline string Number::ToString()
 
 	mpz_get_str(charArray, 10, res);
 	result = result + string(charArray);
+
+	mpz_t tmp;
+	mpz_init(tmp);
+
 	if (mpz_cmp_d(fract, 0) > 0)
 	{
 		result = result + ".";
-		int tmp = dec_precision;
-		while (tmp > 1)
+		mpz_set(tmp, precision);
+		while (mpz_cmp_d(tmp, 1) > 0)
 		{
-			tmp /= 10;
-			if (mpz_cmp_d(fract, tmp) < 0)
+			mpz_div(tmp, tmp, ten);
+			if (mpz_cmp(fract, tmp) < 0)
 				result = result + "0";
 		}
 		mpz_get_str(charArray, 10, fract);
@@ -601,9 +606,14 @@ inline void InitConstants()
 	mpq_init(c);
 	mpz_set_d(a, 1);
 	mpq_set_d(c, -1);
-	mpz_set_d(b, 100000000);
+	PRECISION_INT = 6;
+	mpz_set_d(b, 1000000);
 	mpq_set_num(PRECISION_VALUE.value, a);
 	mpq_set_den(PRECISION_VALUE.value, b);
+
+	mpq_set_num(DEC_PRECISION.value, b);
+	mpq_set_den(DEC_PRECISION.value, a);
+
 	mpz_pow_ui(b, b, 100);
 	mpq_set_num(MAX_VALUE.value, b);
 	mpq_set_den(MAX_VALUE.value, a);
@@ -612,10 +622,6 @@ inline void InitConstants()
 	mpq_set_num(SMALL_VALUE.value, a);
 	mpq_set_den(SMALL_VALUE.value, b);
 
-//	SMALL_VALUE.Print();
-//	PRECISION_VALUE.Print();
-//	MAX_NEGATIVE_VALUE.Print();
-//	MAX_VALUE.Print();
 };
 
 Number numberA;
@@ -651,8 +657,10 @@ inline void SetPrecision(int value)
 {
 	PRECISION_INT = value;
 	PRECISION_VALUE = 1;
+	DEC_PRECISION = 1;
 	for (int i = 0; i < value; i++)
 	{
+		DEC_PRECISION *= 10;
 		PRECISION_VALUE /= 10;
 	}
 }

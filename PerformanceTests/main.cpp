@@ -1,6 +1,5 @@
 #pragma once
 #include "../Lib/Parser.h"
-#include <condition_variable>
 
 Polynomial& CreateTestPolynomial1(int type, int degree, int interval, int value = 1)
 {
