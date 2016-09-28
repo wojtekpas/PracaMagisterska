@@ -100,10 +100,10 @@
 \contentsline {subsubsection}{Wielomiany stopnia nieparzystego}{73}
 \contentsline {subsection}{\numberline {4.2.3}Badanie wielomian\IeC {\'o}w posiadaj\IeC {\k a}cych wy\IeC {\l }\IeC {\k a}cznie pierwiastki rzeczywiste}{75}
 \contentsline {subsubsection}{Wielomiany o\nobreakspace {}pierwiastkach ca\IeC {\l }kowitych}{75}
-\contentsline {subsubsection}{Wielomiany o\nobreakspace {}pierwiastkach wymiernych}{77}
-\contentsline {section}{\numberline {4.3}Por\IeC {\'o}wnanie aplikacji z\nobreakspace {}innym programem}{79}
-\contentsline {subsection}{\numberline {4.3.1}Por\IeC {\'o}wnanie mo\IeC {\.z}liwo\IeC {\'s}ci aplikacji i\nobreakspace {}interfejsu u\IeC {\.z}ytkownika}{79}
-\contentsline {subsection}{\numberline {4.3.2}Por\IeC {\'o}wnanie poprawno\IeC {\'s}ci i\nobreakspace {}precyzji oblicze\IeC {\'n}}{80}
-\contentsline {subsubsection}{Pierwiastki odleg\IeC {\l }e od siebie}{80}
-\contentsline {subsubsection}{Pierwiastki znajduj\IeC {\k a}ce si\IeC {\k e} blisko siebie}{82}
-\contentsline {chapter}{\numberline {5}Podsumowanie}{86}
+\contentsline {subsubsection}{Wielomiany o\nobreakspace {}pierwiastkach wymiernych}{76}
+\contentsline {section}{\numberline {4.3}Por\IeC {\'o}wnanie aplikacji z\nobreakspace {}innym programem}{78}
+\contentsline {subsection}{\numberline {4.3.1}Por\IeC {\'o}wnanie mo\IeC {\.z}liwo\IeC {\'s}ci aplikacji i\nobreakspace {}interfejsu u\IeC {\.z}ytkownika}{78}
+\contentsline {subsection}{\numberline {4.3.2}Por\IeC {\'o}wnanie poprawno\IeC {\'s}ci i\nobreakspace {}precyzji oblicze\IeC {\'n}}{79}
+\contentsline {subsubsection}{Pierwiastki odleg\IeC {\l }e od siebie}{79}
+\contentsline {subsubsection}{Pierwiastki znajduj\IeC {\k a}ce si\IeC {\k e} blisko siebie}{81}
+\contentsline {chapter}{\numberline {5}Podsumowanie}{85}

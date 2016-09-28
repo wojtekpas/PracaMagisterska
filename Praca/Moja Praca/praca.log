@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  28 SEP 2016 20:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  29 SEP 2016 00:26
 entering extended mode
 **./praca.tex
 (praca.tex
@@ -1572,8 +1572,37 @@ Rozdzia\PlPrIeC {\l } 4.
 [60
 
 ] [61] [62] [63] [64] [65] [66] [67])
-(pliki_latex/4_2_1_testy_wydajnosciowe_wielomiany_geste.tex [68] [69])
-(pliki_latex/4_2_2_testy_wydajnosciowe_wielomiany_rzadkie.tex [70]
+(pliki_latex/4_2_1_testy_wydajnosciowe_wielomiany_geste.tex
+Underfull \hbox (badness 1184) in paragraph at lines 24--24
+[]|\T1/lmr/m/n/10 Czas dla Po-ly-
+ []
+
+
+Underfull \hbox (badness 1184) in paragraph at lines 24--24
+[]|\T1/lmr/m/n/10 Czas dla Po-ly-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 24--25
+[]|\T1/lmr/m/n/10 Wspóªczynnik
+ []
+
+[68] [69]
+Underfull \hbox (badness 1184) in paragraph at lines 83--83
+[]|\T1/lmr/m/n/10 Czas dla Po-ly-
+ []
+
+
+Underfull \hbox (badness 1184) in paragraph at lines 83--83
+[]|\T1/lmr/m/n/10 Czas dla Po-ly-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 83--84
+[]|\T1/lmr/m/n/10 Wspóªczynnik
+ []
+
+) (pliki_latex/4_2_2_testy_wydajnosciowe_wielomiany_rzadkie.tex [70]
 Underfull \hbox (badness 3861) in paragraph at lines 12--12
 []|\T1/lmr/m/n/10 Czas dla Po-ly-no-
  []
@@ -1584,17 +1613,46 @@ Underfull \hbox (badness 3861) in paragraph at lines 12--12
  []
 
 [71] [72]
-Underfull \hbox (badness 3861) in paragraph at lines 105--105
+Underfull \hbox (badness 3861) in paragraph at lines 100--100
 []|\T1/lmr/m/n/10 Czas dla Po-ly-no-
  []
 
 
-Underfull \hbox (badness 3861) in paragraph at lines 105--105
+Underfull \hbox (badness 3861) in paragraph at lines 100--100
 []|\T1/lmr/m/n/10 Czas dla Po-ly-no-
  []
 
-[73] [74]) (pliki_latex/4_2_3_testy_wydajnosciowe_same_pierwiastki.tex [75]
-[76] [77]) (pliki_latex/4_3_porownanie_aplikacji.tex [78] [79]
+[73] [74]) (pliki_latex/4_2_3_testy_wydajnosciowe_same_pierwiastki.tex
+Underfull \hbox (badness 1184) in paragraph at lines 14--14
+[]|\T1/lmr/m/n/10 Czas dla Po-ly-
+ []
+
+
+Underfull \hbox (badness 1184) in paragraph at lines 14--14
+[]|\T1/lmr/m/n/10 Czas dla Po-ly-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 14--15
+[]|\T1/lmr/m/n/10 Wspóªczynnik
+ []
+
+[75] [76]
+Underfull \hbox (badness 1184) in paragraph at lines 76--76
+[]|\T1/lmr/m/n/10 Czas dla Po-ly-
+ []
+
+
+Underfull \hbox (badness 1184) in paragraph at lines 76--76
+[]|\T1/lmr/m/n/10 Czas dla Po-ly-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 76--77
+[]|\T1/lmr/m/n/10 Wspóªczynnik
+ []
+
+) (pliki_latex/4_3_porownanie_aplikacji.tex [77] [78]
 Underfull \hbox (badness 10000) in paragraph at lines 20--20
 []|\T1/lmr/m/n/10 Moja
  []
@@ -1604,7 +1662,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 20--21
 []|\T1/lmr/m/n/10 Wolfram
  []
 
-[80] [81]
+[79] [80]
 Underfull \hbox (badness 10000) in paragraph at lines 103--103
 []|\T1/lmr/m/n/10 Moja
  []
@@ -1614,7 +1672,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 103--104
 []|\T1/lmr/m/n/10 Wolfram
  []
 
-[82] [83] [84]
+[81] [82] [83]
 Underfull \hbox (badness 10000) in paragraph at lines 209--209
 []|\T1/lmr/m/n/10 Moja
  []
@@ -1624,53 +1682,53 @@ Underfull \hbox (badness 10000) in paragraph at lines 209--210
 []|\T1/lmr/m/n/10 Wolfram
  []
 
-) (pliki_latex/5_podsumowanie.tex [85]
+) (pliki_latex/5_podsumowanie.tex [84]
 Rozdzia\PlPrIeC {\l } 5.
-[86
+[85
 
-]) (pliki_latex/6_1_lista_rysunkow.tex [87] (praca.lof)
+]) (pliki_latex/6_1_lista_rysunkow.tex [86] (praca.lof)
 \tf@lof=\write6
 \openout6 = `praca.lof'.
 
 )
-(pliki_latex/6_2_lista_tabel.tex [88
+(pliki_latex/6_2_lista_tabel.tex [87
 
 ] (praca.lot)
 \tf@lot=\write7
 \openout7 = `praca.lot'.
 
 )
-(pliki_latex/6_3_bibliografia.tex (praca.bbl [89
+(pliki_latex/6_3_bibliografia.tex (praca.bbl [88
 
-])) [90
+] [89
 
-] (praca.aux) ) 
+])) [90] (praca.aux) ) 
 Here is how much of TeX's memory you used:
- 29434 strings out of 493634
- 683780 string characters out of 3141314
- 895749 words of memory out of 3000000
- 32147 multiletter control sequences out of 15000+200000
+ 29437 strings out of 493634
+ 683816 string characters out of 3141314
+ 895747 words of memory out of 3000000
+ 32150 multiletter control sequences out of 15000+200000
  66296 words of font info for 48 fonts, out of 3000000 for 9000
  1046 hyphenation exceptions out of 8191
  62i,19n,96p,2384b,2238s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathex.
-enc}{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ts1.enc}{C:/Progra
-m Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program Files (x86)/M
-iKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Program Files (x86)/MiKTeX 2.9/f
-onts/enc/dvips/lm/lm-mathit.enc}{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dv
-ips/lm/lm-ec.enc}<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmbx1
-0.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmbx12.pfb><C:/P
-rogram Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmex10.pfb><C:/Program File
-s (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmmi10.pfb><C:/Program Files (x86)/MiK
-TeX 2.9/fonts/type1/public/lm/lmmi5.pfb><C:/Program Files (x86)/MiKTeX 2.9/font
-s/type1/public/lm/lmmi7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/publ
-ic/lm/lmr10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmr5.p
-fb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmr7.pfb><C:/Progra
-m Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmri10.pfb><C:/Program Files (x8
-6)/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Program Files (x86)/MiKTeX 2
-.9/fonts/type1/public/lm/lmsy5.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/typ
-e1/public/lm/lmsy7.pfb>
-Output written on praca.pdf (90 pages, 825476 bytes).
+{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-
+mathex.enc}{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ts1.enc}{C:
+/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program Files 
+(x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Program Files (x86)/MiKTe
+X 2.9/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Program Files (x86)/MiKTeX 2.9/fonts
+/enc/dvips/lm/lm-ec.enc}<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/l
+m/lmbx10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmbx12.pf
+b><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmex10.pfb><C:/Progr
+am Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmmi10.pfb><C:/Program Files (x
+86)/MiKTeX 2.9/fonts/type1/public/lm/lmmi5.pfb><C:/Program Files (x86)/MiKTeX 2
+.9/fonts/type1/public/lm/lmmi7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/typ
+e1/public/lm/lmr10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm
+/lmr5.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmr7.pfb><C:
+/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmri10.pfb><C:/Program Fi
+les (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Program Files (x86)/M
+iKTeX 2.9/fonts/type1/public/lm/lmsy5.pfb><C:/Program Files (x86)/MiKTeX 2.9/fo
+nts/type1/public/lm/lmsy7.pfb>
+Output written on praca.pdf (90 pages, 824843 bytes).
 PDF statistics:
  421 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

@@ -79,10 +79,7 @@ Warto zauważyć, że wszystkie czasy przedstawione na powyższym wykresie zosta
 
 Teraz rozpatrzmy sytuację, w~której ponownie mamy do czynienia z~wielomianem rzadkim, o~którym wiemy, że posiada przynajmniej jeden pierwiastkek rzeczywisty. By to zapewnić, wystarczy skonstruować wielomian w~postaci $ax^{2k+1}+b$, gdzie $a \in R\setminus\{0\}, b \in R, k \in Z_+$. Jak wiemy na podstawie przedstawionego w~drugim rozdziale twierdzenia, każdy wielomian stopnia nieparzystego posiada przynajmniej jeden pierwiastek rzeczywisty. 
 
-Wydaje się, że podobnie jak w~przypadku wielomianów nieposiadających pierwiastków, również w~tym, czas znajdowania pierwiastków dla typu PolynomialMap powinien być znacznie krótszy niż dla PolynomialVector. Natomiast, czy aby na pewno tak jest? Rozważmy poniższy przykład.
-
-Postarajmy się zbudować ciąg Sturma dla wielomianu $x^{101}+1$. Zacznijmy od obliczenia pochodnej. $(x^{101}+1)'=101x^{100}$.
-Obliczona wartość jest drugim elementem ciągu Sturma. Obliczmy resztę z~dzielenia dwóch pierwszych wielomianów tego ciągu.
+Wydaje się, że podobnie jak w~przypadku wielomianów nieposiadających pierwiastków, również w~tym, czas znajdowania pierwiastków dla typu PolynomialMap powinien być znacznie krótszy niż dla PolynomialVector. Aby to potwierdzić, postarajmy się zbudować ciąg Sturma dla wielomianu $x^{101}+1$. Zacznijmy od obliczenia pochodnej. $(x^{101}+1)'=101x^{100}$. Obliczona wartość jest drugim elementem ciągu Sturma. Obliczmy resztę z~dzielenia dwóch pierwszych wielomianów tego ciągu.
 
 \begin{equation*}
 \begin{split}
@@ -95,9 +92,7 @@ Obliczona wartość jest drugim elementem ciągu Sturma. Obliczmy resztę z~dzie
 \end{split}
 \end{equation*}
 
-Trzecim i~jednocześnie ostatnim wyrazem ciągu Sturma jest więc $-1$, czyli wartość przeciwna do otrzymanej reszty. Dysponujemy zatem trzyelementowym ciągiem Sturma o~elementach ${x^{101}+1, 101x^{100}, -1}$. Obliczmy teraz liczbę zmian znaków dla bardzo dużych wartości bezwzględnych, dążących odpowiednio do $-\infty$ i~$+\infty$. W~prawym krańcu przedziału będą to wartości $+,+,-,$ zaś w~lewym $-,+,-.$ Otrzymaliśmy jedną zmianę znaku dla wartości bliskiej $-\infty$ i~dwie zmiany dla wartości bliskiej $+\infty$. Oznacza to, że liczba pierwiastków rzeczywistych jest równa różnicy tych zmian w~lewym i~prawym krańcu, czyli w~tym przypadku wynosi $1$.
-
-Jak widać, dwa z~trzech elementów ciągu Sturma to rzadkie wielomiany wysokich stopni. Na takiej podstawie, wydaje się, że powyższa teza została potwierdzona. Jednocześnie jednak, warto zauważyć, że dla tego rodzaju wielomianów liczba koniecznych operacji jest niewielka, z~uwagi na znikomą liczbę elementów ciągu Sturma. Wydaje się zatem, że to właśnie ich liczba bezpośrednio wpływa na czas znajdowania pierwiastków, a~ich charakterystyka, czyli liczba niezerowych współczynników ma największe znaczenie dla wydajności obu typów wielomianów. Sprawdźmy, czy wyniki testów potwierdzają powyższą teorię.
+Trzecim i~jednocześnie ostatnim wyrazem ciągu Sturma jest więc $-1$, czyli wartość przeciwna do otrzymanej reszty. Dysponujemy zatem trzywyrazowym ciągiem Sturma o~elementach ${x^{101}+1, 101x^{100}, -1}$. Obliczmy teraz liczbę zmian znaków dla bardzo dużych wartości bezwzględnych, dążących odpowiednio do $-\infty$ i~$+\infty$. W~prawym krańcu przedziału będą to wartości $+,+,-,$ zaś w~lewym $-,+,-.$ Otrzymaliśmy odpowiednio jedną i dwie zmiany znaku. Oznacza to, że liczba pierwiastków rzeczywistych jest równa różnicy tych zmian w~lewym i~prawym krańcu, czyli w~tym przypadku wynosi $1$. Jak widać, dwa z~trzech elementów ciągu Sturma to rzadkie wielomiany wysokich stopni. Na takiej podstawie, wydaje się, że powyższa teza została potwierdzona. Jednocześnie jednak, warto zauważyć, że dla tego rodzaju wielomianów liczba koniecznych operacji jest niewielka, z~uwagi na znikomą liczbę elementów ciągu Sturma. Wydaje się zatem, że to właśnie ich liczba bezpośrednio wpływa na czas znajdowania pierwiastków, a~ich charakterystyka, czyli liczba niezerowych współczynników ma największe znaczenie dla wydajności obu typów wielomianów.
 
 \begin{table}[H]
 	\begin{tabular}{ |p{3.5cm}|p{3cm}|p{3cm}|p{3.5cm}|} 
@@ -120,7 +115,7 @@ Jak widać również w~tym przypadku zauważalna jest niesamowita różnicą mi�
 Poniżej przedstawiam wykresy z~czasami działania obu struktur.
 
 \begin{figure}[H]
-	\begin{tikzpicture}[scale=1.25]
+	\begin{tikzpicture}[scale=1.15]
 	\begin{axis}[
 	xlabel={Stopień wielomianu},
 	ylabel={Czas działania [s]},
@@ -144,7 +139,7 @@ Poniżej przedstawiam wykresy z~czasami działania obu struktur.
 \end{figure}
 
 \begin{figure}[H]
-	\begin{tikzpicture}[scale=1.25]
+	\begin{tikzpicture}[scale=1.15]
 	\begin{axis}[
 	xlabel={Stopień wielomianu},
 	ylabel={Czas działania [s]},

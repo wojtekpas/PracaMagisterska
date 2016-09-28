@@ -6,12 +6,10 @@ Na początku zastanówmy się, jak sprawić, by liczba elementów ciągu Sturma 
 
 Teraz zastanówmy się, jak skonstruować wielomian, który zawiera liczbę różnych pierwiastków rzeczywistych równą jego stopniowi. Intuicyjne utworzenie wielomianu, podając jego kolejne współczynniki jest niemożliwe dla wysokich stopni.
 
-Rozwiązaniem jest więc przedstawienie go w~postaci czynników, wskazując jego kolejne pierwiastki. Przykładowo wielomianowi W, o~stopniu $k$, możemy przypisać pierwiastki, będące kolejnymi dodatnimi liczbami całkowitymi, ustalając jego wartość jako: \\ $W(x)=(x-1)*(x-2)*(x-3)*...*(x-(k-2))*(x-(k-1))*(x-k)$, gdzie $k$ jest stopniem wielomianu.
-
-Przetestujemy więc wielomiany powyższej postaci. Z powodu ograniczeń czasowych zdecydowałem się w~tym teście na badanie wielomianów niższych stopni, niż w~pozostałych przypadkach. Zapoznajmy się z~rezultatami opisanego eksperymentu.
+Rozwiązaniem jest więc przedstawienie go w~postaci czynników, wskazując jego kolejne pierwiastki. Przykładowo wielomianowi W, o~stopniu $k$, możemy przypisać pierwiastki, będące kolejnymi dodatnimi liczbami całkowitymi, ustalając jego wartość jako $W(x)=(x-1)*(x-2)*(x-3)*...*(x-(k-2))*(x-(k-1))*(x-k)$, gdzie $k$ jest stopniem wielomianu.
 
 \begin{table}[H]
-	\begin{tabular}{ |p{4cm}|p{2.75cm}|p{2.75cm}|p{3.5cm}|} 
+	\begin{tabular}{ |p{5.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|} 
 		\hline
 		Testowany wielomian & Czas dla PolynomialMap [s] & Czas dla PolynomialVector [s] & Współczynnik czasów \\
 		\hline
@@ -68,14 +66,12 @@ Niewątpliwy wpływ na wysokie tempo wzrostu ma także wartość kolejnych pierw
 
 \subsubsection{Wielomiany o~pierwiastkach wymiernych}
 
-Zachowanie wielomianów może być inne, jeżeli pierwiastki będą się znajdować blisko siebie. By zapewnić im dostatecznie bliskie sąsiedztwo, nie wystarczy by było one liczbami całkowitymi, ale potrzeba by były to liczby wymierne. Podobnie jak w~poprzednim przypadku przeprowadzone testy będą zakładały maksymalny stopień wielomianu równy $32$. Dobierzmy odległość pomiedzy pierwiastkami tak, by zapewnić, że odległość między dowolnymi z~nich była mniejsza od $1$. Ustalmy, więc ostęp pomiędzy kolejnymi z~nich na wartość $0.01.$
-
-Według powyższych założeń testowany wielomian przyjmie następującą wartość: \\ $W(x)=(x-1.01)*(x-1.02)*(x-1.03)*...*(x-(1+\frac{k-2}{100}))*(x-(1+\frac{k-1}{100}))*(x-(1+\frac{k}{100}))$, gdzie $k$ jest stopniem wielomianu.
+Zachowanie wielomianów może być inne, jeżeli pierwiastki będą się znajdować blisko siebie. By zapewnić im dostatecznie bliskie sąsiedztwo, nie wystarczy by było one liczbami całkowitymi, ale potrzeba by były to liczby wymierne. Podobnie jak w~poprzednim przypadku przeprowadzone testy będą zakładały maksymalny stopień wielomianu równy $32$. Dobierzmy odległość pomiedzy pierwiastkami tak, by zapewnić, że odległość między dowolnymi z~nich była mniejsza od $1$. Ustalmy, więc ostęp pomiędzy kolejnymi z~nich na wartość $0.01.$ Według powyższych założeń testowany wielomian przyjmie następującą wartość: \\ $W(x)=(x-1.01)*(x-1.02)*(x-1.03)*...*(x-(1+\frac{k-2}{100}))*(x-(1+\frac{k-1}{100}))*(x-(1+\frac{k}{100}))$, gdzie $k$ jest stopniem wielomianu.
 
 Zapoznajmy się z~wynikami, by sprawdzić, jak uzyskane wyniki różnią się od wcześniejszego przypadku, w~którym pierwiastkami były kolejne liczby naturalne.
 
 \begin{table}[H]
-	\begin{tabular}{ |p{4cm}|p{2.75cm}|p{2.75cm}|p{3.5cm}|} 
+	\begin{tabular}{ |p{5.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|} 
 		\hline
 		Testowany wielomian & Czas dla PolynomialMap [s] & Czas dla PolynomialVector [s] & Współczynnik czasów \\
 		\hline
@@ -91,7 +87,7 @@ Zapoznajmy się z~wynikami, by sprawdzić, jak uzyskane wyniki różnią się od
 \end{table}
 
 \begin{figure}[H]
-	\begin{tikzpicture}[scale=1.15]
+	\begin{tikzpicture}[scale=1.1]
 	\begin{axis}[
 	xlabel={Stopień wielomianu},
 	ylabel={Czas działania [s]},

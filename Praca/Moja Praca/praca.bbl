@@ -1,5 +1,8 @@
 \begin{thebibliography}{10}
 
+\bibitem{mpir}
+{\em The Multiple Precision Integers and Rationals library, version 2.7.2.}
+
 \bibitem{barbeau2003polynomials}
 E.J. Barbeau.
 \newblock {\em Polynomials}.
@@ -30,6 +33,13 @@ T.H. Cormen and K.~Diks.
 T.~Granlund and G.D. Team.
 \newblock {\em Gnu MP 6.0 Multiple Precision Arithmetic Library}.
 \newblock Samurai Media Limited, 2015.
+
+\bibitem{sierpinski1951zasady}
+W.~Sierpi{\'n}ski i~A.~Mostowski.
+\newblock {\em Zasady algebry wy{\.z}szej, z przypisem Andrzeja Mostowskiego
+  Zarys teorii Galois}.
+\newblock Monografie Matematyczne. Nak{\l}adem Polskiego Tow. Matematycznego,
+  1951.
 
 \bibitem{Warmus_Mieczyslaw_(1918-2007)_Metody}
 M.~Warmus i~J.~Łukaszewicz.
@@ -68,12 +78,5 @@ V.~Pan.
 \newblock {\em Structured Matrices and Polynomials: Unified Superfast
   Algorithms}.
 \newblock Birkh{\"a}user Boston, 2012.
-
-\bibitem{sierpinski1951zasady}
-A.~Sierpi{\'n}ski W.~i Mostowski.
-\newblock {\em Zasady algebry wy{\.z}szej, z przypisem Andrzeja Mostowskiego
-  Zarys teorii Galois}.
-\newblock Monografie Matematyczne. Nak{\l}adem Polskiego Tow. Matematycznego,
-  1951.
 
 \end{thebibliography}
