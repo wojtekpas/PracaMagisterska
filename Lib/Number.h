@@ -621,7 +621,7 @@ inline void InitConstants()
 Number numberA;
 Number numberB;
 
-inline void SetNumberA(string s)
+inline void SetNumberA(string s, bool isNegative = 0)
 {
 	numberA = CharsConstants::CharToInt(s[0]);
 
@@ -630,9 +630,11 @@ inline void SetNumberA(string s)
 		numberA *= 10;
 		numberA = numberA + CharsConstants::CharToInt(s[i]);
 	}
+	if (isNegative)
+		numberA *= oneNeg;
 }
 
-inline void SetNumberB(string s)
+inline void SetNumberB(string s, bool isNegative = 0)
 {
 	numberB = CharsConstants::CharToInt(s[0]);
 
@@ -641,6 +643,8 @@ inline void SetNumberB(string s)
 		numberB *= 10;
 		numberB = numberB + CharsConstants::CharToInt(s[i]);
 	}
+	if (isNegative)
+		numberB *= oneNeg;
 }
 
 inline void SetPrecision(int value)
@@ -667,12 +671,19 @@ inline int SetValueFromString(string inputS)
 	if (StringManager::BeginStarts(inputS, "set a "))
 	{
 		string value = StringManager::Substr(inputS, 6, inputS.length() - 1);
+		bool isNegative = false;
+		if (CharsConstants::IsMinus(value[0]))
+		{
+			value = StringManager::Substr(value, 1, value.length() - 1);
+			isNegative = true;
+		}
 		if (StringManager::ContainsOnlyDigits(value) == false)
 			return 0;
 		Number copy = numberA;
-		SetNumberA(value);
+		SetNumberA(value, isNegative);
 		if (numberA >= numberB)
 		{
+			printf("WARNING: a nie jest mniejsze niz b. Nie dokonano zmiany wartosci a\n");
 			numberA = copy;
 		}
 		return 0;
@@ -681,12 +692,19 @@ inline int SetValueFromString(string inputS)
 	if (StringManager::BeginStarts(inputS, "set b "))
 	{
 		string value = StringManager::Substr(inputS, 6, inputS.length() - 1);
+		bool isNegative = false;
+		if (CharsConstants::IsMinus(value[0]))
+		{
+			value = StringManager::Substr(value, 1, value.length() - 1);
+			isNegative = true;
+		}
 		if (StringManager::ContainsOnlyDigits(value) == false)
 			return 0;
 		Number copy = numberB;
-		SetNumberB(value);
+		SetNumberB(value, isNegative);
 		if (numberB <= numberA)
 		{
+			printf("WARNING: b nie jest wieksze niz a. Nie dokonano zmiany wartosci b\n");
 			numberB = copy;
 		}
 		return 0;

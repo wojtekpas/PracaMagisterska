@@ -1,4 +1,4 @@
-﻿Build started 2016-09-28 01:13:24.
+﻿Build started 2016-09-28 08:36:39.
      1>Project "C:\Users\Gruby\Documents\Visual Studio 2015\Projects\PracaMagisterska\App\App.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /GL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Release\\" /Fd"x64\Release\vc140.pdb" /Gd /TP /errorReport:prompt main.cpp
@@ -11,9 +11,11 @@
      1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\Number.h(507): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
      1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\Number.h(520): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
      1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\Number.h(566): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-     1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\Number.h(660): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-     1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\Number.h(669): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-     1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\Number.h(683): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+     1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\Number.h(664): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+     1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\Number.h(673): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+     1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\Number.h(677): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+     1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\Number.h(694): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+     1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\Number.h(698): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
      1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\PolynomialMap.h(88): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
      1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\PolynomialMap.h(197): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
      1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\PolynomialVector.h(90): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
@@ -26,11 +28,11 @@
          Generating code
          2 of 1063 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
            0 functions were new in current compilation
-           8 functions had inline decision re-evaluated but remain unchanged
+           9 functions had inline decision re-evaluated but remain unchanged
          Finished generating code
          App.vcxproj -> C:\Users\Gruby\Documents\Visual Studio 2015\Projects\PracaMagisterska\x64\Release\App.exe
      1>Done Building Project "C:\Users\Gruby\Documents\Visual Studio 2015\Projects\PracaMagisterska\App\App.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:02.73
+Time Elapsed 00:00:02.01

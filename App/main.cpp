@@ -43,8 +43,6 @@ int main()
 					printf("Polecenie nierozpoznane lub wielomian oznaczony jako zerowy - nie posiada pierwiastkow.\n");
 			}
 		}
-		numberA.Print();
-		numberB.Print();
 		cout << "-----" << endl;
 		inputS = "";
 	}	
