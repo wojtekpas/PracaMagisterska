@@ -13,6 +13,7 @@ int main()
 	int retry;
 	numberA = -1000000;
 	numberB = 1000000;
+	printf("Witaj w apliacji !\nWprowadz wielomian lub ustaw odpowiednia opcje.\n");
 	while (true)
 	{
 		retry = 0;

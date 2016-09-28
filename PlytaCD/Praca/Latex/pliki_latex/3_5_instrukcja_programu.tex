@@ -1,0 +1,66 @@
+\section{Instrukcja obsługi programu}
+
+Instrukcja dotyczy obsługi programu, który został poprawnie zainstalowany. Jeżeli nie zostało to wykonane, w~celu jego pierwszego uruchomienia, niezbędne jest wcześniejsze wykonanie instrukcji przedstawionych w~poprzednim podrozdziale.
+
+Wszystkie komendy, na które pozwala nam aplikacja wykonujemy jako zapytania zdefiniowane w~pojedynczej linii wejściowej. Zdefiniowałem dwa typy poleceń. Pierwszym z~nich jest wprowadzenie wielomianu w~wybranej przez siebie, poprawnej składniowo, postaci. Jedynym znaczącym ograniczeniem jest brak bezpośredniej możliwości wprowadzania typów zmiennoprzecinkowych. Jeżeli chcemy wprowadzić wartość ułamkową, np. 1.4 musimy przedstawić jej wartość jako iloraz, czyli np.\ w~postaci "14/10".
+
+Drugim typem komendy jest zmiana domyślnych ustawień dla wybranych wartości liczbowych i dodatkowych funkcjonalności. Opcja ta pozwala użytkownikowi aplikacji na większą porcję informacji niż wartości pierwiastków rzeczywistych. By dana linia była traktowana jako wielomian wejściowy wystarczy po prostu wpisać jego wartość. Jeżeli zaś chcemy, by pozwoliła ona na zmiane wskazanej wartości musimy rozpocząć ją od wyrażenia "set". Dzięki temu sformułowaniu aplikacja będzie wiedziała, że dane zapytanie nie powinno być traktowane jako wartość wielomianu, ale przełączenie odpowiedniej opcji.
+
+Poniżej zamieszczam listę wszystkich instrukcji, pozwalających na zmiane ustawień programu wraz z~ich wartościami domyślnymi.
+
+\begin{lstlisting}
+"set a {value}"
+\end{lstlisting}
+
+Wartość ta jest lewym krańcem przedziału, w~którym aplikacja będzie znajdować pierwiastki rzeczywiste. Domyślną warotścią jest $-1000000$. W~przypadku próby ustawienia na wartość równą lub wyższą od aktualnej wartości $b$, polecenie takie zostanie zignorowane. Podana wartość musi być liczbą całkowitą.
+
+\begin{lstlisting}
+"seb b {value}"
+\end{lstlisting}
+
+Jest to wartość dla prawego krańca przedziału poszukiwań. Domyślną wartością jest $1000000$. Analogicznie jak dla wcześniejszego polecenia, komenda zostanie zignorowana gdy liczba nie będzie całkowita lub jeżeli podana wartość będzie równa lub niższa od aktualnej wartości $a$.
+
+\begin{lstlisting}
+"set precision {value}"
+\end{lstlisting}
+
+Jest to liczba cyfr po przecinku, które powinny zostać uwzględnione w~zwracanym wyniku. Domyślną wartoscią jest wartość $6$, oznaczająca zaokrąglanie pierwiastków wielomianu do wartości $(0.1)^6$. Wartość ta nie może być ujemna i jest ograniczona przez zakres wartości typu int.
+
+\begin{lstlisting}
+"set type [{map}{vector}]" -> "set 1 [{m}{v}]"
+\end{lstlisting}
+
+Polecenie pozwala na wybranie typu wielomianu, który ma być wykorzystywany do obliczeń. Wartość "map" oznacza klasę PolynomialMap, zaś vector klasę PolynomialVector. Domyślnie wybierana jest mapa.
+
+Warto zaznaczyć, że polecenie posiada też wersję skróconą. Ma to na celu łatwiejszą obsługę, poprzez brak konieczności wpiswania długich poleceń, w~których bardzo łatwo jest popełnić błąd, który spowoduje, że dana linia wejściowa zostanie zignorowana. Dodatkowo spośród wartości znajdujących się wewnątrz nawiasów kwadratowych należy wybrać jedną i wpisać wnętrze danej pary nawiasów klamrarowych jako wartość w~linii poleceń.
+
+\begin{lstlisting}
+"set displaying roots [{1}{0}]" -> "set 2 [{1}{0}]"
+\end{lstlisting}
+Polecenie pozwala decydować, czy wartość obliczonych pierwiastków powinna być wyświetlana. Domyślnie ustawiona jest wartość $1$, która powoduje, że każdy znaleziony pierwiastek rzeczywisty zostanie wypisany na ekran. Warto zauważyć, że pierwiastki wielokrotne zostaną wypisane tylko jeden raz.
+
+\begin{lstlisting}
+"set displaying sturm [{0}{1}]" -> "set 3 [{0}{1}]"
+\end{lstlisting}
+
+Komenda pozwala na wypisywanie ciagu Sturma, który powstał w~trakcie znajdowania pierwiastków rzeczywistych badanego wielomanu. Domyślnie ustawiona jest wartość $0$, czyli wielomiany ciągu Sturma nie są wypisywane.
+
+\begin{lstlisting}
+"set displaying signs [{0}{1}]" -> "set 4 [{0}{1}]"
+\end{lstlisting}
+
+Polecenie pozwala na wypisywanie liczby zmian znaku w~ciągu Sturma na obu krańcach badanego wielomianu. Wartością domyślną jest $0$, co oznacza niewypisywanie tej informacji.
+
+\begin{lstlisting}
+"set displaying after elimination [{0}{1}]" -> "set 5 [{0}{1}]"
+\end{lstlisting}
+
+Polecenie pozwala na wyświetlenie wielomianu po eliminacji jego pierwiastków wielokrotnych. Wartością domyślną jest $0$, czyli brak wypisania tej informacji.
+
+\begin{lstlisting}
+"set measuring time [{0}{1}]" -> "set 6 [{0}{1}]"
+\end{lstlisting}
+
+Komenda pozwala na zmierzenie czasu znajdowania pierwiastków wielomianu. Wypisywana wartość oznacza liczbę milisekund, którą trwało znalezienie wszystkich pierwiastków rzeczywistych. Domyślną wartością jest $0$, oznaczające brak wykonywania pomiaru.
+
+Jeżeli chcemy wyłączyć aplikację, program, poza standardową opcją wyłączenia, daje nam także dodatkową możliwość. Jeżeli dana linia będzie zawierała pojedynczy znak 'q' (od ang. "quit") program zakończy swoją pracę. Dodatkowo nastąpi to także w~przypadku, gdy seria stu kolejnych zapytań będzie niepoprawna. Warto zaznaczyć, że wszystkie dokonane zmiany są trwałe tylko dla danego uruchomienia aplikacji. Po ponownym uruchomieniu ich ustawienia ponownie wracają do wartości domyślnych.

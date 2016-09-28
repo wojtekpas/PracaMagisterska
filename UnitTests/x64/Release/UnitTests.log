@@ -1,4 +1,4 @@
-﻿Build started 2016-09-28 23:14:27.
+﻿Build started 2016-09-29 01:12:46.
      1>Project "C:\Users\Gruby\Documents\Visual Studio 2015\Projects\PracaMagisterska\UnitTests\UnitTests.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\UnitTest\include" /Zi /nologo /W3 /WX- /O2 /Oi /GL /D NDEBUG /D _WINDLL /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Yc"stdafx.h" /Fp"x64\Release\UnitTests.pch" /Fo"x64\Release\\" /Fd"x64\Release\vc140.pdb" /Gd /TP /FC /errorReport:prompt stdafx.cpp
@@ -18,13 +18,8 @@
      1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\number.h(706): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
      1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\polynomialmap.h(88): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
      1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\polynomialmap.h(197): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\UnitTest\include" /Zi /nologo /W3 /WX- /O2 /Oi /GL /D NDEBUG /D _WINDLL /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Yu"stdafx.h" /Fp"x64\Release\UnitTests.pch" /Fo"x64\Release\\" /Fd"x64\Release\vc140.pdb" /Gd /TP /FC /errorReport:prompt ParserConvertUnitTests.cpp ParserUniformUnitTests.cpp PolynomialAfterEliminationUnitTests.cpp PolynomialDerivativeUnitTests.cpp PolynomialDivOperatorUnitTests.cpp PolynomialModOperatorUnitTests.cpp PolynomialMulOperatorUnitTests.cpp PolynomialNumberOfRoots.cpp PolynomialRoots.cpp PolynomialSubOperatorUnitTests.cpp PolynomialSumOperatorUnitTests.cpp PolynomialValueUnitTests.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\UnitTest\include" /Zi /nologo /W3 /WX- /O2 /Oi /GL /D NDEBUG /D _WINDLL /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Yu"stdafx.h" /Fp"x64\Release\UnitTests.pch" /Fo"x64\Release\\" /Fd"x64\Release\vc140.pdb" /Gd /TP /FC /errorReport:prompt ParserConvertUnitTests.cpp PolynomialAfterEliminationUnitTests.cpp PolynomialDerivativeUnitTests.cpp PolynomialDivOperatorUnitTests.cpp PolynomialModOperatorUnitTests.cpp PolynomialMulOperatorUnitTests.cpp PolynomialNumberOfRoots.cpp PolynomialRoots.cpp PolynomialSubOperatorUnitTests.cpp PolynomialSumOperatorUnitTests.cpp PolynomialValueUnitTests.cpp ParserUniformUnitTests.cpp
          ParserConvertUnitTests.cpp
-     1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\polynomialvector.h(90): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-     1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\polynomialvector.h(248): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-     1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\parser.h(144): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-     1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\parser.h(157): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-         ParserUniformUnitTests.cpp
      1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\polynomialvector.h(90): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
      1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\polynomialvector.h(248): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
      1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\parser.h(144): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
@@ -79,6 +74,11 @@
      1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\polynomialvector.h(248): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
      1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\parser.h(144): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
      1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\parser.h(157): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+         ParserUniformUnitTests.cpp
+     1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\polynomialvector.h(90): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+     1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\polynomialvector.h(248): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+     1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\parser.h(144): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+     1>c:\users\gruby\documents\visual studio 2015\projects\pracamagisterska\lib\parser.h(157): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Gruby\Documents\Visual Studio 2015\Projects\PracaMagisterska\x64\Release\UnitTests.dll" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\UnitTest\lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\Gruby\Documents\Visual Studio 2015\Projects\PracaMagisterska\x64\Release\UnitTests.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG:incremental /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Gruby\Documents\Visual Studio 2015\Projects\PracaMagisterska\x64\Release\UnitTests.lib" /MACHINE:X64 /DLL x64\Release\ParserConvertUnitTests.obj
          x64\Release\PolynomialAfterEliminationUnitTests.obj
@@ -97,13 +97,11 @@
      1>LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/LTCG' specification
             Creating library C:\Users\Gruby\Documents\Visual Studio 2015\Projects\PracaMagisterska\x64\Release\UnitTests.lib and object C:\Users\Gruby\Documents\Visual Studio 2015\Projects\PracaMagisterska\x64\Release\UnitTests.exp
          Generating code
-         3 of 1916 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
-           0 functions were new in current compilation
-           27 functions had inline decision re-evaluated but remain unchanged
+         All 1916 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
          Finished generating code
          UnitTests.vcxproj -> C:\Users\Gruby\Documents\Visual Studio 2015\Projects\PracaMagisterska\x64\Release\UnitTests.dll
      1>Done Building Project "C:\Users\Gruby\Documents\Visual Studio 2015\Projects\PracaMagisterska\UnitTests\UnitTests.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:05.51
+Time Elapsed 00:00:06.30

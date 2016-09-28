@@ -1,0 +1,109 @@
+\contentsline {chapter}{\numberline {1}Wst\IeC {\k e}p}{7}
+\contentsline {chapter}{\numberline {2}Wprowadzenie}{10}
+\contentsline {section}{\numberline {2.1}Wielomiany}{10}
+\contentsline {subsection}{\numberline {2.1.1}Definicja}{10}
+\contentsline {subsection}{\numberline {2.1.2}Podstawowe dzia\IeC {\l }ania na wielomianach}{10}
+\contentsline {subsubsection}{Por\IeC {\'o}wnywanie wielomian\IeC {\'o}w}{11}
+\contentsline {subsubsection}{Suma wielomian\IeC {\'o}w}{11}
+\contentsline {subsubsection}{R\IeC {\'o}\IeC {\.z}nica wielomian\IeC {\'o}w}{12}
+\contentsline {subsubsection}{Iloczyn wielomian\IeC {\'o}w}{13}
+\contentsline {subsubsection}{Iloraz wielomian\IeC {\'o}w}{14}
+\contentsline {subsubsection}{Pochodna wielomianu}{15}
+\contentsline {subsection}{\numberline {2.1.3}Najwi\IeC {\k e}kszy wsp\IeC {\'o}lny dzielnik wielomian\IeC {\'o}w}{16}
+\contentsline {subsection}{\numberline {2.1.4}Dodatkowe twierdzenia dotycz\IeC {\k a}ce wielomian\IeC {\'o}w}{18}
+\contentsline {subsection}{\numberline {2.1.5}Eliminacja pierwiastk\IeC {\'o}w wielokrotnych}{20}
+\contentsline {subsection}{\numberline {2.1.6}Twierdzenie Sturma}{22}
+\contentsline {section}{\numberline {2.2}Biblioteka MPIR}{24}
+\contentsline {subsection}{\numberline {2.2.1}Podstawowe informacje}{24}
+\contentsline {subsubsection}{Wst\IeC {\k e}p}{24}
+\contentsline {subsubsection}{Licencja}{24}
+\contentsline {subsubsection}{Nazewnictwo i\nobreakspace {}typy}{24}
+\contentsline {subsubsection}{Funkcje}{25}
+\contentsline {subsubsection}{Zarz\IeC {\k a}dzanie pami\IeC {\k e}ci\IeC {\k a}}{25}
+\contentsline {subsubsection}{Kompatybilno\IeC {\'s}\IeC {\'c}}{26}
+\contentsline {subsubsection}{Wydajno\IeC {\'s}\IeC {\'c}}{26}
+\contentsline {subsubsection}{Operacje w\nobreakspace {}miejscu}{26}
+\contentsline {subsection}{\numberline {2.2.2}Instalacja}{26}
+\contentsline {subsection}{\numberline {2.2.3}Operacje na liczbach ca\IeC {\l }kowitych}{27}
+\contentsline {subsubsection}{Funkcje inicjalizuj\IeC {\k a}ce}{27}
+\contentsline {subsubsection}{Funkcje przypisania}{27}
+\contentsline {subsubsection}{Funkcje konwersji}{28}
+\contentsline {subsubsection}{Funkcje arytmetyczne}{29}
+\contentsline {subsubsection}{Funkcje dzielenia}{29}
+\contentsline {subsubsection}{Funkcje por\IeC {\'o}wnania}{30}
+\contentsline {subsubsection}{Pozosta\IeC {\l }e funkcje}{31}
+\contentsline {subsection}{\numberline {2.2.4}Operacje na liczbach wymiernych}{31}
+\contentsline {chapter}{\numberline {3}Opis rozwi\IeC {\k a}zania}{33}
+\contentsline {section}{\numberline {3.1}Podzia\IeC {\l } na modu\IeC {\l }y}{33}
+\contentsline {subsection}{\numberline {3.1.1}Statyczna biblioteka}{33}
+\contentsline {subsection}{\numberline {3.1.2}Aplikacja konsolowa}{34}
+\contentsline {subsection}{\numberline {3.1.3}Framework testowy}{34}
+\contentsline {section}{\numberline {3.2}G\IeC {\l }\IeC {\'o}wne klasy}{35}
+\contentsline {subsection}{\numberline {3.2.1}CharsConstants}{35}
+\contentsline {subsection}{\numberline {3.2.2}StringManager}{36}
+\contentsline {subsection}{\numberline {3.2.3}Parser}{37}
+\contentsline {subsection}{\numberline {3.2.4}Number}{37}
+\contentsline {subsection}{\numberline {3.2.5}Polynomial}{40}
+\contentsline {subsection}{\numberline {3.2.6}PolynomialVector}{44}
+\contentsline {subsection}{\numberline {3.2.7}PolynomialMap}{45}
+\contentsline {section}{\numberline {3.3}G\IeC {\l }\IeC {\'o}wne funkcje}{46}
+\contentsline {subsection}{\numberline {3.3.1}Metody klasy Parser}{46}
+\contentsline {subsubsection}{Unifikacja wej\IeC {\'s}ciowego \IeC {\l }a\IeC {\'n}cucha znak\IeC {\'o}w}{46}
+\contentsline {subsubsection}{Konwersja \IeC {\l }a\IeC {\'n}cucha znak\IeC {\'o}w do postaci wielomianu}{46}
+\contentsline {subsection}{\numberline {3.3.2}Metody klasy Number}{47}
+\contentsline {subsubsection}{Sortowanie liczb typu mpq\_t}{47}
+\contentsline {subsubsection}{Por\IeC {\'o}wnywanie wektor\IeC {\'o}w liczbowych}{48}
+\contentsline {subsubsection}{Wyszukiwanie danej liczby w\nobreakspace {}tablicy}{48}
+\contentsline {subsubsection}{Zwracanie warto\IeC {\'s}ci liczby w\nobreakspace {}postaci \IeC {\l }a\IeC {\'n}cucha znak\IeC {\'o}w}{48}
+\contentsline {subsection}{\numberline {3.3.3}Metody klasy Polynomial}{49}
+\contentsline {subsubsection}{Najwi\IeC {\k e}kszy wsp\IeC {\'o}lny dzielnik wielomian\IeC {\'o}w}{49}
+\contentsline {subsubsection}{Eliminacja pierwiastk\IeC {\'o}w wielokrotnych wielomianu}{49}
+\contentsline {subsubsection}{Algorytm wyznaczania kolejnych przedzia\IeC {\l }\IeC {\'o}w wyszukiwania}{50}
+\contentsline {subsubsection}{Liczba pierwiastk\IeC {\'o}w wielomianu w\nobreakspace {}badanym przedziale}{51}
+\contentsline {subsubsection}{Znajdowanie pierwiastk\IeC {\'o}w wielomianu w\nobreakspace {}badanym przedziale}{51}
+\contentsline {subsection}{\numberline {3.3.4}Metody czysto wirtualne klasy Polynonial \IeC {\textendash } por\IeC {\'o}wnanie dzia\IeC {\l }ania metod klas PolynomialMap i\nobreakspace {}PolynomialVector}{52}
+\contentsline {subsubsection}{Ustawianie warto\IeC {\'s}ci wyrazu wielomianu}{52}
+\contentsline {subsubsection}{Stwierdzanie czy wielomian jest wielomianem zerowym}{53}
+\contentsline {subsubsection}{Obliczanie stopnia wielomianu}{53}
+\contentsline {subsubsection}{Zwracanie warto\IeC {\'s}ci wielomianu w\nobreakspace {}postaci \IeC {\l }a\IeC {\'n}cucha znak\IeC {\'o}w}{53}
+\contentsline {subsubsection}{Dzielenie wielomian\IeC {\'o}w}{54}
+\contentsline {subsubsection}{Obliczanie pochodnej wielomianu}{54}
+\contentsline {subsubsection}{Obliczanie wyraz\IeC {\'o}w ciagu Sturma}{54}
+\contentsline {subsubsection}{Liczba zmian znak\IeC {\'o}w w\nobreakspace {}danym punkcie}{55}
+\contentsline {section}{\numberline {3.4}Instalacja aplikacji}{55}
+\contentsline {subsection}{\numberline {3.4.1}Szybka instalacja}{55}
+\contentsline {subsection}{\numberline {3.4.2}Kompilacja biblioteki mpir}{56}
+\contentsline {subsection}{\numberline {3.4.3}Kompilacja solucji}{56}
+\contentsline {section}{\numberline {3.5}Instrukcja obs\IeC {\l }ugi programu}{57}
+\contentsline {chapter}{\numberline {4}Przeprowadzone testy}{60}
+\contentsline {section}{\numberline {4.1}Testy funkcjonalne}{60}
+\contentsline {subsection}{\numberline {4.1.1}ParserUniform}{61}
+\contentsline {subsection}{\numberline {4.1.2}ParserConvert}{62}
+\contentsline {subsection}{\numberline {4.1.3}Operatory dodawania, odejmowania i\nobreakspace {}mno\IeC {\.z}enia}{63}
+\contentsline {subsubsection}{PolynomialSumOperator}{63}
+\contentsline {subsubsection}{PolynomialSubOperator}{63}
+\contentsline {subsubsection}{PolynomialMulOperator}{63}
+\contentsline {subsection}{\numberline {4.1.4}Operatory dzielenia i\nobreakspace {}modulo}{64}
+\contentsline {subsubsection}{PolynomialDivOperator}{64}
+\contentsline {subsubsection}{PolynomialModOperator}{64}
+\contentsline {subsection}{\numberline {4.1.5}PolynomialDerivative}{65}
+\contentsline {subsection}{\numberline {4.1.6}PolynomialAfterElimination}{65}
+\contentsline {subsection}{\numberline {4.1.7}PolynomialValue}{66}
+\contentsline {subsection}{\numberline {4.1.8}PolynomialNumberOfRoots}{67}
+\contentsline {subsection}{\numberline {4.1.9}PolynomialRoots}{67}
+\contentsline {section}{\numberline {4.2}Testy wydajno\IeC {\'s}ciowe}{68}
+\contentsline {subsection}{\numberline {4.2.1}Testowanie wielomian\IeC {\'o}w g\IeC {\k e}stych}{68}
+\contentsline {subsubsection}{Wielomiany stopnia parzystego}{68}
+\contentsline {subsubsection}{Wielomiany stopnia nieparzystego}{70}
+\contentsline {subsection}{\numberline {4.2.2}Testowanie wielomian\IeC {\'o}w rzadkich}{71}
+\contentsline {subsubsection}{Wielomiany stopnia parzystego}{71}
+\contentsline {subsubsection}{Wielomiany stopnia nieparzystego}{73}
+\contentsline {subsection}{\numberline {4.2.3}Badanie wielomian\IeC {\'o}w posiadaj\IeC {\k a}cych wy\IeC {\l }\IeC {\k a}cznie pierwiastki rzeczywiste}{75}
+\contentsline {subsubsection}{Wielomiany o\nobreakspace {}pierwiastkach ca\IeC {\l }kowitych}{75}
+\contentsline {subsubsection}{Wielomiany o\nobreakspace {}pierwiastkach wymiernych}{76}
+\contentsline {section}{\numberline {4.3}Por\IeC {\'o}wnanie aplikacji z\nobreakspace {}innym programem}{78}
+\contentsline {subsection}{\numberline {4.3.1}Por\IeC {\'o}wnanie mo\IeC {\.z}liwo\IeC {\'s}ci aplikacji i\nobreakspace {}interfejsu u\IeC {\.z}ytkownika}{78}
+\contentsline {subsection}{\numberline {4.3.2}Por\IeC {\'o}wnanie poprawno\IeC {\'s}ci i\nobreakspace {}precyzji oblicze\IeC {\'n}}{79}
+\contentsline {subsubsection}{Pierwiastki odleg\IeC {\l }e od siebie}{79}
+\contentsline {subsubsection}{Pierwiastki znajduj\IeC {\k a}ce si\IeC {\k e} blisko siebie}{81}
+\contentsline {chapter}{\numberline {5}Podsumowanie}{85}

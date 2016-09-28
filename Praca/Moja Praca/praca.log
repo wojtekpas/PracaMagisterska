@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  29 SEP 2016 00:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.15)  29 SEP 2016 01:08
 entering extended mode
 **./praca.tex
 (praca.tex
@@ -1306,28 +1306,28 @@ Package: `anysize' 1.0 <1994/08/13>
 ) (praca.aux)
 \openout1 = `praca.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 144.
-LaTeX Font Info:    ... okay on input line 144.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 144.
-LaTeX Font Info:    ... okay on input line 144.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 144.
-LaTeX Font Info:    ... okay on input line 144.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 144.
-LaTeX Font Info:    ... okay on input line 144.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 144.
-LaTeX Font Info:    ... okay on input line 144.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 144.
-LaTeX Font Info:    ... okay on input line 144.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 144.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 144.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 146.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 146.
 
  ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 144.
-LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 144.
-LaTeX Font Info:    ... okay on input line 144.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 144.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 146.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\t1lmr.fd"
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -1360,7 +1360,7 @@ Package caption Info: End \AtBeginDocument code.
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
 ick labels; missing features). Consider writing \pgfplotsset{compat=1.14} into 
 your preamble.
- on input line 144.
+ on input line 146.
 
 \AtBeginShipoutBox=\box51
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\pdflscape.sty"
@@ -1378,12 +1378,12 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 File: ./pliki_pdf/StronaTytulowa.pdf Graphic file (type pdf)
 
 <use ./pliki_pdf/StronaTytulowa.pdf>
-Package pdftex.def Info: ./pliki_pdf/StronaTytulowa.pdf used on input line 146.
+Package pdftex.def Info: ./pliki_pdf/StronaTytulowa.pdf used on input line 148.
 
 (pdftex.def)             Requested size: 597.43054pt x 845.07512pt.
 File: ./pliki_pdf/StronaTytulowa.pdf Graphic file (type pdf)
  <use ./pliki_pdf/StronaTytulowa.pdf>
-Package pdftex.def Info: ./pliki_pdf/StronaTytulowa.pdf used on input line 146.
+Package pdftex.def Info: ./pliki_pdf/StronaTytulowa.pdf used on input line 148.
 
 (pdftex.def)             Requested size: 597.43054pt x 845.07512pt.
 
@@ -1392,31 +1392,31 @@ File: ./pliki_pdf/StronaTytulowa.pdf Graphic file (type pdf)
 
 <use ./pliki_pdf/StronaTytulowa.pdf, page 1>
 Package pdftex.def Info: ./pliki_pdf/StronaTytulowa.pdf, page1 used on input li
-ne 146.
+ne 148.
 (pdftex.def)             Requested size: 597.43054pt x 845.07512pt.
 File: ./pliki_pdf/StronaTytulowa.pdf Graphic file (type pdf)
 
 <use ./pliki_pdf/StronaTytulowa.pdf, page 1>
 Package pdftex.def Info: ./pliki_pdf/StronaTytulowa.pdf, page1 used on input li
-ne 146.
+ne 148.
 (pdftex.def)             Requested size: 597.45789pt x 845.1138pt.
 File: ./pliki_pdf/StronaTytulowa.pdf Graphic file (type pdf)
 
 <use ./pliki_pdf/StronaTytulowa.pdf, page 1>
 Package pdftex.def Info: ./pliki_pdf/StronaTytulowa.pdf, page1 used on input li
-ne 146.
+ne 148.
 (pdftex.def)             Requested size: 597.45789pt x 845.1138pt.
 File: ./pliki_pdf/StronaTytulowa.pdf Graphic file (type pdf)
 
 <use ./pliki_pdf/StronaTytulowa.pdf, page 1>
 Package pdftex.def Info: ./pliki_pdf/StronaTytulowa.pdf, page1 used on input li
-ne 146.
+ne 148.
 (pdftex.def)             Requested size: 597.45789pt x 845.1138pt.
 File: ./pliki_pdf/StronaTytulowa.pdf Graphic file (type pdf)
 
 <use ./pliki_pdf/StronaTytulowa.pdf, page 1>
 Package pdftex.def Info: ./pliki_pdf/StronaTytulowa.pdf, page1 used on input li
-ne 146.
+ne 148.
 (pdftex.def)             Requested size: 597.45789pt x 845.1138pt.
  [1
 
@@ -1425,11 +1425,11 @@ ne 146.
 File: ./pliki_pdf/Oswiadczenie.pdf Graphic file (type pdf)
 
 <use ./pliki_pdf/Oswiadczenie.pdf>
-Package pdftex.def Info: ./pliki_pdf/Oswiadczenie.pdf used on input line 147.
+Package pdftex.def Info: ./pliki_pdf/Oswiadczenie.pdf used on input line 149.
 (pdftex.def)             Requested size: 597.43054pt x 845.07512pt.
 File: ./pliki_pdf/Oswiadczenie.pdf Graphic file (type pdf)
  <use ./pliki_pdf/Oswiadczenie.pdf>
-Package pdftex.def Info: ./pliki_pdf/Oswiadczenie.pdf used on input line 147.
+Package pdftex.def Info: ./pliki_pdf/Oswiadczenie.pdf used on input line 149.
 (pdftex.def)             Requested size: 597.43054pt x 845.07512pt.
 
 <./pliki_pdf/Oswiadczenie.pdf, id=39, page=1, 597.432pt x 845.07718pt>
@@ -1437,31 +1437,31 @@ File: ./pliki_pdf/Oswiadczenie.pdf Graphic file (type pdf)
 
 <use ./pliki_pdf/Oswiadczenie.pdf, page 1>
 Package pdftex.def Info: ./pliki_pdf/Oswiadczenie.pdf, page1 used on input line
- 147.
+ 149.
 (pdftex.def)             Requested size: 597.43054pt x 845.07512pt.
 File: ./pliki_pdf/Oswiadczenie.pdf Graphic file (type pdf)
 
 <use ./pliki_pdf/Oswiadczenie.pdf, page 1>
 Package pdftex.def Info: ./pliki_pdf/Oswiadczenie.pdf, page1 used on input line
- 147.
+ 149.
 (pdftex.def)             Requested size: 597.45789pt x 845.1138pt.
 File: ./pliki_pdf/Oswiadczenie.pdf Graphic file (type pdf)
 
 <use ./pliki_pdf/Oswiadczenie.pdf, page 1>
 Package pdftex.def Info: ./pliki_pdf/Oswiadczenie.pdf, page1 used on input line
- 147.
+ 149.
 (pdftex.def)             Requested size: 597.45789pt x 845.1138pt.
 File: ./pliki_pdf/Oswiadczenie.pdf Graphic file (type pdf)
 
 <use ./pliki_pdf/Oswiadczenie.pdf, page 1>
 Package pdftex.def Info: ./pliki_pdf/Oswiadczenie.pdf, page1 used on input line
- 147.
+ 149.
 (pdftex.def)             Requested size: 597.45789pt x 845.1138pt.
 File: ./pliki_pdf/Oswiadczenie.pdf Graphic file (type pdf)
 
 <use ./pliki_pdf/Oswiadczenie.pdf, page 1>
 Package pdftex.def Info: ./pliki_pdf/Oswiadczenie.pdf, page1 used on input line
- 147.
+ 149.
 (pdftex.def)             Requested size: 597.45789pt x 845.1138pt.
  [2 <./pliki_pdf/Oswiadczenie.pdf>]
 (pliki_latex/0_1_streszczenie.tex) (pliki_latex/0_2_abstract.tex [3

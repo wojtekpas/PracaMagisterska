@@ -1,0 +1,515 @@
+\chapter{Wprowadzenie}
+
+\section{Wielomiany}
+
+\subsection{Definicja}
+
+\begin{definition}
+	$ $\\
+	Wielomianem zmiennej rzeczywistej $x$ nazywamy wyrażenie:
+	\begin{equation*}
+	W(x) = a_0x^n + a_1x^{n-1} + a_2x^{n-2}+ ... + a_{n-1}x + a_n
+	\end{equation*}
+	gdzie $a_0, a_1, a_2, ..., a_{n-1}, a_n\in R$ i~$n \in N$
+\end{definition}
+
+Liczby $a_0, a_1, a_2, ..., a_{n-1}, a_n$ nazywamy współczynnikami wielomianu, natomiast $n$ nazywamy stopniem wielomianu. Szczególnym przypadkiem wielomianu jest jednomian. 
+
+\begin{definition}
+	$ $\\
+	Jednomianem zmiennej rzeczywistej $x$ nazywamy wielomian zmiennej rzeczywistej $x$, który posiada co najwyżej jeden wyraz niezerowy.
+\end{definition}
+
+Można, więc rozumieć wielomian jako skończoną sumę jednomianów.
+Jednomianem stopnia zerowego jest stała, pojedyncza liczba rzeczywista, która w~szczególności może być zerem.
+
+\begin{definition}
+	$ $\\
+	Wielomianem zerowym nazywamy wielomian wyrażony wzorem:	$W(x) = 0$.
+\end{definition}
+
+W dalszej części, jeżeli nie zaznaczymy inaczej, mówiąc wielomian, będziemy mieli na myśli pewien wielomian, nie będący wielomianem zerowym.
+
+\subsection{Podstawowe działania na wielomianach}
+
+Na wielomianach, tak jak na liczbach, możemy wykonywać podstawowe działania. Należą do nich: porównywanie, dodawanie, odejmowanie, mnożenie, dzielenie, a~także obliczanie reszty z~dzielenia. Jako, że wielomian zmiennej $x$ możemy traktować jak funkcję jednej zmiennej, możemy także policzyć z~niego pochodną.
+
+\subsubsection{Porównywanie wielomianów}
+Porównywanie należy do najbardziej elementarnych działań na wielomianach. Wymaga ono zwykłego porównania kolejnych współczynników, a~jego długość trwania zależy od ich liczby. Zapoznajmy się z~twierdzeniem dotyczącym operacji porównywania wielomianów.
+
+\begin{theorem}
+	$ $\\
+	Dwa wielomiany uważamy za równe wtedy i~tylko wtedy, gdy są tego samego stopnia, a~ich kolejne współczynniki są równe.
+\end{theorem}
+
+Powyższe twierdzenie nie jest złożone, niemniej w~celu pełnego zrozumienia, zilustrujmy je przykładem. 
+
+\begin{example}
+	$ $\\
+	Mamy dane wielomian $W_1$ oraz wielomian $W_2$.
+	\begin{equation*}
+	\begin{split}
+	W_1(x) &= a_0x^n + a_1x^{n-1} + ... + a_{n-1}x + a_n \\
+	W_2(x) &= b_0x^n + b_1x^{n-1} + ... + b_{n-1}x + b_n \\
+	\end{split}
+	\end{equation*}
+	Wielomiany $W_1$ oraz $W_2 $ są równe wtedy i~tylko wtedy gdy
+	$\forall{i\in N}\ a_i = b_i$.
+\end{example}
+
+Można zauważyć potencjalny wpływ reprezentacji wielomianu na szybkość operacji porównania. Gdy mamy do czynienia z~wielomianem, w~którym uwzględniamy każdy współczynnik, także gdy jest on zerowy, złożoność czasowa porównania jest liniowa względem stopnia wielomianu. Natomiast w~przypadku, gdy pomijamy wszystkie zerowe współczynniki wielomianu, złożoność również jest liniowa, ale tym razem względem liczby niezerowych współczynników wielomianów. Jak widać, w~sytuacji, gdy stopień wielomianu jest znacznie większy od liczby zerowych współczynników, reprezentacja wielomianu ma niebagatelne znaczenie.
+
+Dodatkowo, podobnie jak w~przypadku porównywania liczb i~sprawdzania kolejnych bitów, operacja porównania kończy się w~momencie stwierdzenia, że porównywane współczynniki są różne lub porównaliśmy ze sobą już wszystkie współczynniki. Wynika z~tego, że zakładając stały czas porównywania dwóch liczb, będących współczynnikami wielomianów, operacja porównania różnych wielomianów nigdy nie jest dłuższa od stwierdzenia, że porównywane wielomiany są równe.
+
+\subsubsection{Suma wielomianów}
+
+Dodawanie to kolejne elementarne działanie na wielomianach, które nie wymaga wykonywania skomplikowanych obliczeń.
+
+\begin{theorem}
+	$ $\\
+	Aby dodać dwa wielomiany, należy dodać ich współczynniki, znajdujące się przy tych samych potęgach.
+\end{theorem}
+
+Podobnie jak w~przypadku porównywania czas dodawania wielomianów jest liniowy, a~ich reprezentacja ma zasadniczy wpływ na liczbę operacji dodawania. Pokażmy zastosowanie powyższego twierdzenia na przykładzie.
+
+\begin{example}
+	$ $\\
+	Mamy dane wielomian $W_1$ oraz wielomian $W_2$.
+	\begin{equation*}
+	\begin{split}
+	W_1(x) &= a_0x^n + a_1x^{n-1} + ... + a_{n-1}x + a_n \\
+	W_2(x) &= b_0x^n + b_1x^{n-1} + ... + b_{n-1}x + b_n \\
+	\end{split}
+	\end{equation*}
+	Zdefiniujmy trzeci wielomian $W_3(x) = W_1(x) + W_2(x)$. Wówczas $W_3(x) = (a_0+b_0)x^n + (a_1+b_1)x^{n-1} + ... + (a_{n-1} + b_{n-1})x + (a_n + b_n)$
+\end{example}
+
+Na powyższym przykładzie łatwo zaobserwować, że stopień sumy dwóch wielomianów nie może być większy od większego ze stopni dodawanych wielomianów. Znajduje to potwierdzenie w~twierdzeniu, dotyczącym stopnia sumy wielomianów.
+
+\begin{theorem}
+	$ $\\
+	$\deg(W_1 + W_2) \le \max(\deg(W_1),\deg (W_2))$
+\end{theorem}
+
+W przedstawionym twierdzeniu, należy zwrócić uwagę na operator mniejsze równe. W~przypadku, gdy oba te wielomiany są tego samego stopnia, o~przeciwnym współczynniku przy najwyższej potędze, to stopień ten będzie mniejszy.
+
+\subsubsection{Różnica wielomianów}
+
+Odejmowanie to operacja bliźniacza do dodawania, nie tylko w~przypadku liczb, ale także w~przypadku wielomianów. By pokazać olbrzymie podobieństwo tych operacji, zacznijmy od zapoznania się z~definicją wielomianu przeciwnego.
+
+\begin{definition}
+	$ $\\
+	Wielomianem przeciwnym nazywamy wielomian, którego wszystkie współczynniki są przeciwne do danych.
+\end{definition}
+
+Spójrzmy na poniższy przykład, pokazujący, że dla każdego wielomianu można bardzo prosto zdefiniować wielomian przeciwny, zmieniając znak wszystkich jego współczynników.
+
+\begin{example}
+	$ $\\
+	Mamy dany wielomian $W_1$.
+	\begin{equation*}
+	W_1(x) = a_0x^n + a_1x^{n-1} + ... + a_{n-1}x + a_n
+	\end{equation*}
+	Zdefiniujmy drugi wielomian: $W_2(x) = -W_1(x)$. Wówczas:
+	\begin{equation*}
+	W_1(x) = -a_0x^n + (-a_1)x^{n-1} + ... + (-a_{n-1})x + (-a_n)
+	\end{equation*}
+\end{example}
+
+Wiemy już, czym jest wielomian przeciwny. Przedstawmy teraz twierdzenie mówiące jak odejmować od siebie wielomiany.
+
+\begin{theorem}
+	$ $\\
+	Aby obliczyć różnicę wielomianów $W_1$ i~$W_2$, należy dodać ze sobą wielomiany $W_1$ i~$-W_2$, czyli wielomian przeciwny do wielomianu $W_2$.
+\end{theorem}
+
+Jak widać, przedstawione twierdzenie potwierdza analogię obliczania różnicy i~sumy wielomianów. Spójrzmy na przykład pokazujący, jak obliczać różnicę wielomianów, potrafiąc już je do siebie dodawać.
+
+\begin{example}
+	$ $\\
+	Mamy dane wielomian: $W_1(x) = a_0x^n + a_1x^{n-1} + ... + a_{n-1}x + a_n$, $W_2(x) = b_0x^n + b_1x^{n-1} + ... + b_{n-1}x + b_n$. Zdefiniujmy trzeci wielomian: $W_3(x) = W_1(x) - W_2(x)$. Wówczas wielomian $W_3(x) = (a_0-b_0)x^n + (a_1-b_1)x^{n-1} + ... + (a_{n-1} - b_{n-1})x + (a_n - b_n)$.
+\end{example}
+
+Warto zauważyć, że wielomianem neutralnym ze względu na dodawanie i~odejmowanie jest wielomian $W(x)=0$. Oznacza to, że po dodaniu lub odjęciu wielomianu neutralnego, dostaniemy wynik, będący danym wielomianem.
+
+\subsubsection{Iloczyn wielomianów}
+
+Mnożenie to kolejna operacja zaliczająca się do podstawowych działań na wielomianach. Jego zasady przypominają nieco zwykłe mnożenie. Dokonujemy przemnożenia odpowiednich wyrazów, z~tą różnicą, że w~tym przypadku po prostu dodajemy wartości potęg dla odpowiednich współczynników. Zapoznajmy się z~twierdzeniem, mówiącym dokładnie jak należy obliczać iloczyn wielomianów.
+
+\begin{theorem}
+	$ $\\
+	Aby pomnożyć dwa wielomiany, należy wymnożyć przez siebie wyrazy obu wielomianów, a~następnie dodać do siebie wyrazy podobne.
+\end{theorem}
+
+Jak wynika z~przedstawionej definicji poza mnożeniem dwóch liczb, mnożenie wielomianów w~części polega na redukcji wyrazów podobnych, czyli operacji bazującej na dodawaniu. Spójrzmy na przykład, pokazujący jak definiuje się wielomian, będacy iloczynem dwóch wielomianów.
+
+\begin{example}
+	$ $\\
+	Mamy dane wielomian $W_1$ oraz wielomian $W_2$.
+	\begin{equation*}
+	\begin{split}
+	W_1(x) &= a_0x^n + a_1x^{n-1} + ... + a_{n-1}x + a_n \\
+	W_2(x) &= b_0x^m + b_1x^{m-1} + ... + b_{m-1}x + b_m \\
+	\end{split}
+	\end{equation*}
+	Zdefiniujmy trzeci wielomian: $W_3(x) = W_1(x) \cdot W_2(x)$. Wówczas:
+	\begin{equation*}
+	\begin{split}
+	W_3(x) &= (a_0b_0)x^{n+m} + (a_0b_1+a_1b_0)x^{n+m-1} + (a_0b_2+a_1b_1+a_2b_0)x^{n+m-1} + ... + \\
+	&(a_{n-2}b_m + a_{n-1}b_{m-1}+a_nb_{m-2})x^2 + (a_{n-1}b_m + a_nb_{m-1})x + a_nb_m
+	\end{split}
+	\end{equation*}
+\end{example}
+
+Można zauważyć, że po wymnożeniu wszystkich współczynników wielomianu liczba wyrazów iloczynu wynosi $(n+1)(m+1)$. Po dokonaniu redukcji wyrazów podobnych, liczba ta ulega zmniejszeniu do wartości $n+m+1$. Oznacza to zmianę liczby wyrazów z~wartości kwadratowej, do wartości liniowej względem stopni wielomianów. Liczba wyrazów podobnych, po przemnożeniu dwóch wielomianów jest symetryczna względem wykładników potęg poszczególnych współczynników. Można zauważyć, że skrajne wyrazy posiadają tylko po jednym wyrazie potęgi, a~zbliżając się do współczynników o~środkowych indeksach, liczba ta wzrasta, aż do wartości równej połowie stopnia otrzymanego wielomianu.
+
+Widzimy, że czas operacji mnożenia wielomianów jest kwadratowy, względem stopni mnożonych przez siebie czynników. Należy zauważyć, że jeżeli użyjemy reprezentacji wielomianu, w~których posiadamy informację tylko o~jego niezerowych współczynnikach, to czas operacji mnożenia będzie nadal kwadratowy, ale względem liczby tych współczynników. Dla wielomianów wysokich stopni, w~których zaledwie kilka współczynników jest niezerowych różnica ta może być niebagatelna i~w~skrajnych przypadkach czas operacji może zmniejszyć się z~kwadratowego, do czasu stałego.
+
+Na podstawie powyższego przykładu, możemy także zaobserwować, że stopień wielomianu, będącego iloczynem dwóch wielomianów niezerowych, jest standardowo równy sumie stopni tych wielomianów. Wyjątkiem jest sytuacja, gdy jeden z~czynników jest wielomianem zerowym. Wówczas wynik takiej operacji również będzie wielomianem zerowym. Fakt ten znajduje potwierdzenie w~poniższym twierdzeniu.
+
+\begin{theorem}
+	$ $\\
+	$\deg(W_1 \cdot W_2) = \deg(W_1) + \deg(W_2)$, dla $W_1(x) \neq 0, W_2(x) \neq 0$. $W_1(x) \cdot W_2(x) = 0$, w~pozostałych przypadkach
+\end{theorem}
+
+Z powyższego twierdzenia można zauważyć, że stopień otrzymanego wielomianu nigdy nie będzie wyższy od dwukrotności większego ze stopni mnożonych wielomianów.
+
+\subsubsection{Iloraz wielomianów}
+
+Dzielenie to zdecydowanie najtrudniejsza z~elementarnych operacji na wielomianach. Aby dobrze zrozumieć jego zasady zapoznajmy się z~definicją podzielności wielomianów oraz dzielnika wielomianu.
+
+\begin{definition}
+	$ $\\
+	Wielomian $W(x)$ nazywamy podzielnym przez niezerowy wielomian $P(x)$ wtedy i~tylko wtedy, gdy istnieje taki wielomian Q(x), że spełniony jest warunek $W(x) = P(x) \cdot Q(x)$. Wówczas wielomian $Q(x)$ nazywamy ilorazem wielomianu $W(x)$ przez $P(x)$, zaś wielomian $P(x)$ nazywamy dzielnikiem wielomianu $W(x)$.
+\end{definition}
+
+Bardzo ważnym aspektem obliczania ilorazu wielomianów jest reszta z~dzielenia. Spójrzmy na poniższą definicję.
+
+\begin{definition}
+	$ $\\
+	Wielomian $R(x)$ nazywamy resztą z~dzielenia wielomianu $W(x)$ przez niezerowy wielomian $P(x)$ wtedy i~tylko wtedy, gdy istnieje taki wielomian $Q(x)$, że spełniony jest warunek $W(x) = P(x) \cdot Q(x) + R(x)$ i~$\deg(R) < \deg(P)$.
+\end{definition}
+
+Łatwo zauważyć analogię w~wyżej przedstawionych wzorach. Różnią się one właśnie wielomianem $R(x)$, czyli resztą z~dzielenia. Gdy jest ona wielomianem zerowym, to znaczy, że mamy do czynienia z~dzieleniem bez reszty i~mówimy o~podzielności dwóch wielomianów. Spórzmy na przykład, w~którym zdefiniowane zostały dwa wielomiany, będące ilorazem i~resztą z~dzielenia dwóch wielomianów.
+
+\begin{example}
+	$ $\\
+	wielomian $W$ oraz wielomian $P$. \\
+	\begin{equation*}
+		\begin{split}
+		W(x) &= a_0x^n + a_1x^{n-1} + ... + a_{n-1}x + a_n \\
+		P(x) &= b_0x^m + b_1x^{m-1} + ... + b_{m-1}x + b_m \\
+		\end{split}
+	\end{equation*}
+	Niech $Q(x)$ jest ilorazem wielomanów $W(x)$ i~$P(x)$ oraz $R(x) = W(x)\bmod P(x)$. Wówczas: \\
+	\begin{equation*}
+		\begin{split}
+		Q(x) &= c_0x^{n-m} + c_1x^{n-m-1} + ... + c_{n-m-1}x + c_{n-m},\text{ gdzie }c_0\ne 0 \\
+		R(x) &= d_0x^{n-m-1} + d_1x^{n-m-2} + ... + d_{n-m-2}x + d_{n-m-1} \\
+		\end{split}
+	\end{equation*}
+\end{example}
+
+Zwróćmy uwagę na potęgi stojące przy najwyższych potęgach wielomianów $Q(x)$ oraz $R(x)$. Widzimy, że stopień ilorazu wielomianów jest zawsze równy różnicy stopni wielomianów, będących dzielną i~dzielnikiem. Najważniejszym aspektem jest jednak fakt, że stopień reszty z~dzielenia wielomianów jest zawsze mniejszy od stopnia ilorazu. Nie można natomiast ustalić jego wartości, bez dokładnej znajomości wielomianów $W$ i~$P$. W~przykładzie podkreślony został fakt, że współczynnik stojący przy $x$, o~potędze $n-m-1$ może być zerem. To samo tyczy się także kolejnych współczynników. Gdy wszystkie one są zerami, to znaczy, że mamy do czynienia z~resztą, będącą wielomianem zerowym. Oznacza to wówczas, że wielomian W jest podzielny przez wielomian $P$. Poniżej znajduje się twierdzenie, o~stopniach wielomianów, będących ilorazem i~resztą z~dzielenia.
+
+\begin{theorem}
+	$ $\\
+	$\deg(W_1 \bmod W_2) < \deg(W_1 / W_2) = \deg(W_1) - \deg(W_2)$
+\end{theorem}
+
+Jak widać, twierdzenie potwierdza nasze obserwacje i~wnioski dotyczące stopni obu wielomianów.
+
+\subsubsection{Pochodna wielomianu}
+
+Wielomiany pozwalają na obliczanie pochodnych. By przekonać się, że jest to przykład jednej z~prostszych operacji na wielomianach, zapoznajmy się z~definicją.
+
+\begin{definition}
+	$ $\\
+	Dany jest wielomian $W$, określony wzorem $W(x) = a_0x^n + a_1x^{n-1} + ... + a_{n-1}x + a_n$, gdzie $n\ge1$. Pochodną wielomianu $W$ nazywamy wielomian $W'$ i~wyrażamy wzorem:
+	$W'(x) = na_0x^{n-1} + (n-1) a_1x^{n-2} + ... + 2a_{n-2}x + a_{n-1}$.
+\end{definition}
+
+Widzimy, że powstały wielomian powstał poprzez pomnożenie wartości każdego z~współczynników przez stojącą przy danym wyrazie potęgę, a~następnie obniżenie jej wartości o~jeden. W~ten sposób potęgi wszystkich wyrazów wielomianu obniżają się. Wyjątkiem jest tutaj potęga o~wartości zero, czyli stała. Pochodna z~funkcji stałej jest zawsze równa zero, dlatego została pominięta w~powyższym wzorze. O~stopniu pochodnej wielomianu mówi poniższe twierdzenie.
+
+\begin{theorem}
+	$ $\\
+	$\deg(W') = \deg(W) - 1$, dla $\deg(W) > 0$. $W(x) = 0$, w~pozostałych przypadkach
+\end{theorem}
+
+Jak widać dla wszystkich wielomianów, nie będących stałą liczbową, stopień ich pochodnej ulega zmniejszeniu o~jeden. Czas operacji obliczania pochodnej wielomianu jest porównywalny, z~obliczaniem sumy wielomianów, gdyż wystarczy, że dokonamy jednokrotnego obliczania każdego z~współczynników.
+
+\subsection{Największy wspólny dzielnik wielomianów}
+
+Zacznijmy od zastanowienia się, co znaczy, że dany wielomian dzieli inny wielomian. Zapoznajmy się z~poniższą definicją.
+
+\begin{definition}
+	$ $\\
+	Wspólnym dzielnikiem dwóch wielomianów $W_1$ i~$W_2$, nazywy taki wielomian $W_3$, że gdy podzielimy dowolny z~tych dwóch wielomianów przez $W_3$ to otrzymamy zerową resztę z~dzielenia.
+\end{definition}
+
+\begin{definition}
+	$ $\\
+	Największym wspólnym dzielnikiem dwóch wielomianów $W_1$ i~$W_2$, nazywy ten wspólny dzielnik, którego stopień jest najwyższy.
+\end{definition}
+
+By zapewnić jednoznaczność wielomianów, w~dalszej części mówiąc o~NWD dwóch wielomianów zawsze będziemy mieli na myśli taki wielomian, którego współczynnik stojący przy najwyższej potędze jest równy $1$. Zauważmy, że powyższa definicja jest analogiczna, jak w~przypadku liczb naturalnych.
+Co oznacza największy wspólny dzielnik? W przypadku liczb jest to dowolna liczba naturalna spełniająca powyższy warunek. Podobnie jest dla wielomianów. Spośród wszystkich wielomianów, które spełniają to kryterium, jest to ten, którego stopień jest najwyższy. Potwierdza to poniższa definicja.
+
+Zapoznajmy się teraz z~twierdzeniem dotyczącym sposobu, w~jaki obliczamy nwd dwóch wielomianów. Metoda ta jest również znana pod pojęciem algorytmu Euklidesa.
+
+\begin{theorem}
+	$ $\\
+	Aby obliczyć największy wspólny dzielnik dla wielomianów $W_1$ i~$W_2$, musimy dokonać obliczenia kolejnych reszt z~dzielenia. Pierwsza z~nich jest obliczana dla ilorazu $W_1$ i~$W_2$. Kolejne obliczane są dla dotychczasowego dzielnika i~otrzymanej reszty. Dzielenia kończą się w~momencie, gdy otrzymana reszta jest stopnia zerowego. Jeżeli jest ona wielomianem zerowym, oznacza to, że największym wspólnym dzielnikiem jest ostatni dzielnik. W~przeciwnym wypadku, czyli w~momencie, gdy wielomian ten jest liczbą różną od zera, najwiekszy wspólny dzielnik jest wielomianem stopnia zerowego, a~oba wielomiany nie mają wspólnych pierwiastków. 
+\end{theorem}
+
+Zauważmy, że na podstawie twierdzenia, przedstawionego wcześniej, wiemy, że reszta z~dzielenia dwóch wielomianów jest mniejsza od różnicy ich stopni. Oznacza, to że jej stopień będzie maleć w~przypadku kolejnych dzieleń. Fakt te, daje nam gwarancję, że liczba dzieleń, których musimy dokonać jest skończona i~nie większa niż stopień wielomianu $W_2$. Przeanalizujmy poniższy przykład.
+
+\begin{example}
+	$ $\\
+	Mamy dane wielomiany: $W_1(x) = x^2(x-1)(x-2)^2$ oraz $W_2(x) = (x-1)(x-2)(x-3)$. Gdy mamy wielomiany rozłożone na czynniki, wartość $NWD(W_1, W_2)$ jest oczywista i~równa iloczynowi wspólnych czynników. Zatem w~tym przypadku wynosi ona $(x-1)(x-2)$. Zapisując otrzymany wielomian w~innej postaci otrzymamy $x^2-3x+2$. Wymnóżmy teraz kolejne czynniki wielomianów $W_1$ i~$W_2$ i~udowodnijmy, że twierdzenie o~znajdowaniu największego wspólnego współczynnika jest poprawne.
+	\begin{equation*}
+		\begin{split}
+			W_1(x) &= x^2(x-1)(x-2) = x^4-6x^3+13x^2-12x+4 \\
+			W_2(x) &= (x-1)(x-2)(x-3) = x^3-6x^2+11x-6 \\
+		\end{split}
+	\end{equation*}
+	Podzielmy teraz wielomian $W_1$ przez wielomian $W_2$.
+	
+	\begin{equation*}
+	\begin{split}
+	&x\\\hline
+	&x^4-6x^3+13x^2-12x+44 : (x^3-6x^2+11x-6) \\
+	&-x^6+4x^4+2x^3-3x^2-2x \\\hline
+	&x^2-3x+2x
+	\end{split}
+	\end{equation*}
+	
+	Widzimy, że otrzymana reszta wielomianu, nie jest wielomianem stopnia zerowego. Dokonujemy więc kolejnego dzielenia, przy czym nasz dotychczasowy dzielnik staje się nową dzielną, a~otrzymana reszta dzielnikiem.
+	
+	\begin{equation*}
+	\begin{split}
+	&x-3\\\hline
+	&x^3-6x^2+11x-6 : (x^2-3x+2) \\
+	&-x^3+3x^2-2x \\\hline
+	&-3x^2+9x-6 \\
+	&3x^2-9x+6  \\\hline
+	&0
+	\end{split}
+	\end{equation*}
+	
+	Otrzymaną resztą z~dzielenia jest wielomian zerowy, zatem dzielnik tego działania jest największym wspólnym dzielnikiem dla wielomianów $W_1$ i~$W_2$.
+\end{example}
+
+W tym miejscu warto wspomnieć o~istnieniu $NWW$ wielomianów, czyli ich najmniejszej wspólnej wielokrotności. Zapoznajmy się z~jego definicją.
+
+\begin{definition}
+	$ $\\
+	Najmniejszą wspólną wielokrotnością dwóch wielomianów $W_1$ i~$W_2$ nazywamy taki wielomian $W_3$, który jest wielokrotnością wielomianów $W_1$ i~$W_2$ o~możliwie najmniejszym stopniu.
+\end{definition}
+
+Należy zauwazyć, że istnieje tylko jeden taki wielomian, jeżeli założymy, że współczynnik stojący przy najwyższej potędze jest równy $1$. Jest to termin ścisle związany z~NWD. Potwierdza związane z~nim twierdzenie.
+
+\begin{theorem}
+	Aby obliczyć najmniejszą wspólną wielokrotność dwóch wielomianów $W_1$ i~$W_2$, należy obliczyć wartość ilorazu z~ich iloczynu i~ich największego wspólnego dzielnika.
+\end{theorem}
+
+Dodatkowo należy podkreślić, że $NWW$ dwóch wielomianów posiada wszystkie pierwiastki, które posiadał dowolny z~nich. Krotność jej dowolnego pierwiastka jest równa jego maksymalnej krotności dla wielomianów, dla których została obliczona.
+
+\subsection{Dodatkowe twierdzenia dotyczące wielomianów}
+
+Istnieje mnóstwo twierdzień dotyczących wielomianów. Zapoznajmy się z~tymi, które ułatwią nam znajdowanie pierwiastków wielomianów. Zapoznajmy się z~pierwszym twierdzeniem, mówiącym o~możliwości zamienienia dowolnego wielomianu o~współczynnikach wymiernych, w~wielomian o~współczynnikach całkowitych.
+
+\begin{theorem}
+	$ $\\
+	Dowolny wielomian $W_1(x) = \frac{a_n}{b_n}x^n + \frac{a_{n-1}}{b_{n-1}}x^{n-1} + ... + \frac{a_1}{b_1}x + \frac{a_0}{b_0}$, o~współczynnikach wymiernych, można przekształcić w~wielomian $W_2(x) = k \cdot W_1(x)$, o~współczynnikach całkowitych i~tych samych pierwiastkach, co wielomian W. Wówczas:
+	\begin{equation*}
+	k = m \cdot NWW(b_0, b_1, ..., b_{n-1}, b_n)\text{, gdzie }m\in Z
+	\end{equation*}
+\end{theorem}
+
+Twierdzenie to oznacza, że dysponując wyłącznie współczynnikami, będącymi liczbami całkowitymi, jesteśmy w~stanie przedstawić dowolny wielomian o~współczynnikach wymiernych. Przejdźmy teraz do twierdzenia, mówiącego o~wartości wielomianu w~danym punkcie.
+
+\begin{theorem}
+	$ $\\
+	Jeżeli wielomian W(x) podzelimy przez dwumian $x - x_0$, to reszta z~tego dzielenia jest równa wartości tego wielomianu dla $x = x_0$.
+\end{theorem}
+
+W szczególnym przypadku reszta ta może być równa zero. Oznacza to, że liczba $x_0$ jest pierwiastkiem tego wielomianu. Wynika z~tego bezpośrednio kolejne twierdzenie, znane jako twierdzenie Bezout.
+
+\begin{theorem}[Bezout]
+	$ $\\
+	Liczba $x_0$ jest pierwiastkiem wielomianu $W(x)$ wtedy i~tylko wtedy, gdy wielomian jest podzielny przez dwumian $x - x_0$.
+\end{theorem}
+
+Przejdźmy teraz do twierdzenia mówiącego o~pierwiastkach wielokrotnych, bazującego na twierdzeniu Bezout.
+
+\begin{theorem}
+	$ $\\
+	Liczba $x_0$ jest pierwiastkiem k-krotnym wielomianu $W(x)$ wtedy i~tylko wtedy, gdy wielomian jest podzielny przez $(x - x_0)^k$ i~nie jest podzielny przez $(x - x_0)^{k+1}$.
+\end{theorem}
+
+Jedyną różnicą powyższego twierdzenia, w~porównaniu do twierdzenia Bezout, jest to, że wielomian $W$ przedstawiamy jako: $W(x) = (x-x_0)^k \cdot Q(x)$. Zapoznajmy się z~twierdzeniem, mówiących o~możliwej wartości pierwiastków, o~ile są one całkowite.
+
+\begin{theorem}
+	$ $\\
+	Dany jest wielomian $W(x) = x^n + a_{n-1}x^{n-1} + ... + a_1x + a_0$, o~współczynnikach całkowitych. Jeżeli wielomian $W$ posiada pierwiastki całkowite, to są one dzielnikami wyrazu wolnego $a_0$.
+\end{theorem}
+
+Przejdźmy teraz do twierdzeń mówiących o~możliwości rozłożenia wielomianu na czynniki.
+
+\begin{theorem}
+	$ $\\
+	Każdy wielomian $W(x)$ jest iloczynem czynników stopnia co najwyżej drugiego.
+\end{theorem}
+
+Oznacza to, że każdy wielomian stopnia co najmniej trzeciego jest rozkładalny na czynniki. Z powyższego twierdzenia wynika kolejne, mówiące, że rozkład ten jest zawsze jednoznaczny.
+
+\begin{theorem}
+	$ $\\
+	Niezerowy wielomian, o~współczynnikach rzeczywistych, jest jednoznacznie rozkładalny na czynniki liniowe lub nierozkładalne czynniki kwadratowe, o~współczynnikach rzeczywistych zakładając, że wartość współczynnika stojącego przy najwyższej potędze jest równa $1$.
+\end{theorem}
+
+Oznacza to, że nie da się rozłożyć jednego wielomianu na czynniki, na dwa różne sposoby, tzn. tak, by istniał chociaż jeden czynnik (lub jego proporcjonalny odpowiednik), nie występujący w~drugim rozkładzie. Ważnym aspektem, wynikającym z~powyższego twierdzenia jest mowa, o~tym że nie wszystkie wielomiany da się rozłożyć na czynniki liniowe, o~współczynnikach całkowitych. Spójrzmy na pokazujący to przykład.
+
+\begin{example}
+	$ $\\
+	Mamy dany wielomian $W(x)=x^3-1$. Rozłóżmy go na czynniki.
+	Wiemy, że pierwiastkiem tego wielomianu jest $x_0 = 1$, zatem możemy przedstawić wielomian $W$ jako iloczyn wielomianu $x-1$ oraz drugiego wielomianu.
+	\begin{equation*}
+	W(x)=x^3-1=x^3-x^2+x^2-x+x-1=(x-1)x^2+(x-1)x+x-1 = (x-1)(x^2+x+1)
+	\end{equation*}
+	Jest to równanie kwadratowe, więc najłatwiejszym sposobem na znalezienie jego pierwiastków jest obliczenie jego wyróżnika, zwanego też deltą. Jest on oznaczany jako $\Delta$ i~dla funkcji kwadratowej postaci $ax^2+bx+c$ jest równy $b^2-4ac$. \\
+	$\Delta = 1^2 - 4 \cdot 1 \cdot 1 = 1 - 4 = -3 < 0$ -- brak pierwiastków rzeczywistych\\
+	Jak widać drugi z~czynników jest właśnie przykładem nierozkładalnego czynnika kwadratowego, o~współczynnikach rzeczywistych.
+\end{example}
+
+Powyższy czynnik da się rozłożyć na dwa czynniki liniowe, o~współczynnikach zespolonych. W~pracy tej będziemy jednak mówić wyłącznie o~współczynnikach rzeczywistych, najczęściej zawężając jeszcze zbiór potencjalnych współczynników do liczb wymiernych. Przejdźmy do kolejnego twierdzenia, wynikającego bezpośrednio z~dwóch poprzednich.
+
+\begin{theorem}
+	$ $\\
+	Każdy wielomian stopnia nieparzystego, ma przynajmniej jeden pierwiastek rzeczywisty.
+\end{theorem}
+
+Oznacza to, że każdy wielomian stopnia nieparzystego jesteśmy w~stanie przedstawić jako iloczyn dwóch czynników, z~których jeden jest czynnikiem liniowym, a~drugi czynnikiem stopnia parzystego, który z~kolei być może da się dalej rozłożyć, na wielomiany, o~mniejszych stopniach.
+
+\subsection{Eliminacja pierwiastków wielokrotnych}
+
+Ważnym aspektem obliczanie zer wielomianów jest eliminacja pierwiastków wielokrotnych. Jest ona niezbędna, by móc skorzystać z~metody ciągu Sturma. Zapoznajmy się z~twierdzeniem dotyczącym krotności pierwiastków pochodnej wielomianu.
+
+\begin{theorem}
+	$ $\\
+	Jeżeli liczba jest pierwiastkiem k-krotnym wielomianu $W$, to jest pierwiastkiem $(k-1)$-krotnym pochodnej tego wielomianu.
+\end{theorem}
+
+By lepiej zrozumieć twierdzenie, spójrzmy na poniższy przykład.
+
+\begin{example}
+	$ $\\
+	Mamy dany wielomian $W(x) = x^3 + 2x^2 + x$. Obliczmy teraz kolejne pochodne wielomianu $W$. \\
+	\begin{equation*}
+	\begin{split}
+		W^{(1)}(x) &= 3x^2 + 2 \cdot 2x + 1 = 3x^2 + 4x + 1 \\
+		W^{(2)}(x) &= 2 \cdot 3x + 4 = 6x + 4 \\
+		W^{(3)}(x) &= 6 \\
+	\end{split}
+	\end{equation*}
+	Obliczmy teraz pierwiastki wielomianu $W$ i~jego kolejnych pochodnych. \\
+	$W(x) = x^3 + 2x^2 + x = x(x^2 + 2x +1) = x(x + 1)^2$ \\
+	$x_1 = 0,\ k_1 = 1,\ x_2 = -1,\ k_2 = 2$ \\
+	$W{(1)}(x) = 3x^2 + 4x + 1$ \\
+	By przedstawić rozłożyć powyższy wielomian na czynniki, obliczmy wyróżnik równania kwadratowego.\\
+	$\Delta = 4^2 - 4 \cdot 3 \cdot 1 = 16 - 12 = 4$ \\
+	$\sqrt{\Delta} = 2$ \\
+	$x_1 = \frac{-4-2}{2 \cdot 3} = \frac{-6}{6} = -1,\ k_1 = 1,$\ $_2 = \frac{-4+2}{2 \cdot 3} = \frac{-2}{6} = -\frac{1}{3},\ k_2 = 1$ \\
+	$W^{(2)}(x) = 6x + 4 = 6 (x + \frac{2}{3})$ \\
+	$x_1 = -\frac{2}{3},\ k_1 = 1$ \\
+	$W^{(3)}(x) = 6$ -- brak pierwiastków
+\end{example}
+
+Jak widać powyższy przykład potwierdza zastosowanie przedstawionego twierdzenia. Widzimy, że krotność wszystkich pierwiastków ulega zmniejszeniu o~jeden, w~kolejnej pochodnej. Dodatkowo możemy zauważyć, że pochodna może zawierać także pierwiastki, których nie miał dany wielomian. Ma to miejsce w~przypadku, gdy wielomian, posiada przynajmniej dwa różne pierwiastki. Potwierdza to poniższe twierdzenie.
+
+\begin{theorem}
+	$ $
+	Liczba nowych pierwiastków pochodnej wielomianu $W'$ (takich których nie posiadał wielomian $W$) jest równa liczbie różnych pierwiastków wielomianu pomniejszonej o~jeden.
+\end{theorem}
+
+Spróbujmy teraz skorzystać z~przedstawionego twierdzenia w~przykładzie dokonującym eliminacji pierwiastków wielokrotnych.
+
+\begin{example}
+	$ $ \\
+	Dany jest wielomian W, określony wzorem: $W(x)=x^6-6x^4-4x^3+9x^2+12x+4$. Dokonajmy eliminacji pierwiastków wielokrotnych dla wielomianu $W$. \\
+	Obliczamy pochodną wielomianu. \\
+	$W'(x)=6 \cdot x^5-4 \cdot 6x^3-3 \cdot 4x^2+2 \cdot 9x+12=$ \\
+	$=6x^5-24x^3-12x^2+18x+12=6(x^5-4x^3-2x^2+3x+2)$ \\
+	Obliczmy teraz resztę z~dzielenia wielomianu $W$ przez wielomian $W'$.
+	\begin{equation*}
+	\begin{split}
+		&x\\\hline
+		&x^6-6x^4-4x^3+9x^2+12x+4 : (x^5-4x^3-2x^2+3x+2) \\
+		&-x^6+4x^4+2x^3-3x^2-2x \\\hline
+		&-2x^4-2x^3+6x^2+10x+4
+	\end{split}
+	\end{equation*}
+	
+	Kluczowa jest wartość reszty z~dzielenia. Gdyby otrzymana reszta z~dzielenia była wielomianem zerowym, to pochodna wielomianu była równocześnie $NWD(W, W')$. W~tym przypadku tak jednak nie jest, więc wykonujemy analogiczną operację z~tą różnicą, że nową dzielną jest dotychczasowy dzielnik, a~reszta z~wielomianu jest nowym dzielnikiem. Tę operację wykonujemy tak długo, jak otrzymana reszta jest niezerowego stopnia. W~przypadku gdy jest ona jednocześnie wielomianem zerowym, to podobnie jak wyżej, aktualny dzielnik, jest naszym $NWD(W, W')$. W~przypadku, gdy otrzymana reszta jest niezerowym wielomianem stopnia zerowego, to największym wspólnym dzielnikiem wielomianów jest pewna niezerowa stała.
+\end{example}
+
+\subsection{Twierdzenie Sturma}
+
+Przeanalizujmy na początek sposób konstruowania ciągu Sturma dla wielomianu $W$. Pierwszym wyrazem ciagu jest sam wielomian $W$. Z kolei drugim wyrazem jest pochodna wielomianu $W$. Kolejne wyrazy ciągu Sturma wyznaczamy obliczając resztę z~dzielenia dwóch poprzednich wyrazów. Dzieje się to aż, do uzyskania pierwszej reszty wielomianu, będącej wielomianem stopnia zerowego. Za każdym razem dzieląc wielomian stopnia $n$, przez wielomian stopnia $m$, gdzie $m<n$, mamy gwarancję, że wielomian będacy resztą tego dzielenia będzie stopnia mniejszego niż $m$. Korzystając z~tego faktu, wiemy, że liczba wyrazów ciągu Sturma dla wielomianu $W$ jest niewiększa od $\deg(W)+1$.
+
+\begin{definition}
+	$ $ \\
+	Ciągiem Sturma dla wielomianu $W$ nazywamy ciąg wielomianów: $X_0, X_1, X_2,...$, takich że $X_0=W$, $X_1=W'$, a~kolejne wyrazy definiuje się jako wielomiany przeciwne do reszty z~dzielenia dwóch poprzednich wyrazów, przy czym ostatnim wyrazem ciągu Sturma jest pierwszy wielomian stopnia zerowego. 
+\end{definition}
+
+Wiemy już jak definiować ciąg Sturma. Przeanalizujmy teraz jaki wpływ ma uzyskany ciąg Sturma na obliczanie pierwiastków wielomianu. By to zrobić, zapoznajmy się z~kolejną definicją, mówiącą o~liczbie zmian znaków ciagu Sturma.
+
+\begin{definition}
+	$ $ \\
+	Liczbą zmian znaków ciągu Sturma dla wielomianu $W(x)$ w~punkcie $x$, obliczamy zliczając liczbę zmian pomiędzy kolejnymi wyrazami, pomijac te o~wartości równej zero w~punkcie $x$. Liczbę zmian znaku w~punkcie $x=x_0$ definiujemy jako wartość funkcji $Z(x_0)$.
+\end{definition}
+
+Wiemy już jak obliczać liczbę zmian ciagu Sturma. Sprawdźmy zatem, jak przekłada się ona na liczbę pierwiastków w~danym przedziale.
+
+\begin{theorem}
+	$ $ \\
+	Jeżeli wielomian W(x) nie ma pierwiastków wielokrotnych, to liczba pierwiastków rzeczywistych w~przedziale $a<x\le y$ jest równa $Z(a) - Z(b)$.
+\end{theorem}
+
+W ogólności twierdzenie Sturma można zastosować dla przedziału $(-\infty,+\infty)$, dopuszczając w~ciągu Sturma wartości niewłaściwe $+\infty$ oraz $-\infty$. Wówczas $Z(-\infty)$ będzie oznaczać liczbę zmian znaków w~ciągu $W(-\infty), W_1(-\infty), W_2(-\infty),..., W_m(-\infty)$, zaś $Z(+\infty)$ liczbę zmian w~ciągu $W(+\infty), W_1(+\infty), W_2(+\infty),..., W_m(+\infty)$.
+
+\begin{theorem}
+	$ $ \\
+	Liczba różnych pierwiastków rzeczywistych wielomianu $W(x)$ jest równa $Z(-\infty)-Z(+\infty)$.
+\end{theorem}
+
+Stosując twierdzenie Sturma dla coraz mniejszych przedziałów możliwe jest wyznaczenie pierwiastków wielomianu z~dowolną dokładnością. Sposób ten określony jest mianem metody ciągu Sturma.
+Twierdzenie Sturma jest bardzo mocnym środkiem, używanym do znajdowania pierwiastków w~określonym przedziale. Zapoznajmy się z~twierdzeniem, mówiącym o~ograniczeniach dotyczących maksymalnej liczby zmian znaków dla ciągu Sturma.
+
+\begin{theorem}
+	$ $ \\
+	Liczba zmian znaków ciągu Sturma dla wielomianu $W(x)$ jest mniejsza od liczby wyrazów tego ciągu i~nie większa od stopnia wielomianu $W(x)$.
+\end{theorem}
+
+Można więc zauważyć, że warunkiem wystarczającym i~jednocześnie koniecznym do tego by wielomian $W(x)$ stopnia $n$, posiadający wyłącznie pierwiastki jednokrotne, posiadał $n$ pierwiastków rzeczywistych jest to, by wartość ciągu Sturma wynosiła $n$ dla $\lim_{x \to -\infty}$ oraz $0$ dla $\lim_{x \to +\infty}$. 
+
+Warto zauważyć, że dla liczb dostatecznie dużych, co do wartości bezwzględnej, z~uwzględnieniem wartości dążących do wartości niewłaściwych $+\infty$ oraz $-\infty$ liczba zmian znaków zależy wyłącznie od współczynnika stojącego przy najwyżej potędze wielomianu. Znajduje to potwierdzenie w~poniższym twierdzeniu.
+
+\begin{theorem}
+	$ $ \\
+	Jeżeli współczynnik stojący przy najwyższej potędze wielomianu jest większy od $0$, to wartość tego wielomianu jest większa od $0$ w~punkcie $\lim_{x \to +\infty}$ oraz mniejsza od $0$ w~punkcie $\lim_{x \to -\infty}$.
+	Z kolei, gdy współczynnik stojący przy najwyższej potędze wielomianu jest mniejszy od $0$, to wartość tego wielomianu jest mniejsza od $0$ w~punkcie $x_0$ dążacym do $+\infty$ oraz większa od $0$ w~punkcie $x_0$ dążacym do $-\infty$.
+\end{theorem}
+
+Na podstawie powyższego twierdzenia można zauważyć, że nie ma potrzeby wyliczania wartości wyrazów ciągu sturma dla wartości $x_0$ zbliżonych do $-\infty$ lub $+\infty.$ Dzieje się tak dlatego, że przy odpowiednio dużej wartości bezwzględnej $x_0$, znak wielomianu $W(x)$ w punkcie $x_0$ zależy wyłącznie od współczynnika stojącego przy najwyższyej potędze. Fakt ten ma duży wpływ na optymalizacje obliczeń, gdyż dla niektórych wielomianów możemy ograniczyć się jedynie do sprawdzenia znaku przy najwyższej potędze, pomijąc dzięki temu wiele niepotrzebnych obliczeń
+
+Jeżeli zależy nam na obliczeniu wartości wielomianu, dla odpowiednio dużych $x$, będącego ilorazem dwóch wielomianów, możemy skorzystać z~poniższego twierdzenia.
+
+\begin{theorem}
+	$ $ \\
+	Dany jest wielomian $W_1(x) = a_0x^n + a_1x^{n-1} + a_2x^{n-2} + ... + a_{n-1}x + a_n$, gdzie $a_0 \ne 0$, stopnia $n$ oraz wielomian $W_2(x) = b_0x^n + b_1x^{n-1} + b_2x^{n-2} + ... + b_{n-1}x + b_n,\ gdzie\ b_0 \ne 0$, stopnia $n$. Wówczas
+	wartość z ilorazu $W_1(x)$ przez wielomian $W_2(x)$ przy $x$ dążącym do $+\infty$ lub $x$ dążącym do $-\infty$ jest równa $\frac{a_0}{b_0}$.
+\end{theorem}
+
+Jak widać jesteśmy w~stanie ustalić znak, a~nawet dokładną wartość, największego współczynnika wielomianu, będącego ilorazem dwóch innych wielomianów, wykonując proste dzielenie dwóch liczb, będących odpowiednio najwyższymi współczynnikami wielomianów -- dzielnej i~dzielnika.
