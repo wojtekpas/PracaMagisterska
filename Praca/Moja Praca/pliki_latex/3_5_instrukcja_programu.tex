@@ -12,19 +12,19 @@ Poniżej zamieszczam listę wszystkich instrukcji, pozwalających na zmiane usta
 "set a {value}"
 \end{lstlisting}
 
-Wartość ta jest lewym krańcem przedziału, w~którym aplikacja będzie znajdować pierwiastki rzeczywiste. Domyślną warotścią jest $-1000$. W~przypadku próby ustawienia na wartość równą lub wyższą od aktualnej wartości $b$, polecenie takie zostanie zignorowane.
+Wartość ta jest lewym krańcem przedziału, w~którym aplikacja będzie znajdować pierwiastki rzeczywiste. Domyślną warotścią jest $-1000000$. W~przypadku próby ustawienia na wartość równą lub wyższą od aktualnej wartości $b$, polecenie takie zostanie zignorowane. Podana wartość musi być liczbą całkowitą.
 
 \begin{lstlisting}
 "seb b {value}"
 \end{lstlisting}
 
-Jest to wartość dla prawego krańca przedziału poszukiwań. Domyślną wartością jest $1000$. Analogicznie jak dla wcześniejszego polecenia, komenda zostanie zignorowana jeżeli podana wartość będzie równa lub niższa od aktualnej wartości $a$.
+Jest to wartość dla prawego krańca przedziału poszukiwań. Domyślną wartością jest $1000000$. Analogicznie jak dla wcześniejszego polecenia, komenda zostanie zignorowana gdy liczba nie będzie całkowita lub jeżeli podana wartość będzie równa lub niższa od aktualnej wartości $a$.
 
 \begin{lstlisting}
 "set precision {value}"
 \end{lstlisting}
 
-Jest to liczba cyfr po przecinku, które powinny zostać uwzględnione w~zwracanym wyniku. Domyślną wartoscią jest wartość $6$, oznaczająca zaokrąglanie pierwiastków wielomianu do wartości $(0.1)^6$.
+Jest to liczba cyfr po przecinku, które powinny zostać uwzględnione w~zwracanym wyniku. Domyślną wartoscią jest wartość $6$, oznaczająca zaokrąglanie pierwiastków wielomianu do wartości $(0.1)^6$. Wartość ta nie może być ujemna i jest ograniczona przez zakres wartości typu int.
 
 \begin{lstlisting}
 "set type [{map}{vector}]" -> "set 1 [{m}{v}]"

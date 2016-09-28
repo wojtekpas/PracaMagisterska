@@ -1,8 +1,5 @@
 \begin{thebibliography}{10}
 
-\bibitem{mpir}
-{\em The Multiple Precision Integers and Rationals library, version 2.7.2.}
-
 \bibitem{barbeau2003polynomials}
 E.J. Barbeau.
 \newblock {\em Polynomials}.
@@ -25,7 +22,7 @@ L.N. Childs.
 \newblock Undergraduate Texts in Mathematics. Springer New York, 2012.
 
 \bibitem{cormen2004wprowadzenie}
-T.H. Cormen and K.~Diks.
+T.H. Cormen.
 \newblock {\em Wprowadzenie do algorytm{\'o}w}.
 \newblock Klasyka Informatyki. Wydawnictwa Naukowo-Techniczne, 2004.
 
@@ -33,17 +30,6 @@ T.H. Cormen and K.~Diks.
 T.~Granlund and G.D. Team.
 \newblock {\em Gnu MP 6.0 Multiple Precision Arithmetic Library}.
 \newblock Samurai Media Limited, 2015.
-
-\bibitem{sierpinski1951zasady}
-W.~Sierpi{\'n}ski i~A.~Mostowski.
-\newblock {\em Zasady algebry wy{\.z}szej, z przypisem Andrzeja Mostowskiego
-  Zarys teorii Galois}.
-\newblock Monografie Matematyczne. Nak{\l}adem Polskiego Tow. Matematycznego,
-  1951.
-
-\bibitem{Warmus_Mieczyslaw_(1918-2007)_Metody}
-M.~Warmus i~J.~Łukaszewicz.
-\newblock Metody numeryczne i graficzne. cz. 1.
 
 \bibitem{kryszewski2014wyklad}
 W.~Kryszewski.
@@ -55,11 +41,6 @@ W.~Kryszewski.
 D.S. Malik.
 \newblock {\em Data Structures Using C++}.
 \newblock Cengage Learning, 2009.
-
-\bibitem{polskie1968wiadomosci}
-Polskie~Towarzystwo Matematyczne.
-\newblock {\em Wiadomo{\'s}ci matematyczne}.
-\newblock Pa{\'n}stwowe Wydawn. Naukowe., 1968.
 
 \bibitem{mcnamee2007numerical}
 J.M. McNamee.
@@ -78,5 +59,21 @@ V.~Pan.
 \newblock {\em Structured Matrices and Polynomials: Unified Superfast
   Algorithms}.
 \newblock Birkh{\"a}user Boston, 2012.
+
+\bibitem{polskie1968wiadomosci}
+Polskie~Towarzystwo Matematyczne.
+\newblock {\em Wiadomo{\'s}ci matematyczne}.
+\newblock Pa{\'n}stwowe Wydawn. Naukowe., 1968.
+
+\bibitem{sierpinski1951zasady}
+W.~Sierpi{\'n}ski.
+\newblock {\em Zasady algebry wy{\.z}szej, z przypisem Andrzeja Mostowskiego
+  Zarys teorii Galois}.
+\newblock Monografie Matematyczne. Nak{\l}adem Polskiego Tow. Matematycznego,
+  1951.
+
+\bibitem{Warmus_Mieczyslaw_(1918-2007)_Metody}
+M.~Warmus i~J.~Łukaszewicz.
+\newblock Metody numeryczne i graficzne. cz. 1.
 
 \end{thebibliography}
