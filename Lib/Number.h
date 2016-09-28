@@ -445,7 +445,7 @@ inline string Number::ToString()
 	mpq_get_den(denominator, value);
 	mpz_t precision;
 	mpz_init(precision);
-	int dec_precision = 100000;
+	int dec_precision = 100000000;
 	mpz_set_d(precision, dec_precision);
 	mpz_t res;
 	mpz_t fract;
@@ -601,7 +601,7 @@ inline void InitConstants()
 	mpq_init(c);
 	mpz_set_d(a, 1);
 	mpq_set_d(c, -1);
-	mpz_set_d(b, 100000);
+	mpz_set_d(b, 100000000);
 	mpq_set_num(PRECISION_VALUE.value, a);
 	mpq_set_den(PRECISION_VALUE.value, b);
 	mpz_pow_ui(b, b, 100);

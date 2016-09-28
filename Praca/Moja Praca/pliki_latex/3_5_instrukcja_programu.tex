@@ -2,7 +2,7 @@
 
 Instrukcja dotyczy obsługi programu, który został poprawnie zainstalowany. Jeżeli nie zostało to wykonane, w~celu jego pierwszego uruchomienia, niezbędne jest wcześniejsze wykonanie instrukcji przedstawionych w~poprzednim podrozdziale.
 
-Wszystkie komendy, na które pozwala nam aplikacja wykonujemy jako zapytania zdefiniowane w~pojedynczej linii wejściowej. Zdefiniowałem dwa typy poleceń. Pierwszym z~nich jest wprowadzenie wielomianu w~wybranej przez siebie, poprawnej składniowo, postaci. Jedynym znaczącym ograniczeniem jest brak bezpośredniej możliwości wprowadzania typów zmienno przecinkowych. Jeżeli chcemy wprowadzić wartość ułamkową np. 1.4 musimy przedstawić jej wartość jako iloraz, czyli np.\ w~postaci "14/10".
+Wszystkie komendy, na które pozwala nam aplikacja wykonujemy jako zapytania zdefiniowane w~pojedynczej linii wejściowej. Zdefiniowałem dwa typy poleceń. Pierwszym z~nich jest wprowadzenie wielomianu w~wybranej przez siebie, poprawnej składniowo, postaci. Jedynym znaczącym ograniczeniem jest brak bezpośredniej możliwości wprowadzania typów zmiennoprzecinkowych. Jeżeli chcemy wprowadzić wartość ułamkową, np. 1.4 musimy przedstawić jej wartość jako iloraz, czyli np.\ w~postaci "14/10".
 
 Drugim typem komendy jest zmiana domyślnych ustawień dla wybranych wartości liczbowych i dodatkowych funkcjonalności. Opcja ta pozwala użytkownikowi aplikacji na większą porcję informacji niż wartości pierwiastków rzeczywistych. By dana linia była traktowana jako wielomian wejściowy wystarczy po prostu wpisać jego wartość. Jeżeli zaś chcemy, by pozwoliła ona na zmiane wskazanej wartości musimy rozpocząć ją od wyrażenia "set". Dzięki temu sformułowaniu aplikacja będzie wiedziała, że dane zapytanie nie powinno być traktowane jako wartość wielomianu, ale przełączenie odpowiedniej opcji.
 
@@ -37,7 +37,7 @@ Warto zaznaczyć, że polecenie posiada też wersję skróconą. Ma to na celu �
 \begin{lstlisting}
 "set displaying roots [{1}{0}]" -> "set 2 [{1}{0}]"
 \end{lstlisting}
-Polecenie pozwala decydować, czy wartość obliczonych pierwiastków powinna być wyświetlana. Domyślnie ustawiona jest wartość $1$, która powoduje, że każdy znaleziony pierwiastek rzeczywisty zostanie wypisany na ekran. Warto zauważyć, że pierwiastki wielokrotne zostaną wypisanę tylko jeden raz.
+Polecenie pozwala decydować, czy wartość obliczonych pierwiastków powinna być wyświetlana. Domyślnie ustawiona jest wartość $1$, która powoduje, że każdy znaleziony pierwiastek rzeczywisty zostanie wypisany na ekran. Warto zauważyć, że pierwiastki wielokrotne zostaną wypisane tylko jeden raz.
 
 \begin{lstlisting}
 "set displaying sturm [{0}{1}]" -> "set 3 [{0}{1}]"
@@ -63,4 +63,4 @@ Polecenie pozwala na wyświetlenie wielomianu po eliminacji jego pierwiastków w
 
 Komenda pozwala na zmierzenie czasu znajdowania pierwiastków wielomianu. Wypisywana wartość oznacza liczbę milisekund, którą trwało znalezienie wszystkich pierwiastków rzeczywistych. Domyślną wartością jest $0$, oznaczające brak wykonywania pomiaru.
 
-Jeżeli chcemy wyłączyć aplikację, program, poza standardową opcją wyłączenia, daje nam także dodatkową możliwość. Jeżeli dana linia będzie zawierała pojedynczy znak 'q' (od ang. "quit") program zakończy swoją pracę. Dodatkowo nastąpi to także w~przypadku, gdy seria stu kolejnych zapytań będzie niepoprawna. Warto zaznaczyć, że wszystkie dokonane zmiany są trwałe tylko dla danego uruchomienia aplikacji. Po ponownym uruchomieniu ich ustawienia popnownie wracają do wartości domyślnych.
+Jeżeli chcemy wyłączyć aplikację, program, poza standardową opcją wyłączenia, daje nam także dodatkową możliwość. Jeżeli dana linia będzie zawierała pojedynczy znak 'q' (od ang. "quit") program zakończy swoją pracę. Dodatkowo nastąpi to także w~przypadku, gdy seria stu kolejnych zapytań będzie niepoprawna. Warto zaznaczyć, że wszystkie dokonane zmiany są trwałe tylko dla danego uruchomienia aplikacji. Po ponownym uruchomieniu ich ustawienia ponownie wracają do wartości domyślnych.

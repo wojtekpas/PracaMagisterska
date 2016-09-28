@@ -11,9 +11,7 @@
 	gdzie $a_0, a_1, a_2, ..., a_{n-1}, a_n\in R$ i~$n \in N$
 \end{definition}
 
-Liczby $a_0, a_1, a_2, ..., a_{n-1}, a_n$ nazywamy współczynnikami wielomianu, natomiast $n$ nazywamy stopniem wielomianu.
-
-Szczególnym przypadkiem wielomianu jest jednomian. 
+Liczby $a_0, a_1, a_2, ..., a_{n-1}, a_n$ nazywamy współczynnikami wielomianu, natomiast $n$ nazywamy stopniem wielomianu. Szczególnym przypadkiem wielomianu jest jednomian. 
 
 \begin{definition}
 	$ $\\
@@ -35,14 +33,14 @@ W dalszej części, jeżeli nie zaznaczymy inaczej, mówiąc wielomian, będziem
 Na wielomianach, tak jak na liczbach, możemy wykonywać podstawowe działania. Należą do nich: porównywanie, dodawanie, odejmowanie, mnożenie, dzielenie, a~także obliczanie reszty z~dzielenia. Jako, że wielomian zmiennej $x$ możemy traktować jak funkcję jednej zmiennej, możemy także policzyć z~niego pochodną.
 
 \subsubsection{Porównywanie wielomianów}
-Porównywanie należy do najbardziej elementarnych działań na wielomianach. Wymaga ono zwykłego porównania kolejnych współczynników, a~jego długość trwania, zależy od ich liczby. Zapoznajmy się z~twierdzeniem dotyczącym operacji porównywania wielomianów.
+Porównywanie należy do najbardziej elementarnych działań na wielomianach. Wymaga ono zwykłego porównania kolejnych współczynników, a~jego długość trwania zależy od ich liczby. Zapoznajmy się z~twierdzeniem dotyczącym operacji porównywania wielomianów.
 
 \begin{theorem}
 	$ $\\
 	Dwa wielomiany uważamy za równe wtedy i~tylko wtedy, gdy są tego samego stopnia, a~ich kolejne współczynniki są równe.
 \end{theorem}
 
-Powyższe twierdzenie nie jest złożone, nie mniej w~celu pełnego zrozumienia, zilustrujmy je przykładem. 
+Powyższe twierdzenie nie jest złożone, niemniej w~celu pełnego zrozumienia, zilustrujmy je przykładem. 
 
 \begin{example}
 	$ $\\
@@ -118,11 +116,7 @@ Jak widać, przedstawione twierdzenie potwierdza analogię obliczania różnicy 
 
 \begin{example}
 	$ $\\
-	Mamy dane wielomian $W_1$ oraz wielomian $W_2$.
-	$W_1(x) = a_0x^n + a_1x^{n-1} + ... + a_{n-1}x + a_n$ \\
-	$W_2(x) = b_0x^n + b_1x^{n-1} + ... + b_{n-1}x + b_n$ \\
-	Zdefiniujmy trzeci wielomian: $W_3(x) = W_1(x) - W_2(x)$. Wówczas: \\
-	$W_3(x) = (a_0-b_0)x^n + (a_1-b_1)x^{n-1} + ... + (a_{n-1} - b_{n-1})x + a_n - b_n$
+	Mamy dane wielomian: $W_1(x) = a_0x^n + a_1x^{n-1} + ... + a_{n-1}x + a_n$, $W_2(x) = b_0x^n + b_1x^{n-1} + ... + b_{n-1}x + b_n$. Zdefiniujmy trzeci wielomian: $W_3(x) = W_1(x) - W_2(x)$. Wówczas wielomian $W_3(x) = (a_0-b_0)x^n + (a_1-b_1)x^{n-1} + ... + (a_{n-1} - b_{n-1})x + (a_n - b_n)$.
 \end{example}
 
 Warto zauważyć, że wielomianem neutralnym ze względu na dodawanie i~odejmowanie jest wielomian $W(x)=0$. Oznacza to, że po dodaniu lub odjęciu wielomianu neutralnego, dostaniemy wynik, będący danym wielomianem.
@@ -155,8 +149,7 @@ Na podstawie powyższego przykładu, możemy także zaobserwować, że stopień 
 
 \begin{theorem}
 	$ $\\
-	$\deg(W_1 \cdot W_2) = \deg(W_1) + \deg(W_2)$, dla $W_1(x) \neq 0, W_2(x) \neq 0$\\
-	$W_3(x) = W_1(x) \cdot W_2(x) = 0$, w~pozostałych przypadkach
+	$\deg(W_1 \cdot W_2) = \deg(W_1) + \deg(W_2)$, dla $W_1(x) \neq 0, W_2(x) \neq 0$, $W_1(x) \cdot W_2(x) = 0$, w~pozostałych przypadkach
 \end{theorem}
 
 Z powyższego twierdzenia można zauważyć, że stopień otrzymanego wielomianu nigdy nie będzie wyższy od dwukrotności większego ze stopni mnożonych wielomianów.
@@ -167,21 +160,21 @@ Dzielenie to zdecydowanie najtrudniejsza z~elementarnych operacji na wielomianac
 
 \begin{definition}
 	$ $\\
-	Wielomian $W(x)$ nazywamy podzielnym przez niezerowy wielomian $P(x)$ wtedy i~tylko wtedy, gdy istnieje taki wielomian Q(x), że spełniony jest warunek $W(x) = P(x) \cdot Q(x)$. Wówczas: wielomian $Q(x)$ nazywamy ilorazem wielomianu $W(x)$ przez $P(x)$, zaś wielomian $P(x)$ nazywamy dzielnikiem wielomianu $W(x)$.
+	Wielomian $W(x)$ nazywamy podzielnym przez niezerowy wielomian $P(x)$ wtedy i~tylko wtedy, gdy istnieje taki wielomian Q(x), że spełniony jest warunek $W(x) = P(x) \cdot Q(x)$. Wówczas wielomian $Q(x)$ nazywamy ilorazem wielomianu $W(x)$ przez $P(x)$, zaś wielomian $P(x)$ nazywamy dzielnikiem wielomianu $W(x)$.
 \end{definition}
 
 Bardzo ważnym aspektem obliczania ilorazu wielomianów jest reszta z~dzielenia. Spójrzmy na poniższą definicję.
 
 \begin{definition}
 	$ $\\
-	Wielomian $R(x)$ nazywamy resztą z~dzielenia wielomianu $W(x)$ przez niezerowy wielomian $P(x)$ wtedy i~tylko wtedy, gdy istnieje taki wielomian $Q(x)$, że spełniony jest warunek $W(x) = P(x) \cdot Q(x) + R(x)$ i~$\deg R(x) < \deg(P)$.
+	Wielomian $R(x)$ nazywamy resztą z~dzielenia wielomianu $W(x)$ przez niezerowy wielomian $P(x)$ wtedy i~tylko wtedy, gdy istnieje taki wielomian $Q(x)$, że spełniony jest warunek $W(x) = P(x) \cdot Q(x) + R(x)$ i~$\deg(R) < \deg(P)$.
 \end{definition}
 
 Łatwo zauważyć analogię w~wyżej przedstawionych wzorach. Różnią się one właśnie wielomianem $R(x)$, czyli resztą z~dzielenia. Gdy jest ona wielomianem zerowym, to znaczy, że mamy do czynienia z~dzieleniem bez reszty i~mówimy o~podzielności dwóch wielomianów. Spórzmy na przykład, w~którym zdefiniowane zostały dwa wielomiany, będące ilorazem i~resztą z~dzielenia dwóch wielomianów.
 
 \begin{example}
 	$ $\\
-	Mamy dane wielomian $W$ oraz wielomian $P$. \\
+	wielomian $W$ oraz wielomian $P$. \\
 	$W(x) = a_0x^n + a_1x^{n-1} + ... + a_{n-1}x + a_n$ \\
 	$P(x) = b_0x^m + b_1x^{m-1} + ... + b_{m-1}x + b_m$ \\
 	Niech $Q(x)$ jest ilorazem wielomanów $W(x)$ i~$P(x)$ oraz $R(x) = W(x)\bmod P(x)$. Wówczas: \\
@@ -200,20 +193,19 @@ Jak widać, twierdzenie potwierdza nasze obserwacje i~wnioski dotyczące stopni 
 
 \subsubsection{Pochodna wielomianu}
 
-Wielomiany jako przykład funkcji ciągłej, pozwalają na obliczanie pochodnych. By przekonać się, że jest to przykład jednej z~prostszych operacji na wielomianach, zapoznajmy się z~definicją.
+Wielomiany pozwalają na obliczanie pochodnych. By przekonać się, że jest to przykład jednej z~prostszych operacji na wielomianach, zapoznajmy się z~definicją.
 
 \begin{definition}
 	$ $\\
 	Dany jest wielomian $W$, określony wzorem $W(x) = a_0x^n + a_1x^{n-1} + ... + a_{n-1}x + a_n$, gdzie $n\ge1$. Pochodną wielomianu $W$ nazywamy wielomian $W'$ i~wyrażamy wzorem:
-	$W'(x) = na_0x^{n-1} + (n-1)a_1x^{n-2} + ... + 2a_{n-2}x + a_{n-1}$
+	$W'(x) = na_0x^{n-1} + (n-1) a_1x^{n-2} + ... + 2a_{n-2}x + a_{n-1}$.
 \end{definition}
 
 Widzimy, że powstały wielomian powstał poprzez pomnożenie wartości każdego z~współczynników przez stojącą przy danym wyrazie potęgę, a~następnie obniżenie jej wartości o~jeden. W~ten sposób potęgi wszystkich wyrazów wielomianu obniżają się. Wyjątkiem jest tutaj potęga o~wartości zero, czyli stała. Pochodna z~funkcji stałej jest zawsze równa zero, dlatego została pominięta w~powyższym wzorze. O~stopniu pochodnej wielomianu mówi poniższe twierdzenie.
 
 \begin{theorem}
 	$ $\\
-	$\deg(W') = \deg(W) - 1$,dla $\deg(W) > 0$ \\
-	$W(x) = 0$, w~pozostałych przypadkach
+	$\deg(W') = \deg(W) - 1$, dla $\deg(W) > 0$, $W(x) = 0$, w~pozostałych przypadkach
 \end{theorem}
 
 Jak widać dla wszystkich wielomianów, nie będących stałą liczbową, stopień ich pochodnej ulega zmniejszeniu o~jeden. Czas operacji obliczania pochodnej wielomianu jest porównywalny, z~obliczaniem sumy wielomianów, gdyż wystarczy, że dokonamy jednokrotnego obliczania każdego z~współczynników.
@@ -227,15 +219,13 @@ Zacznijmy od zastanowienia się, co znaczy, że dany wielomian dzieli inny wielo
 	Wspólnym dzielnikiem dwóch wielomianów $W_1$ i~$W_2$, nazywy taki wielomian $W_3$, że gdy podzielimy dowolny z~tych dwóch wielomianów przez $W_3$ to otrzymamy zerową resztę z~dzielenia.
 \end{definition}
 
-By zapewnić jednoznaczność wielomianów, w~dalszej części mówiąc o~NWD dwóch wielomianów zawsze będziemy mieli na myśli taki wielomian, którego współczynnik stojący przy najwyższej potędze jest równy $1$. Zauważmy, że powyższa definicja jest analogiczna, jak w~przypadku liczb naturalnych.
-Co oznacza największy wspólny dzielnik? W przypadku liczb jest to dowolna liczba naturalna spełniająca powyższy warunek. Podobnie jest dla wielomianów. Spośród wszystkich wielomianów, które spełniają to kryterium, jest to ten, którego stopień jest najwyższy. Potwierdza to poniższa definicja.
-
 \begin{definition}
 	$ $\\
 	Największym wspólnym dzielnikiem dwóch wielomianów $W_1$ i~$W_2$, nazywy ten wspólny dzielnik, którego stopień jest najwyższy.
 \end{definition}
 
-Również ta definicja jest analogiczna, jak w~przypadku liczb, gdzie szukamy tego dzielnika, który jest największy.
+By zapewnić jednoznaczność wielomianów, w~dalszej części mówiąc o~NWD dwóch wielomianów zawsze będziemy mieli na myśli taki wielomian, którego współczynnik stojący przy najwyższej potędze jest równy $1$. Zauważmy, że powyższa definicja jest analogiczna, jak w~przypadku liczb naturalnych.
+Co oznacza największy wspólny dzielnik? W przypadku liczb jest to dowolna liczba naturalna spełniająca powyższy warunek. Podobnie jest dla wielomianów. Spośród wszystkich wielomianów, które spełniają to kryterium, jest to ten, którego stopień jest najwyższy. Potwierdza to poniższa definicja.
 
 Zapoznajmy się teraz z~twierdzeniem dotyczącym sposobu, w~jaki obliczamy nwd dwóch wielomianów. Metoda ta jest również znana pod pojęciem algorytmu Euklidesa.
 
@@ -288,7 +278,7 @@ W tym miejscu warto wspomnieć o~istnieniu $NWW$ wielomianów, czyli ich najmnie
 Należy zauwazyć, że istnieje tylko jeden taki wielomian, jeżeli założymy, że współczynnik stojący przy najwyższej potędze jest równy $1$. Jest to termin ścisle związany z~NWD. Potwierdza związane z~nim twierdzenie.
 
 \begin{theorem}
-	Aby obliczyć najmniejszą wspólną wielokrotność dwóch wielomianów $W_1$ i~$W_2$, należy obliczyć wartość ilorazu z~ich iloczynu i~ich najmniejszej wspólnej wielokrotności.
+	Aby obliczyć najmniejszą wspólną wielokrotność dwóch wielomianów $W_1$ i~$W_2$, należy obliczyć wartość ilorazu z~ich iloczynu i~ich największego wspólnego dzielnika.
 \end{theorem}
 
 Dodatkowo należy podkreślić, że $NWW$ dwóch wielomianów posiada wszystkie pierwiastki, które posiadał dowolny z~nich. Krotność jej dowolnego pierwiastka jest równa jego maksymalnej krotności dla wielomianów, dla których została obliczona.
@@ -351,8 +341,7 @@ Oznacza to, że nie da się rozłożyć jednego wielomianu na czynniki, na dwa r
 	$ $\\
 	Mamy dany wielomian $W(x)=x^3-1$. Rozłóżmy go na czynniki.
 	Wiemy, że pierwiastkiem tego wielomianu jest $x_0 = 1$, zatem możemy przedstawić wielomian $W$ jako iloczyn wielomianu $x-1$ oraz drugiego wielomianu. \\
-	$W(x)=x^3-1=x^3-x^2+x^2-x+x-1=(x-1)x^2+(x-1)x+x-1 = \\
-	=(x-1)(x^2+x+1)$ \\
+	$W(x)=x^3-1=x^3-x^2+x^2-x+x-1=(x-1)x^2+(x-1)x+x-1 = (x-1)(x^2+x+1)$ \\
 	Jest to równanie kwadratowe, więc najłatwiejszym sposobem na znalezienie jego pierwiastków jest obliczenie jego wyróżnika, zwanego też deltą. Jest on oznaczany jako $\Delta$ i~dla funkcji kwadratowej postaci $ax^2+bx+c$ jest równy $b^2-4ac$. \\
 	$\Delta = 1^2 - 4 \cdot 1 \cdot 1 = 1 - 4 = -3 < 0$ -- brak pierwiastków rzeczywistych\\
 	Jak widać drugi z~czynników jest właśnie przykładem nierozkładalnego czynnika kwadratowego, o~współczynnikach rzeczywistych.
@@ -449,7 +438,7 @@ Wiemy już jak obliczać liczbę zmian ciagu Sturma. Sprawdźmy zatem, jak przek
 
 \begin{theorem}
 	$ $ \\
-	Jeżeli wielomian W(x) nie ma pierwiastków wielokrotnych, to liczba pierwiastków rzeczywistych w~przedziale $a<x\le y)$ jest równa $Z(a) - Z(b)$.
+	Jeżeli wielomian W(x) nie ma pierwiastków wielokrotnych, to liczba pierwiastków rzeczywistych w~przedziale $a<x\le y$ jest równa $Z(a) - Z(b)$.
 \end{theorem}
 
 W ogólności twierdzenie Sturma można zastosować dla przedziału $(-\infty,+\infty)$, dopuszczając w~ciągu Sturma wartości niewłaściwe $+\infty$ oraz $-\infty$. Wówczas $Z(-\infty)$ będzie oznaczać liczbę zmian znaków w~ciągu $W(-\infty), W_1(-\infty), W_2(-\infty),..., W_m(-\infty)$, zaś $Z(+\infty)$ liczbę zmian w~ciągu $W(+\infty), W_1(+\infty), W_2(+\infty),..., W_m(+\infty)$.
@@ -483,7 +472,7 @@ Jeżeli zależy nam na obliczeniu wartości wielomianu, dla odpowiednio dużych 
 
 \begin{theorem}
 	$ $ \\
-	Dany jest wielomian $W_1(x) = a_0x^n + a_1x^{n-1} + a_2x^{n-2} + ... + a_{n-1}x + a_n$, gdzie $a_0 \ne 0$, stopnia $n$ oraz wielomian $W_2(x) = b_0x^{n-1} + b_1x^{n-2} + b_2x^{n-3} + ... + b_{n-2}x + b_{n-1},\ gdzie\ b_0 \ne 0$, stopnia $n-1$. Wówczas
+	Dany jest wielomian $W_1(x) = a_0x^n + a_1x^{n-1} + a_2x^{n-2} + ... + a_{n-1}x + a_n$, gdzie $a_0 \ne 0$, stopnia $n$ oraz wielomian $W_2(x) = b_0x^n + b_1x^{n-1} + b_2x^{n-2} + ... + b_{n-1}x + b_n,\ gdzie\ b_0 \ne 0$, stopnia $n$. Wówczas
 	wartość z ilorazu $W_1(x)$ przez wielomian $W_2(x)$ przy $x$ dążącym do $+\infty$ lub $x$ dążącym do $-\infty$ jest równa $\frac{a_0}{b_0}$.
 \end{theorem}
 
